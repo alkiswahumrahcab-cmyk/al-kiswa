@@ -4,30 +4,40 @@ import { unstable_cache } from 'next/cache';
 
 export const getSectionContent = unstable_cache(
     async (name: string): Promise<ISection | null> => {
-        await dbConnect();
-        const section = await Section.findOne({ name, isActive: true }).lean();
-        if (!section) return null;
+        try {
+            await dbConnect();
+            const section = await Section.findOne({ name, isActive: true }).lean();
+            if (!section) return null;
 
-        return {
-            ...section,
-            _id: section._id.toString(),
-            createdAt: section.createdAt,
-            updatedAt: section.updatedAt
-        } as unknown as ISection;
+            return {
+                ...section,
+                _id: section._id.toString(),
+                createdAt: section.createdAt,
+                updatedAt: section.updatedAt
+            } as unknown as ISection;
+        } catch (error) {
+            console.warn(`[ContentService] Failed to fetch section '${name}' (using fallback):`, error);
+            return null;
+        }
     },
     ['section-content'],
     { revalidate: 3600, tags: ['content'] }
 );
 
 export async function getAllSections(): Promise<ISection[]> {
-    await dbConnect();
-    const sections = await Section.find({}).sort({ name: 1 }).lean();
-    return sections.map(s => ({
-        ...s,
-        _id: s._id.toString(),
-        createdAt: s.createdAt,
-        updatedAt: s.updatedAt
-    })) as unknown as ISection[];
+    try {
+        await dbConnect();
+        const sections = await Section.find({}).sort({ name: 1 }).lean();
+        return sections.map(s => ({
+            ...s,
+            _id: s._id.toString(),
+            createdAt: s.createdAt,
+            updatedAt: s.updatedAt
+        })) as unknown as ISection[];
+    } catch (error) {
+        console.warn('[ContentService] Failed to fetch all sections (returning empty):', error);
+        return [];
+    }
 }
 
 export function getSectionImage(section: ISection | null, type: 'desktop' | 'mobile' = 'desktop'): string | null {
