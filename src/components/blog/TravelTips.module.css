@@ -1,0 +1,165 @@
+.tipsSection {
+    padding: 10rem 0;
+    background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--muted)));
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background element */
+.tipsSection::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, hsl(var(--secondary)) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.05;
+}
+
+.tipsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.tipCard {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 3rem;
+    border-radius: 24px;
+    border: 1px solid var(--glass-border);
+    transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--glass-shadow);
+}
+
+.tipCard:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.1);
+    border-color: hsl(var(--secondary));
+}
+
+/* Gold accent line on top */
+.tipCard::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: hsl(var(--secondary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+}
+
+.tipCard:hover::after {
+    transform: scaleX(1);
+}
+
+.tipImageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+}
+
+.tipImageWrapper img {
+    transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tipCard:hover .tipImageWrapper img {
+    transform: scale(1.1);
+}
+
+.tipIcon {
+    width: 80px;
+    height: 80px;
+    background: hsl(var(--muted));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    color: hsl(var(--muted-foreground));
+    transition: all 0.4s ease;
+    border: 1px solid hsl(var(--border));
+}
+
+.tipCard:hover .tipIcon {
+    background: hsl(var(--foreground));
+    color: hsl(var(--secondary));
+    border-color: hsl(var(--foreground));
+    transform: rotate(3deg);
+}
+
+.tipTitle {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+    font-family: var(--font-playfair), serif;
+}
+
+.tipCard:hover .tipTitle {
+    color: hsl(var(--secondary));
+}
+
+.tipText {
+    color: hsl(var(--muted-foreground));
+    line-height: 1.7;
+    font-size: 1.1rem;
+    font-weight: 300;
+    flex-grow: 1;
+}
+
+/* Number indicator for steps/tips */
+.tipNumber {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 5rem;
+    font-weight: 900;
+    color: hsl(var(--foreground));
+    line-height: 1;
+    z-index: 0;
+    transition: color 0.4s ease;
+    font-family: var(--font-inter);
+    opacity: 0.05;
+}
+
+.tipCard:hover .tipNumber {
+    color: hsl(var(--secondary));
+    opacity: 0.1;
+}
+
+.contentWrapper {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .tipsSection {
+        padding: 6rem 0;
+    }
+
+    .tipsGrid {
+        grid-template-columns: 1fr;
+    }
+}

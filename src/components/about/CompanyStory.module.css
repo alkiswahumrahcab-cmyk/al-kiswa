@@ -1,0 +1,236 @@
+.section {
+    padding: 8rem 0;
+    background: linear-gradient(135deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, hsl(var(--secondary)) 0%, transparent 70%);
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 6rem;
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: hsl(var(--foreground));
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.03em;
+    position: relative;
+    display: inline-block;
+    font-family: var(--font-playfair), serif;
+}
+
+.title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: hsl(var(--secondary));
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: hsl(var(--muted-foreground));
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background: linear-gradient(to bottom, transparent, hsl(var(--secondary)), transparent);
+    transform: translateX(-50%);
+    border-radius: 2px;
+    box-shadow: 0 0 15px rgba(218, 165, 32, 0.4);
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6rem;
+    position: relative;
+    width: 100%;
+}
+
+.dot {
+    position: absolute;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    background: hsl(var(--secondary));
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 0 0 6px rgba(218, 165, 32, 0.2);
+    transition: all 0.3s ease;
+}
+
+.item:hover .dot {
+    transform: translateX(-50%) scale(1.3);
+    box-shadow: 0 0 0 8px rgba(218, 165, 32, 0.3);
+    background: #fbbf24;
+}
+
+.content {
+    width: 45%;
+    padding: 3rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 24px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: hsl(var(--secondary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.content:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: hsl(var(--secondary));
+}
+
+.content:hover::before {
+    opacity: 1;
+}
+
+.left {
+    flex-direction: row-reverse;
+}
+
+.left .content {
+    margin-right: auto;
+    text-align: right;
+}
+
+.left .content::before {
+    left: auto;
+    right: 0;
+}
+
+.right .content {
+    margin-left: auto;
+    text-align: left;
+}
+
+.year {
+    display: block;
+    font-size: 4rem;
+    font-weight: 900;
+    color: hsl(var(--secondary));
+    opacity: 0.15;
+    line-height: 1;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    z-index: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    font-family: var(--font-playfair), serif;
+}
+
+.left .year {
+    right: auto;
+    left: 1.5rem;
+}
+
+.item:hover .year {
+    opacity: 0.25;
+    transform: scale(1.1);
+}
+
+.itemTitle {
+    font-size: 2rem;
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    font-family: var(--font-playfair), serif;
+}
+
+.desc {
+    color: hsl(var(--muted-foreground));
+    line-height: 1.7;
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .line {
+        left: 30px;
+    }
+
+    .item {
+        flex-direction: row !important;
+        justify-content: flex-start;
+        padding-left: 80px;
+        margin-bottom: 4rem;
+    }
+
+    .dot {
+        left: 30px;
+    }
+
+    .content {
+        width: 100%;
+        text-align: left !important;
+        padding: 2rem;
+    }
+
+    .year {
+        font-size: 3rem;
+        top: 0.5rem;
+        right: 1.5rem !important;
+        left: auto !important;
+    }
+
+    .left .content::before {
+        left: 0;
+        right: auto;
+    }
+}

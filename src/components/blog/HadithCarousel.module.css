@@ -1,0 +1,219 @@
+.carouselSection {
+    padding: 8rem 0;
+    background: linear-gradient(to bottom, hsl(var(--background)), hsl(var(--muted)));
+    position: relative;
+    overflow: hidden;
+}
+
+.carouselSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, hsl(var(--border)), transparent);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.sectionHeader {
+    margin-bottom: 5rem;
+}
+
+.decorativeIcon {
+    color: hsl(var(--secondary));
+    margin-bottom: 1.5rem;
+    opacity: 0.8;
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: hsl(var(--foreground));
+    margin-bottom: 1rem;
+    font-family: var(--font-playfair), serif;
+}
+
+.subtitle {
+    color: hsl(var(--muted-foreground));
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.carouselContainer {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.cardWrapper {
+    position: relative;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.hadithCard {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 32px;
+    padding: 4rem;
+    box-shadow: var(--glass-shadow);
+    border: 1px solid var(--glass-border);
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+}
+
+/* Islamic Geometric Pattern Background */
+.hadithCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(hsl(var(--secondary)) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.05;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hadithCard::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    border: 1px solid hsl(var(--secondary) / 0.2);
+    border-radius: 24px;
+    pointer-events: none;
+}
+
+.cardContent {
+    position: relative;
+    z-index: 1;
+}
+
+.quoteIcon {
+    color: hsl(var(--secondary));
+    opacity: 0.3;
+    margin-bottom: 2rem;
+}
+
+.hadithText {
+    font-size: 2rem;
+    line-height: 1.6;
+    color: hsl(var(--foreground));
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+    font-family: var(--font-playfair), serif;
+    font-style: italic;
+}
+
+.hadithSource {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.sourceName {
+    color: hsl(var(--secondary));
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.narrator {
+    color: hsl(var(--muted-foreground));
+    font-style: italic;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+.controlButton {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 1px solid hsl(var(--border));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--muted-foreground));
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.controlButton:hover {
+    background: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+    border-color: hsl(var(--secondary));
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+}
+
+.indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-top: 2.5rem;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: hsl(var(--muted));
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.indicator.active {
+    background: hsl(var(--secondary));
+    transform: scale(1.3);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+@media (max-width: 768px) {
+    .hadithCard {
+        padding: 2.5rem;
+    }
+
+    .hadithText {
+        font-size: 1.5rem;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+}

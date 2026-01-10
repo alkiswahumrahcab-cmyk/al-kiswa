@@ -1,0 +1,408 @@
+.section {
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at center, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+}
+
+/* Decorative background elements */
+.section::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, hsl(var(--secondary)) 0%, transparent 70%);
+    opacity: 0.05;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    color: hsl(var(--foreground));
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-family: var(--font-playfair), serif;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    max-width: 700px;
+    margin: 0 auto;
+    color: hsl(var(--muted-foreground));
+    line-height: 1.7;
+}
+
+.carouselContainer {
+    display: flex;
+    gap: 2.5rem;
+    overflow-x: auto;
+    padding: 2rem 1rem 4rem;
+    /* Extra bottom padding for shadows */
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    perspective: 1000px;
+    max-width: 100vw;
+}
+
+.carouselContainer::-webkit-scrollbar {
+    display: none;
+}
+
+.navBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.navBtn:hover {
+    background: hsl(var(--primary));
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    border-color: hsl(var(--primary));
+}
+
+.navBtn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.prevBtn {
+    left: 2rem;
+}
+
+.nextBtn {
+    right: 2rem;
+}
+
+@media (max-width: 1024px) {
+
+    /* Keep buttons visible but adjust positioning if needed */
+    .navBtn {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .prevBtn {
+        left: 0.5rem;
+    }
+
+    .nextBtn {
+        right: 0.5rem;
+    }
+}
+
+.card {
+    min-width: 320px;
+    border-radius: 24px;
+    overflow: hidden;
+    scroll-snap-align: center;
+    flex-shrink: 0;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: var(--glass-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow:
+        0 30px 60px -10px rgba(0, 0, 0, 0.1),
+        0 0 0 1px hsl(var(--secondary)) inset;
+    border-color: hsl(var(--secondary));
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: radial-gradient(circle at center, hsl(var(--muted)) 0%, hsl(var(--card)) 100%);
+    border-bottom: 1px solid hsl(var(--border));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.discountBadge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+    z-index: 10;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.vehicleImage {
+    object-fit: contain !important;
+    padding: 1rem;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
+}
+
+.card:hover .vehicleImage {
+    transform: scale(1.1);
+}
+
+.content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.8));
+}
+
+:global(.dark) .content {
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.8));
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}
+
+.vehicleName {
+    font-size: 1.5rem;
+    margin: 0;
+    color: hsl(var(--foreground));
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    font-family: var(--font-playfair), serif;
+}
+
+.priceTag {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--foreground)) 100%);
+    color: hsl(var(--primary-foreground));
+    padding: 0.6rem 1.2rem;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+
+.specs {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed hsl(var(--border));
+}
+
+.specItem {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+    color: hsl(var(--muted-foreground));
+    font-size: 1rem;
+}
+
+.specItem svg {
+    color: hsl(var(--secondary));
+    /* Gold accent */
+}
+
+.features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.featureItem {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    color: hsl(var(--muted-foreground));
+    background: hsl(var(--muted));
+    padding: 0.4rem 1rem;
+    border-radius: 12px;
+    border: 1px solid hsl(var(--border));
+    font-weight: 500;
+}
+
+.featureItem svg {
+    color: hsl(var(--accent));
+    /* Green check */
+}
+
+.bookBtn {
+    width: 100%;
+    padding: 1.2rem;
+    border-radius: 16px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: linear-gradient(135deg, hsl(var(--secondary)) 0%, #B4941F 100%);
+    color: hsl(var(--secondary-foreground));
+    box-shadow: 0 8px 20px -5px rgba(212, 175, 55, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.bookBtn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.bookBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px -5px rgba(212, 175, 55, 0.5);
+}
+
+.bookBtn:hover::before {
+    left: 100%;
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 3rem 0;
+    }
+
+    .title {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
+
+    .subtitle {
+        padding: 0 1rem;
+        font-size: 1rem;
+    }
+
+    .carouselContainer {
+        /* Revert to Vertical Stack */
+        flex-direction: column;
+        overflow-x: visible;
+        scroll-snap-type: none;
+        padding: 0;
+        gap: 1.5rem;
+    }
+
+    .card {
+        min-width: 100%;
+        width: 100%;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        background: transparent;
+        margin-bottom: 1rem;
+    }
+
+    /* Restore card styling for dark mode or just general cleanup if needed */
+    :global(.dark) .card {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .imageWrapper {
+        height: 250px;
+        border-radius: 0;
+        background: transparent;
+        border-bottom: none;
+    }
+
+    .vehicleImage {
+        padding: 0;
+        /* Max size asked */
+    }
+
+    .content {
+        padding: 1rem 1.5rem;
+        background: transparent;
+    }
+
+    .cardHeader {
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .vehicleName {
+        font-size: 1.5rem;
+    }
+
+    .specs {
+        gap: 1.5rem;
+        font-size: 0.95rem;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .navBtn {
+        display: none;
+        /* Hide buttons on mobile */
+    }
+}

@@ -1,0 +1,492 @@
+.hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--foreground));
+    overflow: hidden;
+    width: 100%;
+}
+
+.bgImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    animation: kenBurns 40s ease-out infinite alternate;
+}
+
+@media (max-width: 768px) {
+    .bgImage {
+        animation: none;
+        /* Disable heavy animation on mobile */
+    }
+}
+
+@keyframes kenBurns {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.15);
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Light Mode Overlay (Default) - Deep Navy Professional */
+    background: linear-gradient(to right,
+            rgba(10, 31, 68, 0.9) 0%,
+            rgba(10, 31, 68, 0.75) 50%,
+            rgba(10, 31, 68, 0.6) 100%);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 1;
+}
+
+:global(.dark) .overlay {
+    /* Dark Mode Overlay */
+    background: linear-gradient(to right,
+            rgba(10, 25, 47, 0.85) 0%,
+            rgba(10, 25, 47, 0.7) 50%,
+            rgba(10, 25, 47, 0.6) 100%);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    border-radius: 9999px;
+    color: #d97706;
+    /* Darker amber for light mode */
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.1);
+}
+
+:global(.dark) .badge {
+    color: #fbbf24;
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    text-align: center;
+}
+
+.textContent {
+    width: 100%;
+}
+
+.title {
+    font-family: var(--font-playfair);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+
+    /* Light Mode Title - White on Navy */
+    color: #ffffff;
+    background: linear-gradient(to bottom, #ffffff 30%, #fcd34d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    letter-spacing: -0.02em;
+
+    /* Fix for Android Text Flickering */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    will-change: transform, opacity;
+}
+
+:global(.dark) .title {
+    /* Dark Mode Title */
+    color: white;
+    background: linear-gradient(to bottom, #ffffff 30%, #fcd34d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    font-family: var(--font-open-sans);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Light Mode Subtitle - Light on Navy */
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 400;
+
+    /* Fix for Android Text Flickering */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+:global(.dark) .subtitle {
+    /* Dark Mode Subtitle */
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 400;
+}
+
+.buttons {
+    display: flex;
+    gap: 1.25rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.primaryBtn {
+    background: linear-gradient(135deg, #D4AF37 0%, #B49126 100%);
+    /* Rich Golden */
+    color: #0A1F44;
+    /* Deep Navy Text */
+    padding: 1.1rem 2.8rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 14px 0 rgba(212, 175, 55, 0.4);
+}
+
+.primaryBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(251, 191, 36, 0.6);
+    filter: brightness(1.1);
+}
+
+.secondaryBtn {
+    /* Light Mode Secondary Button */
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 1.1rem 2.8rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(4px);
+}
+
+:global(.dark) .secondaryBtn {
+    /* Dark Mode Secondary Button */
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.secondaryBtn:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.8);
+    border-color: #94a3b8;
+}
+
+:global(.dark) .secondaryBtn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+}
+
+.childrenWrapper {
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.scrollIndicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    color: rgba(255, 255, 255, 0.6);
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.scrollIndicator:hover {
+    color: #fbbf24;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Two Column Layout Styles */
+.twoColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    text-align: center;
+    padding-bottom: 4rem;
+}
+
+@media (min-width: 1280px) {
+    .twoColumn {
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .twoColumn .textContent {
+        flex: 1 1 auto;
+        max-width: 650px;
+        min-width: 0;
+        padding-left: 2rem;
+    }
+
+    .twoColumn .subtitle {
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 1.25rem;
+        max-width: 90%;
+    }
+
+    .twoColumn .buttons {
+        justify-content: flex-start;
+        margin-top: 2.5rem;
+    }
+
+    .twoColumn .childrenContainer {
+        flex: 0 0 auto;
+        display: flex;
+        justify-content: flex-end;
+        width: 600px;
+        max-width: 100%;
+        perspective: 1000px;
+        padding-right: 2rem;
+    }
+
+    .twoColumn .childrenWrapper {
+        margin-top: 0;
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+/* Large Laptop / Desktop */
+@media (min-width: 1366px) {
+    .twoColumn .textContent {
+        max-width: 700px;
+    }
+
+    .twoColumn .childrenContainer {
+        width: 650px;
+    }
+}
+
+/* Wide / Ultra-Wide Screens */
+@media (min-width: 1600px) {
+    .twoColumn {
+        gap: 4rem;
+    }
+
+    .title {
+        font-size: 4rem;
+    }
+
+    .twoColumn .textContent {
+        max-width: 800px;
+        padding-left: 0;
+    }
+
+    .twoColumn .childrenContainer {
+        width: 700px;
+        padding-right: 0;
+    }
+}
+
+/* 1920px Full HD & Beyond */
+@media (min-width: 1920px) {
+    .twoColumn {
+        max-width: 1800px;
+        /* Use more width on very large screens */
+        margin: 0 auto;
+    }
+
+    .title {
+        font-size: 4.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+    }
+
+    .twoColumn .textContent {
+        max-width: 900px;
+    }
+}
+
+/* Mobile - Fix for dynamic address bar causing jumps & parallax issues */
+@media (max-width: 768px) {
+    .hero {
+        min-height: 100dvh;
+        /* Use dynamic viewport height */
+        padding-bottom: 4rem;
+        align-items: flex-start;
+        padding-top: 120px;
+    }
+
+    /* CRITICAL FIX: Disable Framer Motion JS parallax on mobile by overriding inline styles */
+    .hero>div:first-child {
+        transform: none !important;
+        opacity: 1 !important;
+    }
+
+    .buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1rem;
+        margin: 0 auto;
+        gap: 1rem;
+    }
+
+    .primaryBtn {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 2rem;
+    }
+
+    .secondaryBtn {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 2rem;
+    }
+
+    .title {
+        font-size: 2.75rem;
+        /* Stabilization */
+        will-change: auto;
+    }
+
+    .subtitle {
+        will-change: auto;
+    }
+
+    /* Hide heavy animated background blobs on mobile */
+    .hero>div:nth-child(3) {
+        display: none;
+    }
+}
+
+.hero {
+    /* ... existing styles ... */
+    /* Add this to create a stable stacking context */
+    isolation: isolate;
+}
+
+.bgImage {
+    /* ... */
+    backface-visibility: hidden;
+    perspective: 1000px;
+    transform: translateZ(0);
+    /* Force GPU layer */
+    will-change: transform;
+    /* Hint to browser */
+}
+
+@keyframes kenBurns {
+    0% {
+        transform: scale3d(1, 1, 1);
+        /* Use 3D Transform */
+    }
+
+    100% {
+        transform: scale3d(1.15, 1.15, 1);
+    }
+}
+
+.overlay {
+    /* ... */
+    /* Prevent overlay flicker */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Optimize button pulse */
+@keyframes pulseBtn {
+    0% {
+        transform: scale3d(1, 1, 1);
+        box-shadow: 0 8px 20px hsl(var(--secondary));
+    }
+
+    50% {
+        transform: scale3d(1.02, 1.02, 1);
+        box-shadow: 0 12px 25px hsl(var(--secondary));
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+        box-shadow: 0 8px 20px hsl(var(--secondary));
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        left: -100%;
+    }
+
+    20% {
+        left: 100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}

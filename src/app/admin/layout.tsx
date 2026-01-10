@@ -1,0 +1,207 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import styles from './admin.module.css';
+import { LayoutDashboard, Calendar, Car, DollarSign, Settings, LogOut, MapPin, MessageSquare, FileText, Users, Image as ImageIcon, PenTool, UserCheck, Navigation, BarChart3 } from 'lucide-react';
+import { logout } from '@/lib/auth';
+import AdminThemeToggle from './AdminThemeToggle';
+import AdminAutoLock from '@/components/admin/AdminAutoLock';
+
+interface User {
+    id: string;
+    name: string;
+    email: string;
+    role: 'admin' | 'manager' | 'operational_manager';
+}
+
+export default function AdminLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    const pathname = usePathname();
+    const router = useRouter();
+    const [user, setUser] = useState<User | null>(null);
+    const [loading, setLoading] = useState(true);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    useEffect(() => {
+        // Close sidebar on route change (mobile)
+        setIsSidebarOpen(false);
+    }, [pathname]);
+
+    useEffect(() => {
+        const checkAuth = async () => {
+            if (pathname === '/admin/login') {
+                setLoading(false);
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/auth/me');
+                const data = await res.json();
+
+                if (data.authenticated) {
+                    setUser(data.user);
+                } else {
+                    router.push('/admin/login');
+                }
+            } catch (error) {
+                console.error('Auth check failed:', error);
+                router.push('/admin/login');
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        checkAuth();
+    }, [pathname, router]);
+
+    // If on login page, render full screen without sidebar
+    if (pathname === '/admin/login') {
+        return <>{children}</>;
+    }
+
+    if (loading) {
+        return (
+            <div className="flex flex-col items-center justify-center h-screen bg-slate-50 dark:bg-slate-900 gap-4">
+                <div className="w-12 h-12 border-4 border-amber-500/30 border-t-amber-500 rounded-full animate-spin"></div>
+                <div className="text-slate-500 font-medium animate-pulse">Verifying Session...</div>
+            </div>
+        );
+    }
+
+    if (!user) {
+        return null;
+    }
+
+    const handleLogout = async (e: React.MouseEvent) => {
+        e.preventDefault();
+        await logout();
+        router.push('/admin/login');
+    };
+
+    const allLinks = [
+        { href: '/admin', label: 'Dashboard', icon: LayoutDashboard, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/admin/analytics', label: 'Analytics', icon: BarChart3, roles: ['admin', 'manager'] },
+        { href: '/admin/bookings', label: 'Bookings', icon: Calendar, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/admin/routes', label: 'Routes', icon: MapPin, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/admin/fleet', label: 'Fleet', icon: Car, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/admin/pricing', label: 'Pricing', icon: DollarSign, roles: ['admin'] },
+        { href: '/admin/reviews', label: 'Reviews', icon: MessageSquare, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/admin/blog', label: 'Blog', icon: FileText, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/admin/gallery', label: 'Gallery', icon: ImageIcon, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/admin/content', label: 'Content', icon: PenTool, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/admin/marketing', label: 'Marketing', icon: MessageSquare, roles: ['admin', 'manager'] },
+        { href: '/admin/users', label: 'Users', icon: Users, roles: ['admin'] },
+        { href: '/admin/settings', label: 'Settings', icon: Settings, roles: ['admin'] },
+    ];
+
+    const userRole = user.role.toLowerCase();
+    const visibleLinks = allLinks.filter(link => link.roles.includes(userRole));
+
+    const getRoleDisplay = (role: string) => {
+        switch (role) {
+            case 'admin': return 'Boss Admin';
+            case 'manager': return 'Manager';
+            case 'operational_manager': return 'Operational Manager';
+            default: return role;
+        }
+    };
+
+    return (
+        <div className={styles.container}>
+            {/* Mobile Header / Hamburger */}
+            <div className={styles.mobileHeader}>
+                <div className="flex items-center gap-3">
+                    <button
+                        className={styles.hamburgerBtn}
+                        onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                        aria-label="Toggle Menu"
+                    >
+                        <div className="flex flex-col gap-1.5 w-6">
+                            <span className={`block w-full h-0.5 bg-current transition-transform ${isSidebarOpen ? 'rotate-45 translate-y-2' : ''}`} />
+                            <span className={`block w-full h-0.5 bg-current transition-opacity ${isSidebarOpen ? 'opacity-0' : ''}`} />
+                            <span className={`block w-full h-0.5 bg-current transition-transform ${isSidebarOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+                        </div>
+                    </button>
+                    <span className={styles.mobileBrand}>Admin Panel</span>
+                </div>
+
+                {/* Mobile User Profile Trigger */}
+                {user && (
+                    <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold text-sm">
+                            {user.name.charAt(0)}
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            {/* Mobile Overlay */}
+            <div
+                className={`${styles.mobileOverlay} ${isSidebarOpen ? styles.overlayVisible : ''}`}
+                onClick={() => setIsSidebarOpen(false)}
+            />
+
+            <aside className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebarOpen : ''}`}>
+                <div className={styles.logo}>
+                    <div className="flex flex-col items-start gap-1 py-4 px-2">
+                        <div className="flex flex-col items-start text-left">
+                            <span className="text-2xl font-bold text-secondary">Al Aqsa</span>
+                            <span className="text-sm font-bold text-[var(--admin-fg)] tracking-[0.15em] uppercase">Transport</span>
+                            <span className="text-lg font-bold text-secondary mt-1 font-[family-name:var(--font-reem-kufi)]">الأقصى لنقل المعتمرين</span>
+                        </div>
+                    </div>
+                </div>
+
+                <nav className={styles.nav}>
+                    <div className={styles.navSection}>
+                        <div className={styles.navLabel}>Main Menu</div>
+                        {visibleLinks.map((link) => {
+                            const Icon = link.icon;
+                            const isActive = pathname === link.href;
+                            return (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    className={`${styles.navLink} ${isActive ? styles.activeLink : ''}`}
+                                >
+                                    <Icon size={20} className={isActive ? 'text-[#d4af37]' : ''} />
+                                    <span>{link.label}</span>
+                                </Link>
+                            );
+                        })}
+                    </div>
+                </nav>
+
+                <div className={styles.userProfile}>
+                    <div className={styles.userAvatar}>
+                        <div className="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold">
+                            {user.name.charAt(0)}
+                        </div>
+                    </div>
+                    <div className={styles.userInfo}>
+                        <div className={styles.userName}>{user.name}</div>
+                        <div className={styles.userRole}>{getRoleDisplay(user.role)}</div>
+                    </div>
+                    <AdminThemeToggle />
+                    <button
+                        onClick={handleLogout}
+                        className="p-2 hover:bg-white/10 rounded-lg transition-colors text-red-400"
+                        title="Logout"
+                    >
+                        <LogOut size={18} />
+                    </button>
+                </div>
+            </aside>
+            <main className={styles.main}>
+                {children}
+            </main>
+            <AdminAutoLock />
+        </div>
+    );
+}
