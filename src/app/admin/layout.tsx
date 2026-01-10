@@ -4,8 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import styles from './admin.module.css';
-import { LayoutDashboard, Calendar, Car, DollarSign, Settings, LogOut, MapPin, MessageSquare, FileText, Users, Image as ImageIcon, PenTool, UserCheck, Navigation, BarChart3 } from 'lucide-react';
+import { LayoutDashboard, Calendar, Car, DollarSign, Settings, LogOut, MapPin, MessageSquare, FileText, Users, Image as ImageIcon, PenTool, UserCheck, Navigation, BarChart3, Menu, X } from 'lucide-react';
 import { logout } from '@/lib/auth';
 import AdminThemeToggle from './AdminThemeToggle';
 import AdminAutoLock from '@/components/admin/AdminAutoLock';
@@ -113,94 +112,106 @@ export default function AdminLayout({
     };
 
     return (
-        <div className={styles.container}>
-            {/* Mobile Header / Hamburger */}
-            <div className={styles.mobileHeader}>
+        <div className="flex h-screen bg-slate-50 dark:bg-slate-950 overflow-hidden">
+            {/* Mobile Header */}
+            <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-slate-900 text-white px-4 py-3 flex items-center justify-between shadow-md">
                 <div className="flex items-center gap-3">
                     <button
-                        className={styles.hamburgerBtn}
                         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                        className="p-1 rounded-md hover:bg-slate-800 transition-colors"
                         aria-label="Toggle Menu"
                     >
-                        <div className="flex flex-col gap-1.5 w-6">
-                            <span className={`block w-full h-0.5 bg-current transition-transform ${isSidebarOpen ? 'rotate-45 translate-y-2' : ''}`} />
-                            <span className={`block w-full h-0.5 bg-current transition-opacity ${isSidebarOpen ? 'opacity-0' : ''}`} />
-                            <span className={`block w-full h-0.5 bg-current transition-transform ${isSidebarOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-                        </div>
+                        {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
                     </button>
-                    <span className={styles.mobileBrand}>Admin Panel</span>
+                    <span className="font-bold text-lg">Admin Panel</span>
                 </div>
-
-                {/* Mobile User Profile Trigger */}
                 {user && (
-                    <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold text-sm">
-                            {user.name.charAt(0)}
-                        </div>
+                    <div className="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold text-sm">
+                        {user.name.charAt(0)}
                     </div>
                 )}
             </div>
 
             {/* Mobile Overlay */}
-            <div
-                className={`${styles.mobileOverlay} ${isSidebarOpen ? styles.overlayVisible : ''}`}
-                onClick={() => setIsSidebarOpen(false)}
-            />
+            {isSidebarOpen && (
+                <div
+                    className="fixed inset-0 z-40 bg-black/50 lg:hidden backdrop-blur-sm transition-opacity"
+                    onClick={() => setIsSidebarOpen(false)}
+                />
+            )}
 
-            <aside className={`${styles.sidebar} ${isSidebarOpen ? styles.sidebarOpen : ''}`}>
-                <div className={styles.logo}>
-                    <div className="flex flex-col items-start gap-1 py-4 px-2">
-                        <div className="flex flex-col items-start text-left">
-                            <span className="text-2xl font-bold text-secondary">Al Aqsa</span>
-                            <span className="text-sm font-bold text-[var(--admin-fg)] tracking-[0.15em] uppercase">Transport</span>
-                            <span className="text-lg font-bold text-secondary mt-1 font-[family-name:var(--font-reem-kufi)]">الأقصى لنقل المعتمرين</span>
-                        </div>
+            {/* Sidebar */}
+            <aside
+                className={`
+                    fixed lg:static inset-y-0 left-0 z-50 w-64 bg-slate-900 border-r border-slate-800 
+                    transform transition-transform duration-300 ease-in-out lg:transform-none flex flex-col
+                    ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
+                `}
+            >
+                {/* Logo Area */}
+                <div className="p-6 border-b border-slate-800">
+                    <div className="flex flex-col items-start">
+                        <span className="text-2xl font-bold text-white">Al Kiswah</span>
+                        <span className="text-xs font-bold text-amber-500 tracking-[0.2em] uppercase">Transport</span>
+                        <span className="text-sm text-slate-400 mt-1 font-arabic">الكسوة لنقل المعتمرين</span>
                     </div>
                 </div>
 
-                <nav className={styles.nav}>
-                    <div className={styles.navSection}>
-                        <div className={styles.navLabel}>Main Menu</div>
-                        {visibleLinks.map((link) => {
-                            const Icon = link.icon;
-                            const isActive = pathname === link.href;
-                            return (
-                                <Link
-                                    key={link.href}
-                                    href={link.href}
-                                    className={`${styles.navLink} ${isActive ? styles.activeLink : ''}`}
-                                >
-                                    <Icon size={20} className={isActive ? 'text-[#d4af37]' : ''} />
-                                    <span>{link.label}</span>
-                                </Link>
-                            );
-                        })}
-                    </div>
+                {/* Navigation */}
+                <nav className="flex-1 overflow-y-auto py-4 px-3 space-y-1 custom-scrollbar">
+                    <div className="px-3 mb-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">Main Menu</div>
+                    {visibleLinks.map((link) => {
+                        const Icon = link.icon;
+                        const isActive = pathname === link.href;
+                        return (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                className={`
+                                    flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200
+                                    ${isActive
+                                        ? 'bg-amber-500/10 text-amber-500 ring-1 ring-amber-500/20'
+                                        : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800'
+                                    }
+                                `}
+                            >
+                                <Icon size={18} className={isActive ? 'text-amber-500' : 'text-slate-500 group-hover:text-slate-300'} />
+                                <span>{link.label}</span>
+                            </Link>
+                        );
+                    })}
                 </nav>
 
-                <div className={styles.userProfile}>
-                    <div className={styles.userAvatar}>
-                        <div className="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold">
+                {/* User Profile */}
+                <div className="p-4 border-t border-slate-800 bg-slate-900/50">
+                    <div className="flex items-center gap-3 mb-3">
+                        <div className="w-9 h-9 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold shrink-0">
                             {user.name.charAt(0)}
                         </div>
+                        <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-white truncate">{user.name}</p>
+                            <p className="text-xs text-slate-500 truncate">{getRoleDisplay(user.role)}</p>
+                        </div>
                     </div>
-                    <div className={styles.userInfo}>
-                        <div className={styles.userName}>{user.name}</div>
-                        <div className={styles.userRole}>{getRoleDisplay(user.role)}</div>
+
+                    <div className="flex items-center justify-between gap-2">
+                        <AdminThemeToggle />
+                        <button
+                            onClick={handleLogout}
+                            className="p-2 text-slate-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors flex-1 flex items-center justify-center gap-2 text-xs font-medium"
+                        >
+                            <LogOut size={16} />
+                            <span>Logout</span>
+                        </button>
                     </div>
-                    <AdminThemeToggle />
-                    <button
-                        onClick={handleLogout}
-                        className="p-2 hover:bg-white/10 rounded-lg transition-colors text-red-400"
-                        title="Logout"
-                    >
-                        <LogOut size={18} />
-                    </button>
                 </div>
             </aside>
-            <main className={styles.main}>
+
+            {/* Main Content */}
+            <main className="flex-1 overflow-auto w-full pt-16 lg:pt-0 pb-6 px-4 lg:px-8 custom-scrollbar">
                 {children}
             </main>
+
             <AdminAutoLock />
         </div>
     );

@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import styles from './FAQSection.module.css';
 import FadeIn from '@/components/common/FadeIn';
 import GlassCard from '@/components/ui/GlassCard';
 
@@ -43,23 +42,45 @@ export default function FAQSection({ items = defaultFAQs, title = "Frequently As
     };
 
     return (
-        <section className={styles.section}>
-            <div className="container">
+        <section className="py-20 relative overflow-hidden">
+            {/* Background Decor */}
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white -z-10" />
+            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-emerald-50/20 blur-3xl rounded-full pointer-events-none" />
+
+            <div className="container max-w-4xl mx-auto px-4">
                 <FadeIn>
-                    <h2 className={styles.sectionTitle}>{title}</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 font-playfair text-emerald-950">
+                        {title}
+                    </h2>
                 </FadeIn>
-                <div className={styles.container}>
+
+                <div className="space-y-4">
                     {items.map((faq, index) => (
-                        <GlassCard key={index} delay={index * 0.1} className={`p-0 overflow-hidden ${activeAccordion === index ? styles.active : ''}`}>
+                        <GlassCard
+                            key={index}
+                            delay={index * 0.1}
+                            className={`overflow-hidden transition-all duration-300 ${activeAccordion === index ? 'ring-2 ring-gold/20 bg-white/80' : 'hover:bg-white/60'}`}
+                        >
                             <button
-                                className={styles.question}
+                                className="w-full flex items-center justify-between p-6 text-left"
                                 onClick={() => toggleAccordion(index)}
                             >
-                                {faq.question}
-                                <ChevronDown className={styles.icon} size={20} />
+                                <span className={`text-lg font-bold font-playfair transition-colors ${activeAccordion === index ? 'text-emerald-700' : 'text-emerald-900'}`}>
+                                    {faq.question}
+                                </span>
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${activeAccordion === index ? 'bg-gold text-emerald-950 rotate-180' : 'bg-slate-100 text-slate-400'}`}>
+                                    <ChevronDown size={20} />
+                                </div>
                             </button>
-                            <div className={styles.answer}>
-                                <p style={{ paddingTop: '1rem' }}>{faq.answer}</p>
+
+                            <div
+                                className={`grid transition-all duration-300 ease-in-out ${activeAccordion === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
+                            >
+                                <div className="overflow-hidden">
+                                    <p className="px-6 pb-6 text-slate-600 leading-relaxed">
+                                        {faq.answer}
+                                    </p>
+                                </div>
                             </div>
                         </GlassCard>
                     ))}

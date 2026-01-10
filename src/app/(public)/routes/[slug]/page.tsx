@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!route || !route.seo) {
         return {
-            title: 'Route Not Found | Al Aqsa Transport',
+            title: 'Route Not Found | Al Kiswah Transport',
         };
     }
 
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: route.seo.description,
         keywords: route.seo.keywords,
         alternates: {
-            canonical: `https://alaqsaumrahtransport.com/routes/${params.slug}`,
+            canonical: `https://alkiswahumrahtransport.com/routes/${params.slug}`,
         },
         openGraph: {
             title: route.seo.title,

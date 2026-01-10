@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     manifest: '/manifest.json',
     title: {
         default: "Umrah Transport Services Saudi Arabia | Jeddah to Makkah Taxi",
-        template: `%s | Al Aqsa Umrah Transport`
+        template: `%s | Al Kiswah Umrah Transport`
     },
     appleWebApp: {
         capable: true,
-        title: 'Al Aqsa Umrah',
+        title: 'Al Kiswah Umrah',
         statusBarStyle: 'default',
     },
     other: {

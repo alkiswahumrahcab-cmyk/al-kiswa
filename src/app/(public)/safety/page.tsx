@@ -5,7 +5,7 @@ import Link from 'next/link';
 import FadeIn from '@/components/common/FadeIn';
 
 export const metadata = {
-    title: "Safety Standards & Protocols | Al Aqsa Transport | معايير السلامة",
+    title: "Safety Standards & Protocols | Al Kiswah Transport | معايير السلامة",
     description: "Your safety is our sacred duty. Comprehensive vehicle sanitation, driver checks, & 24/7 support. معايير سلامة عالية لخدمة المعتمرين. تعقيم شامل وسائقين محترفين.",
     keywords: [
         "Umrah safety", "safe taxi Makkah", "sanitized transport Saudi",
@@ -14,8 +14,8 @@ export const metadata = {
         "أمان المعتمرين", "توصيل آمن للنساء", "سائقين مرخصين"
     ],
     openGraph: {
-        title: "Safety Standards | Al Aqsa Umrah Transport | الأمان والراحة",
-        description: "Verified drivers, sanitized vehicles, and 24/7 support. Travel with peace of mind. رحلة آمنة ومريحة مع الأقصى للنقل.",
+        title: "Safety Standards | Al Kiswah Umrah Transport | الأمان والراحة",
+        description: "Verified drivers, sanitized vehicles, and 24/7 support. Travel with peace of mind. رحلة آمنة ومريحة مع الكسوة للنقل.",
         images: ['/images/blog/comfort-safety-new.png'],
     }
 };
@@ -249,10 +249,10 @@ export default function SafetyPage() {
                             { step: '03', title: 'Health Screen', icon: Activity, desc: 'Vision test and drug screening for 100% alertness.' },
                             { step: '04', title: 'Adab Training', icon: UserCheck, desc: 'Workshop on pilgrim interaction, patience, and history.' },
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 relative overflow-hidden group hover:border-amber-500 transition-colors">
-                                <span className="absolute -top-4 -right-4 text-8xl font-black text-slate-50 dark:text-slate-800 group-hover:text-amber-50 dark:group-hover:text-amber-900/20 transition-colors z-0">{item.step}</span>
+                            <div key={idx} className="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 relative overflow-hidden group hover:border-gold transition-colors">
+                                <span className="absolute -top-4 -right-4 text-8xl font-black text-slate-50 dark:text-slate-800 group-hover:text-gold/5 transition-colors z-0">{item.step}</span>
                                 <div className="relative z-10">
-                                    <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded-xl flex items-center justify-center mb-4">
+                                    <div className="w-12 h-12 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-xl flex items-center justify-center mb-4">
                                         <item.icon size={24} />
                                     </div>
                                     <h3 className="font-bold text-lg text-slate-900 dark:text-white mb-2">{item.title}</h3>
@@ -264,13 +264,12 @@ export default function SafetyPage() {
                 </div>
             </section>
 
-
             {/* Emergency Guarantee */}
             <section className="py-16 md:py-24">
                 <div className="container mx-auto px-4">
                     <div className="bg-slate-900 rounded-3xl overflow-hidden shadow-2xl relative">
                         {/* Decorative Background */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
                         <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -ml-32 -mb-32"></div>
 
                         <div className="relative z-10 grid md:grid-cols-2 gap-12 p-8 md:p-16 items-center">
@@ -388,7 +387,7 @@ export default function SafetyPage() {
                         "name": "Umrah Transport Safety Standards",
                         "provider": {
                             "@type": "Organization",
-                            "name": "Al Aqsa Umrah Transport"
+                            "name": "Al Kiswah Umrah Transport"
                         },
                         "serviceType": "Safe Transport",
                         "description": "Comprehensive safety protocols including vehicle sanitation, driver vetting, and 24/7 emergency support.",

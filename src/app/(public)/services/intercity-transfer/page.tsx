@@ -10,11 +10,11 @@ import { ShieldCheck, Star, UserCheck, Timer } from 'lucide-react';
 import { RouteWithPrices } from '@/services/routeService';
 
 export const metadata = {
-    title: "Makkah to Madinah Taxi & Intercity Transport | Al Aqsa",
+    title: "Makkah to Madinah Taxi & Intercity Transport | Al Kiswah",
     description: "Comfortable Makkah to Madinah transport. Reliable intercity taxi transfers between Jeddah, Makkah & Madinah. Enjoy a seamless, spiritual travel experience.",
     keywords: ["Makkah to Madinah taxi", "Madinah to Makkah transport", "Haramain transport", "VIP intercity taxi", "Jeddah to Madinah taxi", "KSA intercity transfer"],
     alternates: {
-        canonical: 'https://alaqsaumrahtransport.com/services/intercity-transfer',
+        canonical: 'https://alkiswahumrahtransport.com/services/intercity-transfer',
     },
     openGraph: {
         title: "Makkah to Madinah Taxi & Intercity Transport | VIP Fleet",
@@ -29,7 +29,7 @@ const jsonLd = {
     "name": "Intercity Transport Service",
     "provider": {
         "@type": "LocalBusiness",
-        "name": "Al Aqsa Transport"
+        "name": "Al Kiswah Transport"
     },
     "serviceType": "Ground Transport",
     "areaServed": {
@@ -164,7 +164,7 @@ export default async function IntercityTransferPage() {
                                         </div>
                                     </div>
                                     <div className="flex gap-4 items-start">
-                                        <div className="p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-500 shrink-0">
+                                        <div className="p-3 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-500 shrink-0">
                                             <Timer size={24} />
                                         </div>
                                         <div>
@@ -177,7 +177,7 @@ export default async function IntercityTransferPage() {
                         </FadeIn>
 
                         <div className="relative sticky top-32">
-                            <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-blue-600/20 rounded-full blur-3xl transform scale-90 opacity-40 translate-y-10" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-gold/20 to-emerald-600/20 rounded-full blur-3xl transform scale-90 opacity-40 translate-y-10" />
                             <div className="relative">
                                 <BookingFormWrapper title="Book Your Transfer" subtitle="Best Rates & Immediate Confirmation" />
                             </div>

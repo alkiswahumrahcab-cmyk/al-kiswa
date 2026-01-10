@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import styles from '@/app/contact/page.module.css';
 import GlassButton from '@/components/ui/GlassButton';
 import { User, Mail, MessageSquare, Send } from 'lucide-react';
+import GlassCard from '@/components/ui/GlassCard';
 
 export default function ContactForm() {
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -51,7 +51,7 @@ export default function ContactForm() {
     return (
         <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center justify-between" htmlFor="name">
+                <label className="text-sm font-semibold text-slate-700 flex items-center justify-between" htmlFor="name">
                     <span>Full Name</span>
                     <span className="text-xs text-slate-400 font-arabic">الاسم الكامل</span>
                 </label>
@@ -61,7 +61,7 @@ export default function ContactForm() {
                         type="text"
                         id="name"
                         name="name"
-                        className="w-full bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg pl-10 pr-4 py-3 focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 outline-none transition-all placeholder:text-slate-400 text-slate-900 dark:text-white"
+                        className="w-full bg-white/50 border border-slate-200 rounded-lg pl-10 pr-4 py-3 focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none transition-all placeholder:text-slate-400 text-slate-900"
                         placeholder="e.g. Abdullah Ahmed"
                         required
                     />
@@ -69,7 +69,7 @@ export default function ContactForm() {
             </div>
 
             <div className="space-y-2">
-                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center justify-between" htmlFor="email">
+                <label className="text-sm font-semibold text-slate-700 flex items-center justify-between" htmlFor="email">
                     <span>Email Address</span>
                     <span className="text-xs text-slate-400 font-arabic">البريد الإلكتروني</span>
                 </label>
@@ -79,7 +79,7 @@ export default function ContactForm() {
                         type="email"
                         id="email"
                         name="email"
-                        className={`w-full bg-white/50 dark:bg-slate-900/50 border rounded-lg pl-10 pr-4 py-3 outline-none transition-all placeholder:text-slate-400 text-slate-900 dark:text-white ${emailError ? 'border-red-500 focus:ring-red-500/50' : 'border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500'}`}
+                        className={`w-full bg-white/50 border rounded-lg pl-10 pr-4 py-3 outline-none transition-all placeholder:text-slate-400 text-slate-900 ${emailError ? 'border-red-500 focus:ring-red-500/50' : 'border-slate-200 focus:ring-2 focus:ring-gold/50 focus:border-gold'}`}
                         placeholder="your@email.com"
                         required
                         onChange={() => setEmailError('')}
@@ -89,7 +89,7 @@ export default function ContactForm() {
             </div>
 
             <div className="space-y-2">
-                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center justify-between" htmlFor="message">
+                <label className="text-sm font-semibold text-slate-700 flex items-center justify-between" htmlFor="message">
                     <span>Message</span>
                     <span className="text-xs text-slate-400 font-arabic">الرسالة</span>
                 </label>
@@ -98,7 +98,7 @@ export default function ContactForm() {
                     <textarea
                         id="message"
                         name="message"
-                        className="w-full bg-white/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-lg pl-10 pr-4 py-3 h-32 resize-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 outline-none transition-all placeholder:text-slate-400 text-slate-900 dark:text-white"
+                        className="w-full bg-white/50 border border-slate-200 rounded-lg pl-10 pr-4 py-3 h-32 resize-none focus:ring-2 focus:ring-gold/50 focus:border-gold outline-none transition-all placeholder:text-slate-400 text-slate-900"
                         placeholder="How can we help you? (كيف يمكننا مساعدتك؟)"
                         required
                     ></textarea>
@@ -109,7 +109,7 @@ export default function ContactForm() {
                 type="submit"
                 variant="primary"
                 size="lg"
-                className="w-full relative overflow-hidden group !bg-amber-500 hover:!bg-amber-600 text-white"
+                className="w-full relative overflow-hidden group btn-gold border-none text-white shadow-xl shadow-gold/20 shimmer-gold !rounded-xl"
                 disabled={status === 'submitting'}
             >
                 <div className="relative z-10 flex items-center justify-center gap-2">
@@ -128,7 +128,7 @@ export default function ContactForm() {
             </GlassButton>
 
             {status === 'success' && (
-                <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-600 dark:text-green-400 text-center text-sm animate-in fade-in slide-in-from-bottom-2">
+                <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-lg text-green-600 text-center text-sm animate-in fade-in slide-in-from-bottom-2">
                     Message sent successfully! We will contact you soon.
                     <br />
                     <span className="font-arabic text-xs opacity-75">تم الإرسال بنجاح! سنتواصل معك قريباً.</span>
@@ -136,7 +136,7 @@ export default function ContactForm() {
             )}
 
             {status === 'error' && (
-                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-600 dark:text-red-400 text-center text-sm animate-in fade-in slide-in-from-bottom-2">
+                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-600 text-center text-sm animate-in fade-in slide-in-from-bottom-2">
                     Failed to send message. Please try again.
                     <br />
                     <span className="font-arabic text-xs opacity-75">فشل الإرسال. يرجى المحاولة مرة أخرى.</span>

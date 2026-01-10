@@ -1,8 +1,8 @@
 'use client';
 
-import styles from './FeatureHighlights.module.css';
 import { Shield, Star, Clock, HeartHandshake } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
+import GlassCard from '@/components/ui/GlassCard';
 
 export default function FeatureHighlights() {
 
@@ -14,19 +14,17 @@ export default function FeatureHighlights() {
     ];
 
     return (
-        <section className={styles.section}>
-            <div className="container">
-                <div className={styles.grid}>
+        <section className="py-20 relative bg-slate-50">
+            <div className="container mx-auto px-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {features.map((feature, index) => (
-                        <FadeIn key={feature.id} delay={index * 0.1}>
-                            <div className={`${styles.card} glass-card`}>
-                                <div className={styles.iconWrapper}>
-                                    <feature.icon size={32} />
-                                </div>
-                                <h3>{feature.title}</h3>
-                                <p>{feature.desc}</p>
+                        <GlassCard key={feature.id} delay={index * 0.1} className="glass-card-emerald p-8 flex flex-col items-center text-center group hover:-translate-y-1 transition-transform duration-300">
+                            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-900/30 dark:to-slate-800 border border-emerald-100 dark:border-emerald-800/50 flex items-center justify-center mb-6 text-emerald-600 dark:text-gold group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-gold/10 transition-all duration-300 shadow-sm">
+                                <feature.icon size={32} />
                             </div>
-                        </FadeIn>
+                            <h3 className="font-bold font-playfair text-xl mb-3 text-slate-900 dark:text-white group-hover:text-gold transition-colors">{feature.title}</h3>
+                            <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{feature.desc}</p>
+                        </GlassCard>
                     ))}
                 </div>
             </div>

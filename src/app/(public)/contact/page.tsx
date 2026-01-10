@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './page.module.css';
+
 import { Clock, ShieldCheck, Globe, Star } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
 import ContactForm from '@/components/contact/ContactForm';
@@ -10,8 +10,8 @@ import { getSettings } from '@/lib/settings-storage';
 import ContactGrid from '@/components/contact/ContactGrid';
 
 export async function generateMetadata() {
-    const title = "Contact Al Aqsa Umrah Transport | Book Your Ride Today";
-    const description = "Contact Al Aqsa Umrah Transport for bookings. 24/7 support via WhatsApp & phone. Let us serve the transport needs of your spiritual journey.";
+    const title = "Contact Al Kiswah Umrah Transport | Book Your Ride Today";
+    const description = "Contact Al Kiswah Umrah Transport for bookings. 24/7 support via WhatsApp & phone. Let us serve the transport needs of your spiritual journey.";
 
     return {
         title: title,
@@ -20,14 +20,14 @@ export async function generateMetadata() {
             // English Keywords
             "Umrah transport contact", "book Umrah transport", "Jeddah airport pickup contact",
             "Makkah to Madinah transport booking", "Umrah taxi service contact", "Saudi Arabia pilgrim transport support",
-            "Al Aqsa Transport Booking", "VIP Umrah Taxi",
+            "Al Kiswah Transport Booking", "VIP Umrah Taxi",
             // Arabic Keywords
             "اتصال نقل العمرة", "حجز نقل العمرة", "تواصل استقبال مطار جدة", "حجز نقل مكة المدينة",
             "رقم تاكسي العمرة", "دعم نقل المعتمرين في السعودية", "شركة نقل في مكة", "توصيل الحرمين",
             "واتساب تاكسي مكة", "رقم سائق في مكة", "حجز موصلات الحرم"
         ],
         alternates: {
-            canonical: 'https://alaqsaumrahtransport.com/contact',
+            canonical: 'https://alkiswahumrahtransport.com/contact',
         },
         openGraph: {
             title: title,
@@ -43,7 +43,7 @@ export default async function ContactPage() {
 
     // Fallback values
     const phone1 = settings?.contact.phone || '+966 54 549 4921';
-    const email = settings?.contact.email || 'info@alaqsaumrahtransport.com';
+    const email = settings?.contact.email || 'info@alkiswahumrahtransport.com';
     const address = settings?.contact.address || 'Al Aziziyah, Makkah, Saudi Arabia';
     const whatsapp = phone1;
 
@@ -53,11 +53,11 @@ export default async function ContactPage() {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "TransportationService",
-        "name": "Al Aqsa Umrah Transport",
-        "alternateName": "الأقصى لنقل المعتمرين",
-        "image": "https://alaqsaumrahtransport.com/images/logo.png",
-        "@id": "https://alaqsaumrahtransport.com",
-        "url": "https://alaqsaumrahtransport.com",
+        "name": "Al Kiswah Umrah Transport",
+        "alternateName": "الكسوة لنقل المعتمرين",
+        "image": "https://alkiswahumrahtransport.com/images/logo.png",
+        "@id": "https://alkiswahumrahtransport.com",
+        "url": "https://alkiswahumrahtransport.com",
         "telephone": phone1,
         "address": {
             "@type": "PostalAddress",
@@ -119,7 +119,7 @@ export default async function ContactPage() {
                             { icon: Star, text: "Top Rated", sub: "أعلى تقييم" }
                         ].map((item, idx) => (
                             <div key={idx} className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/20 text-center transform hover:-translate-y-1 transition-transform duration-300">
-                                <item.icon className="w-8 h-8 mx-auto mb-2 text-amber-500" />
+                                <item.icon className="w-8 h-8 mx-auto mb-2 text-emerald-600" />
                                 <h3 className="font-bold text-slate-800 dark:text-slate-100 text-sm md:text-base">{item.text}</h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400 font-arabic">{item.sub}</p>
                             </div>
@@ -140,12 +140,12 @@ export default async function ContactPage() {
                         <FadeIn direction="up" delay={0.4}>
                             <GlassCard className="p-0 overflow-hidden min-h-[400px] relative flex items-center justify-center bg-slate-200 dark:bg-slate-800" id="map">
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3713.526883410923!2d39.8126588!3d21.447833599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c21d9da1e4d599%3A0xb8a485c3949902cc!2sAl%20Aqsa%20Umrah%20Transport!5e0!3m2!1sen!2s"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3713.526883410923!2d39.8126588!3d21.447833599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c21d9da1e4d599%3A0xb8a485c3949902cc!2zQWwgS2lzd2FoIFVtyoNoIFRyYW5zcG9ydA!5e0!3m2!1sen!2s"
                                     width="100%"
                                     height="100%"
                                     loading="lazy"
                                     className="w-full h-full min-h-[400px] border-0"
-                                    title="Al Aqsa Umrah Transport Map"
+                                    title="Al Kiswah Umrah Transport Map"
                                     allowFullScreen
                                 />
                             </GlassCard>
@@ -155,7 +155,7 @@ export default async function ContactPage() {
                     {/* Contact Form Column */}
                     <div className="lg:col-span-7">
                         <FadeIn direction="left" delay={0.3}>
-                            <GlassCard className="p-8 md:p-10 border-t-4 border-t-amber-500">
+                            <GlassCard className="p-8 md:p-10 border-t-4 border-t-emerald-600">
                                 <div className="mb-8">
                                     <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2 font-display">
                                         Send Us a Message

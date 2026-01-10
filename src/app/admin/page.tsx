@@ -3,7 +3,7 @@ import { getLogs } from '@/lib/logger';
 import { routeService } from '@/services/routeService';
 import DashboardClient from './DashboardClient';
 import AdminAutoLock from '@/components/admin/AdminAutoLock';
-import styles from './admin.module.css';
+
 import { IBooking } from '@/models';
 
 export default async function AdminDashboard() {
@@ -42,9 +42,9 @@ export default async function AdminDashboard() {
     };
 
     return (
-        <div className={styles.adminContainer}>
+        <div className="flex flex-col h-full">
             <AdminAutoLock />
-            <div className={styles.contentWrapper}>
+            <div className="flex-1 w-full max-w-[1600px] mx-auto">
                 <DashboardClient {...dashboardData} />
             </div>
         </div>

@@ -119,7 +119,7 @@ export default function VehicleSelector({ vehicles, selectedVehicleId, onSelect 
                                 )}
 
                                 <div className={styles.iconWrapper}>
-                                    <Icon size={28} className={isSelected ? 'text-amber-500' : 'text-muted-foreground'} />
+                                    <Icon size={28} className={isSelected ? 'text-celestial' : 'text-muted-foreground'} />
                                 </div>
 
                                 <div className={styles.info}>

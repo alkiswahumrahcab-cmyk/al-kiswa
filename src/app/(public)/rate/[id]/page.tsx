@@ -62,7 +62,7 @@ export default function RateBookingPage({ params }: { params: Promise<{ id: stri
                     </div>
                     <h1 className="text-2xl font-bold text-slate-800">Rate Your Trip</h1>
                     <p className="text-slate-500 mt-2">
-                        How was your experience with Al Aqsa Transport?
+                        How was your experience with Al Kiswah Transport?
                     </p>
                 </div>
 

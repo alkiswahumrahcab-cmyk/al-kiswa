@@ -1,14 +1,12 @@
 ﻿'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Calendar, Phone, User, ArrowRight, Car, Navigation, Clock, CheckCircle, Bus, Mail, MapPin, PlaneLanding, PlaneTakeoff, Building2, ShieldCheck, HeartHandshake, CreditCard, Headphones } from 'lucide-react';
+import { Calendar, Phone, User, ArrowRight, Car, Clock, CheckCircle, Bus, Mail, MapPin, PlaneLanding, PlaneTakeoff, CreditCard, ShieldCheck, HeartHandshake } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import SearchableSelect from '@/components/ui/SearchableSelect';
-
 import styles from './QuickBookingForm.module.css';
 import { usePricing } from '@/context/PricingContext';
-
 import { Route, Vehicle } from '@/lib/pricing';
 
 interface QuickBookingFormProps {
@@ -21,31 +19,14 @@ interface QuickBookingFormProps {
 }
 
 const SkeletonLoader = () => (
-    <div className={styles.skeletonWrapper}>
-        {[1, 2, 3, 4].map((i) => (
-            <div key={i}>
-                <div className={styles.skeletonLabel}>
-                    <div className={styles.skeletonShimmer} />
-                </div>
-                <div className={styles.skeletonInput}>
-                    <div className={styles.skeletonShimmer} />
-                </div>
-            </div>
-        ))}
-        {/* Route and Vehicle Skeletons (Full Width) */}
-        {[5, 6].map((i) => (
-            <div key={i} className={styles.fullWidth}>
-                <div className={styles.skeletonLabel}>
-                    <div className={styles.skeletonShimmer} />
-                </div>
-                <div className={styles.skeletonInput}>
-                    <div className={styles.skeletonShimmer} />
-                </div>
-            </div>
-        ))}
-        <div className={styles.skeletonButton}>
-            <div className={styles.skeletonShimmer} />
+    <div className="space-y-4 animate-pulse">
+        <div className="h-10 bg-white/10 rounded-xl w-full" />
+        <div className="grid grid-cols-2 gap-4">
+            <div className="h-12 bg-white/10 rounded-xl" />
+            <div className="h-12 bg-white/10 rounded-xl" />
         </div>
+        <div className="h-12 bg-white/10 rounded-xl w-full" />
+        <div className="h-14 bg-white/20 rounded-xl w-full" />
     </div>
 );
 
@@ -59,7 +40,7 @@ const QuickBookingForm = ({
 }: QuickBookingFormProps) => {
     const { routes: contextRoutes, vehicles: contextVehicles, isLoading: contextLoading, calculatePrice } = usePricing();
 
-    // Helper to attach icons if missing (for server-side data)
+    // Helper to attach icons if missing
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const attachIcons = (vehiclesData: any[]) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -69,62 +50,34 @@ const QuickBookingForm = ({
         }));
     };
 
-    // Use initial data if provided, otherwise fallback to context
     const routes = initialRoutes || contextRoutes;
     const vehicles = initialVehicles ? attachIcons(initialVehicles) : contextVehicles;
     const isLoading = (initialRoutes && initialVehicles) ? false : contextLoading;
 
-
     const [formData, setFormData] = useState({
-        name: '',
-        phone: '',
-        email: '',
-        date: null as Date | null,
-        time: null as Date | null,
-        routeId: '',
-        pickup: '',
-        dropoff: '',
-        vehicleId: '',
-        vehicleCount: 1,
-        passengers: 1,
-        luggage: 0,
-        notes: ''
+        name: '', phone: '', email: '', date: null as Date | null, time: null as Date | null,
+        routeId: '', pickup: '', dropoff: '', vehicleId: '', vehicleCount: 1, passengers: 1, luggage: 0, notes: ''
     });
-
-
 
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    // Auto-detect route based on Pickup and Dropoff
+    // Auto-detect route
     useEffect(() => {
-        // Auto-detect route based on Pickup and Dropoff
-        if (formData.routeId === 'custom') return;
-        if (!formData.pickup || !formData.dropoff) return;
+        if (formData.routeId === 'custom' || !formData.pickup || !formData.dropoff) return;
 
         const findBestRoute = () => {
-            const p = formData.pickup.toLowerCase();
-            const d = formData.dropoff.toLowerCase();
-
-            // Common normalizations
-            const normalize = (s: string) => s.replace('madina', 'madinah');
+            const p = formData.pickup.toLowerCase().replace('madina', 'madinah');
+            const d = formData.dropoff.toLowerCase().replace('madina', 'madinah');
 
             return routes.find(r => {
                 const routeName = r.name.toLowerCase();
-                const pNorm = normalize(p);
-                const dNorm = normalize(d);
-
                 const parts = routeName.split(/\u2192|\u2194| to /);
                 if (parts.length < 2) return false;
-
                 const routeStart = parts[0].trim();
                 const routeEnd = parts[1].trim();
-
-                const startMatch = routeStart.includes(pNorm) || pNorm.includes(routeStart);
-                const endMatch = routeEnd.includes(dNorm) || dNorm.includes(routeEnd);
-
-                return startMatch && endMatch;
+                return (routeStart.includes(p) || p.includes(routeStart)) && (routeEnd.includes(d) || d.includes(routeEnd));
             });
         };
 
@@ -133,113 +86,41 @@ const QuickBookingForm = ({
             setFormData(prev => ({ ...prev, routeId: matched.id }));
             if (errors.routeId) setErrors(prev => ({ ...prev, routeId: '' }));
         }
-    }, [formData.pickup, formData.dropoff, routes, errors.routeId]);
-
-    // Filter routes to include all available routes
-    const filteredRoutes = routes;
-
-    // Enhanced Dropdown Data Preparation
-    const routeOptions = [
-        ...filteredRoutes.map(r => ({ value: r.id, label: r.name })),
-        { value: 'custom', label: 'Other / Custom Route' }
-    ];
+    }, [formData.pickup, formData.dropoff, routes, formData.routeId, errors.routeId]); // Added dependencies
 
     const vehicleOptions = vehicles.map(vehicle => {
-        let priceDisplay = '';
-        let originalPriceDisplay = '';
-        let discountAppliedDisplay = 0;
-        let finalPrice = 0;
+        let price = 0;
+        let originalPrice = 0;
 
         if (formData.routeId && formData.routeId !== 'custom') {
-            const { price, originalPrice, discountApplied } = calculatePrice(formData.routeId, vehicle.id);
-            if (price > 0) {
-                // priceDisplay = ` - ${price} SAR${discountApplied > 0 ? ' (Offer)' : ''}`;
-                // We'll handle display in custom renderer, but keep label simple for the input text
-                priceDisplay = `${price} SAR`;
-                finalPrice = price;
-                originalPriceDisplay = originalPrice > price ? `${originalPrice}` : '';
-                discountAppliedDisplay = discountApplied;
-            }
+            const priceDetails = calculatePrice(formData.routeId, vehicle.id);
+            price = priceDetails.price;
+            originalPrice = priceDetails.originalPrice;
         }
 
         return {
             value: vehicle.id,
-            label: `${vehicle.name} (${vehicle.capacity} seater)`, // Main text in input
-            // Extra props for custom renderer
+            label: `${vehicle.name} (${vehicle.capacity} pax)`,
+            price,
+            originalPrice,
             image: vehicle.image,
-            capacity: vehicle.capacity,
-            luggage: vehicle.luggage,
-            price: finalPrice,
-            originalPrice: originalPriceDisplay,
-            discount: discountAppliedDisplay,
             isVip: vehicle.name.includes('GMC')
         };
     });
 
-    // Update Pickup/Dropoff when Route changes
-    const handleRouteChange = (e: any) => {
-        const routeId = e.target.value;
-
-        let newPickup = formData.pickup;
-        let newDropoff = formData.dropoff;
-
-        if (routeId === 'custom') {
-            // If custom, clear fields or keep as is? Let's clear to let user type fresh or keep if they switched back
-            // Keeping them empty is safer for "Custom" feeling
-            newPickup = '';
-            newDropoff = '';
-        } else {
-            const selectedRoute = routes.find(r => r.id === routeId);
-            if (selectedRoute) {
-                // Use same split logic as auto-detect for consistency
-                const parts = selectedRoute.name.split(/\u2192|\u2194| to /);
-                if (parts.length >= 2) {
-                    newPickup = parts[0].trim();
-                    newDropoff = parts[1].trim();
-                } else {
-                    newDropoff = selectedRoute.name;
-                }
-            }
-        }
-
-        setFormData(prev => ({
-            ...prev,
-            routeId,
-            pickup: newPickup,
-            dropoff: newDropoff
-        }));
-
-        if (errors.routeId) setErrors(prev => ({ ...prev, routeId: '' }));
-    };
-
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
-
-        // Auto-update passengers when vehicle count changes if not manually set? 
-        // For simplicity, we just update the field. If it's vehicleId or vehicleCount, we might want to auto-cap passengers?
-
         setFormData(prev => {
             const newData = { ...prev, [name]: value };
-
-            // If Vehicle or Count changes, auto-set passengers to max capacity as a suggestion
-            // (User can change it later)
             if (name === 'vehicleId' || name === 'vehicleCount') {
                 const vId = name === 'vehicleId' ? value : prev.vehicleId;
                 const vCount = name === 'vehicleCount' ? Number(value) : prev.vehicleCount;
-
                 const selectedV = vehicles.find(v => v.id === vId);
-                if (selectedV) {
-                    newData.passengers = parseInt(selectedV.capacity) * vCount;
-                }
+                if (selectedV) newData.passengers = parseInt(selectedV.capacity) * vCount;
             }
-
             return newData;
         });
-
-        // Clear error when user starts typing
-        if (errors[name]) {
-            setErrors({ ...errors, [name]: '' });
-        }
+        if (errors[name]) setErrors({ ...errors, [name]: '' });
     };
 
     const handleDateChange = (date: Date | null) => {
@@ -254,60 +135,27 @@ const QuickBookingForm = ({
 
     const validateForm = () => {
         const newErrors: Record<string, string> = {};
-
-        // Name
         if (!formData.name.trim()) newErrors.name = 'Name is required';
-
-        // Email Validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!formData.email.trim()) {
-            newErrors.email = 'Email is required';
-        } else if (!emailRegex.test(formData.email)) {
-            newErrors.email = 'Invalid email address';
-        }
-
-        // Strict Phone Validation
-        const phoneRegex = /^\+?[0-9\s-]{10,}$/;
-        if (!formData.phone.trim()) {
-            newErrors.phone = 'Phone is required';
-        } else if (!phoneRegex.test(formData.phone)) {
-            newErrors.phone = 'Invalid phone format (e.g., +96650...)';
-        }
-
-        // Date & Time
-        if (!formData.date) newErrors.date = 'Please select a date';
-        if (!formData.time) newErrors.time = 'Please select a time';
-
-        // Locations
-        if (!formData.pickup.trim()) newErrors.pickup = 'Pickup is required';
-        if (!formData.dropoff.trim()) newErrors.dropoff = 'Dropoff is required';
-
-        // Selection
-        if (!formData.routeId) newErrors.routeId = 'Please select a route';
-        if (!formData.vehicleId) newErrors.vehicleId = 'Please select a vehicle';
-        if (formData.vehicleCount < 1) newErrors.vehicleCount = 'Min. 1 vehicle';
+        if (!formData.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = 'Valid email required';
+        if (!formData.phone.trim()) newErrors.phone = 'Phone required'; // Relaxed check
+        if (!formData.date) newErrors.date = 'Date required';
+        if (!formData.time) newErrors.time = 'Time required';
+        if (!formData.pickup.trim()) newErrors.pickup = 'Pickup required';
+        if (!formData.dropoff.trim()) newErrors.dropoff = 'Dropoff required';
+        if (!formData.routeId) newErrors.routeId = 'Route required';
+        if (!formData.vehicleId) newErrors.vehicleId = 'Vehicle required';
 
         setErrors(newErrors);
-
-        // Shake animation trigger could go here
         return Object.keys(newErrors).length === 0;
     };
 
-    // Handle form submission
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-
-        if (!validateForm()) {
-            return;
-        }
-
+        if (!validateForm()) return;
         setIsSubmitting(true);
 
         try {
-            // Check if we have a selected route to get details
-            // Corrected to use global vehicles array instead of route.vehicles
             const selectedVehicle = vehicles.find(v => v.id === formData.vehicleId);
-
             const res = await fetch('/api/bookings', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -323,7 +171,6 @@ const QuickBookingForm = ({
                     passengers: selectedVehicle ? parseInt(selectedVehicle.capacity) : 1,
                     vehicleCount: Number(formData.vehicleCount),
                     luggage: Number(formData.luggage),
-                    notes: formData.notes,
                     status: 'pending',
                     routeId: formData.routeId,
                     vehicleId: formData.vehicleId
@@ -348,102 +195,54 @@ const QuickBookingForm = ({
         }
     };
 
-    const resetForm = () => {
-        setIsSubmitted(false);
-    };
-
-    const allPickupLocations = [
-        "Makkah Hotel",
-        "Makkah Setup",
-        "Madinah Airport",
-        "Madinah Hotel",
-        "Makkah Haram",
-        "Madinah Haram",
-        "Jeddah Hotel",
-        "Jeddah Airport",
-        "Jeddah Port",
-        "Al Taif Hotel",
-        "Al Taif Airport",
-        "Badar Hotel",
-        "Al Ula Hotel",
-        "Yanbu Hotel",
-        "Yanbu Airport"
-    ];
-
-    const allDropoffLocations = [
-        "Makkah Hotel",
-        "Makkah Haram",
-        "Madinah Hotel",
-        "Madinah Airport",
-        "Madinah Haram",
-        "Jeddah Hotel",
-        "Jeddah Airport",
-        "Jeddah Port",
-        "Al Taif Hotel",
-        "Al Taif Airport",
-        "Badar Hotel",
-        "Al Ula Hotel",
-        "Yanbu Hotel",
-        "Yanbu Airport",
-        "Jeddah City Tour",
-        "Makkah Ziyarat",
-        "Madinah Ziyarat",
-        "Taif Ziyarat",
-        "Badar Ziyarat",
-        "Al Ula Tour"
-    ];
-
-    const pickupLocations = allPickupLocations; // Simplified for now, or filter by category if needed
-
-    const dropoffLocations = allDropoffLocations;
+    const allLocations = ["Makkah Hotel", "Madinah Hotel", "Jeddah Airport", "Jeddah Hotel", "Makkah Haram", "Madinah Haram", "Madinah Airport"]; // Simplified list
 
     return (
         <motion.div
-            className={`${styles.container} ${variant === 'fleet' ? styles.fleetForm : ''} ${className}`}
+            className={`glass-card-emerald rounded-3xl p-6 lg:p-8 border border-white/20 shadow-2xl relative overflow-hidden ${className}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            transition={{ duration: 0.6 }}
         >
-            {/* Datalists removed in favor of SearchableSelect */}
+            {/* Ambient Glow */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none" />
 
             {(title || variant === 'fleet') && (
-                <div className={styles.header}>
-                    <h3 className={styles.title}>
+                <div className="mb-6 border-b border-white/10 pb-4">
+                    <h3 className="text-2xl font-playfair font-bold text-white mb-1 shadow-sm uppercase tracking-tight flex items-center gap-2">
                         {title || 'Quick Booking'}
+                        <div className="h-px flex-1 bg-gradient-to-r from-gold/50 to-transparent ml-4" />
                     </h3>
-                    <p className={styles.subtitle}>
-                        {subtitle || 'Secure your premium transport in seconds'}
+                    <p className="text-sm text-emerald-100/90 font-medium tracking-wide">
+                        {subtitle || 'Premium Luxury Transport'}
                     </p>
                 </div>
             )}
 
             <AnimatePresence mode='wait'>
                 {isLoading ? (
-                    <motion.div
-                        key="skeleton"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                    >
+                    <motion.div key="skeleton" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                         <SkeletonLoader />
                     </motion.div>
                 ) : isSubmitted ? (
                     <motion.div
                         key="success"
-                        className={styles.successContent}
+                        className="flex flex-col items-center justify-center text-center py-10 space-y-6"
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.95 }}
-                        transition={{ duration: 0.5 }}
                     >
-                        <div className={styles.successIconWrapper}>
-                            <CheckCircle size={64} className={styles.successIcon} />
+                        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+                            <CheckCircle size={40} className="text-white" />
                         </div>
-                        <h3 className={styles.successTitle}>Booking Received!</h3>
-                        <p className={styles.successMessage}>
-                            Thank you for choosing Al Kiswah Transport. We have received your request and will contact you shortly to confirm your trip.
-                        </p>
-                        <button onClick={resetForm} className={styles.submitBtn}>
+                        <div>
+                            <h3 className="text-2xl font-playfair font-bold text-white mb-2">Booking Received</h3>
+                            <p className="text-emerald-100 max-w-xs mx-auto text-sm">We will contact you shortly to confirm your premium journey.</p>
+                        </div>
+                        <button
+                            onClick={() => setIsSubmitted(false)}
+                            className="btn-gold shimmer-gold py-3 px-8 rounded-xl font-bold text-emerald-950 uppercase tracking-wider text-sm shadow-xl"
+                        >
                             Book Another Trip
                         </button>
                     </motion.div>
@@ -451,320 +250,207 @@ const QuickBookingForm = ({
                     <motion.form
                         key="form"
                         onSubmit={handleSubmit}
-                        className={styles.form}
+                        className="space-y-5 relative z-10"
                         noValidate
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
                     >
+                        {/* Route Pills */}
+                        <div>
+                            <label className="text-[10px] font-bold text-gold/90 uppercase tracking-[0.15em] mb-2.5 block">Popular Routes</label>
+                            <div className="flex flex-wrap gap-2">
+                                {[
+                                    { label: 'Jeddah ⇄ Makkah', icon: PlaneLanding, pickup: 'Jeddah Airport', dropoff: 'Makkah Hotel' },
+                                    { label: 'Makkah ⇄ Madinah', icon: Bus, pickup: 'Makkah Hotel', dropoff: 'Madinah Hotel' },
+                                    { label: 'Jeddah ⇄ Madinah', icon: PlaneTakeoff, pickup: 'Jeddah Airport', dropoff: 'Madinah Hotel' },
+                                    { label: 'Custom', icon: MapPin, pickup: '', dropoff: '', isCustom: true },
+                                ].map((route) => {
+                                    const isActive = route.isCustom ? formData.routeId === 'custom' : (formData.pickup.includes(route.pickup) && formData.dropoff.includes(route.dropoff));
+                                    return (
+                                        <button
+                                            key={route.label}
+                                            type="button"
+                                            onClick={() => {
+                                                if (route.isCustom) {
+                                                    setFormData({ ...formData, routeId: 'custom', pickup: '', dropoff: '' });
+                                                } else {
+                                                    const matched = routes.find(r => r.name.toLowerCase().includes(route.pickup.toLowerCase()) && r.name.toLowerCase().includes(route.dropoff.toLowerCase()));
+                                                    setFormData({ ...formData, pickup: route.pickup, dropoff: route.dropoff, routeId: matched ? matched.id : '' });
+                                                }
+                                                setErrors({});
+                                            }}
+                                            className={`
+                                                flex items-center gap-2 px-3 py-2 rounded-lg text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 border
+                                                ${isActive
+                                                    ? 'bg-gradient-royal-gold text-emerald-950 border-gold shadow-lg shadow-gold/20'
+                                                    : 'bg-white/5 border-white/10 text-emerald-100 hover:bg-white/10 hover:border-gold/30'
+                                                }
+                                            `}
+                                        >
+                                            <route.icon size={12} className={isActive ? 'text-emerald-950' : 'text-gold'} />
+                                            {route.label}
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                        </div>
 
+                        {/* Main Inputs Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
+                            {/* Pickup & Dropoff */}
+                            <div className="space-y-4">
+                                <SearchableSelect
+                                    name="pickup"
+                                    value={formData.pickup}
+                                    onChange={(e: any) => setFormData({ ...formData, pickup: e.target.value })}
+                                    options={allLocations.map(l => ({ value: l, label: l }))}
+                                    placeholder="Pickup Location"
+                                    className="premium-input w-full !bg-white/5 !border-white/10 !text-white !placeholder-white/40 focus:!border-gold focus:!ring-gold/20"
+                                    icon={<MapPin size={16} className="text-gold" />}
+                                />
+                                {errors.pickup && <span className="text-red-400 text-xs ml-2">{errors.pickup}</span>}
 
-                        <div className={styles.grid}>
-
-
-
-                            {/* Route Selection Pills */}
-                            <div className="col-span-full mb-3">
-                                <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-2 block">Where are you going?</label>
-                                <div className="flex flex-wrap gap-2 mt-1.5">
-                                    {[
-                                        { label: 'Jeddah ⇄ Makkah', icon: PlaneLanding, pickup: 'Jeddah Airport', dropoff: 'Makkah Hotel' },
-                                        { label: 'Makkah ⇄ Madinah', icon: Bus, pickup: 'Makkah Hotel', dropoff: 'Madinah Hotel' },
-                                        { label: 'Jeddah ⇄ Madinah', icon: PlaneTakeoff, pickup: 'Jeddah Airport', dropoff: 'Madinah Hotel' },
-                                        { label: 'Custom Route', icon: MapPin, pickup: '', dropoff: '', isCustom: true },
-                                    ].map((route) => {
-                                        // Dynamic active check
-                                        let isActive = false;
-                                        if (route.isCustom) {
-                                            isActive = formData.routeId === 'custom';
-                                        } else {
-                                            // Check if current form values match this preset
-                                            const p = formData.pickup.toLowerCase();
-                                            const d = formData.dropoff.toLowerCase();
-                                            const rp = route.pickup.toLowerCase();
-                                            const rd = route.dropoff.toLowerCase();
-                                            // Loose matching for UX
-                                            isActive = p.includes(rp) && d.includes(rd) && formData.routeId !== 'custom';
-                                        }
-
-                                        return (
-                                            <button
-                                                key={route.label}
-                                                type="button"
-                                                onClick={() => {
-                                                    if (route.isCustom) {
-                                                        setFormData(prev => ({ ...prev, routeId: 'custom', pickup: '', dropoff: '' }));
-                                                    } else {
-                                                        // Find ID dynamically
-                                                        const matched = routes.find(r => {
-                                                            const n = r.name.toLowerCase();
-                                                            return n.includes(route.pickup.toLowerCase()) && n.includes(route.dropoff.toLowerCase());
-                                                        });
-                                                        setFormData(prev => ({
-                                                            ...prev,
-                                                            pickup: route.pickup,
-                                                            dropoff: route.dropoff,
-                                                            routeId: matched ? matched.id : ''
-                                                        }));
-                                                    }
-                                                    setErrors({});
-                                                }}
-                                                className={`
-                                                    flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border
-                                                    ${isActive
-                                                        ? 'bg-slate-900 border-slate-900 text-white shadow-lg scale-105'
-                                                        : 'bg-white border-slate-200 text-slate-600 hover:border-amber-500 hover:text-amber-600 hover:bg-amber-50'
-                                                    }
-                                                `}
-                                            >
-                                                <route.icon size={16} className={isActive ? 'text-amber-400' : 'text-slate-400'} />
-                                                {route.label}
-                                            </button>
-                                        );
-                                    })}
-                                </div>
-                                {errors.routeId && <span className={styles.errorMessage}>{errors.routeId}</span>}
+                                <SearchableSelect
+                                    name="dropoff"
+                                    value={formData.dropoff}
+                                    onChange={(e: any) => setFormData({ ...formData, dropoff: e.target.value })}
+                                    options={allLocations.map(l => ({ value: l, label: l }))}
+                                    placeholder="Dropoff Location"
+                                    className="premium-input w-full !bg-white/5 !border-white/10 !text-white !placeholder-white/40 focus:!border-gold focus:!ring-gold/20"
+                                    icon={<MapPin size={16} className="text-gold" />}
+                                />
+                                {errors.dropoff && <span className="text-red-400 text-xs ml-2">{errors.dropoff}</span>}
                             </div>
 
-                            {/* Horizontal Input Group */}
-                            <div className="col-span-full grid grid-cols-1 md:grid-cols-12 gap-3 p-3 bg-slate-50 border border-slate-200 rounded-2xl">
-
-                                {/* Date Input */}
-                                <div className="md:col-span-3 relative">
-                                    <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Travel Date</label>
-                                    <div className="relative">
-                                        <Calendar size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-                                        <input
-                                            type="date"
-                                            value={formData.date ? formData.date.toISOString().split('T')[0] : ''}
-                                            onChange={(e) => {
-                                                if (!e.target.value) { handleDateChange(null); return; }
-                                                handleDateChange(new Date(e.target.value));
-                                            }}
-                                            min={new Date().toISOString().split('T')[0]}
-                                            className="w-full pl-10 pr-3 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-medium outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
-                                        />
-                                    </div>
-                                    {errors.date && <span className="absolute -bottom-4 left-0 text-[10px] text-red-500">{errors.date}</span>}
-                                </div>
-
-                                {/* Time Input */}
-                                <div className="md:col-span-3 relative">
-                                    <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Pickup Time</label>
-                                    <div className="relative">
-                                        <Clock size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-                                        <input
-                                            type="time"
-                                            value={formData.time ? formData.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) : ''}
-                                            onChange={(e) => {
-                                                if (!e.target.value) { handleTimeChange(null); return; }
-                                                const [h, m] = e.target.value.split(':').map(Number);
-                                                const t = new Date(); t.setHours(h); t.setMinutes(m);
-                                                handleTimeChange(t);
-                                            }}
-                                            className="w-full pl-10 pr-3 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-medium outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all"
-                                        />
-                                    </div>
-                                    {errors.time && <span className="absolute -bottom-4 left-0 text-[10px] text-red-500">{errors.time}</span>}
-                                </div>
-
-                                {/* Vehicle Select (Simplified) */}
-                                <div className="md:col-span-6 relative">
-                                    <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Preferred Vehicle</label>
-                                    <SearchableSelect
-                                        name="vehicleId"
-                                        value={formData.vehicleId}
-                                        onChange={handleChange as any}
-                                        // @ts-ignore
-                                        options={vehicleOptions}
-                                        placeholder="Select Vehicle & See Price"
-                                        className="w-full bg-white border border-slate-200 rounded-xl text-sm !py-2.5"
-                                        icon={<Car size={18} />}
+                            {/* Date & Time */}
+                            <div className="space-y-4">
+                                <div className="relative group">
+                                    <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gold"><Calendar size={16} /></div>
+                                    <input
+                                        type="date"
+                                        value={formData.date ? formData.date.toISOString().split('T')[0] : ''}
+                                        onChange={(e) => handleDateChange(e.target.value ? new Date(e.target.value) : null)}
+                                        min={new Date().toISOString().split('T')[0]}
+                                        className="premium-input w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm"
                                     />
-                                    {errors.vehicleId && <span className="absolute -bottom-4 left-0 text-[10px] text-red-500">{errors.vehicleId}</span>}
+                                    {errors.date && <span className="text-red-400 text-xs ml-2 absolute -bottom-5">{errors.date}</span>}
+                                </div>
+                                <div className="relative group">
+                                    <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gold"><Clock size={16} /></div>
+                                    <input
+                                        type="time"
+                                        value={formData.time ? formData.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) : ''}
+                                        onChange={(e) => {
+                                            if (!e.target.value) return handleTimeChange(null);
+                                            const [h, m] = e.target.value.split(':').map(Number);
+                                            const t = new Date(); t.setHours(h); t.setMinutes(m);
+                                            handleTimeChange(t);
+                                        }}
+                                        className="premium-input w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm"
+                                    />
+                                    {errors.time && <span className="text-red-400 text-xs ml-2 absolute -bottom-5">{errors.time}</span>}
                                 </div>
                             </div>
+                        </div>
 
-                            {/* Custom Route Fields (Expandable) */}
-                            {formData.routeId === 'custom' && (
-                                <div className="col-span-full grid grid-cols-2 gap-3 mt-2 animate-in fade-in slide-in-from-top-4 duration-300">
-                                    <div className="md:col-span-6 relative">
-                                        <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">From (Pickup)</label>
-                                        <div className="relative">
-                                            <SearchableSelect
-                                                name="pickup"
-                                                value={formData.pickup}
-                                                onChange={handleChange as any}
-                                                options={pickupLocations}
-                                                placeholder="Pickup Location"
-                                                className="w-full bg-white border border-slate-200 rounded-xl text-sm !py-2.5"
-                                                icon={<MapPin size={18} />}
-                                            />
-                                        </div>
-                                        {errors.pickup && <span className="text-[10px] text-red-500 mt-1 ml-1 block">{errors.pickup}</span>}
-                                    </div>
-                                    <div className="md:col-span-6 relative">
-                                        <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Destination (Drop-off)</label>
-                                        <div className="relative">
-                                            <SearchableSelect
-                                                name="dropoff"
-                                                value={formData.dropoff}
-                                                onChange={handleChange as any}
-                                                options={dropoffLocations}
-                                                placeholder="Drop-off Location"
-                                                className="w-full bg-white border border-slate-200 rounded-xl text-sm !py-2.5"
-                                                icon={<MapPin size={18} />}
-                                            />
-                                        </div>
-                                        {errors.dropoff && <span className="text-[10px] text-red-500 mt-1 ml-1 block">{errors.dropoff}</span>}
-                                    </div>
-                                </div>
-                            )}
+                        {/* Vehicle Selection */}
+                        <div className="relative">
+                            <SearchableSelect
+                                name="vehicleId"
+                                value={formData.vehicleId}
+                                onChange={handleChange as any}
+                                // @ts-ignore
+                                options={vehicleOptions}
+                                placeholder="Select Vehicle Class"
+                                className="premium-input w-full !bg-emerald-950/40 !border-gold/20 !text-white !py-3.5 focus:!border-gold"
+                                icon={<Car size={18} className="text-gold" />}
+                            />
+                            {errors.vehicleId && <span className="text-red-400 text-xs ml-2">{errors.vehicleId}</span>}
 
-                            {/* Passenger & Luggage (Compact Row) */}
-                            <div className="col-span-full grid grid-cols-2 md:grid-cols-4 gap-3 mt-2">
-                                <div className="relative">
-                                    <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Vehicles</label>
-                                    <div className="relative">
-                                        <Car size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-                                        <input
-                                            type="number"
-                                            name="vehicleCount"
-                                            min="1"
-                                            max="5"
-                                            value={formData.vehicleCount}
-                                            onChange={handleChange}
-                                            className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 pl-9 text-sm outline-none focus:border-amber-500 transition-colors"
-                                        />
+                            {/* Price Display */}
+                            {formData.vehicleId && formData.routeId && formData.routeId !== 'custom' && (() => {
+                                const selected = vehicleOptions.find(v => v.value === formData.vehicleId);
+                                if (selected && selected.price > 0) return (
+                                    <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col items-end pointer-events-none">
+                                        <span className="text-[10px] text-emerald-200 uppercase tracking-wider">Est. Fare</span>
+                                        <span className="text-gold font-bold text-lg leading-none">{selected.price} <span className="text-xs">SAR</span></span>
                                     </div>
-                                </div>
-                                <div className="relative">
-                                    <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Passengers</label>
-                                    <div className="relative">
-                                        <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-                                        <input
-                                            type="number"
-                                            name="passengers"
-                                            min="1"
-                                            value={formData.passengers}
-                                            onChange={handleChange}
-                                            className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 pl-9 text-sm outline-none focus:border-amber-500 transition-colors"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
+                                );
+                            })()}
+                        </div>
 
-                            {/* Contact Details (Hidden until Route Selected) */}
-                            {formData.routeId && (
+                        {/* Contact Form (Revealed on Interaction) */}
+                        <AnimatePresence>
+                            {(formData.pickup || formData.routeId) && (
                                 <motion.div
-                                    initial={{ opacity: 0, height: 0 }}
-                                    animate={{ opacity: 1, height: 'auto' }}
-                                    className="col-span-full grid grid-cols-1 md:grid-cols-3 gap-3 mt-2 overflow-hidden"
+                                    initial={{ height: 0, opacity: 0 }}
+                                    animate={{ height: 'auto', opacity: 1 }}
+                                    exit={{ height: 0, opacity: 0 }}
+                                    className="overflow-hidden"
                                 >
-                                    <div className="relative">
-                                        <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Full Name</label>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
                                         <div className="relative">
-                                            <User size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                                            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gold"><User size={16} /></div>
                                             <input
                                                 type="text"
                                                 name="name"
-                                                placeholder="Your Name"
+                                                placeholder="Full Name"
                                                 value={formData.name}
                                                 onChange={handleChange}
-                                                className={`w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 pl-9 text-sm outline-none focus:border-amber-500 transition-colors ${errors.name ? 'border-red-500 bg-red-50' : ''}`}
+                                                className="premium-input w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm"
                                             />
+                                            {errors.name && <span className="text-red-400 text-xs ml-2">{errors.name}</span>}
                                         </div>
-                                        {errors.name && <span className="text-[10px] text-red-500 mt-1 ml-1 block">{errors.name}</span>}
-                                    </div>
-                                    <div className="relative">
-                                        <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Email</label>
                                         <div className="relative">
-                                            <Mail size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-                                            <input
-                                                type="email"
-                                                name="email"
-                                                placeholder="email@example.com"
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                                className={`w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 pl-9 text-sm outline-none focus:border-amber-500 transition-colors ${errors.email ? 'border-red-500 bg-red-50' : ''}`}
-                                            />
-                                        </div>
-                                        {errors.email && <span className="text-[10px] text-red-500 mt-1 ml-1 block">{errors.email}</span>}
-                                    </div>
-                                    <div className="relative">
-                                        <label className="text-[10px] uppercase font-bold text-slate-400 mb-1 ml-1 block">Phone</label>
-                                        <div className="relative">
-                                            <Phone size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                                            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gold"><Phone size={16} /></div>
                                             <input
                                                 type="tel"
                                                 name="phone"
-                                                placeholder="+966 50..."
+                                                placeholder="Phone (+966...)"
                                                 value={formData.phone}
                                                 onChange={handleChange}
-                                                className={`w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 pl-9 text-sm outline-none focus:border-amber-500 transition-colors ${errors.phone ? 'border-red-500 bg-red-50' : ''}`}
+                                                className="premium-input w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm"
                                             />
+                                            {errors.phone && <span className="text-red-400 text-xs ml-2">{errors.phone}</span>}
                                         </div>
-                                        {errors.phone && <span className="text-[10px] text-red-500 mt-1 ml-1 block">{errors.phone}</span>}
+                                        <div className="md:col-span-2 relative">
+                                            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gold"><Mail size={16} /></div>
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                placeholder="Email Address"
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                                className="premium-input w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-white/40 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm"
+                                            />
+                                            {errors.email && <span className="text-red-400 text-xs ml-2">{errors.email}</span>}
+                                        </div>
                                     </div>
                                 </motion.div>
                             )}
+                        </AnimatePresence>
 
-                            {/* Price & Action Row */}
-                            <div className="col-span-full mt-4 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-slate-100 pt-4">
+                        {/* Submit Button */}
+                        <button
+                            type="submit"
+                            disabled={isSubmitting}
+                            className="w-full btn-gold shimmer-gold py-4 rounded-xl font-bold text-emerald-950 uppercase tracking-widest hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-gold/20 flex items-center justify-center gap-3 group disabled:opacity-70 disabled:cursor-not-allowed"
+                        >
+                            {isSubmitting ? 'Processing...' : 'Reserve Now'}
+                            {!isSubmitting && <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />}
+                        </button>
 
-                                {/* Dynamic Price Display */}
-                                <div className="flex-1">
-                                    {formData.routeId && formData.vehicleId ? (
-                                        (() => {
-                                            const { price, originalPrice, discountApplied } = calculatePrice(formData.routeId, formData.vehicleId);
-                                            if (price === 0) return <span className="text-sm text-slate-400">Select route & vehicle to see price</span>;
-                                            return (
-                                                <div className="flex flex-col">
-                                                    <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Total Estimate</span>
-                                                    <div className="flex items-baseline gap-2">
-                                                        <span className="text-2xl font-bold text-slate-900">{price * formData.vehicleCount} <span className="text-base font-medium text-slate-500">SAR</span></span>
-                                                        {discountApplied > 0 && <span className="text-sm text-slate-400 line-through">{originalPrice} SAR</span>}
-                                                    </div>
-                                                </div>
-                                            );
-                                        })()
-                                    ) : (
-                                        <span className="text-sm text-slate-400 italic">Instant quote available</span>
-                                    )}
-                                </div>
-
-                                {/* Submit Action */}
-                                <div className="w-full md:w-auto">
-                                    <button
-                                        type="submit"
-                                        disabled={isSubmitting}
-                                        className="w-full md:w-64 bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded-xl shadow-lg shadow-amber-500/20 active:scale-95 transition-all flex items-center justify-center gap-2"
-                                    >
-                                        {isSubmitting ? (
-                                            <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                                        ) : (
-                                            <>
-                                                Book Now <ArrowRight size={18} />
-                                            </>
-                                        )}
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        {/* Trust Indicators (Footer) */}
-                        <div className="mt-4 flex justify-center gap-6 text-[10px] text-slate-400 font-medium uppercase tracking-wide opacity-80">
-                            <span className="flex items-center gap-1.5"><CreditCard size={12} /> Pay Later</span>
-                            <span className="flex items-center gap-1.5"><ShieldCheck size={12} /> Insured Rides</span>
-                            <span className="flex items-center gap-1.5"><HeartHandshake size={12} /> 24/7 Support</span>
+                        {/* Trust Badges */}
+                        <div className="flex justify-center gap-6 pt-2 opacity-60">
+                            <span className="flex items-center gap-1.5 text-[10px] text-white uppercase tracking-wider font-medium"><ShieldCheck size={12} className="text-gold" /> Secure</span>
+                            <span className="flex items-center gap-1.5 text-[10px] text-white uppercase tracking-wider font-medium"><CreditCard size={12} className="text-gold" /> Pay Later</span>
+                            <span className="flex items-center gap-1.5 text-[10px] text-white uppercase tracking-wider font-medium"><HeartHandshake size={12} className="text-gold" /> 24/7 Support</span>
                         </div>
                     </motion.form>
-
                 )}
-            </AnimatePresence >
-        </motion.div >
+            </AnimatePresence>
+        </motion.div>
     );
 };
 

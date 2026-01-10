@@ -49,7 +49,7 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
         let greetingText = '';
 
         const greetings = {
-            default: 'Hello! 👋 I am your Al Aqsa AI assistant. How can I help you with your Umrah transport today?',
+            default: 'Hello! 👋 I am your Al Kiswah AI assistant. How can I help you with your Umrah transport today?',
             booking: 'Welcome to our booking page! 📅 Do you need any help filling out the form or choosing a vehicle?',
             fleet: 'Browsing our fleet? 🚗 Let me know if you want to know more about our Sedans, SUVs, or Buses.',
             services: 'We offer VIP services and Ziyarat tours. 🕌 How can I assist you with our services?'
@@ -200,7 +200,7 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
                     <div className={styles.headerTitle}>
                         <div className="flex items-center gap-2">
                             <Sparkles size={16} className="text-yellow-300" />
-                            <h3>Al Aqsa AI</h3>
+                            <h3>Al Kiswah AI</h3>
                         </div>
                         <p>Online • Replies instantly</p>
                     </div>

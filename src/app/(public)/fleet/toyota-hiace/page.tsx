@@ -17,7 +17,7 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.seo?.title || "Toyota Hiace 12-Seater Bus Rental",
-    "image": "https://alaqsaumrahtransport.com/images/fleet/hiace-hero-professional.png",
+    "image": "https://alkiswahumrahtransport.com/images/fleet/hiace-hero-professional.png",
     "description": vehicleData?.seo?.description || "Rent Toyota Hiace bus in Makkah. Reliable 12-seater transport for Umrah groups and large families.",
     "brand": { "@type": "Brand", "name": "Toyota" },
     "offers": { "@type": "Offer", "price": "350", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
         "نقل جماعي مكة",
         "باص 10 راكب جدة"
     ],
-    alternates: { canonical: 'https://alaqsaumrahtransport.com/fleet/toyota-hiace' }
+    alternates: { canonical: 'https://alkiswahumrahtransport.com/fleet/toyota-hiace' }
 };
 
 const hiaceFAQs = [

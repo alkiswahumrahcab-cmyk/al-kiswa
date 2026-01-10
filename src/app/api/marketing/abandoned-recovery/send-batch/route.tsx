@@ -78,7 +78,7 @@ export async function POST(req: Request) {
 
                 await sendEmail({
                     to: draft.email!,
-                    subject: `Complete your booking to ${draft.data?.dropoff || 'Makkah'} - Al Aqsa Transport`,
+                    subject: `Complete your booking to ${draft.data?.dropoff || 'Makkah'} - Al Kiswah Transport`,
                     html: emailHtml,
                 });
 

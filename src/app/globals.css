@@ -4,116 +4,118 @@
 
 @layer base {
   :root {
-    /* Core Palette - Premium & Trustworthy (Light Mode) */
-    --background: 210 40% 98%;
-    /* #f8fafc */
-    --foreground: 222 47% 11%;
-    /* #0f172a */
+    /* === DEEP EMERALD & GOLD THEME === */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    /* Primary Colors */
+    --emerald-primary: 168 80% 27%;
+    /* #0D7C66 */
+    --gold-accent: 43 45% 55%;
+    /* #BFA35A */
+    --dark-slate: 217 31% 15%;
+    /* #1A2332 */
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    /* Secondary Colors */
+    --soft-mint: 162 43% 94%;
+    /* #E8F5F1 */
+    --pure-white: 0 0% 100%;
+    /* #FFFFFF */
+    --warm-gray: 210 17% 98%;
+    /* #F8F9FA */
 
-    --primary: 222 47% 11%;
-    /* #0a192f (Deep Navy) */
-    --primary-foreground: 210 40% 98%;
+    /* Generic Names for Compatibility/Usage */
+    --primary-brand: var(--emerald-primary);
+    --secondary-brand: var(--soft-mint);
+    --accent-brand: var(--gold-accent);
 
-    --secondary: 45 67% 52%;
-    /* #d4af37 (Refined Gold) */
-    --secondary-foreground: 222 47% 11%;
+    /* Semantic Colors */
+    --success: 160 84% 39%;
+    /* #10B981 */
+    --warning: 38 92% 50%;
+    /* #F59E0B */
+    --error: 0 84% 60%;
+    /* #EF4444 */
+    --info: 217 91% 60%;
+    /* #3B82F6 */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* === TAILWIND MAPPING === */
+    --background: var(--pure-white);
+    --foreground: var(--dark-slate);
 
-    --accent: 151 55% 41.5%;
-    /* #10b981 (Emerald) */
-    --accent-foreground: 210 40% 98%;
+    --card: var(--pure-white);
+    --card-foreground: var(--dark-slate);
+    --popover: var(--pure-white);
+    --popover-foreground: var(--dark-slate);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --primary: var(--emerald-primary);
+    --primary-foreground: var(--pure-white);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222 47% 11%;
+    --secondary: var(--soft-mint);
+    --secondary-foreground: var(--emerald-primary);
 
-    --radius: 0.75rem;
-    --max-width: 1440px;
-    --container-padding: 2rem;
-    /* Increased for mobile breathability */
+    --muted: var(--warm-gray);
+    --muted-foreground: 215 16% 47%;
+    /* slate-500 approx */
 
-    /* Glassmorphism - Light (Refined & Premium) */
-    --glass-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.45));
-    --glass-border: rgba(255, 255, 255, 0.55);
-    --glass-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.05),
-      0 10px 15px -3px rgba(0, 0, 0, 0.05),
-      0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+    --accent: var(--gold-accent);
+    --accent-foreground: var(--pure-white);
+
+    --destructive: var(--error);
+    --destructive-foreground: var(--pure-white);
+
+    --border: var(--soft-mint);
+    /* Subtle border */
+    --input: var(--warm-gray);
+    --ring: var(--emerald-primary);
+
+    --radius: 1.5rem;
+    /* rounded-3xl approx */
+
+    /* === TRANSPARENCY & GLOW === */
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    /* Slightly more opaque for corporate feel */
+    --glass-border: rgba(13, 124, 102, 0.1);
     --glass-blur: 16px;
 
-    /* Responsive Glass Settings - Mobile Optimization */
-    @media (max-width: 768px) {
-      --glass-blur: 8px;
-      /* Reduced blur for performance */
-      --glass-bg: rgba(255, 255, 255, 0.9);
-      /* More opaque, less reliance on filter */
-    }
-
-    /* Gradients */
-    --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+    /* Weights */
+    --weight-whisper: 200;
+    --weight-ethereal: 300;
+    --weight-visible: 400;
+    --weight-present: 500;
   }
 
   .dark {
-    /* Core Palette - Deep & Elegant (Dark Mode) */
-    --background: 222 47% 11%;
-    /* #020617 - Deep Navy */
+    /* Mapped Dark Mode for Emerald Theme */
+    --background: 217 31% 10%;
+    /* Darker slate */
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 11%;
+    --card: 217 31% 15%;
+    /* Dark slate */
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 11%;
+    --popover: 217 31% 15%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 217.2 91.2% 59.8%;
-    /* #60a5fa */
-    --primary-foreground: 222 47.4% 11.2%;
+    --primary: 168 80% 27%;
+    /* Keep emerald or lighten slightly for dark mode? Keeping consistent for brand */
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 45 93% 47%;
-    /* #fbbf24 - Amber/Gold */
-    --secondary-foreground: 222 47.4% 11.2%;
+    --secondary: 217 31% 20%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 217 31% 20%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 151 55% 41.5%;
+    --accent: 43 45% 55%;
+    /* Gold */
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-
-    /* Glassmorphism - Dark (Premium Depth) */
-    --glass-bg: linear-gradient(135deg, rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.6));
-    --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.3),
-      0 10px 25px -3px rgba(0, 0, 0, 0.4),
-      0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-    --glass-blur: 16px;
-
-    /* Responsive Glass Settings - Mobile Optimization (Dark Mode) */
-    @media (max-width: 768px) {
-      --glass-blur: 8px;
-      --glass-bg: rgba(15, 23, 42, 0.9);
-    }
-
-    /* Gradients */
-    --bg-gradient: linear-gradient(to bottom, #020617, #0f172a);
+    --border: 217 31% 20%;
+    --input: 217 31% 20%;
+    --ring: 168 80% 27%;
   }
 }
 
@@ -124,389 +126,286 @@
 
   body {
     @apply bg-background text-foreground;
-    background-image: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.1) 0%, transparent 50%), var(--bg-gradient);
+    font-weight: 300;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+
+    /* Heavenly gradient background */
+    background: linear-gradient(180deg,
+        hsl(var(--pure-white)) 0%,
+        hsl(var(--soft-mint)) 30%,
+        rgba(13, 124, 102, 0.03) 70%,
+        rgba(191, 163, 90, 0.05) 100%);
     background-attachment: fixed;
-    font-feature-settings: "rlig" 1, "calt" 1;
-    overflow-x: clip;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
-  ::selection {
-    background-color: hsla(var(--secondary), 0.3);
-    color: inherit;
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-
-  html,
-  body {
-    overflow-x: clip !important;
-    width: 100%;
-    max-width: 100vw;
-    position: relative;
-    margin: 0;
-    padding: 0;
-  }
-
-  #root,
-  #__next {
-    overflow-x: hidden;
-    width: 100%;
-    position: relative;
-  }
-
-  main {
-    overflow-x: hidden;
-    width: 100%;
-    position: relative;
-  }
-
-  img,
-  video {
-    max-width: 100%;
-    height: auto;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* Typography Defaults */
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @apply font-bold tracking-tight;
-    font-family: var(--font-playfair), var(--font-geist-sans), serif;
+    @apply font-sans;
   }
 
-  /* Language Specific Overrides */
-  html[lang="ar"] body {
-    font-family: var(--font-amiri), serif;
+  h1 {
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
-  html[lang="ur"] body {
-    font-family: var(--font-noto-nastaliq), serif;
-    line-height: 1.8;
+  h2 {
+    font-weight: 400;
+    color: hsl(var(--celestial-blue));
+    letter-spacing: 0.8px;
+  }
+}
+
+@layer components {
+
+  /* === GLASS-MORPHISM CARDS === */
+  /* === GLASS-MORPHISM CARDS === */
+  .card,
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 8px 32px rgba(13, 124, 102, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Animation Utilities */
-  @keyframes shimmer {
-    0% {
-      transform: translateX(-100%);
-    }
-
-    100% {
-      transform: translateX(200%);
-    }
+  .card:hover,
+  .glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 48px rgba(13, 124, 102, 0.15);
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(13, 124, 102, 0.2);
   }
 
-  .animate-shimmer {
-    animation: shimmer 2s infinite;
+  .glass-card-emerald {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 241, 0.85) 100%);
+    border: 1px solid rgba(13, 124, 102, 0.12);
+    box-shadow: 0 10px 40px -10px rgba(13, 124, 102, 0.1);
+  }
+
+  .glass-card-gold {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(252, 211, 77, 0.05) 100%);
+    border: 1px solid rgba(191, 163, 90, 0.2);
+    box-shadow: 0 10px 40px -10px rgba(191, 163, 90, 0.1);
+  }
+
+  /* === BUTTONS WITH NOOR GLOW === */
+  /* === BUTTONS WITH PREMIUM GLOW === */
+  .btn-primary {
+    @apply relative overflow-hidden;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: white;
+    background: linear-gradient(135deg, hsl(var(--emerald-primary)) 0%, #064e3b 100%);
+    border: none;
+    border-radius: 16px;
+    padding: 14px 36px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(13, 124, 102, 0.3);
+  }
+
+  .btn-gold {
+    @apply relative overflow-hidden;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: white;
+    background: linear-gradient(135deg, #B8860B 0%, #D4AF37 40%, #AA771C 100%);
+    border: none;
+    border-radius: 16px;
+    padding: 14px 36px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(184, 134, 11, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-primary:hover,
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(13, 124, 102, 0.4), 0 0 20px rgba(191, 163, 90, 0.2);
+    /* Emerald + Gold Glow */
+  }
+
+  .btn-secondary {
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: hsl(var(--celestial-blue));
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(74, 144, 226, 0.3);
+    border-radius: 50px;
+    padding: 12px 32px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: hsl(var(--celestial-blue));
+    box-shadow: 0 4px 16px rgba(74, 144, 226, 0.15);
+  }
+
+  /* === INPUT FIELDS === */
+  .premium-input,
+  input:not([type="checkbox"]):not([type="radio"]),
+  textarea,
+  select {
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    color: hsl(var(--soft-charcoal));
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(135, 206, 235, 0.3);
+    border-radius: 16px;
+    padding: 14px 20px;
+    transition: all 0.3s ease;
+  }
+
+  .premium-input:focus,
+  input:not([type="checkbox"]):not([type="radio"]):focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    border-color: hsl(var(--celestial-blue));
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1), 0 4px 12px rgba(74, 144, 226, 0.15);
   }
 }
 
 @layer utilities {
-
-  /* Glassmorphism Utilities */
-  .bg-noise {
-    position: relative;
+  .glow-text {
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(135, 206, 235, 0.6);
+    animation: subtle-glow 3s ease-in-out infinite;
   }
 
-  .bg-noise::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
-    mix-blend-mode: overlay;
+  @keyframes subtle-glow {
+
+    0%,
+    100% {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+
+    50% {
+      text-shadow: 0 0 15px white, 0 0 30px rgba(135, 206, 235, 0.8);
+    }
   }
 
-  .glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
-    will-change: transform, backdrop-filter;
-    /* Hint browser to optimize */
+  .floating {
+    animation: float 6s ease-in-out infinite;
   }
 
+  @keyframes float {
 
-  /* Premium Card with Spotlight/Glow potential */
-  .premium-card {
-    position: relative;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.05),
-      0 0 0 1px rgba(255, 255, 255, 0.5) inset;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: var(--radius);
-    overflow: hidden;
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
-  .dark .premium-card {
-    background: linear-gradient(145deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.6) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow:
-      0 4px 6px -1px rgba(0, 0, 0, 0.2),
-      0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-  }
-
-  .premium-card:hover {
-    transform: translateY(-4px) scale(1.01);
-    box-shadow:
-      0 20px 40px -10px rgba(0, 0, 0, 0.1),
-      0 0 20px rgba(212, 175, 55, 0.15);
-    /* Gold glow */
-    border-color: rgba(212, 175, 55, 0.4);
-  }
-
-  .premium-input {
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid #e2e8f0;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02) inset;
-  }
-
-  .dark .premium-input {
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) inset;
-  }
-
-  .premium-input:focus {
-    background: #fff;
-    border-color: #D4AF37;
-    box-shadow:
-      0 0 0 4px rgba(212, 175, 55, 0.1),
-      0 2px 4px rgba(0, 0, 0, 0.02) inset;
-  }
-
-  .dark .premium-input:focus {
-    background: rgba(30, 41, 59, 0.9);
-  }
-
-  .glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    border: 1px solid var(--glass-border);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: var(--glass-shadow);
-    border-radius: var(--radius);
-  }
-
-  .glass-card:hover {
-    transform: translateY(-5px);
-    border-color: hsl(var(--secondary) / 0.5);
-    box-shadow:
-      0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04),
-      0 0 20px rgba(212, 175, 55, 0.1);
-  }
-
-  .glass-panel {
-    background: var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur));
-    -webkit-backdrop-filter: blur(var(--glass-blur));
-    border-left: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
-  }
-
-  .glass-form {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius);
-  }
-
-  .glass-button {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    backdrop-filter: blur(4px);
-    border: 1px solid var(--glass-border);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-  }
-
-  .glass-button:hover {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  .text-gradient {
-    background: linear-gradient(to right, hsl(var(--primary)), hsl(var(--secondary)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .gradient-overlay {
+    background: linear-gradient(135deg, rgba(135, 206, 235, 0.15) 0%, rgba(230, 230, 250, 0.15) 50%, rgba(244, 228, 193, 0.15) 100%);
+    border-radius: 24px;
   }
 
   .text-gradient-gold {
-    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+    background: linear-gradient(to right,
+        #BF953F 0%,
+        #FCF6BA 20%,
+        #B38728 50%,
+        #FBF5B7 80%,
+        #AA771C 100%);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
-  }
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted-foreground) / 0.5);
-  border-radius: 5px;
-  border: 2px solid transparent;
-  background-clip: content-box;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--secondary));
-}
-
-/* React Datepicker Customization - Compact Desktop */
-@media (min-width: 768px) {
-  .home-datepicker-popper .react-datepicker {
-    font-size: 0.85rem !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    background-color: rgba(15, 23, 42, 0.95) !important;
-    backdrop-filter: blur(12px) !important;
-    font-family: var(--font-geist-sans), sans-serif !important;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3) !important;
+    color: transparent;
+    font-weight: 800;
+    letter-spacing: -0.02em;
   }
 
-  .home-datepicker-popper .react-datepicker__header {
-    background-color: rgba(15, 23, 42, 0.98) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
-    padding-top: 6px !important;
+  /* Royal Gold Gradient - Richer & deeper than standard gold */
+  .bg-gradient-royal-gold {
+    background: linear-gradient(135deg,
+        #B8860B 0%,
+        /* Dark Goldenrod */
+        #D4AF37 30%,
+        /* Metallic Gold */
+        #FFD700 60%,
+        /* Bright Gold */
+        #B8860B 100%
+        /* Dark Goldenrod */
+      );
   }
 
-  .home-datepicker-popper .react-datepicker__current-month {
-    font-size: 0.9rem !important;
-    margin-bottom: 4px !important;
-    color: #fbbf24 !important;
-    /* Gold */
+  /* Interactive Gold Border Glow */
+  .border-gold-glow {
+    border-color: rgba(212, 175, 55, 0.6);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4), inset 0 0 10px rgba(212, 175, 55, 0.1);
+    transition: all 0.4s ease;
   }
 
-  .home-datepicker-popper .react-datepicker__day-name,
-  .home-datepicker-popper .react-datepicker__day,
-  .home-datepicker-popper .react-datepicker__time-name {
-    width: 1.7rem !important;
-    line-height: 1.7rem !important;
-    margin: 0.1rem !important;
-    color: white !important;
+  .bg-heritage {
+    background-image: url('/pattern.png');
+    background-repeat: repeat;
+    background-size: 400px;
+    mix-blend-mode: multiply;
   }
 
-  .home-datepicker-popper .react-datepicker__day--selected,
-  .home-datepicker-popper .react-datepicker__day--keyboard-selected {
-    background-color: #fbbf24 !important;
-    /* Gold */
-    color: black !important;
-    font-weight: bold !important;
-    border-radius: 50% !important;
+  .emerald-glow {
+    box-shadow: 0 0 20px rgba(13, 124, 102, 0.2);
   }
 
-  .home-datepicker-popper .react-datepicker__day:hover {
-    background-color: rgba(251, 191, 36, 0.2) !important;
-    border-radius: 50% !important;
+  .gold-glow {
+    box-shadow: 0 0 20px rgba(191, 163, 90, 0.3);
   }
 
-  .home-datepicker-popper .react-datepicker__navigation {
-    top: 8px !important;
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
   }
 
-  /* Time Picker Colors */
-  .home-datepicker-popper .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected {
-    background-color: #fbbf24 !important;
-    color: #0f172a !important;
-    /* Deep Navy text for contrast */
-    font-weight: bold !important;
+  .shimmer-gold {
+    position: relative;
+    overflow: hidden;
   }
 
-  .home-datepicker-popper .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item:hover {
-    background-color: rgba(251, 191, 36, 0.2) !important;
+  .shimmer-gold::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(to right,
+        transparent 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 100%);
+    transform: skewX(-20deg);
+    animation: shimmer-slide 3s infinite linear;
   }
 
-  .home-datepicker-popper .react-datepicker-time__header {
-    color: #fbbf24 !important;
-  }
-}
+  @keyframes shimmer-slide {
+    0% {
+      left: -100%;
+    }
 
-/* Mobile Date Picker Overrides */
-@media (max-width: 768px) {
-  .home-datepicker-popper .react-datepicker {
-    font-size: 0.8rem !important;
-    width: 100% !important;
-    max-width: 300px !important;
-    margin: 0 auto !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
+    20% {
+      left: 100%;
+    }
 
-  .home-datepicker-popper .react-datepicker__month-container {
-    width: 100% !important;
-    float: none !important;
-  }
-
-  .home-datepicker-popper .react-datepicker__header {
-    padding: 8px 0 !important;
-  }
-
-  .home-datepicker-popper .react-datepicker__current-month {
-    font-size: 0.9rem !important;
-    margin-bottom: 4px !important;
-  }
-
-  .home-datepicker-popper .react-datepicker__day-name,
-  .home-datepicker-popper .react-datepicker__day,
-  .home-datepicker-popper .react-datepicker__time-name {
-    width: 1.7rem !important;
-    line-height: 1.7rem !important;
-    margin: 0.1rem !important;
-    font-size: 0.8rem !important;
-  }
-
-  .home-datepicker-popper .react-datepicker__time-container {
-    width: 100% !important;
-    float: none !important;
-    border-left: none !important;
-    border-top: 1px solid #e2e8f0 !important;
-  }
-
-  .dark .home-datepicker-popper .react-datepicker__time-container {
-    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-  }
-
-  .home-datepicker-popper .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box {
-    width: 100% !important;
-  }
-
-  /* Mobile Time Picker Colors */
-  .home-datepicker-popper .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item--selected {
-    background-color: #fbbf24 !important;
-    color: #0f172a !important;
-  }
-
-  .home-datepicker-popper .react-datepicker-time__header {
-    color: #fbbf24 !important;
+    100% {
+      left: 100%;
+    }
   }
 }

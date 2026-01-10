@@ -52,7 +52,7 @@ export const ReviewTemplate: React.FC<ReviewTemplateProps> = ({
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '20px', fontSize: '12px', color: '#94a3b8' }}>
-            <p>&copy; {new Date().getFullYear()} Al Aqsa Transport. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Al Kiswah Transport. All rights reserved.</p>
         </div>
     </div>
 );

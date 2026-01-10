@@ -18,7 +18,7 @@ const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.seo?.title || "Toyota Camry 2024 Taxi Makkah",
-    "image": "https://alaqsaumrahtransport.com/images/fleet/camry-hero-professional.png",
+    "image": "https://alkiswahumrahtransport.com/images/fleet/camry-hero-professional.png",
     "description": vehicleData?.seo?.description || "Affordable Toyota Camry taxi for Umrah. Reliable 4-seater sedan for Jeddah to Makkah transfers.",
     "brand": { "@type": "Brand", "name": "Toyota" },
     "offers": { "@type": "Offer", "price": "200", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: vehicleData?.seo?.title,
     description: vehicleData?.seo?.description,
     keywords: vehicleData?.seo?.keywords,
-    alternates: { canonical: 'https://alaqsaumrahtransport.com/fleet/toyota-camry' }
+    alternates: { canonical: 'https://alkiswahumrahtransport.com/fleet/toyota-camry' }
 };
 
 const camryFAQs = [

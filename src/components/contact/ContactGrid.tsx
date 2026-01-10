@@ -61,13 +61,13 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
         <FadeIn direction="right" delay={0.2}>
             <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
                 {contactCards.map((card, index) => (
-                    <GlassCard key={index} className="p-6 hover:border-amber-400/50 transition-colors group">
+                    <GlassCard key={index} className="p-6 hover:border-gold/30 transition-all duration-300 group hover:shadow-xl hover:shadow-emerald-900/5">
                         <div className="flex items-start gap-4">
-                            <div className="p-3 bg-amber-100 dark:bg-amber-900/20 rounded-lg text-amber-600 dark:text-amber-500 group-hover:scale-110 transition-transform">
+                            <div className="p-4 bg-emerald-50 dark:bg-emerald-950/30 rounded-2xl text-emerald-600 group-hover:scale-110 transition-transform shadow-sm">
                                 <card.icon size={24} />
                             </div>
                             <div className="flex-1">
-                                <h3 className="font-bold text-lg text-slate-900 dark:text-white mb-1">{card.title}</h3>
+                                <h3 className="font-bold font-playfair text-lg text-slate-900 dark:text-white mb-1">{card.title}</h3>
                                 <p className="font-medium text-slate-700 dark:text-slate-200 mb-1">{card.value}</p>
                                 <p className="text-sm text-slate-500 dark:text-slate-400 mb-3">{card.sub}</p>
                                 <a
@@ -75,7 +75,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
                                     target={card.action.startsWith('http') ? "_blank" : "_self"}
                                     rel="noopener noreferrer"
                                     onClick={() => trackConversion(card.type as any, 'contact_page')}
-                                    className="inline-flex items-center text-sm font-semibold text-amber-600 hover:text-amber-700 dark:text-amber-500 dark:hover:text-amber-400"
+                                    className="inline-flex items-center text-sm font-bold text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-gold transition-colors"
                                 >
                                     {card.btnText} →
                                 </a>

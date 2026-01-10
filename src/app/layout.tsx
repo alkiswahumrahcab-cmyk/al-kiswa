@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Playfair_Display, Open_Sans, Reem_Kufi } from "next/font/google";
+import { Montserrat, Tajawal } from "next/font/google"; // Elegant & Light + Arabic
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { MenuProvider } from "@/context/MenuContext";
 import { PricingProvider } from '@/context/PricingContext';
@@ -10,37 +10,17 @@ import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import { getSettings } from "@/lib/settings-storage";
 import "./globals.css";
 
-
-const inter = Inter({
-  variable: "--font-geist-sans",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: 'swap',
 });
 
-const interMono = Inter({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: 'swap',
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  display: 'swap',
-});
-
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
-  subsets: ["latin"],
-  weight: ["400", "600"],
-  display: 'swap',
-});
-
-const reemKufi = Reem_Kufi({
-  variable: "--font-reem-kufi",
+const tajawal = Tajawal({
+  variable: "--font-tajawal",
   subsets: ["arabic"],
-  weight: ["400", "700"],
+  weight: ["300", "400", "500", "700"],
   display: 'swap',
 });
 
@@ -53,10 +33,10 @@ export const viewport: Viewport = {
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSettings();
-  const siteName = settings.general.siteName || "Al Aqsa Umrah Transport";
+  const siteName = settings.general.siteName || "Al Kiswah Umrah Transport";
 
   return {
-    metadataBase: new URL('https://alaqsaumrahtransport.com'),
+    metadataBase: new URL('https://alkiswahumrahtransport.com'),
     title: {
       default: settings.seo.defaultTitle || "Umrah Transport Services Saudi Arabia",
       template: `%s | ${siteName}`
@@ -66,10 +46,10 @@ export async function generateMetadata(): Promise<Metadata> {
     // manifest: '/manifest.json', 
     icons: {
       icon: [
-        { url: '/favicon.png', sizes: '32x32' },
+        { url: '/favicon.png?v=2', sizes: '32x32' },
       ],
-      shortcut: '/favicon.png',
-      apple: '/apple-touch-icon.png',
+      shortcut: '/favicon.png?v=2',
+      apple: '/apple-touch-icon.png?v=2',
     },
     verification: {
       google: '0JYg8N3CPUFhzseUIrbhKiLIShx1ltrIF0XoXVsO7-I',
@@ -86,7 +66,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${interMono.variable} ${playfair.variable} ${openSans.variable} ${reemKufi.variable}`}>
+      <body className={`${montserrat.variable} ${tajawal.variable}`}>
         {settings.general.googleAnalyticsId && (
           <GoogleAnalytics gaId={settings.general.googleAnalyticsId} />
         )}

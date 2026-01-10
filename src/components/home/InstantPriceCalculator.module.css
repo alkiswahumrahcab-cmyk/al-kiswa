@@ -14,7 +14,7 @@
     right: -5%;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(13, 124, 102, 0.15) 0%, transparent 70%);
     opacity: 0.6;
     border-radius: 50%;
     filter: blur(80px);
@@ -75,7 +75,7 @@
     gap: 3rem;
     box-shadow:
         0 20px 40px -10px rgba(0, 0, 0, 0.05),
-        0 0 0 1px rgba(212, 175, 55, 0.1);
+        0 0 0 1px rgba(191, 163, 90, 0.2);
     /* Subtle gold ring */
     position: relative;
     z-index: 1;
@@ -96,7 +96,8 @@
 
 /* "Golden Ticket" Result Display */
 .resultDisplay {
-    background: linear-gradient(145deg, #0f172a, #1e293b);
+    background: linear-gradient(145deg, #022c22, #064e3b);
+    /* Emerald 950 to 900 */
     border-radius: 1.5rem;
     padding: 1.75rem;
     /* Reduced from 2rem */
@@ -117,8 +118,8 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #D4AF37, #FCD34D, #D4AF37);
-    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.5);
+    background: linear-gradient(90deg, #BFA35A, #FCD34D, #BFA35A);
+    box-shadow: 0 2px 10px rgba(191, 163, 90, 0.5);
 }
 
 .resultHeader {
@@ -146,8 +147,8 @@
     gap: 0.4rem;
     padding: 0.35rem 0.75rem;
     /* Slightly reduced */
-    background: rgba(212, 175, 55, 0.15);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    background: rgba(191, 163, 90, 0.15);
+    border: 1px solid rgba(191, 163, 90, 0.3);
     border-radius: 99px;
     font-size: 0.75rem;
     font-weight: 700;
@@ -184,7 +185,7 @@
     font-size: 1.25rem;
     font-weight: 600;
     margin-top: 0.75rem;
-    color: #D4AF37;
+    color: #BFA35A;
 }
 
 .priceLabel {
@@ -246,7 +247,7 @@
 .bookBtn {
     width: 100%;
     padding: 1.25rem;
-    background: linear-gradient(135deg, #D4AF37 0%, #B4941F 100%);
+    background: linear-gradient(135deg, #BFA35A 0%, #D4AF37 100%);
     color: #0A1F44;
     /* Navy Text */
     border-radius: 1rem;
@@ -257,7 +258,7 @@
     justify-content: center;
     gap: 0.75rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 10px 25px -5px rgba(13, 124, 102, 0.4);
     position: relative;
     overflow: hidden;
     border: none;
@@ -276,7 +277,7 @@
 
 .bookBtn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 15px 35px -5px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 15px 35px -5px rgba(244, 228, 193, 0.5);
     filter: brightness(1.05);
 }
 
@@ -360,7 +361,7 @@
     }
 
     :global(.dark) .calculatorContainer {
-        background: rgba(30, 41, 59, 0.95);
+        background: rgba(2, 44, 34, 0.95);
     }
 
     .resultDisplay {
@@ -386,7 +387,7 @@
 
 /* Dark Mode Overrides */
 :global(.dark) .calculatorContainer {
-    background: rgba(30, 41, 59, 0.6);
+    background: rgba(2, 44, 34, 0.6);
     border-color: rgba(255, 255, 255, 0.1);
 }
 

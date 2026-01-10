@@ -359,7 +359,6 @@ export default function BookingPage() {
                             country: bookingData.country,
                             flightNumber: bookingData.flightNumber,
                             arrivalDate: bookingData.arrivalDate ? `${bookingData.arrivalDate.getFullYear()}-${String(bookingData.arrivalDate.getMonth() + 1).padStart(2, '0')}-${String(bookingData.arrivalDate.getDate()).padStart(2, '0')}` : undefined,
-                            // Sending selectedVehicles array instead of single vehicle details
                             selectedVehicles: bookingData.selectedVehicles,
                             status: 'pending',
                             routeId: bookingData.routeId === 'custom' ? 'custom' : bookingData.routeId
@@ -367,12 +366,18 @@ export default function BookingPage() {
                     });
 
                     const data = await res.json();
+
+                    if (!res.ok) {
+                        throw new Error(data.message || 'Failed to submit booking');
+                    }
+
                     setBookingResponse(data);
                     setStep(5);
                     scrollToWizard();
                 } catch (error: any) {
                     console.error('Booking submission error:', error);
-                    alert(error.message || 'Failed to submit booking. Please try again.');
+                    // TODO: Replace with Toast component in future
+                    alert(error.message || 'We encountered an issue submitting your booking. Please try again or contact support.');
                     return;
                 } finally {
                     setIsSubmitting(false);
@@ -429,10 +434,12 @@ export default function BookingPage() {
     };
 
     const inputClasses = (hasError: boolean) => `
-        w-full premium-input rounded-xl px-4 py-3.5 
+        w-full rounded-xl px-4 py-3.5 
+        bg-slate-50 border border-slate-200 
         text-slate-900 dark:text-white placeholder:text-slate-400 
         outline-none transition-all
-        ${hasError ? 'border-red-500 ring-2 ring-red-500/10' : ''}
+        focus:border-gold focus:ring-4 focus:ring-gold/10
+        ${hasError ? 'border-red-500 ring-4 ring-red-500/10' : ''}
     `;
 
     const renderStep1 = () => (
@@ -450,12 +457,12 @@ export default function BookingPage() {
                             className="absolute inset-0 rounded-full border-4 border-slate-200 dark:border-slate-800"
                         />
                         <motion.div
-                            className="absolute inset-0 rounded-full border-4 border-t-secondary border-r-secondary border-b-transparent border-l-transparent"
+                            className="absolute inset-0 rounded-full border-4 border-t-gold border-r-gold border-b-transparent border-l-transparent"
                             animate={{ rotate: 360 }}
                             transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <MapPin size={32} className="text-secondary animate-pulse" />
+                            <MapPin size={32} className="text-gold animate-pulse" />
                         </div>
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Finding Best Routes...</h3>
@@ -475,10 +482,10 @@ export default function BookingPage() {
                         <p className="text-slate-500 text-xl font-light">Experience premium transport with our gold-standard service.</p>
                     </div>
 
-                    <div className="max-w-xl mx-auto md:mx-0 glass-card p-6 md:p-10 rounded-3xl border border-white/20 dark:border-slate-700/50 shadow-2xl relative">
+                    <div className="max-w-xl mx-auto md:mx-0 glass-card-emerald p-6 md:p-10 rounded-3xl border border-white/20 dark:border-slate-700/50 shadow-2xl relative">
                         {/* Decorative Gold sheen - Contained to avoid spilling but separate from content clipping */}
                         <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
                         </div>
 
 
@@ -486,7 +493,7 @@ export default function BookingPage() {
                         <div className="grid md:grid-cols-2 gap-6 mb-8 relative z-20">
                             {/* Pickup Location - Higher Z-Index to overlap Dropoff */}
                             <div className="relative group z-20">
-                                <label className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1 group-focus-within:text-secondary transition-colors">
+                                <label className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1 group-focus-within:text-gold transition-colors">
                                     Pickup From
                                 </label>
                                 <SearchableSelect
@@ -515,14 +522,14 @@ export default function BookingPage() {
                                         { value: 'custom', label: 'Other / Custom Location' }
                                     ]}
                                     placeholder="Select Pickup"
-                                    className="w-full premium-input rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none text-base"
+                                    className="w-full bg-slate-50 border border-slate-200 focus:border-gold focus:ring-4 focus:ring-gold/10 rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none text-base"
                                     icon={<MapPin size={20} />}
                                 />
                             </div>
 
                             {/* Dropoff Location - Lower Z-Index */}
                             <div className="relative group z-10">
-                                <label className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1 group-focus-within:text-secondary transition-colors">
+                                <label className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1 group-focus-within:text-gold transition-colors">
                                     Dropoff To
                                 </label>
                                 <SearchableSelect
@@ -571,7 +578,7 @@ export default function BookingPage() {
                                     }
                                     disabled={!bookingData.pickup || bookingData.pickup === 'custom'}
                                     placeholder={!bookingData.pickup ? "Select Pickup First" : "Select Dropoff"}
-                                    className={`w-full premium-input rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none text-base ${(!bookingData.pickup || bookingData.pickup === 'custom') ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                    className={`w-full bg-slate-50 border border-slate-200 focus:border-gold focus:ring-4 focus:ring-gold/10 rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none text-base ${(!bookingData.pickup || bookingData.pickup === 'custom') ? 'opacity-50 cursor-not-allowed' : ''}`}
                                     icon={<Navigation size={20} />}
                                 />
                             </div>
@@ -587,9 +594,9 @@ export default function BookingPage() {
                                     exit={{ opacity: 0, y: -10 }}
                                     className="mb-8"
                                 >
-                                    <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 border border-blue-100 dark:border-blue-800 shadow-sm mb-6">
+                                    <div className="bg-emerald-50 dark:bg-emerald-900/20 rounded-xl p-4 border border-emerald-100 dark:border-emerald-800 shadow-sm mb-6">
                                         <div className="flex items-start gap-4">
-                                            <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
+                                            <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
                                                 <Info size={20} />
                                             </div>
                                             <div>
@@ -633,12 +640,12 @@ export default function BookingPage() {
                                         initial={{ opacity: 0, y: 10 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 10 }}
-                                        className="bg-slate-50/50 dark:bg-slate-900/30 rounded-2xl p-6 border border-secondary/20 shadow-lg shadow-secondary/5 relative overflow-hidden"
+                                        className="bg-slate-50/50 dark:bg-slate-900/30 rounded-2xl p-6 border border-gold/20 shadow-lg shadow-gold/5 relative overflow-hidden"
                                     >
-                                        <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
 
                                         <div className="flex items-center gap-5 relative z-10">
-                                            <div className="w-14 h-14 rounded-full bg-secondary text-white flex items-center justify-center shadow-lg shadow-secondary/30">
+                                            <div className="w-14 h-14 rounded-full bg-gradient-royal-gold text-white flex items-center justify-center shadow-lg shadow-gold/30">
                                                 <MapPin size={28} fill="currentColor" />
                                             </div>
                                             <div>
@@ -649,7 +656,7 @@ export default function BookingPage() {
                                             </div>
                                             <div className="ml-auto text-right">
                                                 <span className="block text-[10px] uppercase font-bold text-slate-400">Starting From</span>
-                                                <span className="font-black text-secondary text-2xl tracking-tight">{selectedRoute.baseRate} <span className="text-sm text-slate-500">SAR</span></span>
+                                                <span className="font-black text-emerald-600 dark:text-gold text-2xl tracking-tight">{selectedRoute.baseRate} <span className="text-sm text-slate-500">SAR</span></span>
                                             </div>
                                         </div>
                                     </motion.div>
@@ -724,7 +731,7 @@ export default function BookingPage() {
                                             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90" />
 
                                             {/* 'SELECTED' Badge */}
-                                            <div className="absolute top-4 right-4 bg-secondary text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg uppercase tracking-wider flex items-center gap-1">
+                                            <div className="absolute top-4 right-4 bg-secondary text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg uppercase tracking-wider flex items-center gap-1 border border-white/20 backdrop-blur-md">
                                                 <CheckCircle size={12} fill="currentColor" className="text-white" />
                                                 Selected {sv.quantity > 1 && `x${sv.quantity}`}
                                             </div>
@@ -733,7 +740,7 @@ export default function BookingPage() {
                                             <div className="absolute bottom-0 left-0 right-0 p-5">
                                                 <h3 className="text-2xl font-bold text-white mb-1 leading-tight flex items-center gap-2">
                                                     {v.name}
-                                                    {v.name.includes('GMC') && <span className="text-[10px] bg-amber-500 text-white px-2 py-0.5 rounded-full">VIP</span>}
+                                                    {v.name.includes('GMC') && <span className="text-[10px] bg-gold text-slate-900 font-bold px-2 py-0.5 rounded-full shadow-lg">VIP</span>}
                                                 </h3>
                                                 <div className="flex items-center gap-3 text-white/80 text-sm font-medium">
                                                     <span>{v.capacity} Seater</span>
@@ -752,18 +759,18 @@ export default function BookingPage() {
                             className={`
                                 relative w-full premium-input bg-white dark:bg-slate-900
                                 rounded-xl px-4 py-4 flex items-center justify-between 
-                                cursor-pointer transition-all hover:border-secondary/50 shadow-sm
-                                ${isVehicleDropdownOpen ? 'border-secondary ring-2 ring-secondary/20' : 'border-slate-200 dark:border-slate-700'}
+                                cursor-pointer transition-all hover:border-gold/50 shadow-sm
+                                ${isVehicleDropdownOpen ? 'border-gold ring-2 ring-gold/20' : 'border-slate-200 dark:border-slate-700'}
                             `}
                             onClick={() => setIsVehicleDropdownOpen(!isVehicleDropdownOpen)}
                         >
                             <span className="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
-                                <Car size={20} className="text-secondary" />
+                                <Car size={20} className="text-gold" />
                                 {bookingData.selectedVehicles.length > 0
                                     ? `${bookingData.selectedVehicles.reduce((acc, v) => acc + v.quantity, 0)} Vehicles Added`
                                     : 'Tap to Add Vehicles'}
                             </span>
-                            <ChevronDown className={`text-slate-400 transition-transform ${isVehicleDropdownOpen ? 'rotate-180 text-secondary' : ''}`} size={20} />
+                            <ChevronDown className={`text-slate-400 transition-transform ${isVehicleDropdownOpen ? 'rotate-180 text-gold' : ''}`} size={20} />
                         </div>
 
                         {/* Dropdown List */}
@@ -787,7 +794,7 @@ export default function BookingPage() {
                                             key={vehicle.id}
                                             className={`
                                                 relative p-4 flex flex-col gap-3 border-b border-slate-100 dark:border-white/5 last:border-0 transition-all duration-200 group
-                                                ${isSelected ? 'bg-secondary/5 dark:bg-secondary/10' : 'hover:bg-slate-50 dark:hover:bg-white/5'}
+                                                ${isSelected ? 'bg-gold/5 dark:bg-gold/10' : 'hover:bg-slate-50 dark:hover:bg-white/5'}
                                             `}
                                         >
                                             <div className="flex items-center gap-4">
@@ -796,12 +803,11 @@ export default function BookingPage() {
                                                         <img src={vehicle.image} alt={vehicle.name} className="w-full h-full object-cover" />
                                                     ) : <div className="w-full h-full flex items-center justify-center"><User size={20} className="text-slate-300" /></div>}
                                                 </div>
-
                                                 <div className="flex-1 min-w-0">
                                                     <div className="flex justify-between items-start mb-1">
-                                                        <span className={`block font-bold text-sm ${isSelected ? 'text-secondary dark:text-secondary' : 'text-slate-900 dark:text-white'}`}>
+                                                        <span className={`block font-bold text-sm ${isSelected ? 'text-emerald-900 dark:text-emerald-400' : 'text-slate-900 dark:text-white'}`}>
                                                             {vehicle.name}
-                                                            {vehicle.name.includes('GMC') && <span className="ml-2 text-[10px] bg-amber-100 text-amber-700 border border-amber-200 px-1.5 py-0.5 rounded-full">VIP</span>}
+                                                            {vehicle.name.includes('GMC') && <span className="ml-2 text-[10px] bg-gold/20 text-emerald-900 border border-gold/30 px-1.5 py-0.5 rounded-full">VIP</span>}
                                                         </span>
                                                         <div className="text-right shrink-0 ml-2">
 
@@ -832,7 +838,7 @@ export default function BookingPage() {
                                                         <span className="font-bold text-sm min-w-[1.5rem] text-center">{quantity}</span>
                                                         <button
                                                             onClick={(e) => { e.stopPropagation(); handleVehicleQuantityChange(vehicle.id, 1); }}
-                                                            className="w-8 h-8 flex items-center justify-center rounded-md bg-secondary text-white hover:bg-secondary/90"
+                                                            className="w-8 h-8 flex items-center justify-center rounded-md bg-gold text-white hover:bg-gold/90 shadow-sm"
                                                         >
                                                             +
                                                         </button>
@@ -840,7 +846,7 @@ export default function BookingPage() {
                                                 ) : (
                                                     <button
                                                         onClick={(e) => { e.stopPropagation(); handleVehicleQuantityChange(vehicle.id, 1); }}
-                                                        className="text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg hover:bg-secondary hover:text-white hover:border-secondary transition-all"
+                                                        className="text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg hover:bg-gold hover:text-white hover:border-gold transition-all"
                                                     >
                                                         Add Vehicle
                                                     </button>
@@ -869,17 +875,17 @@ export default function BookingPage() {
                                 whileHover={{ y: -6 }}
                                 onClick={() => !isSelected && handleVehicleQuantityChange(vehicle.id, 1)}
                                 className={`
-                                    relative rounded-3xl transition-all duration-300 group overflow-hidden flex flex-col cursor-pointer
+                                    relative rounded-3xl transition-all duration-300 group overflow-hidden flex flex-col cursor-pointer glass-card-emerald
                                     ${isSelected
-                                        ? 'bg-white dark:bg-slate-900 border-2 border-secondary shadow-[0_0_30px_rgba(212,175,55,0.15)] ring-1 ring-secondary/20'
-                                        : 'bg-white/80 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-secondary/30 hover:shadow-xl'
+                                        ? 'border-2 border-gold shadow-[0_0_30px_rgba(212,175,55,0.15)] ring-1 ring-gold/20'
+                                        : 'bg-white/80 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-gold/30 hover:shadow-xl hover:shadow-gold/5'
                                     }
                                 `}
                             >
                                 {/* Image Container */}
                                 <div className={`
                                     relative h-56 w-full overflow-hidden 
-                                    ${isSelected ? 'bg-slate-50 dark:bg-slate-800/50' : 'bg-slate-100/50 dark:bg-slate-950/50'}
+                                    ${isSelected ? 'bg-gradient-to-br from-slate-50 to-gold/5 dark:from-slate-900 dark:to-gold/10' : 'bg-slate-100/50 dark:bg-slate-950/50'}
                                     transition-colors duration-300
                                 `}>
                                     {vehicle.image ? (
@@ -897,10 +903,10 @@ export default function BookingPage() {
                                     {/* Features Badges - Absolute */}
                                     <div className="absolute top-4 left-4 flex flex-col gap-2">
                                         {vehicle.name.includes('GMC') && (
-                                            <span className="bg-slate-900 text-white text-[10px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-wider border border-slate-700">Premium</span>
+                                            <span className="bg-gradient-royal-gold text-white text-[10px] font-bold px-3 py-1 rounded shadow-lg uppercase tracking-wider border border-white/20">Premium</span>
                                         )}
                                         {vehicle.name.includes('Hiace') && (
-                                            <span className="bg-blue-600 text-white text-[10px] font-bold px-2 py-1 rounded shadow-lg uppercase tracking-wider">Group</span>
+                                            <span className="bg-emerald-600 text-white text-[10px] font-bold px-3 py-1 rounded shadow-lg uppercase tracking-wider">Group</span>
                                         )}
                                     </div>
 
@@ -908,8 +914,8 @@ export default function BookingPage() {
                                     <div className={`
                                         absolute bottom-4 right-4 px-4 py-2 rounded-xl shadow-lg border backdrop-blur-md
                                         ${isSelected
-                                            ? 'bg-secondary text-white border-secondary'
-                                            : 'bg-white/90 dark:bg-slate-900/90 text-slate-900 dark:text-white border-white/20'
+                                            ? 'bg-gradient-royal-gold text-white border-white/20'
+                                            : 'bg-white/90 dark:bg-slate-900/90 text-emerald-950 dark:text-white border-white/20'
                                         }
                                     `}>
                                         {bookingData.routeId === 'custom' ? (
@@ -933,12 +939,12 @@ export default function BookingPage() {
                                 <div className="p-6 flex-1 flex flex-col">
                                     <div className="flex justify-between items-start mb-4">
                                         <div>
-                                            <h3 className={`text-xl font-bold mb-1 ${isSelected ? 'text-secondary' : 'text-slate-900 dark:text-white'}`}>
+                                            <h3 className={`text-xl font-bold mb-1 ${isSelected ? 'text-emerald-900 dark:text-gold' : 'text-slate-900 dark:text-white'}`}>
                                                 {vehicle.name}
                                             </h3>
                                             <div className="flex items-center gap-3 text-sm text-slate-500 font-medium">
-                                                <span className="flex items-center gap-1.5"><Users size={14} /> {vehicle.capacity}</span>
-                                                <span className="flex items-center gap-1.5"><Luggage size={14} /> {vehicle.luggage}</span>
+                                                <span className="flex items-center gap-1.5"><Users size={14} className="text-gold" /> {vehicle.capacity}</span>
+                                                <span className="flex items-center gap-1.5"><Luggage size={14} className="text-gold" /> {vehicle.luggage}</span>
                                             </div>
                                         </div>
 
@@ -952,10 +958,10 @@ export default function BookingPage() {
                                                     >
                                                         -
                                                     </button>
-                                                    <span className="font-bold text-slate-900 dark:text-white w-6 text-center">{quantity}</span>
+                                                    <span className="font-bold text-emerald-900 dark:text-white w-6 text-center">{quantity}</span>
                                                     <button
                                                         onClick={(e) => { e.stopPropagation(); handleVehicleQuantityChange(vehicle.id, 1); }}
-                                                        className="w-8 h-8 flex items-center justify-center rounded-md bg-secondary text-white hover:bg-secondary/90 transition-colors shadow-sm"
+                                                        className="w-8 h-8 flex items-center justify-center rounded-md bg-gradient-royal-gold text-white hover:shadow-lg transition-all shadow-sm"
                                                     >
                                                         +
                                                     </button>
@@ -963,7 +969,7 @@ export default function BookingPage() {
                                             ) : (
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); handleVehicleQuantityChange(vehicle.id, 1); }}
-                                                    className="px-4 py-1.5 text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-secondary dark:hover:text-secondary transition-colors"
+                                                    className="px-4 py-1.5 text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-gold dark:hover:text-gold transition-colors"
                                                 >
                                                     Select
                                                 </button>
@@ -971,10 +977,10 @@ export default function BookingPage() {
                                         </div>
                                     </div>
 
-                                    <div className="mt-auto pt-4 border-t border-slate-100 dark:border-dashed dark:border-slate-800 grid grid-cols-2 gap-2">
+                                    <div className="mt-auto pt-4 border-t border-emerald-100/50 dark:border-dashed dark:border-emerald-800/30 grid grid-cols-2 gap-2">
                                         {vehicle.features.slice(0, 4).map((feature, idx) => (
                                             <div key={idx} className="flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400">
-                                                <CheckCircle size={12} className="text-emerald-500 shrink-0" />
+                                                <CheckCircle size={12} className="text-gold shrink-0" />
                                                 <span className="truncate">{feature}</span>
                                             </div>
                                         ))}
@@ -1003,14 +1009,14 @@ export default function BookingPage() {
                 <p className="text-slate-500 text-lg">Help us coordinate your perfect pickup</p>
             </div>
 
-            <div className="glass-card p-6 md:p-8 rounded-3xl border border-white/20 dark:border-slate-700/50 shadow-xl relative overflow-hidden">
+            <div className="glass-card-emerald p-6 md:p-8 rounded-3xl border border-white/20 dark:border-slate-700/50 shadow-xl relative overflow-hidden">
                 {/* Decorative Background */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-secondary to-transparent opacity-50" />
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-50" />
 
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
                     <div className="space-y-3">
                         <label className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">
-                            <Calendar size={14} className="text-secondary" /> Pickup Date
+                            <Calendar size={14} className="text-gold" /> Pickup Date
                         </label>
                         <div className="relative group">
                             <input
@@ -1025,7 +1031,7 @@ export default function BookingPage() {
                                     updateData('date', newDate);
                                 }}
                                 min={new Date().toISOString().split('T')[0]}
-                                className="w-full premium-input rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 text-base font-medium [color-scheme:light] dark:[color-scheme:dark]"
+                                className="w-full premium-input rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 text-base font-medium [color-scheme:light] dark:[color-scheme:dark] focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all"
                             />
                             {errors.date && <div className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500"><Info size={18} /></div>}
                         </div>
@@ -1034,7 +1040,7 @@ export default function BookingPage() {
 
                     <div className="space-y-3">
                         <label className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">
-                            <Clock size={14} className="text-secondary" /> Pickup Time
+                            <Clock size={14} className="text-gold" /> Pickup Time
                         </label>
                         <div className="relative group">
                             <input
@@ -1051,7 +1057,7 @@ export default function BookingPage() {
                                     newTime.setMinutes(minutes);
                                     updateData('time', newTime);
                                 }}
-                                className="w-full premium-input rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 text-base font-medium [color-scheme:light] dark:[color-scheme:dark]"
+                                className="w-full premium-input rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 text-base font-medium [color-scheme:light] dark:[color-scheme:dark] focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all"
                             />
                             {errors.time && <div className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500"><Info size={18} /></div>}
                         </div>
@@ -1072,11 +1078,11 @@ export default function BookingPage() {
                         <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Full Name *</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <User size={18} className="text-slate-400 group-focus-within:text-secondary transition-colors" />
+                                <User size={18} className="text-slate-400 group-focus-within:text-gold transition-colors" />
                             </div>
                             <input
                                 type="text"
-                                className="w-full premium-input rounded-xl pl-11 pr-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 font-medium placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all focus:ring-2 focus:ring-secondary/20"
+                                className="w-full premium-input rounded-xl pl-11 pr-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 font-medium placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all focus:border-gold focus:ring-4 focus:ring-gold/10"
                                 value={bookingData.name}
                                 onChange={(e) => updateData('name', e.target.value)}
                                 placeholder="Your full name"
@@ -1109,7 +1115,7 @@ export default function BookingPage() {
                                 { value: "Other", label: "Other", icon: "🌍" }
                             ]}
                             placeholder="Select Country"
-                            className="w-full premium-input rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50"
+                            className="w-full premium-input rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 focus:border-gold focus:ring-4 focus:ring-gold/10"
                             icon={<Globe size={18} />}
                         />
                     </div>
@@ -1119,11 +1125,11 @@ export default function BookingPage() {
                         <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Phone *</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <Phone size={18} className="text-slate-400 group-focus-within:text-secondary transition-colors" />
+                                <Phone size={18} className="text-slate-400 group-focus-within:text-gold transition-colors" />
                             </div>
                             <input
                                 type="tel"
-                                className="w-full premium-input rounded-xl pl-11 pr-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 font-medium placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all focus:ring-2 focus:ring-secondary/20"
+                                className="w-full premium-input rounded-xl pl-11 pr-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 font-medium placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all focus:border-gold focus:ring-4 focus:ring-gold/10"
                                 value={bookingData.phone}
                                 onChange={(e) => updateData('phone', e.target.value)}
                                 placeholder="+966 54 549 4921"
@@ -1137,11 +1143,11 @@ export default function BookingPage() {
                         <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Email Address *</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <Mail size={18} className="text-slate-400 group-focus-within:text-secondary transition-colors" />
+                                <Mail size={18} className="text-slate-400 group-focus-within:text-gold transition-colors" />
                             </div>
                             <input
                                 type="email"
-                                className="w-full premium-input rounded-xl pl-11 pr-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 font-medium placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all focus:ring-2 focus:ring-secondary/20"
+                                className="w-full premium-input rounded-xl pl-11 pr-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 font-medium placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all focus:border-gold focus:ring-4 focus:ring-gold/10"
                                 value={bookingData.email}
                                 onChange={(e) => updateData('email', e.target.value)}
                                 placeholder="name@example.com"
@@ -1206,12 +1212,12 @@ export default function BookingPage() {
                         <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Passengers</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <Users size={18} className="text-slate-400 group-focus-within:text-secondary transition-colors" />
+                                <Users size={18} className="text-slate-400 group-focus-within:text-gold transition-colors" />
                             </div>
                             <input
                                 type="number"
                                 min="1"
-                                className="w-full bg-white dark:bg-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-secondary transition-all text-sm"
+                                className="w-full bg-white dark:bg-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-gold transition-all text-sm"
                                 value={bookingData.passengers}
                                 onChange={(e) => updateData('passengers', parseInt(e.target.value) || '')}
                                 placeholder="1"
@@ -1224,12 +1230,12 @@ export default function BookingPage() {
                         <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Luggage Items</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                                <Luggage size={18} className="text-slate-400 group-focus-within:text-secondary transition-colors" />
+                                <Luggage size={18} className="text-slate-400 group-focus-within:text-gold transition-colors" />
                             </div>
                             <input
                                 type="number"
                                 min="0"
-                                className="w-full bg-white dark:bg-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-secondary transition-all text-sm"
+                                className="w-full bg-white dark:bg-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-gold transition-all text-sm"
                                 value={bookingData.luggage}
                                 onChange={(e) => updateData('luggage', parseInt(e.target.value) || 0)}
                                 placeholder="0"
@@ -1242,7 +1248,7 @@ export default function BookingPage() {
                     <div className="relative group col-span-2">
                         <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Special Requests / Notes</label>
                         <textarea
-                            className="w-full bg-white dark:bg-slate-800 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-secondary transition-all text-sm min-h-[100px] resize-y"
+                            className="w-full bg-white dark:bg-slate-800 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-gold transition-all text-sm min-h-[100px] resize-y"
                             value={bookingData.notes || ''}
                             onChange={(e) => updateData('notes', e.target.value)}
                             placeholder="Any special instructions for the driver..."
@@ -1285,7 +1291,7 @@ export default function BookingPage() {
                 {/* Digital Ticket Container */}
                 <div className="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-slate-100 dark:border-slate-800 relative">
                     {/* Top Gold Bar */}
-                    <div className="h-2 w-full bg-gradient-to-r from-secondary/80 to-[#B38E2D]" />
+                    <div className="h-2 w-full bg-gradient-royal-gold" />
 
                     <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-100 dark:divide-slate-800">
 
@@ -1294,8 +1300,8 @@ export default function BookingPage() {
                             {/* Route Visual */}
                             <div className="flex items-start gap-4">
                                 <div className="flex flex-col items-center pt-2">
-                                    <div className="w-3 h-3 rounded-full bg-secondary ring-4 ring-secondary/20" />
-                                    <div className="w-0.5 h-16 bg-gradient-to-b from-secondary to-slate-200 dark:to-slate-800 my-1" />
+                                    <div className="w-3 h-3 rounded-full bg-gold ring-4 ring-gold/20" />
+                                    <div className="w-0.5 h-16 bg-gradient-to-b from-gold to-slate-200 dark:to-slate-800 my-1" />
                                     <div className="w-3 h-3 rounded-full bg-slate-900 dark:bg-white ring-4 ring-slate-100 dark:ring-slate-700" />
                                 </div>
                                 <div className="flex-1 space-y-8">
@@ -1305,9 +1311,9 @@ export default function BookingPage() {
                                             {bookingData.pickup || (route ? splitRouteName(route.name)[0] : 'Unknown Pickup')}
                                         </h3>
                                         <div className="flex items-center gap-2 mt-2 text-sm font-medium text-slate-500">
-                                            <Calendar size={14} className="text-secondary" /> {bookingData.date?.toLocaleDateString()}
+                                            <Calendar size={14} className="text-gold" /> {bookingData.date?.toLocaleDateString()}
                                             <span className="w-1 h-1 rounded-full bg-slate-300" />
-                                            <Clock size={14} className="text-secondary" /> {bookingData.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                            <Clock size={14} className="text-gold" /> {bookingData.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                         </div>
                                     </div>
                                     <div>
@@ -1324,7 +1330,7 @@ export default function BookingPage() {
                                         )}
                                     </div>
                                 </div>
-                                <button onClick={() => setStep(1)} className="text-xs font-bold text-secondary hover:text-[#B38E2D] hover:underline underline-offset-4">
+                                <button onClick={() => setStep(1)} className="text-xs font-bold text-gold hover:text-emerald-600 transition-colors hover:underline underline-offset-4">
                                     EDIT
                                 </button>
                             </div>
@@ -1332,10 +1338,10 @@ export default function BookingPage() {
                             <div className="border-t border-slate-100 dark:border-slate-800 pt-6">
                                 <div className="flex justify-between items-start mb-4">
                                     <h4 className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                                        <Briefcase size={18} className="text-secondary" />
+                                        <Briefcase size={18} className="text-gold" />
                                         Selected Vehicles
                                     </h4>
-                                    <button onClick={() => setStep(2)} className="text-xs font-bold text-secondary hover:text-[#B38E2D] hover:underline underline-offset-4">
+                                    <button onClick={() => setStep(2)} className="text-xs font-bold text-gold hover:text-emerald-600 transition-colors hover:underline underline-offset-4">
                                         EDIT
                                     </button>
                                 </div>
@@ -1366,7 +1372,7 @@ export default function BookingPage() {
                             <div className="mb-8">
                                 <div className="flex justify-between items-start mb-4">
                                     <h4 className="font-bold text-slate-900 dark:text-white text-sm uppercase tracking-wider">Passenger</h4>
-                                    <button onClick={() => setStep(3)} className="text-[10px] font-bold text-secondary hover:text-[#B38E2D] hover:underline underline-offset-4">
+                                    <button onClick={() => setStep(3)} className="text-[10px] font-bold text-gold hover:text-emerald-600 transition-colors hover:underline underline-offset-4">
                                         EDIT
                                     </button>
                                 </div>
@@ -1388,8 +1394,8 @@ export default function BookingPage() {
                                     </div>
                                 </div>
                                 {(bookingData.notes) && (
-                                    <div className="mt-4 p-3 bg-yellow-50 dark:bg-yellow-900/10 border border-yellow-100 dark:border-yellow-900/30 rounded-lg">
-                                        <p className="text-[10px] uppercase font-bold text-yellow-600 dark:text-yellow-500 mb-1">Notes</p>
+                                    <div className="mt-4 p-3 bg-gold/5 dark:bg-gold/10 border border-gold/20 dark:border-gold/30 rounded-lg">
+                                        <p className="text-[10px] uppercase font-bold text-gold mb-1">Notes</p>
                                         <p className="text-xs text-slate-700 dark:text-slate-300 italic">"{bookingData.notes}"</p>
                                     </div>
                                 )}
@@ -1506,7 +1512,7 @@ export default function BookingPage() {
                     <div className="text-center md:text-left text-slate-600 dark:text-slate-300 space-y-4 text-base md:text-lg leading-relaxed print:hidden">
                         <p>Dear <span className="font-bold text-slate-900 dark:text-white capitalize">{bookingData.name}</span>,</p>
                         <p>
-                            Thank you for choosing <span className="font-semibold text-secondary text-nowrap">Al Aqsa Umrah Transport</span>.
+                            Thank you for choosing <span className="font-semibold text-secondary text-nowrap">Al Kiswah Umrah Transport</span>.
                         </p>
                     </div>
 
@@ -1519,10 +1525,10 @@ export default function BookingPage() {
                         <div className="hidden print:flex flex-row justify-between items-center p-8 border-b border-slate-100">
                             <div className="flex items-center gap-4">
                                 <div className="relative w-16 h-16">
-                                    <Image src="/logo.png" alt="Al Aqsa" fill className="object-contain" />
+                                    <Image src="/logo.png" alt="Al Kiswah" fill className="object-contain" />
                                 </div>
                                 <div>
-                                    <h1 className="text-xl font-bold text-slate-900">Al Aqsa Transport</h1>
+                                    <h1 className="text-xl font-bold text-slate-900">Al Kiswah Transport</h1>
                                     <p className="text-sm text-slate-500 font-serif">النقل المعتمر الأقصى</p>
                                 </div>
                             </div>
@@ -1604,7 +1610,7 @@ export default function BookingPage() {
                                 <p className="text-lg font-serif italic text-slate-700 mb-2">"The reward of Umrah is expiation for the sins committed between it and the next Umrah."</p>
                                 <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">– Prophet Muhammad (S.A.W.W)</p>
                                 <div className="mt-4 text-[10px] text-slate-300">
-                                    Generated by Al Aqsa Transport System
+                                    Generated by Al Kiswah Transport System
                                 </div>
                             </div>
                         </div>
@@ -1770,18 +1776,18 @@ export default function BookingPage() {
                                 <div className="flex flex-col items-center z-10">
                                     <div className={`
                                         w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 ring-4 ring-white dark:ring-slate-950 mb-1
-                                        ${step >= s.step ? 'bg-secondary text-white shadow-lg shadow-secondary/30 scale-110' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'}
+                                        ${step >= s.step ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/30 scale-110' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'}
                                     `}>
                                         {step > s.step ? <CheckCircle size={18} /> : s.step}
                                     </div>
-                                    <span className={`text-[10px] font-bold uppercase tracking-wider transition-colors duration-300 ${step >= s.step ? 'text-secondary' : 'text-slate-400'}`}>
+                                    <span className={`text-[10px] font-bold uppercase tracking-wider transition-colors duration-300 ${step >= s.step ? 'text-amber-600' : 'text-slate-400'}`}>
                                         {s.label}
                                     </span>
                                 </div>
                                 {s.step < 4 && (
                                     <div className={`
                                         flex-1 h-1 mx-4 rounded-full transition-all duration-500 hidden sm:block mt-5
-                                        ${step > s.step ? 'bg-secondary' : 'bg-slate-100 dark:bg-slate-800'}
+                                        ${step > s.step ? 'bg-amber-500' : 'bg-slate-100 dark:bg-slate-800'}
                                     `} />
                                 )}
                             </div>
@@ -1819,7 +1825,7 @@ export default function BookingPage() {
                                 <button
                                     onClick={nextStep}
                                     disabled={isSubmitting}
-                                    className={`ml-auto flex items-center gap-2 px-8 py-3 bg-secondary text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:bg-[#B38E2D]/90 transition-all hover:-translate-y-1 active:translate-y-0 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                                    className={`ml-auto flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold rounded-xl shadow-lg shadow-amber-500/20 hover:shadow-xl hover:shadow-amber-500/30 hover:-translate-y-1 active:translate-y-0 transition-all ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                                 >
                                     {step === 4 ? (isSubmitting ? 'Securing Ride...' : 'Secure Your Safe Ride') : 'Continue'}
                                     {!isSubmitting && <ArrowRight size={20} />}
@@ -1839,7 +1845,7 @@ export default function BookingPage() {
                                     <span className="text-xs text-slate-500 font-medium">Official License</span>
                                 </div>
                                 <div className="flex flex-col items-center justify-center gap-1 group cursor-default opacity-70 hover:opacity-100 transition-opacity">
-                                    <Navigation className="w-5 h-5 text-blue-500" />
+                                    <Navigation className="w-5 h-5 text-amber-500" />
                                     <span className="text-xs text-slate-500 font-medium">GPS Tracked</span>
                                 </div>
                                 <div className="flex flex-col items-center justify-center gap-1 group cursor-default opacity-70 hover:opacity-100 transition-opacity">

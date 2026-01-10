@@ -3,10 +3,10 @@ import autoTable from 'jspdf-autotable';
 
 // Define font and styling constants
 const COMPANY_NAME = "Al Kiswah Transport";
-const COMPANY_ISLAMIC_NAME = "الأقصى لنقل المعتمرين";
+const COMPANY_ISLAMIC_NAME = "الكسوة لنقل المعتمرين";
 const COMPANY_ADDRESS = "Makkah Al Mukarramah, Saudi Arabia";
-const COMPANY_PHONE = "+966 50 123 4567";
-const COMPANY_EMAIL = "bookings@alkiswahtransport.com";
+const COMPANY_PHONE = "+966 54 549 4921";
+const COMPANY_EMAIL = "bookings@alkiswahumrahtransport.com";
 const PRIMARY_COLOR = "#0f172a"; // slate-900
 
 interface InvoiceData {
@@ -23,7 +23,7 @@ export const generateBookingInvoice = (booking: any) => {
     doc.setFontSize(22);
     doc.setTextColor(PRIMARY_COLOR);
     doc.setFont("helvetica", "bold");
-    doc.text("Al Aqsa", 20, 20);
+    doc.text("Al Kiswah", 20, 20);
     doc.setFontSize(12);
     doc.setFont("helvetica", "normal");
     doc.text("Transport", 20, 26);
@@ -121,7 +121,7 @@ export const generateBookingInvoice = (booking: any) => {
     doc.setFont("helvetica", "italic");
     doc.setTextColor(150, 150, 150);
     doc.text("Thank you for your business.", 105, 280, { align: "center" });
-    doc.text("Al Aqsa Transport - CR: 1234567890", 105, 285, { align: "center" });
+    doc.text("Al Kiswah Transport - CR: 1234567890", 105, 285, { align: "center" });
 
     // Save
     doc.save(`Invoice-${booking._id}.pdf`);

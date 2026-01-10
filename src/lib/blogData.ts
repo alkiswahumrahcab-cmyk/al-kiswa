@@ -71,7 +71,7 @@ export const blogPosts: BlogPost[] = [
             <h3>3. باصات النقل الجماعي VIP</h3>
             <p>خيار اقتصادي للمجموعات الكبيرة، لكنه يستغرق وقتاً أطول (حوالي 5-6 ساعات) ولا يوفر الخصوصية التي يوفرها التاكسي الخاص.</p>
 
-            <h3>لماذا يختار المعتمرون "الأقصى للنقل"؟</h3>
+            <h3>لماذا يختار المعتمرون "الكسوة للنقل"؟</h3>
             <p>نحن نوفر خدمة <strong>توصيل من مكة للمدينة</strong> بأحدث السيارات موديل 2024/2025 وسائقين محترفين يعرفون الطريق جيداً. نضمن لك:</p>
             <ul>
                 <li>سعر ثابت وشامل (بدون رسوم خفية).</li>
@@ -90,7 +90,7 @@ export const blogPosts: BlogPost[] = [
         readTime: "5 دقائق للقراءة",
         image: "/images/routes/makkah-madinah-route-hero.png",
         alt: "Makkah to Madinah Transport - GMC Yukon on Highway",
-        author: "فريق الأقصى",
+        author: "فريق الكسوة",
         tags: ["نقل معتمرين", "مكة المدينة", "حجز تاكسي", "نصائح العمرة"]
     },
     {
@@ -130,7 +130,7 @@ export const blogPosts: BlogPost[] = [
         readTime: "6 min read",
         image: "/images/fleet/gmc-yukon-hero-professional.png",
         alt: "Private GMC Yukon Taxi vs Haramain Train for Umrah Transport",
-        author: "Al Aqsa Team",
+        author: "Al Kiswah Team",
         tags: ["Haramain Train", "Private Taxi", "Makkah Transport", "Family Travel"]
     },
     {
@@ -282,7 +282,7 @@ export const blogPosts: BlogPost[] = [
                 "The journey was smooth and the car was incredibly comfortable. It made our trip so much easier." – Abdullah, UK
             </blockquote>
 
-            <p>Don't compromise on your comfort. <a href="/booking">Book a premium ride</a> with Al Aqsa Umrah Transport today.</p>
+            <p>Don't compromise on your comfort. <a href="/booking">Book a premium ride</a> with Al Kiswah Umrah Transport today.</p>
         `,
         category: "Experience",
         date: "Nov 25, 2024",
@@ -327,7 +327,7 @@ export const respectSectionData = {
         text: "Indeed, in the Messenger of Allah (S.A.W.W) you have an excellent example for whoever has hope in Allah and the Last Day and remembers Allah often.",
         reference: "Qur’an 33:21"
     },
-    intro: "At **Al Aqsa Umrah Transport**, we believe that every journey of a pilgrim is sacred. In serving the guests of Allah, we draw inspiration from the noble character of Prophet Muhammad (S.A.W.W). His life was a beacon of mercy, humility, and respect — guiding us to treat every traveler with dignity, compassion, and care.",
+    intro: "At **Al Kiswah Umrah Transport**, we believe that every journey of a pilgrim is sacred. In serving the guests of Allah, we draw inspiration from the noble character of Prophet Muhammad (S.A.W.W). His life was a beacon of mercy, humility, and respect — guiding us to treat every traveler with dignity, compassion, and care.",
     commitments: [
         {
             text: "Welcoming pilgrims with kindness and sincerity",

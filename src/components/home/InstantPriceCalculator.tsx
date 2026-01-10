@@ -107,7 +107,7 @@ export default function InstantPriceCalculator() {
                                                 {priceDetails ? priceDetails.price.toLocaleString() : 0}
                                             </div>
                                             {priceDetails && priceDetails.discountApplied > 0 && (
-                                                <span className="text-green-500 text-sm font-bold mt-1 bg-green-500/10 px-2 py-0.5 rounded-full">
+                                                <span className="text-emerald-400 text-sm font-bold mt-1 bg-emerald-400/10 px-2 py-0.5 rounded-full">
                                                     {priceDetails.discountType === 'percentage'
                                                         ? `${Math.round((priceDetails.discountApplied / priceDetails.originalPrice) * 100)}% OFF`
                                                         : `${priceDetails.discountApplied} SAR OFF`}

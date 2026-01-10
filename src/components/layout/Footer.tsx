@@ -2,10 +2,8 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from './Footer.module.css';
-import { Mail, MapPin, Phone, Facebook, Instagram, Twitter, Linkedin, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, Facebook, Instagram, Twitter, Linkedin, Send, ArrowRight } from 'lucide-react';
 import { useSettings } from '@/context/SettingsContext';
-import GlassButton from '@/components/ui/GlassButton';
 
 export default function Footer() {
     const { settings } = useSettings();
@@ -14,122 +12,117 @@ export default function Footer() {
 
     const { contact, general } = settings;
 
-
-
     return (
-        <footer className={styles.footer}>
-            <div className={styles.container}>
-                <div className={styles.grid}>
+        <footer className="bg-[#022c22] relative overflow-hidden pt-24 pb-12 text-white">
+            {/* Background Pattern - Heritage */}
+            <div className="absolute inset-0 bg-heritage opacity-[0.03] pointer-events-none mix-blend-overlay" />
+
+            {/* Ambient Glows */}
+            <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-[#10b981]/10 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#d4af37]/5 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
+
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-20">
                     {/* Brand Identity & Contact */}
-                    <div className={styles.column}>
-                        <div className={styles.brand}>
-                            <Link href="/" className={styles.logoLink}>
+                    <div className="space-y-8">
+                        <Link href="/" className="inline-flex items-center gap-4 group">
+                            <div className="relative w-16 h-16 bg-white/5 backdrop-blur-sm rounded-2xl p-2 shadow-2xl border border-gold/20 overflow-hidden group-hover:border-gold group-hover:shadow-[0_0_20px_rgba(191,163,90,0.3)] transition-all duration-500">
                                 <Image
                                     src="/logo.png"
                                     alt="Al Kiswah Transport"
-                                    width={90}
-                                    height={90}
-                                    className={styles.logoImage}
-                                    style={{ objectFit: 'contain' }}
+                                    fill
+                                    className="object-contain p-1"
                                 />
-                                <div className={styles.logoText}>
-                                    <span className={styles.brandName}>Al Kiswah</span>
-                                    <span className={styles.brandType}>Transport</span>
-                                    <span className={styles.brandNameArabic}>الكسوة للنقل</span>
-                                </div>
-                            </Link>
-                            <p className={styles.tagline}>{general.description}</p>
-                        </div>
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="font-playfair font-bold text-3xl text-white leading-none tracking-tight">Al Kiswah</span>
+                                <span className="text-gold text-xs font-bold tracking-[0.3em] uppercase mt-1.5 opacity-90">Transport</span>
+                            </div>
+                        </Link>
+                        <p className="text-emerald-100/70 leading-relaxed max-w-sm font-light">
+                            {general.description}
+                        </p>
 
-                        <div className={styles.socials}>
-                            {contact.social.facebook && <a href={contact.social.facebook} target="_blank" rel="noreferrer" className={styles.socialIcon} aria-label="Facebook"><Facebook size={20} /></a>}
-                            {contact.social.instagram && <a href={contact.social.instagram} target="_blank" rel="noreferrer" className={styles.socialIcon} aria-label="Instagram"><Instagram size={20} /></a>}
-                            {contact.social.twitter && <a href={contact.social.twitter} target="_blank" rel="noreferrer" className={styles.socialIcon} aria-label="Twitter"><Twitter size={20} /></a>}
-                            {contact.social.linkedin && <a href={contact.social.linkedin} target="_blank" rel="noreferrer" className={styles.socialIcon} aria-label="LinkedIn"><Linkedin size={20} /></a>}
-                            {contact.social.tiktok && (
-                                <a href={contact.social.tiktok} target="_blank" rel="noreferrer" className={styles.socialIcon} aria-label="TikTok">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" /></svg>
-                                </a>
-                            )}
+                        <div className="flex gap-4 pt-2">
+                            {contact.social.facebook && <a href={contact.social.facebook} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#1877F2] hover:border-[#1877F2] hover:scale-110 transition-all duration-300"><Facebook size={18} /></a>}
+                            {contact.social.instagram && <a href={contact.social.instagram} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-gradient-to-tr hover:from-[#f9ce34] hover:via-[#ee2a7b] hover:to-[#6228d7] hover:border-transparent hover:scale-110 transition-all duration-300"><Instagram size={18} /></a>}
+                            {contact.social.twitter && <a href={contact.social.twitter} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#1DA1F2] hover:border-[#1DA1F2] hover:scale-110 transition-all duration-300"><Twitter size={18} /></a>}
+                            {contact.social.linkedin && <a href={contact.social.linkedin} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:scale-110 transition-all duration-300"><Linkedin size={18} /></a>}
                         </div>
+                    </div>
 
-                        <div className={styles.contactInfo}>
+                    {/* Quick Link Groups */}
+                    <div>
+                        <h3 className="text-xl font-bold font-playfair text-white mb-8 relative inline-flex items-center gap-3">
+                            <span className="w-8 h-[1px] bg-gold/50"></span>
+                            Company
+                        </h3>
+                        <ul className="space-y-4">
+                            <li><Link href="/about" className="text-emerald-100/60 hover:text-gold hover:pl-2 transition-all duration-300 flex items-center gap-2 text-sm">About Us</Link></li>
+                            <li><Link href="/blog" className="text-emerald-100/60 hover:text-gold hover:pl-2 transition-all duration-300 flex items-center gap-2 text-sm">Blog & Updates</Link></li>
+                            <li><Link href="/safety" className="text-emerald-100/60 hover:text-gold hover:pl-2 transition-all duration-300 flex items-center gap-2 text-sm">Safety Guide</Link></li>
+                            <li><Link href="/track-booking" className="text-emerald-100/60 hover:text-gold hover:pl-2 transition-all duration-300 flex items-center gap-2 text-sm">Track Booking</Link></li>
+                            <li><Link href="/contact" className="text-emerald-100/60 hover:text-gold hover:pl-2 transition-all duration-300 flex items-center gap-2 text-sm">Contact Support</Link></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 className="text-xl font-bold font-playfair text-white mb-8 relative inline-flex items-center gap-3">
+                            <span className="w-8 h-[1px] bg-gold/50"></span>
+                            Services
+                        </h3>
+                        <ul className="space-y-4">
+                            <li><Link href="/services/jeddah-airport-transfer" className="text-emerald-100/60 hover:text-gold hover:pl-2 transition-all duration-300 flex items-center gap-2 text-sm">Jeddah Airport Transfer</Link></li>
+                            <li><Link href="/services/makkah-madinah-taxi" className="text-emerald-100/60 hover:text-gold hover:pl-2 transition-all duration-300 flex items-center gap-2 text-sm">Makkah ⇄ Madinah Taxi</Link></li>
+                            <li><Link href="/services/madinah-airport-transfer" className="text-emerald-100/60 hover:text-gold hover:pl-2 transition-all duration-300 flex items-center gap-2 text-sm">Madinah Airport Transfer</Link></li>
+                            <li><Link href="/services/ziyarat-tours" className="text-emerald-100/60 hover:text-gold hover:pl-2 transition-all duration-300 flex items-center gap-2 text-sm">Ziyarat Tours</Link></li>
+                            <li><Link href="/services/intercity-transfer" className="text-emerald-100/60 hover:text-gold hover:pl-2 transition-all duration-300 flex items-center gap-2 text-sm">Intercity Transfer</Link></li>
+                        </ul>
+                    </div>
+
+                    {/* Contact & Newsletter */}
+                    <div className="space-y-8">
+                        <h3 className="text-xl font-bold font-playfair text-white mb-8 relative inline-flex items-center gap-3">
+                            <span className="w-8 h-[1px] bg-gold/50"></span>
+                            Get in Touch
+                        </h3>
+
+                        <div className="space-y-5">
                             {contact.address && (
-                                <a href="https://www.google.com/maps?cid=13304906274217460428" target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
-                                    <MapPin size={18} className={styles.icon} />
-                                    <span>{contact.address}</span>
-                                </a>
+                                <div className="flex items-start gap-4 text-emerald-100/80 group">
+                                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-gold/10 group-hover:text-gold transition-colors">
+                                        <MapPin size={18} />
+                                    </div>
+                                    <span className="text-sm leading-relaxed mt-2">{contact.address}</span>
+                                </div>
                             )}
-                            <a
-                                href={`https://wa.me/${(contact.phone || '').replace(/\D/g, '')}`}
-                                target="_blank"
-                                rel="noreferrer"
-                                className={`${styles.contactItem} ${styles.whatsappButton}`}
-                                style={{ color: '#25D366', fontWeight: 'bold' }}
-                            >
-                                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                                </svg>
-                                <span>WhatsApp Us</span>
-                            </a>
                             {contact.phone && (
-                                <a href={`tel:${contact.phone}`} className={styles.contactItem}>
-                                    <Phone size={18} className={styles.icon} />
-                                    <span>{contact.phone}</span>
+                                <a href={`tel:${contact.phone}`} className="flex items-center gap-4 text-emerald-100/80 hover:text-gold transition-colors group">
+                                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-gold/10 group-hover:text-gold transition-colors">
+                                        <Phone size={18} />
+                                    </div>
+                                    <span className="text-sm font-bold tracking-wide">{contact.phone}</span>
                                 </a>
                             )}
                             {contact.email && (
-                                <a href={`mailto:${contact.email}`} className={styles.contactItem}>
-                                    <Mail size={18} className={styles.icon} />
-                                    <span>{contact.email}</span>
+                                <a href={`mailto:${contact.email}`} className="flex items-center gap-4 text-emerald-100/80 hover:text-gold transition-colors group">
+                                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-gold/10 group-hover:text-gold transition-colors">
+                                        <Mail size={18} />
+                                    </div>
+                                    <span className="text-sm">{contact.email}</span>
                                 </a>
                             )}
                         </div>
-                    </div>
 
-                    {/* Company Links */}
-                    <div className={styles.column}>
-                        <h3 className={styles.heading}>Company</h3>
-                        <ul className={styles.links}>
-                            <li><Link href="/">Home</Link></li>
-                            <li><Link href="/about">About Us</Link></li>
-                            <li><Link href="/blog">Blog & Updates</Link></li>
-                            <li><Link href="/safety">Safety Guide</Link></li>
-                            <li><Link href="/track-booking">Track Booking</Link></li>
-                            <li><Link href="/contact">Contact Support</Link></li>
-                            <li><Link href="/privacy">Privacy Policy</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Services Links */}
-                    <div className={styles.column}>
-                        <h3 className={styles.heading}>Services</h3>
-                        <ul className={styles.links}>
-                            <li><Link href="/services/jeddah-airport-transfer">Jeddah Airport Transfer</Link></li>
-                            <li><Link href="/services/makkah-madinah-taxi">Makkah ⇄ Madinah Taxi</Link></li>
-                            <li><Link href="/services/madinah-airport-transfer">Madinah Airport Transfer</Link></li>
-                            <li><Link href="/services/ziyarat-tours">Ziyarat Tours</Link></li>
-                            <li><Link href="/services/airport-transfers">Airport Transfers</Link></li>
-                            <li><Link href="/services/intercity-transfer">Intercity Transfer</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Fleet & Newsletter */}
-                    <div className={styles.column}>
-                        <h3 className={styles.heading}>Our Fleet</h3>
-                        <ul className={styles.links}>
-                            <li><Link href="/fleet/gmc-yukon-at4">GMC Yukon XL (VIP)</Link></li>
-                            <li><Link href="/fleet/toyota-camry">Toyota Camry</Link></li>
-                            <li><Link href="/fleet/hyundai-staria">Hyundai Staria</Link></li>
-                            <li><Link href="/fleet/hyundai-starex">Hyundai Starex</Link></li>
-                            <li><Link href="/fleet/toyota-hiace">Toyota Hiace</Link></li>
-                        </ul>
-
-                        <div className={styles.newsletter}>
-                            <h4>Newsletter</h4>
-                            <form className={styles.newsletterForm} onSubmit={(e) => e.preventDefault()}>
-                                <input type="email" placeholder="Email" className={styles.input} />
-                                <button type="submit" className={styles.submitBtn} aria-label="Subscribe">
+                        <div className="pt-8 border-t border-white/5">
+                            <h4 className="font-bold text-white text-sm mb-4 font-playfair">Subscribe to Newsletter</h4>
+                            <form className="flex gap-2 relative group" onSubmit={(e) => e.preventDefault()}>
+                                <input
+                                    type="email"
+                                    placeholder="Your email address"
+                                    className="w-full px-5 py-3 rounded-xl bg-white/5 border border-white/10 focus:outline-none focus:border-gold/50 focus:bg-white/10 text-sm text-white placeholder-white/30 transition-all"
+                                />
+                                <button type="submit" className="absolute right-1.5 top-1.5 w-10 h-10 rounded-lg bg-gold text-emerald-950 flex items-center justify-center hover:bg-white hover:scale-105 transition-all duration-300 shadow-lg">
                                     <Send size={16} />
                                 </button>
                             </form>
@@ -137,15 +130,14 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className={styles.bottom}>
-                    <div className={styles.copyright}>
+                <div className="border-t border-white/10 pt-8 mt-4 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-emerald-100/40 font-light">
+                    <div>
                         {general.footerText}
                     </div>
-
-                    <div className={styles.legalLinks}>
-                        <Link href="/privacy">Privacy Policy</Link>
-                        <span className={styles.separator}>|</span>
-                        <Link href="/terms">Terms & Conditions</Link>
+                    <div className="flex items-center gap-8">
+                        <Link href="/privacy" className="hover:text-gold transition-colors">Privacy Policy</Link>
+                        <Link href="/terms" className="hover:text-gold transition-colors">Terms of Service</Link>
+                        <span className="flex items-center gap-1">Made with <span className="text-red-500">❤</span> for the Ummah</span>
                     </div>
                 </div>
             </div>

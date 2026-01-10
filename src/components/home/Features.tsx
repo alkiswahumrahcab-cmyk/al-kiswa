@@ -7,53 +7,56 @@ import FadeIn from '@/components/common/FadeIn';
 
 export default function Features() {
     return (
-        <AnimatedSection className="py-12 md:py-16 relative overflow-hidden">
+        <AnimatedSection className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-b from-white to-mint/20">
             {/* Background Elements */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-                <div className="absolute top-1/4 -left-64 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-                <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" />
+                <div className="absolute top-1/4 -left-64 w-96 h-96 bg-gold/10 rounded-full blur-3xl mix-blend-multiply" />
+                <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl mix-blend-multiply" />
+                {/* Texture */}
+                <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.03] mix-blend-multiply pointer-events-none" />
             </div>
 
-            <div className="container px-[5px] md:px-4">
+            <div className="container px-4">
                 <FadeIn>
-                    <h2 className="text-4xl md:text-5xl font-bold text-center mb-10 font-playfair px-4 md:px-0">
-                        Why Choose Al Kiswah for <span className="text-gradient-gold">Umrah Transport?</span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 font-playfair text-emerald-950 leading-tight">
+                        Why Choose Al Kiswah for <br />
+                        <span className="text-gradient-gold">Your Spiritual Hijrah?</span>
                     </h2>
                 </FadeIn>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-[5px] md:gap-8 bg-white/5 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none dark:divide-white/5">
-                    <GlassCard delay={0.1} className="text-center group hover:bg-white/5 border-none md:border border-white/10 dark:border-white/5 rounded-none md:rounded-3xl shadow-none md:shadow-lg py-10 md:py-6">
-                        <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/5 text-secondary group-hover:scale-110 group-hover:bg-secondary/10 transition-all duration-300 shadow-lg shadow-secondary/5">
-                            <Shield size={32} />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="text-center group relative h-full glass-card-emerald rounded-3xl p-8 hover:-translate-y-2 transition-all duration-500 hover:shadow-2xl hover:shadow-gold/10 hover:border-gold/30 border-t-4 border-t-transparent hover:border-t-gold">
+                        <div className="mb-8 inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-emerald-950/5 to-gold/20 text-emerald-800 group-hover:scale-110 group-hover:bg-gold group-hover:text-white transition-all duration-500 shadow-xl shadow-gold/10">
+                            <Shield size={36} />
                         </div>
-                        <h3 className="text-xl font-bold mb-1 font-playfair tracking-tight">Safe & Trusted Pilgrim Transport</h3>
-                        <p className="text-amber-500 font-bold font-reem-kufi mb-4">نقل آمن وموثوق</p>
-                        <p className="text-muted-foreground leading-relaxed px-4 md:px-0">
+                        <h3 className="text-2xl font-bold mb-2 font-playfair text-slate-800">Safe & Trusted</h3>
+                        <p className="text-emerald-600 font-bold font-reem-kufi mb-4 text-lg">نقل آمن وموثوق</p>
+                        <p className="text-slate-600 leading-relaxed">
                             Officially licensed chauffeurs & well-maintained vehicles. The most trusted choice for safe Makkah to Madinah travel.
                         </p>
-                    </GlassCard>
+                    </div>
 
-                    <GlassCard delay={0.2} className="text-center group hover:bg-white/5 border-none md:border border-white/10 dark:border-white/5 rounded-none md:rounded-3xl shadow-none md:shadow-lg py-10 md:py-6">
-                        <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/5 text-secondary group-hover:scale-110 group-hover:bg-secondary/10 transition-all duration-300 shadow-lg shadow-secondary/5">
-                            <Clock size={32} />
+                    <div className="text-center group relative h-full glass-card-emerald rounded-3xl p-8 hover:-translate-y-2 transition-all duration-500 hover:shadow-2xl hover:shadow-gold/10 hover:border-gold/30 border-t-4 border-t-transparent hover:border-t-gold">
+                        <div className="mb-8 inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-emerald-950/5 to-gold/20 text-emerald-800 group-hover:scale-110 group-hover:bg-gold group-hover:text-white transition-all duration-500 shadow-xl shadow-gold/10">
+                            <Clock size={36} />
                         </div>
-                        <h3 className="text-xl font-bold mb-1 font-playfair tracking-tight">Punctual Airport Transfers</h3>
-                        <p className="text-amber-500 font-bold font-reem-kufi mb-4">دقة في المواعيد</p>
-                        <p className="text-muted-foreground leading-relaxed px-4 md:px-0">
+                        <h3 className="text-2xl font-bold mb-2 font-playfair text-slate-800">Punctual & Reliable</h3>
+                        <p className="text-emerald-600 font-bold font-reem-kufi mb-4 text-lg">دقة في المواعيد</p>
+                        <p className="text-slate-600 leading-relaxed">
                             We track your flight to ensure timely pickups. Reliable Jeddah & Madinah Airport service available 24/7.
                         </p>
-                    </GlassCard>
+                    </div>
 
-                    <GlassCard delay={0.3} className="text-center group hover:bg-white/5 border-none md:border border-white/10 dark:border-white/5 rounded-none md:rounded-3xl shadow-none md:shadow-lg py-10 md:py-6">
-                        <div className="mb-6 inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/5 text-secondary group-hover:scale-110 group-hover:bg-secondary/10 transition-all duration-300 shadow-lg shadow-secondary/5">
-                            <Heart size={32} />
+                    <div className="text-center group relative h-full glass-card-emerald rounded-3xl p-8 hover:-translate-y-2 transition-all duration-500 hover:shadow-2xl hover:shadow-gold/10 hover:border-gold/30 border-t-4 border-t-transparent hover:border-t-gold">
+                        <div className="mb-8 inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-emerald-950/5 to-gold/20 text-emerald-800 group-hover:scale-110 group-hover:bg-gold group-hover:text-white transition-all duration-500 shadow-xl shadow-gold/10">
+                            <Heart size={36} />
                         </div>
-                        <h3 className="text-xl font-bold mb-1 font-playfair tracking-tight">VIP Hospitality & Comfort</h3>
-                        <p className="text-amber-500 font-bold font-reem-kufi mb-4">ضيافة وراحة VIP</p>
-                        <p className="text-muted-foreground leading-relaxed px-4 md:px-0">
+                        <h3 className="text-2xl font-bold mb-2 font-playfair text-slate-800">VIP Hospitality</h3>
+                        <p className="text-emerald-600 font-bold font-reem-kufi mb-4 text-lg">ضيافة وراحة VIP</p>
+                        <p className="text-slate-600 leading-relaxed">
                             Spacious GMC Yukons & luxury vans for families. We serve the guests of Allah with utmost respect and premium comfort.
                         </p>
-                    </GlassCard>
+                    </div>
                 </div>
             </div>
         </AnimatedSection>

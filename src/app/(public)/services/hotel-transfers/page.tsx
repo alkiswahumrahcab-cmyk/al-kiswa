@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'Hotel Transfers Makkah & Madinah | Al Aqsa Umrah Transport',
+    title: 'Hotel Transfers Makkah & Madinah | Al Kiswah Umrah Transport',
     description: 'Reliable door-to-door hotel transfers in Makkah and Madinah. 24/7 comfortable transport between your hotel and the Holy Harams. Book your ride now.',
     keywords: ['hotel transfer Makkah', 'hotel transfer Madinah', 'Umrah hotel shuttle', 'family transport Makkah', 'VIP hotel transfer Saudi Arabia']
 };
@@ -97,8 +97,8 @@ export default function HotelTransferPage() {
                                 </h3>
                                 <div className="space-y-6 mt-6">
                                     <div className="flex items-start gap-4">
-                                        <div className="mt-1 bg-amber-100 dark:bg-amber-900/30 p-2 rounded-full">
-                                            <Building2 className="text-amber-600 dark:text-amber-500" size={24} />
+                                        <div className="mt-1 bg-emerald-100 dark:bg-emerald-900/30 p-2 rounded-full">
+                                            <Building2 className="text-emerald-600 dark:text-emerald-500" size={24} />
                                         </div>
                                         <div>
                                             <h4 className="text-xl font-semibold text-slate-900 dark:text-white">Makkah Hotels</h4>

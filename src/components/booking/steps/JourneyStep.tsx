@@ -53,8 +53,8 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
     return (
         <div className="space-y-8">
             <div className="text-center md:text-left">
-                <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Plan Your Trip</h2>
-                <p className="text-slate-500 mt-2">Where and when would you like to travel?</p>
+                <h2 className="text-3xl font-bold text-celestial dark:text-white">Plan Your Trip</h2>
+                <p className="text-charcoal mt-2">Where and when would you like to travel?</p>
             </div>
 
             {/* Service Type Selector */}
@@ -70,8 +70,8 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                         className={`
                             flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all
                             ${data.serviceType === type.id
-                                ? 'border-amber-500 bg-amber-50 text-amber-600 dark:bg-amber-500/10'
-                                : 'border-slate-100 dark:border-slate-800 text-slate-400 hover:border-slate-200'}
+                                ? 'border-celestial bg-sky-50 text-celestial dark:bg-celestial/10'
+                                : 'border-slate-100 dark:border-slate-800 text-slate-400 hover:border-sky-100'}
                         `}
                     >
                         <type.icon size={24} className="mb-2" />
@@ -103,7 +103,7 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                 <div className="flex flex-col gap-1.5">
                     <label className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Travel Date</label>
                     <div className="relative group">
-                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-amber-500 z-10">
+                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-celestial z-10">
                             <Calendar size={20} />
                         </div>
                         <input
@@ -122,8 +122,8 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                                 w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-900 
                                 border-2 border-slate-100 dark:border-slate-800 
                                 rounded-2xl outline-none transition-all
-                                focus:border-amber-500/50 focus:ring-4 focus:ring-amber-500/10
-                                text-slate-900 dark:text-white
+                                focus:border-celestial/50 focus:ring-4 focus:ring-celestial/10
+                                text-charcoal dark:text-white
                                 ${errors.date ? 'border-red-500' : ''}
                                 [color-scheme:light] dark:[color-scheme:dark]
                             `}
@@ -135,7 +135,7 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                 <div className="flex flex-col gap-1.5">
                     <label className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Pickup Time</label>
                     <div className="relative group">
-                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-amber-500 z-10">
+                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-celestial z-10">
                             <Clock size={20} />
                         </div>
                         <input
@@ -156,8 +156,8 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                                 w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-900 
                                 border-2 border-slate-100 dark:border-slate-800 
                                 rounded-2xl outline-none transition-all
-                                focus:border-amber-500/50 focus:ring-4 focus:ring-amber-500/10
-                                text-slate-900 dark:text-white
+                                focus:border-celestial/50 focus:ring-4 focus:ring-celestial/10
+                                text-charcoal dark:text-white
                                 ${errors.time ? 'border-red-500' : ''}
                                 [color-scheme:light] dark:[color-scheme:dark]
                             `}
@@ -170,7 +170,7 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
             <div className="pt-6">
                 <button
                     onClick={handleNext}
-                    className="w-full py-5 bg-slate-900 dark:bg-amber-500 text-white font-bold rounded-2xl shadow-xl hover:bg-slate-800 dark:hover:bg-amber-600 transition-all flex items-center justify-center gap-2 group"
+                    className="w-full py-5 bg-celestial text-white font-bold rounded-2xl shadow-xl hover:bg-sky-500 transition-all flex items-center justify-center gap-2 group shadow-celestial/20"
                 >
                     Choose Your Vehicle
                     <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />

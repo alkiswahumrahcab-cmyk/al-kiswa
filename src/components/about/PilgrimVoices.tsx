@@ -9,7 +9,7 @@ export default function PilgrimVoices() {
     const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.1 });
 
     const testimonials = [
-        { id: 1, author: "Ahmed Al-Sayed", location: "Egypt", text: "Al Aqsa Transport made our Umrah journey so smooth. The driver was punctual and very polite. Highly recommended!" },
+        { id: 1, author: "Ahmed Al-Sayed", location: "Egypt", text: "Al Kiswah Transport made our Umrah journey so smooth. The driver was punctual and very polite. Highly recommended!" },
         { id: 2, author: "Fatima Khan", location: "Pakistan", text: "Excellent service! The car was clean and comfortable. Will definitely book again for my next trip." },
         { id: 3, author: "Yusuf Rahman", location: "Indonesia", text: "Very professional team. They handled our group transport perfectly. Thank you for the great experience." },
     ];

@@ -38,7 +38,7 @@ export default function LoadingScreen() {
                     <div className={styles.logoImage}>
                         <Image
                             src="/logo.png"
-                            alt="Al Aqsa Transport"
+                            alt="Al Kiswah Transport"
                             fill
                             className="object-contain"
                             priority

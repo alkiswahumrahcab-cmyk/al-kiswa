@@ -12,8 +12,8 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #0f172a, #334155);
-    color: #fbbf24;
+    background: linear-gradient(135deg, #064E3B, #065F46);
+    color: #BFA35A;
     border: 1px solid rgba(255, 255, 255, 0.1);
     cursor: pointer;
     display: flex;
@@ -33,7 +33,7 @@
     inset: -3px;
     border-radius: 50%;
     padding: 2px;
-    background: linear-gradient(45deg, #d4af37, transparent, #3b82f6);
+    background: linear-gradient(45deg, #BFA35A, transparent, #0D7C66);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
@@ -105,7 +105,7 @@
 
 .header {
     padding: 1.5rem;
-    background: linear-gradient(135deg, #0f172a, #1e293b);
+    background: linear-gradient(135deg, #064E3B, #022C22);
     color: white;
     display: flex;
     align-items: center;
@@ -175,7 +175,7 @@
 }
 
 .userMessage {
-    background: linear-gradient(135deg, #0f172a, #334155);
+    background: linear-gradient(135deg, #064E3B, #065F46);
     color: white;
     border-bottom-right-radius: 2px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -274,7 +274,8 @@
 }
 
 .quickReplyChip:hover {
-    background: #0f172a;
+    background: #064E3B;
+    border-color: #064E3B;
     color: white;
 }
 
@@ -325,16 +326,16 @@
 }
 
 .input:focus {
-    border-color: #0f172a;
-    box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.1);
+    border-color: #064E3B;
+    box-shadow: 0 0 0 3px rgba(6, 78, 59, 0.1);
 }
 
 .sendButton {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #0f172a, #334155);
-    color: #fbbf24;
+    background: linear-gradient(135deg, #064E3B, #065F46);
+    color: #BFA35A;
     border: none;
     cursor: pointer;
     display: flex;

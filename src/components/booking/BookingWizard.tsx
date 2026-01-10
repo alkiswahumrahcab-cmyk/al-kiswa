@@ -55,16 +55,16 @@ export default function BookingWizard() {
                         <div className={`
                             w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-500
                             ${currentStep >= step.id
-                                ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/30 ring-4 ring-amber-500/10'
+                                ? 'bg-celestial text-white shadow-lg shadow-celestial/30 ring-4 ring-celestial/10'
                                 : 'bg-slate-100 text-slate-400 dark:bg-slate-800'}
                         `}>
                             {currentStep > step.id ? '✓' : step.id}
                         </div>
                         <div className="hidden md:block text-center">
-                            <span className={`text-[10px] uppercase font-black tracking-widest ${currentStep >= step.id ? 'text-amber-600' : 'text-slate-400'}`}>
+                            <span className={`text-[10px] uppercase font-black tracking-widest ${currentStep >= step.id ? 'text-celestial' : 'text-slate-400'}`}>
                                 Step 0{step.id}
                             </span>
-                            <h3 className={`text-xs font-bold ${currentStep >= step.id ? 'text-slate-900 dark:text-white' : 'text-slate-500'}`}>
+                            <h3 className={`text-xs font-bold ${currentStep >= step.id ? 'text-charcoal dark:text-white' : 'text-slate-500'}`}>
                                 {step.title}
                             </h3>
                         </div>
@@ -73,10 +73,10 @@ export default function BookingWizard() {
             </div>
 
             {/* Main Content Card */}
-            <div className="bg-white dark:bg-slate-900 rounded-[32px] shadow-2xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-slate-800 overflow-hidden relative">
+            <div className="bg-white dark:bg-slate-900 rounded-[32px] shadow-2xl shadow-sky-200/50 dark:shadow-none border border-sky-100 dark:border-slate-800 overflow-hidden relative">
                 {/* Background Decor */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 blur-[100px] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/5 blur-[100px] pointer-events-none" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 blur-[100px] pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-sky-500/5 blur-[100px] pointer-events-none" />
 
                 <div className="p-6 md:p-12 relative z-10">
                     <AnimatePresence mode="wait">
@@ -95,17 +95,17 @@ export default function BookingWizard() {
                 </div>
 
                 {/* Trust Footer */}
-                <div className="bg-slate-50/50 dark:bg-slate-800/50 border-t border-slate-100 dark:border-slate-800 py-4 px-12 flex justify-center md:justify-between items-center gap-8">
-                    <div className="hidden md:flex items-center gap-2 text-slate-400 text-[10px] font-bold uppercase tracking-wider">
+                <div className="bg-sky-50/30 dark:bg-slate-800/50 border-t border-sky-100 dark:border-slate-800 py-4 px-12 flex justify-center md:justify-between items-center gap-8">
+                    <div className="hidden md:flex items-center gap-2 text-charcoal/60 text-[10px] font-bold uppercase tracking-wider">
                         <ShieldCheck size={14} className="text-emerald-500" />
                         Safe & Secure
                     </div>
-                    <div className="hidden md:flex items-center gap-2 text-slate-400 text-[10px] font-bold uppercase tracking-wider">
-                        <Headphones size={14} className="text-amber-500" />
+                    <div className="hidden md:flex items-center gap-2 text-charcoal/60 text-[10px] font-bold uppercase tracking-wider">
+                        <Headphones size={14} className="text-gold" />
                         24/7 Support
                     </div>
-                    <div className="flex items-center gap-2 text-slate-400 text-[10px] font-bold uppercase tracking-wider">
-                        <CreditCard size={14} className="text-blue-500" />
+                    <div className="flex items-center gap-2 text-charcoal/60 text-[10px] font-bold uppercase tracking-wider">
+                        <CreditCard size={14} className="text-celestial" />
                         Pay on Arrival
                     </div>
                 </div>

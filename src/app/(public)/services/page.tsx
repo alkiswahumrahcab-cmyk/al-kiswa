@@ -21,7 +21,7 @@ export async function generateMetadata() {
             "خدمات نقل المعتمرين", "زيارات المدينة المنورة", "توصيل مطار جدة"
         ],
         alternates: {
-            canonical: 'https://alaqsaumrahtransport.com/services',
+            canonical: 'https://alkiswahumrahtransport.com/services',
         },
     };
 }
@@ -83,15 +83,15 @@ export default function ServicesPage() {
     const serviceFAQs = [
         {
             question: "How do I book a taxi from Jeddah Airport to Makkah?",
-            answer: <span>Booking is simple. You can reserve your <Link href="/services/jeddah-airport-transfer" className="text-amber-600 hover:underline">Jeddah Airport to Makkah taxi</Link> online in advance. We monitor your flight arrival and our driver meets you at the terminal with a name sign.</span>
+            answer: <span>Booking is simple. You can reserve your <Link href="/services/jeddah-airport-transfer" className="text-gold hover:text-emerald-600 transition-colors hover:underline">Jeddah Airport to Makkah taxi</Link> online in advance. We monitor your flight arrival and our driver meets you at the terminal with a name sign.</span>
         },
         {
             question: "What is the best transport for Umrah families?",
-            answer: <span>For families, we highly recommend our <Link href="/fleet/gmc-yukon-at4" className="text-amber-600 hover:underline">GMC Yukon XL</Link> or <Link href="/fleet/hyundai-staria" className="text-amber-600 hover:underline">Hyundai Staria</Link>. These spacious vehicles offer ample luggage space and AC comfort for the 1-hour journey to Makkah.</span>
+            answer: <span>For families, we highly recommend our <Link href="/fleet/gmc-yukon-at4" className="text-gold hover:text-emerald-600 transition-colors hover:underline">GMC Yukon XL</Link> or <Link href="/fleet/hyundai-staria" className="text-gold hover:text-emerald-600 transition-colors hover:underline">Hyundai Staria</Link>. These spacious vehicles offer ample luggage space and AC comfort for the 1-hour journey to Makkah.</span>
         },
         {
             question: "Do you offer direct Makkah to Madinah taxi services?",
-            answer: <span>Yes, our <Link href="/services/makkah-madinah-taxi" className="text-amber-600 hover:underline">Makkah to Madinah private taxi</Link> service is the most convenient option. Unlike the train or bus, we offer door-to-door service from your Makkah hotel lobby directly to your Madinah hotel.</span>
+            answer: <span>Yes, our <Link href="/services/makkah-madinah-taxi" className="text-gold hover:text-emerald-600 transition-colors hover:underline">Makkah to Madinah private taxi</Link> service is the most convenient option. Unlike the train or bus, we offer door-to-door service from your Makkah hotel lobby directly to your Madinah hotel.</span>
         },
         {
             question: "Can I stop at Miqat on the way to Makkah?",
@@ -99,11 +99,11 @@ export default function ServicesPage() {
         },
         {
             question: "Is the taxi fare fixed or metered?",
-            answer: <span>Our prices are fixed and transparent. You will know the exact cost of your <Link href="/booking" className="text-amber-600 hover:underline">Umrah transport booking</Link> upfront, with no hidden fees or toll charges.</span>
+            answer: <span>Our prices are fixed and transparent. You will know the exact cost of your <Link href="/booking" className="text-gold hover:text-emerald-600 transition-colors hover:underline">Umrah transport booking</Link> upfront, with no hidden fees or toll charges.</span>
         },
         {
             question: "Do you provide Ziyarat tours in Makkah and Madinah?",
-            answer: <span>Yes, we offer comprehensive <Link href="/services/ziyarat-tours" className="text-amber-600 hover:underline">Ziyarat packages</Link>. Visit historical sites like Jabal Al-Nour, Masjid Quba, and Mount Uhud in the comfort of a private vehicle with a knowledgeable driver.</span>
+            answer: <span>Yes, we offer comprehensive <Link href="/services/ziyarat-tours" className="text-gold hover:text-emerald-600 transition-colors hover:underline">Ziyarat packages</Link>. Visit historical sites like Jabal Al-Nour, Masjid Quba, and Mount Uhud in the comfort of a private vehicle with a knowledgeable driver.</span>
         }
     ];
 
@@ -153,10 +153,10 @@ export default function ServicesPage() {
                                     {/* Content Side */}
                                     <div className={`w-full lg:w-1/2 flex flex-col justify-center ${isImageRight ? 'lg:order-1' : 'lg:order-2'}`}>
                                         <div className="mb-6">
-                                            <h3 className="text-3xl lg:text-5xl font-bold font-playfair text-slate-900 dark:text-white mb-6 leading-tight">
+                                            <h3 className="text-3xl lg:text-5xl font-bold font-playfair text-emerald-950 dark:text-white mb-6 leading-tight">
                                                 {service.title}
                                             </h3>
-                                            <div className="h-2 w-24 bg-amber-500 rounded-full" />
+                                            <div className="h-2 w-24 bg-gold rounded-full shadow-lg shadow-gold/20" />
                                         </div>
 
                                         <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-8">
@@ -177,10 +177,10 @@ export default function ServicesPage() {
 
                                         <Link
                                             href={service.link}
-                                            className="inline-flex items-center gap-2 text-white bg-amber-500 hover:bg-amber-600 px-8 py-4 rounded-full font-bold uppercase tracking-wider text-sm transition-all shadow-lg hover:shadow-amber-500/30 group/link self-start"
+                                            className="btn-emerald px-10 py-4 rounded-full font-bold uppercase tracking-[0.2em] text-xs transition-all shadow-xl shadow-emerald-900/20 group/link self-start"
                                         >
-                                            Learn More
-                                            <ArrowRight size={18} className="group-hover/link:translate-x-1 transition-transform" />
+                                            Explore Details
+                                            <ArrowRight size={18} className="group-hover/link:translate-x-1 transition-transform ml-2" />
                                         </Link>
                                     </div>
                                 </div>
@@ -250,7 +250,7 @@ export default function ServicesPage() {
                         "serviceType": "Umrah Transport",
                         "provider": {
                             "@type": "TransportationService",
-                            "name": "Al Aqsa Transport"
+                            "name": "Al Kiswah Transport"
                         },
                         "areaServed": {
                             "@type": "Place",

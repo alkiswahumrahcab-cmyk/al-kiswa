@@ -94,9 +94,9 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
 
                         {/* Gradient for Lines */}
                         <linearGradient id="routeGradient" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stopColor="#f59e0b" stopOpacity="0.1" />
-                            <stop offset="50%" stopColor="#f59e0b" stopOpacity="1" />
-                            <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.1" />
+                            <stop offset="0%" stopColor="#4A90E2" stopOpacity="0.1" />
+                            <stop offset="50%" stopColor="#4A90E2" stopOpacity="1" />
+                            <stop offset="100%" stopColor="#4A90E2" stopOpacity="0.1" />
                         </linearGradient>
                     </defs>
 
@@ -127,7 +127,7 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
                                 <motion.path
                                     d={path}
                                     fill="none"
-                                    stroke={isRelevant ? "#f59e0b" : "currentColor"}
+                                    stroke={isRelevant ? "#4A90E2" : "currentColor"}
                                     strokeWidth={isActive ? "0.6" : (isHovered ? "0.4" : "0.2")}
                                     strokeLinecap="round"
                                     className={!isRelevant ? "text-slate-300 dark:text-slate-700 transition-colors duration-500" : ""}
@@ -181,14 +181,14 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
                                     <>
                                         <motion.circle
                                             cx={city.x} cy={city.y} r="6"
-                                            fill="none" stroke="#f59e0b" strokeWidth="0.1"
+                                            fill="none" stroke="#4A90E2" strokeWidth="0.1"
                                             initial={{ scale: 0, opacity: 0.8 }}
                                             animate={{ scale: 1.5, opacity: 0 }}
                                             transition={{ duration: 2, repeat: Infinity }}
                                         />
                                         <motion.circle
                                             cx={city.x} cy={city.y} r="4"
-                                            fill="none" stroke="#f59e0b" strokeWidth="0.1"
+                                            fill="none" stroke="#4A90E2" strokeWidth="0.1"
                                             initial={{ scale: 0, opacity: 0.8 }}
                                             animate={{ scale: 1.5, opacity: 0 }}
                                             transition={{ duration: 2, delay: 0.5, repeat: Infinity }}
@@ -201,7 +201,7 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
                                     cx={city.x}
                                     cy={city.y}
                                     r={isActiveNode ? 1.2 : 0.8}
-                                    className={`${isActiveNode ? 'fill-amber-500 stroke-white dark:stroke-slate-900' : 'fill-slate-400 dark:fill-slate-600 stroke-slate-50 dark:stroke-slate-900'}`}
+                                    className={`${isActiveNode ? 'fill-celestial stroke-white dark:stroke-slate-900' : 'fill-slate-400 dark:fill-slate-600 stroke-slate-50 dark:stroke-slate-900'}`}
                                     strokeWidth="0.2"
                                     whileHover={{ scale: 1.5 }}
                                     transition={{ type: "spring", stiffness: 300 }}

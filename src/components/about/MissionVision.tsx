@@ -27,13 +27,13 @@ export default function MissionVision() {
 
                     {/* Vision */}
                     <div
-                        className={`bg-slate-900 dark:bg-slate-800 text-white p-8 md:p-12 rounded-3xl shadow-xl border border-slate-800 dark:border-slate-700 transition-all duration-700 delay-200 transform ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
+                        className={`bg-gradient-to-br from-amber-50 to-white dark:from-slate-800 dark:to-slate-900 p-8 md:p-12 rounded-3xl shadow-xl border border-amber-100 dark:border-slate-700 transition-all duration-700 delay-200 transform ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
                     >
-                        <div className="w-16 h-16 bg-white/10 text-amber-400 rounded-2xl flex items-center justify-center mb-6">
+                        <div className="w-16 h-16 bg-white shadow-sm text-amber-600 rounded-2xl flex items-center justify-center mb-6">
                             <Eye size={32} strokeWidth={1.5} />
                         </div>
-                        <h2 className="text-3xl font-bold text-white mb-4 font-playfair">Our Vision</h2>
-                        <p className="text-lg text-slate-300 leading-relaxed">
+                        <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-4 font-playfair">Our Vision</h2>
+                        <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
                             To be the most trusted and preferred transport partner for Hajj and Umrah pilgrims worldwide, setting the global benchmark for excellence in logistics, customer care, and spiritual tourism.
                         </p>
                     </div>

@@ -17,10 +17,10 @@ export const metadata: Metadata = {
         "شبكة مواصلات العمرة", "نقل من جدة الى مكة"
     ],
     alternates: {
-        canonical: 'https://alaqsaumrahtransport.com/routes',
+        canonical: 'https://alkiswahumrahtransport.com/routes',
     },
     openGraph: {
-        title: "Umrah Transport Routes Network | Al Aqsa Transport",
+        title: "Umrah Transport Routes Network | Al Kiswah Transport",
         description: "Connect seamlessly between Holy Cities. VIP Jeddah to Makkah, Makkah to Madinah. تنقل بسهولة بين المدن المقدسة.",
         images: [{ url: '/images/routes/routes-network-hero.png', width: 1200, height: 630, alt: 'Saudi Arabia Transport Network Map' }]
     }
@@ -36,25 +36,25 @@ const jsonLd = {
             "@type": "ListItem",
             "position": 1,
             "name": "Jeddah Airport to Makkah",
-            "url": "https://alaqsaumrahtransport.com/services/jeddah-airport-transfer"
+            "url": "https://alkiswahumrahtransport.com/services/jeddah-airport-transfer"
         },
         {
             "@type": "ListItem",
             "position": 2,
             "name": "Makkah to Madinah",
-            "url": "https://alaqsaumrahtransport.com/services/makkah-madinah-taxi"
+            "url": "https://alkiswahumrahtransport.com/services/makkah-madinah-taxi"
         },
         {
             "@type": "ListItem",
             "position": 3,
             "name": "Madinah Airport Transfer",
-            "url": "https://alaqsaumrahtransport.com/services/madinah-airport-transfer"
+            "url": "https://alkiswahumrahtransport.com/services/madinah-airport-transfer"
         },
         {
             "@type": "ListItem",
             "position": 4,
             "name": "Makkah to Jeddah Airport",
-            "url": "https://alaqsaumrahtransport.com/services/makkah-jeddah-taxi"
+            "url": "https://alkiswahumrahtransport.com/services/makkah-jeddah-taxi"
         }
     ]
 };
@@ -253,7 +253,7 @@ export default function RoutesPage() {
                 <div className="container mx-auto px-4">
                     <div className="text-center max-w-2xl mx-auto mb-16">
                         <FadeIn>
-                            <h2 className="text-3xl lg:text-4xl font-bold font-playfair mb-4">Why Travel With Al Aqsa?</h2>
+                            <h2 className="text-3xl lg:text-4xl font-bold font-playfair mb-4">Why Travel With Al Kiswah?</h2>
                             <p className="text-muted-foreground">More than just transport, we provide a seamless bridge between your spiritual destinations.</p>
                         </FadeIn>
                     </div>

@@ -37,7 +37,7 @@ export const staticBlogPosts = [
         readTime: '6 min read',
         image: '/images/blog/spiritual_journey_taxi_vs_train.png',
         alt: 'Private GMC Yukon Taxi vs Haramain Train for Umrah Transport',
-        author: 'Al Aqsa Team',
+        author: 'Al Kiswah Team',
         tags: ['Haramain Train', 'Private Taxi', 'Makkah Transport', 'Family Travel'],
         isPublished: true,
         metaTitle: 'Private Taxi vs Haramain Train for Umrah | 2024 Comparison',
@@ -100,7 +100,7 @@ export const staticBlogPosts = [
         readTime: '5 min read',
         image: '/images/blog/makkah-haram-view-new.png',
         alt: 'Sunrise over Makkah Clock Tower symbolizing New Year 2026',
-        author: 'Al Aqsa Editorial Team',
+        author: 'Al Kiswah Editorial Team',
         tags: ['New Year 2026', 'Umrah Planning', 'Spiritual Resolutions', 'Makkah Weather'],
         isPublished: true,
         metaTitle: 'Planning Umrah for New Year 2026 | Dates, Weather & Tips',
@@ -402,7 +402,7 @@ export const staticBlogPosts = [
         tags: ['Safety', 'Driver Vetting', 'Family Transport', 'Sisters Safety'],
         isPublished: true,
         metaTitle: 'Safe Umrah Drivers | Vetting Process & Background Checks',
-        metaDescription: 'Who is driving your family? Learn about the rigorous background checks, Adab training, and health screenings for every Al Aqsa licensed driver.',
+        metaDescription: 'Who is driving your family? Learn about the rigorous background checks, Adab training, and health screenings for every Al Kiswah licensed driver.',
         createdAt: new Date('2026-01-10'),
         updatedAt: new Date('2026-01-10'),
     },
@@ -445,7 +445,7 @@ export const staticBlogPosts = [
                 </div>
             </div>
 
-            <p>Don't compromise on hygiene. Travel with Al Aqsa, where cleanliness is our culture.</p>
+            <p>Don't compromise on hygiene. Travel with Al Kiswah, where cleanliness is our culture.</p>
         `,
         category: 'Safety',
         date: new Date('2026-01-08'),
@@ -626,7 +626,7 @@ export const staticBlogPosts = [
                 <li><strong>Ziyarat Knowledge:</strong> Can the driver narrate the history of Uhud or Quba?</li>
             </ul>
 
-            <p>At Al Aqsa Transport, we combine the reliability of a corporate fleet with the hospitality of local hosts. Don't leave your journey to chance.</p>
+            <p>At Al Kiswah Transport, we combine the reliability of a corporate fleet with the hospitality of local hosts. Don't leave your journey to chance.</p>
         `,
         category: 'Guide',
         date: new Date('2025-10-15'),
@@ -717,7 +717,7 @@ export const staticBlogPosts = [
 
             <h3>2. Car Seats and Child Safety in Saudi</h3>
             <p><strong>"Are car seats required?"</strong> Legally, yes. Practically, taxi drivers rarely have them. </p>
-            <p>At Al Aqsa Transport, we prioritize safety. If you request a child seat in advance, we ensure one is installed. We also ensure working seatbelts for every passenger—something not guaranteed in street taxis.</p>
+            <p>At Al Kiswah Transport, we prioritize safety. If you request a child seat in advance, we ensure one is installed. We also ensure working seatbelts for every passenger—something not guaranteed in street taxis.</p>
 
             <h3>3. Convenience for Seniors (Door-to-Door)</h3>
             <p>If you are traveling with elderly parents, door-to-door service is non-negotiable.</p>
@@ -892,7 +892,7 @@ export const staticBlogPosts = [
             <h3>4. Spiritual Ease is the Goal</h3>
             <p>Knowing that a car is waiting for you after a long flight, or that your ride to Madinah is confirmed, removes "dunya" (worldly) anxiety. This <strong>spiritual ease</strong> allows your heart to remain connected to the holy purpose of your visit.</p>
 
-            <p>At Al Aqsa Transport, our mission is to facilitate your journey of faith with the highest standards of hospitality. We consider it an honor to serve the guests of Allah.</p>
+            <p>At Al Kiswah Transport, our mission is to facilitate your journey of faith with the highest standards of hospitality. We consider it an honor to serve the guests of Allah.</p>
         `,
         category: 'Spiritual',
         date: new Date('2025-11-20'),
@@ -1408,7 +1408,7 @@ export const staticBlogPosts = [
             </div>
 
             <h3>Key Landmarks & Rest Stops</h3>
-            <p>Unlike the old days, the highway is now lined with modern "SASCO" and "ENOC" rest areas. When you book a private ride with Al Aqsa Transport, you control the stops.</p>
+            <p>Unlike the old days, the highway is now lined with modern "SASCO" and "ENOC" rest areas. When you book a private ride with Al Kiswah Transport, you control the stops.</p>
             <ul>
                 <li><strong>Prayer Stops:</strong> Drivers know exactly which large Masjids have the cleanest facilities for Wudhu and Salah.</li>
                 <li><strong>Food & Coffee:</strong> Craving a Starbucks or Al Baik? The best service stations on Route 15 (like Sasco) offer premium food courts.</li>
@@ -1505,7 +1505,7 @@ export const staticBlogPosts = [
             </div>
 
             <h3>How to Identify a Licensed, Safe Driver</h3>
-            <p>Official transport providers like <strong>Al Aqsa Umrah Transport</strong> operate under strict Ministry of Transport regulations. Here is what to look for:</p>
+            <p>Official transport providers like <strong>Al Kiswah Umrah Transport</strong> operate under strict Ministry of Transport regulations. Here is what to look for:</p>
             <ul>
                 <li><strong>Uniform/ID:</strong> Professional drivers often wear a vest or carry an ID badge.</li>
                 <li><strong>White Plate vs. Yellow Plate:</strong> Official taxis have specific plate markings. However, reputable private transfer services (like ours) use high-end private plates but provide <strong>digital booking confirmations</strong> beforehand.</li>
@@ -1537,7 +1537,7 @@ export const staticBlogPosts = [
     },
     {
         _id: 'static-guide-best-transport-2025',
-        slug: 'best-umrah-transport-services-saudi-arabia-2025',
+        slug: 'comprehensive-umrah-transport-guide-2025',
         title: 'Best Umrah Transport Services in Saudi Arabia: The Ultimate 2025 Guide',
         excerpt: 'Confused about how to travel between Jeddah, Makkah, and Madinah? We compare VIP Taxis, the Haramain Train, and SAPTCO buses to help you choose the best option for your pilgrimage.',
         content: `
@@ -1548,7 +1548,7 @@ export const staticBlogPosts = [
 
             <h3>Option 1: Private VIP Transport (The "Zero Stress" Winner)</h3>
             <p><strong>Look for:</strong> Licensed companies offering GMC Yukons, Ford Expeditions, or Toyota Camrys.</p>
-            <p>For 90% of international pilgrims—especially families, elderly travelers, and those with luggage—luxury private taxis remain the gold standard. Services like <strong>Al Aqsa Umrah Transport</strong> specialize in this "door-to-door" experience.</p>
+            <p>For 90% of international pilgrims—especially families, elderly travelers, and those with luggage—luxury private taxis remain the gold standard. Services like <strong>Al Kiswah Umrah Transport</strong> specialize in this "door-to-door" experience.</p>
             
             <div class="bg-amber-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-amber-500 my-8">
                 <h4 class="font-bold text-lg mb-2 text-amber-700 dark:text-amber-400">Why It Ranks #1:</h4>
@@ -1649,7 +1649,7 @@ export const staticBlogPosts = [
                 <p>تعتبر السيارات الخاصة من طراز <strong>GMC Yukon XL</strong> أو <strong>Lexus ES</strong> الخيار الذهبي لمن ينشد الراحة.</p>
                 <ul>
                     <li><strong>المميزات:</strong> خدمة من الباب للباب، سعة كبيرة للحقائب (تصل لـ 7 حقائب)، خصوصية تامة للعوائل، وتكييف عالي الجودة يناسب أجواء المملكة الحارة.</li>
-                    <li><strong>لماذا نحن؟</strong> في "الأقصى للنقل"، نوفر سائقين محترفين يتحدثون لغتك، وسيارات موديل السنة لضمان رحلة آمنة ومريحة.</li>
+                    <li><strong>لماذا نحن؟</strong> في "الكسوة للنقل"، نوفر سائقين محترفين يتحدثون لغتك، وسيارات موديل السنة لضمان رحلة آمنة ومريحة.</li>
                 </ul>
 
                 <h3>2. الحافلات العائلية (تويوتا هايس)</h3>
@@ -1672,7 +1672,7 @@ export const staticBlogPosts = [
                     <thead class="bg-amber-50 dark:bg-slate-900">
                         <tr>
                             <th class="p-3 border border-slate-200 dark:border-slate-700">وجه المقارنة</th>
-                            <th class="p-3 border border-slate-200 dark:border-slate-700">النقل الخاص (الأقصى)</th>
+                            <th class="p-3 border border-slate-200 dark:border-slate-700">النقل الخاص (الكسوة)</th>
                             <th class="p-3 border border-slate-200 dark:border-slate-700">تاكسي المطار / التطبيقات</th>
                         </tr>
                     </thead>
@@ -1703,7 +1703,7 @@ export const staticBlogPosts = [
                 </ul>
 
                 <h3>الخاتمة: راحتك تبدأ من هنا</h3>
-                <p>لا تدع عناء الطريق يؤثر على روحانية عمرتك. في <strong>الأقصى للنقل</strong>، نحن نفهم احتياجات المعتمر بدقة. بداية من الاستقبال الدافئ في المطار، وحتى الوصول الآمن لباب فندقك، نحن معك في كل خطوة.</p>
+                <p>لا تدع عناء الطريق يؤثر على روحانية عمرتك. في <strong>الكسوة للنقل</strong>، نحن نفهم احتياجات المعتمر بدقة. بداية من الاستقبال الدافئ في المطار، وحتى الوصول الآمن لباب فندقك، نحن معك في كل خطوة.</p>
                 <p><em>احجز رحلتك الآن واستمتع بأفضل خدمات النقل في المملكة.</em></p>
             </div>
         `,
@@ -1715,7 +1715,7 @@ export const staticBlogPosts = [
         author: 'فريق التحرير',
         tags: ['نقل معتمرين', 'سيارات خاصة', 'مكة', 'المدينة', 'جمس يوكون'],
         isPublished: true,
-        metaTitle: 'أفضل خدمات نقل المعتمرين في السعودية 2026 | الأقصى للنقل',
+        metaTitle: 'أفضل خدمات نقل المعتمرين في السعودية 2026 | الكسوة للنقل',
         metaDescription: 'دليل شامل لأفضل وسائل النقل للمعتمرين بين جدة ومكة والمدينة. قارن بين السيارات الخاصة والقطار، وتعرف على مميزات الجمس يوكون للعائلات.',
         createdAt: new Date('2026-01-06'),
         updatedAt: new Date('2026-01-06'),

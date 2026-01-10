@@ -344,7 +344,7 @@ export default function SettingsPage() {
                                                     value={settings.site_name}
                                                     onChange={handleChange}
                                                     className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
-                                                    placeholder="Al Aqsa Umrah Transport"
+                                                    placeholder="Al Kiswah Umrah Transport"
                                                 />
                                             </div>
                                         </div>
@@ -413,7 +413,7 @@ export default function SettingsPage() {
                                                     value={settings.contact_email}
                                                     onChange={handleChange}
                                                     className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
-                                                    placeholder="info@alaqsa.com"
+                                                    placeholder="info@alkiswah.com"
                                                 />
                                             </div>
                                         </div>
@@ -493,7 +493,7 @@ export default function SettingsPage() {
                                                     value={settings.seo_title}
                                                     onChange={handleChange}
                                                     className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
-                                                    placeholder="Al Aqsa Umrah Transport - Premium Taxi Service"
+                                                    placeholder="Al Kiswah Umrah Transport - Premium Taxi Service"
                                                 />
                                             </div>
                                             <p className="text-xs text-muted-foreground ml-1">Recommended length: 50-60 characters</p>

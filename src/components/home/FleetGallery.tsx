@@ -15,7 +15,7 @@ const FLEET_IMAGES = [
         capacity: '7 Pax',
         luggage: '5 Bags',
         url: '/fleet/gmc-yukon-at4',
-        gradient: 'from-amber-500/20 to-amber-900/40'
+        gradient: 'from-gold/20 to-slate-900/40'
     },
     {
         src: '/images/fleet/staria-hero-professional.png',
@@ -25,7 +25,7 @@ const FLEET_IMAGES = [
         capacity: '7 Pax',
         luggage: '4 Bags',
         url: '/fleet/hyundai-staria',
-        gradient: 'from-blue-500/20 to-slate-900/40'
+        gradient: 'from-gold/20 to-emerald-950/40'
     },
     {
         src: '/images/fleet/camry-hero-professional.png',
@@ -35,7 +35,7 @@ const FLEET_IMAGES = [
         capacity: '4 Pax',
         luggage: '2 Bags',
         url: '/fleet/toyota-camry',
-        gradient: 'from-emerald-500/20 to-slate-900/40'
+        gradient: 'from-emerald-500/20 to-emerald-950/40'
     },
     {
         src: '/images/fleet/hiace-hero-professional.png',
@@ -45,7 +45,7 @@ const FLEET_IMAGES = [
         capacity: '10 Pax',
         luggage: '8 Bags',
         url: '/fleet/toyota-hiace',
-        gradient: 'from-slate-500/20 to-slate-900/40'
+        gradient: 'from-gold/20 to-emerald-950/40'
     },
     {
         src: '/images/fleet/starex-hero-professional.png',
@@ -55,7 +55,7 @@ const FLEET_IMAGES = [
         capacity: '7 Pax',
         luggage: '4 Bags',
         url: '/fleet/hyundai-starex',
-        gradient: 'from-purple-500/20 to-slate-900/40'
+        gradient: 'from-emerald-500/20 to-emerald-950/40'
     },
 ];
 
@@ -80,36 +80,39 @@ export default function FleetGallery() {
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.03] dark:opacity-[0.05] pointer-events-none mix-blend-multiply dark:mix-blend-overlay" />
 
             {/* Ambient Glows */}
-            <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#D4AF37]/10 rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-0 right-1/4 w-96 h-96 bg-gold/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="container mx-auto px-4 mb-16 relative z-10">
                 <div className="flex flex-col md:flex-row justify-between items-end gap-8">
-                    <div className="space-y-4 max-w-2xl">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#D4AF37]/10 border border-[#D4AF37]/20 rounded-full">
-                            <Star size={14} className="text-[#D4AF37] fill-[#D4AF37]" />
-                            <span className="text-[#D4AF37] font-bold text-xs uppercase tracking-widest">Premium Fleet</span>
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white font-playfair leading-tight">
-                            Experience the <span className="text-[#D4AF37]">Gold Standard</span> of Travel.
+                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-3xl -mr-32 -mt-32" />
+                    <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gold/5 rounded-full blur-3xl -ml-32 -mb-32" />
+                </div>
+
+                <div className="container px-4 relative z-10">
+                    <div className="text-center mb-16">
+                        <span className="text-emerald-600 font-bold tracking-widest uppercase text-sm mb-3 block">
+                            Our Premium Fleet
+                        </span>
+                        <h2 className="text-4xl md:text-5xl font-bold font-playfair text-emerald-950 mb-6">
+                            Luxury Vehicles for <span className="text-gradient-gold">Every Group</span>
                         </h2>
-                        <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
-                            Meticulously maintained vehicles designed for your comfort, safety, and style.
+                        <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                            Experience the journey of a lifetime in our meticulously maintained fleet. From private sedans to spacious buses.
                         </p>
                     </div>
-
                     {/* Navigation Buttons */}
                     <div className="flex gap-4">
                         <button
                             onClick={() => scroll('left')}
-                            className="w-14 h-14 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:text-white transition-all duration-300 shadow-sm hover:shadow-[#D4AF37]/30 group"
+                            className="w-14 h-14 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-emerald-600 hover:border-emerald-600 hover:text-white transition-all duration-300 shadow-sm hover:shadow-emerald-600/30 group"
                             aria-label="Previous"
                         >
                             <ChevronLeft size={24} className="group-hover:-translate-x-0.5 transition-transform" />
                         </button>
                         <button
                             onClick={() => scroll('right')}
-                            className="w-14 h-14 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:text-white transition-all duration-300 shadow-sm hover:shadow-[#D4AF37]/30 group"
+                            className="w-14 h-14 rounded-full border border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-900/60 backdrop-blur-md flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-emerald-600 hover:border-emerald-600 hover:text-white transition-all duration-300 shadow-sm hover:shadow-emerald-600/30 group"
                             aria-label="Next"
                         >
                             <ChevronRight size={24} className="group-hover:translate-x-0.5 transition-transform" />
@@ -139,7 +142,7 @@ export default function FleetGallery() {
                             draggable={false}
                         >
                             <motion.div
-                                className="w-full h-full relative rounded-[2rem] overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-xl transition-all duration-500 ease-out group-hover:shadow-2xl group-hover:shadow-[#D4AF37]/20 group-hover:border-[#D4AF37]/50"
+                                className="w-full h-full relative rounded-[2rem] overflow-hidden glass-card transition-all duration-500 ease-out group-hover:shadow-2xl group-hover:shadow-emerald-600/20 group-hover:border-emerald-600/50"
                                 whileHover={{ y: -10 }}
                             >
                                 {/* Image Gradient Background */}
@@ -172,20 +175,20 @@ export default function FleetGallery() {
 
                                     <div className="flex items-center gap-6 mb-6">
                                         <div className="flex items-center gap-2 text-slate-300">
-                                            <Users size={16} className="text-[#D4AF37]" />
+                                            <Users size={16} className="text-emerald-600" />
                                             <span className="text-sm font-medium">{img.capacity}</span>
                                         </div>
                                         <div className="flex items-center gap-2 text-slate-300">
-                                            <Briefcase size={16} className="text-[#D4AF37]" />
+                                            <Briefcase size={16} className="text-emerald-600" />
                                             <span className="text-sm font-medium">{img.luggage}</span>
                                         </div>
                                     </div>
 
                                     <div className="flex items-center justify-between border-t border-white/10 pt-6">
-                                        <span className="text-[#D4AF37] font-semibold text-sm uppercase tracking-wider group-hover:text-white transition-colors">
+                                        <span className="text-gold font-semibold text-sm uppercase tracking-wider group-hover:text-white transition-colors">
                                             View Details
                                         </span>
-                                        <div className="w-10 h-10 rounded-full bg-[#D4AF37] text-white flex items-center justify-center shadow-lg shadow-[#D4AF37]/20 group-hover:bg-[#b89628] transition-all duration-300 transform group-hover:scale-110">
+                                        <div className="w-10 h-10 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-lg shadow-emerald-600/20 group-hover:bg-emerald-600/80 transition-all duration-300 transform group-hover:scale-110">
                                             <ArrowRight size={18} />
                                         </div>
                                     </div>

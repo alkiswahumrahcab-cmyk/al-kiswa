@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         "سعر مشوار مطار المدينة"
     ],
     alternates: {
-        canonical: 'https://alaqsaumrahtransport.com/services/madinah-airport-transfer',
+        canonical: 'https://alkiswahumrahtransport.com/services/madinah-airport-transfer',
     },
     openGraph: {
         title: "Madinah Airport Taxi to Hotel | Prince Mohammad Bin Abdulaziz Airport Transfer",
@@ -41,7 +41,7 @@ const jsonLd = {
     "alternateName": "توصيل مطار المدينة المنورة",
     "provider": {
         "@type": "LocalBusiness",
-        "name": "Al Aqsa Transport"
+        "name": "Al Kiswah Transport"
     },
     "serviceType": "Airport Transfer",
     "areaServed": {
@@ -107,7 +107,7 @@ export default async function MadinahAirportPage() {
 
                             <div className="space-y-6">
                                 <div className="flex gap-4">
-                                    <div className="bg-slate-100 dark:bg-slate-800 p-3 rounded-full h-fit text-amber-500">
+                                    <div className="bg-slate-100 dark:bg-slate-800 p-3 rounded-full h-fit text-emerald-600">
                                         <Plane size={24} />
                                     </div>
                                     <div>

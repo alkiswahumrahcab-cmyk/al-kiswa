@@ -11,7 +11,7 @@ export function IntercityIcon() {
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
-                className="text-amber-500/30"
+                className="text-celestial/30"
             />
             {/* Animated Path */}
             <motion.path
@@ -19,19 +19,19 @@ export function IntercityIcon() {
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
-                className="text-amber-500"
+                className="text-celestial"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", repeatDelay: 0.5 }}
             />
             {/* Markers */}
-            <motion.circle cx="4" cy="20" r="2" className="fill-amber-600" />
-            <motion.circle cx="20" cy="4" r="2" className="fill-amber-600" />
+            <motion.circle cx="4" cy="20" r="2" className="fill-gold" />
+            <motion.circle cx="20" cy="4" r="2" className="fill-gold" />
 
             {/* Moving Dot - Simplified Animation to ensure visibility */}
             <motion.circle
                 r="3"
-                className="fill-amber-400"
+                className="fill-gold-light"
                 initial={{ cx: 4, cy: 20 }}
                 animate={{
                     cx: [4, 8, 12, 16, 20],
@@ -52,7 +52,7 @@ export function AirportIcon() {
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeDasharray="4 4"
-                className="text-amber-500/50"
+                className="text-celestial/50"
             />
             {/* Plane */}
             <motion.g
@@ -63,7 +63,7 @@ export function AirportIcon() {
                 <path
                     d="M12 2L14.5 9H20L16 13L17 19L11 15L5 19L6 13L2 9H7.5L12 2Z"
                     fill="currentColor"
-                    className="text-amber-500"
+                    className="text-celestial"
                 />
             </motion.g>
         </svg>
@@ -78,7 +78,7 @@ export function HotelIcon() {
                 d="M6 22V4C6 2.9 6.9 2 8 2H16C17.1 2 18 2.9 18 4V22"
                 stroke="currentColor"
                 strokeWidth="2"
-                className="text-amber-500"
+                className="text-celestial"
             />
             {/* Windows - Staggered Light up */}
             {[0, 1, 2].map((row) => (
@@ -90,7 +90,7 @@ export function HotelIcon() {
                             y={6 + row * 4}
                             width="2"
                             height="2"
-                            className="fill-amber-400"
+                            className="fill-gold"
                             initial={{ opacity: 0.2 }}
                             animate={{ opacity: [0.2, 1, 0.2] }}
                             transition={{
@@ -103,7 +103,7 @@ export function HotelIcon() {
                 </g>
             ))}
             {/* Door */}
-            <rect x="10" y="18" width="4" height="4" stroke="currentColor" strokeWidth="2" className="text-amber-500" />
+            <rect x="10" y="18" width="4" height="4" stroke="currentColor" strokeWidth="2" className="text-celestial" />
         </svg>
     );
 }

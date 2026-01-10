@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'Umrah Travel Blog | Tips & Guides | مدونة العمرة',
     description: 'Read our latest articles on Umrah travel tips, transport advice, and spiritual guides. نصائح وارشادات للمعتمرين. دليل المواصلات في مكة والمدينة.',
     alternates: {
-        canonical: 'https://alaqsaumrahtransport.com/blog',
+        canonical: 'https://alkiswahumrahtransport.com/blog',
     },
 };
 
@@ -40,7 +40,7 @@ export default async function BlogPage() {
         readTime: post.readTime || '5 min read',
         image: post.image,
         alt: post.alt || post.title,
-        author: post.author || 'Al Aqsa Transport',
+        author: post.author || 'Al Kiswah Transport',
         tags: post.tags || [],
     }));
 

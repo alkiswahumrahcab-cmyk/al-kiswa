@@ -1,10 +1,10 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import styles from './page.module.css';
+
 import FadeIn from '@/components/common/FadeIn';
 import Hero from '@/components/common/Hero';
 import BookingFormWrapper from '@/components/home/BookingFormWrapper';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Clock, ShieldCheck, Users, Star } from 'lucide-react';
 
 import { getSectionContent, getSectionImage, getCustomField } from '@/lib/content-service';
 
@@ -30,7 +30,7 @@ export async function generateMetadata() {
     title: "Umrah Transport Services Saudi Arabia | Taxi Jeddah to Makkah",
     description: "Book trusted Umrah taxi services. Private GMC Yukon & Hyundai Staria transfers from Jeddah Airport to Makkah & Madinah. Official licensed transport company.",
     alternates: {
-      canonical: 'https://alaqsaumrahtransport.com',
+      canonical: 'https://alkiswahumrahtransport.com',
     },
     keywords: [
       "Umrah Transport Services", "Taxi Jeddah Airport to Makkah",
@@ -48,26 +48,34 @@ export async function generateMetadata() {
 export default async function Home() {
   const heroSection = await getSectionContent('home-hero');
   // SEO Optimized Fallbacks
-  const heroTitle = heroSection?.title || "Premium Umrah Transport Services: Jeddah, Makkah & Madinah";
+  const heroTitle = heroSection?.title || "Seamless Umrah Transport, Rooted in Trust";
   // Styled Subtitle with Arabic
-  const heroSubtitleText = heroSection?.subtitle || "Reliable Jeddah & Madinah Airport Transfers, Luxury Makkah-Madinah Travel";
+  const heroSubtitleText = heroSection?.subtitle || "Premium journeys designed for comfort, care, and spiritual alignment.";
   const heroSubtitleContent = (
     <>
-      <span className="block mb-3 opacity-90">{heroSubtitleText}</span>
+      <span className="block opacity-90">{heroSubtitleText}</span>
+    </>
+  );
+
+  const heroBadge = (
+    <div className="flex flex-col items-center">
+      <div className="w-12 h-[1px] bg-gold/50 mb-4" />
       <h2
-        className="block text-2xl md:text-3xl mt-2 text-amber-400 font-bold tracking-wide"
+        className="block text-2xl md:text-4xl text-gold font-bold tracking-[0.2em] mb-4"
         style={{ fontFamily: 'var(--font-reem-kufi)' }}
         lang="ar"
         dir="rtl"
       >
         خدمة نقل المعتمرين VIP
       </h2>
-    </>
+    </div>
   );
 
-  const heroImage = getSectionImage(heroSection, 'desktop') || "/images/blog/makkah-haram-view.jpg";
-  const ctaText = getCustomField(heroSection, 'cta_text') || "Book Your Ride / احجز الآن";
+  const heroImage = getSectionImage(heroSection, 'desktop') || "/images/blog-hero-professional.png";
+  const ctaText = getCustomField(heroSection, 'cta_text') || "Book Your Journey";
   const ctaLink = getCustomField(heroSection, 'cta_link') || "/booking";
+  const secondaryCtaText = "Explore Services";
+  const secondaryCtaLink = "/services";
 
   return (
     <main className="overflow-x-hidden">
@@ -75,14 +83,30 @@ export default async function Home() {
       <Hero
         title={heroTitle}
         subtitle={heroSubtitleContent}
+        badge={heroBadge as any}
         bgImage={heroImage}
-        layout="two-column"
+        layout="center"
         ctaText={ctaText}
         ctaLink={ctaLink}
+        secondaryCtaText={secondaryCtaText}
+        secondaryCtaLink={secondaryCtaLink}
         backgroundChildren={<AnimatedBackground />}
-      >
-        <BookingFormWrapper />
-      </Hero>
+        trustBadge={{
+          count: "30K+",
+          label: "Happy Pilgrims"
+        }}
+        fleetImages={[
+          "/images/fleet/gmc-yukon-hero-professional.png", // Center Hero
+          "/images/fleet/hiace-hero-professional.png",     // Left
+          "/images/fleet/staria-hero-professional.png",    // Right
+          "/images/fleet/camry-hero-professional.png"      // Extra (maybe unused/hidden for now)
+        ]}
+        stats={[
+          { label: "Punctual & Safe", value: "100%", icon: <ShieldCheck size={20} /> },
+          { label: "Direct Support", value: "24/7", icon: <Clock size={20} /> },
+          { label: "Years Experience", value: "7+", icon: <Star size={20} /> }
+        ]}
+      />
 
       {/* Transport Services Section - NEW */}
       <TransportServices />
@@ -127,15 +151,26 @@ export default async function Home() {
       </FadeIn>
 
       {/* CTA Section */}
-      <section className={styles.ctaSection}>
-        <div className="container relative z-10">
+      {/* CTA Section */}
+      <section className="relative py-24 bg-gradient-to-br from-celestial to-sky text-white overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10 bg-[url('/patterns/islamic-pattern.png')] bg-repeat" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gold/20 rounded-full blur-3xl" />
+
+        <div className="container relative z-10 text-center px-4">
           <FadeIn>
-            <h2 className={styles.ctaTitle}>Ready to Begin Your Blessed Journey?</h2>
-            <p className={styles.ctaText}>
+            <h2 className="text-4xl md:text-6xl font-bold font-playfair mb-6 drop-shadow-lg tracking-tight">
+              Ready for a Spiritual Journey?
+            </h2>
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-12 leading-relaxed font-light opacity-90">
               Book your VIP transport now and let us take care of the logistics while you focus on your worship.
             </p>
-            <Link href="/booking" className={styles.ctaButton}>
-              Book Your Ride Now <ArrowRight size={20} />
+            <Link
+              href="/booking"
+              className="inline-flex items-center gap-3 bg-white text-celestial font-bold px-10 py-5 rounded-full text-lg shadow-2xl shadow-celestial/20 hover:bg-white hover:scale-105 transition-all duration-300"
+            >
+              Book Your Ride Now <ArrowRight size={22} />
             </Link>
           </FadeIn>
         </div>

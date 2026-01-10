@@ -2,13 +2,12 @@
 
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import styles from './FAQSection.module.css';
 import FadeIn from '@/components/common/FadeIn';
 
 const faqs = [
     {
         question: "How to book a taxi for Umrah in Saudi Arabia?",
-        answer: "Booking is simple with Al Aqsa Umrah Transport. You can book online through our website for instant confirmation. We offer reliable Umrah Taxi Services from Jeddah Airport, Makkah, and Madinah with 24/7 support."
+        answer: "Booking is simple with Al Kiswah Umrah Transport. You can book online through our website for instant confirmation. We offer reliable Umrah Taxi Services from Jeddah Airport, Makkah, and Madinah with 24/7 support."
     },
     {
         question: "What is the best way to travel from Jeddah to Makkah?",
@@ -40,24 +39,45 @@ export default function FAQSection() {
     };
 
     return (
-        <section className={styles.section}>
-            <div className="container">
+        <section className="py-20 bg-slate-50 relative">
+            <div className="container mx-auto px-4">
                 <FadeIn>
-                    <h2 className={styles.sectionTitle}>Frequently Asked Questions</h2>
+                    <div className="text-center mb-16">
+                        <span className="text-amber-500 font-bold tracking-widest uppercase text-sm mb-3 block">Common Questions</span>
+                        <h2 className="text-3xl md:text-4xl font-bold font-playfair text-slate-800">Frequently Asked Questions</h2>
+                    </div>
                 </FadeIn>
-                <div className={styles.faqContainer}>
+
+                <div className="max-w-3xl mx-auto space-y-4">
                     {faqs.map((faq, index) => (
                         <FadeIn key={index} delay={index * 0.1}>
-                            <div className={`${styles.faqItem} ${activeAccordion === index ? styles.active : ''}`}>
+                            <div
+                                className={`border rounded-xl bg-white overflow-hidden transition-all duration-300 ${activeAccordion === index
+                                    ? 'border-amber-200 shadow-md shadow-amber-500/5'
+                                    : 'border-slate-100 shadow-sm hover:border-amber-200/50'
+                                    }`}
+                            >
                                 <button
-                                    className={styles.faqQuestion}
+                                    className="w-full flex items-center justify-between p-6 text-left"
                                     onClick={() => toggleAccordion(index)}
                                 >
-                                    {faq.question}
-                                    <ChevronDown className={styles.faqIcon} size={20} />
+                                    <span className={`font-semibold text-lg transition-colors ${activeAccordion === index ? 'text-amber-600' : 'text-slate-700 hover:text-amber-600'
+                                        }`}>
+                                        {faq.question}
+                                    </span>
+                                    <ChevronDown
+                                        className={`text-slate-400 transition-transform duration-300 ${activeAccordion === index ? 'rotate-180 text-amber-500' : ''
+                                            }`}
+                                        size={20}
+                                    />
                                 </button>
-                                <div className={styles.faqAnswer}>
-                                    <p style={{ paddingTop: '1rem' }}>{faq.answer}</p>
+                                <div
+                                    className={`transition-all duration-300 ease-in-out overflow-hidden ${activeAccordion === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                                        }`}
+                                >
+                                    <div className="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-50 bg-slate-50/50">
+                                        {faq.answer}
+                                    </div>
                                 </div>
                             </div>
                         </FadeIn>

@@ -26,7 +26,7 @@ const INITIAL_SECTIONS: SeedSection[] = [
         type: 'hero',
         title: 'Experience Spiritual Comfort',
         subtitle: 'Premium transport services for Umrah and Hajj pilgrims in Saudi Arabia.',
-        content: '<p>Welcome to Al Aqsa Transport.</p>',
+        content: '<p>Welcome to Al Kiswah Transport.</p>',
         customFields: [
             { key: 'cta_text', label: 'CTA Button Text', value: 'Book Now', type: 'text' },
             { key: 'cta_link', label: 'CTA Link', value: '/booking', type: 'link' }
@@ -59,7 +59,7 @@ const INITIAL_SECTIONS: SeedSection[] = [
         name: 'about-hero',
         page: 'About',
         type: 'hero',
-        title: 'About Al Aqsa',
+        title: 'About Al Kiswah',
         subtitle: 'Serving pilgrims with honor and dedication since 2010.',
         content: ''
     },

@@ -44,7 +44,7 @@ export const AbandonedCartTemplate = ({
                                 src={`${process.env.NEXT_PUBLIC_APP_URL}/logo.png`}
                                 width="80"
                                 height="80"
-                                alt="Al Aqsa Transport"
+                                alt="Al Kiswah Transport"
                                 className="mx-auto"
                             />
                         </Section>

@@ -74,15 +74,15 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                 <div className="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
                     <CheckCircle size={48} />
                 </div>
-                <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Booking Requested!</h2>
+                <h2 className="text-3xl font-bold text-celestial dark:text-white">Booking Requested!</h2>
                 <p className="text-slate-500 mt-4 max-w-sm mx-auto">
                     We've received your request. Our team will contact you on WhatsApp shortly to confirm availability.
                 </p>
                 <div className="mt-10 flex flex-col gap-3">
-                    <Link href="/" className="px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all">
+                    <Link href="/" className="px-8 py-4 bg-celestial text-white font-bold rounded-2xl hover:bg-sky-500 transition-all">
                         Back to Home
                     </Link>
-                    <button onClick={() => window.location.reload()} className="text-amber-600 font-bold hover:underline">
+                    <button onClick={() => window.location.reload()} className="text-gold font-bold hover:underline">
                         Book Another Trip
                     </button>
                 </div>
@@ -94,10 +94,10 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
         <div className="space-y-8">
             <div className="flex justify-between items-center">
                 <div>
-                    <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Final Details</h2>
-                    <p className="text-slate-500 mt-2">Enter your info to secure your booking.</p>
+                    <h2 className="text-3xl font-bold text-celestial dark:text-white">Final Details</h2>
+                    <p className="text-charcoal mt-2">Enter your info to secure your booking.</p>
                 </div>
-                <button onClick={onBack} className="text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center gap-1 font-bold text-sm">
+                <button onClick={onBack} className="text-charcoal/60 hover:text-celestial dark:hover:text-white flex items-center gap-1 font-bold text-sm">
                     <ChevronLeft size={18} />
                     Back
                 </button>
@@ -109,7 +109,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                     <div className="flex flex-col gap-1.5">
                         <label className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Full Name</label>
                         <div className="relative group">
-                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-amber-500 transition-colors">
+                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-celestial transition-colors">
                                 <User size={20} />
                             </div>
                             <input
@@ -121,8 +121,8 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                     w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-900 
                                     border-2 border-slate-100 dark:border-slate-800 
                                     rounded-2xl outline-none transition-all
-                                    focus:border-amber-500/50 focus:ring-4 focus:ring-amber-500/10
-                                    text-slate-900 dark:text-white
+                                    focus:border-celestial/50 focus:ring-4 focus:ring-celestial/10
+                                    text-charcoal dark:text-white
                                     ${errors.name ? 'border-red-500' : ''}
                                 `}
                             />
@@ -132,7 +132,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                     <div className="flex flex-col gap-1.5">
                         <label className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Email Address</label>
                         <div className="relative group">
-                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-amber-500 transition-colors">
+                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-celestial transition-colors">
                                 <Mail size={20} />
                             </div>
                             <input
@@ -144,8 +144,8 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                     w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-900 
                                     border-2 border-slate-100 dark:border-slate-800 
                                     rounded-2xl outline-none transition-all
-                                    focus:border-amber-500/50 focus:ring-4 focus:ring-amber-500/10
-                                    text-slate-900 dark:text-white
+                                    focus:border-celestial/50 focus:ring-4 focus:ring-celestial/10
+                                    text-charcoal dark:text-white
                                     ${errors.email ? 'border-red-500' : ''}
                                 `}
                             />
@@ -155,7 +155,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                     <div className="flex flex-col gap-1.5">
                         <label className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">WhatsApp / Phone</label>
                         <div className="relative group">
-                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-amber-500 transition-colors">
+                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-celestial transition-colors">
                                 <Phone size={20} />
                             </div>
                             <input
@@ -167,8 +167,8 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                     w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-900 
                                     border-2 border-slate-100 dark:border-slate-800 
                                     rounded-2xl outline-none transition-all
-                                    focus:border-amber-500/50 focus:ring-4 focus:ring-amber-500/10
-                                    text-slate-900 dark:text-white
+                                    focus:border-celestial/50 focus:ring-4 focus:ring-celestial/10
+                                    text-charcoal dark:text-white
                                     ${errors.phone ? 'border-red-500' : ''}
                                 `}
                             />
@@ -178,14 +178,14 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                     <div className="flex flex-col gap-1.5">
                         <label className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Additional Notes (Optional)</label>
                         <div className="relative group">
-                            <div className="absolute left-4 top-5 text-slate-400 group-focus-within:text-amber-500 transition-colors">
+                            <div className="absolute left-4 top-5 text-slate-400 group-focus-within:text-celestial transition-colors">
                                 <MessageSquare size={20} />
                             </div>
                             <textarea
                                 placeholder="Luggage details, flight number, etc."
                                 value={data.notes}
                                 onChange={(e) => updateData({ notes: e.target.value })}
-                                className="w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-900 border-2 border-slate-100 dark:border-slate-800 rounded-2xl outline-none transition-all focus:border-amber-500/50 focus:ring-4 focus:ring-amber-500/10 text-slate-900 dark:text-white min-h-[58px]"
+                                className="w-full pl-12 pr-4 py-4 bg-white dark:bg-slate-900 border-2 border-slate-100 dark:border-slate-800 rounded-2xl outline-none transition-all focus:border-celestial/50 focus:ring-4 focus:ring-celestial/10 text-charcoal dark:text-white min-h-[58px]"
                             />
                         </div>
                     </div>
@@ -198,14 +198,14 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
 
                         <div className="space-y-6">
                             <div className="flex gap-4">
-                                <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-500 flex items-center justify-center shrink-0">
+                                <div className="w-10 h-10 rounded-full bg-sky-100 dark:bg-sky-900/30 text-celestial dark:text-celestial flex items-center justify-center shrink-0">
                                     <MapPin size={20} />
                                 </div>
                                 <div>
                                     <p className="text-xs font-bold text-slate-400">Route</p>
-                                    <p className="text-sm font-bold text-slate-900 dark:text-white leading-tight mt-1">
+                                    <p className="text-sm font-bold text-charcoal dark:text-white leading-tight mt-1">
                                         {data.pickup} <br />
-                                        <span className="text-amber-500">↓</span> <br />
+                                        <span className="text-gold">↓</span> <br />
                                         {data.dropoff}
                                     </p>
                                 </div>
@@ -217,7 +217,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                 </div>
                                 <div>
                                     <p className="text-xs font-bold text-slate-400">Schedule</p>
-                                    <p className="text-sm font-bold text-slate-900 dark:text-white mt-1">
+                                    <p className="text-sm font-bold text-charcoal dark:text-white mt-1">
                                         {data.date?.toLocaleDateString()}
                                     </p>
                                     <p className="text-xs text-slate-500">
@@ -232,7 +232,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                 </div>
                                 <div>
                                     <p className="text-xs font-bold text-slate-400">Vehicle</p>
-                                    <p className="text-sm font-bold text-slate-900 dark:text-white mt-1">{vehicle?.name || 'Any Available'}</p>
+                                    <p className="text-sm font-bold text-charcoal dark:text-white mt-1">{vehicle?.name || 'Any Available'}</p>
                                     <p className="text-xs text-slate-500">{data.vehicleCount} Vehicle(s)</p>
                                 </div>
                             </div>
@@ -241,7 +241,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                 <div className="flex justify-between items-end">
                                     <div>
                                         <p className="text-xs font-bold text-slate-400">Estimated Total</p>
-                                        <p className="text-3xl font-black text-amber-500">
+                                        <p className="text-3xl font-black text-celestial">
                                             {pricing ? pricing.price * data.vehicleCount : 'Quote Required'}
                                             {pricing && <span className="text-sm ml-1">SAR</span>}
                                         </p>
@@ -264,7 +264,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                 <button
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className="w-full py-5 bg-gradient-to-r from-amber-500 to-amber-600 text-white font-bold rounded-2xl shadow-xl hover:shadow-amber-500/30 transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
+                    className="w-full py-5 bg-gradient-to-r from-celestial to-sky text-white font-bold rounded-2xl shadow-xl hover:shadow-sky-500/30 transition-all flex items-center justify-center gap-2 group disabled:opacity-50"
                 >
                     {isSubmitting ? (
                         <Loader2 className="animate-spin" size={24} />

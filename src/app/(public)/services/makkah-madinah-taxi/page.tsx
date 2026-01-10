@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         "مشوار مكة المدينة"
     ],
     alternates: {
-        canonical: 'https://alaqsaumrahtransport.com/services/makkah-madinah-taxi',
+        canonical: 'https://alkiswahumrahtransport.com/services/makkah-madinah-taxi',
     },
     openGraph: {
         title: "Taxi Makkah to Madinah Price 2025 | VIP Private Transport",
@@ -41,8 +41,8 @@ const jsonLd = {
     "alternateName": "تاكسي مكة المدينة",
     "provider": {
         "@type": "LocalBusiness",
-        "name": "Al Aqsa Transport",
-        "image": "https://alaqsaumrahtransport.com/logo.png"
+        "name": "Al Kiswah Transport",
+        "image": "https://alkiswahumrahtransport.com/logo.png"
     },
     "serviceType": "Intercity Transfer",
     "areaServed": {
@@ -63,19 +63,19 @@ const jsonLd = {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://alaqsaumrahtransport.com"
+                "item": "https://alkiswahumrahtransport.com"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Services",
-                "item": "https://alaqsaumrahtransport.com/services"
+                "item": "https://alkiswahumrahtransport.com/services"
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Makkah to Madinah Taxi",
-                "item": "https://alaqsaumrahtransport.com/services/makkah-madinah-taxi"
+                "item": "https://alkiswahumrahtransport.com/services/makkah-madinah-taxi"
             }
         ]
     }
@@ -84,7 +84,7 @@ const jsonLd = {
 const makkahMadinahFAQs = [
     {
         question: "How long is the journey from Makkah to Madinah?",
-        answer: <span>The distance is approximately 450 km. By private taxi (<Link href="/fleet/gmc-yukon-at4" className="text-amber-600 hover:underline">GMC</Link>/<Link href="/fleet/hyundai-staria" className="text-amber-600 hover:underline">Staria</Link>), the journey typically takes 4.5 to 5 hours. We can stop at the Miqat (Bir Ali) for 15-30 minutes if you wish to assume Ihram before entering Makkah.</span>
+        answer: <span>The distance is approximately 450 km. By private taxi (<Link href="/fleet/gmc-yukon-at4" className="text-gold hover:text-emerald-600 hover:underline">GMC</Link>/<Link href="/fleet/hyundai-staria" className="text-gold hover:text-emerald-600 hover:underline">Staria</Link>), the journey typically takes 4.5 to 5 hours. We can stop at the Miqat (Bir Ali) for 15-30 minutes if you wish to assume Ihram before entering Makkah.</span>
     },
     {
         question: "What is the price of a taxi from Makkah to Madinah?",
@@ -92,7 +92,7 @@ const makkahMadinahFAQs = [
     },
     {
         question: "Do you offer transport from Jeddah Airport to Makkah?",
-        answer: <span>Yes, we specialize in <Link href="/services/jeddah-airport-transfer" className="text-amber-600 hover:underline">Jeddah Airport transfers</Link>. Our driver will meet you at the arrival hall and take you directly to your hotel or the Haram.</span>
+        answer: <span>Yes, we specialize in <Link href="/services/jeddah-airport-transfer" className="text-gold hover:text-emerald-600 hover:underline">Jeddah Airport transfers</Link>. Our driver will meet you at the arrival hall and take you directly to your hotel or the Haram.</span>
     },
     {
         question: "Is it better than the Haramain Train?",
@@ -141,13 +141,13 @@ export default async function MakkahMadinahTaxiPage() {
                             <h2 className="text-3xl font-bold mb-6 font-playfair text-slate-800 dark:text-slate-100">
                                 Why Choose Our Makkah-Madinah Transfer?
                             </h2>
-                            <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+                            <p className="text-emerald-900/70 dark:text-emerald-50/70 mb-6 leading-relaxed">
                                 The journey between the two Holy Cities (approx. 450km) requires a vehicle that guarantees comfort and safety.
-                                Skip the crowded buses and strict train schedules. Our private taxi service offers premium rides in our <Link href="/fleet/gmc-yukon-at4" className="text-amber-600 font-medium hover:underline">GMC Yukon</Link> or <Link href="/fleet/hyundai-staria" className="text-amber-600 font-medium hover:underline">Hyundai Staria</Link>:
+                                Skip the crowded buses and strict train schedules. Our private taxi service offers premium rides in our <Link href="/fleet/gmc-yukon-at4" className="text-emerald-700 font-bold hover:underline">GMC Yukon</Link> or <Link href="/fleet/hyundai-staria" className="text-emerald-700 font-bold hover:underline">Hyundai Staria</Link>:
                             </p>
 
-                            <div className="mb-6 p-4 bg-amber-50 dark:bg-amber-900/20 rounded-lg border border-amber-100 dark:border-amber-800/30">
-                                <p className="text-amber-800 dark:text-amber-200 italic font-medium text-center font-serif">
+                            <div className="mb-6 p-6 bg-emerald-50/50 dark:bg-emerald-950/20 rounded-2xl border border-emerald-100/50 dark:border-emerald-800/30">
+                                <p className="text-emerald-900 dark:text-emerald-100 italic font-medium text-center font-serif">
                                     "Welcome to the City of the Prophet ﷺ – May your journey be blessed."
                                 </p>
                             </div>
@@ -161,7 +161,7 @@ export default async function MakkahMadinahTaxiPage() {
                                     "New Model Vehicles (2024-2025)"
                                 ].map((item, index) => (
                                     <li key={index} className="flex items-center gap-3">
-                                        <CheckCircle2 className="text-amber-500 flex-shrink-0" size={20} />
+                                        <CheckCircle2 className="text-emerald-600 flex-shrink-0" size={20} />
                                         <span className="text-slate-700 dark:text-slate-200">{item}</span>
                                     </li>
                                 ))}
@@ -200,17 +200,16 @@ export default async function MakkahMadinahTaxiPage() {
             {/* FAQ Section - NEW */}
             <FAQSection items={makkahMadinahFAQs} title="Frequently Asked Questions" />
 
-            {/* SEO Content Block */}
-            <section className="py-16 bg-slate-50 dark:bg-slate-950">
+            <section className="py-16 bg-white border-t border-emerald-50">
                 <div className="container mx-auto px-4 max-w-4xl text-center">
-                    <h2 className="text-2xl font-bold mb-4 font-playfair">Compare: Taxi vs. Haramain Train</h2>
-                    <p className="text-slate-600 dark:text-slate-400 mb-8">
+                    <h2 className="text-3xl font-bold mb-4 font-playfair text-emerald-950">Compare: Taxi vs. Haramain Train</h2>
+                    <p className="text-emerald-900/70 dark:text-emerald-50/70 mb-8 leading-relaxed font-light">
                         While the train is fast, a private taxi offers unmatched convenience for families.
                         No need to travel to the station, handle luggage multiple times, or worry about ticket availability.
                         Our service picks you up directly from your lobby.
                     </p>
-                    <Link href="/booking" className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-full font-bold transition-all">
-                        Check Prices & Book <ArrowRight size={20} />
+                    <Link href="/booking" className="btn-emerald px-10 py-4 rounded-full font-bold transition-all shadow-xl shadow-emerald-900/20">
+                        Check Prices & Book Now <ArrowRight size={20} className="ml-2" />
                     </Link>
                 </div>
             </section>

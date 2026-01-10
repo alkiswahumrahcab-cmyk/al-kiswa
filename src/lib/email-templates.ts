@@ -13,7 +13,7 @@ export const DEFAULT_BOOKING_CONFIRMATION_TEMPLATE = `
     </div>
 
     <p style="text-align: center;">Thank you for choosing Al Kiswah Umrah Transport. Your ride has been scheduled successfully.<br>
-    <span style="font-family: 'Amiri', serif; color: #666;">شكراً لاختيارك الأقصى للنقل. تم حجز رحلتك بنجاح.</span></p>
+    <span style="font-family: 'Amiri', serif; color: #666;">شكراً لاختيارك الكسوة للنقل. تم حجز رحلتك بنجاح.</span></p>
 
     <!-- Booking Details Card -->
     <div style="background-color: #f8f9fa; border: 1px solid #e9ecef; border-radius: 12px; overflow: hidden; margin: 25px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
@@ -99,7 +99,7 @@ export const DEFAULT_BOOKING_CONFIRMATION_TEMPLATE = `
     </div>
 
     <p style="text-align: center; margin-top: 30px; color: #999; font-size: 12px;">
-        &copy; {{year}} Al Aqsa Umrah Transport. All rights reserved.
+        &copy; {{year}} Al Kiswah Umrah Transport. All rights reserved.
     </p>
 </div>
 `;
@@ -130,7 +130,7 @@ export const DEFAULT_ADMIN_NOTIFICATION_TEMPLATE = `
         {{price_row}}
     </div>
 
-    <p style="font-size: 12px; color: #666;">This is an automated notification from the Al Aqsa Transport booking system.</p>
+    <p style="font-size: 12px; color: #666;">This is an automated notification from the Al Kiswah Transport booking system.</p>
 </div>
 `;
 

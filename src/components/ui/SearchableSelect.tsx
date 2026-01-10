@@ -143,7 +143,7 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
                                             {option.icon && <span className="shrink-0 text-lg">{option.icon}</span>}
                                             <span className="font-medium">{option.label}</span>
                                         </div>
-                                        {value === option.value && <Check size={14} className="text-secondary" />}
+                                        {value === option.value && <Check size={14} className="text-gold" />}
                                     </>
                                 )}
                             </li>

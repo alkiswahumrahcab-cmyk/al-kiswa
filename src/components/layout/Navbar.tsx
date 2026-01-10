@@ -93,15 +93,15 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`relative lg:sticky lg:top-0 left-0 right-0 z-50 transition-all duration-300 ${mounted && scrolled
-                ? 'glass py-2 lg:py-3'
-                : 'bg-white/75 dark:bg-black/40 backdrop-blur-md border-b border-black/5 dark:border-white/10 py-4 lg:py-6 2xl:py-8'
-                } ${isMenuOpen ? 'bg-background' : ''}`}
+            className={`fixed left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled
+                ? 'glass bg-white/80 py-3 shadow-sm top-0'
+                : 'bg-transparent py-6 top-0 lg:top-12'
+                }`}
         >
             <div className="container mx-auto px-4 flex items-center justify-between">
-                <Link href="/" className="flex items-center gap-3 group">
+                <Link href="/" className="flex items-center gap-3 group relative z-50">
                     <div className="relative flex items-center">
-                        <div className={`absolute left-0 top-1/2 -translate-y-1/2 transition-all duration-300 ${scrolled ? 'w-[60px] h-[60px] lg:w-[80px] lg:h-[80px]' : 'w-[80px] h-[80px] lg:w-[100px] lg:h-[100px]'} group-hover:scale-105`}>
+                        <div className={`relative transition-all duration-500 ${scrolled ? 'w-12 h-12' : 'w-16 h-16'} bg-white rounded-full p-1.5 shadow-lg border-2 border-gold/50 overflow-hidden`}>
                             <Image
                                 src="/logo.png"
                                 alt="Al Kiswah Transport"
@@ -110,54 +110,52 @@ export default function Navbar() {
                                 priority
                             />
                         </div>
-                        <div className={`flex items-center gap-3 transition-all duration-300 ${scrolled ? 'ml-[70px] lg:ml-[90px]' : 'ml-[90px] lg:ml-[120px]'}`}>
-                            <div className="flex flex-col items-end">
-                                <span className="text-xl lg:text-2xl font-bold text-secondary leading-none">Al Kiswah</span>
-                                <span className="text-[0.65rem] lg:text-xs font-bold text-primary dark:text-white tracking-[0.15em] uppercase leading-none mt-1">Transport</span>
-                            </div>
-                            <div className="w-px h-8 lg:h-10 bg-secondary/80"></div>
-                            <div className="flex flex-col items-start">
-                                <span className="font-[family-name:var(--font-reem-kufi)] text-lg lg:text-xl font-bold text-secondary leading-none">
-                                    الكسوة للنقل
-                                </span>
-                            </div>
+                        <div className={`flex flex-col ml-3 transition-all duration-500`}>
+                            <span className={`font-playfair font-bold text-emerald-950 leading-none transition-all duration-300 ${scrolled ? 'text-lg' : 'text-xl'}`}>
+                                Al Kiswah
+                            </span>
+                            <span className="text-[0.6rem] font-bold text-gold tracking-[0.3em] uppercase leading-none mt-1">
+                                Transport
+                            </span>
                         </div>
                     </div>
                 </Link>
 
                 {/* Desktop Nav */}
-                <div className="hidden xl:flex items-center gap-8">
+                <div className="hidden xl:flex items-center gap-8 bg-white/60 backdrop-blur-md px-8 py-2.5 rounded-full border border-white/40 shadow-sm transition-all duration-300 hover:shadow-md hover:border-emerald-100">
                     {links.map((link) => (
                         <div key={link.href} className="relative group">
                             {link.href === '#' ? (
                                 <span
-                                    className={`relative text-sm font-medium transition-colors duration-300 hover:text-secondary py-4 flex items-center gap-1 cursor-default ${scrolled ? 'text-foreground/80' : 'text-foreground/80 dark:text-white/90'}`}
+                                    className={`relative text-sm font-medium transition-colors duration-300 py-2 flex items-center gap-1 cursor-default text-emerald-950 hover:text-emerald-700`}
                                 >
                                     {link.label}
-                                    {link.children && <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />}
+                                    {link.children && <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300 text-gold" />}
                                 </span>
                             ) : (
                                 <Link
                                     href={link.href}
-                                    className={`relative text-sm transition-colors duration-300 hover:text-secondary py-4 flex items-center gap-1 font-playfair tracking-wide ${mounted && pathname === link.href ? 'text-secondary font-bold' : ((mounted && scrolled) ? 'text-foreground/80' : 'text-foreground/80 dark:text-white/90')
+                                    className={`relative text-sm font-medium transition-colors duration-300 py-2 flex items-center gap-1 ${pathname === link.href ? 'text-emerald-700 font-bold' : 'text-emerald-900 hover:text-emerald-700'
                                         }`}
                                 >
                                     {link.label}
-                                    {link.children && <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300" />}
-                                    <span className={`absolute bottom-2 left-0 w-full h-0.5 bg-secondary transform origin-left transition-transform duration-300 ${mounted && pathname === link.href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                                    {link.children && <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300 text-gold" />}
+
+                                    {/* Link Underline Animation */}
+                                    <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-gold transform origin-left transition-transform duration-300 ${pathname === link.href ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
                                         }`} />
                                 </Link>
                             )}
 
                             {/* Dropdown Menu */}
                             {link.children && (
-                                <div className="absolute top-full left-0 w-56 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                                    <div className="bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-black/5 dark:border-white/10 overflow-hidden p-2">
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+                                    <div className="bg-white/95 backdrop-blur-xl rounded-xl shadow-xl shadow-sky-200/50 border border-white/50 overflow-hidden p-2 min-w-[240px]">
                                         {link.children.map((child) => (
                                             <Link
                                                 key={child.href}
                                                 href={child.href}
-                                                className="block px-4 py-3 text-sm font-medium text-foreground/80 hover:text-secondary hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                                                className="block px-4 py-3 text-sm font-medium text-charcoal hover:text-celestial hover:bg-sky-50/50 rounded-lg transition-colors"
                                             >
                                                 {child.label}
                                             </Link>
@@ -170,19 +168,15 @@ export default function Navbar() {
                 </div>
 
                 <div className="hidden xl:flex items-center gap-4">
-                    {/* ThemeToggle hidden on desktop as requested */}
-                    {/* <ThemeToggle /> */}
-
-
-
-                    <GlassButton href="/booking" variant="secondary" size="md" className="font-bold shadow-lg !bg-secondary !text-white !bg-none hover:!bg-primary hover:!text-primary-foreground transition-all duration-300">
-                        Book Now
-                    </GlassButton>
+                    <ThemeToggle />
+                    <button className="btn-gold text-sm uppercase tracking-wider shimmer-gold shadow-lg shadow-gold/20">
+                        <Link href="/booking">Book Now</Link>
+                    </button>
                 </div>
 
                 {/* Mobile Menu Button */}
                 <button
-                    className={`xl:hidden p-2 transition-colors relative z-50 ${scrolled ? 'text-foreground hover:text-secondary' : 'text-foreground dark:text-white hover:text-secondary'}`}
+                    className={`xl:hidden p-2 transition-colors relative z-50 text-slate-800 hover:text-primary`}
                     onClick={toggleMenu}
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     aria-expanded={isMenuOpen}
@@ -191,46 +185,20 @@ export default function Navbar() {
                 </button>
             </div>
 
-            {/* Backdrop */}
+            {/* Mobile Sidebar & Backdrop */}
+            {/* Kept similar logic but updated colors to White/Gold */}
             <div
-                className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 xl:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                className={`fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-40 transition-opacity duration-300 xl:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                     }`}
                 onClick={() => setIsMenuOpen(false)}
-                aria-hidden="true"
             />
 
-            {/* Mobile Sidebar Drawer */}
             <div
-                className={`fixed top-0 right-0 h-[100dvh] w-[85%] max-w-sm bg-background shadow-2xl z-40 transform transition-transform duration-300 xl:hidden border-l border-border flex flex-col ${isMenuOpen ? 'translate-x-0 visible' : 'translate-x-full invisible pointer-events-none'
+                className={`fixed top-0 right-0 h-[100dvh] w-[85%] max-w-sm bg-white shadow-2xl z-40 transform transition-transform duration-300 xl:hidden border-l border-slate-100 flex flex-col ${isMenuOpen ? 'translate-x-0 visible' : 'translate-x-full invisible pointer-events-none'
                     }`}
-                role="dialog"
-                aria-modal="true"
-                aria-label="Mobile navigation"
             >
-                <div className="flex items-center justify-between p-6 border-b border-border/50">
-                    <Link href="/" className="flex items-center gap-3">
-                        <div className="relative w-[80px] h-[80px]">
-                            <Image
-                                src="/logo.png"
-                                alt="Al Kiswah Transport"
-                                fill
-                                className="object-contain"
-                            />
-                        </div>
-                        <div className="flex items-center gap-3">
-                            <div className="flex flex-col items-end">
-                                <span className="text-xl font-bold text-secondary leading-none">Al Kiswah</span>
-                                <span className="text-[0.65rem] font-bold text-foreground dark:text-white tracking-[0.15em] uppercase leading-none mt-1">Transport</span>
-                            </div>
-                            <div className="w-px h-8 bg-secondary/80"></div>
-                            <div className="flex flex-col items-start">
-                                <span className="font-[family-name:var(--font-reem-kufi)] text-lg font-bold text-secondary leading-none">
-                                    الكسوة للنقل
-                                </span>
-                            </div>
-                        </div>
-                    </Link>
-                    {/* Close button is handled by the main toggle button which is fixed z-50 */}
+                <div className="flex items-center justify-between p-6 border-b border-slate-100">
+                    <span className="text-xl font-playfair font-bold text-secondary">Menu</span>
                 </div>
 
                 <div className="flex-1 overflow-y-auto py-6 px-4 flex flex-col gap-2">
@@ -238,31 +206,21 @@ export default function Navbar() {
                         <div key={link.href} className="flex flex-col">
                             <Link
                                 href={link.href}
-                                className={`p-4 rounded-xl text-lg transition-all duration-200 flex items-center justify-between group font-playfair tracking-normal ${mounted && pathname === link.href
-                                    ? 'bg-secondary/10 text-secondary font-bold'
-                                    : 'text-foreground/80 hover:bg-muted hover:text-foreground'
+                                className={`p-4 rounded-xl text-lg font-medium transition-all duration-200 flex items-center justify-between group ${pathname === link.href
+                                    ? 'bg-amber-50 text-primary font-bold'
+                                    : 'text-slate-700 hover:bg-slate-50 hover:text-slate-900'
                                     }`}
                                 onClick={() => !link.children && setIsMenuOpen(false)}
                             >
-                                <span className="flex items-center gap-2">
-                                    {link.label}
-                                </span>
-                                {mounted && pathname === link.href && !link.children && (
-                                    <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                                )}
+                                {link.label}
                             </Link>
-
-                            {/* Mobile Submenu - Always indent for simplicity */}
                             {link.children && (
-                                <div className="pl-4 flex flex-col gap-1 mt-1 border-l-2 border-secondary/10 ml-4">
+                                <div className="pl-4 flex flex-col gap-1 mt-1 border-l-2 border-slate-100 ml-4">
                                     {link.children.map((child) => (
                                         <Link
                                             key={child.href}
                                             href={child.href}
-                                            className={`p-3 rounded-lg text-base font-medium transition-all duration-200 flex items-center justify-between ${mounted && pathname === child.href
-                                                ? 'text-secondary bg-secondary/5 font-bold'
-                                                : 'text-foreground/70 hover:text-foreground hover:bg-muted/50'
-                                                }`}
+                                            className="p-3 rounded-lg text-base font-medium text-slate-600 hover:text-primary hover:bg-slate-50"
                                             onClick={() => setIsMenuOpen(false)}
                                         >
                                             {child.label}
@@ -273,24 +231,10 @@ export default function Navbar() {
                         </div>
                     ))}
                 </div>
-
-                <div className="p-6 border-t border-border/50 bg-muted/30 mt-auto space-y-4">
-                    <div className="flex items-center justify-between mb-2 bg-background/50 p-4 rounded-xl border border-border/50">
-                        <span className="text-sm font-medium text-foreground/80">Appearance</span>
-                        <ThemeToggle />
-                    </div>
-
-
-
-                    <GlassButton
-                        href="/booking"
-                        variant="secondary"
-                        size="lg"
-                        className="w-full justify-center shadow-lg font-bold text-lg !bg-secondary !text-white !bg-none hover:!bg-primary hover:!text-primary-foreground transition-all duration-300"
-                        onClick={() => setIsMenuOpen(false)}
-                    >
-                        Book Now
-                    </GlassButton>
+                <div className="p-6 border-t border-slate-100 mt-auto space-y-4">
+                    <button className="w-full btn-gold py-4 text-center block" onClick={() => setIsMenuOpen(false)}>
+                        <Link href="/booking">Book Now</Link>
+                    </button>
                 </div>
             </div>
         </nav>

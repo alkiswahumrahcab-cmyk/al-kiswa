@@ -47,7 +47,7 @@ export async function POST() {
 
                 await sendEmail({
                     to: booking.email,
-                    subject: 'How was your trip with Al Aqsa Transport?',
+                    subject: 'How was your trip with Al Kiswah Transport?',
                     html: html
                 });
 

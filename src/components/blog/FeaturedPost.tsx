@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './FeaturedPost.module.css';
+
 import { ArrowRight, Calendar, Clock, Sparkles } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
 

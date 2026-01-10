@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
             authors: [post.author],
             images: [
                 {
-                    url: post.image.startsWith('http') ? post.image : `https://alaqsaumrahtransport.com${post.image.startsWith('/') ? '' : '/'}${post.image}`,
+                    url: post.image.startsWith('http') ? post.image : `https://alkiswahumrahtransport.com${post.image.startsWith('/') ? '' : '/'}${post.image}`,
                     alt: post.alt || post.title,
                     width: 1200,
                     height: 630,
@@ -84,10 +84,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         },
         "publisher": {
             "@type": "Organization",
-            "name": "Al Aqsa Umrah Transport",
+            "name": "Al Kiswah Umrah Transport",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://alaqsaumrahtransport.com/logo.png" // Update with actual logo URL
+                "url": "https://alkiswahumrahtransport.com/logo.png" // Update with actual logo URL
             }
         },
         "description": post.excerpt,

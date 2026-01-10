@@ -139,7 +139,7 @@ export const getContactFeedbackTemplate = ({ name, message }: ContactFeedbackDat
             <p>${message}</p>
         </div>
 
-        <p>Best Regards,<br/>Al Aqsa Transport Team</p>
+        <p>Best Regards,<br/>Al Kiswah Transport Team</p>
     </div>
 `;
 };

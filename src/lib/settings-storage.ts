@@ -27,7 +27,7 @@ const DEFAULT_SETTINGS: Settings = {
         },
     },
     seo: {
-        defaultTitle: 'Al Aqsa Umrah Transport',
+        defaultTitle: 'Al Kiswah Umrah Transport',
         defaultDescription: 'Reliable Umrah taxi service in Makkah and Madinah. Book comfortable, affordable, and safe transport for your spiritual journey. Premium fleet available.',
         keywords: 'umrah taxi, makkah transport, jeddah airport transfer, umrah transport services, pilgrim travel comfort, affordable umrah transport, saudi arabia transport',
     },

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         "زيارة غار حراء"
     ],
     alternates: {
-        canonical: 'https://alaqsaumrahtransport.com/services/ziyarat-tours',
+        canonical: 'https://alkiswahumrahtransport.com/services/ziyarat-tours',
     },
     openGraph: {
         title: "Ziyarat Makkah Madinah Tours | Historical Site Visits",
@@ -40,7 +40,7 @@ const jsonLd = {
     "description": "Private guided tour of historical Islamic sites in Makkah and Madinah including Cave Hira and Masjid Quba.",
     "provider": {
         "@type": "TransportationService",
-        "name": "Al Aqsa Transport"
+        "name": "Al Kiswah Transport"
     },
     "itinerary": [
         {
@@ -104,7 +104,7 @@ export default async function ZiyaratToursPage() {
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col md:flex-row gap-12 items-center">
                         <div className="md:w-1/2">
-                            <h2 className="text-3xl font-bold mb-6 font-playfair text-slate-800 dark:text-slate-100 border-l-4 border-amber-500 pl-4">
+                            <h2 className="text-3xl font-bold mb-6 font-playfair text-emerald-950 dark:text-emerald-50 border-l-4 border-gold pl-4">
                                 Makkah Ziyarat Sites
                             </h2>
                             <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
@@ -118,7 +118,7 @@ export default async function ZiyaratToursPage() {
                                     { name: "Jannat al-Mu'alla", desc: "The cemetery where Khadijah (RA) is buried." }
                                 ].map((site, idx) => (
                                     <li key={idx} className="bg-slate-50 dark:bg-slate-800 p-4 rounded-lg flex gap-4 hover:shadow-md transition-shadow">
-                                        <div className="bg-amber-100 dark:bg-amber-900/30 p-3 rounded-full h-fit text-amber-600 dark:text-amber-400">
+                                        <div className="bg-emerald-50 dark:bg-emerald-900/30 p-3 rounded-full h-fit text-gold">
                                             <MapPin size={24} />
                                         </div>
                                         <div>
@@ -148,7 +148,7 @@ export default async function ZiyaratToursPage() {
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
                         <div className="md:w-1/2">
-                            <h2 className="text-3xl font-bold mb-6 font-playfair text-slate-800 dark:text-slate-100 border-l-4 border-green-500 pl-4">
+                            <h2 className="text-3xl font-bold mb-6 font-playfair text-emerald-950 dark:text-emerald-50 border-l-4 border-emerald-600 pl-4">
                                 Madinah Ziyarat Sites
                             </h2>
                             <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
@@ -162,7 +162,7 @@ export default async function ZiyaratToursPage() {
                                     { name: "The Seven Mosques", desc: "Site of the Battle of the Trench." }
                                 ].map((site, idx) => (
                                     <li key={idx} className="bg-white dark:bg-slate-900 p-4 rounded-lg flex gap-4 hover:shadow-md transition-shadow">
-                                        <div className="bg-green-100 dark:bg-green-900/30 p-3 rounded-full h-fit text-green-600 dark:text-green-400">
+                                        <div className="bg-emerald-50 dark:bg-emerald-950/20 p-3 rounded-full h-fit text-emerald-600">
                                             <Heart size={24} />
                                         </div>
                                         <div>
@@ -193,21 +193,21 @@ export default async function ZiyaratToursPage() {
                     <h2 className="text-3xl font-bold mb-12 font-playfair">Enhance Your Spiritual Journey</h2>
                     <div className="grid md:grid-cols-3 gap-8">
                         <div className="p-6">
-                            <div className="bg-slate-100 dark:bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-amber-500">
+                            <div className="bg-slate-100 dark:bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-emerald-600">
                                 <Clock size={32} />
                             </div>
                             <h3 className="text-xl font-bold mb-2">No Hasted Visits</h3>
-                            <p className="text-sm text-slate-600 dark:text-slate-400">Unlike group buses, we wait for you. Travel in our private <Link href="/fleet/gmc-yukon-at4" className="text-amber-600 hover:underline">GMC Yukon</Link> or <Link href="/fleet/hyundai-staria" className="text-amber-600 hover:underline">Hyundai Staria</Link> and take your time to pray.</p>
+                            <p className="text-sm text-slate-600 dark:text-slate-400">Unlike group buses, we wait for you. Travel in our private <Link href="/fleet/gmc-yukon-at4" className="text-gold hover:text-emerald-600 hover:underline">GMC Yukon</Link> or <Link href="/fleet/hyundai-staria" className="text-gold hover:text-emerald-600 hover:underline">Hyundai Staria</Link> and take your time to pray.</p>
                         </div>
                         <div className="p-6">
-                            <div className="bg-slate-100 dark:bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-amber-500">
+                            <div className="bg-slate-100 dark:bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-emerald-600">
                                 <BookOpen size={32} />
                             </div>
                             <h3 className="text-xl font-bold mb-2">Historical Context</h3>
                             <p className="text-sm text-slate-600 dark:text-slate-400">Our drivers share the history and significance of the locations you visit.</p>
                         </div>
                         <div className="p-6">
-                            <div className="bg-slate-100 dark:bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-amber-500">
+                            <div className="bg-slate-100 dark:bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-emerald-600">
                                 <Camera size={32} />
                             </div>
                             <h3 className="text-xl font-bold mb-2">Photo Opportunities</h3>
@@ -215,8 +215,8 @@ export default async function ZiyaratToursPage() {
                         </div>
                     </div>
                     <div className="mt-12">
-                        <Link href="/booking" className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-amber-500/25">
-                            Book Your Private Ziyarat Tour <ArrowRight size={20} />
+                        <Link href="/booking" className="btn-emerald px-10 py-4 rounded-full font-bold transition-all shadow-xl shadow-emerald-900/20 uppercase tracking-[0.2em] text-xs">
+                            Book Your Private Ziyarat Tour <ArrowRight size={20} className="ml-2" />
                         </Link>
                         <p className="mt-6 text-sm text-slate-500">
                             Need to travel between cities? We also offer <Link href="/services/makkah-madinah-taxi" className="text-amber-600 hover:underline">Makkah to Madinah Taxi</Link> services.

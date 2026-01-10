@@ -8,11 +8,11 @@
     width: 100%;
     position: relative;
     z-index: 10;
-    /* Ultra Premium Glass Effect */
-    background: rgba(15, 23, 42, 0.65);
-    backdrop-filter: blur(24px) saturate(180%);
-    -webkit-backdrop-filter: blur(24px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Ultra Premium Deep Emerald Glass */
+    background: rgba(6, 40, 31, 0.75);
+    backdrop-filter: blur(28px) saturate(160%);
+    -webkit-backdrop-filter: blur(28px) saturate(160%);
+    border: 1px solid rgba(13, 124, 102, 0.2);
     box-shadow:
         0 25px 50px -12px rgba(0, 0, 0, 0.5),
         0 0 0 1px rgba(255, 255, 255, 0.05) inset;
@@ -25,11 +25,12 @@
 }
 
 .container:hover {
-    background: rgba(15, 23, 42, 0.75);
+    background: rgba(6, 40, 31, 0.9);
     box-shadow:
-        0 35px 70px -15px rgba(0, 0, 0, 0.6),
-        0 0 0 1px rgba(251, 191, 36, 0.2) inset;
-    border-color: rgba(251, 191, 36, 0.3);
+        0 40px 80px -20px rgba(0, 0, 0, 0.7),
+        0 0 0 1px rgba(191, 163, 90, 0.4) inset;
+    border-color: rgba(191, 163, 90, 0.5);
+    transform: translateY(-5px);
 }
 
 /* Gradient Border Effect - Gold/Amber */
@@ -41,7 +42,7 @@
     padding: 1.5px;
     background: linear-gradient(135deg,
             rgba(255, 255, 255, 0.2) 0%,
-            rgba(251, 191, 36, 0.3) 50%,
+            rgba(244, 228, 193, 0.3) 50%,
             rgba(255, 255, 255, 0.1) 100%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -72,17 +73,17 @@
     font-family: 'Playfair Display', serif;
     letter-spacing: -0.02em;
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    background: linear-gradient(to bottom, #ffffff, #fcd34d);
+    background: linear-gradient(to bottom, #ffffff, #BFA35A);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
 .subtitle {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
+    font-weight: 500;
+    letter-spacing: 0.05em;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
@@ -130,7 +131,7 @@
 
 .inputWrapper:focus-within+.label,
 .inputGroup:hover .label {
-    color: #fcd34d;
+    color: #BFA35A;
 }
 
 .inputWrapper {
@@ -143,17 +144,17 @@
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
-    color: rgba(255, 255, 255, 0.6);
+    color: rgba(255, 255, 255, 0.85);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
     z-index: 1;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
 }
 
 .inputWrapper:focus-within .icon {
-    color: #fbbf24;
-    filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.6));
+    color: #BFA35A;
+    filter: drop-shadow(0 0 8px rgba(191, 163, 90, 0.6));
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -187,11 +188,11 @@
 }
 
 .input:focus {
-    border-color: #fbbf24;
+    border-color: #BFA35A;
     background: rgba(15, 23, 42, 0.6);
     box-shadow:
-        0 0 0 1px rgba(251, 191, 36, 0.5),
-        0 0 15px rgba(251, 191, 36, 0.15);
+        0 0 0 1px rgba(191, 163, 90, 0.5),
+        0 0 15px rgba(191, 163, 90, 0.15);
     transform: translateY(-2px);
 }
 
@@ -235,7 +236,7 @@
 .select {
     appearance: none;
     cursor: pointer;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23fbbf24' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23D4AF37' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
     background-position: right 1rem center;
     background-repeat: no-repeat;
     background-size: 1em 1em;
@@ -280,7 +281,7 @@
 
 .activeTab {
     background: rgba(255, 255, 255, 0.1);
-    color: #fbbf24;
+    color: #BFA35A;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -316,9 +317,9 @@
     box-shadow:
         0 10px 25px -5px rgba(0, 0, 0, 0.3),
         0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-    background: linear-gradient(135deg, #FFD700 0%, #B8860B 100%);
+    background: linear-gradient(135deg, #064E3B 0%, #065F46 100%);
     backdrop-filter: blur(10px);
-    color: #000;
+    color: #fff;
     border: none;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -411,7 +412,7 @@
 .successTitle {
     font-size: 1.8rem;
     font-weight: 700;
-    color: #fbbf24;
+    color: #F4E4C1;
     margin-bottom: 0.5rem;
     font-family: 'Playfair Display', serif;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
@@ -661,15 +662,15 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background: rgba(251, 191, 36, 0.1);
+    background: rgba(244, 228, 193, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(251, 191, 36, 0.2);
+    border: 1px solid rgba(244, 228, 193, 0.2);
 }
 
 .trustIcon {
-    color: #fbbf24;
+    color: #BFA35A;
 }
 
 .trustText {

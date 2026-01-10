@@ -13,11 +13,12 @@ const config: Config = {
             center: true,
         },
         fontFamily: {
-            sans: ["var(--font-geist-sans)", "sans-serif"],
+            sans: ["var(--font-montserrat)", "var(--font-tajawal)", "sans-serif"],
             mono: ["var(--font-geist-mono)", "monospace"],
-            playfair: ["var(--font-playfair)", "serif"],
-            opensans: ["var(--font-open-sans)", "sans-serif"],
-            reem: ["var(--font-reem-kufi)", "sans-serif"],
+            playfair: ["var(--font-montserrat)", "var(--font-tajawal)", "sans-serif"], // Replaced Playfair with Montserrat as requested
+            reem: ["var(--font-tajawal)", "sans-serif"], // Replaced Reem Kufi with Tajawal
+            montserrat: ["var(--font-montserrat)", "sans-serif"],
+            tajawal: ["var(--font-tajawal)", "sans-serif"],
         },
         extend: {
             colors: {
@@ -54,6 +55,16 @@ const config: Config = {
                     DEFAULT: "hsl(var(--card))",
                     foreground: "hsl(var(--card-foreground))",
                 },
+                // Custom Theme Colors (Deep Emerald & Gold)
+                emerald: "hsl(var(--emerald-primary))", // #0D7C66
+                mint: "hsl(var(--soft-mint))",          // #E8F5F1
+                gold: "hsl(var(--gold-accent))",        // #BFA35A
+                slate: "hsl(var(--dark-slate))",        // #1A2332
+                warm: "hsl(var(--warm-gray))",          // #F8F9FA
+
+                // Legacy Mapping (Deprecating slowly or keeping for compatibility if needed, but best to replace)
+                celestial: "hsl(var(--emerald-primary))", // Mapping to Emerald
+                sky: "hsl(var(--soft-mint))",             // Mapping to Mint
             },
             borderRadius: {
                 lg: "var(--radius)",
