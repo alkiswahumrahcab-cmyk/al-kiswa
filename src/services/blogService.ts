@@ -4,8 +4,14 @@ import { staticBlogPosts } from '@/data/blog-posts';
 
 export const blogService = {
     async getPosts() {
-        await dbConnect();
-        const dbPosts = await BlogPost.find({}).sort({ date: -1 }).lean();
+        let dbPosts: any[] = [];
+        try {
+            await dbConnect();
+            dbPosts = await BlogPost.find({}).sort({ date: -1 }).lean();
+        } catch (error) {
+            console.warn('Failed to fetch posts from DB during build/runtime, falling back to static content:', error);
+            // Fallback: dbPosts remains empty, static posts will still be served
+        }
 
         // Map DB posts to standard format
         const mappedDbPosts = dbPosts.map(post => ({
@@ -35,8 +41,13 @@ export const blogService = {
     },
 
     async getPostBySlug(slug: string) {
-        await dbConnect();
-        const post = await BlogPost.findOne({ slug }).lean();
+        let post = null;
+        try {
+            await dbConnect();
+            post = await BlogPost.findOne({ slug }).lean();
+        } catch (error) {
+            console.warn(`Failed to fetch post '${slug}' from DB during build/runtime:`, error);
+        }
 
         if (post) {
             return {
