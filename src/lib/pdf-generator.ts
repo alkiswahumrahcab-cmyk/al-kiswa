@@ -2,11 +2,11 @@ import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
 // Define font and styling constants
-const COMPANY_NAME = "Al Aqsa Transport";
+const COMPANY_NAME = "Al Kiswah Transport";
 const COMPANY_ISLAMIC_NAME = "الأقصى لنقل المعتمرين";
 const COMPANY_ADDRESS = "Makkah Al Mukarramah, Saudi Arabia";
 const COMPANY_PHONE = "+966 50 123 4567";
-const COMPANY_EMAIL = "bookings@alaqsa-transport.com";
+const COMPANY_EMAIL = "bookings@alkiswahtransport.com";
 const PRIMARY_COLOR = "#0f172a"; // slate-900
 
 interface InvoiceData {

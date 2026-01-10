@@ -24,7 +24,7 @@ export default function Testimonials() {
                             What Our <span className="text-amber-600 dark:text-amber-500">Pilgrims Say</span>
                         </h2>
                         <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed">
-                            Real stories from brothers and sisters who trusted Al Aqsa Transport with their journey of a lifetime.
+                            Real stories from brothers and sisters who trusted Al Kiswah Transport with their journey of a lifetime.
                         </p>
                     </div>
                 </FadeIn>

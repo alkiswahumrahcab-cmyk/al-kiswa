@@ -181,8 +181,8 @@ export const blogPosts: BlogPost[] = [
             <h4>3. Reliability and Punctuality</h4>
             <p>Time is precious during Umrah. The <strong>best Umrah travel company</strong> will guarantee punctual pickups and drop-offs, ensuring you never miss a prayer or a flight.</p>
 
-            <h3>Al Aqsa Umrah Transport: Your Trusted Partner</h3>
-            <p>At Al Aqsa Umrah Transport, we are committed to serving the Guests of Allah with the highest standards of care. Our professional drivers are trained to provide not just a ride, but a hospitable experience rooted in Islamic values.</p>
+            <h3>Al Kiswah Umrah Transport: Your Trusted Partner</h3>
+            <p>At Al Kiswah Umrah Transport, we are committed to serving the Guests of Allah with the highest standards of care. Our professional drivers are trained to provide not just a ride, but a hospitable experience rooted in Islamic values.</p>
 
             <blockquote>
                 “And proclaim to the people the Hajj; they will come to you on foot and on every lean camel; they will come from every distant pass.” – Qur’an (22:27)
@@ -190,7 +190,7 @@ export const blogPosts: BlogPost[] = [
 
             <p>We understand the sanctity of your journey and strive to make it as smooth as possible.</p>
 
-            <p><strong>Ready to book?</strong> <a href="/booking">Book your Umrah transport today</a> with Al Aqsa Umrah Transport and travel with confidence.</p>
+            <p><strong>Ready to book?</strong> <a href="/booking">Book your Umrah transport today</a> with Al Kiswah Umrah Transport and travel with confidence.</p>
         `,
         category: "Guide",
         date: "Nov 28, 2024",

@@ -45,13 +45,13 @@ export default function Breadcrumbs({ overrideLastItem, className = '' }: Breadc
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": `https://alaqsaumrahtransport.com${homeLink}`
+                "item": `https://alkiswahumrahtransport.com${homeLink}`
             },
             ...displaySegments.map((segment, index) => ({
                 "@type": "ListItem",
                 "position": index + 2,
                 "name": formatSegment(segment),
-                "item": `https://alaqsaumrahtransport.com${homeLink === '/' ? '' : homeLink}/${displaySegments.slice(0, index + 1).join('/')}`
+                "item": `https://alkiswahumrahtransport.com${homeLink === '/' ? '' : homeLink}/${displaySegments.slice(0, index + 1).join('/')}`
             }))
         ]
     };

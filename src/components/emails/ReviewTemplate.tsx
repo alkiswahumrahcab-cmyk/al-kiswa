@@ -21,7 +21,7 @@ export const ReviewTemplate: React.FC<ReviewTemplateProps> = ({
         <div style={{ backgroundColor: '#ffffff', padding: '30px', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)', textAlign: 'center' }}>
             <p style={{ fontSize: '16px', lineHeight: '1.6', marginBottom: '24px' }}>
                 Dear <strong>{customerName}</strong>,<br /><br />
-                Thank you for choosing Al Aqsa Transport for your recent journey.
+                Thank you for choosing Al Kiswah Transport for your recent journey.
                 We hope you had a comfortable and spiritual experience.
             </p>
 

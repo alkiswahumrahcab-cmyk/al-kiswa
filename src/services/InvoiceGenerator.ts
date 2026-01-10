@@ -48,10 +48,10 @@ export const generateInvoice = async (booking: any) => {
 
     doc.setTextColor(51, 65, 85); // Slate-700
     doc.setFont("helvetica", "bold");
-    doc.text("Al Aqsa Umrah Transport", 15, yPos + 6);
+    doc.text("Al Kiswah Umrah Transport", 15, yPos + 6);
     doc.setFont("helvetica", "normal");
     doc.text("Jeddah, Saudi Arabia", 15, yPos + 11);
-    doc.text("support@alaqsa.com", 15, yPos + 16);
+    doc.text("support@alkiswah.com", 15, yPos + 16);
 
     // To (Customer)
     doc.setFontSize(10);

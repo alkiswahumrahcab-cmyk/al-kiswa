@@ -24,7 +24,7 @@ const faqs = [
     },
     {
         question: "How can I find a trustworthy taxi service in Makkah?",
-        answer: "Look for licensed providers like Al Aqsa Umrah Transport. We are a registered Umrah Transport Company with professional, English-speaking drivers and a track record of safety and reliability. Always avoid unregistered street taxis."
+        answer: "Look for licensed providers like Al Kiswah Umrah Transport. We are a registered Umrah Transport Company with professional, English-speaking drivers and a track record of safety and reliability. Always avoid unregistered street taxis."
     },
     {
         question: "Do you offer Ziyarat tours in Makkah and Madinah?",

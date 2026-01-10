@@ -78,7 +78,7 @@ export default function PWAInstallPrompt() {
 
                     {/* Text */}
                     <div className="flex-1 min-w-0">
-                        <h3 className="text-white font-bold text-sm">Install Al Aqsa App</h3>
+                        <h3 className="text-white font-bold text-sm">Install Al Kiswah App</h3>
                         <p className="text-gray-400 text-xs truncate">Add to home screen for quick access</p>
                     </div>
 

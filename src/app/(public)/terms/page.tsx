@@ -59,7 +59,7 @@ export default function TermsPage() {
                     <section className={styles.section}>
                         <h2 className={styles.sectionTitle}>5. Limitation of Liability</h2>
                         <p className={styles.text}>
-                            Al Aqsa Umrah Transport shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of our services.
+                            Al Kiswah Umrah Transport shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of our services.
                         </p>
                     </section>
 

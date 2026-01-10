@@ -61,7 +61,7 @@ export default function SafetyPage() {
                         Traveling with Confidence
                     </h2>
                     <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                        At Al Aqsa Umrah Transport, we understand that strict safety measures are essential for you to focus on your Ibadah.
+                        At Al Kiswah Umrah Transport, we understand that strict safety measures are essential for you to focus on your Ibadah.
                         We go beyond the industry standards to ensure every aspect of your journey—from the driver's conduct to the vehicle's hygiene—is perfect.
                     </p>
                 </div>

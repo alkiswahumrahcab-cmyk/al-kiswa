@@ -353,10 +353,10 @@ export const staticBlogPosts = [
         _id: 'static-new-vetting-3',
         slug: 'reliable-umrah-drivers-vetting-process',
         title: 'Who is Driving Your Family? Our Rigorous Driver Vetting Process',
-        excerpt: 'Safety starts with the person behind the wheel. Discover the strict background checks, etiquette training, and health screenings every Al Aqsa driver must pass.',
+        excerpt: 'Safety starts with the person behind the wheel. Discover the strict background checks, etiquette training, and health screenings every Al Kiswah driver must pass.',
         content: `
             <h2>Safety Starts with the Driver</h2>
-            <p>You can have the newest car in the world, but if the driver is reckless, untrained, or unprofessional, your family is at risk. At Al Aqsa Umrah Transport, we believe that the driver is the most critical safety feature of any vehicle.</p>
+            <p>You can have the newest car in the world, but if the driver is reckless, untrained, or unprofessional, your family is at risk. At Al Kiswah Umrah Transport, we believe that the driver is the most critical safety feature of any vehicle.</p>
             <p>Many pilgrims ask us: <em>"Who will be picking us up?"</em> We want to give you the full answer. Here is how we select the top 10% of applicants to become your "Sisters' Safe" and "Family First" chauffeurs.</p>
 
             <h3>1. The "Adab" (Etiquette) Interview</h3>

@@ -76,7 +76,7 @@ export default function TestimonialHighlight() {
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "TransportationService",
-                        "name": "Al Aqsa Umrah Transport",
+                        "name": "Al Kiswah Umrah Transport",
                         "review": curatedTestimonials.map(t => ({
                             "@type": "Review",
                             "author": { "@type": "Person", "name": t.name },

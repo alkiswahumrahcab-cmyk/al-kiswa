@@ -127,7 +127,7 @@ export default function ReviewsSection() {
                         transition={{ delay: 0.2 }}
                         className="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed font-light mb-8"
                     >
-                        Join the community of pilgrims who trust Al Aqsa Transport for their spiritual journey.
+                        Join the community of pilgrims who trust Al Kiswah Transport for their spiritual journey.
                     </motion.p>
 
                     {/* Simplified Rating Summary */}

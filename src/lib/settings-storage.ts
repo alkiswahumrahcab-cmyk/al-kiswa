@@ -7,14 +7,14 @@ import { DEFAULT_BOOKING_CONFIRMATION_TEMPLATE, DEFAULT_ADMIN_NOTIFICATION_TEMPL
 
 const DEFAULT_SETTINGS: Settings = {
     general: {
-        siteName: 'Al Aqsa Umrah',
+        siteName: 'Al Kiswah Umrah',
         description: 'Premium Umrah Taxi Service & Car Rental in Saudi Arabia',
-        footerText: '© 2025 Al Aqsa Umrah. All rights reserved.',
+        footerText: '© 2026 Al Kiswah Umrah. All rights reserved.',
         logo: '',
         googleAnalyticsId: '',
     },
     contact: {
-        email: 'info@alaqsatransport.com',
+        email: 'info@alkiswahumrah.com',
         phone: '+966 54 549 4921',
         phone2: '',
         address: 'Makkah, Saudi Arabia',

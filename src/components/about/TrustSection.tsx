@@ -21,7 +21,7 @@ export default function TrustSection() {
                     </blockquote>
 
                     <cite className="block text-lg font-medium tracking-wide text-amber-100 not-italic">
-                        — CEO, Al Aqsa Umrah Transport
+                        — CEO, Al Kiswah Umrah Transport
                     </cite>
                 </div>
             </div>

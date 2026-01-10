@@ -1,7 +1,7 @@
 {
-    "name": "Al Aqsa Driver",
-    "short_name": "Driver",
-    "description": "Driver functionality for Al Aqsa Umrah Transport",
+    "name": "Al Kiswah Driver",
+    "short_name": "Al Kiswah Driver",
+    "description": "Driver functionality for Al Kiswah Umrah Transport",
     "start_url": "/driver/",
     "display": "standalone",
     "orientation": "portrait",

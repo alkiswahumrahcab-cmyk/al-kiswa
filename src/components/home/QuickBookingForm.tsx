@@ -441,7 +441,7 @@ const QuickBookingForm = ({
                         </div>
                         <h3 className={styles.successTitle}>Booking Received!</h3>
                         <p className={styles.successMessage}>
-                            Thank you for choosing Al Aqsa Transport. We have received your request and will contact you shortly to confirm your trip.
+                            Thank you for choosing Al Kiswah Transport. We have received your request and will contact you shortly to confirm your trip.
                         </p>
                         <button onClick={resetForm} className={styles.submitBtn}>
                             Book Another Trip

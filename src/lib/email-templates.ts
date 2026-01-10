@@ -12,7 +12,7 @@ export const DEFAULT_BOOKING_CONFIRMATION_TEMPLATE = `
         <p style="font-size: 18px; color: #d4af37; font-family: 'Amiri', serif; margin: 0;">أهلاً بك يا ضيف الرحمن</p>
     </div>
 
-    <p style="text-align: center;">Thank you for choosing Al Aqsa Umrah Transport. Your ride has been scheduled successfully.<br>
+    <p style="text-align: center;">Thank you for choosing Al Kiswah Umrah Transport. Your ride has been scheduled successfully.<br>
     <span style="font-family: 'Amiri', serif; color: #666;">شكراً لاختيارك الأقصى للنقل. تم حجز رحلتك بنجاح.</span></p>
 
     <!-- Booking Details Card -->

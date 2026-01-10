@@ -1,7 +1,7 @@
 {
-    "name": "Al Aqsa Agency",
-    "short_name": "Agency",
-    "description": "Agency Partner Portal for Al Aqsa Transport",
+    "name": "Al Kiswah Agency",
+    "short_name": "Al Kiswah Agency",
+    "description": "Agency Partner Portal for Al Kiswah Transport",
     "start_url": "/agency/login",
     "display": "standalone",
     "orientation": "portrait",

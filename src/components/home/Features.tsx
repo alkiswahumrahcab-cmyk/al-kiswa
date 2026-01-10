@@ -17,7 +17,7 @@ export default function Features() {
             <div className="container px-[5px] md:px-4">
                 <FadeIn>
                     <h2 className="text-4xl md:text-5xl font-bold text-center mb-10 font-playfair px-4 md:px-0">
-                        Why Choose Al Aqsa for <span className="text-gradient-gold">Umrah Transport?</span>
+                        Why Choose Al Kiswah for <span className="text-gradient-gold">Umrah Transport?</span>
                     </h2>
                 </FadeIn>
 
