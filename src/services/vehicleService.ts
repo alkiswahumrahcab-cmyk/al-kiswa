@@ -30,20 +30,30 @@ const sanitizeVehicle = (v: any) => {
 
 export const vehicleService = {
     getVehicles: unstable_cache(async () => {
-        await dbConnect();
-        const vehicles = await Vehicle.find({}).lean();
-        const mapped = vehicles.map(v => sanitizeVehicle({ ...v, id: v._id.toString() }));
-        // @ts-ignore
-        return mapped.sort((a, b) => getSortIndex(a) - getSortIndex(b));
+        try {
+            await dbConnect();
+            const vehicles = await Vehicle.find({}).lean();
+            const mapped = vehicles.map(v => sanitizeVehicle({ ...v, id: v._id.toString() }));
+            // @ts-ignore
+            return mapped.sort((a, b) => getSortIndex(a) - getSortIndex(b));
+        } catch (error) {
+            console.warn('[VehicleService] Failed to fetch vehicles (returning empty):', error);
+            return [];
+        }
     }, ['vehicles-list-v2'], { revalidate: 3600, tags: ['vehicles'] }),
 
     // Optimized method for public facing pages
     getActiveVehicles: unstable_cache(async () => {
-        await dbConnect();
-        const vehicles = await Vehicle.find({ isActive: true }).lean();
-        const mapped = vehicles.map(v => sanitizeVehicle({ ...v, id: v._id.toString() }));
-        // @ts-ignore
-        return mapped.sort((a, b) => getSortIndex(a) - getSortIndex(b));
+        try {
+            await dbConnect();
+            const vehicles = await Vehicle.find({ isActive: true }).lean();
+            const mapped = vehicles.map(v => sanitizeVehicle({ ...v, id: v._id.toString() }));
+            // @ts-ignore
+            return mapped.sort((a, b) => getSortIndex(a) - getSortIndex(b));
+        } catch (error) {
+            console.warn('[VehicleService] Failed to fetch active vehicles (returning empty):', error);
+            return [];
+        }
     }, ['vehicles-active-v2'], { revalidate: 3600, tags: ['vehicles'] }),
 
     async getVehicleById(id: string) {
