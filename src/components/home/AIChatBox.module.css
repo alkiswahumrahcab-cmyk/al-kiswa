@@ -12,42 +12,46 @@
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #064E3B, #065F46);
-    color: #BFA35A;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #fff;
+    color: #064E3B;
+    border: 2px solid #EFBF5B;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow:
-        0 4px 12px rgba(15, 23, 42, 0.3),
-        0 0 0 1px rgba(212, 175, 55, 0.2);
+        0 4px 15px rgba(0, 0, 0, 0.2),
+        inset 0 0 10px rgba(239, 191, 91, 0.1);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     z-index: 1002;
+    overflow: hidden;
 }
 
-.toggleButton::before {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    border-radius: 50%;
-    padding: 2px;
-    background: linear-gradient(45deg, #BFA35A, transparent, #0D7C66);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.6;
-    animation: spin 4s linear infinite;
+.toggleButton:has(svg.lucide-x) {
+    background: linear-gradient(135deg, #064E3B, #022C22);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .toggleButton:hover {
     transform: scale(1.05) translateY(-2px);
     box-shadow:
-        0 12px 24px rgba(15, 23, 42, 0.4),
-        0 0 0 2px rgba(212, 175, 55, 0.4);
-    color: #fff;
+        0 12px 24px rgba(0, 0, 0, 0.3),
+        0 0 0 2px rgba(239, 191, 91, 0.3);
+    border-color: #EFBF5B;
+}
+
+.toggleButton::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, transparent, rgba(239, 191, 91, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.toggleButton:hover::before {
+    transform: translateX(100%);
 }
 
 .toggleButton::after {

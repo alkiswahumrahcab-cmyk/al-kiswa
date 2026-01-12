@@ -4,6 +4,7 @@ import { useState, useRef, useEffect, useCallback } from 'react';
 import { X, Send, Sparkles, Trash2, ExternalLink, Bot } from 'lucide-react';
 import styles from './AIChatBox.module.css';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 interface Message {
@@ -198,8 +199,17 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
             <div className={`${styles.chatWindow} ${isOpen ? styles.open : ''}`}>
                 <div className={styles.header}>
                     <div className={styles.headerTitle}>
-                        <div className="flex items-center gap-2">
-                            <Sparkles size={16} className="text-yellow-300" />
+                        <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center border border-white/20 shadow-sm overflow-hidden p-1">
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src="/logo.png"
+                                        alt="Al Kiswah"
+                                        fill
+                                        className="object-contain"
+                                    />
+                                </div>
+                            </div>
                             <h3>Al Kiswah AI</h3>
                         </div>
                         <p>Online • Replies instantly</p>
@@ -309,7 +319,19 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
                 className={styles.toggleButton}
                 aria-label="Toggle chat"
             >
-                {isOpen ? <X size={24} /> : <Bot size={28} />}
+                {isOpen ? (
+                    <X size={28} className="text-white drop-shadow-md" />
+                ) : (
+                    <div className="relative w-11 h-11 transition-transform group-hover:scale-110">
+                        <Image
+                            src="/logo.png"
+                            alt="Al Kiswah"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
+                    </div>
+                )}
             </button>
         </div >
     );
