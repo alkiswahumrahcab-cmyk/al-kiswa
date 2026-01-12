@@ -78,10 +78,10 @@
 
 .logoImage {
     position: relative;
-    width: 160px;
-    /* Increased from 90px */
-    height: 160px;
-    /* Increased from 90px */
+    width: 200px;
+    /* Increased from 160px */
+    height: 200px;
+    /* Increased from 160px */
     z-index: 20;
     animation: pulseLogo 4s ease-in-out infinite;
     /* Slower pulse */
@@ -107,6 +107,7 @@
     letter-spacing: 0.05em;
     background: linear-gradient(to bottom, #ffffff, #cbd5e1);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
