@@ -1,15 +1,15 @@
 export const DEFAULT_BOOKING_CONFIRMATION_TEMPLATE = `
 <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1a1a1a; line-height: 1.6; max-width: 600px; margin: 0 auto; direction: ltr;">
     <!-- Modern Header with Gold Accent -->
-    <div style="text-align: center; margin-bottom: 30px; border-bottom: 2px solid #d4af37; padding-bottom: 20px;">
-        <h1 style="color: #d4af37; margin: 0; font-size: 26px; text-transform: uppercase; letter-spacing: 1px;">Booking Confirmed</h1>
-        <h2 style="color: #666; margin: 5px 0 0 0; font-size: 18px; font-weight: normal;">تم تأكيد الحجز</h2>
+    <div style="text-align: center; margin-bottom: 30px; border-bottom: 2px solid #EFBF5B; padding-bottom: 20px;">
+        <h1 style="color: #EFBF5B; margin: 0; font-size: 26px; text-transform: uppercase; letter-spacing: 1px;">Booking Confirmed</h1>
+        <p style="color: #666; margin-top: 5px; font-size: 16px;">Order #{{booking_id}}</p>
     </div>
 
     <!-- Bilingual Greeting -->
     <div style="text-align: center; margin-bottom: 30px;">
-        <p style="font-size: 16px; margin-bottom: 5px;">Dear <strong>{{name}}</strong>,</p>
-        <p style="font-size: 18px; color: #d4af37; font-family: 'Amiri', serif; margin: 0;">أهلاً بك يا ضيف الرحمن</p>
+        <p style="font-size: 18px; color: #EFBF5B; font-family: 'Amiri', serif; margin: 0;">أهلاً بك يا ضيف الرحمن</p>
+        <p style="font-size: 16px; color: #333; margin-top: 10px;">Welcome, Guest of Allah</p>
     </div>
 
     <p style="text-align: center;">Thank you for choosing Al Kiswah Umrah Transport. Your ride has been scheduled successfully.<br>
@@ -18,7 +18,7 @@ export const DEFAULT_BOOKING_CONFIRMATION_TEMPLATE = `
     <!-- Booking Details Card -->
     <div style="background-color: #f8f9fa; border: 1px solid #e9ecef; border-radius: 12px; overflow: hidden; margin: 25px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
         <div style="background-color: #1a1a1a; padding: 10px 20px;">
-            <h3 style="color: #d4af37; margin: 0; font-size: 16px; text-transform: uppercase;">TRIP DETAILS | تفاصيل الرحلة</h3>
+            <h3 style="color: #EFBF5B; margin: 0; font-size: 16px; text-transform: uppercase;">TRIP DETAILS | تفاصيل الرحلة</h3>
         </div>
         
         <table style="width: 100%; border-collapse: collapse;">
@@ -41,7 +41,7 @@ export const DEFAULT_BOOKING_CONFIRMATION_TEMPLATE = `
                 </td>
                 <td style="padding: 15px 20px; border-bottom: 1px solid #eee; font-weight: bold; color: #1a1a1a;">
                     {{date}}<br>
-                    <span style="color: #d4af37;">{{time}}</span>
+                    <span style="color: #EFBF5B;">{{time}}</span>
                 </td>
             </tr>
 
@@ -85,7 +85,7 @@ export const DEFAULT_BOOKING_CONFIRMATION_TEMPLATE = `
     </div>
 
     <!-- Spiritual Note -->
-    <div style="background-color: #fffbeb; padding: 20px; border-radius: 8px; border-left: 4px solid #d4af37; margin: 25px 0; text-align: center;">
+    <div style="background-color: #fffbeb; padding: 20px; border-radius: 8px; border-left: 4px solid #EFBF5B; margin: 25px 0; text-align: center;">
         <p style="margin: 0; font-size: 18px; font-family: 'Amiri', serif; color: #1a1a1a;">"الْعُمْرَةُ إِلَى الْعُمْرَةِ كَفَّارَةٌ لِمَا بَيْنَهُمَا"</p>
         <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;"><em>"The reward of Umrah is expiation for the sins committed between it and the next Umrah."</em></p>
     </div>
@@ -106,7 +106,7 @@ export const DEFAULT_BOOKING_CONFIRMATION_TEMPLATE = `
 
 export const DEFAULT_ADMIN_NOTIFICATION_TEMPLATE = `
 <div style="font-family: Arial, sans-serif; color: #333;">
-    <h1 style="color: #d4af37;">New Booking Received</h1>
+    <h1 style="color: #EFBF5B;">New Booking Received</h1>
     <p><strong>Booking Reference:</strong> {{booking_id}}</p>
     <p><strong>Submission Time:</strong> {{submission_time}}</p>
     

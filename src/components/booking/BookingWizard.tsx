@@ -31,6 +31,7 @@ export default function BookingWizard() {
         name: '',
         email: '',
         phone: '',
+        childSeats: false,
         notes: ''
     });
 
@@ -54,20 +55,20 @@ export default function BookingWizard() {
                 <div className="absolute top-5 left-0 w-full h-0.5 bg-white/10 -z-10 hidden md:block" />
 
                 {STEPS.map((step) => (
-                    <div key={step.id} className="flex flex-col items-center gap-3 group flex-1 relative z-10">
+                    <div key={step.id} className="flex flex-col items-center gap-4 group flex-1 relative z-10">
                         <div className={`
-                            w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-500 border-2
+                            w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold text-lg transition-all duration-500 border-2
                             ${currentStep >= step.id
                                 ? 'bg-gold-primary border-gold-primary text-black shadow-[0_0_20px_rgba(212,175,55,0.4)]'
                                 : 'bg-primary-black border-white/10 text-gray-500'}
                         `}>
-                            {currentStep > step.id ? <Check size={16} strokeWidth={3} /> : step.id}
+                            {currentStep > step.id ? <Check size={24} strokeWidth={3} /> : step.id}
                         </div>
                         <div className="hidden md:block text-center">
-                            <span className={`text-[10px] uppercase font-bold tracking-[0.2em] mb-1 block ${currentStep >= step.id ? 'text-gold-primary' : 'text-gray-600'}`}>
+                            <span className={`text-xs uppercase font-bold tracking-[0.2em] mb-1.5 block ${currentStep >= step.id ? 'text-gold-primary' : 'text-gray-600'}`}>
                                 Step 0{step.id}
                             </span>
-                            <h3 className={`text-xs font-bold uppercase tracking-wider ${currentStep >= step.id ? 'text-white' : 'text-gray-600'}`}>
+                            <h3 className={`text-sm md:text-base font-bold uppercase tracking-wider ${currentStep >= step.id ? 'text-white' : 'text-gray-600'}`}>
                                 {step.title}
                             </h3>
                         </div>

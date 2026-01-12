@@ -94,13 +94,13 @@ export default function Navbar() {
         <nav
             className={`fixed left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled
                 ? 'bg-primary-black/90 backdrop-blur-xl border-b border-white/5 py-3 shadow-2xl top-0'
-                : 'bg-transparent py-4 top-0 lg:top-8'
+                : 'bg-transparent py-4 top-0 lg:top-4'
                 }`}
         >
             <div className="container mx-auto px-4 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-3 group relative z-50">
                     <div className="relative flex items-center">
-                        <div className={`relative transition-all duration-500 ${scrolled ? 'w-12 h-12' : 'w-16 h-16'} bg-white rounded-full flex items-center justify-center border-2 border-gold-primary shadow-[0_0_15px_rgba(212,175,55,0.3)] group-hover:shadow-[0_0_25px_rgba(212,175,55,0.5)] overflow-hidden lg:mr-1`}>
+                        <div className={`relative transition-all duration-500 ${scrolled ? 'w-12 h-12' : 'w-16 h-16'} bg-white rounded-full flex items-center justify-center border-2 border-gold-primary shadow-[0_0_15px_rgba(239,191,91,0.3)] group-hover:shadow-[0_0_25px_rgba(239,191,91,0.5)] overflow-hidden lg:mr-1`}>
                             <div className={`relative ${scrolled ? 'w-8 h-8' : 'w-10 h-10'} transition-all duration-500`}>
                                 <Image
                                     src="/logo.png"
@@ -137,7 +137,7 @@ export default function Navbar() {
                                 <Link
                                     href={link.href}
                                     className={`relative text-xs font-medium transition-all duration-300 px-4 py-2.5 rounded-full flex items-center gap-1 ${pathname === link.href
-                                        ? 'bg-gold-primary text-black font-bold shadow-[0_0_15px_rgba(212,175,55,0.4)]'
+                                        ? 'bg-gold-primary text-black font-bold shadow-[0_0_15px_rgba(239,191,91,0.4)]'
                                         : 'text-gray-300 hover:text-white hover:bg-white/5'
                                         }`}
                                 >
@@ -168,7 +168,7 @@ export default function Navbar() {
 
                 <div className="hidden xl:flex items-center gap-4">
                     {/* <ThemeToggle /> */}
-                    <button className="bg-gradient-to-r from-gold-primary to-gold-dark text-black px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:scale-105 transition-transform shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                    <button className="bg-gradient-to-r from-gold-primary to-gold-dark text-black px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:scale-105 transition-transform shadow-[0_0_20px_rgba(239,191,91,0.3)]">
                         <Link href="/booking">Book Now</Link>
                     </button>
                 </div>

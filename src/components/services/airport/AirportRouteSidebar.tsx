@@ -72,7 +72,7 @@ export default function AirportRouteSidebar({ routes, activeRouteId, onSelectRou
             {/* Footer */}
             <div className="p-4 bg-white/5 border-t border-white/5">
                 <div className="flex items-center gap-3 text-xs text-gray-400 font-medium">
-                    <span className="flex items-center gap-2"><span className="w-2 h-2 bg-gold-primary rounded-full shadow-[0_0_8px_#D4AF37]"></span> Flight Tracking Included</span>
+                    <span className="flex items-center gap-2"><span className="w-2 h-2 bg-gold-primary rounded-full shadow-[0_0_8px_#EFBF5B]"></span> Flight Tracking Included</span>
                 </div>
             </div>
         </div>

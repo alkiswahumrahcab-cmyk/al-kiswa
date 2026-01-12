@@ -8,6 +8,8 @@ import Preloader from "@/components/common/Preloader";
 import NextTopLoader from 'nextjs-toploader';
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import { getSettings } from "@/lib/settings-storage";
+import FloatingAssistanceButton from "@/components/common/FloatingAssistanceButton";
+import ScrollToTop from "@/components/common/ScrollToTop";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -80,7 +82,6 @@ export default async function RootLayout({
               disableTransitionOnChange
             >
               <PricingProvider>
-                {/* <Preloader /> */}
                 <NextTopLoader
                   color="#D4AF37"
                   initialPosition={0.08}
@@ -95,6 +96,10 @@ export default async function RootLayout({
 
                 {/* Main Content Area - Layouts downstream will inject Nav/Footer */}
                 {children}
+
+                {/* Accessibility: Floating Assistance for Elders */}
+                <FloatingAssistanceButton />
+                <ScrollToTop />
 
                 {/* Admin Session Guard - keep global for admin routes */}
                 {/* <AdminSessionGuard />  Moved to specific layouts if needed or kept here if it only triggers on /admin */}

@@ -1,11 +1,11 @@
 .container {
     position: fixed;
     bottom: 2rem;
-    right: 2rem;
+    left: 2rem;
     z-index: 1001;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
 .toggleButton {
@@ -53,7 +53,7 @@
 .toggleButton::after {
     content: 'Chat with AI';
     position: absolute;
-    right: 70px;
+    left: 70px;
     background: rgba(15, 23, 42, 0.9);
     color: white;
     padding: 0.5rem 1rem;
@@ -74,7 +74,7 @@
 .chatWindow {
     position: absolute;
     bottom: 80px;
-    right: 0;
+    left: 0;
     width: 350px;
     height: 500px;
     background: rgba(255, 255, 255, 0.95);
@@ -84,7 +84,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transform-origin: bottom right;
+    transform-origin: bottom left;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 0;
     transform: scale(0.9) translateY(20px);
@@ -409,7 +409,7 @@
 @media (max-width: 480px) {
     .container {
         bottom: 1.5rem;
-        right: 1.5rem;
+        left: 1.5rem;
         z-index: 2000;
     }
 

@@ -94,9 +94,9 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
 
                         {/* Gradient for Lines */}
                         <linearGradient id="routeGradient" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.1" />
-                            <stop offset="50%" stopColor="#D4AF37" stopOpacity="1" />
-                            <stop offset="100%" stopColor="#D4AF37" stopOpacity="0.1" />
+                            <stop offset="0%" stopColor="#EFBF5B" stopOpacity="0.1" />
+                            <stop offset="50%" stopColor="#EFBF5B" stopOpacity="1" />
+                            <stop offset="100%" stopColor="#EFBF5B" stopOpacity="0.1" />
                         </linearGradient>
                     </defs>
 
@@ -127,7 +127,7 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
                                 <motion.path
                                     d={path}
                                     fill="none"
-                                    stroke={isRelevant ? "#D4AF37" : "currentColor"}
+                                    stroke={isRelevant ? "#EFBF5B" : "currentColor"}
                                     strokeWidth={isActive ? "0.6" : (isHovered ? "0.4" : "0.2")}
                                     strokeLinecap="round"
                                     className={!isRelevant ? "text-gray-600 transition-colors duration-500" : ""}
@@ -181,14 +181,14 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
                                     <>
                                         <motion.circle
                                             cx={city.x} cy={city.y} r="6"
-                                            fill="none" stroke="#D4AF37" strokeWidth="0.1"
+                                            fill="none" stroke="#EFBF5B" strokeWidth="0.1"
                                             initial={{ scale: 0, opacity: 0.8 }}
                                             animate={{ scale: 1.5, opacity: 0 }}
                                             transition={{ duration: 2, repeat: Infinity }}
                                         />
                                         <motion.circle
                                             cx={city.x} cy={city.y} r="4"
-                                            fill="none" stroke="#D4AF37" strokeWidth="0.1"
+                                            fill="none" stroke="#EFBF5B" strokeWidth="0.1"
                                             initial={{ scale: 0, opacity: 0.8 }}
                                             animate={{ scale: 1.5, opacity: 0 }}
                                             transition={{ duration: 2, delay: 0.5, repeat: Infinity }}

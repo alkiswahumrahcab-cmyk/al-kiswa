@@ -436,7 +436,7 @@ export default function BookingPage() {
     const inputClasses = (hasError: boolean) => `
         w-full rounded-xl px-4 py-3.5 
         bg-slate-50 border border-slate-200 
-        text-slate-900 dark:text-white placeholder:text-slate-400 
+        text-white dark:text-white placeholder:text-slate-400 
         outline-none transition-all
         focus:border-gold focus:ring-4 focus:ring-gold/10
         ${hasError ? 'border-red-500 ring-4 ring-red-500/10' : ''}
@@ -465,8 +465,8 @@ export default function BookingPage() {
                             <MapPin size={32} className="text-gold animate-pulse" />
                         </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Finding Best Routes...</h3>
-                    <p className="text-slate-500">Scanning available luxury transfers</p>
+                    <h3 className="text-2xl font-bold text-white dark:text-white mb-2">Finding Best Routes...</h3>
+                    <p className="text-gray-400">Scanning available luxury transfers</p>
                 </motion.div>
             ) : (
                 <motion.div
@@ -478,11 +478,11 @@ export default function BookingPage() {
                     transition={{ duration: 0.3 }}
                 >
                     <div className="mb-8 text-center md:text-left">
-                        <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">Begin Your Journey</h2>
-                        <p className="text-slate-500 text-xl font-light">Experience premium transport with our gold-standard service.</p>
+                        <h2 className="text-4xl font-bold text-white dark:text-white mb-3 tracking-tight">Begin Your Journey</h2>
+                        <p className="text-gray-400 text-xl font-light">Experience premium transport with our gold-standard service.</p>
                     </div>
 
-                    <div className="max-w-xl mx-auto md:mx-0 glass-card-emerald p-6 md:p-10 rounded-3xl border border-white/20 dark:border-slate-700/50 shadow-2xl relative">
+                    <div className="max-w-xl mx-auto md:mx-0 bg-white/5 backdrop-blur-md p-6 md:p-10 rounded-3xl border border-white/10 shadow-2xl relative">
                         {/* Decorative Gold sheen - Contained to avoid spilling but separate from content clipping */}
                         <div className="absolute inset-0 overflow-hidden rounded-3xl pointer-events-none">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
@@ -493,7 +493,7 @@ export default function BookingPage() {
                         <div className="grid md:grid-cols-2 gap-6 mb-8 relative z-20">
                             {/* Pickup Location - Higher Z-Index to overlap Dropoff */}
                             <div className="relative group z-20">
-                                <label className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1 group-focus-within:text-gold transition-colors">
+                                <label className="flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1 group-focus-within:text-gold transition-colors">
                                     Pickup From
                                 </label>
                                 <SearchableSelect
@@ -522,14 +522,14 @@ export default function BookingPage() {
                                         { value: 'custom', label: 'Other / Custom Location' }
                                     ]}
                                     placeholder="Select Pickup"
-                                    className="w-full bg-slate-50 border border-slate-200 focus:border-gold focus:ring-4 focus:ring-gold/10 rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none text-base"
+                                    className="w-full bg-white/5 border border-white/10 focus:border-gold-primary focus:ring-4 focus:ring-gold-primary/10 rounded-xl px-4 py-4 text-white outline-none text-base placeholder:text-gray-500"
                                     icon={<MapPin size={20} />}
                                 />
                             </div>
 
                             {/* Dropoff Location - Lower Z-Index */}
                             <div className="relative group z-10">
-                                <label className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1 group-focus-within:text-gold transition-colors">
+                                <label className="flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1 group-focus-within:text-gold transition-colors">
                                     Dropoff To
                                 </label>
                                 <SearchableSelect
@@ -578,7 +578,7 @@ export default function BookingPage() {
                                     }
                                     disabled={!bookingData.pickup || bookingData.pickup === 'custom'}
                                     placeholder={!bookingData.pickup ? "Select Pickup First" : "Select Dropoff"}
-                                    className={`w-full bg-slate-50 border border-slate-200 focus:border-gold focus:ring-4 focus:ring-gold/10 rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none text-base ${(!bookingData.pickup || bookingData.pickup === 'custom') ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                    className={`w-full bg-white/5 border border-white/10 focus:border-gold-primary focus:ring-4 focus:ring-gold-primary/10 rounded-xl px-4 py-4 text-white outline-none text-base ${(!bookingData.pickup || bookingData.pickup === 'custom') ? 'opacity-50 cursor-not-allowed' : ''}`}
                                     icon={<Navigation size={20} />}
                                 />
                             </div>
@@ -600,8 +600,8 @@ export default function BookingPage() {
                                                 <Info size={20} />
                                             </div>
                                             <div>
-                                                <h4 className="font-bold text-slate-900 dark:text-white text-sm">Custom Journey Selected</h4>
-                                                <p className="text-xs text-slate-500 mt-1">
+                                                <h4 className="font-bold text-white dark:text-white text-sm">Custom Journey Selected</h4>
+                                                <p className="text-xs text-gray-400 mt-1">
                                                     Please specify your exact locations below. Our team will calculate the best rate and contact you.
                                                 </p>
                                             </div>
@@ -610,7 +610,7 @@ export default function BookingPage() {
 
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div>
-                                            <label className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1 block">Precise Pickup Address</label>
+                                            <label className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1 block">Precise Pickup Address</label>
                                             <input
                                                 type="text"
                                                 value={bookingData.pickup === 'custom' ? '' : bookingData.pickup}
@@ -621,7 +621,7 @@ export default function BookingPage() {
                                             {errors.pickup && <p className="text-red-500 text-xs mt-1">{errors.pickup}</p>}
                                         </div>
                                         <div>
-                                            <label className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1 block">Precise Dropoff Address</label>
+                                            <label className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1 block">Precise Dropoff Address</label>
                                             <input
                                                 type="text"
                                                 value={bookingData.dropoff}
@@ -649,14 +649,14 @@ export default function BookingPage() {
                                                 <MapPin size={28} fill="currentColor" />
                                             </div>
                                             <div>
-                                                <h4 className="font-bold text-slate-900 dark:text-white text-lg">Route Selected</h4>
-                                                <p className="text-sm text-slate-500 font-medium">
+                                                <h4 className="font-bold text-white dark:text-white text-lg">Route Selected</h4>
+                                                <p className="text-sm text-gray-400 font-medium">
                                                     {selectedRoute.distance} • {selectedRoute.time} approx
                                                 </p>
                                             </div>
                                             <div className="ml-auto text-right">
                                                 <span className="block text-[10px] uppercase font-bold text-slate-400">Starting From</span>
-                                                <span className="font-black text-emerald-600 dark:text-gold text-2xl tracking-tight">{selectedRoute.baseRate} <span className="text-sm text-slate-500">SAR</span></span>
+                                                <span className="font-black text-emerald-600 dark:text-gold text-2xl tracking-tight">{selectedRoute.baseRate} <span className="text-sm text-gray-400">SAR</span></span>
                                             </div>
                                         </div>
                                     </motion.div>
@@ -687,8 +687,8 @@ export default function BookingPage() {
                 className="space-y-8"
             >
                 <div className="mb-6 pl-1">
-                    <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Select Your Vehicle</h2>
-                    <p className="text-slate-500 text-lg">Choose the perfect ride for your journey</p>
+                    <h2 className="text-3xl font-bold text-white dark:text-white mb-2">Select Your Vehicle</h2>
+                    <p className="text-gray-400 text-lg">Choose the perfect ride for your journey</p>
                 </div>
 
                 {/* Mobile Dropdown (Visible on small screens) */}
@@ -696,7 +696,7 @@ export default function BookingPage() {
 
                 <div className="lg:hidden mb-8">
                     <div className="relative">
-                        <label className="flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">
+                        <label className="flex items-center gap-2 text-sm font-semibold text-gray-200 dark:text-slate-300 mb-2">
                             <Briefcase size={18} className="text-secondary" />
                             <span>Vehicle Selection</span>
                         </label>
@@ -722,7 +722,7 @@ export default function BookingPage() {
                                                     <img src={v.image} alt={v.name} className="w-full h-full object-cover opacity-90" />
                                                 ) : (
                                                     <div className="w-full h-full flex items-center justify-center">
-                                                        <Briefcase className="text-slate-700" size={48} />
+                                                        <Briefcase className="text-gray-200" size={48} />
                                                     </div>
                                                 )}
                                             </div>
@@ -731,7 +731,7 @@ export default function BookingPage() {
                                             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90" />
 
                                             {/* 'SELECTED' Badge */}
-                                            <div className="absolute top-4 right-4 bg-secondary text-slate-900 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg uppercase tracking-wider flex items-center gap-1 border border-white/20 backdrop-blur-md">
+                                            <div className="absolute top-4 right-4 bg-secondary text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg uppercase tracking-wider flex items-center gap-1 border border-white/20 backdrop-blur-md">
                                                 <CheckCircle size={12} fill="currentColor" className="text-white" />
                                                 Selected {sv.quantity > 1 && `x${sv.quantity}`}
                                             </div>
@@ -740,7 +740,7 @@ export default function BookingPage() {
                                             <div className="absolute bottom-0 left-0 right-0 p-5">
                                                 <h3 className="text-2xl font-bold text-white mb-1 leading-tight flex items-center gap-2">
                                                     {v.name}
-                                                    {v.name.includes('GMC') && <span className="text-[10px] bg-gold text-slate-900 font-bold px-2 py-0.5 rounded-full shadow-lg">VIP</span>}
+                                                    {v.name.includes('GMC') && <span className="text-[10px] bg-gold text-white font-bold px-2 py-0.5 rounded-full shadow-lg">VIP</span>}
                                                 </h3>
                                                 <div className="flex items-center gap-3 text-white/80 text-sm font-medium">
                                                     <span>{v.capacity} Seater</span>
@@ -764,7 +764,7 @@ export default function BookingPage() {
                             `}
                             onClick={() => setIsVehicleDropdownOpen(!isVehicleDropdownOpen)}
                         >
-                            <span className="font-semibold text-slate-900 dark:text-white flex items-center gap-2">
+                            <span className="font-semibold text-white dark:text-white flex items-center gap-2">
                                 <Car size={20} className="text-gold" />
                                 {bookingData.selectedVehicles.length > 0
                                     ? `${bookingData.selectedVehicles.reduce((acc, v) => acc + v.quantity, 0)} Vehicles Added`
@@ -805,19 +805,19 @@ export default function BookingPage() {
                                                 </div>
                                                 <div className="flex-1 min-w-0">
                                                     <div className="flex justify-between items-start mb-1">
-                                                        <span className={`block font-bold text-sm ${isSelected ? 'text-emerald-900 dark:text-emerald-400' : 'text-slate-900 dark:text-white'}`}>
+                                                        <span className={`block font-bold text-sm ${isSelected ? 'text-emerald-900 dark:text-emerald-400' : 'text-white dark:text-white'}`}>
                                                             {vehicle.name}
                                                             {vehicle.name.includes('GMC') && <span className="ml-2 text-[10px] bg-gold/20 text-emerald-900 border border-gold/30 px-1.5 py-0.5 rounded-full">VIP</span>}
                                                         </span>
                                                         <div className="text-right shrink-0 ml-2">
 
-                                                            <span className="text-sm font-bold text-slate-900 dark:text-white">
+                                                            <span className="text-sm font-bold text-white dark:text-white">
                                                                 {bookingData.routeId === 'custom' ? 'Quote' : `${priceDetails.price} SAR`}
                                                             </span>
 
                                                         </div>
                                                     </div>
-                                                    <div className="flex items-center gap-2 text-[10px] text-slate-500 dark:text-slate-400">
+                                                    <div className="flex items-center gap-2 text-[10px] text-gray-400 dark:text-slate-400">
                                                         <span>{vehicle.capacity} Passengers</span>
                                                         <span>•</span>
                                                         <span>{vehicle.luggage} Bags</span>
@@ -939,10 +939,10 @@ export default function BookingPage() {
                                 <div className="p-6 flex-1 flex flex-col">
                                     <div className="flex justify-between items-start mb-4">
                                         <div>
-                                            <h3 className={`text-xl font-bold mb-1 ${isSelected ? 'text-emerald-900 dark:text-gold' : 'text-slate-900 dark:text-white'}`}>
+                                            <h3 className={`text-xl font-bold mb-1 ${isSelected ? 'text-emerald-900 dark:text-gold' : 'text-white dark:text-white'}`}>
                                                 {vehicle.name}
                                             </h3>
-                                            <div className="flex items-center gap-3 text-sm text-slate-500 font-medium">
+                                            <div className="flex items-center gap-3 text-sm text-gray-400 font-medium">
                                                 <span className="flex items-center gap-1.5"><Users size={14} className="text-gold" /> {vehicle.capacity}</span>
                                                 <span className="flex items-center gap-1.5"><Luggage size={14} className="text-gold" /> {vehicle.luggage}</span>
                                             </div>
@@ -979,7 +979,7 @@ export default function BookingPage() {
 
                                     <div className="mt-auto pt-4 border-t border-emerald-100/50 dark:border-dashed dark:border-emerald-800/30 grid grid-cols-2 gap-2">
                                         {vehicle.features.slice(0, 4).map((feature, idx) => (
-                                            <div key={idx} className="flex items-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400">
+                                            <div key={idx} className="flex items-center gap-2 text-xs font-medium text-gray-400 dark:text-slate-400">
                                                 <CheckCircle size={12} className="text-gold shrink-0" />
                                                 <span className="truncate">{feature}</span>
                                             </div>
@@ -1005,8 +1005,8 @@ export default function BookingPage() {
             className="space-y-8"
         >
             <div className="mb-6 pl-1">
-                <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Trip Details</h2>
-                <p className="text-slate-500 text-lg">Help us coordinate your perfect pickup</p>
+                <h2 className="text-3xl font-bold text-white dark:text-white mb-2">Trip Details</h2>
+                <p className="text-gray-400 text-lg">Help us coordinate your perfect pickup</p>
             </div>
 
             <div className="glass-card-emerald p-6 md:p-8 rounded-3xl border border-white/20 dark:border-slate-700/50 shadow-xl relative overflow-hidden">
@@ -1015,7 +1015,7 @@ export default function BookingPage() {
 
                 <div className="grid md:grid-cols-2 gap-8 mb-8">
                     <div className="space-y-3">
-                        <label className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">
+                        <label className="flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">
                             <Calendar size={14} className="text-gold" /> Pickup Date
                         </label>
                         <div className="relative group">
@@ -1031,7 +1031,7 @@ export default function BookingPage() {
                                     updateData('date', newDate);
                                 }}
                                 min={new Date().toISOString().split('T')[0]}
-                                className="w-full premium-input rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 text-base font-medium [color-scheme:light] dark:[color-scheme:dark] focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all"
+                                className="w-full premium-input rounded-xl px-4 py-4 text-white dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 text-base font-medium [color-scheme:light] dark:[color-scheme:dark] focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all"
                             />
                             {errors.date && <div className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500"><Info size={18} /></div>}
                         </div>
@@ -1039,7 +1039,7 @@ export default function BookingPage() {
                     </div>
 
                     <div className="space-y-3">
-                        <label className="flex items-center gap-2 text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">
+                        <label className="flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-wider ml-1">
                             <Clock size={14} className="text-gold" /> Pickup Time
                         </label>
                         <div className="relative group">
@@ -1057,7 +1057,7 @@ export default function BookingPage() {
                                     newTime.setMinutes(minutes);
                                     updateData('time', newTime);
                                 }}
-                                className="w-full premium-input rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 text-base font-medium [color-scheme:light] dark:[color-scheme:dark] focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all"
+                                className="w-full premium-input rounded-xl px-4 py-4 text-white dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 text-base font-medium [color-scheme:light] dark:[color-scheme:dark] focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all"
                             />
                             {errors.time && <div className="absolute right-3 top-1/2 -translate-y-1/2 text-red-500"><Info size={18} /></div>}
                         </div>
@@ -1068,21 +1068,21 @@ export default function BookingPage() {
                 <div className="my-8 border-t border-slate-100 dark:border-slate-700/50" />
 
                 <div className="mb-6">
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">Contact Information</h3>
+                    <h3 className="text-xl font-bold text-white dark:text-white mb-1">Contact Information</h3>
                     <p className="text-sm text-slate-400">Where should we send your booking confirmation?</p>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
                     {/* Full Name */}
                     <div className="relative group col-span-2">
-                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Full Name *</label>
+                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1">Full Name *</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                                 <User size={18} className="text-slate-400 group-focus-within:text-gold transition-colors" />
                             </div>
                             <input
                                 type="text"
-                                className="w-full premium-input rounded-xl pl-11 pr-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 font-medium placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all focus:border-gold focus:ring-4 focus:ring-gold/10"
+                                className="w-full premium-input rounded-xl pl-11 pr-4 py-4 text-white dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 font-medium placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all focus:border-gold focus:ring-4 focus:ring-gold/10"
                                 value={bookingData.name}
                                 onChange={(e) => updateData('name', e.target.value)}
                                 placeholder="Your full name"
@@ -1093,7 +1093,7 @@ export default function BookingPage() {
 
                     {/* Country / Region */}
                     <div className="col-span-2 relative group">
-                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Country / Region *</label>
+                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1">Country / Region *</label>
                         <SearchableSelect
                             name="country"
                             value={bookingData.country}
@@ -1115,21 +1115,21 @@ export default function BookingPage() {
                                 { value: "Other", label: "Other", icon: "🌍" }
                             ]}
                             placeholder="Select Country"
-                            className="w-full premium-input rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 focus:border-gold focus:ring-4 focus:ring-gold/10"
+                            className="w-full premium-input rounded-xl px-4 py-4 text-white dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 focus:border-gold focus:ring-4 focus:ring-gold/10"
                             icon={<Globe size={18} />}
                         />
                     </div>
 
                     {/* Phone */}
                     <div className="relative group col-span-2 md:col-span-1">
-                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Phone *</label>
+                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1">Phone *</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                                 <Phone size={18} className="text-slate-400 group-focus-within:text-gold transition-colors" />
                             </div>
                             <input
                                 type="tel"
-                                className="w-full premium-input rounded-xl pl-11 pr-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 font-medium placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all focus:border-gold focus:ring-4 focus:ring-gold/10"
+                                className="w-full premium-input rounded-xl pl-11 pr-4 py-4 text-white dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 font-medium placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all focus:border-gold focus:ring-4 focus:ring-gold/10"
                                 value={bookingData.phone}
                                 onChange={(e) => updateData('phone', e.target.value)}
                                 placeholder="+966 54 549 4921"
@@ -1140,14 +1140,14 @@ export default function BookingPage() {
 
                     {/* Email */}
                     <div className="relative group col-span-2 md:col-span-1">
-                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Email Address *</label>
+                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1">Email Address *</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                                 <Mail size={18} className="text-slate-400 group-focus-within:text-gold transition-colors" />
                             </div>
                             <input
                                 type="email"
-                                className="w-full premium-input rounded-xl pl-11 pr-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 font-medium placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all focus:border-gold focus:ring-4 focus:ring-gold/10"
+                                className="w-full premium-input rounded-xl pl-11 pr-4 py-4 text-white dark:text-white outline-none border border-slate-200 dark:border-slate-700/50 font-medium placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-all focus:border-gold focus:ring-4 focus:ring-gold/10"
                                 value={bookingData.email}
                                 onChange={(e) => updateData('email', e.target.value)}
                                 placeholder="name@example.com"
@@ -1162,23 +1162,23 @@ export default function BookingPage() {
             <div className="bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-6 md:p-8 border border-slate-100 dark:border-slate-800">
                 <div className="mb-6 flex items-center justify-between">
                     <div>
-                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">Additional Details</h3>
+                        <h3 className="text-xl font-bold text-white dark:text-white mb-1">Additional Details</h3>
                         <p className="text-sm text-slate-400">Optional info to help us serve you better</p>
                     </div>
-                    <span className="text-xs font-bold bg-slate-200 dark:bg-slate-800 text-slate-500 px-3 py-1 rounded-full">Optional</span>
+                    <span className="text-xs font-bold bg-slate-200 dark:bg-slate-800 text-gray-400 px-3 py-1 rounded-full">Optional</span>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
                     {/* Flight Details */}
                     <div className="relative group col-span-2">
-                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Flight Number</label>
+                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1">Flight Number</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                                 <PlaneLanding size={18} className="text-slate-400 group-focus-within:text-blue-500 transition-colors" />
                             </div>
                             <input
                                 type="text"
-                                className="w-full bg-white dark:bg-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-blue-500 transition-all text-sm"
+                                className="w-full bg-white dark:bg-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-white dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-blue-500 transition-all text-sm"
                                 value={bookingData.flightNumber}
                                 onChange={(e) => updateData('flightNumber', e.target.value)}
                                 placeholder="e.g. SV123 (Helps us track delays)"
@@ -1188,7 +1188,7 @@ export default function BookingPage() {
 
                     {/* Arrival Airport Date */}
                     <div className="relative group col-span-2">
-                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Arrival Date (If different)</label>
+                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1">Arrival Date (If different)</label>
                         <div className="relative">
                             <input
                                 type="date"
@@ -1202,14 +1202,14 @@ export default function BookingPage() {
                                     updateData('arrivalDate', newDate);
                                 }}
                                 min={new Date().toISOString().split('T')[0]}
-                                className="w-full bg-white dark:bg-slate-800 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-blue-500 transition-all text-sm pl-4 [color-scheme:light] dark:[color-scheme:dark]"
+                                className="w-full bg-white dark:bg-slate-800 rounded-xl px-4 py-3.5 text-white dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-blue-500 transition-all text-sm pl-4 [color-scheme:light] dark:[color-scheme:dark]"
                             />
                         </div>
                     </div>
 
                     {/* Passengers */}
                     <div className="relative group">
-                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Passengers</label>
+                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1">Passengers</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                                 <Users size={18} className="text-slate-400 group-focus-within:text-gold transition-colors" />
@@ -1217,7 +1217,7 @@ export default function BookingPage() {
                             <input
                                 type="number"
                                 min="1"
-                                className="w-full bg-white dark:bg-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-gold transition-all text-sm"
+                                className="w-full bg-white dark:bg-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-white dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-gold transition-all text-sm"
                                 value={bookingData.passengers}
                                 onChange={(e) => updateData('passengers', parseInt(e.target.value) || '')}
                                 placeholder="1"
@@ -1227,7 +1227,7 @@ export default function BookingPage() {
 
                     {/* Luggage */}
                     <div className="relative group">
-                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Luggage Items</label>
+                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1">Luggage Items</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                                 <Luggage size={18} className="text-slate-400 group-focus-within:text-gold transition-colors" />
@@ -1235,7 +1235,7 @@ export default function BookingPage() {
                             <input
                                 type="number"
                                 min="0"
-                                className="w-full bg-white dark:bg-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-gold transition-all text-sm"
+                                className="w-full bg-white dark:bg-slate-800 rounded-xl pl-11 pr-4 py-3.5 text-white dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-gold transition-all text-sm"
                                 value={bookingData.luggage}
                                 onChange={(e) => updateData('luggage', parseInt(e.target.value) || 0)}
                                 placeholder="0"
@@ -1246,9 +1246,9 @@ export default function BookingPage() {
                     <div className="col-span-2 border-t border-slate-200 dark:border-slate-700/50 my-2" />
 
                     <div className="relative group col-span-2">
-                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Special Requests / Notes</label>
+                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 ml-1">Special Requests / Notes</label>
                         <textarea
-                            className="w-full bg-white dark:bg-slate-800 rounded-xl px-4 py-3.5 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-gold transition-all text-sm min-h-[100px] resize-y"
+                            className="w-full bg-white dark:bg-slate-800 rounded-xl px-4 py-3.5 text-white dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-gold transition-all text-sm min-h-[100px] resize-y"
                             value={bookingData.notes || ''}
                             onChange={(e) => updateData('notes', e.target.value)}
                             placeholder="Any special instructions for the driver..."
@@ -1284,8 +1284,8 @@ export default function BookingPage() {
                 className="space-y-8"
             >
                 <div className="mb-6 pl-1">
-                    <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Review Booking</h2>
-                    <p className="text-slate-500 text-lg">One last check before we secure your ride</p>
+                    <h2 className="text-3xl font-bold text-white dark:text-white mb-2">Review Booking</h2>
+                    <p className="text-gray-400 text-lg">One last check before we secure your ride</p>
                 </div>
 
                 {/* Digital Ticket Container */}
@@ -1307,10 +1307,10 @@ export default function BookingPage() {
                                 <div className="flex-1 space-y-8">
                                     <div>
                                         <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Pickup</p>
-                                        <h3 className="text-xl font-bold text-slate-900 dark:text-white leading-tight">
+                                        <h3 className="text-xl font-bold text-white dark:text-white leading-tight">
                                             {bookingData.pickup || (route ? splitRouteName(route.name)[0] : 'Unknown Pickup')}
                                         </h3>
-                                        <div className="flex items-center gap-2 mt-2 text-sm font-medium text-slate-500">
+                                        <div className="flex items-center gap-2 mt-2 text-sm font-medium text-gray-400">
                                             <Calendar size={14} className="text-gold" /> {bookingData.date?.toLocaleDateString()}
                                             <span className="w-1 h-1 rounded-full bg-slate-300" />
                                             <Clock size={14} className="text-gold" /> {bookingData.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
@@ -1318,7 +1318,7 @@ export default function BookingPage() {
                                     </div>
                                     <div>
                                         <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Destination</p>
-                                        <h3 className="text-xl font-bold text-slate-900 dark:text-white leading-tight">
+                                        <h3 className="text-xl font-bold text-white dark:text-white leading-tight">
                                             {bookingData.dropoff || (route ? splitRouteName(route.name)[1] : 'Unknown Dropoff')}
                                         </h3>
                                         {route && (
@@ -1337,7 +1337,7 @@ export default function BookingPage() {
 
                             <div className="border-t border-slate-100 dark:border-slate-800 pt-6">
                                 <div className="flex justify-between items-start mb-4">
-                                    <h4 className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                                    <h4 className="font-bold text-white dark:text-white flex items-center gap-2">
                                         <Briefcase size={18} className="text-gold" />
                                         Selected Vehicles
                                     </h4>
@@ -1354,8 +1354,8 @@ export default function BookingPage() {
                                                     {v.image ? <img src={v.image} alt={v.name} className="w-full h-full object-cover" /> : <User size={20} />}
                                                 </div>
                                                 <div>
-                                                    <p className="font-bold text-slate-900 dark:text-white text-sm">{v.name}</p>
-                                                    <p className="text-xs text-slate-500">{v.capacity} Passengers • {v.luggage} Bags</p>
+                                                    <p className="font-bold text-white dark:text-white text-sm">{v.name}</p>
+                                                    <p className="text-xs text-gray-400">{v.capacity} Passengers • {v.luggage} Bags</p>
                                                 </div>
                                                 <div className="ml-auto font-bold text-sm bg-white dark:bg-slate-700 px-2 py-1 rounded border border-slate-200 dark:border-slate-600 shadow-sm">
                                                     x{sv.quantity}
@@ -1371,7 +1371,7 @@ export default function BookingPage() {
                         <div className="bg-slate-50/50 dark:bg-black/20 p-8 flex flex-col h-full">
                             <div className="mb-8">
                                 <div className="flex justify-between items-start mb-4">
-                                    <h4 className="font-bold text-slate-900 dark:text-white text-sm uppercase tracking-wider">Passenger</h4>
+                                    <h4 className="font-bold text-white dark:text-white text-sm uppercase tracking-wider">Passenger</h4>
                                     <button onClick={() => setStep(3)} className="text-[10px] font-bold text-gold hover:text-emerald-600 transition-colors hover:underline underline-offset-4">
                                         EDIT
                                     </button>
@@ -1382,28 +1382,28 @@ export default function BookingPage() {
                                             <User size={14} />
                                         </div>
                                         <div className="overflow-hidden">
-                                            <p className="font-bold text-slate-900 dark:text-white truncate">{bookingData.name}</p>
-                                            <p className="text-xs text-slate-500 truncate">{bookingData.email}</p>
+                                            <p className="font-bold text-white dark:text-white truncate">{bookingData.name}</p>
+                                            <p className="text-xs text-gray-400 truncate">{bookingData.email}</p>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-3">
                                         <div className="w-8 h-8 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center text-slate-400 shadow-sm">
                                             <Phone size={14} />
                                         </div>
-                                        <p className="font-medium text-slate-700 dark:text-slate-300 text-sm">{bookingData.phone}</p>
+                                        <p className="font-medium text-gray-200 dark:text-slate-300 text-sm">{bookingData.phone}</p>
                                     </div>
                                 </div>
                                 {(bookingData.notes) && (
                                     <div className="mt-4 p-3 bg-gold/5 dark:bg-gold/10 border border-gold/20 dark:border-gold/30 rounded-lg">
                                         <p className="text-[10px] uppercase font-bold text-gold mb-1">Notes</p>
-                                        <p className="text-xs text-slate-700 dark:text-slate-300 italic">"{bookingData.notes}"</p>
+                                        <p className="text-xs text-gray-200 dark:text-slate-300 italic">"{bookingData.notes}"</p>
                                     </div>
                                 )}
                             </div>
 
                             <div className="mt-auto pt-6 border-t border-dashed border-slate-300 dark:border-slate-700">
                                 <div className="space-y-2 mb-4">
-                                    <div className="flex justify-between text-sm text-slate-500">
+                                    <div className="flex justify-between text-sm text-gray-400">
                                         <span>Base Rate</span>
                                         <span>{priceDetails?.originalPrice && priceDetails.originalPrice > priceDetails.price ? priceDetails.originalPrice : priceDetails.price} SAR</span>
                                     </div>
@@ -1413,7 +1413,7 @@ export default function BookingPage() {
                                             <span>-{priceDetails.discountApplied} SAR</span>
                                         </div>
                                     )}
-                                    <div className="flex justify-between text-sm text-slate-500">
+                                    <div className="flex justify-between text-sm text-gray-400">
                                         <span>Taxes & Fees</span>
                                         <span>Included</span>
                                     </div>
@@ -1421,8 +1421,8 @@ export default function BookingPage() {
                                 <div className="flex justify-between items-end p-4 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700">
                                     <div>
                                         <span className="block text-[10px] uppercase font-bold text-slate-400">Total</span>
-                                        <span className="block text-xl font-black text-slate-900 dark:text-white">
-                                            {totalPrice} <span className="text-xs text-slate-500 font-bold">SAR</span>
+                                        <span className="block text-xl font-black text-white dark:text-white">
+                                            {totalPrice} <span className="text-xs text-gray-400 font-bold">SAR</span>
                                         </span>
                                     </div>
                                     <div className="text-right">
@@ -1449,7 +1449,7 @@ export default function BookingPage() {
             animate={{ opacity: 1, scale: 1 }}
             className="py-6 md:py-12 px-4"
         >
-            <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xl overflow-hidden max-w-2xl mx-auto text-left relative">
+            <div className="bg-primary-black/95 backdrop-blur-xl rounded-2xl border border-white/20 shadow-xl overflow-hidden max-w-2xl mx-auto text-left relative">
 
                 {/* Header / Islamic Greeting */}
                 <style jsx global>{`
@@ -1500,7 +1500,7 @@ export default function BookingPage() {
                     }
                 `}</style>
                 {/* Header / Islamic Greeting */}
-                <div className="bg-slate-50/50 dark:bg-slate-900/50 pt-10 pb-8 px-6 md:px-10 text-center border-b border-slate-100 dark:border-slate-800 print:hidden">
+                <div className="bg-white/5 pt-10 pb-8 px-6 md:px-10 text-center border-b border-white/10 print:hidden">
                     <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-6 shadow-sm ring-4 ring-white dark:ring-slate-800">
                         <CheckCircle size={36} className="text-green-600 dark:text-green-400" />
                     </div>
@@ -1510,7 +1510,7 @@ export default function BookingPage() {
                 <div className="p-6 md:p-10 space-y-8">
                     {/* Welcome Text */}
                     <div className="text-center md:text-left text-slate-600 dark:text-slate-300 space-y-4 text-base md:text-lg leading-relaxed print:hidden">
-                        <p>Dear <span className="font-bold text-slate-900 dark:text-white capitalize">{bookingData.name}</span>,</p>
+                        <p>Dear <span className="font-bold text-white dark:text-white capitalize">{bookingData.name}</span>,</p>
                         <p>
                             Thank you for choosing <span className="font-semibold text-secondary text-nowrap">Al Kiswah Umrah Transport</span>.
                         </p>
@@ -1519,7 +1519,7 @@ export default function BookingPage() {
 
 
                     {/* Booking Details Card */}
-                    <div id="printable-receipt" className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
+                    <div id="printable-receipt" className="bg-white/5 rounded-xl border border-white/10 shadow-sm overflow-hidden">
 
                         {/* Print Header - Visible only in print */}
                         <div className="hidden print:flex flex-row justify-between items-center p-8 border-b border-slate-100">
@@ -1528,8 +1528,8 @@ export default function BookingPage() {
                                     <Image src="/logo.png" alt="Al Kiswah" fill className="object-contain" />
                                 </div>
                                 <div>
-                                    <h1 className="text-xl font-bold text-slate-900">Al Kiswah Transport</h1>
-                                    <p className="text-sm text-slate-500 font-serif">النقل المعتمر الأقصى</p>
+                                    <h1 className="text-xl font-bold text-white">Al Kiswah Transport</h1>
+                                    <p className="text-sm text-gray-400 font-serif">النقل المعتمر الأقصى</p>
                                 </div>
                             </div>
                             <div className="text-right">
@@ -1538,14 +1538,14 @@ export default function BookingPage() {
                             </div>
                         </div>
 
-                        <div className="bg-slate-50 dark:bg-slate-900/50 px-6 py-4 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center print:hidden">
+                        <div className="bg-white/5 px-6 py-4 border-b border-white/10 flex justify-between items-center print:hidden">
                             <h3 className="text-secondary font-bold text-sm uppercase tracking-wider flex items-center gap-2">
                                 <Briefcase size={16} /> Booking Details
                             </h3>
                             <button
                                 id="print-button"
                                 onClick={() => window.print()}
-                                className="text-xs font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white flex items-center gap-1 transition-colors print:hidden"
+                                className="text-xs font-semibold text-gray-400 hover:text-white dark:hover:text-white flex items-center gap-1 transition-colors print:hidden"
                             >
                                 <span>Print Receipt</span>
                             </button>
@@ -1555,14 +1555,14 @@ export default function BookingPage() {
                             <div className="col-span-1 md:col-span-2 print:col-span-2 pb-4 border-b border-slate-100 dark:border-slate-700/50 text-center">
                                 <p className="text-2xl text-[#D4AF37] font-serif mb-2">﷽</p>
                                 <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Booking Reference / مرجع الحجز</span>
-                                <span className="block font-mono text-2xl md:text-3xl font-bold text-slate-900 dark:text-white tracking-tight">
+                                <span className="block font-mono text-2xl md:text-3xl font-bold text-white dark:text-white tracking-tight">
                                     {(bookingResponse?._id || bookingResponse?.id || 'PENDING').toString().slice(-8).toUpperCase()}
                                 </span>
                             </div>
 
                             <div>
                                 <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Date & Time / التاريخ والوقت</span>
-                                <span className="block font-medium text-slate-900 dark:text-white">
+                                <span className="block font-medium text-white dark:text-white">
                                     {bookingData.date?.toLocaleDateString()}
                                     <span className="text-slate-300 mx-2">|</span>
                                     {bookingData.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
@@ -1571,19 +1571,19 @@ export default function BookingPage() {
 
                             <div>
                                 <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Total Amount / المبلغ الإجمالي</span>
-                                <span className="block font-bold text-slate-900 dark:text-white text-lg">
-                                    {totalPrice} <span className="text-sm font-normal text-slate-500">SAR</span>
+                                <span className="block font-bold text-white dark:text-white text-lg">
+                                    {totalPrice} <span className="text-sm font-normal text-gray-400">SAR</span>
                                 </span>
                             </div>
 
                             <div className="relative pl-4 border-l-2 border-slate-100 dark:border-slate-700">
                                 <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Pickup / موقع الاستلام</span>
-                                <span className="block font-medium text-slate-900 dark:text-white text-sm">{bookingData.pickup}</span>
+                                <span className="block font-medium text-white dark:text-white text-sm">{bookingData.pickup}</span>
                             </div>
 
                             <div className="relative pl-4 border-l-2 border-slate-100 dark:border-slate-700">
                                 <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">Destination / الوجهة</span>
-                                <span className="block font-medium text-slate-900 dark:text-white text-sm">{bookingData.dropoff}</span>
+                                <span className="block font-medium text-white dark:text-white text-sm">{bookingData.dropoff}</span>
                             </div>
 
                             <div className="md:col-span-2 print:col-span-2 bg-slate-50 dark:bg-slate-900/30 rounded-lg p-4 mt-2">
@@ -1593,7 +1593,7 @@ export default function BookingPage() {
                                         const v = vehicles.find(veh => veh.id === sv.vehicleId);
                                         return v ? (
                                             <div key={sv.vehicleId} className="flex justify-between items-center text-sm">
-                                                <div className="font-bold text-slate-700 dark:text-slate-200">
+                                                <div className="font-bold text-gray-200 dark:text-slate-200">
                                                     {v.name}
                                                 </div>
                                                 <div className="text-xs font-semibold bg-white dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-600">
@@ -1607,7 +1607,7 @@ export default function BookingPage() {
 
                             {/* Print Footer - Spiritual Quote */}
                             <div className="hidden print:block col-span-1 md:col-span-2 mt-8 pt-8 border-t border-slate-100 text-center">
-                                <p className="text-lg font-serif italic text-slate-700 mb-2">"The reward of Umrah is expiation for the sins committed between it and the next Umrah."</p>
+                                <p className="text-lg font-serif italic text-gray-200 mb-2">"The reward of Umrah is expiation for the sins committed between it and the next Umrah."</p>
                                 <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">– Prophet Muhammad (S.A.W.W)</p>
                                 <div className="mt-4 text-[10px] text-slate-300">
                                     Generated by Al Kiswah Transport System
@@ -1622,13 +1622,13 @@ export default function BookingPage() {
                         <p className="text-2xl md:text-3xl font-serif text-slate-800 dark:text-slate-200 mb-4 leading-loose" dir="rtl">
                             سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ
                         </p>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 italic">
+                        <p className="text-sm text-gray-400 dark:text-slate-400 italic">
                             &quot;Glory be to Him who has subjected this to us, and we could not have otherwise subdued it. And indeed we, to our Lord, will surely return.&quot;
                         </p>
                     </div>
 
                     <div className="text-center pt-2 print:hidden">
-                        <p className="text-slate-500 text-sm mb-6">A confirmation email has been sent to <strong>{bookingData.email}</strong></p>
+                        <p className="text-gray-400 text-sm mb-6">A confirmation email has been sent to <strong>{bookingData.email}</strong></p>
 
                         <div className="flex flex-col sm:flex-row justify-center gap-3">
                             <Link
@@ -1640,7 +1640,7 @@ export default function BookingPage() {
                             </Link>
                             <Link
                                 href="/contact"
-                                className="w-full sm:w-auto px-8 py-3.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 active:scale-[0.98] transition-all flex items-center justify-center"
+                                className="w-full sm:w-auto px-8 py-3.5 bg-white dark:bg-slate-800 text-gray-200 dark:text-slate-200 font-bold rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 active:scale-[0.98] transition-all flex items-center justify-center"
                             >
                                 Contact Support
                             </Link>
@@ -1658,24 +1658,24 @@ export default function BookingPage() {
         return (
             <div className="sticky top-40 space-y-6">
                 {/* Summary Card */}
-                <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
-                    <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                <div className="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10 shadow-sm">
+                    <h3 className="text-lg font-bold text-white dark:text-white mb-4 flex items-center gap-2">
                         <Briefcase size={20} className="text-secondary" />
                         Booking Summary
                     </h3>
 
                     {/* Timeline */}
-                    <div className="space-y-6 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-100 dark:before:bg-slate-700">
+                    <div className="space-y-6 relative before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-white/10">
                         {/* Pickup */}
                         <div className="relative pl-8">
-                            <div className="absolute left-0 top-1 w-6 h-6 rounded-full border-4 border-white dark:border-slate-800 bg-secondary shadow-sm" />
+                            <div className="absolute left-0 top-1 w-6 h-6 rounded-full border-4 border-slate-950 bg-secondary shadow-sm" />
                             <div>
                                 <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Origin</span>
-                                <h4 className="font-bold text-slate-900 dark:text-white">
+                                <h4 className="font-bold text-white dark:text-white">
                                     {bookingData.pickup || (route ? splitRouteName(route.name)[0] : 'Select Pickup')}
                                 </h4>
                                 {bookingData.date && (
-                                    <p className="text-sm text-slate-500 mt-1">
+                                    <p className="text-sm text-gray-400 mt-1">
                                         {bookingData.date.toLocaleDateString()}
                                     </p>
                                 )}
@@ -1684,10 +1684,10 @@ export default function BookingPage() {
 
                         {/* Dropoff */}
                         <div className="relative pl-8">
-                            <div className="absolute left-0 top-1 w-6 h-6 rounded-full border-4 border-white dark:border-slate-800 bg-slate-900 dark:bg-white shadow-sm" />
+                            <div className="absolute left-0 top-1 w-6 h-6 rounded-full border-4 border-slate-950 bg-white shadow-sm" />
                             <div>
                                 <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-1">Destination</span>
-                                <h4 className="font-bold text-slate-900 dark:text-white">
+                                <h4 className="font-bold text-white dark:text-white">
                                     {bookingData.dropoff || (route ? splitRouteName(route.name)[1] : 'Select Dropoff')}
                                 </h4>
                             </div>
@@ -1696,23 +1696,23 @@ export default function BookingPage() {
 
                     {/* Quick Stats */}
                     {bookingData.passengers > 0 && (
-                        <div className="grid grid-cols-2 gap-2 mb-4 bg-slate-50 dark:bg-slate-900/50 p-3 rounded-lg">
+                        <div className="grid grid-cols-2 gap-2 mb-4 bg-white/5 p-3 rounded-lg">
                             <div className="flex items-center gap-2">
                                 <Users size={14} className="text-slate-400" />
-                                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+                                <span className="text-xs font-semibold text-gray-200 dark:text-slate-300">
                                     {bookingData.passengers} Passenger{bookingData.passengers > 1 ? 's' : ''}
                                 </span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <Luggage size={14} className="text-slate-400" />
-                                <span className="text-xs font-semibold text-slate-700 dark:text-slate-300">
+                                <span className="text-xs font-semibold text-gray-200 dark:text-slate-300">
                                     {bookingData.luggage} Bag{bookingData.luggage !== 1 ? 's' : ''}
                                 </span>
                             </div>
                         </div>
                     )}
 
-                    <div className="my-6 border-t border-slate-100 dark:border-slate-700" />
+                    <div className="my-6 border-t border-white/10" />
 
                     {/* Selected Vehicles */}
                     <div className="mb-6 space-y-4">
@@ -1722,7 +1722,7 @@ export default function BookingPage() {
                                 if (!v) return null;
                                 return (
                                     <div key={sv.vehicleId} className="flex items-center gap-4">
-                                        <div className="w-16 h-12 bg-slate-100 dark:bg-slate-700/50 rounded-lg flex items-center justify-center overflow-hidden">
+                                        <div className="w-16 h-12 bg-white/5 rounded-lg flex items-center justify-center overflow-hidden">
                                             {v.image ? (
                                                 <img src={v.image} alt={v.name} className="w-full h-full object-cover" />
                                             ) : (
@@ -1731,25 +1731,25 @@ export default function BookingPage() {
                                         </div>
                                         <div className="flex-1">
                                             <div className="flex justify-between items-start">
-                                                <h4 className="font-bold text-slate-900 dark:text-white text-sm">{v.name}</h4>
+                                                <h4 className="font-bold text-white dark:text-white text-sm">{v.name}</h4>
                                                 <span className="text-xs font-bold bg-secondary/10 text-secondary px-2 py-0.5 rounded-full">x{sv.quantity}</span>
                                             </div>
-                                            <p className="text-xs text-slate-500">{v.capacity} • {v.luggage}</p>
+                                            <p className="text-xs text-gray-400">{v.capacity} • {v.luggage}</p>
                                         </div>
                                     </div>
                                 );
                             })
                         ) : (
-                            <div className="text-sm text-slate-500 italic">No vehicles selected</div>
+                            <div className="text-sm text-gray-400 italic">No vehicles selected</div>
                         )}
                     </div>
 
                     {/* Total */}
-                    <div className="flex justify-between items-end">
-                        <span className="text-sm font-semibold text-slate-500 pb-1">Total Quote</span>
+                    <div className="flex justify-between items-end border-t border-white/10 pt-4">
+                        <span className="text-sm font-semibold text-gray-400 pb-1">Total Quote</span>
                         <div className="text-right">
-                            <span className="block text-2xl font-black text-slate-900 dark:text-white">
-                                {totalPrice} <span className="text-sm font-bold text-slate-400">SAR</span>
+                            <span className="block text-2xl font-black text-white">
+                                {totalPrice} <span className="text-sm font-bold text-gray-400">SAR</span>
                             </span>
                         </div>
                     </div>
@@ -1761,9 +1761,9 @@ export default function BookingPage() {
     };
 
     return (
-        <main className="min-h-screen bg-white dark:bg-slate-950 pb-24">
+        <main className="min-h-screen bg-primary-black pt-[100px] pb-24 text-white">
             {/* Progress Bar (Sticky) */}
-            <div className="sticky top-[35px] z-40 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-sm transition-all duration-300 print:hidden">
+            <div className="sticky top-[100px] z-30 bg-primary-black/90 backdrop-blur-xl border-b border-white/10 shadow-sm transition-all duration-300 print:hidden">
                 <div className="container mx-auto px-4">
                     <div className="flex items-start justify-between py-3 max-w-4xl mx-auto">
                         {[
@@ -1776,7 +1776,7 @@ export default function BookingPage() {
                                 <div className="flex flex-col items-center z-10">
                                     <div className={`
                                         w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 ring-4 ring-white dark:ring-slate-950 mb-1
-                                        ${step >= s.step ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/30 scale-110' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'}
+                                        ${step >= s.step ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/30 scale-110' : 'bg-white/10 text-gray-500'}
                                     `}>
                                         {step > s.step ? <CheckCircle size={18} /> : s.step}
                                     </div>
@@ -1787,7 +1787,7 @@ export default function BookingPage() {
                                 {s.step < 4 && (
                                     <div className={`
                                         flex-1 h-1 mx-4 rounded-full transition-all duration-500 hidden sm:block mt-5
-                                        ${step > s.step ? 'bg-amber-500' : 'bg-slate-100 dark:bg-slate-800'}
+                                        ${step > s.step ? 'bg-amber-500' : 'bg-white/10'}
                                     `} />
                                 )}
                             </div>
@@ -1817,7 +1817,7 @@ export default function BookingPage() {
                                 {step > 1 && (
                                     <button
                                         onClick={prevStep}
-                                        className="px-6 py-3 rounded-xl font-bold text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                                        className="px-6 py-3 rounded-xl font-bold text-gray-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
                                     >
                                         Back
                                     </button>
@@ -1842,15 +1842,15 @@ export default function BookingPage() {
                             >
                                 <div className="flex flex-col items-center justify-center gap-1 group cursor-default opacity-70 hover:opacity-100 transition-opacity">
                                     <ShieldCheck className="w-5 h-5 text-emerald-500" />
-                                    <span className="text-xs text-slate-500 font-medium">Official License</span>
+                                    <span className="text-xs text-gray-400 font-medium">Official License</span>
                                 </div>
                                 <div className="flex flex-col items-center justify-center gap-1 group cursor-default opacity-70 hover:opacity-100 transition-opacity">
                                     <Navigation className="w-5 h-5 text-amber-500" />
-                                    <span className="text-xs text-slate-500 font-medium">GPS Tracked</span>
+                                    <span className="text-xs text-gray-400 font-medium">GPS Tracked</span>
                                 </div>
                                 <div className="flex flex-col items-center justify-center gap-1 group cursor-default opacity-70 hover:opacity-100 transition-opacity">
                                     <HeartHandshake className="w-5 h-5 text-pink-500" />
-                                    <span className="text-xs text-slate-500 font-medium">Family Staff</span>
+                                    <span className="text-xs text-gray-400 font-medium">Family Staff</span>
                                 </div>
                             </motion.div>
                         )}

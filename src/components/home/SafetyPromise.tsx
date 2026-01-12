@@ -9,8 +9,8 @@ export default function SafetyPromise() {
             <div className="container mx-auto px-4">
                 <div className="bg-neutral-900/50 backdrop-blur-md rounded-3xl overflow-hidden shadow-2xl relative border border-white/10">
                     {/* Decorative Background Effects */}
-                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D4AF37]/5 rounded-full blur-[100px] -mr-48 -mt-48 pointer-events-none"></div>
-                    <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#D4AF37]/5 rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none"></div>
+                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-primary/5 rounded-full blur-[100px] -mr-48 -mt-48 pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold-primary/5 rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none"></div>
                     <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.03] mix-blend-overlay pointer-events-none"></div>
 
                     <div className="relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-20 p-8 md:p-12 items-center">
@@ -19,10 +19,10 @@ export default function SafetyPromise() {
                         <div className="order-2 lg:order-1 flex flex-col justify-center">
                             {/* Alert Banner */}
                             <FadeIn>
-                                <div className="inline-flex items-start md:items-center gap-3 px-4 py-3 rounded-2xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] text-sm md:text-base font-medium mb-8 max-w-xl group hover:bg-[#D4AF37]/15 transition-colors cursor-default">
-                                    <AlertTriangle className="shrink-0 text-[#D4AF37] animate-pulse" size={20} />
+                                <div className="inline-flex items-start md:items-center gap-3 px-4 py-3 rounded-2xl bg-gold-primary/10 border border-gold-primary/20 text-gold-primary text-sm md:text-base font-medium mb-8 max-w-xl group hover:bg-gold-primary/15 transition-colors cursor-default">
+                                    <AlertTriangle className="shrink-0 text-gold-primary animate-pulse" size={20} />
                                     <span className="leading-snug text-gray-200">
-                                        <strong className="text-[#D4AF37]">Guarantee:</strong> In the unlikely event of any issue, a replacement vehicle is routed to you instantly.
+                                        <strong className="text-gold-primary">Guarantee:</strong> In the unlikely event of any issue, a replacement vehicle is routed to you instantly.
                                     </span>
                                 </div>
                             </FadeIn>
@@ -30,7 +30,7 @@ export default function SafetyPromise() {
                             <FadeIn delay={0.1}>
                                 <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-sans leading-tight tracking-tight">
                                     Our "Never Stranded" <br className="hidden md:block" />
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37]">Promise</span>
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-primary via-gold-light to-gold-primary">Promise</span>
                                 </h2>
 
                                 <p className="text-gray-400 text-base md:text-lg lg:text-xl mb-10 leading-relaxed max-w-xl font-light">
@@ -42,12 +42,12 @@ export default function SafetyPromise() {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                                 {/* Feature Card 1: 60 Min Target */}
                                 <FadeIn delay={0.2}>
-                                    <div className="group flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4AF37]/30 transition-all duration-300">
-                                        <div className="bg-[#D4AF37]/10 rounded-lg p-3 text-[#D4AF37] group-hover:scale-110 transition-transform border border-[#D4AF37]/20">
+                                    <div className="group flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-gold-primary/30 transition-all duration-300">
+                                        <div className="bg-gold-primary/10 rounded-lg p-3 text-gold-primary group-hover:scale-110 transition-transform border border-gold-primary/20">
                                             <Clock size={24} strokeWidth={2.5} />
                                         </div>
                                         <div>
-                                            <h4 className="text-white font-bold text-lg leading-none mb-1.5 group-hover:text-[#D4AF37] transition-colors font-sans">60 Min Target</h4>
+                                            <h4 className="text-white font-bold text-lg leading-none mb-1.5 group-hover:text-gold-primary transition-colors font-sans">60 Min Target</h4>
                                             <p className="text-gray-500 text-xs md:text-sm font-medium group-hover:text-gray-400">Max wait for replacement</p>
                                         </div>
                                     </div>
@@ -55,12 +55,12 @@ export default function SafetyPromise() {
 
                                 {/* Feature Card 2: 24/7 Command */}
                                 <FadeIn delay={0.3}>
-                                    <div className="group flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4AF37]/30 transition-all duration-300">
-                                        <div className="bg-[#D4AF37]/10 rounded-lg p-3 text-[#D4AF37] group-hover:scale-110 transition-transform border border-[#D4AF37]/20">
+                                    <div className="group flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-gold-primary/30 transition-all duration-300">
+                                        <div className="bg-gold-primary/10 rounded-lg p-3 text-gold-primary group-hover:scale-110 transition-transform border border-gold-primary/20">
                                             <Phone size={24} strokeWidth={2.5} />
                                         </div>
                                         <div>
-                                            <h4 className="text-white font-bold text-lg leading-none mb-1.5 group-hover:text-[#D4AF37] transition-colors font-sans">24/7 Command</h4>
+                                            <h4 className="text-white font-bold text-lg leading-none mb-1.5 group-hover:text-gold-primary transition-colors font-sans">24/7 Command</h4>
                                             <p className="text-gray-500 text-xs md:text-sm font-medium group-hover:text-gray-400">Direct Ops Manager Line</p>
                                         </div>
                                     </div>
@@ -77,11 +77,11 @@ export default function SafetyPromise() {
                                         {/* Status Badge */}
                                         <div className="flex justify-between items-center mb-8 border-b border-white/5 pb-6">
                                             <div className="flex items-center gap-2">
-                                                <ShieldCheck className="text-[#D4AF37]" size={20} />
+                                                <ShieldCheck className="text-gold-primary" size={20} />
                                                 <span className="text-gray-400 text-xs font-mono uppercase tracking-widest">Protocol Status</span>
                                             </div>
-                                            <div className="bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-2 animate-pulse">
-                                                <span className="w-2 h-2 rounded-full bg-[#D4AF37]"></span>
+                                            <div className="bg-gold-primary/10 border border-gold-primary/20 text-gold-primary text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-2 animate-pulse">
+                                                <span className="w-2 h-2 rounded-full bg-gold-primary"></span>
                                                 Active & Ready
                                             </div>
                                         </div>
@@ -108,13 +108,13 @@ export default function SafetyPromise() {
                                             ].map((item, idx) => (
                                                 <div key={idx} className="flex gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors group cursor-default border border-transparent hover:border-white/5">
                                                     <div className="flex-shrink-0 relative">
-                                                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-black border border-white/10 flex items-center justify-center text-[#D4AF37] font-bold font-mono group-hover:border-[#D4AF37] group-hover:bg-[#D4AF37] group-hover:text-black transition-all duration-300 z-10 relative shadow-lg">
+                                                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-black border border-white/10 flex items-center justify-center text-gold-primary font-bold font-mono group-hover:border-gold-primary group-hover:bg-gold-primary group-hover:text-black transition-all duration-300 z-10 relative shadow-lg">
                                                             {item.step}
                                                         </div>
                                                         {idx !== 2 && <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[1px] h-full bg-white/10 group-hover:bg-white/20 transition-colors -z-0"></div>}
                                                     </div>
                                                     <div>
-                                                        <h5 className="text-white font-bold text-sm md:text-base mb-1 group-hover:text-[#D4AF37] transition-colors font-sans">{item.title}</h5>
+                                                        <h5 className="text-white font-bold text-sm md:text-base mb-1 group-hover:text-gold-primary transition-colors font-sans">{item.title}</h5>
                                                         <p className="text-gray-400 text-xs md:text-sm leading-relaxed group-hover:text-gray-300 transition-colors font-light">
                                                             {item.desc}
                                                         </p>
@@ -127,7 +127,7 @@ export default function SafetyPromise() {
                                         <div className="mt-8 pt-6 border-t border-white/5 text-center">
                                             <a href="/safety" className="text-xs md:text-sm text-gray-400 hover:text-white transition-colors flex items-center justify-center gap-2 group">
                                                 View Full Safety Documentation
-                                                <Zap size={14} className="text-[#D4AF37] group-hover:fill-[#D4AF37] transition-all" />
+                                                <Zap size={14} className="text-gold-primary group-hover:fill-gold-primary transition-all" />
                                             </a>
                                         </div>
                                     </div>

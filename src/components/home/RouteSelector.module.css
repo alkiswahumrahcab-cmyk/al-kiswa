@@ -25,7 +25,7 @@
 }
 
 .trigger.open {
-    border-color: #D4AF37;
+    border-color: #EFBF5B;
     box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
 }
 
@@ -54,7 +54,7 @@
 
 .trigger.open .iconWrapper {
     background: rgba(212, 175, 55, 0.1);
-    color: #D4AF37;
+    color: #EFBF5B;
 }
 
 .routeInfo {
@@ -126,7 +126,7 @@
 }
 
 .searchInput:focus {
-    border-color: #D4AF37;
+    border-color: #EFBF5B;
     box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
 }
 
@@ -176,7 +176,7 @@
 }
 
 .option.selected .optionIcon {
-    color: #D4AF37;
+    color: #EFBF5B;
 }
 
 .optionContent {
@@ -202,7 +202,7 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #D4AF37;
+    background: #EFBF5B;
 }
 
 .noResults {
@@ -249,7 +249,7 @@
 
 .trigger.open .iconWrapper {
     background: rgba(212, 175, 55, 0.1);
-    color: #D4AF37;
+    color: #EFBF5B;
 }
 
 .routeInfo {
@@ -321,7 +321,7 @@
 }
 
 .searchInput:focus {
-    border-color: #D4AF37;
+    border-color: #EFBF5B;
     box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
 }
 
@@ -371,7 +371,7 @@
 }
 
 .option.selected .optionIcon {
-    color: #D4AF37;
+    color: #EFBF5B;
 }
 
 .optionContent {
@@ -397,7 +397,7 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #D4AF37;
+    background: #EFBF5B;
 }
 
 .noResults {
@@ -454,5 +454,5 @@
 }
 
 :global(.dark) .option.selected .optionIcon {
-    color: #D4AF37;
+    color: #EFBF5B;
 }

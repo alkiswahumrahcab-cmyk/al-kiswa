@@ -143,7 +143,7 @@ const Hero: React.FC<HeroProps> = ({
                                 href={ctaLink}
                                 variant="primary"
                                 size="lg"
-                                className="bg-gold-primary hover:bg-gold-dark text-black border-none font-bold shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)]"
+                                className="bg-gold-primary hover:bg-gold-dark text-black border-none font-bold shadow-[0_0_20px_rgba(239,191,91,0.3)] hover:shadow-[0_0_30px_rgba(239,191,91,0.5)]"
                                 onClick={() => trackConversion('other', 'hero_cta_booking_start')}
                             >
                                 {ctaText}
@@ -196,7 +196,7 @@ const Hero: React.FC<HeroProps> = ({
 
             {/* Bottom Gradient Fade */}
             <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-primary-black to-transparent pointer-events-none z-[1]" />
-        </section>
+        </section >
     );
 };
 

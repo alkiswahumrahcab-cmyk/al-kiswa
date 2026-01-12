@@ -33,7 +33,7 @@ const DEFAULT_SETTINGS: Settings = {
     },
     appearance: {
         darkMode: false,
-        primaryColor: '#D4AF37', // Gold
+        primaryColor: '#EFBF5B', // Gold
     },
     discount: {
         enabled: false,

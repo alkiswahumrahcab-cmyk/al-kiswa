@@ -67,7 +67,7 @@ export default function AirportStylizedCanvas({ routes, activeRouteId, hoveredRo
         <div className="absolute inset-0 w-full h-full bg-transparent overflow-hidden cursor-grab active:cursor-grabbing" ref={constraintsRef}>
             {/* Grid / Radar Background Effect */}
             <div className="absolute inset-0 opacity-10 pointer-events-none"
-                style={{ backgroundImage: 'radial-gradient(circle, #D4AF37 1px, transparent 1px)', backgroundSize: '30px 30px' }}
+                style={{ backgroundImage: 'radial-gradient(circle, #EFBF5B 1px, transparent 1px)', backgroundSize: '30px 30px' }}
             />
 
             <motion.div
@@ -101,7 +101,7 @@ export default function AirportStylizedCanvas({ routes, activeRouteId, hoveredRo
                                 <motion.path
                                     d={path}
                                     fill="none"
-                                    stroke={isRelevant ? "#D4AF37" : "#334155"} // Gold if active, Slate-700 if inactive
+                                    stroke={isRelevant ? "#EFBF5B" : "#334155"} // Gold if active, Slate-700 if inactive
                                     strokeWidth={isRelevant ? "0.5" : "0.2"}
                                     strokeDasharray={isActive ? "none" : "1 1"} // Dashed for inactive "planned" routes
                                     animate={{
@@ -139,12 +139,12 @@ export default function AirportStylizedCanvas({ routes, activeRouteId, hoveredRo
                             {/* Pulse */}
                             <motion.circle
                                 cx={node.x} cy={node.y} r="3"
-                                stroke="#D4AF37" strokeWidth="0.1" fill="none"
+                                stroke="#EFBF5B" strokeWidth="0.1" fill="none"
                                 animate={{ scale: [1, 2], opacity: [0.8, 0] }}
                                 transition={{ duration: 2, repeat: Infinity }}
                             />
                             {/* Dot */}
-                            <circle cx={node.x} cy={node.y} r="1.5" className="fill-black stroke-[#D4AF37]" strokeWidth="0.3" />
+                            <circle cx={node.x} cy={node.y} r="1.5" className="fill-black stroke-[#EFBF5B]" strokeWidth="0.3" />
                             {/* Label */}
                             <text
                                 x={node.x} y={node.y + 4}

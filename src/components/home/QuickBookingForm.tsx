@@ -1,7 +1,7 @@
 ﻿'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Calendar, Phone, User, ArrowRight, Car, Clock, CheckCircle, Bus, Mail, MapPin, PlaneLanding, PlaneTakeoff, CreditCard, ShieldCheck, HeartHandshake } from 'lucide-react';
+import { Calendar, Phone, User, ArrowRight, Car, Clock, CheckCircle, Bus, Mail, MapPin, PlaneLanding, PlaneTakeoff, CreditCard, ShieldCheck, HeartHandshake, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import SearchableSelect from '@/components/ui/SearchableSelect';
@@ -249,11 +249,27 @@ const QuickBookingForm = ({
                     <motion.form
                         key="form"
                         onSubmit={handleSubmit}
-                        className="space-y-5 relative z-10"
+                        className="space-y-6 relative z-10"
                         noValidate
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                     >
+                        {/* WhatsApp Fast Track - Accessibility Feature */}
+                        <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between gap-4 mb-6 hover:bg-white/10 transition-colors group cursor-pointer" onClick={() => window.open('https://wa.me/966545494921', '_blank')}>
+                            <div className="flex items-center gap-3">
+                                <div className="bg-[#25D366] p-2 rounded-full text-white">
+                                    <MessageCircle size={20} className="fill-white" />
+                                </div>
+                                <div className="text-left">
+                                    <h4 className="text-white font-bold text-sm">Prefer to book via Chat?</h4>
+                                    <p className="text-gray-400 text-xs text-[10px]">Instant reply from our support team</p>
+                                </div>
+                            </div>
+                            <div className="bg-white/10 p-2 rounded-lg text-white group-hover:bg-white/20 transition-colors">
+                                <ArrowRight size={16} />
+                            </div>
+                        </div>
+
                         {/* Route Pills */}
                         <div>
                             <label className="text-[10px] font-bold text-gold-primary/90 uppercase tracking-[0.15em] mb-2.5 block">Popular Routes</label>
@@ -279,10 +295,10 @@ const QuickBookingForm = ({
                                                 setErrors({});
                                             }}
                                             className={`
-                                                flex items-center gap-2 px-3 py-2 rounded-lg text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 border
+                                                flex items-center gap-2 px-4 py-3 rounded-xl text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 border
                                                 ${isActive
-                                                    ? 'bg-gold-primary text-black border-gold-primary shadow-lg shadow-gold-primary/20'
-                                                    : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10 hover:border-gold-primary/30'
+                                                    ? 'bg-gold-primary text-black border-gold-primary shadow-[0_0_15px_rgba(212,175,55,0.4)] scale-105'
+                                                    : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10 hover:border-gold-primary/50 hover:text-white'
                                                 }
                                             `}
                                         >
@@ -299,6 +315,28 @@ const QuickBookingForm = ({
 
                             {/* Pickup & Dropoff */}
                             <div className="space-y-4">
+                                <div className="flex justify-between items-center mb-1">
+                                    <label className="text-[10px] uppercase font-bold text-gray-400 tracking-widest hidden md:block">Pickup</label>
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            if (navigator.geolocation) {
+                                                navigator.geolocation.getCurrentPosition(() => {
+                                                    // In a real app, you'd reverse geocode here.
+                                                    // For now, let's set a generic "Current Location" marker or similar.
+                                                    // Or just prompt them that we found it.
+                                                    setFormData(prev => ({ ...prev, pickup: 'Current Location (Detected)' }));
+                                                }, (err) => {
+                                                    console.error(err);
+                                                    alert('Location access denied. Please select manually.');
+                                                });
+                                            }
+                                        }}
+                                        className="text-[10px] flex items-center gap-1 text-gold-primary hover:text-white transition-colors cursor-pointer ml-auto"
+                                    >
+                                        <MapPin size={10} /> Use My Location
+                                    </button>
+                                </div>
                                 <SearchableSelect
                                     name="pickup"
                                     value={formData.pickup}
@@ -364,6 +402,25 @@ const QuickBookingForm = ({
                                 placeholder="Select Vehicle Class"
                                 className="w-full !bg-white/5 !border-gold-primary/30 !text-white !py-3.5 focus:!border-gold-primary hover:!bg-white/10 transition-all"
                                 icon={<Car size={18} className="text-gold-primary" />}
+                                renderOption={(option: any) => (
+                                    <div className="flex items-center justify-between w-full p-1">
+                                        <div className="flex items-center gap-3">
+                                            {option.image && (
+                                                <div className="w-12 h-8 relative rounded-md overflow-hidden bg-gray-100">
+                                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                    <img src={option.image} alt={option.label} className="object-cover w-full h-full" />
+                                                </div>
+                                            )}
+                                            <div className="flex flex-col text-left">
+                                                <span className="font-bold text-sm text-gray-800 dark:text-gray-200">{option.label.split('(')[0]}</span>
+                                                <span className="text-[10px] text-gray-500">{option.label.split('(')[1]?.replace(')', '')}</span>
+                                            </div>
+                                        </div>
+                                        {option.price > 0 && (
+                                            <span className="text-gold-metal font-bold text-xs">{option.price} SAR</span>
+                                        )}
+                                    </div>
+                                )}
                             />
                             {errors.vehicleId && <span className="text-red-400 text-xs ml-2">{errors.vehicleId}</span>}
 

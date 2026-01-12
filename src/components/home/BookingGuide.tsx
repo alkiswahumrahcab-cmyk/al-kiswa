@@ -31,11 +31,10 @@ const STEPS = [
 
 export default function BookingGuide() {
     return (
-        <section className="py-24 bg-white dark:bg-slate-950 overflow-hidden relative">
+        <section className="py-24 bg-primary-black overflow-hidden relative border-t border-white/5">
             {/* Elegant Background Patterns */}
-            <div className="absolute inset-0 opacity-10 pointer-events-none"
-                style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, #F4E4C1 1px, transparent 1px)', backgroundSize: '40px 40px' }}
-            />
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('/pattern.png')] mix-blend-overlay" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}
@@ -55,12 +54,12 @@ export default function BookingGuide() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 leading-tight tracking-tight"
+                        className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight tracking-tight"
                     >
                         Your Journey in <br className="hidden md:block" />
                         <span className="relative inline-block">
                             <span className="relative z-10 text-gradient-gold">3 Simple Steps</span>
-                            <span className="absolute bottom-2 left-0 w-full h-3 bg-gold/10 -rotate-1 z-0 rounded-full blur-sm"></span>
+                            <span className="absolute bottom-2 left-0 w-full h-3 bg-gold-primary/10 -rotate-1 z-0 rounded-full blur-sm"></span>
                         </span>
                     </motion.h2>
                     <motion.p
@@ -68,7 +67,7 @@ export default function BookingGuide() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-slate-500 text-lg leading-relaxed font-medium"
+                        className="text-gray-400 text-lg leading-relaxed font-medium font-light"
                     >
                         Experience the gold standard of Umrah transport. Streamlined for your comfort and peace of mind.
                     </motion.p>
@@ -77,7 +76,7 @@ export default function BookingGuide() {
                 {/* Steps Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative px-4">
                     {/* Connecting Dotted Line (Desktop) */}
-                    <div className="hidden md:block absolute top-[60px] left-[15%] right-[15%] border-t-2 border-dashed border-emerald-900/10 dark:border-emerald-900/20 z-0"></div>
+                    <div className="hidden md:block absolute top-[60px] left-[15%] right-[15%] border-t-2 border-dashed border-white/10 z-0"></div>
 
                     {STEPS.map((step, idx) => (
                         <motion.div
@@ -91,23 +90,23 @@ export default function BookingGuide() {
                             <div className="flex flex-col items-center text-center">
                                 {/* Simplified Icon Container - No Rotation */}
                                 <div className="relative mb-6">
-                                    <div className="w-24 h-24 bg-white dark:bg-slate-800 rounded-2xl shadow-lg border-2 border-slate-100 dark:border-slate-700 flex items-center justify-center relative z-10">
-                                        <step.icon size={36} className="text-emerald-700 dark:text-gold" />
+                                    <div className="w-24 h-24 bg-white/5 backdrop-blur-md rounded-2xl shadow-lg border border-white/10 flex items-center justify-center relative z-10 group-hover:bg-white/10 transition-colors">
+                                        <step.icon size={36} className="text-gold-primary" />
                                     </div>
 
                                     {/* background glow */}
-                                    <div className="absolute inset-0 bg-emerald-500/10 blur-xl rounded-full -z-10 transform scale-75" />
+                                    <div className="absolute inset-0 bg-gold-primary/20 blur-xl rounded-full -z-10 transform scale-75 opacity-0 group-hover:opacity-100 transition-opacity" />
 
                                     {/* Step Number Badge */}
-                                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg flex items-center justify-center font-bold text-sm shadow-md z-20 border-2 border-white dark:border-slate-900">
+                                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-gold-primary text-black rounded-lg flex items-center justify-center font-bold text-sm shadow-md z-20 border-2 border-primary-black">
                                         {step.id}
                                     </div>
                                 </div>
 
-                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
+                                <h3 className="text-xl font-bold text-white mb-3">
                                     {step.title}
                                 </h3>
-                                <p className="text-slate-500 leading-relaxed max-w-[260px] mx-auto text-base">
+                                <p className="text-gray-400 leading-relaxed max-w-[260px] mx-auto text-base">
                                     {step.description}
                                 </p>
                             </div>
@@ -125,14 +124,14 @@ export default function BookingGuide() {
                 >
                     <Link
                         href="/booking"
-                        className="inline-flex items-center gap-3 bg-emerald-950 dark:bg-emerald-900 text-white px-12 py-6 rounded-2xl font-bold text-lg shadow-2xl shadow-emerald-900/30 hover:shadow-emerald-900/40 hover:-translate-y-1 transition-all group relative overflow-hidden"
+                        className="inline-flex items-center gap-3 bg-gradient-to-r from-gold-primary to-gold-dark text-black px-12 py-6 rounded-2xl font-bold text-lg shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:shadow-[0_0_50px_rgba(212,175,55,0.5)] hover:-translate-y-1 transition-all group relative overflow-hidden"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                         Book Your Ride Now
                         <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
-                    <p className="mt-6 text-sm font-medium text-slate-400 flex items-center justify-center gap-2">
-                        <MousePointerClick size={16} className="text-gold" />
+                    <p className="mt-6 text-sm font-medium text-gray-500 flex items-center justify-center gap-2 uppercase tracking-wide">
+                        <MousePointerClick size={16} className="text-gold-primary" />
                         No prepayment required • Pay upon arrival
                     </p>
                 </motion.div>
