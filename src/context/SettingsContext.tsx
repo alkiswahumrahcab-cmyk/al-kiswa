@@ -19,7 +19,13 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
             try {
                 const res = await fetch('/api/settings');
                 const data = await res.json();
-                setSettings(data);
+
+                // Robustness: Only set if data is valid settings object
+                if (data && data.general && !data.error) {
+                    setSettings(data);
+                } else {
+                    console.error('API returned invalid settings or error:', data);
+                }
             } catch (error) {
                 console.error('Failed to fetch settings:', error);
             } finally {

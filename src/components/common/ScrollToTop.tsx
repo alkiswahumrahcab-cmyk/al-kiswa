@@ -9,13 +9,20 @@ import { useMenu } from '@/context/MenuContext';
 
 export default function ScrollToTop() {
     const [isVisible, setIsVisible] = useState(false);
+    const [mounted, setMounted] = useState(false);
     const pathname = usePathname();
     const { isMenuOpen } = useMenu();
 
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     // Automatically scroll to top on route change
     useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [pathname]);
+        if (mounted) {
+            window.scrollTo(0, 0);
+        }
+    }, [pathname, mounted]);
 
     useEffect(() => {
         const toggleVisibility = () => {
@@ -40,7 +47,7 @@ export default function ScrollToTop() {
         });
     };
 
-    if (isMenuOpen) return null;
+    if (!mounted || isMenuOpen) return null;
 
     return (
         <button

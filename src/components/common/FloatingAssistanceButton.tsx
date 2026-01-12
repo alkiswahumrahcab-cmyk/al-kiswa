@@ -18,7 +18,8 @@ export default function FloatingAssistanceButton() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    if (!settings) return null;
+    // Robust protection against undefined settings or missing contact info
+    if (!settings?.contact?.phone) return null;
 
     const whatsappNumber = settings.contact.phone.replace(/\s+/g, ''); // Ensure clean number
     const whatsappMessage = encodeURIComponent("Salam! I need help booking a ride. Please assist me.");
@@ -46,16 +47,6 @@ export default function FloatingAssistanceButton() {
                 <MessageCircle size={28} className="fill-white text-[#25D366]" />
                 <span className="font-bold text-base hidden md:inline">Book on WhatsApp</span>
             </a>
-
-            {/* Phone Button (Mobile Only - Optional secondary action) */}
-            {/* 
-            <a
-                href={`tel:${whatsappNumber}`}
-                className="md:hidden flex items-center justify-center w-14 h-14 bg-white text-black rounded-full shadow-lg border border-gray-200"
-            >
-               <Phone size={24} />
-            </a> 
-            */}
         </div>
     );
 }

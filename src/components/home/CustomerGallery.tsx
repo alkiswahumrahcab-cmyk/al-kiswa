@@ -74,7 +74,7 @@ export default function CustomerGallery() {
 
                 {/* Slideshow Container */}
                 <div className="relative max-w-5xl mx-auto aspect-video rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/10 shadow-2xl">
-                    <AnimatePresence initial={false} custom={direction} mode="popLayout">
+                    <AnimatePresence initial={false} custom={direction} mode="wait">
                         <motion.div
                             key={currentIndex}
                             custom={direction}
@@ -145,8 +145,8 @@ export default function CustomerGallery() {
                                     setCurrentIndex(idx);
                                 }}
                                 className={`h-2.5 rounded-full transition-all duration-300 ${idx === currentIndex
-                                        ? 'w-10 bg-gold-primary'
-                                        : 'w-2.5 bg-white/30 hover:bg-white'
+                                    ? 'w-10 bg-gold-primary'
+                                    : 'w-2.5 bg-white/30 hover:bg-white'
                                     }`}
                                 aria-label={`Go to slide ${idx + 1}`}
                             />
