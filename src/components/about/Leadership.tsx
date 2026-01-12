@@ -1,8 +1,8 @@
 'use client';
 
-import styles from './Leadership.module.css';
 import { Linkedin, Twitter, Mail } from 'lucide-react';
 import Image from 'next/image';
+import FadeIn from '@/components/common/FadeIn';
 
 export default function Leadership() {
 
@@ -31,43 +31,55 @@ export default function Leadership() {
     ];
 
     return (
-        <section className={styles.section}>
-            <div className="container">
-                <div className={styles.header}>
-                    <h2 className={styles.title}>Meet Our Team</h2>
-                    <p className={styles.subtitle}>
-                        Dedicated professionals committed to making your journey smooth and memorable.
-                    </p>
-                </div>
+        <section className="py-24 bg-transparent border-t border-white/5 relative">
+            <div className="container mx-auto px-4">
+                <FadeIn>
+                    <div className="text-center max-w-3xl mx-auto mb-20">
+                        <span className="text-gold-primary font-bold uppercase tracking-[0.2em] text-sm mb-4 block">The People Behind</span>
+                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-sans">Meet Our Team</h2>
+                        <p className="text-lg text-gray-400 leading-relaxed font-light">
+                            Dedicated professionals committed to making your journey smooth and memorable.
+                        </p>
+                    </div>
+                </FadeIn>
 
-                <div className={styles.grid}>
-                    {team.map((member) => (
-                        <div key={member.id} className={styles.card}>
-                            <div className={styles.imageWrapper}>
-                                <Image
-                                    src={member.image}
-                                    alt={member.name}
-                                    fill
-                                    className={styles.image}
-                                />
-                            </div>
-                            <div className={styles.content}>
-                                <h3 className={styles.name}>{member.name}</h3>
-                                <p className={styles.role}>{member.role}</p>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {team.map((member, index) => (
+                        <FadeIn key={member.id} delay={index * 0.1}>
+                            <div className="group relative bg-neutral-900 rounded-3xl overflow-hidden border border-white/10 hover:border-gold-primary/50 transition-all duration-500 shadow-2xl">
 
-                                <div className={styles.socials}>
-                                    <a href={member.socials.linkedin} className="text-gray-400 hover:text-[#daa520] transition-colors">
-                                        <Linkedin size={20} />
-                                    </a>
-                                    <a href={member.socials.twitter} className="text-gray-400 hover:text-[#daa520] transition-colors">
-                                        <Twitter size={20} />
-                                    </a>
-                                    <a href={member.socials.email} className="text-gray-400 hover:text-[#daa520] transition-colors">
-                                        <Mail size={20} />
-                                    </a>
+                                <div className="relative h-96 w-full overflow-hidden">
+                                    {/* Fallback pattern if image is missing, usually next/image handles empty src gracefully but better to be safe if local file missing */}
+                                    <div className="absolute inset-0 bg-neutral-800 animate-pulse" />
+
+                                    <Image
+                                        src={member.image}
+                                        alt={member.name}
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                                    />
+
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-90 transition-opacity duration-300" />
+                                </div>
+
+                                <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                                    <h3 className="text-2xl font-bold text-white mb-1 font-sans">{member.name}</h3>
+                                    <p className="text-gold-primary font-medium tracking-wide mb-6 text-sm uppercase">{member.role}</p>
+
+                                    <div className="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                        <a href={member.socials.linkedin} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-gold-primary hover:text-black transition-colors backdrop-blur-md">
+                                            <Linkedin size={18} />
+                                        </a>
+                                        <a href={member.socials.twitter} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-gold-primary hover:text-black transition-colors backdrop-blur-md">
+                                            <Twitter size={18} />
+                                        </a>
+                                        <a href={member.socials.email} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-gold-primary hover:text-black transition-colors backdrop-blur-md">
+                                            <Mail size={18} />
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </FadeIn>
                     ))}
                 </div>
             </div>

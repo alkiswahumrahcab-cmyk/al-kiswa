@@ -3,11 +3,13 @@ import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import Features from '@/components/home/Features';
-import styles from '@/app/page.module.css';
 import Link from 'next/link';
 import { ArrowRight, CheckCircle2, MapPin, Clock } from 'lucide-react';
 import RouteVisual from '@/components/services/RouteVisual';
 import FAQSection from '@/components/services/FAQSection';
+import { getSettings } from '@/lib/settings-storage';
+import FadeIn from "@/components/common/FadeIn";
+import GlassCard from '@/components/ui/GlassCard';
 
 export const metadata: Metadata = {
     title: "Taxi Makkah to Madinah Price 2025 | VIP Private Car Cost",
@@ -84,7 +86,7 @@ const jsonLd = {
 const makkahMadinahFAQs = [
     {
         question: "How long is the journey from Makkah to Madinah?",
-        answer: <span>The distance is approximately 450 km. By private taxi (<Link href="/fleet/gmc-yukon-at4" className="text-gold hover:text-emerald-600 hover:underline">GMC</Link>/<Link href="/fleet/hyundai-staria" className="text-gold hover:text-emerald-600 hover:underline">Staria</Link>), the journey typically takes 4.5 to 5 hours. We can stop at the Miqat (Bir Ali) for 15-30 minutes if you wish to assume Ihram before entering Makkah.</span>
+        answer: <span>The distance is approximately 450 km. By private taxi (<Link href="/fleet/gmc-yukon-at4" className="text-[#D4AF37] hover:text-white hover:underline">GMC</Link>/<Link href="/fleet/hyundai-staria" className="text-[#D4AF37] hover:text-white hover:underline">Staria</Link>), the journey typically takes 4.5 to 5 hours. We can stop at the Miqat (Bir Ali) for 15-30 minutes if you wish to assume Ihram before entering Makkah.</span>
     },
     {
         question: "What is the price of a taxi from Makkah to Madinah?",
@@ -92,7 +94,7 @@ const makkahMadinahFAQs = [
     },
     {
         question: "Do you offer transport from Jeddah Airport to Makkah?",
-        answer: <span>Yes, we specialize in <Link href="/services/jeddah-airport-transfer" className="text-gold hover:text-emerald-600 hover:underline">Jeddah Airport transfers</Link>. Our driver will meet you at the arrival hall and take you directly to your hotel or the Haram.</span>
+        answer: <span>Yes, we specialize in <Link href="/services/jeddah-airport-transfer" className="text-[#D4AF37] hover:text-white hover:underline">Jeddah Airport transfers</Link>. Our driver will meet you at the arrival hall and take you directly to your hotel or the Haram.</span>
     },
     {
         question: "Is it better than the Haramain Train?",
@@ -103,8 +105,6 @@ const makkahMadinahFAQs = [
         answer: "Yes! Unlike buses or trains, a private taxi allows for flexibility. We can stop at historical sites like Badr or key Ziyarat spots within Madinah upon arrival (additional charges may apply depending on time)."
     }
 ];
-
-import { getSettings } from '@/lib/settings-storage';
 
 export default async function MakkahMadinahTaxiPage() {
     const settings = await getSettings();
@@ -118,7 +118,9 @@ export default async function MakkahMadinahTaxiPage() {
     };
 
     return (
-        <main className="overflow-x-hidden">
+        <main className="min-h-screen bg-primary-black relative">
+            <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
+
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -134,83 +136,107 @@ export default async function MakkahMadinahTaxiPage() {
             />
 
             {/* Trust/Benefits Section */}
-            <section className="py-16 bg-white dark:bg-slate-900">
+            <section className="py-24 bg-transparent relative z-10">
                 <div className="container mx-auto px-4">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <h2 className="text-3xl font-bold mb-6 font-playfair text-slate-800 dark:text-slate-100">
-                                Why Choose Our Makkah-Madinah Transfer?
-                            </h2>
-                            <p className="text-emerald-900/70 dark:text-emerald-50/70 mb-6 leading-relaxed">
-                                The journey between the two Holy Cities (approx. 450km) requires a vehicle that guarantees comfort and safety.
-                                Skip the crowded buses and strict train schedules. Our private taxi service offers premium rides in our <Link href="/fleet/gmc-yukon-at4" className="text-emerald-700 font-bold hover:underline">GMC Yukon</Link> or <Link href="/fleet/hyundai-staria" className="text-emerald-700 font-bold hover:underline">Hyundai Staria</Link>:
-                            </p>
-
-                            <div className="mb-6 p-6 bg-emerald-50/50 dark:bg-emerald-950/20 rounded-2xl border border-emerald-100/50 dark:border-emerald-800/30">
-                                <p className="text-emerald-900 dark:text-emerald-100 italic font-medium text-center font-serif">
-                                    "Welcome to the City of the Prophet ﷺ – May your journey be blessed."
+                    <FadeIn>
+                        <div className="grid md:grid-cols-2 gap-16 items-center">
+                            <div>
+                                <h2 className="text-3xl md:text-5xl font-bold mb-8 font-sans text-white">
+                                    Why Choose Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37]">Makkah-Madinah</span> Transfer?
+                                </h2>
+                                <p className="text-gray-400 mb-8 leading-relaxed font-light text-lg">
+                                    The journey between the two Holy Cities (approx. 450km) requires a vehicle that guarantees comfort and safety.
+                                    Skip the crowded buses and strict train schedules. Our private taxi service offers premium rides in our <Link href="/fleet/gmc-yukon-at4" className="text-[#D4AF37] font-bold hover:underline">GMC Yukon</Link> or <Link href="/fleet/hyundai-staria" className="text-[#D4AF37] font-bold hover:underline">Hyundai Staria</Link>:
                                 </p>
+
+                                <GlassCard className="mb-8 p-8 bg-neutral-900/50 rounded-2xl border border-white/5 border-l-4 border-l-[#D4AF37]">
+                                    <p className="text-white italic font-medium text-center font-serif text-lg">
+                                        &quot;Welcome to the City of the Prophet ﷺ — May your journey be blessed.&quot;
+                                    </p>
+                                </GlassCard>
+
+                                <ul className="space-y-6">
+                                    {[
+                                        "Door-to-Door Service (Hotel to Hotel)",
+                                        "No Luggage Limits (Within vehicle capacity)",
+                                        "Stop at Miqat (Bir Ali) for Ihram",
+                                        "Flexible Departure Times (24/7)",
+                                        "New Model Vehicles (2024-2025)"
+                                    ].map((item, index) => (
+                                        <li key={index} className="flex items-center gap-4 group">
+                                            <div className="bg-[#D4AF37]/10 rounded-full p-1.5 border border-[#D4AF37]/20 group-hover:bg-[#D4AF37] transition-colors">
+                                                <CheckCircle2 className="text-[#D4AF37] group-hover:text-black flex-shrink-0 transition-colors" size={18} />
+                                            </div>
+                                            <span className="text-gray-300 font-light text-lg">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
 
-                            <ul className="space-y-4">
-                                {[
-                                    "Door-to-Door Service (Hotel to Hotel)",
-                                    "No Luggage Limits (Within vehicle capacity)",
-                                    "Stop at Miqat (Bir Ali) for Ihram",
-                                    "Flexible Departure Times (24/7)",
-                                    "New Model Vehicles (2024-2025)"
-                                ].map((item, index) => (
-                                    <li key={index} className="flex items-center gap-3">
-                                        <CheckCircle2 className="text-emerald-600 flex-shrink-0" size={20} />
-                                        <span className="text-slate-700 dark:text-slate-200">{item}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                        <div className="bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-                            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                                <Clock className="text-amber-500" /> Average Travel Time
-                            </h3>
-                            <p className="mb-6 text-2xl font-bold text-slate-800 dark:text-white">4 Hours 30 Minutes</p>
+                            <GlassCard className="p-10 rounded-[2.5rem] bg-neutral-900/40 border border-[#D4AF37]/20 shadow-2xl backdrop-blur-md relative overflow-hidden group hover:border-[#D4AF37]/40 transition-all duration-300">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/10 rounded-full blur-[50px] pointer-events-none" />
 
-                            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                                <MapPin className="text-amber-500" /> Route Highlights
-                            </h3>
-                            <div className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
-                                <p>• Pickup from your Makkah Hotel</p>
-                                <p>• Optional <Link href="/services/ziyarat-tours" className="text-amber-600 hover:underline">Ziyarat stops</Link> (on request)</p>
-                                <p>• Drop-off at Madinah Hotel / Masjid Nabawi</p>
-                            </div>
+                                <h3 className="text-xl font-bold mb-4 flex items-center gap-3 text-white font-sans">
+                                    <Clock className="text-[#D4AF37]" size={24} /> Average Travel Time
+                                </h3>
+                                <p className="mb-8 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37] font-sans">4 Hours 30 Minutes</p>
+
+                                <h3 className="text-xl font-bold mb-4 flex items-center gap-3 text-white font-sans">
+                                    <MapPin className="text-[#D4AF37]" size={24} /> Route Highlights
+                                </h3>
+                                <div className="space-y-4 text-base text-gray-400 font-light">
+                                    <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span> Pickup from your Makkah Hotel</p>
+                                    <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span> Optional <Link href="/services/ziyarat-tours" className="text-[#D4AF37] hover:underline underline-offset-4 decoration-dotted">Ziyarat stops</Link> (on request)</p>
+                                    <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span> Drop-off at Madinah Hotel / Masjid Nabawi</p>
+                                </div>
+
+                                <div className="mt-8 pt-8 border-t border-white/10">
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-sm text-gray-500 uppercase tracking-widest font-bold">Starting From</span>
+                                        <span className="text-2xl font-bold text-white">SAR 400</span>
+                                    </div>
+                                </div>
+                            </GlassCard>
                         </div>
-                    </div>
+                    </FadeIn>
 
                     {/* Route Visualization - NEW */}
-                    <div className="mt-16">
-                        <h2 className="text-2xl font-bold text-center mb-8 font-playfair">Your Journey Map</h2>
-                        <RouteVisual />
+                    <div className="mt-24 relative z-10">
+                        <FadeIn delay={0.2}>
+                            <h2 className="text-3xl font-bold text-center mb-12 font-sans text-white">Your Journey Map</h2>
+                            <RouteVisual />
+                        </FadeIn>
                     </div>
                 </div>
             </section>
 
             {/* Fleet Section Reuse */}
-            <FleetCarouselWrapper />
+            <div className="relative z-10">
+                <FleetCarouselWrapper />
+            </div>
 
-            <Features />
+            <div className="relative z-10">
+                <Features />
+            </div>
 
             {/* FAQ Section - NEW */}
-            <FAQSection items={makkahMadinahFAQs} title="Frequently Asked Questions" />
+            <div className="relative z-10">
+                <FAQSection items={makkahMadinahFAQs} title="Frequently Asked Questions" />
+            </div>
 
-            <section className="py-16 bg-white border-t border-emerald-50">
+            <section className="py-24 bg-transparent border-t border-white/5 relative z-10 bg-gradient-to-b from-transparent to-black/80">
                 <div className="container mx-auto px-4 max-w-4xl text-center">
-                    <h2 className="text-3xl font-bold mb-4 font-playfair text-emerald-950">Compare: Taxi vs. Haramain Train</h2>
-                    <p className="text-emerald-900/70 dark:text-emerald-50/70 mb-8 leading-relaxed font-light">
-                        While the train is fast, a private taxi offers unmatched convenience for families.
-                        No need to travel to the station, handle luggage multiple times, or worry about ticket availability.
-                        Our service picks you up directly from your lobby.
-                    </p>
-                    <Link href="/booking" className="btn-emerald px-10 py-4 rounded-full font-bold transition-all shadow-xl shadow-emerald-900/20">
-                        Check Prices & Book Now <ArrowRight size={20} className="ml-2" />
-                    </Link>
+                    <FadeIn delay={0.4}>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white">Compare: Taxi vs. Haramain Train</h2>
+                        <p className="text-gray-400 mb-10 leading-relaxed font-light text-lg">
+                            While the train is fast, a private taxi offers unmatched convenience for families.
+                            No need to travel to the station, handle luggage multiple times, or worry about ticket availability.
+                            Our service picks you up directly from your lobby.
+                        </p>
+                        <Link href="/booking" className="inline-flex items-center bg-gradient-to-r from-[#D4AF37] to-[#B4932F] px-12 py-5 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105 hover:bg-white hover:text-black border border-transparent hover:border-black/10">
+                            Check Prices & Book Now <ArrowRight size={20} className="ml-2" />
+                        </Link>
+                    </FadeIn>
                 </div>
             </section>
         </main>

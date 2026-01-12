@@ -55,16 +55,22 @@ const config: Config = {
                     DEFAULT: "hsl(var(--card))",
                     foreground: "hsl(var(--card-foreground))",
                 },
-                // Custom Theme Colors (Deep Emerald & Gold)
-                emerald: "hsl(var(--emerald-primary))", // #0D7C66
-                mint: "hsl(var(--soft-mint))",          // #E8F5F1
-                gold: "hsl(var(--gold-accent))",        // #BFA35A
-                slate: "hsl(var(--dark-slate))",        // #1A2332
-                warm: "hsl(var(--warm-gray))",          // #F8F9FA
+                // === NEW LUXURY THEME COLORS ===
+                "primary-black": "hsl(var(--primary-black))",  // #0F172A
+                "deep-black": "hsl(var(--deep-black))",        // #09090b
+                "charcoal": "hsl(var(--charcoal))",            // #F8F9FA
 
-                // Legacy Mapping (Deprecating slowly or keeping for compatibility if needed, but best to replace)
-                celestial: "hsl(var(--emerald-primary))", // Mapping to Emerald
-                sky: "hsl(var(--soft-mint))",             // Mapping to Mint
+                "gold-primary": "hsl(var(--gold-primary))",    // #F59E0B
+                "gold-light": "hsl(var(--gold-light))",        // #FEF3C7
+                "gold-dark": "hsl(var(--gold-dark))",          // #B45309
+                "gold-metallic": "hsl(var(--gold-metallic))",  // #D4AF37
+
+                // Legacy Mapping (keeping to prevent crashes, but redirected to new theme)
+                emerald: "hsl(var(--primary-black))",
+                mint: "hsl(var(--soft-mint))",
+                gold: "hsl(var(--gold-primary))",
+                slate: "hsl(var(--primary-black))",
+                warm: "hsl(var(--charcoal))",
             },
             borderRadius: {
                 lg: "var(--radius)",

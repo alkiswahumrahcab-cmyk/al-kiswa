@@ -12,8 +12,6 @@ import TeamTeaser from '@/components/about/TeamTeaser';
 import PilgrimVoices from '@/components/about/PilgrimVoices';
 import { getSectionContent, getSectionImage } from '@/lib/content-service';
 
-
-
 export async function generateMetadata() {
     return {
         title: "About Al Kiswah Umrah Transport | Premier Makkah Taxi | من نحن",
@@ -67,27 +65,32 @@ export default async function AboutPage() {
     };
 
     return (
-        <main className="min-h-screen">
+        <main className="min-h-screen bg-primary-black relative">
+            <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            <div className="contents">
+            <div className="contents relative z-10">
                 <Hero
                     title={title}
                     subtitle={subtitle}
                     bgImage={bgImage}
                     breadcrumbs={<Breadcrumbs />}
                 />
-                <WelcomeSection />
-                <ImpactStats />
-                <CompanyStory />
-                <MissionVision />
-                <CoreValues />
-                <TrustSection />
-                <TeamTeaser />
-                <PilgrimVoices />
-                <SEOContent />
+
+                {/* Wrap content in a relative div to ensure it sits above the background pattern */}
+                <div className="relative z-10 space-y-12 pb-20">
+                    <WelcomeSection />
+                    <ImpactStats />
+                    <CompanyStory />
+                    <MissionVision />
+                    <CoreValues />
+                    <TrustSection />
+                    <TeamTeaser />
+                    <PilgrimVoices />
+                    <SEOContent />
+                </div>
             </div>
         </main>
     );

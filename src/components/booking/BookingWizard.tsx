@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft, ShieldCheck, Headphones, CreditCard } from 'lucide-react';
+import { ShieldCheck, Headphones, CreditCard, Check } from 'lucide-react';
 import { usePricing } from '@/context/PricingContext';
 import JourneyStep from './steps/JourneyStep';
 import VehicleStep from './steps/VehicleStep';
@@ -47,24 +47,27 @@ export default function BookingWizard() {
     };
 
     return (
-        <div className="w-full max-w-4xl mx-auto px-4 py-8 md:py-16">
+        <div className="w-full max-w-4xl mx-auto px-0 md:px-4 py-8">
             {/* Minimalist Progress Header */}
-            <div className="flex justify-between items-center mb-12">
+            <div className="flex justify-between items-center mb-12 relative">
+                {/* Connecting Line */}
+                <div className="absolute top-5 left-0 w-full h-0.5 bg-white/10 -z-10 hidden md:block" />
+
                 {STEPS.map((step) => (
-                    <div key={step.id} className="flex flex-col items-center gap-2 group flex-1">
+                    <div key={step.id} className="flex flex-col items-center gap-3 group flex-1 relative z-10">
                         <div className={`
-                            w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-500
+                            w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-500 border-2
                             ${currentStep >= step.id
-                                ? 'bg-celestial text-white shadow-lg shadow-celestial/30 ring-4 ring-celestial/10'
-                                : 'bg-slate-100 text-slate-400 dark:bg-slate-800'}
+                                ? 'bg-gold-primary border-gold-primary text-black shadow-[0_0_20px_rgba(212,175,55,0.4)]'
+                                : 'bg-primary-black border-white/10 text-gray-500'}
                         `}>
-                            {currentStep > step.id ? '✓' : step.id}
+                            {currentStep > step.id ? <Check size={16} strokeWidth={3} /> : step.id}
                         </div>
                         <div className="hidden md:block text-center">
-                            <span className={`text-[10px] uppercase font-black tracking-widest ${currentStep >= step.id ? 'text-celestial' : 'text-slate-400'}`}>
+                            <span className={`text-[10px] uppercase font-bold tracking-[0.2em] mb-1 block ${currentStep >= step.id ? 'text-gold-primary' : 'text-gray-600'}`}>
                                 Step 0{step.id}
                             </span>
-                            <h3 className={`text-xs font-bold ${currentStep >= step.id ? 'text-charcoal dark:text-white' : 'text-slate-500'}`}>
+                            <h3 className={`text-xs font-bold uppercase tracking-wider ${currentStep >= step.id ? 'text-white' : 'text-gray-600'}`}>
                                 {step.title}
                             </h3>
                         </div>
@@ -73,10 +76,10 @@ export default function BookingWizard() {
             </div>
 
             {/* Main Content Card */}
-            <div className="bg-white dark:bg-slate-900 rounded-[32px] shadow-2xl shadow-sky-200/50 dark:shadow-none border border-sky-100 dark:border-slate-800 overflow-hidden relative">
+            <div className="bg-primary-black/60 backdrop-blur-xl rounded-[2rem] shadow-2xl border border-white/10 overflow-hidden relative">
                 {/* Background Decor */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 blur-[100px] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-64 h-64 bg-sky-500/5 blur-[100px] pointer-events-none" />
+                <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 blur-[100px] pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold-secondary/5 blur-[100px] pointer-events-none" />
 
                 <div className="p-6 md:p-12 relative z-10">
                     <AnimatePresence mode="wait">
@@ -95,23 +98,23 @@ export default function BookingWizard() {
                 </div>
 
                 {/* Trust Footer */}
-                <div className="bg-sky-50/30 dark:bg-slate-800/50 border-t border-sky-100 dark:border-slate-800 py-4 px-12 flex justify-center md:justify-between items-center gap-8">
-                    <div className="hidden md:flex items-center gap-2 text-charcoal/60 text-[10px] font-bold uppercase tracking-wider">
-                        <ShieldCheck size={14} className="text-emerald-500" />
+                <div className="bg-black/40 border-t border-white/5 py-5 px-6 md:px-12 flex flex-wrap justify-center md:justify-between items-center gap-4 md:gap-8">
+                    <div className="flex items-center gap-2.5 text-gray-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest">
+                        <ShieldCheck size={14} className="text-gold-primary" />
                         Safe & Secure
                     </div>
-                    <div className="hidden md:flex items-center gap-2 text-charcoal/60 text-[10px] font-bold uppercase tracking-wider">
-                        <Headphones size={14} className="text-gold" />
+                    <div className="flex items-center gap-2.5 text-gray-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest">
+                        <Headphones size={14} className="text-gold-primary" />
                         24/7 Support
                     </div>
-                    <div className="flex items-center gap-2 text-charcoal/60 text-[10px] font-bold uppercase tracking-wider">
-                        <CreditCard size={14} className="text-celestial" />
+                    <div className="flex items-center gap-2.5 text-gray-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest">
+                        <CreditCard size={14} className="text-gold-primary" />
                         Pay on Arrival
                     </div>
                 </div>
             </div>
 
-            {/* Google Maps Script (Assuming it needs to be loaded if not global) */}
+            {/* Google Maps Script */}
             <script
                 async
                 src={`https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || ''}&libraries=places`}

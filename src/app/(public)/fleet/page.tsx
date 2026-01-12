@@ -6,10 +6,7 @@ import ComparisonTable from '@/components/fleet/ComparisonTable';
 import FeatureHighlights from '@/components/fleet/FeatureHighlights';
 import QuickBookingForm from '@/components/home/QuickBookingForm';
 import FadeIn from '@/components/common/FadeIn';
-import styles from './page.module.css';
 import { getSectionContent, getSectionImage, getCustomField } from '@/lib/content-service';
-
-
 
 export async function generateMetadata() {
     return {
@@ -35,41 +32,45 @@ export default async function FleetPage() {
     const badge = getCustomField(section, 'badge_text') || "Premium Collection 2025";
 
     return (
-        <main>
-            <Hero
-                title={title}
-                subtitle={subtitle}
-                bgImage={bgImage}
-                ctaText="Book Your Ride"
-                ctaLink="/booking"
-                badge={badge}
-                breadcrumbs={<Breadcrumbs />}
-            />
-            <FadeIn>
-                <Suspense fallback={<div className="h-[800px] w-full bg-muted animate-pulse rounded-xl" />}>
-                    <FleetShowcaseLoader />
-                </Suspense>
-            </FadeIn>
-            <FadeIn>
-                <ComparisonTable />
-            </FadeIn>
-            <FadeIn>
-                <FeatureHighlights />
-            </FadeIn>
+        <main className="min-h-screen bg-primary-black relative text-white">
+            <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
-            <section className={styles.bookingSection}>
-                <div className="container">
-                    <FadeIn direction="up">
-                        <div className={styles.bookingWrapper}>
-                            <QuickBookingForm
-                                title="Book Your Luxury Ride"
-                                subtitle="Reserve your premium vehicle for a comfortable spiritual journey"
-                                variant="fleet"
-                            />
-                        </div>
-                    </FadeIn>
-                </div>
-            </section>
+            <div className="relative z-10">
+                <Hero
+                    title={title}
+                    subtitle={subtitle}
+                    bgImage={bgImage}
+                    ctaText="Book Your Ride"
+                    ctaLink="/booking"
+                    badge={badge}
+                    breadcrumbs={<Breadcrumbs />}
+                />
+                <FadeIn>
+                    <Suspense fallback={<div className="h-[800px] w-full bg-neutral-900 animate-pulse rounded-xl" />}>
+                        <FleetShowcaseLoader />
+                    </Suspense>
+                </FadeIn>
+                <FadeIn>
+                    <ComparisonTable />
+                </FadeIn>
+                <FadeIn>
+                    <FeatureHighlights />
+                </FadeIn>
+
+                <section className="py-20 bg-gradient-to-t from-black to-transparent">
+                    <div className="container mx-auto px-4">
+                        <FadeIn direction="up">
+                            <div className="max-w-4xl mx-auto">
+                                <QuickBookingForm
+                                    title="Book Your Luxury Ride"
+                                    subtitle="Reserve your premium vehicle for a comfortable spiritual journey"
+                                    variant="default" // Using default as fleet variant might look different? or stick to what they had. Default looks good in black.
+                                />
+                            </div>
+                        </FadeIn>
+                    </div>
+                </section>
+            </div>
         </main>
     );
 }

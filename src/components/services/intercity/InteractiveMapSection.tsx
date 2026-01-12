@@ -19,10 +19,10 @@ export default function InteractiveMapSection({ routes }: InteractiveMapSectionP
     const activeRoute = routes.find(r => r.id === activeRouteId) || null;
 
     return (
-        <section className="relative w-full bg-slate-100 dark:bg-slate-950 flex flex-col lg:flex-row overflow-hidden lg:h-[85vh] lg:min-h-[600px]">
+        <section className="relative w-full bg-transparent flex flex-col lg:flex-row overflow-hidden lg:h-[85vh] lg:min-h-[600px]">
 
             {/* Mobile: Route Dropdown (Top) */}
-            <div className="lg:hidden shrink-0">
+            <div className="lg:hidden shrink-0 z-30">
                 <MobileRouteDropdown
                     routes={routes}
                     activeRouteId={activeRouteId}
@@ -31,7 +31,7 @@ export default function InteractiveMapSection({ routes }: InteractiveMapSectionP
             </div>
 
             {/* Desktop: Sidebar (Left) */}
-            <div className="hidden lg:block h-full z-20 shadow-xl shrink-0 relative w-80">
+            <div className="hidden lg:block h-full z-20 shrink-0 relative w-80">
                 <RouteSidebar
                     routes={routes}
                     activeRouteId={activeRouteId}
@@ -41,7 +41,7 @@ export default function InteractiveMapSection({ routes }: InteractiveMapSectionP
             </div>
 
             {/* Map Canvas Area (Center Flex Grow) */}
-            <div className="relative flex-1 w-full bg-slate-100 dark:bg-slate-950 overflow-hidden flex flex-col lg:block shadow-inner z-10">
+            <div className="relative flex-1 w-full bg-neutral-900/30 overflow-hidden flex flex-col lg:block shadow-inner z-10">
 
                 {/* Map Container */}
                 <div className="h-[400px] lg:h-full w-full relative">
@@ -54,7 +54,7 @@ export default function InteractiveMapSection({ routes }: InteractiveMapSectionP
                 </div>
 
                 {/* Mobile: Static Details Card (Bottom) */}
-                <div className="lg:hidden p-4 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+                <div className="lg:hidden p-4 bg-neutral-900 border-t border-white/10 relative z-20">
                     <AnimatePresence mode='wait'>
                         {activeRoute && (
                             <FloatingRoutePanel route={activeRoute} />
@@ -63,17 +63,17 @@ export default function InteractiveMapSection({ routes }: InteractiveMapSectionP
                 </div>
 
                 {/* Mobile Only Overlay Gradient */}
-                <div className="lg:hidden absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-black/5 to-transparent pointer-events-none z-10" />
+                <div className="lg:hidden absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-black/50 to-transparent pointer-events-none z-10" />
             </div>
 
             {/* Desktop: Details Panel (Right Sidebar) */}
-            <div className="hidden lg:flex w-96 shrink-0 bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 flex-col relative z-20 shadow-xl">
+            <div className="hidden lg:flex w-96 shrink-0 bg-neutral-900/80 backdrop-blur-xl border-l border-white/10 flex-col relative z-20">
                 <div className="p-6 flex-1 overflow-y-auto">
                     <AnimatePresence mode='wait'>
                         {activeRoute ? (
                             <FloatingRoutePanel route={activeRoute} />
                         ) : (
-                            <div className="h-full flex items-center justify-center text-slate-400 text-sm text-center px-4">
+                            <div className="h-full flex items-center justify-center text-gray-500 text-sm text-center px-4 font-light">
                                 Select a route to view details
                             </div>
                         )}

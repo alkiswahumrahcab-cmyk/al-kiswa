@@ -8,7 +8,8 @@ interface MapAutocompleteProps {
     onChange: (value: string) => void;
     placeholder: string;
     icon?: React.ReactNode;
-    className?: string;
+    className?: string; // Wrapper class validation
+    inputClassName?: string; // Direct input class override
     label?: string;
     error?: string;
 }
@@ -24,7 +25,8 @@ const MapAutocomplete: React.FC<MapAutocompleteProps> = ({
     value,
     onChange,
     placeholder,
-    className = '',
+    className = '', // Default empty
+    inputClassName = '',
     label,
     error
 }) => {
@@ -33,10 +35,7 @@ const MapAutocomplete: React.FC<MapAutocompleteProps> = ({
     const autocompleteRef = useRef<any>(null);
 
     useEffect(() => {
-        if (!window.google) {
-            // Script loading logic could be here, but assuming it's loaded in the layout or page
-            return;
-        }
+        if (!window.google) return;
 
         const initAutocomplete = () => {
             if (!inputRef.current) return;
@@ -74,12 +73,12 @@ const MapAutocomplete: React.FC<MapAutocompleteProps> = ({
     return (
         <div className={`flex flex-col gap-1.5 ${className}`}>
             {label && (
-                <label className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">
+                <label className="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">
                     {label}
                 </label>
             )}
-            <div className="relative group">
-                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-celestial transition-colors pointer-events-none">
+            <div className="relative group w-full">
+                <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gold-primary transition-colors pointer-events-none z-10">
                     <MapPin size={20} />
                 </div>
                 <input
@@ -88,12 +87,12 @@ const MapAutocomplete: React.FC<MapAutocompleteProps> = ({
                     value={value}
                     onChange={(e) => onChange(e.target.value)}
                     placeholder={placeholder}
-                    className={`
+                    className={inputClassName || `
                         w-full pl-12 pr-10 py-4 bg-white dark:bg-slate-900 
                         border-2 border-slate-100 dark:border-slate-800 
                         rounded-2xl outline-none transition-all
-                        focus:border-celestial/50 focus:ring-4 focus:ring-celestial/10
-                        text-charcoal dark:text-white placeholder:text-slate-400
+                        focus:border-gold-primary/50 focus:ring-4 focus:ring-gold-primary/10
+                        text-charcoal dark:text-white placeholder:text-gray-400
                         ${error ? 'border-red-500 focus:border-red-500 focus:ring-red-500/10' : ''}
                     `}
                 />
@@ -101,7 +100,7 @@ const MapAutocomplete: React.FC<MapAutocompleteProps> = ({
                 {value && (
                     <button
                         onClick={handleClear}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white transition-colors z-20"
                     >
                         <X size={18} />
                     </button>
@@ -109,7 +108,7 @@ const MapAutocomplete: React.FC<MapAutocompleteProps> = ({
 
                 {isLoading && (
                     <div className="absolute right-12 top-1/2 -translate-y-1/2">
-                        <Loader2 size={18} className="animate-spin text-celestial" />
+                        <Loader2 size={18} className="animate-spin text-gold-primary" />
                     </div>
                 )}
             </div>

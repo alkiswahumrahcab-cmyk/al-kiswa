@@ -42,31 +42,31 @@ export default function ReviewsSection() {
     // Skeleton Loader
     if (loading) {
         return (
-            <section className="py-16 relative overflow-hidden bg-slate-950">
+            <section className="py-24 relative overflow-hidden bg-primary-black">
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="text-center mb-12 space-y-4">
-                        <div className="h-8 w-48 bg-slate-800/50 rounded-full mx-auto animate-pulse" />
-                        <div className="h-16 w-3/4 max-w-2xl bg-slate-800/50 rounded-2xl mx-auto animate-pulse" />
-                        <div className="h-6 w-1/2 max-w-lg bg-slate-800/50 rounded-xl mx-auto animate-pulse" />
+                        <div className="h-4 w-48 bg-white/10 rounded-full mx-auto animate-pulse" />
+                        <div className="h-12 w-3/4 max-w-lg bg-white/10 rounded-2xl mx-auto animate-pulse" />
+                        <div className="h-4 w-1/2 max-w-sm bg-white/10 rounded-xl mx-auto animate-pulse" />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[1, 2, 3].map((i) => (
-                            <div key={i} className="bg-slate-900/50 border border-white/5 rounded-3xl p-8 h-80 animate-pulse flex flex-col">
+                            <div key={i} className="bg-white/5 border border-white/5 rounded-3xl p-8 h-80 animate-pulse flex flex-col">
                                 <div className="flex gap-1 mb-6">
                                     {[...Array(5)].map((_, j) => (
-                                        <div key={j} className="w-4 h-4 rounded-full bg-slate-800" />
+                                        <div key={j} className="w-4 h-4 rounded-full bg-white/10" />
                                     ))}
                                 </div>
                                 <div className="space-y-3 flex-1">
-                                    <div className="h-4 w-full bg-slate-800 rounded" />
-                                    <div className="h-4 w-5/6 bg-slate-800 rounded" />
-                                    <div className="h-4 w-4/6 bg-slate-800 rounded" />
+                                    <div className="h-3 w-full bg-white/10 rounded" />
+                                    <div className="h-3 w-5/6 bg-white/10 rounded" />
+                                    <div className="h-3 w-4/6 bg-white/10 rounded" />
                                 </div>
                                 <div className="flex items-center gap-4 mt-6 pt-6 border-t border-white/5">
-                                    <div className="w-12 h-12 rounded-full bg-slate-800" />
+                                    <div className="w-10 h-10 rounded-full bg-white/10" />
                                     <div className="space-y-2">
-                                        <div className="h-4 w-24 bg-slate-800 rounded" />
-                                        <div className="h-3 w-16 bg-slate-800 rounded" />
+                                        <div className="h-3 w-24 bg-white/10 rounded" />
+                                        <div className="h-2 w-16 bg-white/10 rounded" />
                                     </div>
                                 </div>
                             </div>
@@ -92,21 +92,21 @@ export default function ReviewsSection() {
     };
 
     return (
-        <section className="py-12 md:py-16 relative overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+        <section className="py-24 relative overflow-hidden bg-primary-black">
             {/* Subtle Background */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-slate-200/20 via-slate-50 to-slate-50 dark:from-slate-900/20 dark:via-slate-950 dark:to-slate-950" />
+            <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none" />
 
             <div className="container mx-auto px-4 relative z-10">
-                <div className="text-center mb-10">
+                <div className="text-center mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-500/10 border border-amber-500/20 mb-6"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-primary/10 border border-gold-primary/20 mb-6"
                     >
-                        <Star size={14} className="fill-amber-400 text-amber-400" />
-                        <span className="text-sm font-medium text-amber-700 dark:text-amber-200">
-                            <span className="font-bold text-amber-600 dark:text-amber-400">{averageRating}/5</span> Average Rating
+                        <Star size={14} className="fill-gold-primary text-gold-primary" />
+                        <span className="text-sm font-bold text-gold-primary uppercase tracking-widest">
+                            <span className="text-white">{averageRating}/5</span> Average Rating
                         </span>
                     </motion.div>
 
@@ -115,9 +115,9 @@ export default function ReviewsSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight"
+                        className="text-3xl md:text-5xl font-bold font-sans text-white mb-6"
                     >
-                        Trusted by <span className="text-amber-500 dark:text-amber-400">Thousands</span>
+                        Trusted by <span className="text-gold-primary">Pilgrims</span>
                     </motion.h2>
 
                     <motion.p
@@ -125,7 +125,7 @@ export default function ReviewsSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed font-light mb-8"
+                        className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed font-light mb-12"
                     >
                         Join the community of pilgrims who trust Al Kiswah Transport for their spiritual journey.
                     </motion.p>
@@ -136,28 +136,28 @@ export default function ReviewsSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.3 }}
-                        className="flex flex-col md:flex-row items-center justify-center gap-12 mb-10"
+                        className="flex flex-col md:flex-row items-center justify-center gap-12 mb-16 p-8 bg-white/5 rounded-3xl border border-white/5 max-w-4xl mx-auto"
                     >
                         <div className="flex items-center gap-8">
                             <div className="text-center">
-                                <div className="text-6xl font-bold text-slate-900 dark:text-white tracking-tighter">{averageRating}</div>
+                                <div className="text-6xl font-bold text-white tracking-tighter">{averageRating}</div>
                                 <div className="flex gap-1 justify-center mt-2">
                                     {[...Array(5)].map((_, i) => (
-                                        <Star key={i} size={16} className={`${i < Math.round(Number(averageRating)) ? 'fill-amber-400 text-amber-400' : 'text-slate-300 dark:text-slate-800'}`} />
+                                        <Star key={i} size={16} className={`${i < Math.round(Number(averageRating)) ? 'fill-gold-primary text-gold-primary' : 'text-gray-700'}`} />
                                     ))}
                                 </div>
-                                <div className="text-sm text-slate-600 dark:text-slate-400 mt-1">{totalReviews} Verified Reviews</div>
+                                <div className="text-sm text-gray-400 mt-2 font-medium uppercase tracking-wider">{totalReviews} Reviews</div>
                             </div>
 
-                            <div className="h-16 w-px bg-slate-200 dark:bg-slate-800" />
+                            <div className="h-16 w-px bg-white/10" />
 
-                            <div className="space-y-1.5">
+                            <div className="space-y-2">
                                 {[5, 4, 3, 2, 1].map((star) => (
-                                    <div key={star} className="flex items-center gap-3 text-xs">
-                                        <span className="text-slate-600 dark:text-slate-400 w-3 font-medium">{star}</span>
-                                        <div className="w-32 h-1.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div key={star} className="flex items-center gap-3 text-xs font-medium">
+                                        <span className="text-gray-400 w-3">{star}</span>
+                                        <div className="w-32 h-1.5 bg-black/40 rounded-full overflow-hidden border border-white/5">
                                             <div
-                                                className="h-full bg-amber-500 rounded-full"
+                                                className="h-full bg-gold-primary rounded-full"
                                                 style={{ width: `${totalReviews > 0 ? (ratingCounts[star as keyof typeof ratingCounts] / totalReviews) * 100 : 0}%` }}
                                             />
                                         </div>
@@ -166,18 +166,18 @@ export default function ReviewsSection() {
                             </div>
                         </div>
 
-                        <div className="flex flex-col items-center gap-3">
+                        <div className="flex flex-col items-center gap-4">
                             <a
                                 href="https://search.google.com/local/writereview?placeid=ChIJmdXkoZ0dwhURzAKZlMOFpLg"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200 px-6 py-3 rounded-full font-semibold transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                                className="inline-flex items-center gap-3 bg-gold-primary text-black hover:bg-white px-8 py-4 rounded-full font-bold uppercase tracking-wider text-xs transition-all shadow-lg hover:shadow-gold-primary/20 transform hover:-translate-y-0.5"
                             >
                                 <MessageSquarePlus size={18} />
                                 <span>Write a Review</span>
                             </a>
-                            <div className="flex items-center gap-1.5 text-xs font-medium text-slate-500 dark:text-slate-400">
-                                <span className="flex items-center justify-center w-4 h-4 rounded-full bg-green-500 text-white">
+                            <div className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-widest text-gray-500">
+                                <span className="flex items-center justify-center w-4 h-4 rounded-full bg-green-500 text-black">
                                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
                                         <polyline points="20 6 9 17 4 12"></polyline>
                                     </svg>
@@ -201,10 +201,10 @@ export default function ReviewsSection() {
                         href="https://www.google.com/maps?cid=13304906274217460428"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition-colors text-sm flex items-center justify-center gap-2"
+                        className="text-gold-primary hover:text-white transition-colors text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-2 group"
                     >
                         <span>Read all reviews on Google</span>
-                        <ChevronRight size={14} />
+                        <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     </a>
                 </motion.div>
             </div>

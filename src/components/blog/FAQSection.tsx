@@ -39,12 +39,12 @@ export default function FAQSection() {
     };
 
     return (
-        <section className="py-20 bg-slate-50 relative">
+        <section className="py-24 bg-transparent relative border-t border-white/5">
             <div className="container mx-auto px-4">
                 <FadeIn>
                     <div className="text-center mb-16">
-                        <span className="text-amber-500 font-bold tracking-widest uppercase text-sm mb-3 block">Common Questions</span>
-                        <h2 className="text-3xl md:text-4xl font-bold font-playfair text-slate-800">Frequently Asked Questions</h2>
+                        <span className="text-gold-primary font-bold tracking-[0.2em] uppercase text-sm mb-3 block">Common Questions</span>
+                        <h2 className="text-3xl md:text-4xl font-bold font-sans text-white">Frequently Asked Questions</h2>
                     </div>
                 </FadeIn>
 
@@ -52,30 +52,28 @@ export default function FAQSection() {
                     {faqs.map((faq, index) => (
                         <FadeIn key={index} delay={index * 0.1}>
                             <div
-                                className={`border rounded-xl bg-white overflow-hidden transition-all duration-300 ${activeAccordion === index
-                                    ? 'border-amber-200 shadow-md shadow-amber-500/5'
-                                    : 'border-slate-100 shadow-sm hover:border-amber-200/50'
+                                className={`border rounded-xl backdrop-blur-sm transition-all duration-300 ${activeAccordion === index
+                                    ? 'bg-neutral-900 border-gold-primary/50 shadow-[0_0_15px_rgba(212,175,55,0.1)]'
+                                    : 'bg-neutral-900/50 border-white/10 hover:border-gold-primary/30 hover:bg-neutral-900'
                                     }`}
                             >
                                 <button
                                     className="w-full flex items-center justify-between p-6 text-left"
                                     onClick={() => toggleAccordion(index)}
                                 >
-                                    <span className={`font-semibold text-lg transition-colors ${activeAccordion === index ? 'text-amber-600' : 'text-slate-700 hover:text-amber-600'
+                                    <span className={`font-semibold text-lg transition-colors font-sans ${activeAccordion === index ? 'text-white' : 'text-gray-300 hover:text-gold-primary'
                                         }`}>
                                         {faq.question}
                                     </span>
-                                    <ChevronDown
-                                        className={`text-slate-400 transition-transform duration-300 ${activeAccordion === index ? 'rotate-180 text-amber-500' : ''
-                                            }`}
-                                        size={20}
-                                    />
+                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${activeAccordion === index ? 'bg-gold-primary text-black rotate-180' : 'bg-white/5 text-gray-500'}`}>
+                                        <ChevronDown size={20} />
+                                    </div>
                                 </button>
                                 <div
                                     className={`transition-all duration-300 ease-in-out overflow-hidden ${activeAccordion === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                                         }`}
                                 >
-                                    <div className="px-6 pb-6 text-slate-600 leading-relaxed border-t border-slate-50 bg-slate-50/50">
+                                    <div className="px-6 pb-6 text-gray-400 leading-relaxed font-light border-t border-white/5">
                                         {faq.answer}
                                     </div>
                                 </div>

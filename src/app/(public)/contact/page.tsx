@@ -47,9 +47,6 @@ export default async function ContactPage() {
     const address = settings?.contact.address || 'Al Aziziyah, Makkah, Saudi Arabia';
     const whatsapp = phone1;
 
-    // Contact Cards Data
-
-
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "TransportationService",
@@ -96,11 +93,14 @@ export default async function ContactPage() {
     };
 
     return (
-        <div className="bg-slate-50 dark:bg-slate-950 pb-20">
+        <div className="bg-primary-black min-h-screen relative text-white selection:bg-gold-primary/30">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
+            {/* Background Pattern */}
+            <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
+
             <Hero
                 title="Get in Touch | تواصل معنا"
                 subtitle="Reliable Booking & 24/7 Support for Your Umrah Journey. Premium Transport Services from Makkah to Madinah."
@@ -108,7 +108,7 @@ export default async function ContactPage() {
                 breadcrumbs={<Breadcrumbs />}
             />
 
-            <div className="container mx-auto px-4 -mt-16 relative z-10">
+            <div className="container mx-auto px-4 -mt-16 relative z-10 pb-20">
                 {/* Intro Trust Strip */}
                 <FadeIn direction="up" delay={0.1}>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
@@ -118,10 +118,10 @@ export default async function ContactPage() {
                             { icon: Globe, text: "Multilingual", sub: "دعم متعدد اللغات" },
                             { icon: Star, text: "Top Rated", sub: "أعلى تقييم" }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/20 text-center transform hover:-translate-y-1 transition-transform duration-300">
-                                <item.icon className="w-8 h-8 mx-auto mb-2 text-emerald-600" />
-                                <h3 className="font-bold text-slate-800 dark:text-slate-100 text-sm md:text-base">{item.text}</h3>
-                                <p className="text-xs text-slate-500 dark:text-slate-400 font-arabic">{item.sub}</p>
+                            <div key={idx} className="bg-black/60 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/10 text-center transform hover:-translate-y-1 transition-all duration-300 hover:border-gold-primary/30">
+                                <item.icon className="w-8 h-8 mx-auto mb-2 text-gold-primary" />
+                                <h3 className="font-bold text-white text-sm md:text-base">{item.text}</h3>
+                                <p className="text-xs text-gray-400 font-arabic">{item.sub}</p>
                             </div>
                         ))}
                     </div>
@@ -138,13 +138,14 @@ export default async function ContactPage() {
 
                         {/* Map Placeholder */}
                         <FadeIn direction="up" delay={0.4}>
-                            <GlassCard className="p-0 overflow-hidden min-h-[400px] relative flex items-center justify-center bg-slate-200 dark:bg-slate-800" id="map">
+                            <GlassCard className="p-0 overflow-hidden min-h-[400px] relative flex items-center justify-center bg-black/40 border-white/10" id="map">
+                                <div className="absolute inset-0 bg-gold-primary/5 pointer-events-none z-10 mix-blend-overlay" />
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3713.526883410923!2d39.8126588!3d21.447833599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c21d9da1e4d599%3A0xb8a485c3949902cc!2zQWwgS2lzd2FoIFVtyoNoIFRyYW5zcG9ydA!5e0!3m2!1sen!2s"
                                     width="100%"
                                     height="100%"
                                     loading="lazy"
-                                    className="w-full h-full min-h-[400px] border-0"
+                                    className="w-full h-full min-h-[400px] border-0 opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
                                     title="Al Kiswah Umrah Transport Map"
                                     allowFullScreen
                                 />
@@ -155,13 +156,13 @@ export default async function ContactPage() {
                     {/* Contact Form Column */}
                     <div className="lg:col-span-7">
                         <FadeIn direction="left" delay={0.3}>
-                            <GlassCard className="p-8 md:p-10 border-t-4 border-t-emerald-600">
+                            <GlassCard className="p-8 md:p-10 border-t-4 border-t-gold-primary bg-black/40 border-white/10">
                                 <div className="mb-8">
-                                    <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2 font-display">
+                                    <h2 className="text-3xl font-bold text-white mb-2 font-sans">
                                         Send Us a Message
-                                        <span className="block text-xl font-arabic font-normal text-slate-500 mt-1">أرسل لنا رسالة</span>
+                                        <span className="block text-xl font-arabic font-normal text-gold-primary mt-1">أرسل لنا رسالة</span>
                                     </h2>
-                                    <p className="text-slate-600 dark:text-slate-300">
+                                    <p className="text-gray-400 font-light">
                                         Need a custom quote for your Umrah group? Have questions about our GMC Yukon fleet?
                                         Fill out the form below and our team will get back to you within minutes.
                                     </p>

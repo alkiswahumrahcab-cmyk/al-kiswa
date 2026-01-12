@@ -3,12 +3,13 @@ import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import Features from '@/components/home/Features';
-import styles from '@/app/page.module.css';
 import Link from 'next/link';
 import { ArrowRight, Plane, ShieldCheck, UserCheck } from 'lucide-react';
 import FAQSection from '@/components/services/FAQSection';
 import VehicleCapacityGuide from '@/components/services/VehicleCapacityGuide';
 import RouteVisual from '@/components/services/RouteVisual';
+import { getSettings } from '@/lib/settings-storage';
+import FadeIn from "@/components/common/FadeIn";
 
 export const metadata: Metadata = {
     title: "Taxi Jeddah Airport to Makkah | Private Hotel Transfer Price",
@@ -101,8 +102,6 @@ const jeddahAirportFAQs = [
     }
 ];
 
-import { getSettings } from '@/lib/settings-storage';
-
 export default async function JeddahAirportTransferPage() {
     const settings = await getSettings();
     const phoneNumber = settings.contact.phone;
@@ -115,7 +114,9 @@ export default async function JeddahAirportTransferPage() {
     };
 
     return (
-        <main className="overflow-x-hidden">
+        <main className="min-h-screen bg-primary-black relative">
+            <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
+
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -131,94 +132,113 @@ export default async function JeddahAirportTransferPage() {
             />
 
             {/* Arrival Guide Section */}
-            <section className="py-16 bg-white dark:bg-slate-900">
+            <section className="py-24 bg-transparent relative z-10">
                 <div className="container mx-auto px-4">
-                    <div className="max-w-4xl mx-auto text-center mb-12">
-                        <h2 className="text-3xl font-bold mb-4 font-playfair text-slate-800 dark:text-slate-100">
-                            Arrival Procedure: What to Expect
-                        </h2>
-                        <p className="text-slate-600 dark:text-slate-300">
-                            We know arriving in a new country can be stressful. Here is how we make it easy:
-                        </p>
-                        <div className="mt-6 p-6 bg-emerald-50/50 dark:bg-emerald-950/20 rounded-2xl border border-emerald-100/50 dark:border-emerald-800/30 inline-block font-playfair italic">
-                            <p className="text-emerald-900 dark:text-emerald-100 font-medium">
-                                "We wait for you, even if your flight is delayed – because your comfort matters."
+                    <FadeIn>
+                        <div className="max-w-4xl mx-auto text-center mb-16">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-sans text-white">
+                                Arrival Procedure: What to Expect
+                            </h2>
+                            <p className="text-gray-300 text-lg font-light leading-relaxed">
+                                We know arriving in a new country can be stressful. Here is how we make it easy:
                             </p>
-                        </div>
-                    </div>
-
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {[
-                            {
-                                icon: <UserCheck size={40} className="text-emerald-600" />,
-                                title: "1. Meet & Greet",
-                                desc: "Our driver will be waiting at the arrival hall holding a sign with your name. No need to search for a taxi."
-                            },
-                            {
-                                icon: <ShieldCheck size={40} className="text-emerald-600" />,
-                                title: "2. Luggage Assistance",
-                                desc: <span>Our vehicles (<Link href="/fleet/gmc-yukon-at4" className="text-amber-600 hover:underline">GMC</Link>/<Link href="/fleet/hyundai-starex" className="text-amber-600 hover:underline">H1</Link>) are chosen for their large luggage capacity. The driver will handle your bags.</span>
-                            },
-                            {
-                                icon: <Plane size={40} className="text-amber-500" />,
-                                title: "3. Direct to Hotel",
-                                desc: <span>Relax in a cooled vehicle while we take you directly to your <Link href="/services/makkah-madinah-taxi" className="text-amber-600 hover:underline">hotel door in Makkah</Link> (approx 60-75 mins).</span>
-                            }
-                        ].map((item, idx) => (
-                            <div key={idx} className="bg-slate-50 dark:bg-slate-800 p-6 rounded-xl border border-slate-100 dark:border-slate-700 text-center">
-                                <div className="flex justify-center mb-4">{item.icon}</div>
-                                <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-slate-100">{item.title}</h3>
-                                <p className="text-slate-600 dark:text-slate-400 text-sm">{item.desc}</p>
+                            <div className="mt-8 p-6 bg-white/5 rounded-2xl border border-white/10 inline-block">
+                                <p className="text-white font-medium italic font-sans text-lg">
+                                    "We wait for you, even if your flight is delayed – because your comfort matters."
+                                </p>
                             </div>
-                        ))}
-                    </div>
+                        </div>
+
+                        <div className="grid md:grid-cols-3 gap-8">
+                            {[
+                                {
+                                    icon: <UserCheck size={40} className="text-gold-primary" />,
+                                    title: "1. Meet & Greet",
+                                    desc: "Our driver will be waiting at the arrival hall holding a sign with your name. No need to search for a taxi."
+                                },
+                                {
+                                    icon: <ShieldCheck size={40} className="text-gold-primary" />,
+                                    title: "2. Luggage Assistance",
+                                    desc: <span>Our vehicles (<Link href="/fleet/gmc-yukon-at4" className="text-gold-primary hover:underline">GMC</Link>/<Link href="/fleet/hyundai-starex" className="text-gold-primary hover:underline">H1</Link>) are chosen for their large luggage capacity. The driver will handle your bags.</span>
+                                },
+                                {
+                                    icon: <Plane size={40} className="text-gold-primary" />,
+                                    title: "3. Direct to Hotel",
+                                    desc: <span>Relax in a cooled vehicle while we take you directly to your <Link href="/services/makkah-madinah-taxi" className="text-gold-primary hover:underline">hotel door in Makkah</Link> (approx 60-75 mins).</span>
+                                }
+                            ].map((item, idx) => (
+                                <div key={idx} className="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-gold-primary/30 transition-all text-center group hover:bg-black/60">
+                                    <div className="flex justify-center mb-6 p-4 bg-gold-primary/10 rounded-full w-fit mx-auto border border-gold-primary/20 group-hover:bg-gold-primary/20 transition-colors">{item.icon}</div>
+                                    <h3 className="text-xl font-bold mb-3 text-white font-sans">{item.title}</h3>
+                                    <p className="text-gray-400 text-sm leading-relaxed font-light">{item.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </FadeIn>
                 </div>
             </section>
 
             {/* Route Visual Section */}
-            <section className="py-8 bg-slate-50/50 dark:bg-slate-900/50">
+            <section className="py-12 bg-neutral-900/30 border-y border-white/5 relative z-10 backdrop-blur-sm">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-2xl font-bold text-center mb-8 font-playfair">Your Journey to Makkah</h2>
-                    <RouteVisual
-                        from="Jeddah Airport (JED)"
-                        fromLabel="Arrival Hall (Meet & Greet)"
-                        to="Makkah Hotel"
-                        toLabel="Hotel Reception Drop-off"
-                        duration="60-75 Mins"
-                        distance="95 km"
-                        showMiqat={false}
-                    />
+                    <FadeIn delay={0.2}>
+                        <h2 className="text-2xl font-bold text-center mb-8 font-sans text-white">Your Journey to Makkah</h2>
+                        <RouteVisual
+                            from="Jeddah Airport (JED)"
+                            fromLabel="Arrival Hall (Meet & Greet)"
+                            to="Makkah Hotel"
+                            toLabel="Hotel Reception Drop-off"
+                            duration="60-75 Mins"
+                            distance="95 km"
+                            showMiqat={false}
+                        />
+                    </FadeIn>
                 </div>
             </section>
 
             {/* Terminal Info */}
-            <section className="py-12 bg-emerald-50/30 dark:bg-slate-800/50 border-y border-emerald-100/50">
+            <section className="py-16 bg-transparent relative z-10">
                 <div className="container mx-auto px-4 text-center">
-                    <h3 className="text-2xl font-bold mb-4 text-emerald-950 dark:text-slate-100 font-playfair">Which Terminal?</h3>
-                    <p className="text-emerald-900/70 dark:text-slate-300 max-w-2xl mx-auto mb-6 font-light">
-                        Most international flights land at <strong className="font-bold text-emerald-950">Terminal 1 (New Airport)</strong>.
-                        Some regional carriers use the North Terminal.
-                        Don't worry, we track your flight number and adjust the pickup location automatically.
-                    </p>
+                    <FadeIn delay={0.3}>
+                        <div className="max-w-3xl mx-auto p-8 rounded-3xl bg-gradient-to-br from-neutral-900 to-black border border-white/10 shadow-2xl">
+                            <h3 className="text-2xl font-bold mb-4 text-white font-sans">Which Terminal?</h3>
+                            <p className="text-gray-300 mb-6 font-light leading-relaxed">
+                                Most international flights land at <strong className="font-bold text-gold-primary">Terminal 1 (New Airport)</strong>.
+                                Some regional carriers use the North Terminal.
+                                Don't worry, we track your flight number and adjust the pickup location automatically.
+                            </p>
+                        </div>
+                    </FadeIn>
                 </div>
             </section>
 
-            <VehicleCapacityGuide />
+            <div className="relative z-10">
+                <VehicleCapacityGuide />
+            </div>
 
-            <Features />
-            <FleetCarouselWrapper />
+            <div className="relative z-10">
+                <Features />
+            </div>
 
-            <FAQSection items={jeddahAirportFAQs} title="Jeddah Airport Transfer FAQs" />
+            <div className="relative z-10">
+                <FleetCarouselWrapper />
+            </div>
+
+            <div className="relative z-10">
+                <FAQSection items={jeddahAirportFAQs} title="Jeddah Airport Transfer FAQs" />
+            </div>
 
             {/* CTA */}
-            <section className="py-20 bg-white">
+            <section className="py-24 bg-transparent border-t border-white/10 relative z-10">
                 <div className="container mx-auto px-4 text-center">
-                    <Link href="/booking" className="btn-emerald px-10 py-5 rounded-full font-bold text-lg transition-all shadow-xl shadow-emerald-900/20">
-                        Check Taxi Fares <ArrowRight size={20} className="ml-2" />
-                    </Link>
-                    <p className="mt-8 text-sm text-emerald-900/60 font-light">
-                        Going to Madinah next? Check our <Link href="/services/makkah-madinah-taxi" className="text-emerald-700 hover:text-emerald-600 font-bold underline underline-offset-4">Makkah to Madinah Taxi</Link> rates.
-                    </p>
+                    <FadeIn delay={0.4}>
+                        <Link href="/booking" className="inline-flex items-center btn-gold px-12 py-5 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] text-black hover:scale-105">
+                            Check Taxi Fares <ArrowRight size={20} className="ml-2" />
+                        </Link>
+                        <p className="mt-8 text-sm text-gray-400 font-light">
+                            Going to Madinah next? Check our <Link href="/services/makkah-madinah-taxi" className="text-gold-primary hover:text-white font-bold underline underline-offset-4 decoration-gold-primary/50">Makkah to Madinah Taxi</Link> rates.
+                        </p>
+                    </FadeIn>
                 </div>
             </section>
         </main >

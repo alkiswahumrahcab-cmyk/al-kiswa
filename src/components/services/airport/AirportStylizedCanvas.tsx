@@ -64,10 +64,10 @@ export default function AirportStylizedCanvas({ routes, activeRouteId, hoveredRo
     }, [routes]);
 
     return (
-        <div className="absolute inset-0 w-full h-full bg-slate-900 overflow-hidden cursor-grab active:cursor-grabbing" ref={constraintsRef}>
+        <div className="absolute inset-0 w-full h-full bg-transparent overflow-hidden cursor-grab active:cursor-grabbing" ref={constraintsRef}>
             {/* Grid / Radar Background Effect */}
             <div className="absolute inset-0 opacity-10 pointer-events-none"
-                style={{ backgroundImage: 'radial-gradient(circle, #f59e0b 1px, transparent 1px)', backgroundSize: '30px 30px' }}
+                style={{ backgroundImage: 'radial-gradient(circle, #D4AF37 1px, transparent 1px)', backgroundSize: '30px 30px' }}
             />
 
             <motion.div
@@ -101,7 +101,7 @@ export default function AirportStylizedCanvas({ routes, activeRouteId, hoveredRo
                                 <motion.path
                                     d={path}
                                     fill="none"
-                                    stroke={isRelevant ? "#f59e0b" : "#334155"} // Amber if active, Slate-700 if inactive
+                                    stroke={isRelevant ? "#D4AF37" : "#334155"} // Gold if active, Slate-700 if inactive
                                     strokeWidth={isRelevant ? "0.5" : "0.2"}
                                     strokeDasharray={isActive ? "none" : "1 1"} // Dashed for inactive "planned" routes
                                     animate={{
@@ -115,7 +115,7 @@ export default function AirportStylizedCanvas({ routes, activeRouteId, hoveredRo
                                     <motion.g>
                                         <switch>
                                             <foreignObject width="4" height="4" x="-2" y="-2">
-                                                <div className="w-full h-full flex items-center justify-center text-amber-500">
+                                                <div className="w-full h-full flex items-center justify-center text-gold-primary">
                                                     <Plane size={8} className="rotate-90" />
                                                 </div>
                                             </foreignObject>
@@ -139,12 +139,12 @@ export default function AirportStylizedCanvas({ routes, activeRouteId, hoveredRo
                             {/* Pulse */}
                             <motion.circle
                                 cx={node.x} cy={node.y} r="3"
-                                stroke="#f59e0b" strokeWidth="0.1" fill="none"
+                                stroke="#D4AF37" strokeWidth="0.1" fill="none"
                                 animate={{ scale: [1, 2], opacity: [0.8, 0] }}
                                 transition={{ duration: 2, repeat: Infinity }}
                             />
                             {/* Dot */}
-                            <circle cx={node.x} cy={node.y} r="1.5" className="fill-slate-900 stroke-amber-500" strokeWidth="0.3" />
+                            <circle cx={node.x} cy={node.y} r="1.5" className="fill-black stroke-[#D4AF37]" strokeWidth="0.3" />
                             {/* Label */}
                             <text
                                 x={node.x} y={node.y + 4}
@@ -159,12 +159,12 @@ export default function AirportStylizedCanvas({ routes, activeRouteId, hoveredRo
             </motion.div>
 
             {/* Map Controls Hint */}
-            <div className="absolute bottom-6 right-6 flex items-center gap-2 bg-slate-900/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-700">
+            <div className="absolute bottom-6 right-6 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
                 <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-primary opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-gold-primary"></span>
                 </span>
-                <span className="text-xs text-slate-300 font-medium tracking-wide">Live Traffic</span>
+                <span className="text-xs text-gray-300 font-medium tracking-wide">Live Traffic</span>
             </div>
         </div>
     );

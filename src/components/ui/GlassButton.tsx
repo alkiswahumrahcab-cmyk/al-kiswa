@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 interface GlassButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     href?: string;
-    variant?: 'primary' | 'secondary' | 'outline';
+    variant?: 'primary' | 'secondary' | 'outline' | 'gold';
     size?: 'sm' | 'md' | 'lg';
     children: React.ReactNode;
 }
@@ -20,19 +20,20 @@ export default function GlassButton({
     ...props
 }: GlassButtonProps) {
     const variants = {
-        primary: "bg-primary text-primary-foreground hover:bg-primary/90 border-transparent",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/90 border-transparent",
-        outline: "bg-transparent border-primary/20 hover:bg-primary/5 text-foreground"
+        primary: "bg-gold-primary text-black hover:bg-white hover:text-black border-transparent shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]",
+        secondary: "bg-white/10 text-white hover:bg-gold-primary hover:text-black border-white/10 hover:border-gold-primary backdrop-blur-md",
+        outline: "bg-transparent border-gold-primary/30 hover:border-gold-primary hover:bg-gold-primary/10 text-gold-primary",
+        gold: "bg-gradient-to-r from-gold-primary to-gold-metallic text-black hover:brightness-110 border-0 shadow-lg shadow-gold-primary/20",
     };
 
     const sizes = {
-        sm: "h-9 px-4 text-sm",
-        md: "h-11 px-6 text-base",
-        lg: "h-14 px-8 text-lg"
+        sm: "h-9 px-4 text-xs tracking-wider uppercase",
+        md: "h-12 px-8 text-sm tracking-wider uppercase",
+        lg: "h-14 px-10 text-base tracking-widest uppercase"
     };
 
     const baseStyles = cn(
-        "glass-button inline-flex items-center justify-center rounded-xl font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+        "glass-button inline-flex items-center justify-center rounded-none font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-primary disabled:pointer-events-none disabled:opacity-50",
         variants[variant],
         sizes[size],
         className

@@ -6,34 +6,52 @@ import { motion } from 'framer-motion';
 
 export default function BookPage() {
     return (
-        <main className="min-h-screen bg-slate-50 dark:bg-slate-950">
-            {/* Minimalist Hero for Booking */}
-            <div className="relative bg-slate-900 py-12 md:py-20 overflow-hidden">
-                <div className="absolute inset-0 opacity-20">
-                    <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-500/30 via-transparent to-transparent blur-3xl" />
-                </div>
+        <main className="min-h-screen bg-primary-black relative overflow-hidden">
+            {/* Background Texture */}
+            <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none" />
 
-                <div className="container relative z-10 text-center">
-                    <motion.h1
+            {/* Ambient Glows */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-primary/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold-secondary/5 rounded-full blur-[120px] pointer-events-none" />
+
+            {/* Minimalist Hero for Booking */}
+            <div className="relative pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden">
+                <div className="container relative z-10 text-center px-4">
+                    <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight"
+                        className="inline-block mb-4 px-4 py-1.5 rounded-full bg-gold-primary/10 border border-gold-primary/20"
                     >
-                        Book Your <span className="text-amber-500">Blessed</span> Journey
+                        <span className="text-gold-primary text-xs font-bold uppercase tracking-[0.2em]">Secure Reservation</span>
+                    </motion.div>
+
+                    <motion.h1
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="text-4xl md:text-5xl font-sans font-bold text-white mb-6 tracking-tight"
+                    >
+                        Book Your <span className="text-gold-primary">Premium</span> Journey
                     </motion.h1>
+
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-slate-400 text-lg max-w-xl mx-auto"
+                        transition={{ delay: 0.2 }}
+                        className="text-gray-400 text-lg max-w-xl mx-auto font-light"
                     >
-                        Secure your premium transport in Makkah & Madinah with our easy 4-step wizard.
+                        Experience Makkah & Madinah with our luxury fleet.
+                        Simple 3-step booking with instant confirmation.
                     </motion.p>
                 </div>
             </div>
 
-            <div className="container relative z-20 -mt-10 md:-mt-16 pb-20">
-                <Suspense fallback={<div className="h-96 w-full animate-pulse bg-white rounded-3xl" />}>
+            <div className="container relative z-20 pb-20 px-4">
+                <Suspense fallback={
+                    <div className="max-w-4xl mx-auto h-[600px] w-full animate-pulse bg-white/5 rounded-[2rem] border border-white/10 flex items-center justify-center">
+                        <div className="text-gold-primary/50 text-sm font-medium tracking-widest uppercase">Loading Booking Engine...</div>
+                    </div>
+                }>
                     <BookingWizard />
                 </Suspense>
             </div>

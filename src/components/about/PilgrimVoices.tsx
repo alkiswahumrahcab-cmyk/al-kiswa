@@ -15,13 +15,14 @@ export default function PilgrimVoices() {
     ];
 
     return (
-        <section className="py-20 bg-slate-50 dark:bg-slate-900" ref={ref as unknown as React.RefObject<HTMLElement>}>
+        <section className="py-24 bg-transparent border-t border-white/5" ref={ref as unknown as React.RefObject<HTMLElement>}>
             <div className="container mx-auto px-4">
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className={`text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 font-playfair transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                <div className="text-center max-w-3xl mx-auto mb-20">
+                    <span className="text-gold-primary font-bold uppercase tracking-[0.2em] text-sm mb-4 block">Testimonials</span>
+                    <h2 className={`text-3xl md:text-5xl font-bold text-white mb-6 font-sans transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         Pilgrim Voices
                     </h2>
-                    <p className={`text-lg text-slate-600 dark:text-slate-300 transition-all duration-700 delay-100 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <p className={`text-lg text-gray-400 transition-all duration-700 delay-100 font-light ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         Hear from those who have journeyed with us.
                     </p>
                 </div>
@@ -30,22 +31,22 @@ export default function PilgrimVoices() {
                     {testimonials.map((item, index) => (
                         <GlassCard
                             key={item.id}
-                            className={`p-8 relative h-full flex flex-col`}
+                            className={`p-10 relative h-full flex flex-col bg-neutral-900 border-white/10 hover:border-gold-primary/30 group transition-all duration-500`}
                             delay={index * 0.2}
                         >
-                            <Quote size={40} className="text-amber-500/20 absolute top-6 right-6" />
+                            <Quote size={40} className="text-gold-primary/10 absolute top-8 right-8 group-hover:text-gold-primary/20 transition-colors" />
 
-                            <p className="text-slate-700 dark:text-slate-300 italic mb-6 relative z-10 flex-grow">
+                            <p className="text-gray-300 italic mb-8 relative z-10 flex-grow font-serif leading-relaxed text-lg">
                                 &quot;{item.text}&quot;
                             </p>
 
                             <div className="flex items-center gap-4 mt-auto">
-                                <div className="w-12 h-12 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-xl font-bold text-slate-500 dark:text-slate-400">
+                                <div className="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-xl font-bold text-gold-primary shadow-inner">
                                     {item.author.charAt(0)}
                                 </div>
                                 <div>
-                                    <div className="font-bold text-slate-900 dark:text-white">{item.author}</div>
-                                    <div className="text-sm text-slate-500 dark:text-slate-400">{item.location}</div>
+                                    <div className="font-bold text-white font-sans">{item.author}</div>
+                                    <div className="text-sm text-gray-500 uppercase tracking-wider text-xs font-bold">{item.location}</div>
                                 </div>
                             </div>
                         </GlassCard>

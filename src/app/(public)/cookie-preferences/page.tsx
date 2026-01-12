@@ -81,10 +81,12 @@ export default function CookiePreferences() {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-950 py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="min-h-screen bg-primary-black py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+            <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
+
             {/* Background Decoration */}
-            <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-gray-900 to-transparent opacity-10 pointer-events-none" />
-            <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-gold-500/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-black to-transparent opacity-10 pointer-events-none" />
+            <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-gold-primary/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="max-w-4xl mx-auto relative z-10">
                 <motion.div
@@ -95,20 +97,20 @@ export default function CookiePreferences() {
                 >
                     <Link
                         href="/"
-                        className="inline-flex items-center text-gray-500 hover:text-gold-600 transition-colors mb-6 group"
+                        className="inline-flex items-center text-gray-400 hover:text-gold-primary transition-colors mb-6 group"
                     >
                         <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
                         Back to Home
                     </Link>
                     <div className="flex items-center gap-4 mb-4">
-                        <div className="p-3 bg-gold-100 dark:bg-gold-900/20 rounded-2xl">
-                            <Shield className="w-8 h-8 text-gold-600 dark:text-gold-400" />
+                        <div className="p-3 bg-gold-primary/10 rounded-2xl border border-gold-primary/20">
+                            <Shield className="w-8 h-8 text-gold-primary" />
                         </div>
-                        <h1 className="text-4xl font-bold text-gray-900 dark:text-white tracking-tight">
+                        <h1 className="text-4xl font-bold text-white tracking-tight font-sans">
                             Cookie Preferences
                         </h1>
                     </div>
-                    <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">
+                    <p className="text-lg text-gray-400 max-w-2xl leading-relaxed font-light">
                         We value your privacy. Customize your cookie settings below to control how we collect and use your data.
                     </p>
                 </motion.div>
@@ -127,33 +129,33 @@ export default function CookiePreferences() {
                                 className={`
                                     group relative overflow-hidden rounded-2xl border transition-all duration-300
                                     ${isEnabled
-                                        ? 'bg-white dark:bg-gray-900 border-gold-500/30 shadow-lg shadow-gold-500/5'
-                                        : 'bg-white/50 dark:bg-gray-900/50 border-gray-200 dark:border-gray-800'}
+                                        ? 'bg-neutral-900 border-gold-primary/30 shadow-[0_0_15px_rgba(212,175,55,0.1)]'
+                                        : 'bg-neutral-900/50 border-white/5'}
                                 `}
                             >
                                 <div className="p-6 sm:p-8 flex items-start gap-6">
                                     <div className={`
                                         p-3 rounded-xl shrink-0 transition-colors duration-300
-                                        ${isEnabled ? 'bg-gold-100 dark:bg-gold-900/20 text-gold-600' : 'bg-gray-100 dark:bg-gray-800 text-gray-400'}
+                                        ${isEnabled ? 'bg-gold-primary/10 text-gold-primary border border-gold-primary/20' : 'bg-white/5 text-gray-500 border border-white/5'}
                                     `}>
                                         <Icon className="w-6 h-6" />
                                     </div>
 
                                     <div className="flex-1 min-w-0">
                                         <div className="flex items-center justify-between gap-4 mb-2">
-                                            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                                            <h3 className="text-xl font-semibold text-white">
                                                 {section.title}
                                             </h3>
                                             {section.required ? (
-                                                <span className="text-xs font-medium px-2.5 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full uppercase tracking-wider">
+                                                <span className="text-xs font-medium px-2.5 py-1 bg-white/5 text-gray-400 rounded-full uppercase tracking-wider border border-white/5">
                                                     Required
                                                 </span>
                                             ) : (
                                                 <button
                                                     onClick={() => toggleSetting(section.id as keyof CookieSettings)}
                                                     className={`
-                                                        relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2
-                                                        ${isEnabled ? 'bg-gold-600' : 'bg-gray-200 dark:bg-gray-700'}
+                                                        relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-primary focus-visible:ring-offset-2
+                                                        ${isEnabled ? 'bg-gold-primary' : 'bg-gray-700'}
                                                     `}
                                                 >
                                                     <span className="sr-only">Use setting</span>
@@ -167,7 +169,7 @@ export default function CookiePreferences() {
                                                 </button>
                                             )}
                                         </div>
-                                        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                                        <p className="text-gray-400 leading-relaxed font-light">
                                             {section.description}
                                         </p>
                                     </div>
@@ -183,17 +185,17 @@ export default function CookiePreferences() {
                     transition={{ duration: 0.5, delay: 0.4 }}
                     className="mt-10 flex items-center justify-end gap-4 sticky bottom-6 z-20"
                 >
-                    <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl p-2 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-800 flex items-center gap-3">
+                    <div className="bg-black/80 backdrop-blur-xl p-2 rounded-2xl shadow-2xl border border-white/10 flex items-center gap-3">
                         <Link
                             href="/"
-                            className="px-6 py-3 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium transition-colors rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800"
+                            className="px-6 py-3 text-gray-400 hover:text-white font-medium transition-colors rounded-xl hover:bg-white/5"
                         >
                             Cancel
                         </Link>
                         <button
                             onClick={handleSave}
                             disabled={saved}
-                            className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-gold-600 to-gold-500 hover:from-gold-700 hover:to-gold-600 text-white rounded-xl font-semibold transition-all shadow-lg shadow-gold-500/25 hover:shadow-gold-500/40 disabled:opacity-75 disabled:cursor-not-allowed transform active:scale-95"
+                            className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-gold-primary to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black rounded-xl font-semibold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] disabled:opacity-75 disabled:cursor-not-allowed transform active:scale-95"
                         >
                             {saved ? (
                                 <>

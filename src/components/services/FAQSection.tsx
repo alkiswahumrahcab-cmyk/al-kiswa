@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
-import GlassCard from '@/components/ui/GlassCard';
 
 interface FAQItem {
     question: string;
@@ -42,33 +41,35 @@ export default function FAQSection({ items = defaultFAQs, title = "Frequently As
     };
 
     return (
-        <section className="py-20 relative overflow-hidden">
+        <section className="py-20 relative overflow-hidden bg-transparent">
             {/* Background Decor */}
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white -z-10" />
-            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-emerald-50/20 blur-3xl rounded-full pointer-events-none" />
+            {/* Note: The parent page usually handles the main background, but we can add a subtle gradient here if needed? 
+                 Prefer transparent to let page background show. */}
 
             <div className="container max-w-4xl mx-auto px-4">
                 <FadeIn>
-                    <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 font-playfair text-emerald-950">
+                    <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 font-sans text-white">
                         {title}
                     </h2>
                 </FadeIn>
 
                 <div className="space-y-4">
                     {items.map((faq, index) => (
-                        <GlassCard
+                        <div
                             key={index}
-                            delay={index * 0.1}
-                            className={`overflow-hidden transition-all duration-300 ${activeAccordion === index ? 'ring-2 ring-gold/20 bg-white/80' : 'hover:bg-white/60'}`}
+                            className={`rounded-2xl border transition-all duration-300 overflow-hidden ${activeAccordion === index
+                                    ? 'bg-neutral-900 border-gold-primary/50 shadow-[0_0_15px_rgba(212,175,55,0.1)]'
+                                    : 'bg-neutral-900/50 border-white/10 hover:border-gold-primary/30 hover:bg-neutral-900'
+                                }`}
                         >
                             <button
                                 className="w-full flex items-center justify-between p-6 text-left"
                                 onClick={() => toggleAccordion(index)}
                             >
-                                <span className={`text-lg font-bold font-playfair transition-colors ${activeAccordion === index ? 'text-emerald-700' : 'text-emerald-900'}`}>
+                                <span className={`text-lg font-bold font-sans transition-colors ${activeAccordion === index ? 'text-white' : 'text-gray-200'}`}>
                                     {faq.question}
                                 </span>
-                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${activeAccordion === index ? 'bg-gold text-emerald-950 rotate-180' : 'bg-slate-100 text-slate-400'}`}>
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${activeAccordion === index ? 'bg-gold-primary text-black rotate-180' : 'bg-white/10 text-gray-400'}`}>
                                     <ChevronDown size={20} />
                                 </div>
                             </button>
@@ -77,12 +78,12 @@ export default function FAQSection({ items = defaultFAQs, title = "Frequently As
                                 className={`grid transition-all duration-300 ease-in-out ${activeAccordion === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
                             >
                                 <div className="overflow-hidden">
-                                    <p className="px-6 pb-6 text-slate-600 leading-relaxed">
+                                    <p className="px-6 pb-6 text-gray-400 leading-relaxed font-light">
                                         {faq.answer}
                                     </p>
                                 </div>
                             </div>
-                        </GlassCard>
+                        </div>
                     ))}
                 </div>
             </div>

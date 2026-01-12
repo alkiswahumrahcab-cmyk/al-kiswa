@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useMemo, useRef } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { RouteWithPrices } from '@/services/routeService';
 
 interface StylizedMapCanvasProps {
@@ -72,7 +72,7 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
     }, [routes]);
 
     return (
-        <div className="absolute inset-0 w-full h-full bg-slate-100 dark:bg-slate-950 overflow-hidden cursor-grab active:cursor-grabbing" ref={constraintsRef}>
+        <div className="absolute inset-0 w-full h-full bg-transparent overflow-hidden cursor-grab active:cursor-grabbing" ref={constraintsRef}>
             {/* Draggable Map Container */}
             <motion.div
                 className="w-full h-full"
@@ -87,16 +87,16 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
                 <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
                     <defs>
                         {/* Glow Filter */}
-                        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                        <filter id="glow-gold" x="-50%" y="-50%" width="200%" height="200%">
                             <feGaussianBlur stdDeviation="1.5" result="coloredBlur" />
                             <feComposite in="coloredBlur" in2="SourceGraphic" operator="over" />
                         </filter>
 
                         {/* Gradient for Lines */}
                         <linearGradient id="routeGradient" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stopColor="#4A90E2" stopOpacity="0.1" />
-                            <stop offset="50%" stopColor="#4A90E2" stopOpacity="1" />
-                            <stop offset="100%" stopColor="#4A90E2" stopOpacity="0.1" />
+                            <stop offset="0%" stopColor="#D4AF37" stopOpacity="0.1" />
+                            <stop offset="50%" stopColor="#D4AF37" stopOpacity="1" />
+                            <stop offset="100%" stopColor="#D4AF37" stopOpacity="0.1" />
                         </linearGradient>
                     </defs>
 
@@ -108,7 +108,7 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
                             fill="none"
                             stroke="currentColor"
                             strokeWidth="0.2"
-                            className="text-slate-300 dark:text-slate-800"
+                            className="text-white/10"
                         />
                     ))}
 
@@ -127,13 +127,13 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
                                 <motion.path
                                     d={path}
                                     fill="none"
-                                    stroke={isRelevant ? "#4A90E2" : "currentColor"}
+                                    stroke={isRelevant ? "#D4AF37" : "currentColor"}
                                     strokeWidth={isActive ? "0.6" : (isHovered ? "0.4" : "0.2")}
                                     strokeLinecap="round"
-                                    className={!isRelevant ? "text-slate-300 dark:text-slate-700 transition-colors duration-500" : ""}
+                                    className={!isRelevant ? "text-gray-600 transition-colors duration-500" : ""}
                                     animate={{
                                         strokeOpacity: isRelevant ? 1 : 0.3,
-                                        filter: isRelevant ? "url(#glow)" : "none"
+                                        filter: isRelevant ? "url(#glow-gold)" : "none"
                                     }}
                                 />
 
@@ -171,7 +171,7 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
                                     x={city.x}
                                     y={city.y + 5}
                                     textAnchor="middle"
-                                    className={`text-[2.5px] font-bold uppercase tracking-wider select-none ${isActiveNode ? 'fill-slate-900 dark:fill-white font-extrabold' : 'fill-slate-400 dark:fill-slate-600'}`}
+                                    className={`text-[2.5px] font-bold uppercase tracking-widest select-none ${isActiveNode ? 'fill-white font-extrabold' : 'fill-gray-500'}`}
                                 >
                                     {city.label}
                                 </text>
@@ -181,14 +181,14 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
                                     <>
                                         <motion.circle
                                             cx={city.x} cy={city.y} r="6"
-                                            fill="none" stroke="#4A90E2" strokeWidth="0.1"
+                                            fill="none" stroke="#D4AF37" strokeWidth="0.1"
                                             initial={{ scale: 0, opacity: 0.8 }}
                                             animate={{ scale: 1.5, opacity: 0 }}
                                             transition={{ duration: 2, repeat: Infinity }}
                                         />
                                         <motion.circle
                                             cx={city.x} cy={city.y} r="4"
-                                            fill="none" stroke="#4A90E2" strokeWidth="0.1"
+                                            fill="none" stroke="#D4AF37" strokeWidth="0.1"
                                             initial={{ scale: 0, opacity: 0.8 }}
                                             animate={{ scale: 1.5, opacity: 0 }}
                                             transition={{ duration: 2, delay: 0.5, repeat: Infinity }}
@@ -201,7 +201,7 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
                                     cx={city.x}
                                     cy={city.y}
                                     r={isActiveNode ? 1.2 : 0.8}
-                                    className={`${isActiveNode ? 'fill-celestial stroke-white dark:stroke-slate-900' : 'fill-slate-400 dark:fill-slate-600 stroke-slate-50 dark:stroke-slate-900'}`}
+                                    className={`${isActiveNode ? 'fill-black stroke-white' : 'fill-gray-600 stroke-black'}`}
                                     strokeWidth="0.2"
                                     whileHover={{ scale: 1.5 }}
                                     transition={{ type: "spring", stiffness: 300 }}
@@ -214,7 +214,7 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
 
             {/* Map Controls Prompt */}
             <div className="absolute bottom-6 right-6 hidden lg:block pointer-events-none opacity-50">
-                <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs text-slate-500 dark:text-slate-400">
+                <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs text-gray-400 border border-white/10">
                     <span className="w-2 h-2 rounded-full border border-current animate-ping" /> Drag to pan map
                 </div>
             </div>

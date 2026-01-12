@@ -74,8 +74,9 @@ export default async function RootLayout({
           <SettingsProvider>
             <ThemeProvider
               attribute="class"
-              defaultTheme="system"
-              enableSystem
+              defaultTheme="dark"
+              forcedTheme="dark"
+              enableSystem={false}
               disableTransitionOnChange
             >
               <PricingProvider>

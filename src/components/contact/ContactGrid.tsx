@@ -61,21 +61,21 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
         <FadeIn direction="right" delay={0.2}>
             <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-4">
                 {contactCards.map((card, index) => (
-                    <GlassCard key={index} className="p-6 hover:border-gold/30 transition-all duration-300 group hover:shadow-xl hover:shadow-emerald-900/5">
+                    <GlassCard key={index} className="p-6 hover:border-gold-primary/50 transition-all duration-300 group hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] bg-black/40 border-white/10">
                         <div className="flex items-start gap-4">
-                            <div className="p-4 bg-emerald-50 dark:bg-emerald-950/30 rounded-2xl text-emerald-600 group-hover:scale-110 transition-transform shadow-sm">
+                            <div className="p-4 bg-gold-primary/10 rounded-2xl text-gold-primary group-hover:scale-110 transition-transform shadow-[0_0_10px_rgba(212,175,55,0.2)]">
                                 <card.icon size={24} />
                             </div>
                             <div className="flex-1">
-                                <h3 className="font-bold font-playfair text-lg text-slate-900 dark:text-white mb-1">{card.title}</h3>
-                                <p className="font-medium text-slate-700 dark:text-slate-200 mb-1">{card.value}</p>
-                                <p className="text-sm text-slate-500 dark:text-slate-400 mb-3">{card.sub}</p>
+                                <h3 className="font-bold font-sans text-lg text-white mb-1">{card.title}</h3>
+                                <p className="font-medium text-gray-200 mb-1">{card.value}</p>
+                                <p className="text-sm text-gray-500 mb-3">{card.sub}</p>
                                 <a
                                     href={card.action}
                                     target={card.action.startsWith('http') ? "_blank" : "_self"}
                                     rel="noopener noreferrer"
                                     onClick={() => trackConversion(card.type as any, 'contact_page')}
-                                    className="inline-flex items-center text-sm font-bold text-emerald-700 hover:text-emerald-800 dark:text-emerald-400 dark:hover:text-gold transition-colors"
+                                    className="inline-flex items-center text-sm font-bold text-gold-primary hover:text-white transition-colors"
                                 >
                                     {card.btnText} →
                                 </a>

@@ -134,7 +134,9 @@ const ROUTES = [
 
 export default function RoutesPage() {
     return (
-        <main className="bg-background min-h-screen pb-20">
+        <main className="bg-primary-black min-h-screen pb-20 relative">
+            <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none fixed" />
+
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -151,12 +153,12 @@ export default function RoutesPage() {
                     {ROUTES.map((route, index) => (
                         <FadeIn key={route.id} delay={index * 0.1}>
                             <div className="block h-full group relative">
-                                <GlassCard className="h-full hover:bg-white/80 dark:hover:bg-slate-800/80 transition-all duration-300 overflow-hidden border-0 ring-1 ring-white/20 relative">
+                                <GlassCard className="h-full bg-neutral-900/80 border-white/10 hover:border-gold-primary/30 transition-all duration-300 overflow-hidden relative shadow-2xl backdrop-blur-md">
                                     <Link href={route.link} className="absolute inset-0 z-10">
                                         <span className="sr-only">View {route.title}</span>
                                     </Link>
                                     <div className="flex flex-col md:flex-row h-full">
-                                        <div className="md:w-2/5 relative min-h-[200px] md:min-h-full overflow-hidden">
+                                        <div className="md:w-2/5 relative min-h-[220px] md:min-h-full overflow-hidden">
                                             <Image
                                                 src={route.image}
                                                 alt={route.title}
@@ -164,77 +166,77 @@ export default function RoutesPage() {
                                                 className="object-cover transition-transform duration-700 group-hover:scale-110"
                                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:bg-gradient-to-r" />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent md:bg-gradient-to-r md:from-black/60 md:to-transparent" />
                                             <div className="absolute bottom-4 left-4 text-white md:hidden relative z-10">
-                                                <div className="flex items-center gap-1 text-sm font-medium mb-1">
-                                                    <Clock size={14} className="text-secondary" />
+                                                <div className="flex items-center gap-2 text-sm font-medium mb-1">
+                                                    <Clock size={14} className="text-gold-primary" />
                                                     {route.time}
                                                 </div>
-                                                <div className="flex items-center gap-1 text-sm font-medium">
-                                                    <MapPin size={14} className="text-secondary" />
+                                                <div className="flex items-center gap-2 text-sm font-medium">
+                                                    <MapPin size={14} className="text-gold-primary" />
                                                     {route.distance}
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div className="p-6 md:w-3/5 flex flex-col">
-                                            <div className="flex items-start justify-between mb-2">
+                                        <div className="p-8 md:w-3/5 flex flex-col">
+                                            <div className="flex items-start justify-between mb-4">
                                                 <div>
-                                                    <h3 className="text-2xl font-bold font-playfair group-hover:text-secondary transition-colors">
+                                                    <h3 className="text-2xl font-bold font-sans text-white group-hover:text-gold-primary transition-colors">
                                                         {route.title}
                                                     </h3>
-                                                    <h4 className="text-lg font-bold text-secondary font-reem-kufi mt-1">
+                                                    <h4 className="text-lg font-bold text-gold-primary font-reem-kufi mt-1">
                                                         {route.titleAr}
                                                     </h4>
                                                 </div>
                                             </div>
 
-                                            <div className="space-y-3 mb-6">
-                                                <p className="text-muted-foreground text-sm leading-relaxed">
+                                            <div className="space-y-4 mb-8">
+                                                <p className="text-gray-400 text-sm leading-relaxed font-light">
                                                     {route.description}
                                                 </p>
-                                                <p className="text-muted-foreground text-sm font-arabic leading-relaxed text-right border-t border-dashed border-border/50 pt-2">
+                                                <p className="text-gray-500 text-sm font-arabic leading-relaxed text-right border-t border-dashed border-white/10 pt-3">
                                                     {route.descriptionAr}
                                                 </p>
                                             </div>
 
-                                            <div className="hidden md:grid grid-cols-2 gap-2 mb-6 text-sm text-muted-foreground">
+                                            <div className="hidden md:grid grid-cols-2 gap-3 mb-8 text-sm text-gray-400">
                                                 {/* English Features */}
                                                 <div className="flex flex-wrap gap-2">
                                                     {route.features.map((f, i) => (
-                                                        <span key={i} className="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-xs">
-                                                            <CheckCircle size={10} className="text-green-500" /> {f}
+                                                        <span key={i} className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/5 rounded-lg text-xs border border-white/5">
+                                                            <CheckCircle size={10} className="text-gold-primary" /> {f}
                                                         </span>
                                                     ))}
                                                 </div>
                                                 {/* Arabic Features */}
                                                 <div className="flex flex-wrap gap-2 justify-end" dir="rtl">
                                                     {route.featuresAr.map((f, i) => (
-                                                        <span key={i} className="inline-flex items-center gap-1 px-2 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-xs font-arabic">
-                                                            <CheckCircle size={10} className="text-green-500" /> {f}
+                                                        <span key={i} className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/5 rounded-lg text-xs font-arabic border border-white/5">
+                                                            <CheckCircle size={10} className="text-gold-primary" /> {f}
                                                         </span>
                                                     ))}
                                                 </div>
                                             </div>
 
-                                            <div className="mt-auto flex items-center justify-between pt-4 border-t border-border/50">
+                                            <div className="mt-auto flex items-center justify-between pt-6 border-t border-white/10">
                                                 <div className="flex flex-col">
-                                                    <span className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">
+                                                    <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold">
                                                         Starting from
                                                     </span>
-                                                    <span className="text-xl font-bold text-secondary">
+                                                    <span className="text-xl font-bold text-gold-primary">
                                                         {route.price}
                                                     </span>
                                                 </div>
-                                                <div className="flex gap-3 relative z-20">
+                                                <div className="flex gap-4 relative z-20 items-center">
                                                     <Link
                                                         href="/fleet"
-                                                        className="hidden md:flex items-center text-xs font-medium text-muted-foreground hover:text-secondary transition-colors"
+                                                        className="hidden md:flex items-center text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-wider"
                                                         aria-label="View Fleet"
                                                     >
                                                         View Fleet
                                                     </Link>
-                                                    <span className="flex items-center gap-2 text-sm font-semibold text-foreground group-hover:text-secondary transition-colors">
+                                                    <span className="flex items-center gap-2 text-sm font-bold text-black bg-gold-primary px-4 py-2 rounded-full hover:bg-white transition-colors shadow-lg shadow-gold-primary/20">
                                                         Book Now <ArrowRight size={16} />
                                                     </span>
                                                 </div>
@@ -249,12 +251,12 @@ export default function RoutesPage() {
             </section>
 
             {/* Why Choose Section */}
-            <section className="py-20">
+            <section className="py-24 bg-transparent relative">
                 <div className="container mx-auto px-4">
-                    <div className="text-center max-w-2xl mx-auto mb-16">
+                    <div className="text-center max-w-2xl mx-auto mb-20">
                         <FadeIn>
-                            <h2 className="text-3xl lg:text-4xl font-bold font-playfair mb-4">Why Travel With Al Kiswah?</h2>
-                            <p className="text-muted-foreground">More than just transport, we provide a seamless bridge between your spiritual destinations.</p>
+                            <h2 className="text-3xl lg:text-5xl font-bold font-sans text-white mb-6">Why Travel With Al Kiswah?</h2>
+                            <p className="text-gray-400 font-light text-lg">More than just transport, we provide a seamless bridge between your spiritual destinations.</p>
                         </FadeIn>
                     </div>
 
@@ -283,15 +285,15 @@ export default function RoutesPage() {
                             }
                         ].map((feature, idx) => (
                             <FadeIn key={idx} delay={0.2 + (idx * 0.1)}>
-                                <div className="text-center p-6 rounded-2xl bg-white dark:bg-slate-900 border border-border shadow-sm hover:shadow-md transition-shadow">
-                                    <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-secondary">
-                                        <feature.icon size={32} />
+                                <GlassCard className="text-center p-10 rounded-3xl bg-neutral-900/50 border-white/10 hover:border-gold-primary/30 transition-all duration-300 hover:-translate-y-2">
+                                    <div className="w-20 h-20 bg-black/50 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-8 text-gold-primary shadow-inner">
+                                        <feature.icon size={36} strokeWidth={1.5} />
                                     </div>
-                                    <h3 className="text-xl font-bold mb-1">{feature.title}</h3>
-                                    <h4 className="text-lg font-bold text-secondary font-reem-kufi mb-3">{feature.titleAr}</h4>
-                                    <p className="text-muted-foreground text-sm mb-2">{feature.desc}</p>
-                                    <p className="text-muted-foreground text-sm font-arabic border-t border-border/50 pt-2">{feature.descAr}</p>
-                                </div>
+                                    <h3 className="text-2xl font-bold mb-2 text-white font-sans">{feature.title}</h3>
+                                    <h4 className="text-xl font-bold text-gold-primary font-reem-kufi mb-4">{feature.titleAr}</h4>
+                                    <p className="text-gray-400 text-sm mb-4 leading-relaxed font-light">{feature.desc}</p>
+                                    <p className="text-gray-500 text-sm font-arabic border-t border-white/10 pt-3">{feature.descAr}</p>
+                                </GlassCard>
                             </FadeIn>
                         ))}
                     </div>

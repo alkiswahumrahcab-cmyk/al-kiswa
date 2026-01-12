@@ -38,20 +38,20 @@ const services = [
 
 export default function TransportServices() {
     return (
-        <section className="py-20 md:py-32 relative overflow-hidden">
+        <section className="py-20 md:py-32 relative overflow-hidden bg-primary-black">
             {/* Background Decor */}
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900 pointer-events-none" />
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-emerald-500/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+            <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold-primary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gold-metallic/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
             <div className="container relative z-10 px-4 md:px-8">
                 <FadeIn>
                     <div className="text-center max-w-4xl mx-auto mb-20">
-                        <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs md:text-sm mb-4 block drop-shadow-sm">Our Core Services</span>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-playfair text-slate-900 dark:text-white mb-8 tracking-tight leading-tight">
-                            Premium Transport for <span className="bg-gradient-royal-gold bg-clip-text text-transparent">Your Spiritual Journey</span>
+                        <span className="text-gold-primary font-bold tracking-[0.2em] uppercase text-xs md:text-sm mb-4 block drop-shadow-sm">Our Core Services</span>
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans text-white mb-8 tracking-tight leading-tight">
+                            Premium Transport for <span className="bg-gradient-to-r from-gold-primary to-gold-metallic bg-clip-text text-transparent">Your Spiritual Journey</span>
                         </h2>
-                        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
+                        <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto font-light">
                             Comprehensive travel solutions designed for the Guests of Allah. From airport arrivals to intercity travel, we ensure every mile is comfortable, safe, and dignified.
                         </p>
                     </div>
@@ -60,11 +60,11 @@ export default function TransportServices() {
                 <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
                     {services.map((service, index) => (
                         <FadeIn key={service.id} delay={index * 0.15}>
-                            <article className="group h-full relative border border-transparent hover:border-gold/30 rounded-[2.5rem] transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(191,163,90,0.2)] hover:-translate-y-2 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm overflow-hidden flex flex-col">
+                            <article className="group h-full relative border border-white/10 hover:border-gold-primary/50 rounded-[2.5rem] transition-all duration-500 hover:shadow-[0_20px_40px_-15px_rgba(212,175,55,0.15)] hover:-translate-y-2 bg-white/5 backdrop-blur-sm overflow-hidden flex flex-col">
 
                                 {/* Image Container */}
                                 <Link href={service.link} className="relative h-72 md:h-80 overflow-hidden block">
-                                    <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-950/20 to-transparent z-10 opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
                                     <Image
                                         src={service.image}
                                         alt={service.title}
@@ -73,7 +73,7 @@ export default function TransportServices() {
                                     />
 
                                     {/* Icon Badge */}
-                                    <div className="absolute top-6 left-6 z-20 w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-xl group-hover:bg-gold group-hover:border-gold group-hover:text-emerald-950 transition-all duration-300 group-hover:scale-110">
+                                    <div className="absolute top-6 left-6 z-20 w-14 h-14 rounded-2xl bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-xl group-hover:bg-gold-primary group-hover:border-gold-primary group-hover:text-black transition-all duration-300 group-hover:scale-110">
                                         {React.cloneElement(service.icon as React.ReactElement<any>, { size: 28 })}
                                     </div>
 
@@ -84,24 +84,24 @@ export default function TransportServices() {
 
                                     {/* Text Overlay on Image (Mobile/Design Choice) */}
                                     <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
-                                        <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2 opacity-90">{service.subtitle}</p>
-                                        <h3 className="text-3xl font-bold font-playfair text-white leading-tight group-hover:text-gold transition-colors duration-300">
+                                        <p className="text-gold-primary text-xs font-bold uppercase tracking-widest mb-2 opacity-90">{service.subtitle}</p>
+                                        <h3 className="text-3xl font-bold font-sans text-white leading-tight group-hover:text-gold-primary transition-colors duration-300">
                                             {service.title}
                                         </h3>
                                     </div>
                                 </Link>
 
                                 {/* Description Content */}
-                                <div className="p-8 pt-6 flex flex-col flex-1">
-                                    <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8 flex-1">
+                                <div className="p-8 pt-6 flex flex-col flex-1 bg-gradient-to-b from-transparent to-black/20">
+                                    <p className="text-gray-400 leading-relaxed mb-8 flex-1">
                                         {service.description}
                                     </p>
 
                                     <Link
                                         href={service.link}
-                                        className="inline-flex items-center gap-3 text-emerald-800 dark:text-emerald-400 font-bold uppercase tracking-wider text-sm group/btn group-hover:text-gold transition-colors mt-auto"
+                                        className="inline-flex items-center gap-3 text-white font-bold uppercase tracking-wider text-sm group/btn group-hover:text-gold-primary transition-colors mt-auto"
                                     >
-                                        <span className="border-b-2 border-emerald-800/20 dark:border-emerald-400/20 group-hover:border-gold transition-colors py-1">View Details</span>
+                                        <span className="border-b-2 border-white/20 group-hover:border-gold-primary transition-colors py-1">View Details</span>
                                         <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
                                     </Link>
                                 </div>

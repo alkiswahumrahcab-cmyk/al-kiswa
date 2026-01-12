@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { Calendar, Shield, Map } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
 import GlassCard from '@/components/ui/GlassCard';
@@ -27,17 +26,13 @@ const tips = [
 
 export default function TravelTips() {
     return (
-        <section className="py-24 bg-slate-900 relative overflow-hidden">
-            {/* Dark Theme Background */}
-            <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 pointer-events-none" />
-            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-amber-500/10 blur-[120px] rounded-full pointer-events-none" />
-
+        <section className="py-24 bg-transparent relative overflow-hidden border-t border-white/5">
             <div className="container mx-auto px-4 relative z-10">
                 <FadeIn>
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <span className="text-amber-500 font-bold tracking-widest uppercase text-sm mb-3 block">Expert Advice</span>
-                        <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-6 font-playfair">Essential Travel Tips</h2>
-                        <p className="text-slate-400 text-lg font-light leading-relaxed">
+                    <div className="text-center max-w-3xl mx-auto mb-20">
+                        <span className="text-gold-primary font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Expert Advice</span>
+                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-sans">Essential Travel Tips</h2>
+                        <p className="text-gray-400 text-lg font-light leading-relaxed">
                             Maximize your spiritual experience with these key recommendations for a smooth and hassle-free journey.
                         </p>
                     </div>
@@ -46,31 +41,30 @@ export default function TravelTips() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {tips.map((tip, index) => (
                         <FadeIn key={index} delay={index * 0.1} direction="up">
-                            <GlassCard className="h-full flex flex-col p-0 overflow-hidden bg-slate-800/50 border-white/10 hover:border-amber-500/30">
-                                <div className="relative h-48 bg-slate-800 flex items-center justify-center overflow-hidden group">
-                                    {tip.image ? ( // Assuming images might not exist, fallback to icon logic or just icon
-                                        // For now, let's assume images might not be real files yet, so we use a fallback or styled div
-                                        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center">
-                                            <div className="text-amber-500/20 transform scale-150 group-hover:scale-125 transition-transform duration-500">
-                                                <tip.icon size={64} />
-                                            </div>
+                            <GlassCard className="h-full flex flex-col p-0 overflow-hidden bg-neutral-900 border-white/10 hover:border-gold-primary/30 group transition-all duration-500 hover:shadow-2xl">
+                                <div className="relative h-64 bg-black flex items-center justify-center overflow-hidden">
+                                    {/* Fallback pattern / gradient if image not present or just as style */}
+                                    <div className="absolute inset-0 bg-gradient-to-br from-black via-neutral-900 to-black flex items-center justify-center opacity-80">
+                                        <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-20 mix-blend-overlay" />
+                                    </div>
+
+                                    <div className="relative z-10 transform scale-150 group-hover:scale-125 transition-transform duration-700 text-gold-primary/20">
+                                        <tip.icon size={80} />
+                                    </div>
+
+                                    <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black to-transparent flex items-end justify-between">
+                                        <div className="w-12 h-12 rounded-full bg-gold-primary text-black flex items-center justify-center font-bold font-sans text-xl shadow-lg shadow-gold-primary/20 translate-y-6 group-hover:translate-y-0 transition-transform duration-300">
+                                            0{index + 1}
                                         </div>
-                                    ) : (
-                                        <div className="text-amber-500">
-                                            <tip.icon size={64} />
+                                        <div className="text-gold-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
+                                            <tip.icon size={32} />
                                         </div>
-                                    )}
-                                    <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center font-bold font-playfair shadow-lg z-10">
-                                        0{index + 1}
                                     </div>
                                 </div>
 
-                                <div className="p-8">
-                                    <div className="mb-4 text-amber-500">
-                                        <tip.icon size={32} />
-                                    </div>
-                                    <h3 className="text-xl font-bold font-playfair text-white mb-4">{tip.title}</h3>
-                                    <p className="text-slate-400 text-sm leading-relaxed">{tip.description}</p>
+                                <div className="p-8 pt-10 flex-grow">
+                                    <h3 className="text-2xl font-bold font-sans text-white mb-4 group-hover:text-gold-primary transition-colors">{tip.title}</h3>
+                                    <p className="text-gray-400 text-sm leading-relaxed font-light">{tip.description}</p>
                                 </div>
                             </GlassCard>
                         </FadeIn>

@@ -45,7 +45,7 @@ export default async function UmrahLayout({
             <ClientLayoutWrapper>
                 <UmrahPWA />
                 <AnnouncementBanner discount={settings.discount || { enabled: false, type: 'percentage', value: 0 }} />
-                <TopBar />
+
                 <Navbar />
             </ClientLayoutWrapper>
 

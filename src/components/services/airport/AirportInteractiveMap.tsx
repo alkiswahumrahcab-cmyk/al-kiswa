@@ -20,7 +20,7 @@ export default function AirportInteractiveMap({ routes }: AirportInteractiveMapP
     const activeRoute = routes.find(r => r.id === activeRouteId) || null;
 
     return (
-        <section className="relative w-full bg-slate-950 flex flex-col lg:flex-row overflow-hidden lg:h-[85vh] lg:min-h-[600px]">
+        <section className="relative w-full bg-transparent flex flex-col lg:flex-row overflow-hidden lg:h-[85vh] lg:min-h-[600px]">
             {/* Mobile: Route Dropdown (Top) */}
             <div className="lg:hidden shrink-0 z-30">
                 <MobileRouteDropdown
@@ -31,7 +31,7 @@ export default function AirportInteractiveMap({ routes }: AirportInteractiveMapP
             </div>
 
             {/* Desktop: Sidebar (Left) */}
-            <div className="hidden lg:block h-full z-20 shrink-0 relative">
+            <div className="hidden lg:block h-full z-20 shrink-0 relative bg-neutral-900/50 border-r border-white/5">
                 <AirportRouteSidebar
                     routes={routes}
                     activeRouteId={activeRouteId}
@@ -41,7 +41,7 @@ export default function AirportInteractiveMap({ routes }: AirportInteractiveMapP
             </div>
 
             {/* Map Canvas Area */}
-            <div className="relative flex-1 w-full bg-slate-950 overflow-hidden flex flex-col lg:block">
+            <div className="relative flex-1 w-full bg-neutral-900/30 overflow-hidden flex flex-col lg:block">
                 {/* Map Container */}
                 <div className="h-[400px] lg:h-full w-full relative">
                     <AirportStylizedCanvas
@@ -64,7 +64,7 @@ export default function AirportInteractiveMap({ routes }: AirportInteractiveMapP
                 </div>
 
                 {/* Mobile Static Panel */}
-                <div className="lg:hidden p-4 bg-slate-900 border-t border-slate-800 relative z-20">
+                <div className="lg:hidden p-4 bg-neutral-900 border-t border-white/10 relative z-20">
                     <AnimatePresence mode='wait'>
                         {activeRoute && (
                             <FloatingRoutePanel route={activeRoute} />

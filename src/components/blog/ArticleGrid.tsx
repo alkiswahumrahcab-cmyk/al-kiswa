@@ -43,7 +43,7 @@ export default function ArticleGrid({
 }: ArticleGridProps) {
     return (
         <div>
-            {/* Filters Section (Only rendered if props are provided) */}
+            {/* Filters Section */}
             {(categories || searchTerm !== undefined) && (
                 <div className="mb-12 space-y-6">
                     {/* Search and Categories */}
@@ -56,8 +56,8 @@ export default function ArticleGrid({
                                         key={cat}
                                         onClick={() => onCategoryChange(cat)}
                                         className={`px-4 py-2 rounded-full text-sm font-bold transition-all ${activeCategory === cat
-                                                ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/20'
-                                                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700'
+                                            ? 'bg-gold-primary text-black shadow-lg shadow-gold-primary/20'
+                                            : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/5'
                                             }`}
                                     >
                                         {cat}
@@ -74,9 +74,9 @@ export default function ArticleGrid({
                                     placeholder="Search articles..."
                                     value={searchTerm}
                                     onChange={(e) => onSearchChange(e.target.value)}
-                                    className="w-full pl-10 pr-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                                    className="w-full pl-10 pr-4 py-2 bg-neutral-900/50 border border-white/10 rounded-full focus:outline-none focus:ring-2 focus:ring-gold-primary text-sm text-white placeholder-gray-500"
                                 />
-                                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
+                                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
                             </div>
                         )}
                     </div>
@@ -87,12 +87,12 @@ export default function ArticleGrid({
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {posts.map((article, index) => {
                     const linkSlug = article.slug || article.id;
-                    if (!linkSlug) return null; // Should not happen
+                    if (!linkSlug) return null;
 
                     return (
                         <FadeIn key={linkSlug} delay={index * 0.05}>
                             <Link href={`/blog/${linkSlug}`} className="group h-full block">
-                                <article className="h-full flex flex-col bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 hover:-translate-y-2 relative isolate">
+                                <article className="h-full flex flex-col bg-black/40 rounded-3xl overflow-hidden border border-white/10 hover:border-gold-primary/30 shadow-sm hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] transition-all duration-500 hover:-translate-y-2 relative isolate backdrop-blur-sm">
 
                                     {/* Image */}
                                     <div className="relative h-64 overflow-hidden">
@@ -103,11 +103,11 @@ export default function ArticleGrid({
                                             className="object-cover transition-transform duration-700 group-hover:scale-110"
                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-60" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
 
                                         {/* Category Badge */}
                                         <div className="absolute top-4 left-4">
-                                            <span className="px-3 py-1 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-500 rounded-full shadow-lg">
+                                            <span className="px-3 py-1 bg-black/60 backdrop-blur-md text-xs font-bold uppercase tracking-wider text-gold-primary rounded-full border border-white/10">
                                                 {article.category}
                                             </span>
                                         </div>
@@ -115,9 +115,9 @@ export default function ArticleGrid({
 
                                     {/* Content */}
                                     <div className="p-6 flex flex-col flex-1">
-                                        <div className="flex items-center gap-4 text-xs font-medium text-slate-500 dark:text-slate-400 mb-4">
+                                        <div className="flex items-center gap-4 text-xs font-medium text-gray-400 mb-4">
                                             <span className="flex items-center gap-1.5">
-                                                <CalendarDays size={14} className="text-amber-500" />
+                                                <CalendarDays size={14} className="text-gold-primary" />
                                                 {// Handle both Date object and string date
                                                     new Date(article.date).toLocaleDateString(undefined, {
                                                         month: 'short',
@@ -125,29 +125,29 @@ export default function ArticleGrid({
                                                         year: 'numeric'
                                                     })}
                                             </span>
-                                            <span className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700" />
+                                            <span className="w-1 h-1 rounded-full bg-white/20" />
                                             <span className="flex items-center gap-1.5">
-                                                <Clock size={14} className="text-amber-500" />
+                                                <Clock size={14} className="text-gold-primary" />
                                                 {article.readTime}
                                             </span>
                                         </div>
 
-                                        <h3 className="text-xl font-bold font-playfair text-slate-900 dark:text-slate-100 mb-3 line-clamp-2 leading-tight group-hover:text-amber-600 transition-colors">
+                                        <h3 className="text-xl font-bold font-sans text-white mb-3 line-clamp-2 leading-tight group-hover:text-gold-primary transition-colors">
                                             {article.title}
                                         </h3>
 
-                                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed line-clamp-3 mb-6 flex-1">
+                                        <p className="text-gray-400 text-sm leading-relaxed line-clamp-3 mb-6 flex-1 font-light">
                                             {article.excerpt}
                                         </p>
 
-                                        <div className="flex items-center gap-2 text-sm font-bold text-amber-600 uppercase tracking-wide group/btn">
+                                        <div className="flex items-center gap-2 text-sm font-bold text-gold-primary uppercase tracking-wide group/btn">
                                             Read Article
                                             <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
                                         </div>
                                     </div>
 
                                     {/* Golden Glow Border Effect on Hover */}
-                                    <div className="absolute inset-0 border-2 border-amber-500/0 group-hover:border-amber-500/10 rounded-3xl transition-all duration-500 pointer-events-none" />
+                                    <div className="absolute inset-0 border-2 border-gold-primary/0 group-hover:border-gold-primary/10 rounded-3xl transition-all duration-500 pointer-events-none" />
                                 </article>
                             </Link>
                         </FadeIn>
@@ -163,8 +163,8 @@ export default function ArticleGrid({
                             key={page}
                             onClick={() => onPageChange(page)}
                             className={`w-10 h-10 rounded-full font-bold transition-all ${currentPage === page
-                                    ? 'bg-amber-500 text-white'
-                                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100'
+                                ? 'bg-gold-primary text-black'
+                                : 'bg-white/5 text-gray-400 hover:bg-white/10 border border-white/5'
                                 }`}
                         >
                             {page}

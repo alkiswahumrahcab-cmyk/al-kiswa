@@ -51,34 +51,38 @@ export default async function BlogPage() {
 
 
     return (
-        <main>
-            <Hero
-                title="Pilgrim Resources & Insights"
-                subtitle="Expert guides, travel tips, and answers to your questions for a blessed and hassle-free Umrah journey."
-                bgImage="/images/blog-hero-professional.png"
-                breadcrumbs={<Breadcrumbs />}
-            />
+        <main className="min-h-screen bg-primary-black relative">
+            <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
-            {/* Articles Section */}
-            <div className="bg-background pb-20 pt-20 min-h-[600px]">
-                <div className="container px-[5px] md:px-4">
-                    {featuredPost && (
-                        <FeaturedPost post={featuredPost} />
-                    )}
+            <div className="relative z-10">
+                <Hero
+                    title="Pilgrim Resources & Insights"
+                    subtitle="Expert guides, travel tips, and answers to your questions for a blessed and hassle-free Umrah journey."
+                    bgImage="/images/blog-hero-professional.png"
+                    breadcrumbs={<Breadcrumbs />}
+                />
+
+                {/* Articles Section */}
+                <div className="bg-transparent pb-20 pt-20 min-h-[600px]">
+                    <div className="container px-[5px] md:px-4">
+                        {featuredPost && (
+                            <FeaturedPost post={featuredPost} />
+                        )}
+                    </div>
                 </div>
+
+                <BlogFeed
+                    posts={posts}
+                    categories={CATEGORIES}
+                />
+
+                <NewsletterSignup />
+
+                <HadithCarousel />
+                <RespectSection />
+                <TravelTips />
+                <FAQSection />
             </div>
-
-            <BlogFeed
-                posts={posts}
-                categories={CATEGORIES}
-            />
-
-            <NewsletterSignup />
-
-            <HadithCarousel />
-            <RespectSection />
-            <TravelTips />
-            <FAQSection />
         </main >
     );
 }

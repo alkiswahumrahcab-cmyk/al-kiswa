@@ -4,119 +4,71 @@
 
 @layer base {
   :root {
-    /* === DEEP EMERALD & GOLD THEME === */
+    /* === ROYAL BLACK & GOLD LUXURY THEME === */
 
-    /* Primary Colors */
-    --emerald-primary: 168 80% 27%;
-    /* #0D7C66 */
-    --gold-accent: 43 45% 55%;
-    /* #BFA35A */
-    --dark-slate: 217 31% 15%;
-    /* #1A2332 */
+    /* Primary Colors (Dark Luxury) */
+    --primary-black: 222 47% 11%;
+    /* #0F172A - Rich Slate Black */
+    --deep-black: 240 10% 4%;
+    /* #09090b - Almost Pure Black */
+    --charcoal: 210 20% 98%;
+    /* #F8F9FA - Off White (remapped for light mode backgrounds if needed) */
 
-    /* Secondary Colors */
-    --soft-mint: 162 43% 94%;
-    /* #E8F5F1 */
-    --pure-white: 0 0% 100%;
-    /* #FFFFFF */
-    --warm-gray: 210 17% 98%;
-    /* #F8F9FA */
+    /* Gold Accents (Metallic) */
+    --gold-primary: 43 74% 49%;
+    /* #D4AF37 - Classic Metallic Gold */
+    --gold-light: 48 96% 89%;
+    /* #FEF3C7 - Pale Gold */
+    --gold-dark: 35 70% 30%;
+    /* Darker Metallic Gold for gradients */
+    --gold-metallic: 43 74% 49%;
+    /* #D4AF37 - Classic Metallic Gold */
 
-    /* Generic Names for Compatibility/Usage */
-    --primary-brand: var(--emerald-primary);
-    --secondary-brand: var(--soft-mint);
-    --accent-brand: var(--gold-accent);
+    /* Generic Names mapped to Theme */
+    --emerald-primary: var(--primary-black);
+    --soft-mint: 210 40% 96%;
 
-    /* Semantic Colors */
-    --success: 160 84% 39%;
-    /* #10B981 */
-    --warning: 38 92% 50%;
-    /* #F59E0B */
-    --error: 0 84% 60%;
-    /* #EF4444 */
-    --info: 217 91% 60%;
-    /* #3B82F6 */
-
-    /* === TAILWIND MAPPING === */
-    --background: var(--pure-white);
-    --foreground: var(--dark-slate);
-
-    --card: var(--pure-white);
-    --card-foreground: var(--dark-slate);
-    --popover: var(--pure-white);
-    --popover-foreground: var(--dark-slate);
-
-    --primary: var(--emerald-primary);
-    --primary-foreground: var(--pure-white);
-
-    --secondary: var(--soft-mint);
-    --secondary-foreground: var(--emerald-primary);
-
-    --muted: var(--warm-gray);
-    --muted-foreground: 215 16% 47%;
-    /* slate-500 approx */
-
-    --accent: var(--gold-accent);
-    --accent-foreground: var(--pure-white);
-
-    --destructive: var(--error);
-    --destructive-foreground: var(--pure-white);
-
-    --border: var(--soft-mint);
-    /* Subtle border */
-    --input: var(--warm-gray);
-    --ring: var(--emerald-primary);
-
-    --radius: 1.5rem;
-    /* rounded-3xl approx */
-
-    /* === TRANSPARENCY & GLOW === */
-    --glass-bg: rgba(255, 255, 255, 0.85);
-    /* Slightly more opaque for corporate feel */
-    --glass-border: rgba(13, 124, 102, 0.1);
-    --glass-blur: 16px;
-
-    /* Weights */
-    --weight-whisper: 200;
-    --weight-ethereal: 300;
-    --weight-visible: 400;
-    --weight-present: 500;
-  }
-
-  .dark {
-    /* Mapped Dark Mode for Emerald Theme */
-    --background: 217 31% 10%;
-    /* Darker slate */
+    /* Base Colors - Defaulting to Light Mode for cleanliness, but components will be dark */
+    /* Base Colors - Enforced Dark Mode (Royal Black Core) */
+    --background: 222 47% 11%;
     --foreground: 210 40% 98%;
 
-    --card: 217 31% 15%;
-    /* Dark slate */
+    --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 217 31% 15%;
+    --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 168 80% 27%;
-    /* Keep emerald or lighten slightly for dark mode? Keeping consistent for brand */
-    --primary-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11.2%;
 
-    --secondary: 217 31% 20%;
+    --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 217 31% 20%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 43 45% 55%;
-    /* Gold */
+    --accent: 43 74% 49%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217 31% 20%;
-    --input: 217 31% 20%;
-    --ring: 168 80% 27%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 43 74% 49%;
+
+    /* Radius */
+    --radius: 0.5rem;
+
+    /* Transparency */
+    --glass-bg: rgba(15, 23, 42, 0.60);
+    /* Darker glass for default */
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: 12px;
   }
+
+  /* Removed .dark block as it is now the default */
 }
 
 @layer base {
@@ -126,18 +78,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-weight: 300;
-    font-size: 17px;
-    letter-spacing: 0.5px;
-    line-height: 1.8;
-
-    /* Heavenly gradient background */
-    background: linear-gradient(180deg,
-        hsl(var(--pure-white)) 0%,
-        hsl(var(--soft-mint)) 30%,
-        rgba(13, 124, 102, 0.03) 70%,
-        rgba(191, 163, 90, 0.05) 100%);
-    background-attachment: fixed;
+    font-weight: 400;
   }
 
   h1,
@@ -148,264 +89,51 @@
   h6 {
     @apply font-sans;
   }
-
-  h1 {
-    font-weight: 600;
-    color: hsl(var(--foreground));
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-
-  h2 {
-    font-weight: 400;
-    color: hsl(var(--celestial-blue));
-    letter-spacing: 0.8px;
-  }
 }
 
 @layer components {
 
-  /* === GLASS-MORPHISM CARDS === */
-  /* === GLASS-MORPHISM CARDS === */
+  /* === LUXURY CARDS === */
   .card,
   .glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(var(--glass-blur)) saturate(180%);
-    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
-    border: 1px solid var(--glass-border);
-    border-radius: 24px;
-    padding: 32px;
-    box-shadow: 0 8px 32px rgba(13, 124, 102, 0.08);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    @apply bg-white border border-gray-100 rounded-xl shadow-sm transition-all duration-300;
   }
 
   .card:hover,
   .glass-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 48px rgba(13, 124, 102, 0.15);
-    background: rgba(255, 255, 255, 0.9);
-    border-color: rgba(13, 124, 102, 0.2);
+    @apply shadow-md border-amber-200/50 transform -translate-y-1;
   }
 
-  .glass-card-emerald {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(232, 245, 241, 0.85) 100%);
-    border: 1px solid rgba(13, 124, 102, 0.12);
-    box-shadow: 0 10px 40px -10px rgba(13, 124, 102, 0.1);
-  }
-
-  .glass-card-gold {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(252, 211, 77, 0.05) 100%);
-    border: 1px solid rgba(191, 163, 90, 0.2);
-    box-shadow: 0 10px 40px -10px rgba(191, 163, 90, 0.1);
-  }
-
-  /* === BUTTONS WITH NOOR GLOW === */
-  /* === BUTTONS WITH PREMIUM GLOW === */
+  /* === BUTTONS === */
   .btn-primary {
-    @apply relative overflow-hidden;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: white;
-    background: linear-gradient(135deg, hsl(var(--emerald-primary)) 0%, #064e3b 100%);
-    border: none;
-    border-radius: 16px;
-    padding: 14px 36px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 16px rgba(13, 124, 102, 0.3);
+    @apply bg-slate-900 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg shadow-slate-900/20 hover:bg-black hover:shadow-slate-900/40 relative overflow-hidden;
+  }
+
+  /* Gold Shine Effect on Hover */
+  .btn-primary::after {
+    content: '';
+    @apply absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full transition-transform duration-500;
+  }
+
+  .btn-primary:hover::after {
+    @apply translate-x-full;
   }
 
   .btn-gold {
-    @apply relative overflow-hidden;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    color: white;
-    background: linear-gradient(135deg, #B8860B 0%, #D4AF37 40%, #AA771C 100%);
-    border: none;
-    border-radius: 16px;
-    padding: 14px 36px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 16px rgba(184, 134, 11, 0.3);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    @apply bg-gradient-to-r from-gold-primary to-gold-dark text-white font-bold py-3 px-6 rounded-lg shadow-lg shadow-gold-primary/30 hover:shadow-gold-primary/50 hover:to-gold-dark transition-all duration-300;
   }
 
-  .btn-primary:hover,
-  .btn-gold:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(13, 124, 102, 0.4), 0 0 20px rgba(191, 163, 90, 0.2);
-    /* Emerald + Gold Glow */
+  .btn-outline {
+    @apply border border-slate-200 text-slate-700 hover:border-slate-900 hover:bg-slate-50 transition-colors duration-300 py-3 px-6 rounded-lg font-medium;
   }
 
-  .btn-secondary {
-    font-weight: 400;
-    letter-spacing: 1px;
-    color: hsl(var(--celestial-blue));
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(74, 144, 226, 0.3);
-    border-radius: 50px;
-    padding: 12px 32px;
-    transition: all 0.3s ease;
+  /* === INPUTS === */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-gold-primary focus:ring-2 focus:ring-gold-primary/20 outline-none transition-all duration-200 bg-white/50 backdrop-blur-sm;
   }
 
-  .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.8);
-    border-color: hsl(var(--celestial-blue));
-    box-shadow: 0 4px 16px rgba(74, 144, 226, 0.15);
-  }
-
-  /* === INPUT FIELDS === */
-  .premium-input,
-  input:not([type="checkbox"]):not([type="radio"]),
-  textarea,
-  select {
-    font-weight: 300;
-    letter-spacing: 0.5px;
-    color: hsl(var(--soft-charcoal));
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(135, 206, 235, 0.3);
-    border-radius: 16px;
-    padding: 14px 20px;
-    transition: all 0.3s ease;
-  }
-
-  .premium-input:focus,
-  input:not([type="checkbox"]):not([type="radio"]):focus,
-  textarea:focus,
-  select:focus {
-    outline: none;
-    border-color: hsl(var(--celestial-blue));
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1), 0 4px 12px rgba(74, 144, 226, 0.15);
-  }
-}
-
-@layer utilities {
-  .glow-text {
-    color: white;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(135, 206, 235, 0.6);
-    animation: subtle-glow 3s ease-in-out infinite;
-  }
-
-  @keyframes subtle-glow {
-
-    0%,
-    100% {
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    }
-
-    50% {
-      text-shadow: 0 0 15px white, 0 0 30px rgba(135, 206, 235, 0.8);
-    }
-  }
-
-  .floating {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  @keyframes float {
-
-    0%,
-    100% {
-      transform: translateY(0px);
-    }
-
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  .gradient-overlay {
-    background: linear-gradient(135deg, rgba(135, 206, 235, 0.15) 0%, rgba(230, 230, 250, 0.15) 50%, rgba(244, 228, 193, 0.15) 100%);
-    border-radius: 24px;
-  }
-
-  .text-gradient-gold {
-    background: linear-gradient(to right,
-        #BF953F 0%,
-        #FCF6BA 20%,
-        #B38728 50%,
-        #FBF5B7 80%,
-        #AA771C 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-  }
-
-  /* Royal Gold Gradient - Richer & deeper than standard gold */
-  .bg-gradient-royal-gold {
-    background: linear-gradient(135deg,
-        #B8860B 0%,
-        /* Dark Goldenrod */
-        #D4AF37 30%,
-        /* Metallic Gold */
-        #FFD700 60%,
-        /* Bright Gold */
-        #B8860B 100%
-        /* Dark Goldenrod */
-      );
-  }
-
-  /* Interactive Gold Border Glow */
-  .border-gold-glow {
-    border-color: rgba(212, 175, 55, 0.6);
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4), inset 0 0 10px rgba(212, 175, 55, 0.1);
-    transition: all 0.4s ease;
-  }
-
-  .bg-heritage {
-    background-image: url('/pattern.png');
-    background-repeat: repeat;
-    background-size: 400px;
-    mix-blend-mode: multiply;
-  }
-
-  .emerald-glow {
-    box-shadow: 0 0 20px rgba(13, 124, 102, 0.2);
-  }
-
-  .gold-glow {
-    box-shadow: 0 0 20px rgba(191, 163, 90, 0.3);
-  }
-
-  @keyframes shine {
-    to {
-      background-position: 200% center;
-    }
-  }
-
-  .shimmer-gold {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .shimmer-gold::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 200%;
-    height: 100%;
-    background: linear-gradient(to right,
-        transparent 0%,
-        rgba(255, 255, 255, 0.4) 50%,
-        transparent 100%);
-    transform: skewX(-20deg);
-    animation: shimmer-slide 3s infinite linear;
-  }
-
-  @keyframes shimmer-slide {
-    0% {
-      left: -100%;
-    }
-
-    20% {
-      left: 100%;
-    }
-
-    100% {
-      left: 100%;
-    }
+  /* === TEXT GRADIENTS === */
+  .text-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gold-primary to-gold-dark;
   }
 }
