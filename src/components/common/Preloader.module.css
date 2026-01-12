@@ -32,10 +32,10 @@
 /* Loader Container */
 .loaderContainer {
     position: relative;
-    width: 280px;
-    /* Increased from 160px */
-    height: 280px;
-    /* Increased from 160px */
+    width: 200px;
+    /* Reduced from 280px */
+    height: 200px;
+    /* Reduced from 280px */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,10 +66,10 @@
 /* Static Inner Decoration */
 .innerCircle {
     position: absolute;
-    width: 230px;
-    /* Increased from 130px */
-    height: 230px;
-    /* Increased from 130px */
+    width: 170px;
+    /* Reduced from 230px */
+    height: 170px;
+    /* Reduced from 230px */
     border-radius: 50%;
     border: 1px solid rgba(255, 255, 255, 0.05);
     background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
@@ -78,10 +78,10 @@
 
 .logoImage {
     position: relative;
-    width: 200px;
-    /* Increased from 160px */
-    height: 200px;
-    /* Increased from 160px */
+    width: 150px;
+    /* Adjusted from 200px */
+    height: 150px;
+    /* Adjusted from 200px */
     z-index: 20;
     animation: pulseLogo 4s ease-in-out infinite;
     /* Slower pulse */

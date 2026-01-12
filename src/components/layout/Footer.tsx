@@ -26,7 +26,7 @@ export default function Footer() {
                     {/* Brand Identity & Contact */}
                     <div className="space-y-8">
                         <Link href="/" className="inline-flex items-center gap-4 group">
-                            <div className="relative w-16 h-16 bg-white/5 backdrop-blur-sm rounded-2xl p-1 shadow-2xl border border-gold-primary/20 overflow-hidden group-hover:border-gold-primary group-hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-500">
+                            <div className="relative w-14 h-14 bg-white/5 backdrop-blur-sm rounded-2xl p-1 shadow-2xl border border-gold-primary/20 overflow-hidden group-hover:border-gold-primary group-hover:shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all duration-500">
                                 <Image
                                     src="/logo.png"
                                     alt="Al Kiswah Transport"
