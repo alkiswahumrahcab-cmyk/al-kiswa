@@ -99,7 +99,6 @@ export default async function RootLayout({
 
                 {/* Accessibility: Floating Assistance for Elders */}
                 <FloatingAssistanceButton />
-                <ScrollToTop />
 
                 {/* Admin Session Guard - keep global for admin routes */}
                 {/* <AdminSessionGuard />  Moved to specific layouts if needed or kept here if it only triggers on /admin */}
