@@ -350,7 +350,7 @@ I’ll help you with booking, answer questions, and keep everything easy to read
                     }}
                 >
                     <div className={styles.bubbleContent}>
-                        Need Help? Chat with us!
+                        Hey! I'm your AI Assistant
                     </div>
                     <div className={styles.bubbleArrow} />
                 </div>
@@ -379,7 +379,6 @@ I’ll help you with booking, answer questions, and keep everything easy to read
                     </div>
                 )}
             </button>
-            {!isOpen && <span className={styles.toggleLabel}>Hey! I'm your AI Assistant</span>}
         </div >
     );
 }
