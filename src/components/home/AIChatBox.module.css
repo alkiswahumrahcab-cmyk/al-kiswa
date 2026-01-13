@@ -9,28 +9,29 @@
 }
 
 .toggleButton {
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
-    background: #fff;
-    color: #064E3B;
-    border: 2px solid #EFBF5B;
+    background: #ffffff !important;
+    color: #c5a059;
+    border: 2px solid #EFBF5B !important;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow:
-        0 4px 15px rgba(0, 0, 0, 0.2),
-        inset 0 0 10px rgba(239, 191, 91, 0.1);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 0 15px rgba(239, 191, 91, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     z-index: 1002;
     overflow: hidden;
+    padding: 0;
 }
 
 .toggleButton:has(svg.lucide-x) {
-    background: linear-gradient(135deg, #064E3B, #022C22);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: #09090b !important;
+    border-color: rgba(239, 191, 91, 0.3) !important;
 }
 
 .toggleButton:hover {
@@ -54,25 +55,39 @@
     transform: translateX(100%);
 }
 
-.toggleButton::after {
-    content: 'Chat with AI';
-    position: absolute;
-    left: 70px;
-    background: rgba(15, 23, 42, 0.9);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    font-size: 0.8rem;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s;
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+@keyframes pulse-gold {
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 191, 91, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(239, 191, 91, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 191, 91, 0);
+    }
 }
 
-.toggleButton:hover::after {
-    opacity: 1;
+.toggleButton:not(.open) {
+    animation: pulse-gold 2s infinite;
+}
+
+.toggleLabel {
+    margin-top: 0.75rem;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(4px);
+    color: #EFBF5B;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid rgba(239, 191, 91, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    animation: fadeIn 0.5s ease-out;
 }
 
 .chatWindow {
@@ -107,14 +122,15 @@
     border-color: rgba(255, 255, 255, 0.1);
 }
 
-.header {
+.chatHeader {
     padding: 1.5rem;
-    background: linear-gradient(135deg, #064E3B, #022C22);
+    background: #09090b !important;
+    background-color: #09090b !important;
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid #EFBF5B;
 }
 
 .headerTitle h3 {
@@ -176,13 +192,15 @@
     line-height: 1.5;
     animation: fadeIn 0.3s ease-out;
     position: relative;
+    white-space: pre-line;
 }
 
 .userMessage {
-    background: linear-gradient(135deg, #064E3B, #065F46);
-    color: white;
+    background: #EFBF5B;
+    color: #000;
+    font-weight: 500;
     border-bottom-right-radius: 2px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(239, 191, 91, 0.2);
 }
 
 .aiMessage {
@@ -266,9 +284,9 @@
 }
 
 .quickReplyChip {
-    background: rgba(15, 23, 42, 0.05);
-    border: 1px solid #0f172a;
-    color: #0f172a;
+    background: #09090b;
+    border: 1px solid rgba(239, 191, 91, 0.3);
+    color: #EFBF5B;
     padding: 0.25rem 0.75rem;
     border-radius: 15px;
     font-size: 0.75rem;
@@ -278,9 +296,10 @@
 }
 
 .quickReplyChip:hover {
-    background: #064E3B;
-    border-color: #064E3B;
-    color: white;
+    background: #EFBF5B;
+    border-color: #EFBF5B;
+    color: #09090b;
+    font-weight: 600;
 }
 
 :global(.dark) .quickReplyChip {
@@ -330,23 +349,23 @@
 }
 
 .input:focus {
-    border-color: #064E3B;
-    box-shadow: 0 0 0 3px rgba(6, 78, 59, 0.1);
+    border-color: #EFBF5B;
+    box-shadow: 0 0 0 3px rgba(239, 191, 91, 0.1);
 }
 
 .sendButton {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #064E3B, #065F46);
-    color: #BFA35A;
+    background: #EFBF5B;
+    color: #000;
     border: none;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+    box-shadow: 0 4px 12px rgba(239, 191, 91, 0.3);
 }
 
 .sendButton:hover {
@@ -382,6 +401,61 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes floatGreeting {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-5px) scale(1.02);
+    }
+}
+
+.welcomeBubble {
+    position: absolute;
+    bottom: 90px;
+    left: 0;
+    background: white;
+    padding: 0.85rem 1.5rem;
+    border-radius: 16px;
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(239, 191, 91, 0.2);
+    border-left: 5px solid #EFBF5B;
+    cursor: pointer;
+    animation: floatGreeting 3s ease-in-out infinite, fadeIn 0.5s ease-out;
+    z-index: 1003;
+    white-space: nowrap;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.welcomeBubble:hover {
+    transform: scale(1.08) translateY(-5px);
+    background: #fafafa;
+}
+
+.bubbleContent {
+    color: #1a1a1a;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.bubbleArrow {
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
 }
 
 @media (max-width: 1024px) {

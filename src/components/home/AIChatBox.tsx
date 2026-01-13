@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { X, Send, Sparkles, Trash2, ExternalLink, Bot } from 'lucide-react';
+import { X, Send, Sparkles, Trash2, ExternalLink, Bot, MessageCircle } from 'lucide-react';
 import styles from './AIChatBox.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -29,11 +29,22 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
     const { isMenuOpen } = useMenu();
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
+    const [showGreeting, setShowGreeting] = useState(false);
     const [inputValue, setInputValue] = useState('');
     const [messages, setMessages] = useState<Message[]>([]);
     const [isTyping, setIsTyping] = useState(false);
     const inputRef = useRef<HTMLInputElement>(null);
     const messagesEndRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        // Show greeting bubble instantly for new visitors
+        if (!isOpen && messages.length <= 1) {
+            const timer = setTimeout(() => {
+                setShowGreeting(true);
+            }, 1000); // 1s delay for smooth entrance
+            return () => clearTimeout(timer);
+        }
+    }, [isOpen, messages.length]);
 
     useEffect(() => {
         if (isOpen) {
@@ -44,13 +55,24 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
     }, [isOpen]);
 
     // Quick Replies Data
-    const quickReplies = ['Check Prices', 'Book a Ride', 'Contact Support', 'Vehicle Types'];
+    const quickReplies = ['How do I book?', 'Show Today’s Offers', 'Guide me step by step', 'Contact Support'];
 
     const initializeGreeting = useCallback(() => {
         let greetingText = '';
 
         const greetings = {
-            default: 'Hello! 👋 I am your Al Kiswah AI assistant. How can I help you with your Umrah transport today?',
+            default: `👋 Welcome to Al Kiswah Transport!
+I’m your AI assistant, here to make your visit simple and stress‑free.
+
+You can ask me things like:
+
+‘How do I book a ride?’
+
+‘Show me today’s offers.’
+
+‘Guide me step by step.’
+
+I’ll help you with booking, answer questions, and keep everything easy to read for elders and children. Just type below and I’ll respond instantly!`,
             booking: 'Welcome to our booking page! 📅 Do you need any help filling out the form or choosing a vehicle?',
             fleet: 'Browsing our fleet? 🚗 Let me know if you want to know more about our Sedans, SUVs, or Buses.',
             services: 'We offer VIP services and Ziyarat tours. 🕌 How can I assist you with our services?'
@@ -197,7 +219,7 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
     return (
         <div className={styles.container}>
             <div className={`${styles.chatWindow} ${isOpen ? styles.open : ''}`}>
-                <div className={styles.header}>
+                <div className={styles.chatHeader}>
                     <div className={styles.headerTitle}>
                         <div className="flex items-center gap-3">
                             <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center border border-white/20 shadow-sm overflow-hidden p-1">
@@ -314,25 +336,45 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
                 </div>
             </div>
 
+            {showGreeting && !isOpen && (
+                <div
+                    className={styles.welcomeBubble}
+                    onClick={() => {
+                        setIsOpen(true);
+                        setShowGreeting(false);
+                    }}
+                >
+                    <div className={styles.bubbleContent}>
+                        Need Help? Chat with us!
+                    </div>
+                    <div className={styles.bubbleArrow} />
+                </div>
+            )}
+
             <button
-                onClick={() => setIsOpen(!isOpen)}
-                className={styles.toggleButton}
+                onClick={() => {
+                    setIsOpen(!isOpen);
+                    setShowGreeting(false);
+                }}
+                className={`${styles.toggleButton} ${isOpen ? styles.open : ''}`}
                 aria-label="Toggle chat"
             >
                 {isOpen ? (
-                    <X size={28} className="text-white drop-shadow-md" />
+                    <X size={32} className="text-white drop-shadow-md" />
                 ) : (
-                    <div className="relative w-11 h-11 transition-transform group-hover:scale-110">
+                    <div className="relative w-12 h-12 transition-transform hover:scale-110 flex items-center justify-center">
                         <Image
                             src="/logo.png"
                             alt="Al Kiswah"
-                            fill
+                            width={40}
+                            height={40}
                             className="object-contain"
                             priority
                         />
                     </div>
                 )}
             </button>
+            {!isOpen && <span className={styles.toggleLabel}>Chat with AI</span>}
         </div >
     );
 }
