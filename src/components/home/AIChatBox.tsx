@@ -224,7 +224,7 @@ I’ll help you with booking, answer questions, and keep everything easy to read
     return (
         <div className={styles.container}>
             <div className={`${styles.chatWindow} ${isOpen ? styles.open : ''}`}>
-                <div className={styles.chatHeader}>
+                <div className={`${styles.chatHeader} !bg-[#09090b]`}>
                     <div className={styles.headerTitle}>
                         <div className="flex items-center gap-3">
                             <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center border border-white/20 shadow-sm overflow-hidden p-1">
