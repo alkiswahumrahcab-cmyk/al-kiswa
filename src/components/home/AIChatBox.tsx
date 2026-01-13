@@ -159,6 +159,10 @@ I’ll help you with booking, answer questions, and keep everything easy to read
                 text: "We offer a wide range of vehicles including comfortable Sedans (Camry, Sonata), spacious SUVs (GMC, H1), and luxury Buses for groups.",
                 action: { label: "View Fleet", url: "/fleet" }
             },
+            guide: {
+                text: "To book a ride, simply:\n1. Click 'Book Now' or use the form on the homepage.\n2. Enter your pickup & drop-off locations.\n3. Choose your vehicle type.\n4. Confirm your details and you're set!",
+                action: { label: "Start Booking", url: "/booking" }
+            },
             default: {
                 text: "I'm here to help! You can ask me about prices, booking, our vehicles, or contact information."
             }
@@ -168,6 +172,7 @@ I’ll help you with booking, answer questions, and keep everything easy to read
         if (lowerInput.includes('book') || lowerInput.includes('reserve')) return responses.book;
         if (lowerInput.includes('contact') || lowerInput.includes('phone') || lowerInput.includes('email')) return responses.contact;
         if (lowerInput.includes('vehicle') || lowerInput.includes('car') || lowerInput.includes('bus')) return responses.vehicle;
+        if (lowerInput.includes('guide') || lowerInput.includes('step') || lowerInput.includes('help')) return responses.guide;
 
         return responses.default;
     };
@@ -374,7 +379,7 @@ I’ll help you with booking, answer questions, and keep everything easy to read
                     </div>
                 )}
             </button>
-            {!isOpen && <span className={styles.toggleLabel}>Chat with AI</span>}
+            {!isOpen && <span className={styles.toggleLabel}>Hey! I'm your AI Assistant</span>}
         </div >
     );
 }
