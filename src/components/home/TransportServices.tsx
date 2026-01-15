@@ -12,7 +12,7 @@ const services = [
         title: 'Intercity Transport',
         subtitle: 'Makkah • Madinah • Jeddah',
         description: 'Experience safe, comfortable travel between major Saudi cities. Our premium intercity transport ensures a smooth journey for pilgrims performing Umrah and Ziyarat.',
-        image: '/images/services/intercity-transport.png',
+        image: '/images/services/intercity-transport-new.png',
         icon: <Car size={32} />,
         link: '/services/intercity-transfer',
     },
@@ -22,7 +22,7 @@ const services = [
         subtitle: 'Jeddah (KAIA) • Madinah',
         description: 'Seamless pickup and drop-off from Jeddah and Madinah airports. We offer real-time flight tracking, professional meet-and-greet service, and luggage assistance.',
         icon: <Plane size={32} />,
-        image: '/images/services/airport-transfer-real.jpg',
+        image: '/images/services/airport-transport-new.png',
         link: '/services/airport-transfers',
     },
     {
@@ -31,7 +31,7 @@ const services = [
         subtitle: 'Door-to-Door • Holy Cities',
         description: 'Quick and reliable transfers between your hotel and the Holy Mosques. Enjoy premium comfort and cleanliness, perfectly suitable for families and groups.',
         icon: <Building2 size={32} />,
-        image: '/images/services/hotel-transfer-real.jpg',
+        image: '/images/services/hotel-transfers-new.png',
         link: '/services/hotel-transfers',
     }
 ];

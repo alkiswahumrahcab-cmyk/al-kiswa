@@ -24,6 +24,8 @@ const TransportServices = dynamic(() => import('@/components/home/TransportServi
 const Testimonials = dynamic(() => import('@/components/home/Testimonials'));
 const FleetGallery = dynamic(() => import('@/components/home/FleetGallery'));
 const BookingGuide = dynamic(() => import('@/components/home/BookingGuide'));
+import { JsonLdScript } from "@/components/seo/JsonLd";
+import { generateServiceSchema } from "@/components/seo/schema-generator";
 
 export async function generateMetadata() {
   return {
@@ -79,6 +81,13 @@ export default async function Home() {
 
   return (
     <main className="overflow-x-hidden">
+      {/* JSON-LD Structured Data */}
+      <JsonLdScript schema={generateServiceSchema(
+        "Umrah Taxi Services",
+        "Premium and reliable taxi services for pilgrims between Jeddah, Makkah, and Madinah.",
+        heroImage
+      )} />
+
       {/* Hero Section */}
       <Hero
         title={heroTitle}

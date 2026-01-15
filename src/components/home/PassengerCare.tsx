@@ -18,7 +18,7 @@ const careOptions = [
             "Privacy Screens Available",
             "Strict 'No Interaction' Policy"
         ],
-        image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?q=80&w=1000&auto=format&fit=crop',
+        image: '/images/services/solo-sister-transport.png',
         linkText: "Read Safety Guide",
         link: "/blog/why-comfort-safety-matter-umrah-transport"
     },
@@ -34,7 +34,7 @@ const careOptions = [
             "Child Seats Available (Free)",
             "Entertainment Screens"
         ],
-        image: 'https://images.unsplash.com/photo-1548682977-f273c52a0a2f?q=80&w=1000&auto=format&fit=crop',
+        image: '/images/services/family-transport-umrah.png',
         linkText: "Read Family Tips",
         link: "/blog/top-5-travel-tips-pilgrims-makkah-madinah"
     },
@@ -50,7 +50,7 @@ const careOptions = [
             "Gentle driving style",
             "Wheelchair Handling"
         ],
-        image: 'https://images.unsplash.com/photo-1564769662533-4f00a87b4056?q=80&w=1000&auto=format&fit=crop',
+        image: '/images/services/elderly-care-transport.png',
         linkText: "Read Elderly Guide",
         link: "/blog/private-taxi-vs-haramain-train-umrah"
     }
