@@ -40,29 +40,48 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
         if (!validateForm()) return;
 
         setIsSubmitting(true);
-        try {
-            const payload = {
-                ...data,
-                date: data.date?.toISOString().split('T')[0],
-                time: data.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }),
-                vehicle: vehicle?.name || 'Any',
-                totalPrice: pricing ? pricing.price * data.vehicleCount : 0
-            };
 
-            const res = await fetch('/api/bookings', {
+        // Construct WhatsApp Message
+        const message = `📋 *New Booking Request*
+------------------
+👤 *Name:* ${data.name}
+📱 *Phone:* ${data.phone}
+📍 *Pickup:* ${data.pickup || 'Not selected'}
+🏁 *Dropoff:* ${data.dropoff || 'Not selected'}
+📅 *Date:* ${data.date?.toLocaleDateString()}
+⏰ *Time:* ${data.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+🚗 *Vehicle:* ${vehicle?.name || 'Any'} (x${data.vehicleCount})
+💰 *Total:* ${pricing ? pricing.price * data.vehicleCount : 'Get Quote'} SAR
+${data.flightNumber ? `✈️ *Flight:* ${data.flightNumber}\n` : ''}${data.notes ? `📝 *Notes:* ${data.notes}` : ''}
+------------------
+*Sent via Al Kiswah Website*`;
+
+        const whatsappUrl = `https://wa.me/966545494921?text=${encodeURIComponent(message)}`;
+
+        try {
+            // Optional: Save to DB in background (fire and forget)
+            fetch('/api/bookings', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
+                body: JSON.stringify({
+                    ...data,
+                    date: data.date?.toISOString().split('T')[0],
+                    time: data.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }),
+                    vehicle: vehicle?.name || 'Any',
+                    totalPrice: pricing ? pricing.price * data.vehicleCount : 0,
+                    status: 'whatsapp_pending'
+                })
+            }).catch(err => console.error('DB Save failed:', err));
 
-            if (res.ok) {
-                setIsSuccess(true);
-            } else {
-                alert('Submission failed. Please try again.');
-            }
+            // Small delay to show spinner then redirect
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            window.open(whatsappUrl, '_blank');
+            setIsSuccess(true);
+
         } catch (error) {
             console.error(error);
-            alert('Something went wrong.');
+            // Fallback to WhatsApp even if something fails
+            window.open(whatsappUrl, '_blank');
         } finally {
             setIsSubmitting(false);
         }
@@ -121,11 +140,11 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                 value={data.name}
                                 onChange={(e) => updateData({ name: e.target.value })}
                                 className={`
-                                    w-full pl-12 pr-4 py-4 bg-black/20 
+                                    w-full pl-12 pr-4 py-5 bg-white/5 
                                     border border-white/10 
                                     rounded-2xl outline-none transition-all
-                                    focus:border-gold-primary/50 focus:bg-black/40 focus:shadow-[0_0_15px_-3px_rgba(212,175,55,0.15)]
-                                    text-white placeholder-gray-600
+                                    focus:border-gold-primary focus:bg-white/10 focus:shadow-[0_0_20px_rgba(212,175,55,0.1)]
+                                    text-lg text-white placeholder-gray-500 font-medium
                                     ${errors.name ? 'border-red-500/50' : ''}
                                 `}
                             />
@@ -144,11 +163,11 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                 value={data.email}
                                 onChange={(e) => updateData({ email: e.target.value })}
                                 className={`
-                                    w-full pl-12 pr-4 py-4 bg-black/20 
+                                    w-full pl-12 pr-4 py-5 bg-white/5 
                                     border border-white/10 
                                     rounded-2xl outline-none transition-all
-                                    focus:border-gold-primary/50 focus:bg-black/40
-                                    text-white placeholder-gray-600
+                                    focus:border-gold-primary focus:bg-white/10 focus:shadow-[0_0_20px_rgba(212,175,55,0.1)]
+                                    text-lg text-white placeholder-gray-500 font-medium
                                     ${errors.email ? 'border-red-500/50' : ''}
                                 `}
                             />
@@ -167,11 +186,11 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                 value={data.phone}
                                 onChange={(e) => updateData({ phone: e.target.value })}
                                 className={`
-                                    w-full pl-12 pr-4 py-4 bg-black/20 
+                                    w-full pl-12 pr-4 py-5 bg-white/5 
                                     border border-white/10 
                                     rounded-2xl outline-none transition-all
-                                    focus:border-gold-primary/50 focus:bg-black/40
-                                    text-white placeholder-gray-600
+                                    focus:border-gold-primary focus:bg-white/10 focus:shadow-[0_0_20px_rgba(212,175,55,0.1)]
+                                    text-lg text-white placeholder-gray-500 font-medium
                                     ${errors.phone ? 'border-red-500/50' : ''}
                                 `}
                             />
@@ -188,7 +207,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                 placeholder="I need 2 child seats, flight SV123 arriving T1..."
                                 value={data.notes}
                                 onChange={(e) => updateData({ notes: e.target.value })}
-                                className="w-full pl-12 pr-4 py-4 bg-black/20 border border-white/10 rounded-2xl outline-none transition-all focus:border-gold-primary/50 focus:bg-black/40 text-white placeholder-gray-600 min-h-[120px]"
+                                className="w-full pl-12 pr-4 py-5 bg-white/5 border border-white/10 rounded-2xl outline-none transition-all focus:border-gold-primary focus:bg-white/10 text-lg text-white placeholder-gray-500 font-medium min-h-[140px]"
                             />
                         </div>
                     </div>
@@ -263,8 +282,8 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
 
                     <div className="p-4 bg-gold-primary/10 rounded-2xl border border-gold-primary/20 flex items-start gap-3">
                         <ShieldCheck className="text-gold-primary shrink-0 mt-0.5" size={18} />
-                        <p className="text-xs text-gray-400 font-medium leading-relaxed">
-                            <span className="text-white font-bold">Secure Booking:</span> No immediate payment required. Proceed with confidence.
+                        <p className="text-sm text-gray-300 font-medium leading-relaxed">
+                            <span className="text-gold-primary font-bold">No Payment Required Now:</span> Pay the driver directly upon arrival.
                         </p>
                     </div>
                 </div>
@@ -274,14 +293,14 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                 <button
                     onClick={handleSubmit}
                     disabled={isSubmitting}
-                    className="w-full py-5 bg-gradient-to-r from-gold-primary to-gold-dark text-black font-bold uppercase tracking-widest rounded-2xl shadow-xl hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all flex items-center justify-center gap-3 group disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-6 text-xl bg-gradient-to-r from-gold-primary via-[#F3D383] to-gold-primary text-black font-black uppercase tracking-widest rounded-2xl shadow-[0_0_30px_-5px_rgba(212,175,55,0.5)] hover:shadow-[0_0_50px_rgba(212,175,55,0.6)] hover:scale-[1.01] transition-all flex items-center justify-center gap-4 group disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                     {isSubmitting ? (
-                        <Loader2 className="animate-spin" size={24} />
+                        <Loader2 className="animate-spin" size={28} />
                     ) : (
                         <>
-                            Confirm Reservation
-                            <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                            Confirm Booking
+                            <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
                         </>
                     )}
                 </button>

@@ -12,10 +12,10 @@ export default function StatusDistributionChart({ data }: StatusDistributionChar
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="bg-white dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm shadow-slate-200/50 dark:shadow-xl"
+            className="bg-primary-black/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-lg shadow-black/50"
         >
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
-                <Activity size={18} className="text-purple-500" />
+            <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+                <Activity size={18} className="text-purple-400" />
                 Booking Status
             </h3>
             <div className="h-[250px]">
@@ -35,12 +35,12 @@ export default function StatusDistributionChart({ data }: StatusDistributionChar
                         </Pie>
                         <Tooltip
                             contentStyle={{
-                                backgroundColor: 'rgba(255, 255, 255, 0.95)',
-                                borderColor: '#e2e8f0',
+                                backgroundColor: '#111',
+                                borderColor: '#333',
                                 borderRadius: '8px',
-                                color: '#0f172a'
+                                color: '#f8fafc'
                             }}
-                            itemStyle={{ color: '#0f172a' }}
+                            itemStyle={{ color: '#f8fafc' }}
                         />
                         <Legend verticalAlign="bottom" height={36} iconType="circle" wrapperStyle={{ fontSize: '12px', paddingTop: '20px' }} />
                     </PieChart>

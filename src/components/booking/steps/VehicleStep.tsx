@@ -111,11 +111,11 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                             </div>
                                         </div>
 
-                                        <div className="mt-4 flex items-end justify-between">
+                                        <div className="mt-4 flex flex-wrap items-end justify-between gap-4">
                                             {pricing ? (
-                                                <div>
+                                                <div className="flex-1">
                                                     <div className="flex items-baseline gap-1">
-                                                        <span className="text-3xl font-black text-white tracking-tight">
+                                                        <span className="text-4xl font-black text-white tracking-tight">
                                                             {pricing.price}
                                                         </span>
                                                         <span className="text-sm font-bold text-gold-primary">SAR</span>
@@ -127,10 +127,27 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                                     )}
                                                 </div>
                                             ) : (
-                                                <span className="text-xs font-bold text-gold-primary bg-gold-primary/10 px-4 py-2 rounded-full uppercase tracking-widest border border-gold-primary/20">
-                                                    Get Quote
-                                                </span>
+                                                <div className="flex-1">
+                                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">
+                                                        Fixed Price
+                                                    </span>
+                                                </div>
                                             )}
+
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    handleSelect(vehicle.id);
+                                                }}
+                                                className={`
+                                                px-6 py-2 rounded-xl font-bold uppercase tracking-wider text-sm transition-all shadow-lg
+                                                ${isSelected
+                                                        ? 'bg-black text-[#D4AF37] border border-[#D4AF37]'
+                                                        : 'bg-[#D4AF37] text-black hover:bg-[#F3D383] hover:shadow-[#D4AF37]/20'}
+                                            `}
+                                            >
+                                                {isSelected ? 'Selected' : 'Select'}
+                                            </button>
                                         </div>
                                     </div>
                                 </div>

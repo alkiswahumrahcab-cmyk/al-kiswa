@@ -69,15 +69,15 @@ export default function CompanyStory() {
 
                                 {/* Content Card */}
                                 <div className="ml-16 md:ml-0 md:w-5/12">
-                                    <GlassCard delay={index * 0.2} className="p-8 relative hover:-translate-y-2 transition-transform duration-500 border-l-4 border-l-gold-primary bg-neutral-900/60 border-t-white/5 border-r-white/5 border-b-white/5">
+                                    <GlassCard delay={index * 0.2} className="p-8 relative hover:-translate-y-2 transition-transform duration-500 border-l-4 border-l-gold-primary glass-card-emerald !bg-emerald-950/10">
                                         <div className="flex items-center gap-4 mb-4">
-                                            <div className="bg-gold-primary/10 p-3 rounded-xl text-gold-primary border border-gold-primary/20">
+                                            <div className="bg-gold-primary/10 p-3 rounded-xl text-gold-primary border border-gold-primary/20 shadow-[0_0_15px_rgba(239,191,91,0.1)]">
                                                 <item.icon size={24} />
                                             </div>
-                                            <span className="text-4xl font-bold font-sans text-white">{item.year}</span>
+                                            <span className="text-4xl font-bold font-sans text-white tracking-tight">{item.year}</span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-white mb-3 font-sans">{item.title}</h3>
-                                        <p className="text-gray-400 leading-relaxed font-light">
+                                        <h3 className="text-xl font-bold text-white mb-3 font-sans tracking-wide">{item.title}</h3>
+                                        <p className="text-gray-400 leading-relaxed font-light text-base">
                                             {item.desc}
                                         </p>
                                     </GlassCard>

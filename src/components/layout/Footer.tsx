@@ -15,11 +15,19 @@ export default function Footer() {
     return (
         <footer className="bg-primary-black relative overflow-hidden pt-24 pb-12 text-white border-t border-white/5">
             {/* Background Pattern - Heritage */}
-            <div className="absolute inset-0 bg-heritage opacity-[0.03] pointer-events-none mix-blend-overlay" />
+            <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none">
+                <Image
+                    src="/pattern.png"
+                    alt="Pattern"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+            </div>
 
-            {/* Ambient Glows */}
-            <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gold-primary/5 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-gold-secondary/5 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
+            {/* Ambient Glows - Enhanced */}
+            <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-gold-primary/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-emerald-900/10 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-20">
@@ -53,7 +61,7 @@ export default function Footer() {
 
                     {/* Quick Link Groups */}
                     <div>
-                        <h3 className="text-xl font-bold font-sans text-white mb-8 relative inline-flex items-center gap-3">
+                        <h3 className="text-xl font-bold font-sans text-transparent bg-clip-text bg-gradient-to-r from-gold-primary to-gold-light mb-8 relative inline-flex items-center gap-3">
                             <span className="w-8 h-[1px] bg-gold-primary/50"></span>
                             Company
                         </h3>
@@ -67,7 +75,7 @@ export default function Footer() {
                     </div>
 
                     <div>
-                        <h3 className="text-xl font-bold font-sans text-white mb-8 relative inline-flex items-center gap-3">
+                        <h3 className="text-xl font-bold font-sans text-transparent bg-clip-text bg-gradient-to-r from-gold-primary to-gold-light mb-8 relative inline-flex items-center gap-3">
                             <span className="w-8 h-[1px] bg-gold-primary/50"></span>
                             Services
                         </h3>
@@ -82,7 +90,7 @@ export default function Footer() {
 
                     {/* Contact & Newsletter */}
                     <div className="space-y-8">
-                        <h3 className="text-xl font-bold font-sans text-white mb-8 relative inline-flex items-center gap-3">
+                        <h3 className="text-xl font-bold font-sans text-transparent bg-clip-text bg-gradient-to-r from-gold-primary to-gold-light mb-8 relative inline-flex items-center gap-3">
                             <span className="w-8 h-[1px] bg-gold-primary/50"></span>
                             Get in Touch
                         </h3>
@@ -120,7 +128,7 @@ export default function Footer() {
                                 <input
                                     type="email"
                                     placeholder="Your email address"
-                                    className="w-full px-5 py-3 rounded-xl bg-white/5 border border-white/10 focus:outline-none focus:border-gold-primary/50 focus:bg-white/10 text-sm text-white placeholder-white/30 transition-all"
+                                    className="w-full px-5 py-3 rounded-xl bg-white/5 border border-white/10 focus:outline-none focus:border-gold-primary/50 focus:bg-white/10 text-sm text-white placeholder-gray-500 transition-all shadow-inner"
                                 />
                                 <button type="submit" className="absolute right-1.5 top-1.5 w-10 h-10 rounded-lg bg-gold-primary text-black flex items-center justify-center hover:bg-white hover:scale-105 transition-all duration-300 shadow-lg">
                                     <Send size={16} />

@@ -92,10 +92,10 @@ export default function ArticleGrid({
                     return (
                         <FadeIn key={linkSlug} delay={index * 0.05}>
                             <Link href={`/blog/${linkSlug}`} className="group h-full block">
-                                <article className="h-full flex flex-col bg-black/40 rounded-3xl overflow-hidden border border-white/10 hover:border-gold-primary/30 shadow-sm hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] transition-all duration-500 hover:-translate-y-2 relative isolate backdrop-blur-sm">
+                                <article className="h-full flex flex-col glass-card-emerald hover:-translate-y-2 relative isolate group-hover:shadow-[0_0_40px_rgba(212,175,55,0.15)]">
 
                                     {/* Image */}
-                                    <div className="relative h-64 overflow-hidden">
+                                    <div className="relative h-64 overflow-hidden border-b border-white/5">
                                         <Image
                                             src={article.image}
                                             alt={article.alt}
@@ -103,19 +103,20 @@ export default function ArticleGrid({
                                             className="object-cover transition-transform duration-700 group-hover:scale-110"
                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
 
                                         {/* Category Badge */}
                                         <div className="absolute top-4 left-4">
-                                            <span className="px-3 py-1 bg-black/60 backdrop-blur-md text-xs font-bold uppercase tracking-wider text-gold-primary rounded-full border border-white/10">
+                                            <span className="px-3 py-1 bg-black/60 backdrop-blur-md text-xs font-bold uppercase tracking-wider text-gold-primary rounded-full border border-white/10 shadow-lg">
                                                 {article.category}
                                             </span>
                                         </div>
                                     </div>
 
                                     {/* Content */}
-                                    <div className="p-6 flex flex-col flex-1">
-                                        <div className="flex items-center gap-4 text-xs font-medium text-gray-400 mb-4">
+                                    <div className="p-6 md:p-8 flex flex-col flex-1 relative">
+                                        {/* Date & Read Time */}
+                                        <div className="flex items-center gap-4 text-white/60 mb-4 tracking-wide">
                                             <span className="flex items-center gap-1.5">
                                                 <CalendarDays size={14} className="text-gold-primary" />
                                                 {// Handle both Date object and string date
@@ -125,14 +126,14 @@ export default function ArticleGrid({
                                                         year: 'numeric'
                                                     })}
                                             </span>
-                                            <span className="w-1 h-1 rounded-full bg-white/20" />
+                                            <span className="w-1 h-1 rounded-full bg-gold-primary/50" />
                                             <span className="flex items-center gap-1.5">
                                                 <Clock size={14} className="text-gold-primary" />
                                                 {article.readTime}
                                             </span>
                                         </div>
 
-                                        <h3 className="text-xl font-bold font-sans text-white mb-3 line-clamp-2 leading-tight group-hover:text-gold-primary transition-colors">
+                                        <h3 className="text-2xl font-bold font-serif text-white mb-3 line-clamp-2 leading-tight group-hover:text-gold-primary transition-colors duration-300">
                                             {article.title}
                                         </h3>
 
@@ -140,14 +141,11 @@ export default function ArticleGrid({
                                             {article.excerpt}
                                         </p>
 
-                                        <div className="flex items-center gap-2 text-sm font-bold text-gold-primary uppercase tracking-wide group/btn">
+                                        <div className="flex items-center gap-2 text-sm font-bold text-gold-primary uppercase tracking-widest group/btn pt-4 border-t border-white/5">
                                             Read Article
                                             <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
                                         </div>
                                     </div>
-
-                                    {/* Golden Glow Border Effect on Hover */}
-                                    <div className="absolute inset-0 border-2 border-gold-primary/0 group-hover:border-gold-primary/10 rounded-3xl transition-all duration-500 pointer-events-none" />
                                 </article>
                             </Link>
                         </FadeIn>

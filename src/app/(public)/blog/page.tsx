@@ -1,6 +1,7 @@
 import React from 'react';
 import HadithCarousel from '@/components/blog/HadithCarousel';
 import Hero from '@/components/common/Hero';
+import BlogHero from '@/components/blog/BlogHero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import FeaturedPost from '@/components/blog/FeaturedPost';
 import BlogFeed from '@/components/blog/BlogFeed';
@@ -55,12 +56,12 @@ export default async function BlogPage() {
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <div className="relative z-10">
-                <Hero
-                    title="Pilgrim Resources & Insights"
-                    subtitle="Expert guides, travel tips, and answers to your questions for a blessed and hassle-free Umrah journey."
-                    bgImage="/images/blog-hero-professional.png"
-                    breadcrumbs={<Breadcrumbs />}
-                />
+                <BlogHero />
+
+                {/* Breadcrumbs - Positioned below Hero */}
+                <div className="container px-4 py-8">
+                    <Breadcrumbs />
+                </div>
 
                 {/* Articles Section */}
                 <div className="bg-transparent pb-20 pt-20 min-h-[600px]">

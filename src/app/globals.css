@@ -104,6 +104,14 @@
     @apply shadow-xl border-gold-primary/30 transform -translate-y-1;
   }
 
+  .glass-card-emerald {
+    @apply bg-emerald-950/20 border border-white/10 rounded-xl shadow-lg backdrop-blur-md transition-all duration-300 relative overflow-hidden;
+  }
+
+  .glass-card-emerald:hover {
+    @apply bg-emerald-950/30 border-gold-primary/20 shadow-gold-primary/10 transform -translate-y-1;
+  }
+
   /* === BUTTONS === */
   .btn-primary {
     @apply bg-slate-900 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 shadow-lg shadow-slate-900/20 hover:bg-black hover:shadow-slate-900/40 relative overflow-hidden;

@@ -87,47 +87,50 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
 
             {/* Locations */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-2">
-                    <label className="text-xs font-bold text-gold-primary uppercase tracking-widest ml-1">Pickup Location</label>
-                    <div className="bg-black/20 p-1 rounded-2xl border border-white/10 focus-within:border-gold-primary/50 transition-colors">
+                <div className="space-y-3">
+                    <label className="text-sm font-bold text-gold-primary uppercase tracking-widest ml-1 flex items-center gap-2">
+                        <MapPin size={16} /> Pickup Location
+                    </label>
+                    <div className="bg-white/5 p-1 rounded-2xl border border-white/10 focus-within:border-gold-primary focus-within:bg-black/40 focus-within:shadow-[0_0_20px_rgba(212,175,55,0.2)] transition-all duration-300">
                         <MapAutocomplete
                             label=""
-                            placeholder="Hotel, Airport, or Landmark..."
+                            placeholder="e.g. Jeddah Airport, Makkah Hotel..."
                             value={data.pickup}
                             onChange={(val) => updateData({ pickup: val })}
                             error={errors.pickup}
-                            inputClassName="w-full pl-12 pr-10 py-4 bg-transparent border-none outline-none text-white placeholder-gray-500 focus:ring-0"
+                            inputClassName="w-full pl-6 pr-6 py-5 bg-transparent border-none outline-none text-white text-lg placeholder-gray-400 focus:ring-0"
                             className=""
                         />
                     </div>
-                    {errors.pickup && <span className="text-xs text-red-500 font-medium ml-1">{errors.pickup}</span>}
+                    {errors.pickup && <span className="text-sm text-red-500 font-bold ml-2 bg-red-500/10 px-2 py-1 rounded-lg">{errors.pickup}</span>}
                 </div>
 
-                <div className="space-y-2">
-                    <label className="text-xs font-bold text-gold-primary uppercase tracking-widest ml-1">Dropoff Destination</label>
-                    <div className="bg-black/20 p-1 rounded-2xl border border-white/10 focus-within:border-gold-primary/50 transition-colors">
+                <div className="space-y-3">
+                    <label className="text-sm font-bold text-gold-primary uppercase tracking-widest ml-1 flex items-center gap-2">
+                        <Navigation size={16} /> Dropoff Destination
+                    </label>
+                    <div className="bg-white/5 p-1 rounded-2xl border border-white/10 focus-within:border-gold-primary focus-within:bg-black/40 focus-within:shadow-[0_0_20px_rgba(212,175,55,0.2)] transition-all duration-300">
                         <MapAutocomplete
                             label=""
-                            placeholder="Where are you heading?"
+                            placeholder="e.g. Kaaba, Clock Tower..."
                             value={data.dropoff}
                             onChange={(val) => updateData({ dropoff: val })}
                             error={errors.dropoff}
-                            inputClassName="w-full pl-12 pr-10 py-4 bg-transparent border-none outline-none text-white placeholder-gray-500 focus:ring-0"
+                            inputClassName="w-full pl-6 pr-6 py-5 bg-transparent border-none outline-none text-white text-lg placeholder-gray-400 focus:ring-0"
                             className=""
                         />
                     </div>
-                    {errors.dropoff && <span className="text-xs text-red-500 font-medium ml-1">{errors.dropoff}</span>}
+                    {errors.dropoff && <span className="text-sm text-red-500 font-bold ml-2 bg-red-500/10 px-2 py-1 rounded-lg">{errors.dropoff}</span>}
                 </div>
             </div>
 
             {/* Schedule */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-6 border-t border-white/5">
-                <div className="flex flex-col gap-2">
-                    <label className="text-xs font-bold text-gold-primary uppercase tracking-widest ml-1">Travel Date</label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8 border-t border-white/10">
+                <div className="flex flex-col gap-3">
+                    <label className="text-sm font-bold text-gold-primary uppercase tracking-widest ml-1 flex items-center gap-2">
+                        <Calendar size={16} /> Travel Date
+                    </label>
                     <div className="relative group">
-                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gold-primary transition-colors z-10">
-                            <Calendar size={20} />
-                        </div>
                         <input
                             type="date"
                             value={data.date ? data.date.toISOString().split('T')[0] : ''}
@@ -141,25 +144,24 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                             }}
                             min={new Date().toISOString().split('T')[0]}
                             className={`
-                                w-full pl-12 pr-4 py-4 bg-black/20 
+                                w-full px-6 py-5 bg-white/5 
                                 border border-white/10 
-                                rounded-2xl outline-none transition-all
-                                focus:border-gold-primary/50 focus:bg-black/40 focus:shadow-[0_0_15px_-3px_rgba(212,175,55,0.15)]
-                                text-white placeholder-gray-600
+                                rounded-2xl outline-none transition-all duration-300
+                                focus:border-gold-primary focus:bg-black/40 focus:shadow-[0_0_20px_rgba(212,175,55,0.2)]
+                                text-white text-lg placeholder-gray-500
                                 ${errors.date ? 'border-red-500/50' : ''}
                                 [color-scheme:dark]
                             `}
                         />
                     </div>
-                    {errors.date && <span className="text-xs text-red-500 font-medium ml-1">{errors.date}</span>}
+                    {errors.date && <span className="text-sm text-red-500 font-bold ml-2 bg-red-500/10 px-2 py-1 rounded-lg">{errors.date}</span>}
                 </div>
 
-                <div className="flex flex-col gap-2">
-                    <label className="text-xs font-bold text-gold-primary uppercase tracking-widest ml-1">Pickup Time</label>
+                <div className="flex flex-col gap-3">
+                    <label className="text-sm font-bold text-gold-primary uppercase tracking-widest ml-1 flex items-center gap-2">
+                        <Clock size={16} /> Pickup Time
+                    </label>
                     <div className="relative group">
-                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gold-primary transition-colors z-10">
-                            <Clock size={20} />
-                        </div>
                         <input
                             type="time"
                             value={data.time ? data.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) : ''}
@@ -175,17 +177,17 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                                 updateData({ time: newTime });
                             }}
                             className={`
-                                w-full pl-12 pr-4 py-4 bg-black/20 
+                                w-full px-6 py-5 bg-white/5 
                                 border border-white/10 
-                                rounded-2xl outline-none transition-all
-                                focus:border-gold-primary/50 focus:bg-black/40 focus:shadow-[0_0_15px_-3px_rgba(212,175,55,0.15)]
-                                text-white placeholder-gray-600
+                                rounded-2xl outline-none transition-all duration-300
+                                focus:border-gold-primary focus:bg-black/40 focus:shadow-[0_0_20px_rgba(212,175,55,0.2)]
+                                text-white text-lg placeholder-gray-500
                                 ${errors.time ? 'border-red-500/50' : ''}
                                 [color-scheme:dark]
                             `}
                         />
                     </div>
-                    {errors.time && <span className="text-xs text-red-500 font-medium ml-1">{errors.time}</span>}
+                    {errors.time && <span className="text-sm text-red-500 font-bold ml-2 bg-red-500/10 px-2 py-1 rounded-lg">{errors.time}</span>}
                 </div>
             </div>
 

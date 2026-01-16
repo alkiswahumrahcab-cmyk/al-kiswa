@@ -104,7 +104,14 @@ const Hero: React.FC<HeroProps> = ({
                     animate="visible"
                 >
                     {/* Badge */}
-                    <motion.div variants={itemVariants} className="flex justify-center lg:justify-start">
+                    <motion.div variants={itemVariants} className="flex flex-col justify-center lg:justify-start items-center lg:items-start gap-4 w-full">
+                        {/* Bismillah Calligraphy - Text Version */}
+                        <div className="mb-2 w-full text-center">
+                            <h2 className="text-3xl md:text-4xl font-arabic text-white/90 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] leading-relaxed" dir="rtl">
+                                بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+                            </h2>
+                        </div>
+
                         {badge ? (
                             typeof badge === 'string' ? (
                                 <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-primary/10 border border-gold-primary/30 text-gold-primary text-xs font-bold tracking-widest uppercase shadow-lg shadow-gold-primary/5">
@@ -113,7 +120,7 @@ const Hero: React.FC<HeroProps> = ({
                                 </span>
                             ) : badge
                         ) : (
-                            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-xs font-bold tracking-widest uppercase">
+                            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-xs font-bold tracking-widest uppercase backdrop-blur-sm">
                                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                                 Official Licensed Transport
                             </span>
@@ -122,9 +129,9 @@ const Hero: React.FC<HeroProps> = ({
 
                     {/* Title */}
                     <motion.div variants={itemVariants}>
-                        <h1 className="font-sans font-bold text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight">
+                        <h1 className="font-sans font-bold text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight drop-shadow-2xl">
                             {title.split(' ').map((word, i) => (
-                                <span key={i} className={i === 1 || word.includes('VIP') ? 'text-gold-metallic' : ''}>
+                                <span key={i} className={i === 1 || word.includes('VIP') ? 'text-gold-metallic drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]' : ''}>
                                     {word}{' '}
                                 </span>
                             ))}
@@ -132,7 +139,7 @@ const Hero: React.FC<HeroProps> = ({
                     </motion.div>
 
                     {/* Subtitle */}
-                    <motion.div variants={itemVariants} className="text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    <motion.div variants={itemVariants} className="text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-xl mx-auto lg:mx-0 border-l-2 border-gold-primary/30 pl-6">
                         {subtitle}
                     </motion.div>
 
@@ -143,7 +150,7 @@ const Hero: React.FC<HeroProps> = ({
                                 href={ctaLink}
                                 variant="primary"
                                 size="lg"
-                                className="bg-gold-primary hover:bg-gold-dark text-black border-none font-bold shadow-[0_0_20px_rgba(239,191,91,0.3)] hover:shadow-[0_0_30px_rgba(239,191,91,0.5)]"
+                                className="bg-gradient-to-r from-gold-primary to-gold-dark text-black border-none font-bold shadow-[0_0_20px_rgba(239,191,91,0.3)] hover:shadow-[0_0_40px_rgba(239,191,91,0.5)] hover:scale-105 transition-all duration-300"
                                 onClick={() => trackConversion('other', 'hero_cta_booking_start')}
                             >
                                 {ctaText}
@@ -155,7 +162,7 @@ const Hero: React.FC<HeroProps> = ({
                                 href={secondaryCtaLink}
                                 variant="outline"
                                 size="lg"
-                                className="border-white/20 text-white hover:bg-white/10 hover:border-gold-primary/50"
+                                className="border-white/20 text-white hover:bg-white/10 hover:border-gold-primary/50 backdrop-blur-sm"
                             >
                                 {secondaryCtaText}
                             </GlassButton>
@@ -164,14 +171,14 @@ const Hero: React.FC<HeroProps> = ({
 
                     {/* Trust Indicators */}
                     {stats && (
-                        <motion.div variants={itemVariants} className="mt-12 pt-8 border-t border-white/10 grid grid-cols-3 gap-8 w-full max-w-2xl">
+                        <motion.div variants={itemVariants} className="mt-12 pt-8 border-t border-white/10 grid grid-cols-3 gap-8 w-full max-w-2xl bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/5">
                             {stats.map((stat, i) => (
-                                <div key={i} className="flex flex-col gap-1">
+                                <div key={i} className="flex flex-col gap-1 items-center lg:items-start text-center lg:text-left">
                                     <div className="flex items-center gap-2 text-gold-primary mb-1">
                                         {stat.icon || <CheckCircle size={16} />}
                                         <span className="font-bold text-2xl text-white">{stat.value}</span>
                                     </div>
-                                    <span className="text-xs text-gray-400 uppercase tracking-wider">{stat.label}</span>
+                                    <span className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider">{stat.label}</span>
                                 </div>
                             ))}
                         </motion.div>
@@ -187,15 +194,20 @@ const Hero: React.FC<HeroProps> = ({
                         transition={{ duration: 0.8, delay: 0.5 }}
                     >
                         <div className="relative">
-                            <div className="absolute -inset-4 bg-gradient-to-r from-gold-primary/20 to-primary-black/20 blur-2xl opacity-50 rounded-3xl" />
-                            {children}
+                            {/* Enhanced Glow Effect */}
+                            <div className="absolute -inset-1 bg-gradient-to-b from-gold-primary/30 to-transparent blur-3xl opacity-40 rounded-[2.5rem] animate-pulse" />
+                            <div className="absolute inset-0 bg-black/40 backdrop-blur-xl rounded-[2rem] border border-white/10 shadow-2xl" />
+
+                            <div className="relative z-10">
+                                {children}
+                            </div>
                         </div>
                     </motion.div>
                 )}
             </div>
 
             {/* Bottom Gradient Fade */}
-            <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-primary-black to-transparent pointer-events-none z-[1]" />
+            <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-primary-black via-primary-black/80 to-transparent pointer-events-none z-[1]" />
         </section >
     );
 };

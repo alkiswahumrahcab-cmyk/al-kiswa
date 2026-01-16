@@ -1122,7 +1122,7 @@ export const staticBlogPosts = [
         category: 'Safety',
         date: new Date('2025-12-27'),
         readTime: '6 min read',
-        image: '/images/blog/sisters-safety-guide.jpg',
+        image: '/images/blog/sisters-safety-guide.png',
         alt: 'Sister traveling safely in Makkah',
         author: 'Sister Ayesha',
         tags: ['Women Travel', 'Safety', 'Umrah Guide', 'Solo Female'],

@@ -66,11 +66,12 @@ const config: Config = {
                 "gold-metallic": "hsl(var(--gold-metallic))",  // #D4AF37
 
                 // Legacy Mapping (keeping to prevent crashes, but redirected to new theme)
-                emerald: "hsl(var(--primary-black))",
-                mint: "hsl(var(--soft-mint))",
-                gold: "hsl(var(--gold-primary))",
-                slate: "hsl(var(--primary-black))",
-                warm: "hsl(var(--charcoal))",
+                // Removed to prevent overriding standard tailwind palettes
+                // emerald: "hsl(var(--primary-black))",
+                // mint: "hsl(var(--soft-mint))",
+                // gold: "hsl(var(--gold-primary))",
+                // slate: "hsl(var(--primary-black))",
+                // warm: "hsl(var(--charcoal))",
             },
             borderRadius: {
                 lg: "var(--radius)",
