@@ -1624,7 +1624,7 @@ export const staticBlogPosts = [
         category: 'Guide',
         date: new Date('2025-12-28'),
         readTime: '10 min read',
-        image: '/images/fleet/intercity-hero.png', // Fallback to an existing fleet image
+        image: '/images/blog/comprehensive-transport-guide.png',
         alt: 'Luxury GMC Yukon transport in Saudi Arabia',
         author: 'Senior Transport Consultant',
         tags: ['Guides', 'Reviews', 'Makkah', 'Madinah', 'Transport Options'],
