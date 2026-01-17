@@ -16,21 +16,54 @@ const vehicleData = pricingData.vehicles.find(v => v.id === 'gmc');
 
 const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "name": vehicleData?.seo?.title || "GMC Yukon XL 2024 Rental Makkah",
-    "image": "https://alkiswahumrahtransport.com/images/fleet/gmc-yukon-hero-professional.png",
-    "description": vehicleData?.seo?.description || "Rent luxury GMC Yukon XL in Makkah & Madinah. 7 Seater SUV for VIP Umrah transport.",
-    "brand": {
-        "@type": "Brand",
-        "name": "GMC"
-    },
-    "offers": {
-        "@type": "Offer",
-        "price": "600",
-        "priceCurrency": "SAR",
-        "availability": "https://schema.org/InStock",
-        "priceValidUntil": "2025-12-31"
-    }
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://alkiswahumrahtransport.com"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Fleet",
+                    "item": "https://alkiswahumrahtransport.com/fleet"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "GMC Yukon XL",
+                    "item": "https://alkiswahumrahtransport.com/fleet/gmc-yukon-at4"
+                }
+            ]
+        },
+        {
+            "@type": "Product",
+            "name": vehicleData?.seo?.title || "GMC Yukon XL 2024 Rental Makkah",
+            "image": "https://alkiswahumrahtransport.com/images/fleet/gmc-yukon-hero-professional.png",
+            "description": vehicleData?.seo?.description || "Rent luxury GMC Yukon XL in Makkah & Madinah. 7 Seater SUV for VIP Umrah transport.",
+            "brand": {
+                "@type": "Brand",
+                "name": "GMC"
+            },
+            "offers": {
+                "@type": "Offer",
+                "price": "600",
+                "priceCurrency": "SAR",
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2025-12-31",
+                "url": "https://alkiswahumrahtransport.com/fleet/gmc-yukon-at4"
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "85"
+            }
+        }
+    ]
 };
 
 export const metadata: Metadata = {

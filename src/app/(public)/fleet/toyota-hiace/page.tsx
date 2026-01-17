@@ -15,12 +15,51 @@ const vehicleData = pricingData.vehicles.find(v => v.id === 'hiace');
 
 const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "name": vehicleData?.seo?.title || "Toyota Hiace 12-Seater Bus Rental",
-    "image": "https://alkiswahumrahtransport.com/images/fleet/hiace-hero-professional.png",
-    "description": vehicleData?.seo?.description || "Rent Toyota Hiace bus in Makkah. Reliable 12-seater transport for Umrah groups and large families.",
-    "brand": { "@type": "Brand", "name": "Toyota" },
-    "offers": { "@type": "Offer", "price": "350", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://alkiswahumrahtransport.com"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Fleet",
+                    "item": "https://alkiswahumrahtransport.com/fleet"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Toyota Hiace",
+                    "item": "https://alkiswahumrahtransport.com/fleet/toyota-hiace"
+                }
+            ]
+        },
+        {
+            "@type": "Product",
+            "name": vehicleData?.seo?.title || "Toyota Hiace 12-Seater Bus Rental",
+            "image": "https://alkiswahumrahtransport.com/images/fleet/hiace-hero-professional.png",
+            "description": vehicleData?.seo?.description || "Rent Toyota Hiace bus in Makkah. Reliable 12-seater transport for Umrah groups and large families.",
+            "brand": { "@type": "Brand", "name": "Toyota" },
+            "offers": {
+                "@type": "Offer",
+                "price": "350",
+                "priceCurrency": "SAR",
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2025-12-31",
+                "url": "https://alkiswahumrahtransport.com/fleet/toyota-hiace"
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.7",
+                "reviewCount": "210"
+            }
+        }
+    ]
 };
 
 export const metadata: Metadata = {

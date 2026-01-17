@@ -40,37 +40,58 @@ export async function generateMetadata() {
 
 const fleetJsonLd = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    "itemListElement": [
+    "@graph": [
         {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "GMC Yukon XL",
-            "url": "https://alkiswahumrahtransport.com/fleet/gmc-yukon-at4"
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://alkiswahumrahtransport.com"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Fleet",
+                    "item": "https://alkiswahumrahtransport.com/fleet"
+                }
+            ]
         },
         {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Toyota Hiace",
-            "url": "https://alkiswahumrahtransport.com/fleet/toyota-hiace"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Hyundai Staria",
-            "url": "https://alkiswahumrahtransport.com/fleet/hyundai-staria"
-        },
-        {
-            "@type": "ListItem",
-            "position": 4,
-            "name": "Toyota Coaster",
-            "url": "https://alkiswahumrahtransport.com/fleet/toyota-coaster"
-        },
-        {
-            "@type": "ListItem",
-            "position": 5,
-            "name": "Toyota Camry",
-            "url": "https://alkiswahumrahtransport.com/fleet/toyota-camry"
+            "@type": "ItemList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "GMC Yukon XL",
+                    "url": "https://alkiswahumrahtransport.com/fleet/gmc-yukon-at4"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Toyota Hiace",
+                    "url": "https://alkiswahumrahtransport.com/fleet/toyota-hiace"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Hyundai Staria",
+                    "url": "https://alkiswahumrahtransport.com/fleet/hyundai-staria"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "Toyota Coaster",
+                    "url": "https://alkiswahumrahtransport.com/fleet/toyota-coaster"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 5,
+                    "name": "Toyota Camry",
+                    "url": "https://alkiswahumrahtransport.com/fleet/toyota-camry"
+                }
+            ]
         }
     ]
 };

@@ -12,12 +12,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/about',
         '/services',
         '/fleet',
-        '/fleet/gmc-yukon-at4',
-        '/fleet/toyota-camry',
-        '/fleet/hyundai-starex',
-        '/fleet/hyundai-staria',
-        '/fleet/toyota-hiace',
-        '/fleet/toyota-coaster',
         '/blog',
         '/contact',
         '/booking',
@@ -38,11 +32,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: route === '/' ? 1 : 0.8,
     }));
 
-    // Dynamic Route Pages from Pricing Data
+    // Dynamic Route Pages from Pricing Data (Routes)
     const transportRoutes = pricingData.routes
         .filter(r => r.slug)
         .map((route) => ({
             url: `${baseUrl}/routes/${route.slug}`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly' as const,
+            priority: 0.9,
+        }));
+
+    // Dynamic Fleet Vehicle Pages
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const vehicleRoutes = (pricingData.vehicles as any[])
+        .filter(v => v.slug)
+        .map((vehicle) => ({
+            url: `${baseUrl}/fleet/${vehicle.slug}`,
             lastModified: new Date(),
             changeFrequency: 'weekly' as const,
             priority: 0.9,
@@ -63,5 +68,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         // Continue without blog routes to ensure build succeeds
     }
 
-    return [...routes, ...transportRoutes, ...blogRoutes];
+    return [...routes, ...transportRoutes, ...vehicleRoutes, ...blogRoutes];
 }

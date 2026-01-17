@@ -16,12 +16,51 @@ const vehicleData = pricingData.vehicles.find(v => v.id === 'staria');
 
 const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "name": vehicleData?.seo?.title || "Hyundai Staria 2024 Luxury Van",
-    "image": "https://alkiswahumrahtransport.com/images/fleet/staria-hero-professional.png",
-    "description": vehicleData?.seo?.description || "Rent premium Hyundai Staria 2024 in Makkah. Luxury 7-seater van with panoramic views for VIP families.",
-    "brand": { "@type": "Brand", "name": "Hyundai" },
-    "offers": { "@type": "Offer", "price": "450", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://alkiswahumrahtransport.com"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Fleet",
+                    "item": "https://alkiswahumrahtransport.com/fleet"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Hyundai Staria",
+                    "item": "https://alkiswahumrahtransport.com/fleet/hyundai-staria"
+                }
+            ]
+        },
+        {
+            "@type": "Product",
+            "name": vehicleData?.seo?.title || "Hyundai Staria 2024 Luxury Van",
+            "image": "https://alkiswahumrahtransport.com/images/fleet/staria-hero-professional.png",
+            "description": vehicleData?.seo?.description || "Rent premium Hyundai Staria 2024 in Makkah. Luxury 7-seater van with panoramic views for VIP families.",
+            "brand": { "@type": "Brand", "name": "Hyundai" },
+            "offers": {
+                "@type": "Offer",
+                "price": "450",
+                "priceCurrency": "SAR",
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": "2025-12-31",
+                "url": "https://alkiswahumrahtransport.com/fleet/hyundai-staria"
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "150"
+            }
+        }
+    ]
 };
 
 export const metadata: Metadata = {

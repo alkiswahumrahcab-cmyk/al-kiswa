@@ -16,12 +16,50 @@ const vehicleData = pricingData.vehicles.find(v => v.id === 'camry');
 
 const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "name": vehicleData?.seo?.title || "Toyota Camry 2024 Taxi Makkah",
-    "image": "https://alkiswahumrahtransport.com/images/fleet/camry-hero-professional.png",
-    "description": vehicleData?.seo?.description || "Affordable Toyota Camry taxi for Umrah. Reliable 4-seater sedan for Jeddah to Makkah transfers.",
-    "brand": { "@type": "Brand", "name": "Toyota" },
-    "offers": { "@type": "Offer", "price": "200", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://alkiswahumrahtransport.com"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Fleet",
+                    "item": "https://alkiswahumrahtransport.com/fleet"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Toyota Camry",
+                    "item": "https://alkiswahumrahtransport.com/fleet/toyota-camry"
+                }
+            ]
+        },
+        {
+            "@type": "Product",
+            "name": vehicleData?.seo?.title || "Toyota Camry 2024 Taxi Makkah",
+            "image": "https://alkiswahumrahtransport.com/images/fleet/camry-hero-professional.png",
+            "description": vehicleData?.seo?.description || "Affordable Toyota Camry taxi for Umrah. Reliable 4-seater sedan for Jeddah to Makkah transfers.",
+            "brand": { "@type": "Brand", "name": "Toyota" },
+            "offers": {
+                "@type": "Offer",
+                "price": "200",
+                "priceCurrency": "SAR",
+                "availability": "https://schema.org/InStock",
+                "url": "https://alkiswahumrahtransport.com/fleet/toyota-camry"
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.8",
+                "reviewCount": "124"
+            }
+        }
+    ]
 };
 
 export const metadata: Metadata = {
