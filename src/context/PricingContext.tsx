@@ -52,7 +52,7 @@ const attachIcons = (vehiclesData: any[]): Vehicle[] => {
 
 export function PricingProvider({ children }: { children: React.ReactNode }) {
     const [routes, setRoutes] = useState<Route[]>(DEFAULT_ROUTES);
-    const [vehicles, setVehicles] = useState<Vehicle[]>(DEFAULT_VEHICLES);
+    const [vehicles, setVehicles] = useState<Vehicle[]>(() => attachIcons(DEFAULT_VEHICLES));
     const [isLoading, setIsLoading] = useState(true);
     const { settings } = useSettings();
 
