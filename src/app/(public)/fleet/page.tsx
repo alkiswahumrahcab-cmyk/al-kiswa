@@ -20,8 +20,60 @@ export async function generateMetadata() {
         alternates: {
             canonical: 'https://alkiswahumrahtransport.com/fleet',
         },
+        openGraph: {
+            title: "Premium Umrah Taxi Fleet 2025 | GMC, Toyota, Hyundai",
+            description: "Browse our luxury fleet for Umrah transport. From GMC Yukon XL for VIPs to Toyota Coaster for groups. Book reliable transport in Makkah & Madinah.",
+            url: 'https://alkiswahumrahtransport.com/fleet',
+            siteName: 'Al Kiswah Umrah Transport',
+            images: [
+                {
+                    url: '/images/fleet/fleet-group-hero.png',
+                    width: 1200,
+                    height: 630,
+                    alt: 'Al Kiswah Fleet Collection',
+                },
+            ],
+            type: 'website',
+        },
     };
 }
+
+const fleetJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "GMC Yukon XL",
+            "url": "https://alkiswahumrahtransport.com/fleet/gmc-yukon-at4"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Toyota Hiace",
+            "url": "https://alkiswahumrahtransport.com/fleet/toyota-hiace"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Hyundai Staria",
+            "url": "https://alkiswahumrahtransport.com/fleet/hyundai-staria"
+        },
+        {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Toyota Coaster",
+            "url": "https://alkiswahumrahtransport.com/fleet/toyota-coaster"
+        },
+        {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "Toyota Camry",
+            "url": "https://alkiswahumrahtransport.com/fleet/toyota-camry"
+        }
+    ]
+};
 
 export default async function FleetPage() {
     const section = await getSectionContent('fleet-hero');
@@ -33,6 +85,10 @@ export default async function FleetPage() {
 
     return (
         <main className="min-h-screen bg-primary-black relative text-white">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(fleetJsonLd) }}
+            />
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <div className="relative z-10">

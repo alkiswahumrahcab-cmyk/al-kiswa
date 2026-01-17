@@ -17,6 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/fleet/hyundai-starex',
         '/fleet/hyundai-staria',
         '/fleet/toyota-hiace',
+        '/fleet/toyota-coaster',
         '/blog',
         '/contact',
         '/booking',

@@ -48,6 +48,24 @@ export async function generateMetadata(): Promise<Metadata> {
     // Global Manifest (Optional, or handled by sub-layouts)
     // We remove the global manifest link to enforce sub-route manifests
     // manifest: '/manifest.json', 
+    openGraph: {
+      title: {
+        default: settings.seo.defaultTitle || "Umrah Transport Services Saudi Arabia",
+        template: `%s | ${siteName}`
+      },
+      description: settings.seo.defaultDescription || "Reliable Umrah taxi service in Makkah and Madinah.",
+      siteName: siteName,
+      locale: 'en_US',
+      type: 'website',
+      images: [
+        {
+          url: '/images/fleet/gmc-yukon-studio.png', // Default OG Image
+          width: 1200,
+          height: 630,
+          alt: siteName,
+        }
+      ],
+    },
     icons: {
       icon: [
         { url: '/favicon.png?v=2', sizes: '32x32' },

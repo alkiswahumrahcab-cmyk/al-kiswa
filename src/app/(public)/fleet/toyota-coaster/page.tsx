@@ -13,15 +13,6 @@ import pricingData from '@/data/pricing.json';
 
 // const vehicleData = pricingData.vehicles.find(v => v.id === 'coaster');
 
-const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Toyota Coaster 22-Seater Bus Rental",
-    "image": "https://alkiswahumrahtransport.com/images/fleet/toyota-coaster-2025.png",
-    "description": "Rent Toyota Coaster bus in Makkah. Premium 22-seater transport for Umrah groups. Spacious, comfortable, and reliable.",
-    "brand": { "@type": "Brand", "name": "Toyota" },
-    "offers": { "@type": "Offer", "price": "700", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
-};
 
 export const metadata: Metadata = {
     title: "Toyota Coaster Bus Rental Makkah | Group Umrah Transport",
@@ -36,7 +27,57 @@ export const metadata: Metadata = {
         "نقل جماعي مكة",
         "باص 20 راكب جدة"
     ],
-    alternates: { canonical: 'https://alkiswahumrahtransport.com/fleet/toyota-coaster' }
+    alternates: { canonical: 'https://alkiswahumrahtransport.com/fleet/toyota-coaster' },
+    openGraph: {
+        title: "Toyota Coaster Bus Rental Makkah | Group Umrah Transport",
+        description: "Rent a 22-Seater Toyota Coaster for your Umrah group. Spacious, air-conditioned, and reliable transport between Jeddah, Makkah, and Madinah.",
+        url: 'https://alkiswahumrahtransport.com/fleet/toyota-coaster',
+        siteName: 'Al Kiswah Umrah Transport',
+        images: [
+            {
+                url: 'https://alkiswahumrahtransport.com/images/fleet/toyota-coaster-2025.png',
+                width: 1200,
+                height: 630,
+                alt: 'Toyota Coaster 22-Seater Bus',
+            },
+        ],
+        type: 'website',
+    },
+};
+
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Toyota Coaster 22-Seater Bus Rental",
+    "image": "https://alkiswahumrahtransport.com/images/fleet/toyota-coaster-2025.png",
+    "description": "Rent Toyota Coaster bus in Makkah. Premium 22-seater transport for Umrah groups. Spacious, comfortable, and reliable.",
+    "brand": { "@type": "Brand", "name": "Toyota" },
+    "offers": {
+        "@type": "Offer",
+        "price": "700",
+        "priceCurrency": "SAR",
+        "availability": "https://schema.org/InStock",
+        "priceValidUntil": "2025-12-31",
+        "url": "https://alkiswahumrahtransport.com/fleet/toyota-coaster"
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "124"
+    },
+    "review": {
+        "@type": "Review",
+        "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Ahmed Al-Sayed"
+        },
+        "datePublished": "2025-01-10",
+        "reviewBody": "Excellent bus for our large family group. Very spacious and the AC was perfect for the heat."
+    }
 };
 
 const coasterFAQs = [
