@@ -11,8 +11,13 @@ export default function PWAInstallPrompt() {
     const [isStandalone, setIsStandalone] = useState(false);
 
     useEffect(() => {
-        // Check if already in standalone mode
-        if (window.matchMedia('(display-mode: standalone)').matches || (window.navigator as any).standalone) {
+        // Check if already in standalone mode or dismissed
+        const isDismissed = localStorage.getItem('pwa_prompt_dismissed') === 'true';
+        if (
+            window.matchMedia('(display-mode: standalone)').matches ||
+            (window.navigator as any).standalone ||
+            isDismissed
+        ) {
             setIsStandalone(true);
             return;
         }
@@ -20,7 +25,10 @@ export default function PWAInstallPrompt() {
         const handler = (e: any) => {
             e.preventDefault();
             setDeferredPrompt(e);
-            setShowPrompt(true);
+            // Only show if not dismissed (double check inside handler for safety)
+            if (!localStorage.getItem('pwa_prompt_dismissed')) {
+                setShowPrompt(true);
+            }
         };
 
         window.addEventListener('beforeinstallprompt', handler);
@@ -29,11 +37,8 @@ export default function PWAInstallPrompt() {
         const userAgent = window.navigator.userAgent.toLowerCase();
         const isIosDevice = /iphone|ipad|ipod/.test(userAgent);
 
-        if (isIosDevice && !(window.navigator as any).standalone) {
+        if (isIosDevice && !(window.navigator as any).standalone && !isDismissed) {
             setIsIOS(true);
-            // For iOS, we can show the prompt immediately or wait
-            // Since 'beforeinstallprompt' doesn't fire, we show it to guide them
-            // But only if we haven't shown it recently (logic could be added, but simple for now)
             setShowPrompt(true);
         }
 
@@ -42,10 +47,18 @@ export default function PWAInstallPrompt() {
         };
     }, []);
 
+    const handleDismiss = () => {
+        setShowPrompt(false);
+        localStorage.setItem('pwa_prompt_dismissed', 'true');
+    };
+
     const handleInstallClick = async () => {
         if (isIOS) {
             // Show instructions for iOS
             alert("To install on iOS:\n1. Tap the Share button below\n2. Select 'Add to Home Screen'");
+            // Don't permanently dismiss on iOS instruction view, or maybe we should?
+            // Let's dismiss it to respect "show only one time"
+            localStorage.setItem('pwa_prompt_dismissed', 'true');
             return;
         }
 
@@ -56,6 +69,7 @@ export default function PWAInstallPrompt() {
 
         if (outcome === 'accepted') {
             setShowPrompt(false);
+            localStorage.setItem('pwa_prompt_dismissed', 'true');
         }
         setDeferredPrompt(null);
     };
@@ -85,7 +99,7 @@ export default function PWAInstallPrompt() {
                     {/* Actions */}
                     <div className="flex items-center gap-2">
                         <button
-                            onClick={() => setShowPrompt(false)}
+                            onClick={handleDismiss}
                             className="text-gray-400 hover:text-white p-2"
                             aria-label="Close"
                         >

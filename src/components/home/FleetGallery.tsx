@@ -8,28 +8,8 @@ import { ChevronLeft, ChevronRight, Users, Briefcase, ArrowRight, Star } from 'l
 
 const FLEET_IMAGES = [
     {
-        src: '/images/fleet/gmc-yukon-hero-professional.png',
-        alt: 'GMC Yukon AT4 Black VIP SUV Front View',
-        name: 'GMC Yukon 2025',
-        badge: 'VIP Choice',
-        capacity: '7 Pax',
-        luggage: '5 Bags',
-        url: '/fleet/gmc-yukon-at4',
-        rating: 5.0
-    },
-    {
-        src: '/images/fleet/staria-hero-professional.png',
-        alt: 'Hyundai Staria Luxury Van for Families',
-        name: 'Hyundai Staria',
-        badge: 'Family Favorite',
-        capacity: '7 Pax',
-        luggage: '4 Bags',
-        url: '/fleet/hyundai-staria',
-        rating: 4.9
-    },
-    {
-        src: '/images/fleet/camry-hero-professional.png',
-        alt: 'Toyota Camry Recent Model White Sedan',
+        src: '/images/fleet/camry-studio.png',
+        alt: 'Toyota Camry 2025 White Studio Shot',
         name: 'Toyota Camry',
         badge: 'Best Value',
         capacity: '4 Pax',
@@ -38,8 +18,18 @@ const FLEET_IMAGES = [
         rating: 4.8
     },
     {
-        src: '/images/fleet/hiace-hero-professional.png',
-        alt: 'Toyota Hiace Commuter Bus High Roof White',
+        src: '/images/fleet/gmc-yukon-studio.png',
+        alt: 'GMC Yukon XL 2025 Black Studio Shot',
+        name: 'GMC Yukon XL',
+        badge: 'VIP Choice',
+        capacity: '7 Pax',
+        luggage: '5 Bags',
+        url: '/fleet/gmc-yukon-at4',
+        rating: 5.0
+    },
+    {
+        src: '/images/fleet/toyota-hiace-studio.png',
+        alt: 'Toyota Hiace High Roof Studio Shot',
         name: 'Toyota Hiace',
         badge: 'Large Groups',
         capacity: '10 Pax',
@@ -48,13 +38,33 @@ const FLEET_IMAGES = [
         rating: 4.9
     },
     {
-        src: '/images/fleet/starex-hero-professional.png',
-        alt: 'Hyundai H1 Starex Practical Family Van',
-        name: 'Hyundai H1',
+        src: '/images/fleet/hyundai-staria-studio.png',
+        alt: 'Hyundai Staria 2025 Studio Shot',
+        name: 'Hyundai Staria',
+        badge: 'Family Favorite',
+        capacity: '7 Pax',
+        luggage: '4 Bags',
+        url: '/fleet/hyundai-staria',
+        rating: 4.9
+    },
+    {
+        src: '/images/fleet/hyundai-starex-studio.png',
+        alt: 'Hyundai H1 Starex Studio Shot',
+        name: 'Hyundai H1 Starex',
         badge: 'Comfort',
         capacity: '7 Pax',
         luggage: '4 Bags',
         url: '/fleet/hyundai-starex',
+        rating: 4.8
+    },
+    {
+        src: '/images/fleet/toyota-coaster-studio.png',
+        alt: 'Toyota Coaster Luxury Bus Studio Shot',
+        name: 'Toyota Coaster',
+        badge: 'Groups 20+',
+        capacity: '22 Pax',
+        luggage: '15 Bags',
+        url: '/fleet/toyota-coaster',
         rating: 4.8
     },
 ];

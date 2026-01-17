@@ -1,7 +1,7 @@
+import FleetOfferGallery from '@/components/fleet/FleetOfferGallery';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import { Suspense } from 'react';
-import FleetShowcaseLoader from '@/components/fleet/FleetShowcaseLoader';
 import ComparisonTable from '@/components/fleet/ComparisonTable';
 import FeatureHighlights from '@/components/fleet/FeatureHighlights';
 import QuickBookingForm from '@/components/home/QuickBookingForm';
@@ -28,7 +28,7 @@ export default async function FleetPage() {
 
     const title = section?.title || "Our Premium Fleet";
     const subtitle = section?.subtitle || "Experience luxury and comfort with our diverse range of vehicles, tailored for your spiritual journey.";
-    const bgImage = getSectionImage(section, 'desktop') || "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2000&auto=format&fit=crop";
+    const bgImage = getSectionImage(section, 'desktop') || "/images/fleet/fleet-group-hero.png";
     const badge = getCustomField(section, 'badge_text') || "Premium Collection 2025";
 
     return (
@@ -44,17 +44,23 @@ export default async function FleetPage() {
                     ctaLink="/booking"
                     badge={badge}
                     breadcrumbs={<Breadcrumbs />}
+                    fleetImages={[
+                        '/images/fleet/gmc-yukon-studio.png',     // Center
+                        '/images/fleet/toyota-hiace-studio.png',  // Left
+                        '/images/fleet/hyundai-staria-studio.png' // Right
+                    ]}
                 />
+
+                {/* New Fleet Offer Gallery */}
                 <FadeIn>
-                    <Suspense fallback={<div className="h-[800px] w-full bg-neutral-900 animate-pulse rounded-xl" />}>
-                        <FleetShowcaseLoader />
-                    </Suspense>
+                    <FleetOfferGallery />
+                </FadeIn>
+
+                <FadeIn>
+                    <FeatureHighlights />
                 </FadeIn>
                 <FadeIn>
                     <ComparisonTable />
-                </FadeIn>
-                <FadeIn>
-                    <FeatureHighlights />
                 </FadeIn>
 
                 <section className="py-20 bg-gradient-to-t from-black to-transparent">

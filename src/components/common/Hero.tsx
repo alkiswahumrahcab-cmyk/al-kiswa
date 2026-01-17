@@ -80,16 +80,82 @@ const Hero: React.FC<HeroProps> = ({
             {/* Parallax Background */}
             <motion.div className="absolute inset-0 z-0" style={{ y, opacity }}>
                 <div className="relative w-full h-full">
-                    <Image
-                        src={bgImage}
-                        alt={alt || "Luxury Umrah Transport"}
-                        fill
-                        priority
-                        className="object-cover opacity-60"
-                        sizes="100vw"
-                    />
+                    {fleetImages && fleetImages.length > 0 ? (
+                        <div className="relative w-full h-full flex items-end justify-center pb-0 lg:pb-12 overflow-hidden">
+                            {/* Fleet Composition */}
+                            {/* Left Vehicle */}
+                            {fleetImages[1] && (
+                                <motion.div
+                                    className="absolute left-[-5%] lg:left-[5%] bottom-10 lg:bottom-16 w-[55%] lg:w-[35%] h-auto z-0 opacity-80 blur-[1px]"
+                                    initial={{ x: -100, opacity: 0 }}
+                                    animate={{ x: 0, opacity: 0.8 }}
+                                    transition={{ duration: 1, delay: 0.2 }}
+                                >
+                                    <Image
+                                        src={fleetImages[1]}
+                                        alt="Fleet Left"
+                                        width={800}
+                                        height={600}
+                                        className="w-full h-auto object-contain"
+                                    />
+                                </motion.div>
+                            )}
+
+                            {/* Right Vehicle */}
+                            {fleetImages[2] && (
+                                <motion.div
+                                    className="absolute right-[-5%] lg:right-[5%] bottom-10 lg:bottom-16 w-[55%] lg:w-[35%] h-auto z-0 opacity-80 blur-[1px]"
+                                    initial={{ x: 100, opacity: 0 }}
+                                    animate={{ x: 0, opacity: 0.8 }}
+                                    transition={{ duration: 1, delay: 0.2 }}
+                                >
+                                    <Image
+                                        src={fleetImages[2]}
+                                        alt="Fleet Right"
+                                        width={800}
+                                        height={600}
+                                        className="w-full h-auto object-contain" // Flip if needed, but studio shots usually front 3/4
+                                        style={{ transform: 'scaleX(-1)' }} // Assuming standard front-left angle, flip for symmetry
+                                    />
+                                </motion.div>
+                            )}
+
+                            {/* Center Vehicle */}
+                            {fleetImages[0] && (
+                                <motion.div
+                                    className="relative z-10 w-[70%] lg:w-[45%] h-auto mb-[-5%] lg:mb-[-2%]"
+                                    initial={{ y: 100, opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    transition={{ duration: 0.8 }}
+                                >
+                                    <Image
+                                        src={fleetImages[0]}
+                                        alt="Fleet Center"
+                                        width={1000}
+                                        height={800}
+                                        className="w-full h-auto object-contain drop-shadow-2xl"
+                                        priority
+                                    />
+                                </motion.div>
+                            )}
+
+                            {/* Ambient Glow for Composition */}
+                            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/80 to-transparent z-20 pointer-events-none" />
+                        </div>
+                    ) : (
+                        <Image
+                            src={bgImage}
+                            alt={alt || "Luxury Umrah Transport"}
+                            fill
+                            priority
+                            className="object-cover opacity-60"
+                            sizes="100vw"
+                        />
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-b from-primary-black/80 via-primary-black/40 to-primary-black" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold-primary/10 via-transparent to-transparent opacity-60" />
+                    {!fleetImages && (
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold-primary/10 via-transparent to-transparent opacity-60" />
+                    )}
                 </div>
             </motion.div>
 

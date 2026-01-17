@@ -10,9 +10,12 @@ export interface IVehicle extends Document {
     luggage: number;
     features: string[];
     price: string;
+    offerPrice?: string;
+    discountLabel?: string;
     hourlyRate?: string;
     category: string;
     isActive: boolean;
+    isOfferActive?: boolean;
     unavailableDates?: string[];
     createdAt: Date;
     updatedAt: Date;
@@ -219,9 +222,12 @@ const VehicleSchema = new Schema<IVehicle>({
     luggage: { type: Number, required: true },
     features: { type: [String], required: true },
     price: { type: String, required: true },
+    offerPrice: { type: String },
+    discountLabel: { type: String }, // e.g., "15% OFF"
     hourlyRate: { type: String },
     category: { type: String, default: 'Standard' },
     isActive: { type: Boolean, default: true },
+    isOfferActive: { type: Boolean, default: false },
     unavailableDates: { type: [String], default: [] },
 }, { timestamps: true });
 

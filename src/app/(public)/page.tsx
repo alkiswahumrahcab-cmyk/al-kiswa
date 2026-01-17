@@ -22,7 +22,7 @@ const LatestArticles = dynamic(() => import('@/components/home/LatestArticles'))
 const SEOContentSection = dynamic(() => import('@/components/home/SEOContentSection'));
 const TransportServices = dynamic(() => import('@/components/home/TransportServices'));
 const Testimonials = dynamic(() => import('@/components/home/Testimonials'));
-const FleetGallery = dynamic(() => import('@/components/home/FleetGallery'));
+const HomeFleetCarousel = dynamic(() => import('@/components/home/HomeFleetCarousel'));
 const BookingGuide = dynamic(() => import('@/components/home/BookingGuide'));
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { generateServiceSchema } from "@/components/seo/schema-generator";
@@ -104,12 +104,6 @@ export default async function Home() {
           count: "30K+",
           label: "Happy Pilgrims"
         }}
-        fleetImages={[
-          "/images/fleet/gmc-yukon-hero-professional.png", // Center Hero
-          "/images/fleet/hiace-hero-professional.png",     // Left
-          "/images/fleet/staria-hero-professional.png",    // Right
-          "/images/fleet/camry-hero-professional.png"      // Extra (maybe unused/hidden for now)
-        ]}
         stats={[
           { label: "Punctual & Safe", value: "100%", icon: <ShieldCheck size={20} /> },
           { label: "Direct Support", value: "24/7", icon: <Clock size={20} /> },
@@ -132,8 +126,8 @@ export default async function Home() {
       {/* Passenger Care Section */}
       <PassengerCare />
 
-      {/* Fleet Gallery - NEW */}
-      <FleetGallery />
+      {/* Fleet Carousel - NEW */}
+      <HomeFleetCarousel />
 
       {/* Gallery Section */}
 
