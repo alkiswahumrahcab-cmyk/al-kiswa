@@ -349,8 +349,8 @@
 .welcomeBubble {
     position: absolute;
     bottom: 90px;
-    right: 0;
-    left: auto;
+    left: 0;
+    right: auto;
     background: #09090b;
     padding: 1rem 1.5rem;
     border-radius: 16px;
@@ -393,8 +393,8 @@
 @media (max-width: 480px) {
     .container {
         bottom: 1.5rem;
-        right: 1.5rem;
-        left: auto;
+        left: 1.5rem;
+        right: auto;
     }
 
     .chatWindow {
