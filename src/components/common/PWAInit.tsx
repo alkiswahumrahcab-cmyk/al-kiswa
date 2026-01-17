@@ -35,6 +35,8 @@ export default function PWAInit(props: PWAInitProps) {
             navigator.serviceWorker.register(swUrl, { scope })
                 .then((registration) => {
                     console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    // Force update to ensure we have the latest version
+                    registration.update();
                     subscribeUser(registration);
                 })
                 .catch((err) => {
