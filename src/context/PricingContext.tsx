@@ -27,6 +27,8 @@ const VEHICLE_IMAGES: Record<string, string> = {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const attachIcons = (vehiclesData: any[]): Vehicle[] => {
+    if (!Array.isArray(vehiclesData)) return [];
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return vehiclesData.map((v: any) => {
