@@ -138,14 +138,14 @@ export default function Footer() {
                     </div>
                 </div>
 
-                <div className="border-t border-white/10 pt-8 mt-4 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-500 font-light">
-                    <div>
-                        {general.footerText}
-                    </div>
-                    <div className="flex items-center gap-8">
-                        <Link href="/privacy" className="hover:text-gold-primary transition-colors">Privacy Policy</Link>
-                        <Link href="/terms" className="hover:text-gold-primary transition-colors">Terms of Service</Link>
-                        <span className="flex items-center gap-1">Made with <span className="text-red-500">❤</span> for the Ummah</span>
+                <div className="border-t border-white/10 pt-8 mt-4">
+                    <div className="flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-4">
+                        <p>{general.footerText || "© 2026 Al Kiswah Transport. All rights reserved."} <span className="opacity-30 ml-2">v2.0</span></p>
+                        <div className="flex items-center gap-6">
+                            <Link href="/privacy" className="hover:text-gold-primary transition-colors">Privacy Policy</Link>
+                            <Link href="/terms" className="hover:text-gold-primary transition-colors">Terms of Service</Link>
+                            <span className="flex items-center gap-1">Made with <span className="text-red-500">❤</span> for the Ummah</span>
+                        </div>
                     </div>
                 </div>
             </div>

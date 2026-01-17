@@ -1,4 +1,4 @@
-const CACHE_NAME = 'umrah-app-v1';
+const CACHE_NAME = 'umrah-app-v2';
 const STATIC_ASSETS = [
     '/',
     '/about',
@@ -31,13 +31,41 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-    // Exclude other apps scopes if necessary, or just generic handle
-    if (event.request.url.includes('/agency') || event.request.url.includes('/driver')) return;
+    // Skip cross-origin requests
+    if (!event.request.url.startsWith(self.location.origin)) return;
 
+    // Exclude API and admin routes from caching
+    if (event.request.url.includes('/api/') || event.request.url.includes('/admin')) return;
+
+    // Network-First Strategy for Navigation Requests (HTML pages)
+    // This ensures users always get the latest version if they are online
+    if (event.request.mode === 'navigate') {
+        event.respondWith(
+            fetch(event.request)
+                .then((networkResponse) => {
+                    return caches.open(CACHE_NAME).then((cache) => {
+                        cache.put(event.request, networkResponse.clone());
+                        return networkResponse;
+                    });
+                })
+                .catch(() => {
+                    return caches.match(event.request).then((cachedResponse) => {
+                        return cachedResponse || caches.match('/offline.html');
+                    });
+                })
+        );
+        return;
+    }
+
+    // Cache-First Strategy for Static Assets (Images, Styles, Scripts)
+    // This improves performance for assets that rarely change
     event.respondWith(
         caches.match(event.request).then((response) => {
-            return response || fetch(event.request).catch(() => {
-                return caches.match('/offline.html');
+            return response || fetch(event.request).then((networkResponse) => {
+                return caches.open(CACHE_NAME).then((cache) => {
+                    cache.put(event.request, networkResponse.clone());
+                    return networkResponse;
+                });
             });
         })
     );
