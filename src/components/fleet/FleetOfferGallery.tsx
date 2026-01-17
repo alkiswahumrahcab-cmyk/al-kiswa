@@ -10,21 +10,26 @@ interface Vehicle {
     id?: string;
     name: string;
     image: string;
-    passengers: number;
-    luggage: number;
-    price: string;
+    passengers?: number;
+    capacity?: string;
+    luggage: number | string;
+    price?: string;
     offerPrice?: string;
+    originalPrice?: string;
     discountLabel?: string;
+    discount?: string;
     features: string[];
-    category: string;
+    category?: string;
+    type?: string;
     rating?: number;
+    badge?: string;
 }
 
 interface FleetOfferGalleryProps {
     vehicles?: Vehicle[];
 }
 
-const FLEET_OFFERS = [
+const FLEET_OFFERS: Vehicle[] = [
     {
         id: 'camry',
         name: 'Toyota Camry 2025',

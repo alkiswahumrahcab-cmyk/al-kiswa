@@ -30,13 +30,18 @@ async function dbConnect() {
     }
 
     if (!cached!.promise) {
+        if (!MONGODB_URI) {
+            console.warn('MONGODB_URI is not defined. Proceeding without database connection.');
+            return null;
+        }
+
         const opts = {
             bufferCommands: false,
             serverSelectionTimeoutMS: 5000,
             socketTimeoutMS: 45000,
         };
 
-        cached!.promise = mongoose.connect(MONGODB_URI!, opts).then((mongoose) => {
+        cached!.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
             return mongoose;
         }).catch(err => {
             console.error('Mongoose connection error:', err);
