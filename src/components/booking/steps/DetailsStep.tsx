@@ -18,10 +18,21 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
     const [isSuccess, setIsSuccess] = useState(false);
 
     // Calculate Pricing for Summary
-    const vehicle = vehicles.find(v => v.id === data.selectedVehicle);
-    const pricing = data.routeId && data.routeId !== 'custom' && data.selectedVehicle
-        ? calculatePrice(data.routeId, data.selectedVehicle)
-        : null;
+    const selectedList = (data.selectedVehicles || []).map((item: any) => {
+        const v = vehicles.find(v => v.id === item.id);
+        const pricing = v && data.routeId && data.routeId !== 'custom'
+            ? calculatePrice(data.routeId, v.id)
+            : null;
+        return {
+            ...item,
+            vehicle: v,
+            pricePerUnit: pricing ? pricing.price : 0,
+            total: pricing ? pricing.price * item.count : 0
+        };
+    });
+
+    const grandTotal = selectedList.reduce((acc: number, curr: any) => acc + curr.total, 0);
+    const vehicleNames = selectedList.map((item: any) => `${item.vehicle?.name || 'Unknown'} (x${item.count})`).join(', ');
 
     const validateForm = () => {
         const newErrors: Record<string, string> = {};
@@ -50,8 +61,9 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
 🏁 *Dropoff:* ${data.dropoff || 'Not selected'}
 📅 *Date:* ${data.date?.toLocaleDateString()}
 ⏰ *Time:* ${data.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-🚗 *Vehicle:* ${vehicle?.name || 'Any'} (x${data.vehicleCount})
-💰 *Total:* ${pricing ? pricing.price * data.vehicleCount : 'Get Quote'} SAR
+🚗 *Vehicles:* 
+${selectedList.map((item: any) => `   - ${item.vehicle?.name} (x${item.count})`).join('\n')}
+💰 *Total:* ${grandTotal} SAR
 ${data.flightNumber ? `✈️ *Flight:* ${data.flightNumber}\n` : ''}${data.notes ? `📝 *Notes:* ${data.notes}` : ''}
 ------------------
 *Sent via Al Kiswah Website*`;
@@ -59,7 +71,7 @@ ${data.flightNumber ? `✈️ *Flight:* ${data.flightNumber}\n` : ''}${data.note
         const whatsappUrl = `https://wa.me/966545494921?text=${encodeURIComponent(message)}`;
 
         try {
-            // Optional: Save to DB in background (fire and forget)
+            // Optional: Save to DB in background
             fetch('/api/bookings', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -67,20 +79,19 @@ ${data.flightNumber ? `✈️ *Flight:* ${data.flightNumber}\n` : ''}${data.note
                     ...data,
                     date: data.date?.toISOString().split('T')[0],
                     time: data.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }),
-                    vehicle: vehicle?.name || 'Any',
-                    totalPrice: pricing ? pricing.price * data.vehicleCount : 0,
+                    vehicle: vehicleNames,
+                    vehicleCount: selectedList.length, // Just logical count of types or total items? Let's send types count for now
+                    totalPrice: grandTotal,
                     status: 'whatsapp_pending'
                 })
             }).catch(err => console.error('DB Save failed:', err));
 
-            // Small delay to show spinner then redirect
             await new Promise(resolve => setTimeout(resolve, 1000));
             window.open(whatsappUrl, '_blank');
             setIsSuccess(true);
 
         } catch (error) {
             console.error(error);
-            // Fallback to WhatsApp even if something fails
             window.open(whatsappUrl, '_blank');
         } finally {
             setIsSubmitting(false);
@@ -108,9 +119,9 @@ ${data.flightNumber ? `✈️ *Flight:* ${data.flightNumber}\n` : ''}${data.note
                                 time: data.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
                                 pickup: data.pickup,
                                 dropoff: data.dropoff,
-                                vehicle: vehicle?.name || 'Vehicle',
-                                vehicleCount: data.vehicleCount,
-                                totalPrice: pricing ? pricing.price * data.vehicleCount : 0,
+                                vehicle: vehicleNames,
+                                vehicleCount: selectedList.reduce((acc: number, item: any) => acc + item.count, 0),
+                                totalPrice: grandTotal,
                                 customerName: data.name,
                                 customerPhone: data.phone,
                                 customerEmail: data.email,
@@ -246,7 +257,15 @@ ${data.flightNumber ? `✈️ *Flight:* ${data.flightNumber}\n` : ''}${data.note
                         <div className="bg-gold-primary p-6 text-black relative overflow-hidden">
                             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-10 mix-blend-multiply" />
                             <h3 className="text-xs font-black uppercase tracking-[0.2em] relative z-10">Trip Itinerary</h3>
-                            <div className="mt-2 text-2xl font-black relative z-10">{vehicle?.name || 'Standard Vehicle'}</div>
+                            {/* Scrollable Vehicle List if many */}
+                            <div className="mt-2 text-xl font-black relative z-10 leading-tight">
+                                {selectedList.map((item: any) => (
+                                    <div key={item.id} className="flex justify-between w-full text-base border-b border-black/10 py-1 last:border-0 last:pb-0">
+                                        <span>{item.vehicle?.name} <span className="text-sm font-normal opacity-70">x{item.count}</span></span>
+                                        <span>SAR {item.total}</span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
 
                         <div className="p-8 space-y-8 bg-white text-gray-900">
@@ -288,7 +307,7 @@ ${data.flightNumber ? `✈️ *Flight:* ${data.flightNumber}\n` : ''}${data.note
                                 </div>
                                 <div className="text-right">
                                     <p className="text-3xl font-black text-black">
-                                        {pricing ? pricing.price * data.vehicleCount : '---'} <span className="text-xs font-bold text-gold-primary">SAR</span>
+                                        {grandTotal > 0 ? grandTotal : '---'} <span className="text-xs font-bold text-gold-primary">SAR</span>
                                     </p>
                                 </div>
                             </div>

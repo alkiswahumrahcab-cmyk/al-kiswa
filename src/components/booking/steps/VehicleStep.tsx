@@ -15,16 +15,50 @@ interface VehicleStepProps {
 export default function VehicleStep({ data, updateData, onNext, onBack }: VehicleStepProps) {
     const { vehicles, calculatePrice } = usePricing();
 
-    const handleSelect = (vId: string) => {
-        updateData({ selectedVehicle: vId });
+    const handleIncrement = (vId: string) => {
+        const currentRef = data.selectedVehicles || [];
+        const existing = currentRef.find((item: any) => item.id === vId);
+
+        let newSelection;
+        if (existing) {
+            newSelection = currentRef.map((item: any) =>
+                item.id === vId ? { ...item, count: item.count + 1 } : item
+            );
+        } else {
+            newSelection = [...currentRef, { id: vId, count: 1 }];
+        }
+        updateData({ selectedVehicles: newSelection });
     };
+
+    const handleDecrement = (vId: string) => {
+        const currentRef = data.selectedVehicles || [];
+        const existing = currentRef.find((item: any) => item.id === vId);
+
+        if (!existing) return;
+
+        let newSelection;
+        if (existing.count > 1) {
+            newSelection = currentRef.map((item: any) =>
+                item.id === vId ? { ...item, count: item.count - 1 } : item
+            );
+        } else {
+            newSelection = currentRef.filter((item: any) => item.id !== vId);
+        }
+        updateData({ selectedVehicles: newSelection });
+    };
+
+    const getCount = (vId: string) => {
+        return (data.selectedVehicles || []).find((item: any) => item.id === vId)?.count || 0;
+    };
+
+    const totalSelected = (data.selectedVehicles || []).reduce((acc: number, curr: any) => acc + curr.count, 0);
 
     return (
         <div className="space-y-8">
             <div className="flex justify-between items-center">
                 <div>
-                    <h2 className="text-3xl md:text-4xl font-sans font-bold text-white">Select Your Vehicle</h2>
-                    <p className="text-gray-400 mt-2 font-light text-lg">Choose the perfect ride for your journey.</p>
+                    <h2 className="text-3xl md:text-4xl font-sans font-bold text-white">Select Your Fleet</h2>
+                    <p className="text-gray-400 mt-2 font-light text-lg">Choose one or multiple vehicles.</p>
                 </div>
                 <button
                     onClick={onBack}
@@ -37,21 +71,22 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {vehicles.map((vehicle) => {
-                    const isSelected = data.selectedVehicle === vehicle.id;
+                    const count = getCount(vehicle.id);
+                    const isSelected = count > 0;
+
                     const pricing = data.routeId && data.routeId !== 'custom'
                         ? calculatePrice(data.routeId, vehicle.id)
                         : null;
 
                     // Accessibility & Trust Logic
-                    const isFamilyFriendly = Number(vehicle.capacity) >= 7; // GMC, Staria, Hiace
+                    const isFamilyFriendly = Number(vehicle.capacity) >= 7;
                     const isLuxury = vehicle.name.includes('GMC') || vehicle.name.includes('BMW');
 
                     return (
                         <div
                             key={vehicle.id}
-                            onClick={() => handleSelect(vehicle.id)}
                             className={`
-                                relative p-1 rounded-3xl cursor-pointer transition-all duration-300 group
+                                relative p-1 rounded-3xl transition-all duration-300 group
                                 ${isSelected
                                     ? 'bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37] shadow-[0_0_30px_-5px_rgba(212,175,55,0.4)] scale-[1.02]'
                                     : 'bg-white/5 border border-white/10 hover:border-[#D4AF37]/30 hover:bg-white/10'}
@@ -59,17 +94,10 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                         >
                             <div className="bg-black/60 backdrop-blur-md rounded-[22px] p-6 h-full relative z-10 overflow-hidden border border-white/5 group-hover:border-gold-primary/20 transition-colors">
 
-                                {/* Family Badge - High Visibility for Trust */}
+                                {/* Family Badge */}
                                 {isFamilyFriendly && (
                                     <div className="absolute top-0 left-0 bg-emerald-900/80 border-b border-r border-emerald-500/30 text-emerald-400 text-[10px] font-bold px-3 py-1 rounded-br-xl uppercase tracking-wider z-20 flex items-center gap-1">
                                         <Users size={12} /> Recommended for Families
-                                    </div>
-                                )}
-
-                                {/* Selection Indicator */}
-                                {isSelected && (
-                                    <div className="absolute top-4 right-4 z-20 bg-gold-primary text-black w-8 h-8 rounded-full flex items-center justify-center shadow-lg animate-in zoom-in">
-                                        <Check size={18} strokeWidth={4} />
                                     </div>
                                 )}
 
@@ -112,6 +140,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                         </div>
 
                                         <div className="mt-4 flex flex-wrap items-end justify-between gap-4">
+                                            {/* Price Display */}
                                             {pricing ? (
                                                 <div className="flex-1">
                                                     <div className="flex items-baseline gap-1">
@@ -120,10 +149,10 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                                         </span>
                                                         <span className="text-sm font-bold text-gold-primary">SAR</span>
                                                     </div>
-                                                    {pricing.discountApplied > 0 && (
-                                                        <span className="block text-xs text-green-400 font-medium">
-                                                            -{pricing.discountApplied} SAR Off
-                                                        </span>
+                                                    {count > 1 && (
+                                                        <div className="text-xs text-gold-primary font-bold mt-1">
+                                                            Total: {(pricing.price * count).toLocaleString()} SAR
+                                                        </div>
                                                     )}
                                                 </div>
                                             ) : (
@@ -134,20 +163,25 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                                 </div>
                                             )}
 
-                                            <button
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    handleSelect(vehicle.id);
-                                                }}
-                                                className={`
-                                                px-6 py-2 rounded-xl font-bold uppercase tracking-wider text-sm transition-all shadow-lg
-                                                ${isSelected
-                                                        ? 'bg-black text-[#D4AF37] border border-[#D4AF37]'
-                                                        : 'bg-[#D4AF37] text-black hover:bg-[#F3D383] hover:shadow-[#D4AF37]/20'}
-                                            `}
-                                            >
-                                                {isSelected ? 'Selected' : 'Select'}
-                                            </button>
+                                            {/* Quantity Controls */}
+                                            <div className="flex items-center gap-3 bg-white/5 rounded-xl p-1 border border-white/10">
+                                                <button
+                                                    onClick={(e) => { e.stopPropagation(); handleDecrement(vehicle.id); }}
+                                                    className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${count > 0 ? 'bg-white/10 text-white hover:bg-white/20' : 'text-gray-600 cursor-not-allowed'}`}
+                                                    disabled={count === 0}
+                                                >
+                                                    -
+                                                </button>
+                                                <span className="w-4 text-center font-bold text-lg text-white">
+                                                    {count}
+                                                </span>
+                                                <button
+                                                    onClick={(e) => { e.stopPropagation(); handleIncrement(vehicle.id); }}
+                                                    className="w-8 h-8 rounded-lg bg-gold-primary text-black flex items-center justify-center hover:bg-[#F3D383] transition-colors font-bold"
+                                                >
+                                                    +
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -184,15 +218,15 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
             <div className="pt-8">
                 <button
                     onClick={onNext}
-                    disabled={!data.selectedVehicle}
+                    disabled={totalSelected === 0}
                     className={`
                         w-full py-6 text-lg font-bold uppercase tracking-widest rounded-2xl shadow-xl transition-all flex items-center justify-center gap-3 group
-                        ${data.selectedVehicle
+                        ${totalSelected > 0
                             ? 'bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37] text-black hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:scale-[1.01]'
                             : 'bg-white/5 text-gray-500 border border-white/5 cursor-not-allowed'}
                     `}
                 >
-                    Review & Checkout
+                    Review & Checkout ({totalSelected} items)
                     <ArrowRight size={24} className="group-hover:translate-x-1 transition-transform" />
                 </button>
             </div>

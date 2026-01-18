@@ -24,8 +24,8 @@ export default function BookingWizard() {
         dropoff: '',
         date: null as Date | null,
         time: null as Date | null,
-        selectedVehicle: null as string | null,
-        vehicleCount: 1,
+        selectedVehicles: [] as { id: string; count: number }[], // Replaced single string
+        // vehicleCount: 1, // Deprecated, now inside selectedVehicles
         passengers: 1,
         luggage: 0,
         name: '',

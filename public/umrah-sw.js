@@ -1,4 +1,4 @@
-const CACHE_NAME = 'umrah-app-v2';
+const CACHE_NAME = 'umrah-app-v3';
 const STATIC_ASSETS = [
     '/',
     '/about',

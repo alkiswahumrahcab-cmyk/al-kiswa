@@ -101,14 +101,13 @@ export default function Navbar() {
                 <Link href="/" className="flex items-center gap-3 group relative z-50">
                     <div className="relative flex items-center">
                         <div className={`relative transition-all duration-500 ${scrolled ? 'w-10 h-10' : 'w-13 h-13'} bg-white rounded-full flex items-center justify-center border-2 border-gold-primary shadow-[0_0_15px_rgba(239,191,91,0.3)] group-hover:shadow-[0_0_25px_rgba(239,191,91,0.5)] overflow-hidden lg:mr-1`}>
-                            <div className={`relative ${scrolled ? 'w-9 h-9' : 'w-12 h-12'} transition-all duration-500 z-10`}>
+                            <div className={`relative ${scrolled ? 'w-9 h-9' : 'w-12 h-12'} transition-all duration-500`}>
                                 <Image
                                     src="/logo.png"
                                     alt="Al Kiswah"
-                                    width={48}
-                                    height={48}
-                                    className="object-contain w-full h-full"
-                                    style={{ objectFit: 'contain' }}
+                                    fill
+                                    sizes="(max-width: 768px) 48px, 64px"
+                                    className="object-contain"
                                     priority
                                 />
                             </div>
