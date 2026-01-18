@@ -1,5 +1,65 @@
 export const staticBlogPosts = [
     {
+        _id: 'static-new-elderly-guide',
+        slug: 'guide-umrah-with-elderly-parents-transport',
+        title: 'The Ultimate Guide to Performing Umrah with Elderly Parents (2025)',
+        excerpt: 'Bringing your parents to the House of Allah is a noble duty. Learn how to ensure their comfort with wheelchair access, door-to-door transport, and tips for minimizing walking.',
+        content: `
+            <h2>Honoring Our Parents in the Holy Land</h2>
+            <p>For many of us, the dream of Umrah is not for ourselves, but for our parents. Seeing your father or mother gaze upon the Kaaba, perhaps for the first or last time, is a blessing beyond measure.</p>
+            <p>However, the physical reality of Umrah—the walking, the heat, and the crowds—can be daunting for seniors. Proper planning is not just about logistics; it is about <strong>Birr al-Walidayn</strong> (righteousness to parents).</p>
+
+            <h3>1. The Transport Challenge: Minimizing Steps</h3>
+            <p>Every step counts. Taking a bus often means walking from the hotel to the bus stop, then from the Kudai stop to the Haram. This exhausts elderly pilgrims before they even start their Tawaf.</p>
+            <h4>The Private Car Advantage</h4>
+            <ul>
+                <li><strong>Door-to-Door:</strong> We pick you up from the airport curb and drop you at the hotel entrance. Zero unnecessary walking.</li>
+                <li><strong>Wheelchair Accessibility:</strong> Our GMC Yukons and Staria vans have wide doors and ample trunk space for foldable wheelchairs. Our drivers will assist in loading and unloading.</li>
+            </ul>
+
+            <h3>2. Choosing the Right Vehicle</h3>
+            <p>Comfort is key. For elderly passengers, we recommend:</p>
+            <ul>
+                <li><strong>GMC Yukon:</strong> The suspension is incredibly soft, absorbing road bumps to prevent back pain. The "Captain Chairs" in the second row recline, allowing parents to sleep comfortably on the journey to Madinah.</li>
+                <li><strong>Toyota Hiace (High Roof):</strong> Ease of entry. The sliding door is wide, and the step-in height is manageable with assistance.</li>
+            </ul>
+
+            <h3>3. Practical Tips for the Haram</h3>
+            <ul>
+                <li><strong>Wheelchair Tawaf:</strong> You can rent electric scooters on the upper floors of the Mataf. It is smoother and faster.</li>
+                <li><strong>Prayer Times:</strong> Arrive at the Haram at least an hour early to find a spot near the elevators or bathrooms.</li>
+                <li><strong>Hydration:</strong> Older adults dehydrate faster. Keep Zamzam water with you at all times.</li>
+            </ul>
+
+            <h3>4. Our "Elderly Care" Standard</h3>
+            <p>At Al Kiswah, a "Driver" is more than a navigator. He is an assistant. Our chauffeurs are trained to:</p>
+            <ul>
+                <li>Be patient with slow boarding/exiting.</li>
+                <li>Offer a steadying hand.</li>
+                <li>Manage AC temperature to ensure parents aren't too cold.</li>
+            </ul>
+
+            <div class="bg-emerald-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-emerald-500 my-8">
+                <h4 class="font-bold text-lg mb-2 text-emerald-800 dark:text-emerald-400">A Spiritual Reminder</h4>
+                <p class="text-slate-700 dark:text-slate-300">"And lower to them the wing of humility out of mercy and say, 'My Lord, have mercy upon them as they brought me up [when I was] small.'" (Quran 17:24). Your patience with their slowness is your ticket to Jannah.</p>
+            </div>
+
+            <p>Let us handle the road so you can focus on holding their hand in the Haram.</p>
+        `,
+        category: 'Travel Tips',
+        date: new Date('2026-02-05'),
+        readTime: '6 min read',
+        image: '/images/services/elderly-care-transport.png',
+        alt: 'Son assisting elderly father into comfortable Umrah transport',
+        author: 'Senior Care Specialist',
+        tags: ['Elderly Care', 'Wheelchair Friendly', 'Accessible Travel', 'Family Umrah'],
+        isPublished: true,
+        metaTitle: 'Umrah with Elderly Parents | Transport & Wheelchair Guide 2025',
+        metaDescription: 'Planning Umrah with seniors? A complete guide to wheelchair-friendly transport, minimizing walking, and choosing the most comfortable vehicle for elderly parents.',
+        createdAt: new Date('2026-02-05'),
+        updatedAt: new Date('2026-02-05'),
+    },
+    {
         _id: 'static-taxi-vs-train-comparison',
         slug: 'private-taxi-vs-haramain-train-umrah',
         title: 'Private Taxi vs. Haramain Train: Which is Better for Umrah?',

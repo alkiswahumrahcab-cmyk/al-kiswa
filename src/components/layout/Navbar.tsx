@@ -107,6 +107,8 @@ export default function Navbar() {
                                     alt="Al Kiswah"
                                     fill
                                     className="object-contain"
+                                    sizes="96px"
+                                    style={{ objectFit: 'contain' }}
                                     priority
                                 />
                             </div>

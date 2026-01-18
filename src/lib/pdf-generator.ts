@@ -1,128 +1,209 @@
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { format } from 'date-fns';
 
-// Define font and styling constants
+// --- Constants ---
 const COMPANY_NAME = "Al Kiswah Transport";
-const COMPANY_ISLAMIC_NAME = "الكسوة لنقل المعتمرين";
-const COMPANY_ADDRESS = "Makkah Al Mukarramah, Saudi Arabia";
+const COMPANY_ADDRESS_1 = "Makkah Al Mukarramah";
+const COMPANY_ADDRESS_2 = "Saudi Arabia";
 const COMPANY_PHONE = "+966 54 549 4921";
 const COMPANY_EMAIL = "bookings@alkiswahumrahtransport.com";
-const PRIMARY_COLOR = "#0f172a"; // slate-900
+const COMPANY_WEBSITE = "www.alkiswahumrahtransport.com";
 
-interface InvoiceData {
-    invoiceAllowed: boolean;
-    booking: any;
+// Colors
+const COLOR_PRIMARY = "#D4AF37"; // Gold
+const COLOR_SECONDARY = "#000000"; // Black
+const COLOR_TEXT_GRAY = "#64748b"; // Slate 500
+const COLOR_BORDER = "#e2e8f0"; // Slate 200
+
+export interface InvoiceData {
+    id: string;
+    date: Date | string;
+    time?: string;
+    pickup: string;
+    dropoff: string;
+    vehicle: string;
+    vehicleCount: number;
+    totalPrice: number;
+    customerName: string;
+    customerEmail?: string;
+    customerPhone: string;
+    status?: string;
 }
 
-export const generateBookingInvoice = (booking: any) => {
+export const generateBookingInvoice = (data: InvoiceData) => {
     const doc = new jsPDF();
+    const pageWidth = doc.internal.pageSize.width;
 
-    // --- Header ---
-    // Logo Placeholder (Left) - Ideally we addImage here if we have a base64 logo
-    // For now, we use text as logo
-    doc.setFontSize(22);
-    doc.setTextColor(PRIMARY_COLOR);
+    // --- Header Section ---
+    // Top Bar (Gold)
+    doc.setFillColor(COLOR_PRIMARY);
+    doc.rect(0, 0, pageWidth, 5, 'F');
+
+    // Company Logo/Name
     doc.setFont("helvetica", "bold");
-    doc.text("Al Kiswah", 20, 20);
-    doc.setFontSize(12);
+    doc.setFontSize(24);
+    doc.setTextColor(COLOR_SECONDARY);
+    doc.text("AL KISWAH", 20, 25);
+
+    doc.setFontSize(10);
     doc.setFont("helvetica", "normal");
-    doc.text("Transport", 20, 26);
+    doc.setCharSpace(2); // Tracking
+    doc.text("TRANSPORT SERVICES", 20, 31);
+    doc.setCharSpace(0); // Reset
 
-    // Company Info (Right)
+    // Invoice Label
+    doc.setFontSize(32);
+    doc.setTextColor(COLOR_PRIMARY);
+    doc.text("INVOICE", pageWidth - 20, 30, { align: "right" });
+
+    // Invoice Metadata
     doc.setFontSize(10);
-    doc.text(COMPANY_ADDRESS, 190, 20, { align: "right" });
-    doc.text(COMPANY_PHONE, 190, 25, { align: "right" });
-    doc.text(COMPANY_EMAIL, 190, 30, { align: "right" });
+    doc.setTextColor(COLOR_TEXT_GRAY);
 
-    // Title
-    doc.setFontSize(18);
-    doc.setTextColor(PRIMARY_COLOR);
-    doc.text("INVOICE", 190, 50, { align: "right" });
+    const metaStartY = 45;
+    const metaLineHeight = 6;
+    const metaRightX = pageWidth - 20;
 
-    // Line Divider
-    doc.setDrawColor(200, 200, 200);
-    doc.line(20, 55, 190, 55);
+    // Helper for right-aligned pairs
+    const addMetaRow = (label: string, value: string, y: number) => {
+        doc.setFont("helvetica", "normal");
+        doc.text(label, metaRightX - 60, y, { align: "left" });
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(COLOR_SECONDARY);
+        doc.text(value, metaRightX, y, { align: "right" });
+        doc.setTextColor(COLOR_TEXT_GRAY); // Reset
+    };
 
-    // --- Bill To ---
-    doc.setFontSize(10);
-    doc.setTextColor(100, 100, 100);
-    doc.text("BILL TO:", 20, 65);
+    const invoiceNum = data.id.length > 8 ? `INV-${data.id.slice(-6).toUpperCase()}` : `INV-${data.id}`;
+    const invoiceDate = data.date instanceof Date ? format(data.date, 'dd MMM yyyy') : new Date(data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 
-    doc.setFontSize(11);
-    doc.setTextColor(0, 0, 0);
+    addMetaRow("Invoice No:", invoiceNum, metaStartY);
+    addMetaRow("Date:", invoiceDate, metaStartY + metaLineHeight);
+    addMetaRow("Status:", (data.status || "CONFIRMED").toUpperCase(), metaStartY + metaLineHeight * 2);
+
+    // --- Bill To & From ---
+    const addrStartY = 45;
+
+    // From
     doc.setFont("helvetica", "bold");
-    doc.text(booking.name || "Customer Name", 20, 71);
+    doc.setFontSize(10);
+    doc.setTextColor(COLOR_SECONDARY);
+    doc.text("From:", 20, addrStartY);
 
     doc.setFont("helvetica", "normal");
-    doc.setFontSize(10);
-    if (booking.email) doc.text(booking.email, 20, 76);
-    if (booking.phone) doc.text(booking.phone, 20, 81);
+    doc.setTextColor(COLOR_TEXT_GRAY);
+    doc.text(COMPANY_NAME, 20, addrStartY + 6);
+    doc.text(COMPANY_ADDRESS_1, 20, addrStartY + 11);
+    doc.text(COMPANY_ADDRESS_2, 20, addrStartY + 16);
+    doc.text(COMPANY_PHONE, 20, addrStartY + 21);
 
-    // --- Invoice Details ---
-    const startY = 65;
-    const rightColX = 140;
-    const lineHeight = 6;
+    // To
+    const billToY = addrStartY + 35;
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(COLOR_SECONDARY);
+    doc.text("Bill To:", 20, billToY);
 
-    doc.setTextColor(100, 100, 100);
-    doc.text("Invoice Number:", rightColX, startY);
-    doc.text("Date:", rightColX, startY + lineHeight);
-    doc.text("Booking Ref:", rightColX, startY + lineHeight * 2);
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(COLOR_TEXT_GRAY);
+    doc.text(data.customerName, 20, billToY + 6);
+    if (data.customerEmail) doc.text(data.customerEmail, 20, billToY + 11);
+    doc.text(data.customerPhone, 20, billToY + 16);
 
-    doc.setTextColor(0, 0, 0);
-    doc.text(`INV-${booking._id?.slice(-6).toUpperCase()}`, 190, startY, { align: "right" });
-    doc.text(new Date().toLocaleDateString(), 190, startY + lineHeight, { align: "right" });
-    doc.text(booking._id?.slice(-6).toUpperCase(), 190, startY + lineHeight * 2, { align: "right" });
+    // --- Service Details Table ---
+    const tableStartY = 100;
 
-    // --- Table ---
-    const tableStartY = 95;
+    // Construct description with date/time
+    let description = `${data.vehicle} Transfer`;
+    // @ts-ignore
+    if (data.pickup) description += `\nPickup: ${data.pickup}`;
+    // @ts-ignore
+    if (data.dropoff) description += `\nDropoff: ${data.dropoff}`;
+    if (data.time) description += `\nTime: ${data.time}`;
 
-    const tableData = [
+    const tableBody = [
         [
-            `${booking.vehicle} Transfer\n${booking.pickup?.split(',')[0]} -> ${booking.dropoff?.split(',')[0]}`,
-            "1",
-            `SAR ${booking.finalPrice}`,
-            `SAR ${booking.finalPrice}`
+            description,
+            data.vehicleCount.toString(),
+            `SAR ${data.totalPrice / data.vehicleCount}`,
+            `SAR ${data.totalPrice}`
         ]
     ];
 
     autoTable(doc, {
         startY: tableStartY,
-        head: [['Description', 'Qty', 'Unit Price', 'Total']],
-        body: tableData,
-        theme: 'grid',
-        headStyles: { fillColor: PRIMARY_COLOR, textColor: 255 },
-        styles: { fontSize: 10, cellPadding: 3 },
-        columnStyles: {
-            0: { cellWidth: 'auto' }, // Description
-            1: { cellWidth: 20, halign: 'center' }, // Qty
-            2: { cellWidth: 30, halign: 'right' }, // Price
-            3: { cellWidth: 30, halign: 'right' } // Total
+        head: [['Service Description', 'Qty', 'Rate', 'Amount']],
+        body: tableBody,
+        theme: 'plain',
+        headStyles: {
+            fillColor: COLOR_SECONDARY,
+            textColor: '#FFFFFF',
+            fontStyle: 'bold',
+            halign: 'left'
         },
+        bodyStyles: {
+            textColor: COLOR_SECONDARY,
+            fontSize: 10,
+            cellPadding: 6
+        },
+        columnStyles: {
+            0: { cellWidth: 90 }, // Desc
+            1: { cellWidth: 20, halign: 'center' }, // Qty
+            2: { cellWidth: 30, halign: 'right' }, // Rate
+            3: { cellWidth: 'auto', halign: 'right' } // Amount
+        },
+        didDrawPage: (data) => {
+            // Header is already drawn
+        }
     });
 
     // --- Totals ---
     // @ts-ignore
     const finalY = doc.lastAutoTable.finalY + 10;
+    const totalsWidth = 70;
+    const totalsX = pageWidth - 20 - totalsWidth;
 
-    doc.setFontSize(10);
-    doc.text("Subtotal:", 140, finalY);
-    doc.text(`SAR ${booking.finalPrice}`, 190, finalY, { align: "right" });
+    // Line separator
+    doc.setDrawColor(226, 232, 240);
+    doc.line(totalsX, finalY, pageWidth - 20, finalY);
 
-    doc.text("Tax (15%):", 140, finalY + 6);
-    doc.text("SAR 0.00", 190, finalY + 6, { align: "right" }); // Assuming tax included or 0 for now as per logic
+    // Subtotal
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(COLOR_TEXT_GRAY);
+    doc.text("Subtotal", totalsX, finalY + 8);
+    doc.text(`SAR ${data.totalPrice}`, pageWidth - 20, finalY + 8, { align: "right" });
 
-    doc.setFontSize(12);
+    // Total (Large)
+    doc.setFillColor(COLOR_PRIMARY);
+    // doc.rect(totalsX - 5, finalY + 15, totalsWidth + 5, 12, 'F'); // Optional bg
+
     doc.setFont("helvetica", "bold");
-    doc.text("Total:", 140, finalY + 14);
-    doc.text(`SAR ${booking.finalPrice}`, 190, finalY + 14, { align: "right" });
+    doc.setFontSize(14);
+    doc.setTextColor(COLOR_SECONDARY);
+    doc.text("Total", totalsX, finalY + 20);
+    doc.text(`SAR ${data.totalPrice}`, pageWidth - 20, finalY + 20, { align: "right" });
+
+    // Tax Note
+    doc.setFontSize(8);
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(COLOR_TEXT_GRAY);
+    doc.text("Includes all applicable taxes and fees.", pageWidth - 20, finalY + 28, { align: "right" });
 
     // --- Footer ---
+    const footerY = doc.internal.pageSize.height - 30;
+
+    // Footer Line
+    doc.setDrawColor(200, 200, 200);
+    doc.setLineWidth(0.5);
+    doc.line(20, footerY, pageWidth - 20, footerY);
+
     doc.setFontSize(9);
-    doc.setFont("helvetica", "italic");
-    doc.setTextColor(150, 150, 150);
-    doc.text("Thank you for your business.", 105, 280, { align: "center" });
-    doc.text("Al Kiswah Transport - CR: 1234567890", 105, 285, { align: "center" });
+    doc.setTextColor(COLOR_TEXT_GRAY);
+    doc.text("Thank you for choosing Al Kiswah Transport.", 20, footerY + 8);
+
+    doc.text(COMPANY_WEBSITE, 20, footerY + 14);
+    doc.text(COMPANY_EMAIL, 20, footerY + 19);
 
     // Save
-    doc.save(`Invoice-${booking._id}.pdf`);
+    doc.save(`Al-Kiswah-Receipt-${invoiceNum}.pdf`);
 };

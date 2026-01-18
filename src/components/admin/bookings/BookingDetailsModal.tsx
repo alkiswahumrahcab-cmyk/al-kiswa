@@ -54,12 +54,38 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
                         </div>
                         <p className="text-sm text-slate-500 font-mono">ID: #{booking.id}</p>
                     </div>
-                    <button
-                        onClick={onClose}
-                        className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
-                    >
-                        <X size={20} />
-                    </button>
+                    <div className="flex items-center gap-2">
+                        <button
+                            onClick={() => {
+                                import('@/lib/pdf-generator').then(({ generateBookingInvoice }) => {
+                                    generateBookingInvoice({
+                                        id: booking.id,
+                                        date: booking.date,
+                                        time: booking.time,
+                                        pickup: booking.pickup,
+                                        dropoff: booking.dropoff,
+                                        vehicle: booking.vehicle || 'Standard Vehicle',
+                                        vehicleCount: booking.vehicleCount || 1,
+                                        totalPrice: booking.price || 0,
+                                        customerName: booking.name,
+                                        customerEmail: booking.email,
+                                        customerPhone: booking.phone,
+                                        status: booking.status
+                                    });
+                                });
+                            }}
+                            className="p-2 text-slate-400 hover:text-amber-600 hover:bg-amber-50 dark:hover:bg-amber-900/20 rounded-full transition-colors"
+                            title="Download Invoice"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" x2="12" y1="15" y2="3" /></svg>
+                        </button>
+                        <button
+                            onClick={onClose}
+                            className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+                        >
+                            <X size={20} />
+                        </button>
+                    </div>
                 </div>
 
                 <div className="p-6 space-y-8">

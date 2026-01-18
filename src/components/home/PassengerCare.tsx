@@ -20,7 +20,7 @@ const careOptions = [
         ],
         image: '/images/services/solo-sister-transport.png',
         linkText: "Read Safety Guide",
-        link: "/blog/why-comfort-safety-matter-umrah-transport"
+        link: "/safety"
     },
     {
         id: 'families',
@@ -36,7 +36,7 @@ const careOptions = [
         ],
         image: '/images/services/family-transport-umrah.png',
         linkText: "Read Family Tips",
-        link: "/blog/top-5-travel-tips-pilgrims-makkah-madinah"
+        link: "/blog/how-to-choose-best-umrah-transport-family"
     },
     {
         id: 'elderly',
@@ -52,7 +52,7 @@ const careOptions = [
         ],
         image: '/images/services/elderly-care-transport.png',
         linkText: "Read Elderly Guide",
-        link: "/blog/private-taxi-vs-haramain-train-umrah"
+        link: "/blog/guide-umrah-with-elderly-parents-transport"
     }
 ];
 

@@ -94,10 +94,36 @@ ${data.flightNumber ? `✈️ *Flight:* ${data.flightNumber}\n` : ''}${data.note
                     <CheckCircle size={56} strokeWidth={1.5} />
                 </div>
                 <h2 className="text-4xl font-sans font-bold text-white mb-4">Request Received!</h2>
-                <p className="text-gray-400 max-w-md mx-auto text-lg font-light leading-relaxed">
+                <p className="text-gray-400 max-w-md mx-auto text-lg font-light leading-relaxed mb-8">
                     We've received your booking details. Our concierge team will contact you via WhatsApp shortly to confirm availability.
                 </p>
-                <div className="mt-12 flex flex-col gap-4 max-w-xs mx-auto">
+
+                {/* Receipt Download Action */}
+                <button
+                    onClick={() => {
+                        import('@/lib/pdf-generator').then(({ generateBookingInvoice }) => {
+                            generateBookingInvoice({
+                                id: Date.now().toString().slice(-6),
+                                date: data.date || new Date(),
+                                time: data.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                                pickup: data.pickup,
+                                dropoff: data.dropoff,
+                                vehicle: vehicle?.name || 'Vehicle',
+                                vehicleCount: data.vehicleCount,
+                                totalPrice: pricing ? pricing.price * data.vehicleCount : 0,
+                                customerName: data.name,
+                                customerPhone: data.phone,
+                                customerEmail: data.email,
+                                status: 'PENDING'
+                            });
+                        });
+                    }}
+                    className="flex items-center justify-center gap-2 mx-auto mb-10 text-gold-primary hover:text-white transition-colors border-b border-gold-primary/30 pb-0.5 hover:border-white"
+                >
+                    <span className="text-sm font-bold uppercase tracking-widest">Download Receipt</span>
+                </button>
+
+                <div className="mt-4 flex flex-col gap-4 max-w-xs mx-auto">
                     <Link href="/" className="px-8 py-4 bg-gradient-to-r from-gold-primary to-gold-dark text-black font-bold uppercase tracking-widest rounded-2xl hover:scale-105 transition-all shadow-lg shadow-gold-primary/20">
                         Back to Home
                     </Link>

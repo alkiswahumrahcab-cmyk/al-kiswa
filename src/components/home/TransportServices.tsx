@@ -69,7 +69,9 @@ export default function TransportServices() {
                                         src={service.image}
                                         alt={service.title}
                                         fill
-                                        className="object-cover transform group-hover:scale-110 transition-transform duration-1000 ease-out"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        className="transform group-hover:scale-110 transition-transform duration-1000 ease-out"
+                                        style={{ objectFit: 'cover' }}
                                     />
 
                                     {/* Icon Badge */}

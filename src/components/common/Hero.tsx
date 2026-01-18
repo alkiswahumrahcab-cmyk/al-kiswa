@@ -120,13 +120,10 @@ const Hero: React.FC<HeroProps> = ({
                                 </motion.div>
                             )}
 
-                            {/* Center Vehicle */}
+                            {/* Center Vehicle - LCP Optimized (No Animation) */}
                             {fleetImages[0] && (
-                                <motion.div
+                                <div
                                     className="relative z-10 w-[70%] lg:w-[45%] h-auto mb-[-5%] lg:mb-[-2%]"
-                                    initial={{ y: 100, opacity: 0 }}
-                                    animate={{ y: 0, opacity: 1 }}
-                                    transition={{ duration: 0.8 }}
                                 >
                                     <Image
                                         src={fleetImages[0]}
@@ -135,8 +132,9 @@ const Hero: React.FC<HeroProps> = ({
                                         height={800}
                                         className="w-full h-auto object-contain drop-shadow-2xl"
                                         priority
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 50vw"
                                     />
-                                </motion.div>
+                                </div>
                             )}
 
                             {/* Ambient Glow for Composition */}
