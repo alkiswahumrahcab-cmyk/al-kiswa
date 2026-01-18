@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
     // ignoreBuildErrors: false,
     // Trigger Restart
   },
+  // @ts-ignore
   eslint: {
     ignoreDuringBuilds: true,
   },

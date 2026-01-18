@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { MetadataRoute } from 'next';
-import { blogService } from '@/services/blogService';
+// import { blogService } from '@/services/blogService';
 import pricingData from '@/data/pricing.json';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

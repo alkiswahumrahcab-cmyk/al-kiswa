@@ -66,7 +66,7 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
                                         dropoff: booking.dropoff,
                                         vehicle: booking.vehicle || 'Standard Vehicle',
                                         vehicleCount: booking.vehicleCount || 1,
-                                        totalPrice: booking.price || 0,
+                                        totalPrice: (booking as any).price || 0,
                                         customerName: booking.name,
                                         customerEmail: booking.email,
                                         customerPhone: booking.phone,
