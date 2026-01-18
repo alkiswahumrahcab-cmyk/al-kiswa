@@ -32,7 +32,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: route === '/' ? 1 : 0.8,
     }));
 
-    /*
     // Dynamic Route Pages from Pricing Data (Routes)
     const transportRoutes = (pricingData?.routes || [])
         .filter(r => r.slug)
@@ -57,6 +56,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Dynamic Blog Posts
     let blogRoutes: MetadataRoute.Sitemap = [];
     try {
+        // Dynamic import to prevent top-level side effects/DB connections during build
+        const { blogService } = await import('@/services/blogService');
         const posts = await blogService.getPosts();
         blogRoutes = posts.map((post) => ({
             url: `${baseUrl}/blog/${post.slug}`,
@@ -68,7 +69,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         console.warn('Failed to fetch blog posts for sitemap:', error);
         // Continue without blog routes to ensure build succeeds
     }
-    */
 
-    return [...routes]; // , ...transportRoutes, ...vehicleRoutes, ...blogRoutes];
+    return [...routes, ...transportRoutes, ...vehicleRoutes, ...blogRoutes];
 }
