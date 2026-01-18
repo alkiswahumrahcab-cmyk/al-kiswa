@@ -33,7 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }));
 
     // Dynamic Route Pages from Pricing Data (Routes)
-    const transportRoutes = pricingData.routes
+    const transportRoutes = (pricingData?.routes || [])
         .filter(r => r.slug)
         .map((route) => ({
             url: `${baseUrl}/routes/${route.slug}`,
@@ -44,7 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // Dynamic Fleet Vehicle Pages
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const vehicleRoutes = (pricingData.vehicles as any[])
+    const vehicleRoutes = ((pricingData?.vehicles || []) as any[])
         .filter(v => v.slug)
         .map((vehicle) => ({
             url: `${baseUrl}/fleet/${vehicle.slug}`,

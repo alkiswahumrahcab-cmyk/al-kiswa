@@ -115,9 +115,7 @@ export const generateBookingInvoice = (data: InvoiceData) => {
 
     // Construct description with date/time
     let description = `${data.vehicle} Transfer`;
-    // @ts-ignore
     if (data.pickup) description += `\nPickup: ${data.pickup}`;
-    // @ts-ignore
     if (data.dropoff) description += `\nDropoff: ${data.dropoff}`;
     if (data.time) description += `\nTime: ${data.time}`;
 
@@ -158,8 +156,7 @@ export const generateBookingInvoice = (data: InvoiceData) => {
     });
 
     // --- Totals ---
-    // @ts-ignore
-    const finalY = doc.lastAutoTable.finalY + 10;
+    const finalY = (doc as any).lastAutoTable.finalY + 10;
     const totalsWidth = 70;
     const totalsX = pageWidth - 20 - totalsWidth;
 
