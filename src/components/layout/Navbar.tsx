@@ -105,10 +105,9 @@ export default function Navbar() {
                                 <Image
                                     src="/logo.png"
                                     alt="Al Kiswah"
-                                    fill
-                                    className="object-contain"
-                                    sizes="96px"
-                                    style={{ objectFit: 'contain' }}
+                                    width={48}
+                                    height={48}
+                                    className="object-contain w-full h-full"
                                     priority
                                 />
                             </div>
