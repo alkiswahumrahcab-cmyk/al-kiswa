@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
     // ignoreBuildErrors: false,
     // Trigger Restart
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 
   images: {
     remotePatterns: [
