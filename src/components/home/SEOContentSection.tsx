@@ -17,19 +17,101 @@ export default function SEOContentSection() {
                     <div className="max-w-4xl mx-auto space-y-10">
 
                         {/* Block 1: English - Core Service Offering */}
-                        <div className="prose prose-invert max-w-none text-center md:text-left space-y-6">
-                            <h2 className="text-3xl md:text-4xl font-bold font-playfair mb-6 text-white">
-                                Premium Umrah Transport & VIP Pilgrim Services
-                            </h2>
-                            <p className="text-lg text-gray-400 leading-relaxed">
-                                Welcome to <strong>Al Kiswah Umrah Transport</strong>, the most trusted name for <strong>luxury Umrah transport</strong> in Saudi Arabia. We are dedicated to serving the guests of Allah with a blend of spiritual respect, professional reliability, and genuine hospitality. Whether you are performing Umrah, Hajj, or simply visiting the Holy Cities, our <strong>English-speaking drivers</strong> ensure your journey is safe, comfortable, and perfectly punctual.
-                            </p>
-                            <p className="text-lg text-gray-400 leading-relaxed">
-                                Our comprehensive services include seamless <strong><Link href="/services/jeddah-airport-transfer" className="text-gold-primary hover:underline">Jeddah Airport transfers</Link></strong>, <strong><Link href="/services/madinah-airport-transfer" className="text-gold-primary hover:underline">Madinah Airport pickups</Link></strong>, and reliable <strong><Link href="/services/makkah-madinah-taxi" className="text-gold-primary hover:underline">Makkah to Madinah taxi</Link></strong> services. We specialize in intercity pilgrim travel, offering door-to-door convenience from your hotel in Makkah to your accommodation in Madinah, or directly to the Haram.
-                            </p>
-                            <p className="text-lg text-gray-400 leading-relaxed">
-                                Travel in style with our <strong>VIP fleet</strong> comprising modern <strong><Link href="/fleet/gmc-yukon-at4" className="text-gold-primary hover:underline">GMC Yukons</Link></strong>, <strong><Link href="/fleet/hyundai-staria" className="text-gold-primary hover:underline">luxury vans</Link></strong> (H1/Staria), and business-class vehicles tailored for families, ladies, and groups. Our chauffeur-driven services guarantee a stress-free experience, allowing you to focus entirely on your worship. Book your <strong><Link href="/services/makkah-madinah-taxi" className="text-gold-primary hover:underline">Haram shuttle</Link></strong> or airport transfer today and experience the difference of traveling with a company that values your peace of mind above all.
-                            </p>
+                        <div className="prose prose-invert max-w-none text-center md:text-left space-y-8">
+                            {/* Introduction */}
+                            <div>
+                                <h2 className="text-3xl md:text-4xl font-bold font-playfair mb-6 text-white text-center md:text-left">
+                                    Trusted Umrah Transport Services: Your Gateway to a Spiritual Journey in Saudi Arabia
+                                </h2>
+                                <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                                    Embarking on the spiritual journey of Umrah or Hajj is a profound experience for every Muslim. At <strong>Al Kiswa Umrah Transport</strong>, we understand that your focus should remain entirely on your worship and connection with Allah (SWT). That is why we have dedicated ourselves to providing the most reliable, comfortable, and professional <strong>Umrah transport services</strong> in the Kingdom of Saudi Arabia. As an officially licensed transport provider, we specialize in seamless transfers between <strong>Jeddah</strong>, <strong>Makkah</strong>, and <strong>Madinah</strong>, serving thousands of pilgrims annually with our premium fleet and experienced chauffeurs.
+                                </p>
+                                <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                                    Choosing the right transport partner is crucial for a stress-free pilgrimage. Whether you are arriving at <strong>King Abdulaziz International Airport (KAIA)</strong> in Jeddah or <strong>Prince Mohammad Bin Abdulaziz International Airport</strong> in Madinah, our team is ready to welcome you with the warmth and hospitality that befits the Guests of God. Our commitment to excellence is reflected in our 24/7 support, transparent pricing, and a diverse fleet that caters to individuals, families, and large groups alike.
+                                </p>
+                            </div>
+
+                            {/* Section 1: Jeddah Airport Transfers */}
+                            <div>
+                                <h3 className="text-2xl font-bold font-playfair mb-4 text-gold-primary">
+                                    Seamless Jeddah Airport to Makkah Taxi Transfers
+                                </h3>
+                                <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                                    For most pilgrims, the journey begins at Jeddah. Our <strong><Link href="/services/jeddah-airport-transfer" className="text-gold-primary hover:text-white transition-colors underline decoration-gold-primary/30 underline-offset-4">Jeddah Airport to Makkah taxi service</Link></strong> is designed to eliminate the hassle of navigating a new city after a long flight. Upon your arrival at the Hajj Terminal or the North Terminal, our professional drivers will greet you with a name board, assist with your luggage, and guide you to your pre-booked luxury vehicle.
+                                </p>
+                                <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                                    We offer strictly private transfers, ensuring privacy and hygiene for you and your family. Unlike shared buses or standard street taxis, our service guarantees that your vehicle is reserved exclusively for you. The journey from Jeddah to Makkah takes approximately 60-90 minutes, and our drivers utilize the best routes to ensure you reach your hotel or the Haram efficiently. We also monitor flight schedules in real-time, so if your flight is delayed, your driver will be waiting for you without any extra waiting charges.
+                                </p>
+                            </div>
+
+                            {/* Section 2: Makkah to Madinah */}
+                            <div>
+                                <h3 className="text-2xl font-bold font-playfair mb-4 text-gold-primary">
+                                    Reliable Makkah to Madinah Taxi & Intercity Travel
+                                </h3>
+                                <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                                    After completing your Umrah rituals in Makkah, the next leg of your spiritual voyage is often a visit to the Prophet’s City, Madinah Munawwarah. Our <strong><Link href="/services/makkah-madinah-taxi" className="text-gold-primary hover:text-white transition-colors underline decoration-gold-primary/30 underline-offset-4">Makkah to Madinah taxi service</Link></strong> offers a smooth, safe, and scenic drive spanning approximately 450 kilometers.
+                                </p>
+                                <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                                    We prioritize your comfort during this 4-5 hour journey. Our vehicles are equipped with high-quality air conditioning, plush seating, and ample legroom to ensure you arrive in Madinah rested and ready to pay your respects at Masjid Nabawi. Whether you prefer a direct non-stop trip or a leisurely drive with a break at a rest station, our drivers accommodate your preferences. We also offer return trips from <strong>Madinah to Makkah</strong> or direct transfers from <strong>Madinah to Jeddah Airport</strong> for your departure.
+                                </p>
+                            </div>
+
+                            {/* Section 3: Premium Fleet */}
+                            <div>
+                                <h3 className="text-2xl font-bold font-playfair mb-4 text-gold-primary">
+                                    Our Premium Fleet: Comfort for Every Pilgrim
+                                </h3>
+                                <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                                    At Al Kiswa Umrah Transport, we take pride in maintaining a modern, meticulously cleaned, and well-serviced fleet. We understand that every group has unique needs, which is why we offer a variety of vehicle options:
+                                </p>
+                                <ul className="list-disc list-inside text-gray-400 space-y-2 ml-4 mb-4">
+                                    <li>
+                                        <strong>GMC Yukon / Chevrolet Tahoe:</strong> The epitome of luxury and power. Perfect for families of up to 7 passengers looking for a VIP experience. Book your <Link href="/fleet/gmc-yukon-at4" className="text-white hover:text-gold-primary transition-colors">GMC Yukon XL</Link> for maximum luggage space and comfort.
+                                    </li>
+                                    <li>
+                                        <strong>Hyundai Staria / H1:</strong> A versatile and spacious MPV, ideal for families or small groups (7-9 passengers). It offers excellent visibility, modern interiors, and a smooth ride. Explore our <Link href="/fleet/hyundai-staria" className="text-white hover:text-gold-primary transition-colors">Hyundai Staria fleet</Link>.
+                                    </li>
+                                    <li>
+                                        <strong>Toyota Hiace / Coaster:</strong> For larger groups, Ziarah tours, or budget-conscious travelers requiring specialized transport. Our buses are fully air-conditioned and driven by licenced heavy-vehicle operators.
+                                    </li>
+                                    <li>
+                                        <strong>Luxury Sedans:</strong> For business travelers or solo pilgrims, offering a premium yet economical <Link href="/services" className="text-white hover:text-gold-primary transition-colors">private car service</Link>.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            {/* Section 4: Ziarah Services */}
+                            <div>
+                                <h3 className="text-2xl font-bold font-playfair mb-4 text-gold-primary">
+                                    Comprehensive Ziarah Tours in Makkah and Madinah
+                                </h3>
+                                <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                                    No Umrah trip is complete without visiting the historical sites that bear witness to the history of Islam. We offer comprehensive <strong><Link href="/services/ziarah-makkah" className="text-gold-primary hover:text-white transition-colors underline decoration-gold-primary/30 underline-offset-4">Ziarah services in Makkah</Link></strong>, taking you to sacred landmarks such as Jabal Al-Noor (Cave of Hira), Jannat al-Mualla, and the sites of Hajj (Mina, Arafat, Muzdalifah).
+                                </p>
+                                <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                                    Similarly, our <strong><Link href="/services/ziarah-madinah" className="text-gold-primary hover:text-white transition-colors underline decoration-gold-primary/30 underline-offset-4">Madinah Ziarah packages</Link></strong> cover Masjid Quba, Mount Uhud, Masjid Qiblatayn, and the Seven Mosques. Our knowledgeable drivers often share local insights and ensure you have ample time to pray and reflect at each location. These tours are fully customizable—you can choose which sites to visit and how long to stay.
+                                </p>
+                            </div>
+
+                            {/* Section 5: Why Us */}
+                            <div>
+                                <h3 className="text-2xl font-bold font-playfair mb-4 text-gold-primary">
+                                    Why Choose Al Kiswa Umrah Transport?
+                                </h3>
+                                <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                                    In a market flooded with options, Al Kiswa stands out for its unwavering commitment to integrity and quality. Here is why thousands of pilgrims trust us:
+                                </p>
+                                <ol className="list-decimal list-inside text-gray-400 space-y-2 ml-4 mb-4">
+                                    <li><strong>Official & Insured:</strong> We are a legally registered transport entity in Saudi Arabia, ensuring your ride is compliant with all local transport regulations.</li>
+                                    <li><strong>Fixed Pricing:</strong> The price you see is the price you pay. We have a strict <Link href="/pricing" className="text-white hover:text-gold-primary transition-colors">no-hidden-fee policy</Link>, covering fuel, tolls, and parking.</li>
+                                    <li><strong>Multilingual Drivers:</strong> Communication is key. Our team consists of drivers who speak Arabic, English, Urdu, and other languages to assist tailored needs.</li>
+                                    <li><strong>User-Friendly Booking:</strong> You can book your ride in seconds through our website or contact our support team via WhatsApp for instant arrangements.</li>
+                                </ol>
+                                <p className="text-lg text-gray-400 leading-relaxed">
+                                    Your journey of faith deserves a travel partner that respects the sanctity of your trip. Let Al Kiswa Umrah Transport handle the logistics while you focus on the spiritual rewards of your Umrah. <strong><Link href="/booking" className="text-gold-primary font-bold hover:underline">Book your ride today</Link></strong> and travel with peace of mind.
+                                </p>
+                            </div>
                         </div>
 
                         {/* Block 2: Arabic - Local Relevance & Keywords */}
@@ -101,7 +183,7 @@ export default function SEOContentSection() {
 
                     </div>
                 </FadeIn>
-            </div>
-        </section>
+            </div >
+        </section >
     );
 }

@@ -171,9 +171,9 @@ const Hero: React.FC<HeroProps> = ({
                     <motion.div variants={itemVariants} className="flex flex-col justify-center lg:justify-start items-center lg:items-start gap-4 w-full">
                         {/* Bismillah Calligraphy - Text Version */}
                         <div className="mb-2 w-full text-center">
-                            <h2 className="text-3xl md:text-4xl font-arabic text-white/90 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] leading-relaxed" dir="rtl">
+                            <div className="text-3xl md:text-4xl font-arabic text-white/90 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] leading-relaxed" dir="rtl">
                                 بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
-                            </h2>
+                            </div>
                         </div>
 
                         {badge ? (

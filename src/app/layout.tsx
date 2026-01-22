@@ -40,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const siteName = settings.general.siteName || "Al Kiswah Umrah Transport";
 
   return {
-    metadataBase: new URL('https://alkiswahumrahtransport.com'),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://alkiswahumrahtransport.com'),
     title: {
       default: settings.seo.defaultTitle || "Umrah Transport Services Saudi Arabia",
       template: `%s | ${siteName}`

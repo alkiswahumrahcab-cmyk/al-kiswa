@@ -68,6 +68,7 @@ export default function Navbar() {
                 { href: '/track-booking', label: 'Track Booking' },
             ]
         },
+        { href: '/ramadan-2026', label: 'Ramadan 2026' },
         {
             href: '/fleet',
             label: 'Fleet',

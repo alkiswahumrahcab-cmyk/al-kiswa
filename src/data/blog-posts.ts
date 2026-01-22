@@ -1,5 +1,149 @@
 export const staticBlogPosts = [
     {
+        _id: 'static-ramadan-2026',
+        slug: 'ramadan-umrah-taxi-service-2026-makkah-madinah',
+        title: 'Ramadan Umrah Taxi Service 2026 | Al Kiswa Umrah Cab',
+        excerpt: 'Premium Umrah transportation for Ramadan 2026 (Feb 17 - Mar 21). 24/7 reliable taxi service for Makkah to Madinah transfers with special Ramadan rates.',
+        content: `
+            <h2>Premium Umrah Transportation for Ramadan 2026</h2>
+            <p><strong>Available 24/7 Throughout Ramadan (February 17 - March 21, 2026)</strong></p>
+            <p>Make your blessed Ramadan Umrah journey comfortable and hassle-free with Al Kiswa Umrah Cab - your trusted transportation partner in the Holy Cities.</p>
+
+            <h3>🌙 Ramadan Special Offers 2026</h3>
+            
+            <div class="grid md:grid-cols-2 gap-6 my-8">
+                <div class="bg-emerald-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-emerald-500">
+                    <h4 class="font-bold text-lg mb-2 text-emerald-800 dark:text-emerald-400">Last 10 Nights Premium Package</h4>
+                    <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                        <li>• Dedicated driver for Laylatul Qadr nights</li>
+                        <li>• Priority booking guaranteed</li>
+                        <li>• Special discounted rates</li>
+                        <li>• Available for Makkah ↔ Madinah transfers</li>
+                    </ul>
+                </div>
+                <div class="bg-amber-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-amber-500">
+                    <h4 class="font-bold text-lg mb-2 text-amber-800 dark:text-amber-400">Family Umrah Transport Package</h4>
+                    <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+                        <li>• Spacious vehicles (GMC Yukon XL / Staria)</li>
+                        <li>• Child seats available</li>
+                        <li>• Luggage assistance</li>
+                        <li>• Flexible pickup times for Taraweeh</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p><strong>Group Booking Discounts:</strong> Get 15% off for 3+ vehicles. Ideal for tour groups with dedicated customer support and real-time tracking.</p>
+
+            <hr class="my-8 border-slate-200 dark:border-slate-700" />
+
+            <h2>Why Choose Al Kiswa for Your Ramadan Umrah?</h2>
+
+            <h3>✅ 24/7 Availability Throughout Ramadan</h3>
+            <p>Never miss Taraweeh, Qiyam, or Fajr prayers. Our drivers are available round the clock during the blessed month.</p>
+
+            <h3>✅ Experienced & Trustworthy Drivers</h3>
+            <ul>
+                <li>Verified and licensed drivers</li>
+                <li>Familiar with all Haram routes</li>
+                <li>Respectful of prayer times</li>
+                <li>Multilingual support (Arabic, English, Urdu)</li>
+            </ul>
+
+            <h3>✅ Comfortable & Clean Vehicles</h3>
+            <ul>
+                <li>Air-conditioned vehicles (Gulf-Spec AC)</li>
+                <li>Regularly sanitized</li>
+                <li>Spacious for families</li>
+                <li>Luggage storage capacity</li>
+            </ul>
+
+            <h3>✅ Fixed & Transparent Pricing</h3>
+            <ul>
+                <li>No hidden charges</li>
+                <li>No surge pricing during peak hours</li>
+                <li>Ramadan special rates locked in at booking</li>
+            </ul>
+
+            <h3>✅ Instant Booking & Confirmation</h3>
+            <p>Book via WhatsApp, phone, or website with immediate confirmation and easy cancellation policy.</p>
+
+            <hr class="my-8 border-slate-200 dark:border-slate-700" />
+
+            <h2>Popular Ramadan Umrah Routes</h2>
+
+            <h3>Makkah to Madinah Transfer</h3>
+            <p><strong>Distance:</strong> 450 km | <strong>Duration:</strong> 4-5 hours</p>
+            <p>Perfect for pilgrims performing Umrah and visiting Masjid Nabawi during Ramadan. <a href="/services/makkah-madinah-taxi" class="text-amber-600 hover:underline">Check Ramadan Rates</a></p>
+
+            <h3>Madinah to Makkah Transfer</h3>
+            <p>Return journey available with same-day or flexible scheduling. Ideal for those starting their journey in Madinah.</p>
+
+            <h3>Jeddah Airport to Makkah</h3>
+            <p><strong>Distance:</strong> 80 km | <strong>Duration:</strong> 1-1.5 hours</p>
+            <p>Airport pickup available 24/7 throughout Ramadan. We track your flight for delays.</p>
+
+            <h3>Makkah City Tours</h3>
+            <p>Hourly and daily packages available for Ziyarat (historical sites), shopping trips, and Haram drop-offs for Taraweeh.</p>
+
+            <div class="bg-slate-100 dark:bg-slate-900 p-6 rounded-xl my-8">
+                <h3 class="text-xl font-bold mb-4">Ramadan 2026 Important Dates</h3>
+                <ul class="space-y-2">
+                    <li><strong>Ramadan Begins:</strong> February 17-18, 2026</li>
+                    <li><strong>Laylatul Qadr (Expected):</strong> March 7-11, 2026</li>
+                    <li><strong>Eid ul-Fitr:</strong> March 19-21, 2026</li>
+                </ul>
+                <p class="mt-4 text-sm font-semibold text-red-500">📌 Pro Tip: Book your taxi for the Last 10 Nights NOW - slots fill up fast!</p>
+            </div>
+
+            <h2>Customer Testimonials</h2>
+            <div class="space-y-4">
+                <blockquote class="border-l-4 border-gold-primary pl-4 italic text-slate-600 dark:text-slate-400">
+                    "Used Al Kiswa cab service for Makkah to Madinah during last Ramadan. Driver was punctual, respectful, and knew the best routes. Highly recommend!"
+                    <footer class="text-sm font-bold not-italic mt-1">— Ahmed R., Pakistan</footer>
+                </blockquote>
+                <blockquote class="border-l-4 border-gold-primary pl-4 italic text-slate-600 dark:text-slate-400">
+                    "Booked for our family of 6 during Ramadan. Spacious vehicle, fair price, and driver waited for us after Taraweeh. Excellent service!"
+                    <footer class="text-sm font-bold not-italic mt-1">— Fatima S., India</footer>
+                </blockquote>
+            </div>
+
+            <hr class="my-8 border-slate-200 dark:border-slate-700" />
+
+            <h2>Frequently Asked Questions</h2>
+            
+            <details class="mb-4 cursor-pointer">
+                <summary class="font-bold text-lg text-amber-600 mb-2">Q: Are you available during Fajr and late-night hours?</summary>
+                <p class="text-slate-600 dark:text-slate-400 pl-4">A: Yes! We operate 24/7 throughout Ramadan, especially during Taraweeh, Qiyam, and Fajr times.</p>
+            </details>
+
+            <details class="mb-4 cursor-pointer">
+                <summary class="font-bold text-lg text-amber-600 mb-2">Q: Do you offer hourly rentals for Ramadan?</summary>
+                <p class="text-slate-600 dark:text-slate-400 pl-4">A: Yes, we offer hourly packages perfect for Ziyarat visits and shopping trips during the day.</p>
+            </details>
+
+            <details class="mb-4 cursor-pointer">
+                <summary class="font-bold text-lg text-amber-600 mb-2">Q: Can I book in advance for the last 10 nights?</summary>
+                <p class="text-slate-600 dark:text-slate-400 pl-4">A: Absolutely! We recommend booking early as demand is very high during Laylatul Qadr nights.</p>
+            </details>
+
+            <p class="mt-8 font-bold text-center">
+                <a href="/booking" class="inline-block bg-gradient-to-r from-gold-primary to-amber-600 text-white px-8 py-3 rounded-full hover:shadow-xl transition-all shadow-lg text-lg">Book Your Ramadan Ride Now</a>
+            </p>
+        `,
+        category: 'Ramadan Special',
+        date: new Date('2026-02-10'),
+        readTime: '5 min read',
+        image: '/images/blog/ramadan-family-2026.jpg',
+        alt: 'Ramadan 2026 Umrah Taxi Services Makkah Madinah',
+        author: 'Al Kiswah Team',
+        tags: ['Ramadan 2026', 'Umrah Taxi', 'Special Offers', 'Makkah Transport', 'Taraweeh'],
+        isPublished: true,
+        metaTitle: 'Ramadan Umrah Taxi Makkah to Madinah 2026 | 24/7 Reliable Transport | Al Kiswa',
+        metaDescription: 'Book trusted Ramadan Umrah taxi service for Makkah-Madinah travel. Special rates for Ramadan 2026 (Feb 17 - Mar 21). 24/7 available, family packages, instant booking.',
+        createdAt: new Date('2026-02-10'),
+        updatedAt: new Date('2026-02-10'),
+    },
+    {
         _id: 'static-new-elderly-guide',
         slug: 'guide-umrah-with-elderly-parents-transport',
         title: 'The Ultimate Guide to Performing Umrah with Elderly Parents (2025)',

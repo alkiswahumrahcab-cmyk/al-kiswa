@@ -32,7 +32,7 @@ export async function generateMetadata() {
     title: "Umrah Transport Services Saudi Arabia | Taxi Jeddah to Makkah",
     description: "Book trusted Umrah taxi services. Private GMC Yukon & Hyundai Staria transfers from Jeddah Airport to Makkah & Madinah. Official licensed transport company.",
     alternates: {
-      canonical: 'https://alkiswahumrahtransport.com',
+      canonical: '/',
     },
     keywords: [
       "Umrah Transport Services", "Taxi Jeddah Airport to Makkah",
