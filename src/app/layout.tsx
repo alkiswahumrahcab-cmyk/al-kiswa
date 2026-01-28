@@ -74,7 +74,7 @@ export async function generateMetadata(): Promise<Metadata> {
       apple: '/apple-touch-icon.png?v=2',
     },
     verification: {
-      google: '0JYg8N3CPUFhzseUIrbhKiLIShx1ltrIF0XoXVsO7-I',
+      google: 'inByUir4mwvGJCnd8ZM3EmfalkjtJSAgvU91',
     },
   };
 }
