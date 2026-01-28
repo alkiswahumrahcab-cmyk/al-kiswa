@@ -77,6 +77,13 @@ export default function Footer() {
                             {contact.social.facebook && <a href={contact.social.facebook} target="_blank" rel="noreferrer" aria-label="Facebook" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#1877F2] hover:border-transparent transition-all"><Facebook size={16} /></a>}
                             {contact.social.instagram && <a href={contact.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#ee2a7b] hover:border-transparent transition-all"><Instagram size={16} /></a>}
                             {contact.social.twitter && <a href={contact.social.twitter} target="_blank" rel="noreferrer" aria-label="Twitter" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#1DA1F2] hover:border-transparent transition-all"><Twitter size={16} /></a>}
+                            {contact.social.tiktok && (
+                                <a href={contact.social.tiktok} target="_blank" rel="noreferrer" aria-label="TikTok" className="w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#000000] hover:border-transparent transition-all group">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                                        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                                    </svg>
+                                </a>
+                            )}
                         </div>
                     </div>
 
