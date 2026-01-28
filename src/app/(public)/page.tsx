@@ -19,30 +19,30 @@ const FleetCarouselWrapper = dynamic(() => import('@/components/home/FleetCarous
 const ReviewsSection = dynamic(() => import('@/components/reviews/ReviewsSection'));
 const CustomerGallery = dynamic(() => import('@/components/home/CustomerGallery'));
 const LatestArticles = dynamic(() => import('@/components/home/LatestArticles'));
-const SEOContentSection = dynamic(() => import('@/components/home/SEOContentSection'));
+const SEOContentSectionFixed = dynamic(() => import('@/components/home/SEOContentSectionV2'));
 const TransportServices = dynamic(() => import('@/components/home/TransportServices'));
 const Testimonials = dynamic(() => import('@/components/home/Testimonials'));
 const HomeFleetCarousel = dynamic(() => import('@/components/home/HomeFleetCarousel'));
 const BookingGuide = dynamic(() => import('@/components/home/BookingGuide'));
+const ServiceDirectory = dynamic(() => import('@/components/home/ServiceDirectory'));
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { generateServiceSchema } from "@/components/seo/schema-generator";
 
+import { metaKeywords } from '@/data/seo-keywords';
+
 export async function generateMetadata() {
   return {
-    title: "Umrah Transport Services Saudi Arabia | Taxi Jeddah to Makkah",
-    description: "Book trusted Umrah taxi services. Private GMC Yukon & Hyundai Staria transfers from Jeddah Airport to Makkah & Madinah. Official licensed transport company.",
+    title: "Umrah Taxi Service from Jeddah to Makkah | UK & USA Pilgrims",
+    description: "Reliable Umrah transport for Western pilgrims. Book private GMC Yukon & Staria taxi from Jeddah Airport to Makkah. Trusted by UK, USA & Canada travelers.",
     alternates: {
       canonical: '/',
     },
-    keywords: [
-      "Umrah Transport Services", "Taxi Jeddah Airport to Makkah",
-      "Taxi Makkah to Madinah", "VIP Umrah Taxi", "Jeddah Airport Transfer",
-      "GMC Yukon Booking Makkah", "Saudi Transport Company",
-      "تاكسي مطار جدة", "نقل معتمرين", "توصيل من مكة للمدينة", "حجز جمس يوكن"
-    ],
+    keywords: metaKeywords,
     openGraph: {
-      title: "Umrah Transport Services Saudi Arabia | VIP Taxi Jeddah to Makkah",
-      description: "Book trusted private taxi from Jeddah Airport to Makkah. Luxury GMC Yukon & Hyundai Staria fleet. Official licensed service.",
+      title: "Umrah Taxi Service | Trusted by UK, USA & Canada Pilgrims",
+      description: "Book reliable Umrah transport & VIP taxi services. Private GMC Yukon & Staria transfers from Jeddah Airport to Makkah. Official licensed transport company.",
+      locale: 'en_US',
+      type: 'website',
     }
   };
 }
@@ -140,7 +140,7 @@ export default async function Home() {
       <ReviewsSection />
 
       {/* SEO Content Section */}
-      <SEOContentSection />
+      <SEOContentSectionFixed />
 
       {/* Latest Articles Section */}
       <LatestArticles />
@@ -149,6 +149,9 @@ export default async function Home() {
       <FadeIn>
         <SafetyPromise />
       </FadeIn>
+
+      {/* SEO Service Directory - 600+ Keywords */}
+      <ServiceDirectory />
 
       {/* CTA Section */}
       {/* CTA Section */}

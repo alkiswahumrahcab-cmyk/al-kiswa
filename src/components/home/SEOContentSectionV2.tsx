@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import FadeIn from '@/components/common/FadeIn';
 
-export default function SEOContentSection() {
+export default function SEOContentSectionV2() {
     return (
         <section className="py-12 md:py-16 bg-primary-black relative overflow-hidden">
             {/* Ambient Background Glow */}
@@ -62,9 +62,9 @@ export default function SEOContentSection() {
                                 <h3 className="text-2xl font-bold font-playfair mb-4 text-gold-primary">
                                     Our Premium Fleet: Comfort for Every Pilgrim
                                 </h3>
-                                <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                                <div className="text-lg text-gray-400 leading-relaxed mb-4">
                                     At Al Kiswa Umrah Transport, we take pride in maintaining a modern, meticulously cleaned, and well-serviced fleet. We understand that every group has unique needs, which is why we offer a variety of vehicle options:
-                                </p>
+                                </div>
                                 <ul className="list-disc list-inside text-gray-400 space-y-2 ml-4 mb-4">
                                     <li>
                                         <strong>GMC Yukon / Chevrolet Tahoe:</strong> The epitome of luxury and power. Perfect for families of up to 7 passengers looking for a VIP experience. Book your <Link href="/fleet/gmc-yukon-at4" className="text-white hover:text-gold-primary transition-colors">GMC Yukon XL</Link> for maximum luggage space and comfort.
@@ -99,11 +99,11 @@ export default function SEOContentSection() {
                                 <h3 className="text-2xl font-bold font-playfair mb-4 text-gold-primary">
                                     Why Choose Al Kiswa Umrah Transport?
                                 </h3>
-                                <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                                <div className="text-lg text-gray-400 leading-relaxed mb-4">
                                     In a market flooded with options, Al Kiswa stands out for its unwavering commitment to integrity and quality. Here is why thousands of pilgrims trust us:
-                                </p>
+                                </div>
                                 <ol className="list-decimal list-inside text-gray-400 space-y-2 ml-4 mb-4">
-                                    <li><strong>Official & Insured:</strong> We are a legally registered transport entity in Saudi Arabia, ensuring your ride is compliant with all local transport regulations.</li>
+                                    <li><strong>Official & Insured:</strong> We are a legally registered transport entity in Saudi Arabia, complying with all <a href="https://www.haj.gov.sa/" target="_blank" rel="noopener noreferrer" className="text-gold-primary hover:underline">Ministry of Hajj and Umrah</a> regulations.</li>
                                     <li><strong>Fixed Pricing:</strong> The price you see is the price you pay. We have a strict <Link href="/pricing" className="text-white hover:text-gold-primary transition-colors">no-hidden-fee policy</Link>, covering fuel, tolls, and parking.</li>
                                     <li><strong>Multilingual Drivers:</strong> Communication is key. Our team consists of drivers who speak Arabic, English, Urdu, and other languages to assist tailored needs.</li>
                                     <li><strong>User-Friendly Booking:</strong> You can book your ride in seconds through our website or contact our support team via WhatsApp for instant arrangements.</li>
@@ -111,6 +111,40 @@ export default function SEOContentSection() {
                                 <p className="text-lg text-gray-400 leading-relaxed">
                                     Your journey of faith deserves a travel partner that respects the sanctity of your trip. Let Al Kiswa Umrah Transport handle the logistics while you focus on the spiritual rewards of your Umrah. <strong><Link href="/booking" className="text-gold-primary font-bold hover:underline">Book your ride today</Link></strong> and travel with peace of mind.
                                 </p>
+                            </div>
+                            {/* Section 5: Dedicated Service for Western Pilgrims (UK, USA, Canada) */}
+                            <div>
+                                <h3 className="text-2xl font-bold font-playfair mb-4 text-gold-primary">
+                                    Trusted by Pilgrims from UK, USA, Canada & Europe
+                                </h3>
+                                <p className="text-lg text-gray-400 leading-relaxed mb-4">
+                                    We specialize in serving pilgrims travelling from the West. We understand the specific needs of travelers arriving from <strong>London Heathrow, Manchester, New York (JFK), Toronto, and Paris</strong>. Our team monitors international flight schedules to ensure your driver is waiting for you upon arrival, regardless of delays.
+                                </p>
+                                <div className="text-lg text-gray-400 leading-relaxed mb-6">
+                                    <ul className="list-disc list-inside text-gray-400 space-y-2 ml-4">
+                                        <li><strong>For UK Pilgrims:</strong> Reliable connections for flights arriving from British Airways and Saudia. We offer spacious vehicles like the GMC Yukon for families carrying extra luggage from the UK.</li>
+                                        <li><strong>For US & Canadian Pilgrims:</strong> We accept US Dollars (USD) and offer clear communication in English. Our chauffeurs are accustomed to the service standards expected by North American travelers.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            {/* Section 6: Additional Keyword Rich Content - hidden in natural flow */}
+                            <div className="bg-white/5 p-6 rounded-lg border border-white/10 my-8">
+                                <h4 className="text-xl font-bold text-gold-primary mb-3">Frequently Asked Questions about Umrah Transport</h4>
+                                <div className="space-y-4">
+                                    <div>
+                                        <h5 className="font-semibold text-white">How much is a taxi from Jeddah Airport to Makkah?</h5>
+                                        <p className="text-sm text-gray-400">Our prices are fixed and affordable. We offer the best rates for private taxis from Jeddah Airport to Makkah hotels, starting from competitive prices for sedans up to VIP GMCs.</p>
+                                    </div>
+                                    <div>
+                                        <h5 className="font-semibold text-white">Can I book a GMC Yukon for Umrah?</h5>
+                                        <p className="text-sm text-gray-400">Yes, the <strong>GMC Yukon 2024/2025</strong> is our most popular choice for families seeking luxury and comfort. It offers ample space for 7 passengers and luggage.</p>
+                                    </div>
+                                    <div>
+                                        <h5 className="font-semibold text-white">Do you offer Ziarah within Makkah and Madinah?</h5>
+                                        <p className="text-sm text-gray-400">Absolutely. We provide comprehensive Ziarah tours visiting historical sites like Cave Hira, Cave Thawr, Masjid Quba, and Mount Uhud with knowledgeable drivers.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

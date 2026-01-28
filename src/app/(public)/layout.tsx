@@ -1,7 +1,7 @@
 
 import type { Metadata, Viewport } from "next";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import Footer from "@/components/layout/FooterV2";
 import TopBar from "@/components/layout/TopBar";
 import AnnouncementBanner from "@/components/ui/AnnouncementBanner";
 import GlobalClientComponents from "@/components/common/GlobalClientComponents";

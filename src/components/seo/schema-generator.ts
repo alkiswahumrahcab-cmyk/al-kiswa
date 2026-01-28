@@ -88,7 +88,7 @@ export const generateServiceSchema = (
                 '@type': 'Offer',
                 itemOffered: {
                     '@type': 'Service',
-                    name: 'Jeddah to Makkah Taxi',
+                    name: 'Jeddah Airport to Makkah Taxi',
                 },
             },
             {
@@ -96,6 +96,34 @@ export const generateServiceSchema = (
                 itemOffered: {
                     '@type': 'Service',
                     name: 'Makkah to Madinah Taxi',
+                },
+            },
+            {
+                '@type': 'Offer',
+                itemOffered: {
+                    '@type': 'Service',
+                    name: 'Madinah to Jeddah Airport Transfer',
+                },
+            },
+            {
+                '@type': 'Offer',
+                itemOffered: {
+                    '@type': 'Service',
+                    name: 'VIP GMC Yukon Umrah Transport',
+                },
+            },
+            {
+                '@type': 'Offer',
+                itemOffered: {
+                    '@type': 'Service',
+                    name: 'Family Umrah Bus Rental',
+                },
+            },
+            {
+                '@type': 'Offer',
+                itemOffered: {
+                    '@type': 'Service',
+                    name: 'Ziarah Tours in Makkah & Madinah',
                 },
             },
         ],

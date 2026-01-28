@@ -227,7 +227,7 @@ export default function HomeFleetCarousel() {
 
                                     <Image
                                         src={currentVehicle.image}
-                                        alt={currentVehicle.name}
+                                        alt={`${currentVehicle.name} - Umrah Taxi Makkah`}
                                         width={1000}
                                         height={600}
                                         className="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20"
