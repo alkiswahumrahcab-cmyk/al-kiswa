@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
+import { blogService } from '@/services/blogService';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://alkiswahumrahtransport.com';
 
     const routes = [
@@ -19,5 +20,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: route === '' ? 1 : 0.8,
     }));
 
-    return routes;
+    const posts = await blogService.getPosts();
+    const blogRoutes = posts.map((post) => ({
+        url: `${baseUrl}/blog/${post.id}`,
+        lastModified: new Date(post.date),
+        changeFrequency: 'weekly' as const,
+        priority: 0.7,
+    }));
+
+    return [...routes, ...blogRoutes];
 }

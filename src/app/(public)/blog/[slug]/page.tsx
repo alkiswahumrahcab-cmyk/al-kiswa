@@ -9,6 +9,17 @@ import FadeIn from '@/components/common/FadeIn';
 import GlassCard from '@/components/ui/GlassCard';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import ShareButtons from '@/components/blog/ShareButtons';
+import TableOfContents from '@/components/blog/TableOfContents';
+import SidebarBookingWidget from '@/components/blog/SidebarBookingWidget';
+import ReviewSnippet from '@/components/blog/ReviewSnippet';
+
+// Helper to inject IDs into headers
+const injectIds = (content: string) => {
+    return content.replace(/<h([2-3])([^>]*)>(.*?)<\/h\1>/g, (match, level, attrs, text) => {
+        const id = text.toLowerCase().replace(/[^\w\s-]/g, '').replace(/\s+/g, '-');
+        return `<h${level} id="${id}"${attrs}>${text}</h${level}>`;
+    });
+};
 
 interface BlogPostPageProps {
     params: Promise<{
@@ -94,10 +105,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         "articleBody": post.content.replace(/<[^>]*>?/gm, '') // Strip HTML for plain text body
     };
 
-    // Find related posts (exclude current post, limit to 3)
+    // Find related posts (exclude current post, prioritize category)
     const allPosts = await blogService.getPosts();
     const relatedPosts = allPosts
         .filter((p) => p.id !== slug)
+        .sort((a, b) => {
+            // Prioritize same category
+            if (a.category === post.category && b.category !== post.category) return -1;
+            if (a.category !== post.category && b.category === post.category) return 1;
+            return 0;
+        })
         .slice(0, 3);
 
     return (
@@ -157,7 +174,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                             <article className={styles.articleBody}>
                                 <div
                                     className={styles.content}
-                                    dangerouslySetInnerHTML={{ __html: post.content }}
+                                    dangerouslySetInnerHTML={{ __html: injectIds(post.content) }}
                                 />
                             </article>
                         </FadeIn>
@@ -190,6 +207,25 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     </div>
 
                     <aside className={styles.sidebar}>
+                        <div className="mb-8 block md:hidden lg:block">
+                            <TableOfContents content={post.content} />
+                        </div>
+
+                        {/* Booking Widget (High Conversion) */}
+                        <div className="mb-8">
+                            <SidebarBookingWidget />
+                        </div>
+
+                        {/* Social Proof (Trust Builder) */}
+                        <div className="mb-8 hidden lg:block">
+                            <ReviewSnippet
+                                author="Mohammed Al-Fayed"
+                                location="UK Pilgrim"
+                                text="The most comfortable ride we had in Saudi. The GMC was brand new and the driver waited for us despite the flight delay."
+                                rating={5}
+                            />
+                        </div>
+
                         <GlassCard delay={0.5} className={`${styles.sidebarWidget} ${styles.ctaWidget} p-8`}>
                             <h3 className={styles.ctaTitle}>Plan Your Umrah Journey</h3>
                             <p className={styles.ctaText}>

@@ -49,49 +49,107 @@ export const hadithCollection: Hadith[] = [
 export const blogPosts: BlogPost[] = [
     {
         id: "makkah-to-madinah-transport-guide-arabic",
-        title: "دليل النقل من مكة إلى المدينة المنورة: أفضل الخيارات للمعتمرين",
-        excerpt: "تعرف على أفضل وسائل المواصلات من مكة للمدينة. مقارنة شاملة بين قطار الحرمين، التاكسي الخاص، والباصات VIP. الأسعار والمميزات لرحلة عمرة مريحة.",
+        title: "دليل النقل الشامل من مكة المكرمة إلى المدينة المنورة (2025)",
+        excerpt: "الدليل الكامل للمعتمر: مقارنة تفصيلية بين قطار الحرمين، التاكسي الخاص، والباصات. تعرف على الأسعار، المواعيد، وأفضل الخيارات للعائلات وكبار السن.",
         content: `
-            <h2>خيارات التنقل بين المدن المقدسة</h2>
-            <p>يعتبر الطريق بين مكة المكرمة والمدينة المنورة (طريق الهجرة) من أهم المسارات لضيوف الرحمن. ومع تنوع الخيارات، يقع الكثير من المعتمرين في حيرة: <strong>ما هي أفضل وسيلة تنقل تناسب احتياجاتي وميزانيتي؟</strong></p>
+            <h2>مقدمة: رحلة الروح من البلد الأمين إلى طيبة الطيبة</h2>
+            <p>تعتبر الرحلة من مكة المكرمة إلى المدينة المنورة جزءاً أساسياً من رحلة العمرة. يقطع المعتمرون مسافة تقدر بـ 450 كيلومتراً عبر "طريق الهجرة"، مستذكرين هجرة المصطفى ﷺ. ولكن مع تطور وسائل النقل في المملكة، أصبح أمام المعتمر خيارات متعددة تتفاوت في <strong>الراحة، التكلفة، والسرعة</strong>.</p>
+            <p>في هذا الدليل الشامل، سنساعدك على اختيار الوسيلة الأنسب لك ولعائلتك.</p>
 
-            <h3>1. التاكسي الخاص (الخيار الأفضل للعائلات)</h3>
-            <p>يعتبر <strong>حجز تاكسي من مكة للمدينة</strong> الخيار الأكثر راحة وخصوصية، خاصة للعائلات وكبار السن.</p>
+            <h2>1. التاكسي الخاص: الخيار رقم 1 للعائلات</h2>
+            <p>يُعد حجز سيارة خاصة (Private Transfer) الخيار المفضل لأكثر من 60% من العائلات، وذلك للأسباب التالية:</p>
+            
+            <h3>المميزات:</h3>
             <ul>
-                <li><strong>المميزات:</strong> خدمة من الباب للباب (من فندقك بمكة إلى فندقك بالمدينة)، حرية التوقف في الميقات (ميقات السيل الكبير أو غيره)، ومساحة واسعة للحقائب.</li>
-                <li><strong>السيارات المتوفرة:</strong> جمس يوكن (GMC Yukon) للفخامة، هيونداي ستاريا (Hyundai Staria) للعائلات الكبيرة، وتويوتا كامري للاقتصاد.</li>
+                <li><strong>الخصوصية التامة:</strong> السيارة لك ولعائلتك فقط.</li>
+                <li><strong>من الباب للباب (Door-to-Door):</strong> يستقبلك السائق من باب فندقك في مكة ويوصلك لباب فندقك في المدينة. لا حاجة لحمل الحقائب في المحطات.</li>
+                <li><strong>مرونة التوقف:</strong> يمكنك التوقف في "ميقات السيل الكبير" أو الاستراحات للصلاة وتناول الطعام متى شئت.</li>
+                <li><strong>سعة الحقائب:</strong> سيارات الـ GMC والـ H1 تتسع لعدد كبير من الحقائب، عكس القطار الذي يفرض قيوداً.</li>
+            </ul>
+            
+            <div style="margin: 2rem 0; text-align: center;">
+                <a href="/booking" style="background: linear-gradient(90deg, #D4AF37, #f59e0b); color: white; padding: 1rem 2rem; border-radius: 12px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <span>احجز سيارتك الخاصة الآن</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+                <p style="margin-top: 0.5rem; font-size: 0.85rem; color: #64748b;">تأكيد فوري - دفع عند الوصول</p>
+            </div>
+
+            <h3>أنواع السيارات المتوفرة 2025:</h3>
+            <ul>
+                <li><strong>GMC Yukon (موديلات 2024/2025):</strong> قمة الفخامة والراحة، تتسع لـ 7 ركاب و 5 حقائب كبيرة.</li>
+                <li><strong>Hyundai Staria:</strong> فان عائلي واسع جداً ومريح، يتسع لـ 7 ركاب مع حقائب كثيرة.</li>
+                <li><strong>Toyota Camry:</strong> خيار اقتصادي ومريح للأعداد الصغيرة (1-3 أشخاص).</li>
             </ul>
 
-            <h3>2. قطار الحرمين السريع</h3>
-            <p>خيار ممتاز للسرعة، حيث يقطع المسافة في حوالي ساعتين ونصف.</p>
+            <h2>2. قطار الحرمين السريع: السرعة القياسية</h2>
+            <p>يعد قطار الحرمين نقلة نوعية في المواصلات، حيث يربط المدينتين في ساعتين و 20 دقيقة تقريباً.</p>
+            
+            <h3>الإيجابيات:</h3>
             <ul>
-                <li><strong>التحديات:</strong> يتطلب الحجز المسبق بوقت طويل، والالتزام بمواعيد صارمة. كما ستحتاج إلى مواصلات إضافية للوصول من وإلى المحطات، مما قد يكون متعباً مع الحقائب.</li>
+                <li>سرعة عالية وراحة في الجلوس.</li>
+                <li>خدمات ممتازة داخل المحطات.</li>
             </ul>
 
-            <h3>3. باصات النقل الجماعي VIP</h3>
-            <p>خيار اقتصادي للمجموعات الكبيرة، لكنه يستغرق وقتاً أطول (حوالي 5-6 ساعات) ولا يوفر الخصوصية التي يوفرها التاكسي الخاص.</p>
-
-            <h3>لماذا يختار المعتمرون "الكسوة للنقل"؟</h3>
-            <p>نحن نوفر خدمة <strong>توصيل من مكة للمدينة</strong> بأحدث السيارات موديل 2024/2025 وسائقين محترفين يعرفون الطريق جيداً. نضمن لك:</p>
+            <h3>السلبيات التي يجب مراعاتها:</h3>
             <ul>
-                <li>سعر ثابت وشامل (بدون رسوم خفية).</li>
-                <li>تأكيد فوري للحجز.</li>
-                <li>خدمة عملاء 24 ساعة.</li>
+                <li><strong>موقع المحطات:</strong> محطة القطار في مكة (الرصيفة) تبعد عن الحرم، ومحطة المدينة تبعد عن المسجد النبوي. ستحتاج لتاكسي إضافي للوصول للفندق.</li>
+                <li><strong>قيود العفش:</strong> يُسمح بحقيبة واحدة فقط لكل راكب. الوزن الزائد قد يكون مشكلة.</li>
+                <li><strong>الحجز المسبق:</strong> تنفذ التذاكر بسرعة، خاصة في المواسم، والالتزام بالوقت دقيق جداً (لا مجال للتأخير).</li>
+            </ul>
+
+            <h2>3. باصات النقل الجماعي (SAPTCO VIP)</h2>
+            <p>خيار جيد للمسافرين الاقتصاديين أو المجموعات الكبيرة جداً.</p>
+            <ul>
+                <li><strong>التكلفة:</strong> الأرخص سعراً.</li>
+                <li><strong>المدة:</strong> تستغرق الرحلة من 5 إلى 6 ساعات.</li>
+                <li><strong>محطة الوصول:</strong> تتوقف الباصات في محطات محددة، مما يستدعي أيضاً مواصلات إضافية للفندق.</li>
+            </ul>
+
+            <h2>مقارنة الأسعار التقريبية (2025)</h2>
+            <p>تختلف الأسعار حسب الموسم، ولكن كمتوسط تقريبي:</p>
+            <ul>
+                <li><strong>التاكسي الخاص (GMC/Staria):</strong> من 600 إلى 900 ريال (للسيارة كاملة).</li>
+                <li><strong>القطار (درجة اقتصادية):</strong> حوالي 170 ريال للفرد الواحد.</li>
+                <li><strong>الباص VIP:</strong> حوالي 80-120 ريال للفرد.</li>
+            </ul>
+
+            <div style="margin: 2rem 0; padding: 1.5rem; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; text-align: center;">
+                <h3 style="margin-top: 0; color: #0f172a;">هل تبحث عن أفضل سعر؟</h3>
+                <p style="color: #64748b; margin-bottom: 1.5rem;">أسعارنا ثابتة وشاملة الضريبة والوقود.</p>
+                <a href="/booking" style="background: white; color: #D4AF37; border: 2px solid #D4AF37; padding: 0.8rem 2rem; border-radius: 12px; font-weight: bold; text-decoration: none; display: inline-block; transition: all 0.2s;">
+                    تحقق من السعر الآن
+                </a>
+            </div>
+
+            <h2>نصيحة الخبراء: ماذا تختار؟</h2>
+            <ul>
+                <li>اذا كنت <strong>مع عائلة (كبار سن/أطفال)</strong> وحقائب: <strong>التاكسي الخاص</strong> هو الأوفر والأريح بلا منازع.</li>
+                <li>اذا كنت <strong>مسافراً وحيداً</strong> وحقيبتك خفيفة: <strong>القطار</strong> تجربة رائعة.</li>
+                <li>اذا كانت <strong>الميزانية محدودة جداً</strong>: <strong>الباص</strong> هو الحل.</li>
             </ul>
 
             <blockquote>
-                "رحلة مريحة وآمنة هي بداية مقبولة لعمرتك. اختر وسيلة النقل التي تضمن لك الخشوع والراحة."
+                "خدمة الكسوة للنقل وفرت علينا عناء التنقل بالحقائب. السائق وصل للفندق في الوقت المحدد، والسيارة كانت نظيفة جداً. تجربة روحانية مريحة." - أبو خالد، معتمر من الإمارات
             </blockquote>
 
-            <p><strong>هل تخطط للسفر قريباً؟</strong> <a href="/booking">احجز رحلتك الآن</a> واستمتع بخصومات الحجز المبكر.</p>
+            <h2>كيفية الحجز مع الكسوة للنقل؟</h2>
+            <p>يمكنك حجز رحلتك معنا في دقائق:</p>
+            <ol>
+                <li>اختر نوع السيارة.</li>
+                <li>حدد فندق الاستلام في مكة وفندق الوصول في المدينة.</li>
+                <li>احصل على تأكيد فوري عبر الواتساب.</li>
+            </ol>
+
+            <p><strong>لا تدع تعب الطريق يفسد خشوعك.</strong> <a href="/booking">احجز تاكسي مكة المدينة الآن</a> واستمتع برحلة آمنة ومريحة.</p>
         `,
         category: "دليل المعتمر",
         date: "Jan 01, 2025",
-        readTime: "5 دقائق للقراءة",
+        readTime: "8 دقائق للقراءة",
         image: "/images/routes/makkah-madinah-route-hero.png",
-        alt: "Makkah to Madinah Transport - GMC Yukon on Highway",
+        alt: "GMC Yukon on Makkah Madinah Highway",
         author: "فريق الكسوة",
-        tags: ["نقل معتمرين", "مكة المدينة", "حجز تاكسي", "نصائح العمرة"]
+        tags: ["نقل معتمرين", "مكة المدينة", "قطار الحرمين", "حجز تاكسي", "دليل شامل"]
     },
     {
         id: "private-taxi-vs-haramain-train-umrah",
@@ -318,6 +376,222 @@ export const blogPosts: BlogPost[] = [
         alt: "Affordable Umrah transport packages - Group travel bus",
         author: "Fatima Hassan",
         tags: ["Affordable", "Packages", "Deals", "Group Travel"]
+    },
+    {
+        id: "jeddah-airport-taxi-price-guide-2025",
+        title: "Jeddah Airport to Makkah Taxi Price Guide (2025 Update)",
+        excerpt: "How much should you pay for a taxi from Jeddah Airport to Makkah? Avoid scams and overcharging. Official 2025 price list for Camry, Hyundai Staria, and GMC Yukon.",
+        content: `
+            <h2>Don't Get Overcharged: 2025 Official Rates</h2>
+            <p>Arriving at King Abdulaziz International Airport (JED) can be overwhelming. Dozens of unauthorized drivers ("Keddana") might approach you with confusing prices. <strong>Knowing the fair market rate before you land is your best defense against scams.</strong></p>
+
+            <h3>Average Market Rates (Jeddah Airport ⇄ Makkah Hotel)</h3>
+            <p>Prices fluctuate based on season (Ramadan/Hajj vs. Off-season), but here are the standard ranges for 2025:</p>
+            
+            <ul>
+                <li><strong>Economy Sedan (Toyota Camry):</strong> 200 - 300 SAR</li>
+                <li><strong>Family Van (Hyundai Staria / H1):</strong> 350 - 450 SAR</li>
+                <li><strong>VIP SUV (GMC Yukon / Tahoe):</strong> 500 - 650 SAR</li>
+            </ul>
+
+            <div style="margin: 2rem 0; padding: 1.5rem; background: #fffbeb; border: 1px solid #fcd34d; border-radius: 16px; text-align: center;">
+                <h3 style="margin-top: 0; color: #92400e;">⚠️ Warning: Hidden Fees</h3>
+                <p style="color: #92400e; margin-bottom: 0;">Some random taxis quote a low price (e.g., 150 SAR) but then demand extra for luggage, gate entry, or "traffic". <strong>Always book a fixed-price service.</strong></p>
+            </div>
+
+            <h2>Why Book Online vs. Airport Taxi?</h2>
+            <p>While you can hail a taxi at the curb, booking online with a licensed company like <strong>Al Kiswah Transport</strong> guarantees:</p>
+            <ul>
+                <li><strong>Fixed Price:</strong> The price you see is the price you pay. No negotiation.</li>
+                <li><strong>Meet & Greet:</strong> Our driver waits for you at the arrival hall with a name sign.</li>
+                <li><strong>Flight Tracking:</strong> We monitor your flight delay and wait for free.</li>
+            </ul>
+
+            <div style="margin: 2rem 0; text-align: center;">
+                <a href="/booking" style="background: linear-gradient(90deg, #10b981, #059669); color: white; padding: 1rem 2rem; border-radius: 12px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);">
+                    <span>Get Your Fixed Price Quote</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <h2>How to Book in 3 Steps</h2>
+            <ol>
+                <li><strong>Select Vehicle:</strong> Choose the car that fits your family and luggage.</li>
+                <li><strong>Enter Flight Details:</strong> So we can track your arrival.</li>
+                <li><strong>Receive Confirmation:</strong> Get your driver's details and plate number via WhatsApp instantly.</li>
+            </ol>
+        `,
+        category: "Guide",
+        date: "Jan 28, 2025",
+        readTime: "5 min read",
+        image: "/images/blog/jeddah-airport-terminal.png",
+        alt: "Jeddah Airport Taxi Price Guide 2025",
+        author: "Al Kiswah Team",
+        tags: ["Jeddah Airport", "Taxi Price", "Scam Alert", "Makkah Transport"]
+    },
+    {
+        id: "gmc-yukon-vs-bus-family-umrah",
+        title: "GMC Yukon vs. Bus: The Best Choice for Families?",
+        excerpt: "Traveling with family and kids? Discover why 80% of families choose the GMC Yukon over public buses for their Umrah journey. Comfort, space, and privacy compared.",
+        content: `
+            <h2>The Family Dilemma: Comfort or Cost?</h2>
+            <p>Umrah is a spiritual marathon. You will walk kilometers during Tawaf and Sa'i. <strong>Why start your journey exhausted from a cramped bus ride?</strong> For families traveling with children, elders, or excessive luggage, the transport choice can make or break the experience.</p>
+
+            <h3>1. Luggage Space: The #1 Problem</h3>
+            <p><strong>The Bus Reality:</strong> Most buses have limited under-carriage space. If you have 6-7 large suitcases (typical for families), you might struggle or be forced to keep bags in the aisle.</p>
+            <p><strong>The Yukon Solution:</strong> The GMC Yukon XL is built for cargo. It easily swallows 5-6 large suitcases PLUS cabin bags, all while keeping the passenger cabin clutter-free.</p>
+
+            <h3>2. The "Door-to-Door" Factor</h3>
+            <p>Buses drop you at a station (often 2-3km from your hotel). Imagine dragging 6 suitcases and 3 tired kids through Makkah's heat to find a local taxi.</p>
+            <p><strong>With our GMC Service:</strong> We park right at your hotel lobby. You step out of the cool AC straight into the hotel reception.</p>
+
+            <div style="margin: 2rem 0; padding: 2rem; background: #1e293b; color: white; border-radius: 16px; text-align: center;">
+                <h3 style="margin-top: 0; color: #D4AF37;">Experience VIP Comfort</h3>
+                <p style="color: #cbd5e1;">Treat your parents and children to the dignity they deserve.</p>
+                <a href="/booking" style="background: #D4AF37; color: white; padding: 0.8rem 2rem; border-radius: 8px; font-weight: bold; text-decoration: none; display: inline-block;">
+                    Check GMC Yukon Availability
+                </a>
+            </div>
+
+            <h3>3. Privacy and Flexibility</h3>
+            <p>In a private car, you control the AC, the audio (Quran or silence), and the stops. Need a bathroom break for the kids? Just ask the driver. In a bus, you are on the driver's rigid schedule.</p>
+
+            <h2>Verdict</h2>
+            <p>If you are solo, take the bus/train. But for <strong>families of 3 or more</strong>, the price difference per person is small, but the difference in comfort is massive.</p>
+        `,
+        category: "Travel Tips",
+        date: "Jan 25, 2025",
+        readTime: "6 min read",
+        image: "/images/fleet/gmc-yukon-interior.png",
+        alt: "GMC Yukon Interior Luxury vs Bus",
+        author: "Sarah Khan",
+        tags: ["Family Travel", "GMC Yukon", "Comfort", "Luggage"]
+    },
+    {
+        id: "how-to-wear-ihram-jeddah-airport",
+        title: "How to Wear Ihram at Jeddah Airport (Step-by-Step)",
+        excerpt: "Landing in Jeddah without Ihram? Don't panic. Here is exactly where to change, how to make Niyyah, and where the Miqat applies for air travelers.",
+        content: `
+            <h2>The "Miqat" Confusion for Air Travelers</h2>
+            <p>One of the most common questions we get is: <em>"Can I wear Ihram at Jeddah Airport?"</em></p>
+            <p><strong>The Ruling:</strong> Jeddah is <strong>inside</strong> the Miqat boundary for most international travelers. This means you must ideally be in the state of Ihram <strong>before</strong> your plane crosses the Miqat line (usually 30 mins before landing).</p>
+
+            <h3>Option 1: Wear it from Home (Recommended)</h3>
+            <p>Wear the lower towel (Izar) from your home airport. You can keep your regular shirt on until you are on the plane.</p>
+
+            <h3>Option 2: Wear it On the Plane</h3>
+            <p>Airlines usually announce "We are approaching the Miqat." Bathrooms on planes are tiny, so this is difficult for elderly people.</p>
+
+            <h3 style="color: #dc2626;">Can I wear it at Jeddah Airport?</h3>
+            <p>If you land in Jeddah without Ihram, you have passed the Miqat. You technically need to go back to a Miqat (like Al-Juhfah) to enter Ihram, or pay a Dam (penalty).</p>
+            <p><strong>However, there is a solution:</strong></p>
+
+            <div style="margin: 2rem 0; padding: 1.5rem; border: 2px dashed #D4AF37; border-radius: 16px;">
+                <h3>Our Driver Can Take You to the Miqat</h3>
+                <p>If you forgot or couldn't wear Ihram, book a taxi with us. Ask the driver to stop at <strong>Bi'r Ali</strong> (if going to Madinah first) or drive you to <strong>Taif/Al-Sayl Al-Kabir</strong> (if going to Makkah) to make your Niyyah correctly.</p>
+                <a href="/contact" style="color: #D4AF37; font-weight: bold; text-decoration: underline;">Contact Support to Arrange This ></a>
+            </div>
+
+            <h2>Facilities at Jeddah Airport</h2>
+            <p>The new Terminal 1 has designated prayer areas and huge bathrooms, but remember: physically changing clothes is not enough. You must have made the Intention (Niyyah) at the Miqat line in the air.</p>
+        `,
+        category: "Spiritual",
+        date: "Jan 20, 2025",
+        readTime: "4 min read",
+        image: "/images/blog/ihram-guide.png",
+        alt: "Pilgrim wearing Ihram at Jeddah Airport",
+        author: "Sheikh Abdullah",
+        tags: ["Ihram", "Miqat", "Jeddah Airport", "Religious Guide"]
+    },
+    {
+        id: "al-kiswah-complete-umrah-guide-spiritual-practical",
+        title: "Al Kiswah Umrah Guide: A Complete Spiritual and Practical Journey",
+        excerpt: "The ultimate step-by-step guide for pilgrims. From Niyyah and Ihram to the spiritual calmness of Makkah. Discover how to perform Umrah with sincerity and peace of mind.",
+        content: `
+            <h2>Introduction: A Journey of the Heart</h2>
+            <p>Umrah is more than a physical journey to Makkah; it is a migration of the heart towards its Creator. Millions travel annually to the House of Allah to seek forgiveness and spiritual renewal.</p>
+            <p>At <strong>Al Kiswah Umrah Transport</strong>, our mission goes beyond driving. We aim to facilitate your worship by removing the worldly stress of logistics, ensuring your focus remains entirely on your connection with Allah.</p>
+
+            <h2>1. Preparation Before Umrah</h2>
+            <p>The journey begins before you leave your home. Mental and spiritual preparation is the foundation of an accepted Umrah.</p>
+            <ul>
+                <li><strong>Niyyah (Intention):</strong> Check your heart. Are you going for status, or purely for Allah? Sincerity (Ikhlas) is the key to acceptance.</li>
+                <li><strong>Repentance (Tawbah):</strong> Seek forgiveness for past sins to start your journey with a clean slate.</li>
+                <li><strong>Packing Essentials:</strong>
+                    <ul>
+                        <li>Two pieces of white unstitched cloth (Ihram) for men.</li>
+                        <li>Comfortable, modest clothing for women.</li>
+                        <li>Unscented soap and toiletries (essential for the state of Ihram).</li>
+                        <li>Comfortable walking sandals.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>2. Wearing the Ihram</h2>
+            <p>Ihram is the sacred state a pilgrim enters before crossing the Miqat.</p>
+            <h3>For Men:</h3>
+            <p>Wear two white unstitched sheets. One (Izar) covers the lower body, and the other (Rida) covers the upper body. No underwear or stitched clothing is allowed.</p>
+            <h3>For Women:</h3>
+            <p>Dress in loose, modest clothing that covers the entire body (Satr) except the face and hands. There is no specific color requirement, though simple colors are preferred.</p>
+            <h3>Spiritual Meaning:</h3>
+            <p>The white cloth symbolizes the shroud (Kafan) and equality. King and commoner stand side-by-side, indistinguishable before Allah.</p>
+
+            <h2>3. Making the Niyyah (Intention)</h2>
+            <p>As you approach the Miqat (or fly over it), make the vocal intention:</p>
+            <blockquote style="background: #f8fafc; border-left: 4px solid #D4AF37; padding: 1rem; font-style: italic;">
+                "Labbayk Allahumma Umrah" <br>
+                (Here I am, O Allah, for Umrah)
+            </blockquote>
+            <p>Then, begin reciting the Talbiyah frequently: <em>"Labbayk Allahumma Labbayk..."</em></p>
+
+            <h2>4. Step-by-Step Guide to Performing Umrah</h2>
+            
+            <h3>A. Tawaf (Circumambulation)</h3>
+            <p>Upon entering Masjid Al-Haram, proceed to the Kaaba. Circle the Kaaba seven times anti-clockwise, starting from the Hajar Al-Aswad (Black Stone).</p>
+            <ul>
+                <li><strong>Ramal:</strong> Men should walk briskly with the right shoulder uncovered (Idtiba) in the first three rounds.</li>
+                <li><strong>Dua:</strong> There are no fixed duas, but reciting <em>"Rabbana atina fid-dunya hasanah..."</em> between the Yemeni Corner and the Black Stone is Sunnah.</li>
+            </ul>
+
+            <h3>B. Sa’i (Walking between Safa and Marwah)</h3>
+            <p>Walk seven times between the hills of Safa and Marwah, commemorating the struggle of Hajar (AS) searching for water for Prophet Ismail (AS).</p>
+            <p><strong>Reflection:</strong> This ritual teaches us that effort (action) and reliance on Allah (Tawakkul) go hand in hand.</p>
+
+            <h3>C. Tahallul (Shaving/Cutting Hair)</h3>
+            <p>After Sa'i, men shave their heads (Halq) or trim their hair (Taqsir). Women cut a fingertip length of hair. This marks the completion of Umrah and the exit from the state of Ihram.</p>
+
+            <h2>5. The Spiritual Dimensions</h2>
+            <p>The rituals are the "body" of Umrah, but the "soul" is your state of heart.
+            <ul>
+                <li><strong>Patience (Sabr):</strong> You will encounter crowds, heat, and delays. Respond with a smile, for you are Allah's guest.</li>
+                <li><strong>Gratitude (Shukr):</strong> Every step is a blessing denied to millions who yearn to be where you are.</li>
+            </ul>
+
+            <h2>6. Practical Tips for a Smooth Journey</h2>
+            <ul>
+                <li><strong>Health:</strong> Drink plenty of Zamzam and stay hydrated. Avoid heavy meals before Tawaf.</li>
+                <li><strong>Timing:</strong> If traveling with elderly, avoid peak hours right after prayers. Late night (1 AM - 3 AM) is often quieter.</li>
+                <li><strong>Transport:</strong> Don't leave your transport to chance. Booking a reliable service ensures you arrive at the Haram fresh and ready for worship.</li>
+            </ul>
+            
+            <div style="margin: 2rem 0; padding: 2rem; background: linear-gradient(to right, #f8fafc, #fff); border: 1px solid #e2e8f0; border-radius: 20px; text-align: center;">
+                <h3 style="margin-top: 0; color: #0f172a;">Focus on Worship, We Handle the Rest</h3>
+                <p style="color: #64748b; margin-bottom: 1.5rem;">Let Al Kiswah Umrah Transport take care of your transfers between Jeddah, Makkah, and Madinah with our premium fleet.</p>
+                <a href="/booking" style="background: #D4AF37; color: white; padding: 1rem 2.5rem; border-radius: 99px; font-weight: bold; text-decoration: none; display: inline-block; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);">
+                    Book Your Ride Now
+                </a>
+            </div>
+
+            <h2>Conclusion</h2>
+            <p>May Allah invite you to His House and accept your efforts. Approach this journey with a heart full of humility, and return with a soul washed of sins.</p>
+        `,
+        category: "Spiritual Guide",
+        date: "Jan 30, 2025",
+        readTime: "10 min read",
+        image: "/images/blog/kaaba-tawaf-crowd.png",
+        alt: "Pilgrims performing Tawaf around the Kaaba",
+        author: "Al Kiswah Spiritual Team",
+        tags: ["Umrah Guide", "Spiritual", "Tawaf", "Sai", "Ihram"]
     }
 ];
 
