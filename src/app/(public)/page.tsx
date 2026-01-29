@@ -24,7 +24,9 @@ const TransportServices = dynamic(() => import('@/components/home/TransportServi
 const Testimonials = dynamic(() => import('@/components/home/Testimonials'));
 const HomeFleetCarousel = dynamic(() => import('@/components/home/HomeFleetCarousel'));
 const BookingGuide = dynamic(() => import('@/components/home/BookingGuide'));
-const ServiceDirectory = dynamic(() => import('@/components/home/ServiceDirectory'));
+const DirectorySection = dynamic(() => import('@/components/home/ServiceDirectory'));
+const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
+const FleetGallery = dynamic(() => import('@/components/home/FleetGallery'));
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { generateServiceSchema } from "@/components/seo/schema-generator";
 
@@ -32,15 +34,22 @@ import { metaKeywords } from '@/data/seo-keywords';
 
 export async function generateMetadata() {
   return {
-    title: "Umrah Taxi Service from Jeddah to Makkah | UK & USA Pilgrims",
-    description: "Reliable Umrah transport for Western pilgrims. Book private GMC Yukon & Staria taxi from Jeddah Airport to Makkah. Trusted by UK, USA & Canada travelers.",
+    title: "Umrah Taxi Service Jeddah to Makkah | VIP Transport & Ziyarat",
+    description: "Book trusted Al Kiswah Umrah Transport. Fixed price taxi from Jeddah Airport to Makkah hotels. VIP GMC Yukon fleet, 24/7 support & Madinah Ziyarat tours. Licensed Saudi operator.",
     alternates: {
-      canonical: '/',
+      canonical: 'https://alkiswahumrahtransport.com',
     },
-    keywords: metaKeywords,
+    keywords: [
+      ...metaKeywords,
+      "Jeddah to Makkah taxi price",
+      "Haramain high speed railway transfer",
+      "Mecca transport services",
+      "Madinah airport taxi",
+      "Al Kiswah Umrah Transport"
+    ],
     openGraph: {
-      title: "Umrah Taxi Service | Trusted by UK, USA & Canada Pilgrims",
-      description: "Book reliable Umrah transport & VIP taxi services. Private GMC Yukon & Staria transfers from Jeddah Airport to Makkah. Official licensed transport company.",
+      title: "Umrah Taxi Service Jeddah to Makkah | VIP Transport & Ziyarat",
+      description: "Book trusted Al Kiswah Umrah Transport. Fixed price taxi from Jeddah Airport to Makkah hotels. VIP GMC Yukon fleet, 24/7 support & Madinah Ziyarat tours. Licensed Saudi operator.",
       locale: 'en_US',
       type: 'website',
     }
@@ -50,7 +59,7 @@ export async function generateMetadata() {
 export default async function Home() {
   const heroSection = await getSectionContent('home-hero');
   // SEO Optimized Fallbacks
-  const heroTitle = heroSection?.title || "Seamless Umrah Transport, Rooted in Trust";
+  const heroTitle = heroSection?.title || "Trusted Umrah Transport Services in Saudi Arabia";
   // Styled Subtitle with Arabic
   const heroSubtitleText = heroSection?.subtitle || "Premium journeys designed for comfort, care, and spiritual alignment.";
   const heroSubtitleContent = (
@@ -114,6 +123,9 @@ export default async function Home() {
       {/* Transport Services Section - NEW */}
       <TransportServices />
 
+      {/* Fleet Gallery - List View */}
+      <FleetGallery />
+
       {/* Instant Price Calculator Section */}
       <InstantPriceCalculator />
 
@@ -151,7 +163,10 @@ export default async function Home() {
       </FadeIn>
 
       {/* SEO Service Directory - 600+ Keywords */}
-      <ServiceDirectory />
+      <DirectorySection />
+
+      {/* Hotels and Districts Covered - NEW */}
+      <HotelsAndDistricts />
 
       {/* CTA Section */}
       {/* CTA Section */}

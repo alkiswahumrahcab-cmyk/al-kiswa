@@ -6,6 +6,9 @@ import Link from 'next/link';
 import { ArrowRight, MapPin, Clock, ShieldCheck, Star, CheckCircle } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
 import FadeIn from '@/components/common/FadeIn';
+import dynamic from 'next/dynamic';
+
+const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 
 export const metadata: Metadata = {
     title: 'Umrah Transport Routes Network | Makkah & Madinah | شبكة المسارات',
@@ -299,6 +302,8 @@ export default function RoutesPage() {
                     </div>
                 </div>
             </section>
+
+            <HotelsAndDistricts />
         </main>
     );
 }

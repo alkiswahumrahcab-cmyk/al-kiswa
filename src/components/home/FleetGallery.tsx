@@ -133,9 +133,25 @@ export default function FleetGallery() {
 
             {/* Gallery Slider */}
             <div className="relative w-full overflow-hidden pb-12">
+                {/* Floating Navigation Buttons - Always visible on Desktop to prompt scrolling */}
+                <button
+                    onClick={() => scroll('left')}
+                    className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-black/80 backdrop-blur-md border border-gold-primary/30 text-gold-primary flex items-center justify-center hover:bg-gold-primary hover:text-black hover:scale-110 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hidden md:flex group"
+                    aria-label="Scroll Left"
+                >
+                    <ChevronLeft size={32} className="group-hover:-translate-x-1 transition-transform" />
+                </button>
+                <button
+                    onClick={() => scroll('right')}
+                    className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-black/80 backdrop-blur-md border border-gold-primary/30 text-gold-primary flex items-center justify-center hover:bg-gold-primary hover:text-black hover:scale-110 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hidden md:flex group"
+                    aria-label="Scroll Right"
+                >
+                    <ChevronRight size={32} className="group-hover:translate-x-1 transition-transform" />
+                </button>
+
                 <motion.div
                     ref={scrollContainerRef}
-                    className="flex gap-8 overflow-x-auto px-4 md:px-8 pb-12 cursor-grab active:cursor-grabbing select-none hide-scrollbar"
+                    className="flex gap-8 overflow-x-auto px-4 md:px-16 pb-12 cursor-grab active:cursor-grabbing select-none hide-scrollbar"
                     style={{
                         scrollSnapType: 'x mandatory',
                         scrollbarWidth: 'none',

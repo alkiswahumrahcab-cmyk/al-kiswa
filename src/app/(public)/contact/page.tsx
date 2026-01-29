@@ -8,6 +8,9 @@ import Breadcrumbs from '@/components/common/Breadcrumbs';
 import GlassCard from '@/components/ui/GlassCard';
 import { getSettings } from '@/lib/settings-storage';
 import ContactGrid from '@/components/contact/ContactGrid';
+import dynamic from 'next/dynamic';
+
+const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 
 export async function generateMetadata() {
     const title = "Contact Al Kiswah Umrah Transport | Book Your Ride Today";
@@ -173,6 +176,8 @@ export default async function ContactPage() {
                     </div>
                 </div>
             </div>
+
+            <HotelsAndDistricts />
         </div >
     );
 }

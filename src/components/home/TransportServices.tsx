@@ -11,8 +11,13 @@ const services = [
         id: 'intercity',
         title: 'Intercity Transport',
         subtitle: 'Makkah • Madinah • Jeddah',
-        description: 'Experience safe, comfortable travel between major Saudi cities. Our premium intercity transport ensures a smooth journey for pilgrims performing Umrah and Ziyarat.',
+        description: (
+            <>
+                Experience safe, comfortable <Link href="/services/intercity-transfer" className="text-gold-primary hover:underline">intercity travel</Link> between major Saudi cities. Our premium intercity transport ensures a smooth journey for pilgrims performing Umrah and Ziyarat.
+            </>
+        ),
         image: '/images/services/intercity-transport-new.png',
+        alt: 'GMC Yukon Intercity Taxi Makkah to Madinah',
         icon: <Car size={32} />,
         link: '/services/intercity-transfer',
     },
@@ -20,18 +25,28 @@ const services = [
         id: 'airport-pickups',
         title: 'Airport Transport',
         subtitle: 'Jeddah (KAIA) • Madinah',
-        description: 'Seamless pickup and drop-off from Jeddah and Madinah airports. We offer real-time flight tracking, professional meet-and-greet service, and luggage assistance.',
+        description: (
+            <>
+                Seamless pickup and drop-off from <Link href="/services/airport-transfers" className="text-gold-primary hover:underline">Jeddah and Madinah airports</Link>. We offer real-time flight tracking, professional meet-and-greet service, and luggage assistance.
+            </>
+        ),
         icon: <Plane size={32} />,
         image: '/images/services/airport-transport-new.png',
+        alt: 'Jeddah Airport Taxi Pickup Service',
         link: '/services/airport-transfers',
     },
     {
         id: 'hotel-transfers',
         title: 'Hotel Transfers',
         subtitle: 'Door-to-Door • Holy Cities',
-        description: 'Quick and reliable transfers between your hotel and the Holy Mosques. Enjoy premium comfort and cleanliness, perfectly suitable for families and groups.',
+        description: (
+            <>
+                Quick and reliable <Link href="/services/hotel-transfers" className="text-gold-primary hover:underline">transfers between your hotel</Link> and the Holy Mosques. Enjoy premium comfort and cleanliness, perfectly suitable for families and groups.
+            </>
+        ),
         icon: <Building2 size={32} />,
         image: '/images/services/hotel-transfers-new.png',
+        alt: 'Private Hotel Transfer Makkah to Haram',
         link: '/services/hotel-transfers',
     }
 ];
@@ -67,7 +82,7 @@ export default function TransportServices() {
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
                                     <Image
                                         src={service.image}
-                                        alt={service.title}
+                                        alt={service.alt}
                                         fill
                                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         className="transform group-hover:scale-110 transition-transform duration-1000 ease-out"

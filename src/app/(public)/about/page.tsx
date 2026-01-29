@@ -11,6 +11,9 @@ import ImpactStats from '@/components/about/ImpactStats';
 import TeamTeaser from '@/components/about/TeamTeaser';
 import PilgrimVoices from '@/components/about/PilgrimVoices';
 import { getSectionContent, getSectionImage } from '@/lib/content-service';
+import dynamic from 'next/dynamic';
+
+const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 
 export async function generateMetadata() {
     return {
@@ -87,6 +90,7 @@ export default async function AboutPage() {
                     <MissionVision />
                     <CoreValues />
                     <TrustSection />
+                    <HotelsAndDistricts />
                     <TeamTeaser />
                     <PilgrimVoices />
                     <SEOContent />

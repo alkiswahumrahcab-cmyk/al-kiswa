@@ -6,6 +6,9 @@ import { Building2, Clock, MapPin, ShieldCheck, Star, Users, ArrowRight } from '
 import Image from 'next/image';
 import Link from 'next/link';
 import GlassCard from '@/components/ui/GlassCard';
+import dynamic from 'next/dynamic';
+
+const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 
 export const metadata: Metadata = {
     title: 'Hotel Transfers Makkah & Madinah | Al Kiswah Umrah Transport',
@@ -73,6 +76,9 @@ export default function HotelTransferPage() {
                     ))}
                 </div>
             </section>
+
+            {/* Hotels and Districts Covered */}
+            <HotelsAndDistricts />
 
             {/* Service Areas */}
             <section className="py-24 bg-neutral-900/30 border-t border-white/5 relative">

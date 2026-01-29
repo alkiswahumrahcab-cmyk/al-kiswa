@@ -143,7 +143,7 @@ const Hero: React.FC<HeroProps> = ({
                     ) : (
                         <Image
                             src={bgImage}
-                            alt={alt || "Luxury Umrah Transport"}
+                            alt={alt || "Al Kiswah Umrah Taxi Fleet at Jeddah Airport"}
                             fill
                             priority
                             className="object-cover opacity-60"

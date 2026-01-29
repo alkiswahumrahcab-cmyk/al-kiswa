@@ -8,6 +8,9 @@ import Breadcrumbs from '@/components/common/Breadcrumbs';
 import FAQSection from '@/components/services/FAQSection';
 import TrustAmenities from '@/components/services/TrustAmenities';
 import ReviewsSection from '@/components/reviews/ReviewsSection';
+import dynamic from 'next/dynamic';
+
+const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 
 export async function generateMetadata() {
     return {
@@ -241,6 +244,9 @@ export default function ServicesPage() {
 
             {/* FAQSection */}
             <FAQSection items={serviceFAQs} title="Frequent Questions" />
+
+            {/* Hotels and Districts Covered */}
+            <HotelsAndDistricts />
 
             {/* Booking CTA */}
             <section className="py-32 relative overflow-hidden">
