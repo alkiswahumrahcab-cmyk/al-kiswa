@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import FadeIn from '@/components/common/FadeIn';
 
-export default function SEOContentSectionV2() {
+export default function SEOContentSectionV3() {
     return (
         <section className="py-12 md:py-16 bg-primary-black relative overflow-hidden">
             {/* Ambient Background Glow */}

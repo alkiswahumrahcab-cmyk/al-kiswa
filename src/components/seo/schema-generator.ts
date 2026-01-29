@@ -8,7 +8,7 @@ export const generateOrganizationSchema = (): WithContext<Organization> => ({
     '@type': 'Organization',
     name: settings.general.siteName,
     url: siteUrl,
-    logo: `${siteUrl}/logo.png`, // Ensure logo exists or use a fallback
+    logo: `${siteUrl}/opengraph-image.png`, // Valid fallback
     contactPoint: {
         '@type': 'ContactPoint',
         telephone: settings.contact.phone,
@@ -28,7 +28,7 @@ export const generateLocalBusinessSchema = (): WithContext<LocalBusiness> => ({
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness', // or TaxiService if more specific
     name: settings.general.siteName,
-    image: `${siteUrl}/images/hero-bg.jpg`, // Representative image
+    image: `${siteUrl}/images/fleet/gmc-yukon-studio.png`, // Valid high-quality image
     '@id': siteUrl,
     url: siteUrl,
     telephone: settings.contact.phone,
@@ -74,7 +74,7 @@ export const generateServiceSchema = (
     provider: {
         '@type': 'LocalBusiness',
         name: settings.general.siteName,
-        image: `${siteUrl}/logo.png`,
+        image: `${siteUrl}/opengraph-image.png`,
     },
     areaServed: {
         '@type': 'State',

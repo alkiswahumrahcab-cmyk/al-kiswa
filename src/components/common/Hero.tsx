@@ -184,10 +184,12 @@ const Hero: React.FC<HeroProps> = ({
                                 </span>
                             ) : badge
                         ) : (
-                            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/80 text-xs font-bold tracking-widest uppercase backdrop-blur-sm">
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                                Official Licensed Transport
-                            </span>
+                            <div className="flex gap-3">
+                                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-emerald-400 text-xs font-bold tracking-widest uppercase backdrop-blur-sm shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                                    <Shield size={14} className="fill-emerald-400/20" />
+                                    Ministry Licensed Operator
+                                </span>
+                            </div>
                         )}
                     </motion.div>
 

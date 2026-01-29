@@ -69,7 +69,7 @@ const FLEET_IMAGES = [
     },
 ];
 
-export default function FleetGallery() {
+export default function FleetGalleryV2() {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const [isHovered, setIsHovered] = useState(false);
 
@@ -151,11 +151,9 @@ export default function FleetGallery() {
 
                 <motion.div
                     ref={scrollContainerRef}
-                    className="flex gap-8 overflow-x-auto px-4 md:px-16 pb-12 cursor-grab active:cursor-grabbing select-none hide-scrollbar"
+                    className="flex gap-8 overflow-x-auto px-4 md:px-16 pb-12 cursor-grab active:cursor-grabbing select-none no-scrollbar"
                     style={{
-                        scrollSnapType: 'x mandatory',
-                        scrollbarWidth: 'none',
-                        msOverflowStyle: 'none'
+                        scrollSnapType: 'x mandatory'
                     }}
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
@@ -240,11 +238,6 @@ export default function FleetGallery() {
                         </Link>
                     ))}
                 </motion.div>
-                <style jsx>{`
-                    .hide-scrollbar::-webkit-scrollbar {
-                        display: none;
-                    }
-                `}</style>
             </div>
         </section>
     );

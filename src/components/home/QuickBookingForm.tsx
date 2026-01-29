@@ -202,7 +202,7 @@ const QuickBookingForm = ({
             className={`bg-primary-black/80 backdrop-blur-xl border border-white/10 rounded-3xl p-6 lg:p-8 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] relative overflow-hidden ${className}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
         >
             {/* Ambient Glow */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-gold-primary/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
@@ -255,9 +255,9 @@ const QuickBookingForm = ({
                         animate={{ opacity: 1 }}
                     >
                         {/* WhatsApp Fast Track - Accessibility Feature */}
-                        <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between gap-4 mb-6 hover:bg-white/10 transition-colors group cursor-pointer" onClick={() => window.open('https://wa.me/966545494921', '_blank')}>
+                        <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between gap-4 mb-6 hover:bg-white/10 transition-all duration-300 group cursor-pointer hover:border-gold-primary/30" onClick={() => window.open('https://wa.me/966545494921', '_blank')}>
                             <div className="flex items-center gap-3">
-                                <div className="bg-[#25D366] p-2 rounded-full text-white">
+                                <div className="bg-[#25D366] p-2 rounded-full text-white shadow-[0_0_15px_rgba(37,211,102,0.4)] animate-pulse">
                                     <MessageCircle size={20} className="fill-white" />
                                 </div>
                                 <div className="text-left">

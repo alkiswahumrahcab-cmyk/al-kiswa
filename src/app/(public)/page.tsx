@@ -17,16 +17,20 @@ const SafetyPromise = dynamic(() => import('@/components/home/SafetyPromise'));
 const PassengerCare = dynamic(() => import('@/components/home/PassengerCare'));
 const FleetCarouselWrapper = dynamic(() => import('@/components/home/FleetCarouselWrapper'));
 const ReviewsSection = dynamic(() => import('@/components/reviews/ReviewsSection'));
-const CustomerGallery = dynamic(() => import('@/components/home/CustomerGallery'));
+const GallerySection = dynamic(() => import('@/components/home/CustomerGallery'));
 const LatestArticles = dynamic(() => import('@/components/home/LatestArticles'));
-const SEOContentSectionFixed = dynamic(() => import('@/components/home/SEOContentSectionV2'));
+const SEOContentSectionFixed = dynamic(() => import('@/components/home/SEOContentSectionV3'));
 const TransportServices = dynamic(() => import('@/components/home/TransportServices'));
 const Testimonials = dynamic(() => import('@/components/home/Testimonials'));
 const HomeFleetCarousel = dynamic(() => import('@/components/home/HomeFleetCarousel'));
 const BookingGuide = dynamic(() => import('@/components/home/BookingGuide'));
-const DirectorySection = dynamic(() => import('@/components/home/ServiceDirectory'));
+const ServiceDirectorySection = dynamic(() => import('@/components/home/ServiceDirectory'));
 const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
-const FleetGallery = dynamic(() => import('@/components/home/FleetGallery'));
+const MeetOurDrivers = dynamic(() => import('@/components/home/MeetOurDrivers'));
+const RealFleetShowcase = dynamic(() => import('@/components/home/RealFleetShowcase'));
+const ImpactStats = dynamic(() => import('@/components/about/ImpactStats'));
+const FAQSection = dynamic(() => import('@/components/blog/FAQSection'));
+const FleetGallery = dynamic(() => import('@/components/home/FleetGalleryV2'));
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { generateServiceSchema } from "@/components/seo/schema-generator";
 
@@ -52,6 +56,20 @@ export async function generateMetadata() {
       description: "Book trusted Al Kiswah Umrah Transport. Fixed price taxi from Jeddah Airport to Makkah hotels. VIP GMC Yukon fleet, 24/7 support & Madinah Ziyarat tours. Licensed Saudi operator.",
       locale: 'en_US',
       type: 'website',
+      images: [
+        {
+          url: '/images/fleet/gmc-yukon-studio.png',
+          width: 1200,
+          height: 630,
+          alt: "Al Kiswah Umrah Transport Fleet",
+        }
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: "Umrah Taxi Service Jeddah to Makkah | VIP Transport & Ziyarat",
+      description: "Book trusted Al Kiswah Umrah Transport. Fixed price taxi from Jeddah Airport to Makkah hotels. VIP GMC Yukon fleet, 24/7 support & Madinah Ziyarat tours. Licensed Saudi operator.",
+      images: ['/images/fleet/gmc-yukon-studio.png'],
     }
   };
 }
@@ -110,13 +128,13 @@ export default async function Home() {
         secondaryCtaLink={secondaryCtaLink}
         backgroundChildren={<AnimatedBackground />}
         trustBadge={{
-          count: "30K+",
+          count: "50K+",
           label: "Happy Pilgrims"
         }}
         stats={[
           { label: "Punctual & Safe", value: "100%", icon: <ShieldCheck size={20} /> },
           { label: "Direct Support", value: "24/7", icon: <Clock size={20} /> },
-          { label: "Years Experience", value: "7+", icon: <Star size={20} /> }
+          { label: "Years Experience", value: "10+", icon: <Star size={20} /> }
         ]}
       />
 
@@ -141,13 +159,19 @@ export default async function Home() {
       {/* Fleet Carousel - NEW */}
       <HomeFleetCarousel />
 
-      {/* Gallery Section */}
+      {/* Meet Our Drivers - NEW */}
+      <MeetOurDrivers />
+
+      {/* Real Fleet Showcase - NEW */}
+      <RealFleetShowcase />
+
+      {/* Impact Stats - Authority */}
+      <ImpactStats />
 
       {/* Gallery Section */}
-      <CustomerGallery />
+      <GallerySection />
 
-      {/* Testimonials Section */}
-      <Testimonials />
+
       {/* Reviews Section */}
       <ReviewsSection />
 
@@ -157,13 +181,16 @@ export default async function Home() {
       {/* Latest Articles Section */}
       <LatestArticles />
 
+      {/* FAQ Section - Trust */}
+      <FAQSection />
+
       {/* Safety Promise Section - Moved to Bottom */}
       <FadeIn>
         <SafetyPromise />
       </FadeIn>
 
       {/* SEO Service Directory - 600+ Keywords */}
-      <DirectorySection />
+      <ServiceDirectorySection />
 
       {/* Hotels and Districts Covered - NEW */}
       <HotelsAndDistricts />

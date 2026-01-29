@@ -156,6 +156,16 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
                         <h3>AI Assistant</h3>
                         <p>Al Kiswa Support</p>
                     </div>
+
+                    {/* Priority Human Button */}
+                    <button
+                        onClick={() => window.open('https://wa.me/966545494921', '_blank')}
+                        className="ml-auto mr-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500 hover:text-black transition-all text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full flex items-center gap-1.5"
+                    >
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        Live Agent
+                    </button>
+
                     <div className="flex gap-2">
                         <button onClick={toggleChat} className={styles.minimizeButton}>
                             <Minus size={18} />

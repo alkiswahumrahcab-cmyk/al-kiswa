@@ -38,16 +38,30 @@ export const viewport: Viewport = {
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSettings();
   const siteName = settings.general.siteName || "Al Kiswah Umrah Transport";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://alkiswahumrahtransport.com';
 
   return {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://alkiswahumrahtransport.com'),
+    metadataBase: new URL(siteUrl),
     title: {
       default: settings.seo.defaultTitle || "Umrah Transport Services Saudi Arabia",
       template: `%s | ${siteName}`
     },
-    // Global Manifest (Optional, or handled by sub-layouts)
-    // We remove the global manifest link to enforce sub-route manifests
-    // manifest: '/manifest.json', 
+    description: settings.seo.defaultDescription || "Reliable Umrah taxi service in Makkah and Madinah.",
+    keywords: settings.seo.keywords ? settings.seo.keywords.split(',').map(k => k.trim()) : ["Umrah Taxi", "Makkah Transport", "Jeddah Airport Transfer"],
+    authors: [{ name: "Al Kiswah Umrah Transport" }],
+    creator: "Al Kiswah Umrah Transport",
+    publisher: "Al Kiswah Umrah Transport",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
     openGraph: {
       title: {
         default: settings.seo.defaultTitle || "Umrah Transport Services Saudi Arabia",
@@ -57,6 +71,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: siteName,
       locale: 'en_US',
       type: 'website',
+      url: siteUrl,
       images: [
         {
           url: '/images/fleet/gmc-yukon-studio.png', // Default OG Image
@@ -65,6 +80,13 @@ export async function generateMetadata(): Promise<Metadata> {
           alt: siteName,
         }
       ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: settings.seo.defaultTitle || "Umrah Transport Services Saudi Arabia",
+      description: settings.seo.defaultDescription || "Reliable Umrah taxi service in Makkah and Madinah.",
+      images: ['/images/fleet/gmc-yukon-studio.png'],
+      creator: settings.contact.social.twitter ? `@${settings.contact.social.twitter.split('/').pop()}` : undefined // extract handle if available
     },
     icons: {
       icon: [
@@ -78,6 +100,8 @@ export async function generateMetadata(): Promise<Metadata> {
     },
   };
 }
+
+
 
 export default async function RootLayout({
   children,
@@ -122,11 +146,8 @@ export default async function RootLayout({
                 {/* Main Content Area - Layouts downstream will inject Nav/Footer */}
                 {children}
 
-                {/* Accessibility: Floating Assistance for Elders */}
+                {/* Global Widgets */}
                 <FloatingAssistanceButton />
-
-                {/* Admin Session Guard - keep global for admin routes */}
-                {/* <AdminSessionGuard />  Moved to specific layouts if needed or kept here if it only triggers on /admin */}
 
               </PricingProvider>
             </ThemeProvider>

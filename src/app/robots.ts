@@ -1,13 +1,13 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-    const baseUrl = 'https://alkiswahumrahtransport.com';
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://alkiswahumrahtransport.com';
 
     return {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: ['/admin/', '/api/'],
+            disallow: ['/api/', '/admin/'],
         },
         sitemap: `${baseUrl}/sitemap.xml`,
     };

@@ -21,7 +21,7 @@ export default function MissionVision() {
                         </div>
                         <h2 className="text-4xl font-bold text-white mb-6 font-sans tracking-tight">Our Mission</h2>
                         <p className="text-lg text-gray-300 leading-relaxed font-light group-hover:text-white transition-colors">
-                            To provide <span className="text-gold-primary font-medium">safe, reliable, and spiritually enriching</span> transport services for pilgrims, honoring the sanctity of their journey. We strive to ensure every mile traveled is filled with comfort, peace of mind, and the highest standards of hospitality.
+                            To serve the Guests of Allah with <span className="text-gold-primary font-medium">sincerity, safety, and excellence</span>. We strive to ensure every mile traveled is a seamless part of your spiritual journey, honoring your trust with the highest standards of hospitality.
                         </p>
                     </div>
 
@@ -34,7 +34,7 @@ export default function MissionVision() {
                         </div>
                         <h2 className="text-4xl font-bold text-white mb-6 font-sans tracking-tight">Our Vision</h2>
                         <p className="text-lg text-gray-300 leading-relaxed font-light group-hover:text-white transition-colors">
-                            To be the most <span className="text-emerald-400 font-medium">trusted and preferred</span> transport partner for Hajj and Umrah pilgrims worldwide, setting the global benchmark for excellence in logistics, customer care, and spiritual tourism.
+                            To be the most <span className="text-emerald-400 font-medium">trusted companion</span> for Hajj and Umrah pilgrims. We envision a world where every pilgrim can focus entirely on their worship, knowing their journey is in safe, caring hands.
                         </p>
                     </div>
 

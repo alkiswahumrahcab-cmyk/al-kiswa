@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import ReviewCard from './ReviewCard';
+import ReviewItem from './ReviewItem';
 
 interface Review {
     id: string;
@@ -57,7 +57,7 @@ export default function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
                             key={review.id}
                             className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                         >
-                            <ReviewCard review={review} />
+                            <ReviewItem review={review} />
                         </div>
                     ))}
                 </motion.div>

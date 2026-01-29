@@ -221,5 +221,35 @@
             "haram": "Sunset at the Haram",
             "departure": "Ready for departure"
         }
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "subtitle": "Common Questions",
+        "items": {
+            "cash": {
+                "question": "Can I pay cash after the trip?",
+                "answer": "Yes, absolutely! We offer a 'Book Now, Pay Later' service. You can pay the driver in cash (SAR) upon reaching your hotel safely. No credit card is required upfront."
+            },
+            "delayed": {
+                "question": "What if my flight is delayed?",
+                "answer": "We track your flight status in real-time. Our driver will wait for you at the arrival terminal free of charge, even if your flight is delayed. You don't need to worry about landing late."
+            },
+            "hidden": {
+                "question": "Are there any hidden fees or parking charges?",
+                "answer": "No. The price you see is the final price. It includes fuel, parking fees, taxes/VAT, and driver waiting time. No surprises."
+            },
+            "findDriver": {
+                "question": "How do I find my driver at Jeddah Airport?",
+                "answer": "Our meet-and-greet service is seamless. The driver will be waiting at the arrival hall holding a sign with your name. We will also share the driver's photo and WhatsApp number before you land."
+            },
+            "sanitized": {
+                "question": "Is the vehicle sanitized and air-conditioned?",
+                "answer": "Yes. All our vehicles (GMC Yukon, Camry, Hiace) are 2024/2025 models. They are deep-cleaned before every trip and have powerful AC to handle the Saudi heat."
+            },
+            "ziyarat": {
+                "question": "Do you offer Ziyarat tours in Makkah and Madinah?",
+                "answer": "Yes, we provide comprehensive Ziyarat packages. Our knowledgeable drivers can take you to all significant historical and spiritual sites (Uhud, Quba, Hira Cave) in both holy cities."
+            }
+        }
     }
 }

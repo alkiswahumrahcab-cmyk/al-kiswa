@@ -77,7 +77,7 @@ export default function SafetyPromise() {
                                         {/* Status Badge */}
                                         <div className="flex justify-between items-center mb-8 border-b border-white/5 pb-6">
                                             <div className="flex items-center gap-2">
-                                                <ShieldCheck className="text-gold-primary" size={20} />
+                                                <ShieldCheck className="text-gold-primary hidden md:block" size={20} />
                                                 <span className="text-gray-400 text-xs font-mono uppercase tracking-widest">Protocol Status</span>
                                             </div>
                                             <div className="bg-gold-primary/10 border border-gold-primary/20 text-gold-primary text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-2 animate-pulse">

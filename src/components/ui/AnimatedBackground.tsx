@@ -1,8 +1,15 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function AnimatedBackground() {
+    const [isMounted, setIsMounted] = React.useState(false);
+
+    React.useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
     return (
         <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
             {/* Top Right Golden Glow */}
@@ -49,32 +56,34 @@ export default function AnimatedBackground() {
                 className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[100px]"
             />
 
-            {/* Divine Dust Motes & Particles */}
-            <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
-                {[...Array(20)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className="absolute w-1 h-1 bg-gold/30 rounded-full blur-[1px]"
-                        initial={{
-                            x: Math.random() * 100 + "%",
-                            y: Math.random() * 100 + "%",
-                            opacity: 0,
-                            scale: Math.random() * 0.5 + 0.5
-                        }}
-                        animate={{
-                            y: [null, "-20vh"],
-                            opacity: [0, 0.4, 0],
-                            x: [null, (Math.random() - 0.5) * 10 + "vw"]
-                        }}
-                        transition={{
-                            duration: 10 + Math.random() * 20,
-                            repeat: Infinity,
-                            delay: Math.random() * 10,
-                            ease: "linear"
-                        }}
-                    />
-                ))}
-            </div>
+            {/* Divine Dust Motes & Particles - Client Only */}
+            {isMounted && (
+                <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
+                    {[...Array(20)].map((_, i) => (
+                        <motion.div
+                            key={i}
+                            className="absolute w-1 h-1 bg-gold/30 rounded-full blur-[1px]"
+                            initial={{
+                                x: Math.random() * 100 + "%",
+                                y: Math.random() * 100 + "%",
+                                opacity: 0,
+                                scale: Math.random() * 0.5 + 0.5
+                            }}
+                            animate={{
+                                y: [null, "-20vh"],
+                                opacity: [0, 0.4, 0],
+                                x: [null, (Math.random() - 0.5) * 10 + "vw"]
+                            }}
+                            transition={{
+                                duration: 10 + Math.random() * 20,
+                                repeat: Infinity,
+                                delay: Math.random() * 10,
+                                ease: "linear"
+                            }}
+                        />
+                    ))}
+                </div>
+            )}
 
             {/* Light Rays Effect */}
             <div className="absolute inset-0 pointer-events-none z-0 bg-gradient-to-tr from-emerald-950/20 via-transparent to-gold/5" />
