@@ -24,7 +24,7 @@ const TransportServices = dynamic(() => import('@/components/home/TransportServi
 const Testimonials = dynamic(() => import('@/components/home/Testimonials'));
 const HomeFleetCarousel = dynamic(() => import('@/components/home/HomeFleetCarousel'));
 const BookingGuide = dynamic(() => import('@/components/home/BookingGuide'));
-const ServiceDirectorySection = dynamic(() => import('@/components/home/ServiceDirectory'));
+const ServiceDirectory = dynamic(() => import('@/components/home/ServiceDirectory'));
 const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 const MeetOurDrivers = dynamic(() => import('@/components/home/MeetOurDrivers'));
 const RealFleetShowcase = dynamic(() => import('@/components/home/RealFleetShowcase'));
@@ -190,7 +190,7 @@ export default async function Home() {
       </FadeIn>
 
       {/* SEO Service Directory - 600+ Keywords */}
-      <ServiceDirectorySection />
+      <ServiceDirectory />
 
       {/* Hotels and Districts Covered - NEW */}
       <HotelsAndDistricts />

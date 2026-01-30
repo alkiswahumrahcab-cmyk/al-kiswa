@@ -133,16 +133,24 @@ export default function SEOContentSectionV3() {
                                 <h4 className="text-xl font-bold text-gold-primary mb-3">Frequently Asked Questions about Umrah Transport</h4>
                                 <div className="space-y-4">
                                     <div>
-                                        <h5 className="font-semibold text-white">How much is a taxi from Jeddah Airport to Makkah?</h5>
-                                        <p className="text-sm text-gray-400">Our prices are fixed and affordable. We offer the best rates for private taxis from Jeddah Airport to Makkah hotels, starting from competitive prices for sedans up to VIP GMCs.</p>
+                                        <h5 className="font-semibold text-white">How to go from Jeddah to Makkah?</h5>
+                                        <p className="text-sm text-gray-400">The most convenient option is a <strong>private taxi from Jeddah Airport to Makkah hotel</strong>. Our drivers track your flight and provide a seamless meet-and-greet service.</p>
                                     </div>
                                     <div>
-                                        <h5 className="font-semibold text-white">Can I book a GMC Yukon for Umrah?</h5>
-                                        <p className="text-sm text-gray-400">Yes, the <strong>GMC Yukon 2024/2025</strong> is our most popular choice for families seeking luxury and comfort. It offers ample space for 7 passengers and luggage.</p>
+                                        <h5 className="font-semibold text-white">How much is a taxi from Jeddah Airport to Makkah in 2026?</h5>
+                                        <p className="text-sm text-gray-400">Our prices are fixed and affordable. We offer the best rates for private taxis, starting from competitive prices for sedans up to VIP <strong>GMC Yukon for Umrah</strong>.</p>
+                                    </div>
+                                    <div>
+                                        <h5 className="font-semibold text-white">Is there a bus from Makkah to Madinah?</h5>
+                                        <p className="text-sm text-gray-400">Yes, SAPTCO buses are available, but for comfort and speed, we recommend our <strong>Makkah to Madinah taxi</strong> service. It offers door-to-door transfer in 4-5 hours.</p>
                                     </div>
                                     <div>
                                         <h5 className="font-semibold text-white">Do you offer Ziarah within Makkah and Madinah?</h5>
-                                        <p className="text-sm text-gray-400">Absolutely. We provide comprehensive Ziarah tours visiting historical sites like Cave Hira, Cave Thawr, Masjid Quba, and Mount Uhud with knowledgeable drivers.</p>
+                                        <p className="text-sm text-gray-400">Absolutely. We provide comprehensive <strong>Makkah Ziyarat taxi</strong> tours visiting historical sites like Cave Hira, Cave Thawr, Masjid Quba, and Mount Uhud.</p>
+                                    </div>
+                                    <div>
+                                        <h5 className="font-semibold text-white">Can I book a GMC Yukon for Umrah??</h5>
+                                        <p className="text-sm text-gray-400">Yes, the <strong>GMC Yukon 2024/2025</strong> is our most popular choice for families regarding <strong>luxury bus for Umrah</strong> or large SUVs. It offers ample space for 7 passengers and luggage.</p>
                                     </div>
                                 </div>
                             </div>

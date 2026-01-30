@@ -2,8 +2,8 @@
 
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { generatedData } from '@/data/seo-generator';
-import { ChevronDown, MapPin, Globe, Car, Star } from 'lucide-react';
+import { seoKeywords, allServicePermutations, getAllKeywords } from '@/data/seo-keywords';
+import { ChevronDown, MapPin, Globe, Car, Star, Moon, Briefcase, Calendar, Shuffle } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
 
 export default function ServiceDirectory() {
@@ -11,43 +11,56 @@ export default function ServiceDirectory() {
     const categories = [
         {
             id: 'international',
-            label: 'International & Western Pilgrims',
+            label: 'All Services (International & Local)',
             icon: <Globe size={18} />,
-            data: generatedData.categories.international
+            data: allServicePermutations || [] // Using the massive list as the default view
         },
         {
             id: 'routes',
             label: 'Popular Routes & Cities',
             icon: <MapPin size={18} />,
-            data: generatedData.categories.routes
+            data: seoKeywords.location
         },
         {
             id: 'vehicles',
             label: 'Vehicle Fleet Services',
             icon: <Car size={18} />,
-            data: generatedData.categories.vehicles
+            data: seoKeywords.vehicles
         },
         {
-            id: 'luxury',
-            label: 'VIP & Budget Options',
-            icon: <Star size={18} />,
-            data: generatedData.categories.budget_luxury
-        }
+            id: 'ziyarat',
+            label: 'Ziyarat & Historical Sites',
+            icon: <Moon size={18} />,
+            data: seoKeywords.ziyarat
+        },
+        {
+            id: 'features',
+            label: 'Service Features',
+            icon: <Briefcase size={18} />,
+            data: seoKeywords.features
+        },
+        {
+            id: 'seasonal',
+            label: 'Seasonal & Trending',
+            icon: <Calendar size={18} />,
+            data: seoKeywords.seasonal
+        },
+
     ];
 
     const [activeTab, setActiveTab] = useState('international');
     const [isExpanded, setIsExpanded] = useState(false);
 
     // Stats
-    const totalKeywords = generatedData.all.length;
+    const totalKeywords = getAllKeywords().length;
 
     return (
-        <section className="py-12 bg-primary-black border-t border-white/5">
+        <section className="py-12 bg-primary-black border-t border-white/5" data-version="v2-keywords">
             <div className="container px-4 md:px-6">
                 <FadeIn>
                     <div className="mb-8">
                         <h3 className="text-xl md:text-2xl font-bold text-white mb-2 font-playfair">
-                            Comprehensive Service Directory
+                            Comprehensive Service Directory (1000+ Services)
                         </h3>
                         <p className="text-gray-500 text-sm">
                             Explore our extensive range of transport solutions tailored for every pilgrim's need.
@@ -55,7 +68,7 @@ export default function ServiceDirectory() {
                     </div>
 
                     {/* Tabs / Category Selectors */}
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start overflow-x-auto pb-2 scrollbar-none">
                         {categories.map((cat) => (
                             <button
                                 key={cat.id}
@@ -78,7 +91,7 @@ export default function ServiceDirectory() {
                                 <div key={cat.id} className="animate-in fade-in slide-in-from-bottom-2 duration-300">
                                     <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-3 transition-all duration-500 ${isExpanded ? 'max-h-full opacity-100' : 'max-h-[400px] overflow-hidden relative'}`}>
 
-                                        {cat.data.map((keyword, idx) => (
+                                        {cat.data.map((keyword: string, idx: number) => (
                                             <Link
                                                 key={idx}
                                                 href="/booking"

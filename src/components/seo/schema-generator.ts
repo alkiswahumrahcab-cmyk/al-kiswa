@@ -8,7 +8,7 @@ export const generateOrganizationSchema = (): WithContext<Organization> => ({
     '@type': 'Organization',
     name: settings.general.siteName,
     url: siteUrl,
-    logo: `${siteUrl}/opengraph-image.png`, // Valid fallback
+    logo: `${siteUrl}/logo.png`,
     contactPoint: {
         '@type': 'ContactPoint',
         telephone: settings.contact.phone,
@@ -60,6 +60,8 @@ export const generateLocalBusinessSchema = (): WithContext<LocalBusiness> => ({
         closes: '23:59',
     },
     priceRange: '$$',
+    currenciesAccepted: 'SAR, USD, GBP, EUR',
+    paymentAccepted: 'Cash, Credit Card, Online Payment',
 });
 
 export const generateServiceSchema = (
