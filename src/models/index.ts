@@ -182,6 +182,15 @@ export interface ISubscriber extends Document {
     updatedAt: Date;
 }
 
+export interface IContact extends Document {
+    name: string;
+    email: string;
+    message: string;
+    status: 'new' | 'read' | 'replied' | 'archived';
+    createdAt: Date;
+    updatedAt: Date;
+}
+
 // --- Schemas ---
 
 
@@ -434,10 +443,18 @@ const DraftBookingSchema = new Schema<IDraftBooking>({
     recoveryEmailSent: { type: Boolean, default: false },
 }, { timestamps: true });
 
+const ContactSchema = new Schema<IContact>({
+    name: { type: String, required: true },
+    email: { type: String, required: true },
+    message: { type: String, required: true },
+    status: { type: String, enum: ['new', 'read', 'replied', 'archived'], default: 'new' },
+}, { timestamps: true });
+
 // Revert hack
 // Revert hack
 export const Section: Model<ISection> = mongoose.models.Section || mongoose.model<ISection>('Section', SectionSchema);
 export const Subscriber = mongoose.models.Subscriber || mongoose.model<ISubscriber>('Subscriber', SubscriberSchema);
+export const Contact = mongoose.models.Contact || mongoose.model<IContact>('Contact', ContactSchema);
 export const User = mongoose.models.User || mongoose.model('User', UserSchema);
 export const Booking = mongoose.models.Booking || mongoose.model('Booking', BookingSchema);
 export const Notification = mongoose.models.Notification || mongoose.model('Notification', NotificationSchema);

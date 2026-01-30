@@ -2,144 +2,86 @@ export const staticBlogPosts = [
     {
         _id: 'static-ramadan-2026',
         slug: 'ramadan-umrah-taxi-service-2026-makkah-madinah',
-        title: 'Ramadan Umrah Taxi Service 2026 | Al Kiswa Umrah Cab',
-        excerpt: 'Premium Umrah transportation for Ramadan 2026 (Feb 17 - Mar 21). 24/7 reliable taxi service for Makkah to Madinah transfers with special Ramadan rates.',
+        title: 'Ramadan 2026 Umrah Taxi: A Spiritual Journey & Transport Guide',
+        excerpt: 'The ultimate guide to Ramadan 2026 Umrah transport. extensive guide on spiritual preparation, reliable Makkah to Madinah taxi services, and Laylatul Qadr travel tips.',
         content: `
-            <h2>Premium Umrah Transportation for Ramadan 2026</h2>
-            <p><strong>Available 24/7 Throughout Ramadan (February 17 - March 21, 2026)</strong></p>
-            <p>Make your blessed Ramadan Umrah journey comfortable and hassle-free with Al Kiswa Umrah Cab - your trusted transportation partner in the Holy Cities.</p>
+            <div class="prose max-w-none text-slate-800 dark:text-gray-200 dark:prose-invert prose-a:text-amber-600 dark:prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline">
+                <h2>The Spiritual Significance of Ramadan 2026</h2>
+                <p><strong>Ramadan 2026</strong> is not merely a month of fasting; it is a season of divine mercy. For the believer, it is an invitation to return to Allah with a sincere heart through <strong>Sawm</strong> (fasting), <strong>Salah</strong> (prayer), and <strong>Sadaqah</strong> (charity).</p>
+                <p>The Prophet Muhammad (peace be upon him) said: <em>"Whoever observes fasts during the month of Ramadan out of sincere faith... all his past sins will be forgiven."</em> (Bukhari)</p>
+                <p>Performing <strong>Umrah in Ramadan 2026</strong> holds a reward equivalent to Hajj with the Prophet (SAW). This profound promise draws millions of pilgrims to Makkah and Madinah, seeking spiritual closeness to their Creator.</p>
 
-            <h3>🌙 Ramadan Special Offers 2026</h3>
-            
-            <div class="grid md:grid-cols-2 gap-6 my-8">
-                <div class="bg-emerald-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-emerald-500">
-                    <h4 class="font-bold text-lg mb-2 text-emerald-800 dark:text-emerald-400">Last 10 Nights Premium Package</h4>
-                    <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
-                        <li>• Dedicated driver for Laylatul Qadr nights</li>
-                        <li>• Priority booking guaranteed</li>
-                        <li>• Special discounted rates</li>
-                        <li>• Available for Makkah ↔ Madinah transfers</li>
-                    </ul>
-                </div>
-                <div class="bg-amber-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-amber-500">
-                    <h4 class="font-bold text-lg mb-2 text-amber-800 dark:text-amber-400">Family Umrah Transport Package</h4>
-                    <ul class="space-y-2 text-sm text-slate-700 dark:text-slate-300">
-                        <li>• Spacious vehicles (GMC Yukon XL / Staria)</li>
-                        <li>• Child seats available</li>
-                        <li>• Luggage assistance</li>
-                        <li>• Flexible pickup times for Taraweeh</li>
-                    </ul>
-                </div>
-            </div>
+                <hr class="my-8 border-slate-200 dark:border-slate-700" />
 
-            <p><strong>Group Booking Discounts:</strong> Get 15% off for 3+ vehicles. Ideal for tour groups with dedicated customer support and real-time tracking.</p>
+                <h2>Ramadan in Saudi Arabia: Atmosphere & Transport</h2>
+                <p>There is no place on Earth like <strong>Makkah and Madinah during Ramadan</strong>. The atmosphere is charged with devotion, from the quiet days of Quran recitation to the vibrant nights of <strong>Taraweeh</strong> and <strong>Qiyam-ul-Layl</strong>.</p>
+                
+                <h3>Navigating the Holy Cities</h3>
+                <p>With millions of calm hearts descending on the Haramain, logistics can be a test of <em>Sabr</em> (patience). Reliable <strong>Umrah transport services</strong> are essential to ensure you arrive at the Masjid on time for Iftar and Salah.</p>
 
-            <hr class="my-8 border-slate-200 dark:border-slate-700" />
+                <h2>Best Umrah Taxi Services for Ramadan 2026</h2>
+                <p>Moving between Holy Cities requires planning. <strong>Al Kiswah Umrah Transport</strong> offers premium, 24/7 taxi services tailored for the fasting pilgrim.</p>
 
-            <h2>Why Choose Al Kiswa for Your Ramadan Umrah?</h2>
-
-            <h3>✅ 24/7 Availability Throughout Ramadan</h3>
-            <p>Never miss Taraweeh, Qiyam, or Fajr prayers. Our drivers are available round the clock during the blessed month.</p>
-
-            <h3>✅ Experienced & Trustworthy Drivers</h3>
-            <ul>
-                <li>Verified and licensed drivers</li>
-                <li>Familiar with all Haram routes</li>
-                <li>Respectful of prayer times</li>
-                <li>Multilingual support (Arabic, English, Urdu)</li>
-            </ul>
-
-            <h3>✅ Comfortable & Clean Vehicles</h3>
-            <ul>
-                <li>Air-conditioned vehicles (Gulf-Spec AC)</li>
-                <li>Regularly sanitized</li>
-                <li>Spacious for families</li>
-                <li>Luggage storage capacity</li>
-            </ul>
-
-            <h3>✅ Fixed & Transparent Pricing</h3>
-            <ul>
-                <li>No hidden charges</li>
-                <li>No surge pricing during peak hours</li>
-                <li>Ramadan special rates locked in at booking</li>
-            </ul>
-
-            <h3>✅ Instant Booking & Confirmation</h3>
-            <p>Book via WhatsApp, phone, or website with immediate confirmation and easy cancellation policy.</p>
-
-            <hr class="my-8 border-slate-200 dark:border-slate-700" />
-
-            <h2>Popular Ramadan Umrah Routes</h2>
-
-            <h3>Makkah to Madinah Transfer</h3>
-            <p><strong>Distance:</strong> 450 km | <strong>Duration:</strong> 4-5 hours</p>
-            <p>Perfect for pilgrims performing Umrah and visiting Masjid Nabawi during Ramadan. <a href="/services/makkah-madinah-taxi" class="text-amber-600 hover:underline">Check Ramadan Rates</a></p>
-
-            <h3>Madinah to Makkah Transfer</h3>
-            <p>Return journey available with same-day or flexible scheduling. Ideal for those starting their journey in Madinah.</p>
-
-            <h3>Jeddah Airport to Makkah</h3>
-            <p><strong>Distance:</strong> 80 km | <strong>Duration:</strong> 1-1.5 hours</p>
-            <p>Airport pickup available 24/7 throughout Ramadan. We track your flight for delays.</p>
-
-            <h3>Makkah City Tours</h3>
-            <p>Hourly and daily packages available for Ziyarat (historical sites), shopping trips, and Haram drop-offs for Taraweeh.</p>
-
-            <div class="bg-slate-100 dark:bg-slate-900 p-6 rounded-xl my-8">
-                <h3 class="text-xl font-bold mb-4">Ramadan 2026 Important Dates</h3>
-                <ul class="space-y-2">
-                    <li><strong>Ramadan Begins:</strong> February 17-18, 2026</li>
-                    <li><strong>Laylatul Qadr (Expected):</strong> March 7-11, 2026</li>
-                    <li><strong>Eid ul-Fitr:</strong> March 19-21, 2026</li>
+                <h3>1. Jeddah Airport to Makkah Taxi</h3>
+                <p>Start your journey with ease. Our <a href="/services/jeddah-airport-transfer">Jeddah Airport to Makkah taxi service</a> tracks your flight and waits for you, ensuring a seamless arrival even if your flight is delayed. We provide:</p>
+                <ul>
+                    <li><strong>Meet & Greet:</strong> A warm welcome at the arrival terminal.</li>
+                    <li><strong>Ihram Comfort:</strong> Spacious vehicles for those arriving in Ihram.</li>
+                    <li><strong>Fixed Prices:</strong> No surge pricing during Ramadan peak hours.</li>
                 </ul>
-                <p class="mt-4 text-sm font-semibold text-red-500">📌 Pro Tip: Book your taxi for the Last 10 Nights NOW - slots fill up fast!</p>
+
+                <h3>2. Makkah to Madinah Taxi Transfers</h3>
+                <p>The journey between Makkah and Madinah is a spiritual transition. Avoid the crowds of public buses. Our <strong>private car prices from Makkah to Madinah</strong> are competitive, offering:</p>
+                <ul>
+                    <li><strong>GMC Yukon / Hyundai Staria:</strong> Recline and rest in our air-conditioned fleet.</li>
+                    <li><strong>Flexible Timing:</strong> Depart after Fajr or late at night to suit your Ibadah schedule.</li>
+                    <li><strong>Door-to-Door:</strong> Pickup from your Makkah hotel and drop-off at your Madinah hotel.</li>
+                </ul>
+
+                <h3>3. Laylatul Qadr & Last 10 Nights Transport</h3>
+                <p>The <strong>Last 10 Nights of Ramadan</strong> are the peak of spiritual intensity. Traffic in Makkah is heavy. Our drivers know the best routes to get you close to the Haram for <strong>Laylatul Qadr</strong> prayers. <em>Tip: Book your Last 10 Nights transport early as availability is limited.</em></p>
+
+                <h2>Practical Travel Tips for Ramadan 2026</h2>
+                
+                <h3>Visa and Preparation</h3>
+                <p>Ensure your <strong>Umrah Visa</strong> is secured. Pack light, but bring essentials: comfortable sandals, fragrance-free sunblock, and a travel prayer mat.</p>
+
+                <h3>Health and Wellness</h3>
+                <p>Pace yourself. Hydrate well with Zamzam between Maghrib and Fajr. Our vehicles are stocked with cool water to refresh you the moment you step in.</p>
+
+                <div class="bg-amber-50 dark:bg-slate-900/50 p-6 rounded-xl border-l-4 border-amber-500 my-8">
+                    <h4 class="font-bold text-lg mb-2 text-amber-800 dark:text-amber-400">A Note on Patience (Sabr)</h4>
+                    <p class="text-slate-700 dark:text-slate-300">Remember, every delay in traffic or crowd is an expiation of sins. Carry the character of the Prophet (SAW)—smile, forgive, and be gentle. Let us handle the driving while you focus on Dhikr.</p>
+                </div>
+
+                <h2>Why Choose Al Kiswah for Ramadan Transport?</h2>
+                <p>We are more than just a <strong>taxi service in Makkah</strong>; we are facilitators of your worship. Our vetted drivers respected your state of fasting and prayer.</p>
+                <p>May Allah invite you to His House in <strong>Ramadan 2026</strong>, accept your fasting, and grant you the reward of a Hajj with the Messenger of Allah (peace be upon him).</p>
+
+                <p class="mt-8 font-bold text-center">
+                    <a href="/booking" class="inline-block bg-gradient-to-r from-gold-primary to-amber-600 text-white px-8 py-3 rounded-full hover:shadow-xl transition-all shadow-lg text-lg">Book Your Ramadan 2026 Ride</a>
+                </p>
             </div>
-
-            <h2>Customer Testimonials</h2>
-            <div class="space-y-4">
-                <blockquote class="border-l-4 border-gold-primary pl-4 italic text-slate-600 dark:text-slate-400">
-                    "Used Al Kiswa cab service for Makkah to Madinah during last Ramadan. Driver was punctual, respectful, and knew the best routes. Highly recommend!"
-                    <footer class="text-sm font-bold not-italic mt-1">— Ahmed R., Pakistan</footer>
-                </blockquote>
-                <blockquote class="border-l-4 border-gold-primary pl-4 italic text-slate-600 dark:text-slate-400">
-                    "Booked for our family of 6 during Ramadan. Spacious vehicle, fair price, and driver waited for us after Taraweeh. Excellent service!"
-                    <footer class="text-sm font-bold not-italic mt-1">— Fatima S., India</footer>
-                </blockquote>
-            </div>
-
-            <hr class="my-8 border-slate-200 dark:border-slate-700" />
-
-            <h2>Frequently Asked Questions</h2>
-            
-            <details class="mb-4 cursor-pointer">
-                <summary class="font-bold text-lg text-amber-600 mb-2">Q: Are you available during Fajr and late-night hours?</summary>
-                <p class="text-slate-600 dark:text-slate-400 pl-4">A: Yes! We operate 24/7 throughout Ramadan, especially during Taraweeh, Qiyam, and Fajr times.</p>
-            </details>
-
-            <details class="mb-4 cursor-pointer">
-                <summary class="font-bold text-lg text-amber-600 mb-2">Q: Do you offer hourly rentals for Ramadan?</summary>
-                <p class="text-slate-600 dark:text-slate-400 pl-4">A: Yes, we offer hourly packages perfect for Ziyarat visits and shopping trips during the day.</p>
-            </details>
-
-            <details class="mb-4 cursor-pointer">
-                <summary class="font-bold text-lg text-amber-600 mb-2">Q: Can I book in advance for the last 10 nights?</summary>
-                <p class="text-slate-600 dark:text-slate-400 pl-4">A: Absolutely! We recommend booking early as demand is very high during Laylatul Qadr nights.</p>
-            </details>
-
-            <p class="mt-8 font-bold text-center">
-                <a href="/booking" class="inline-block bg-gradient-to-r from-gold-primary to-amber-600 text-white px-8 py-3 rounded-full hover:shadow-xl transition-all shadow-lg text-lg">Book Your Ramadan Ride Now</a>
-            </p>
         `,
         category: 'Ramadan Special',
         date: new Date('2026-02-10'),
-        readTime: '5 min read',
+        readTime: '6 min read',
         image: '/images/blog/ramadan-family-2026.jpg',
-        alt: 'Ramadan 2026 Umrah Taxi Services Makkah Madinah',
-        author: 'Al Kiswah Team',
-        tags: ['Ramadan 2026', 'Umrah Taxi', 'Special Offers', 'Makkah Transport', 'Taraweeh'],
+        alt: 'Ramadan 2026 Umrah Taxi Service Makkah to Madinah - Pilgrim making Dua',
+        author: 'Al Kiswah Spiritual Team',
+        tags: [
+            'Ramadan 2026',
+            'Umrah Taxi',
+            'Makkah to Madinah Taxi',
+            'Jeddah Airport Transfer',
+            'Ramadan Transport',
+            'Laylatul Qadr',
+            'Umrah 2026',
+            'Saudi Arabia Travel'
+        ],
         isPublished: true,
-        metaTitle: 'Ramadan Umrah Taxi Makkah to Madinah 2026 | 24/7 Reliable Transport | Al Kiswa',
-        metaDescription: 'Book trusted Ramadan Umrah taxi service for Makkah-Madinah travel. Special rates for Ramadan 2026 (Feb 17 - Mar 21). 24/7 available, family packages, instant booking.',
+        metaTitle: 'Ramadan 2026 Umrah Taxi Service | Makkah to Madinah Transport & Prices',
+        metaDescription: 'Book the best Ramadan 2026 Umrah taxi service. Reliable 24/7 transfers from Jeddah Airport to Makkah & Madinah. Check fixed prices for GMC Yukon & Staria. Experience a spiritual journey with Al Kiswah.',
         createdAt: new Date('2026-02-10'),
         updatedAt: new Date('2026-02-10'),
     },
@@ -1923,5 +1865,130 @@ export const staticBlogPosts = [
         metaDescription: 'دليل شامل لأفضل وسائل النقل للمعتمرين بين جدة ومكة والمدينة. قارن بين السيارات الخاصة والقطار، وتعرف على مميزات الجمس يوكون للعائلات.',
         createdAt: new Date('2026-01-06'),
         updatedAt: new Date('2026-01-06'),
+    },
+    {
+        _id: 'static-prepare-perform-umrah-international',
+        slug: 'prepare-perform-umrah-international-pilgrims-niyyah-ihram',
+        title: 'How to Prepare for and Perform Umrah: A Guide for International Pilgrims',
+        excerpt: 'A complete guide for international pilgrims on preparing for Umrah, with a special focus on the spiritual significance of Niyyah and the sacred state of Ihram.',
+        content: `
+            <div class="prose max-w-none text-slate-800 dark:text-gray-200 dark:prose-invert prose-a:text-amber-600 dark:prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline">
+                <h2>The Spiritual Essence of Umrah</h2>
+                <p>Umrah is a journey of the soul, beginning with a sincere <strong>niyyah (intention)</strong> to seek closeness to Allah. For pilgrims traveling from abroad, the act of wearing Ihram before crossing Miqat is a profound reminder of humility, unity, and devotion. As you prepare for Umrah in 2026, <strong>Al Kiswah Umrah Transport</strong> is honored to guide you through every step—ensuring your journey is both spiritually uplifting and professionally supported.</p>
+                <p>Performing Umrah is a lifelong dream for many. It is a visit to the House of Allah, a cleansing of the soul, and a renewal of faith. Whether you are arriving during the blessed month of Ramadan or any other time of the year, the journey requires both physical preparation and spiritual readiness.</p>
+
+                <hr class="my-8 border-slate-200 dark:border-slate-700" />
+
+                <h2>The Spiritual Significance of Niyyah (Intention)</h2>
+                <p>Every act of worship in Islam begins with the heart. The Prophet Muhammad (peace be upon him) said, <em>"Actions are judged by intentions."</em> (Bukhari)</p>
+                <p>For Umrah, your <strong>Niyyah</strong> is the foundation of your pilgrimage. It is not just a verbal statement but a firm resolve in your heart that you are undertaking this journey solely for the sake of Allah.</p>
+                
+                <div class="bg-amber-50 dark:bg-slate-900/50 p-6 rounded-xl border-l-4 border-amber-500 my-8">
+                    <h4 class="font-bold text-lg mb-2 text-amber-800 dark:text-amber-400">The Intention for Umrah</h4>
+                    <p class="text-slate-700 dark:text-slate-300">When you are ready to enter the state of Ihram, you pronounce:</p>
+                    <p class="text-xl font-arabic text-center my-4 font-bold">لَبَّيْكَ اللَّهُمَّ عُمْرَةً</p>
+                    <p class="text-center italic">"Labbayk Allahumma Umrah"<br>(Here I am, O Allah, for Umrah)</p>
+                </div>
+
+                <p>This intention must be made <strong>before</strong> crossing the Miqat boundary. It marks the shift from your daily life into a sacred state of devotion.</p>
+
+                <h2>The Sacred State of Ihram</h2>
+                <p>Ihram is more than just two pieces of white cloth; it is a state of being. It symbolizes:</p>
+                <ul>
+                    <li><strong>Purity:</strong> A physical and spiritual cleansing before entering the ambit of the Divine.</li>
+                    <li><strong>Equality:</strong> Stripping away signs of wealth, status, and nationality. King and commoner stand shoulder to shoulder, indistinguishable in their humility.</li>
+                    <li><strong>Devotion:</strong> A commitment to avoid prohibited acts (like arguing, hunting, or using perfume) to focus entirely on Allah.</li>
+                </ul>
+
+                <h2>Preparing for Umrah from Abroad</h2>
+                <p>Traveling from another country adds a layer of logistical planning to your spiritual journey. Here is a checklist for the international pilgrim:</p>
+                
+                <h3>1. Visa & Travel Documents</h3>
+                <p>Ensure your <strong>Umrah Visa</strong> or Tourist Visa is valid. Download the <strong>Nusuk App</strong> to book your Rawdah slot in Madinah.</p>
+
+                <h3>2. Packing Essentials</h3>
+                <p>Aside from your Ihram garments (bring two sets just in case), pack:</p>
+                <ul>
+                    <li>A small travel prayer mat.</li>
+                    <li>Unscented soap and deodorant (for use while in Ihram).</li>
+                    <li>Comfortable walking sandals.</li>
+                    <li>A small bag for your shoes when entering the Haram.</li>
+                </ul>
+
+                <h3>3. Spiritual Readiness</h3>
+                <p>Before you leave, settle your debts, ask for forgiveness from those you may have wronged, and make sincere Tawbah (repentance).</p>
+
+                <h2>Wearing Ihram Abroad & The Miqat</h2>
+                <p>For those flying into Jeddah (King Abdulaziz International Airport), you will likely cross the <strong>Miqat</strong> (the boundary line) while in the air.</p>
+                
+                <div class="bg-blue-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-blue-500 my-8">
+                    <h4 class="font-bold text-lg mb-2 text-blue-800 dark:text-blue-400">Important for Air Travelers</h4>
+                    <p class="text-slate-700 dark:text-slate-300">You must be in the state of Ihram <strong>before</strong> the plane crosses the Miqat. Airlines usually announce this 30 minutes prior. It is highly recommended to wear your Ihram garments <strong>at your departure airport</strong> or during a stopover.</p>
+                </div>
+
+                <p><strong>The Miqat Points:</strong></p>
+                <ul>
+                    <li><strong>Dhul Hulaifah (Abyar Ali):</strong> For those coming from Madinah (or landing in Madinah first).</li>
+                    <li><strong>Yalamlam (Sa'adiyah):</strong> For those coming from the south (Yemen) and many flights from Asia/South Africa.</li>
+                    <li><strong>Qarn al-Manazil (As-Sayl Al-Kabir):</strong> For those coming from the east (Najd, UAE, etc.).</li>
+                    <li><strong>Juhfah (Rabigh):</strong> For those coming from the north (Levant, Egypt, North Africa).</li>
+                </ul>
+
+                <h2>Step-by-Step Guide to Performing Umrah</h2>
+                
+                <h3>1. Arrival in Makkah</h3>
+                <p>Upon arriving at your hotel, refresh yourself (without using scented products if in Ihram) and proceed to Al-Masjid Al-Haram. Enter with your right foot, reciting the Dua of entering the mosque, and let the sight of the Kaaba fill your heart with awe.</p>
+
+                <h3>2. Tawaf (Circumambulation)</h3>
+                <p>Perform seven circuits around the Kaaba, starting from the Black Stone (Hajar al-Aswad). This act symbolizes the unity of believers revolving around the One God.</p>
+
+                <h3>3. Sa’i (Walking between Safa and Marwah)</h3>
+                <p>Walk seven times between the hills of Safa and Marwah. This commemorates the struggle of Hajar (AS) searching for water for her son Ismail (AS). Reflect on her trust in Allah and her perseverance.</p>
+
+                <h3>4. Halq or Taqsir (Shaving or Trimming)</h3>
+                <p>Upon completing Sa’i, men shave their heads (Halq) or trim their hair (Taqsir). Women cut a small portion of their hair (about a fingertip's length). This act releases you from the state of Ihram and marks the completion of your Umrah.</p>
+
+                <hr class="my-8 border-slate-200 dark:border-slate-700" />
+
+                <h2>Al Kiswah Umrah Transport: Your Companion on this Sacred Path</h2>
+                <p>Your journey doesn't end with the flight. Navigating from Jeddah Airport to Makkah, or Makkah to Madinah, requires a partner who understands the sanctity of your trip.</p>
+                <p><strong>Al Kiswah Umrah Transport</strong> is dedicated to serving the Guests of Allah with:</p>
+                <ul>
+                    <li><strong>Reliability:</strong> We track your flight to ensure we are there when you land.</li>
+                    <li><strong>Comfort:</strong> Our fleet of GMC Yukons and luxury buses ensures you rest well between rites.</li>
+                    <li><strong>Spirituality:</strong> Our drivers are vetted to provide a peaceful, respectful environment for your travel.</li>
+                </ul>
+
+                <p>We are not just a transport company; we are facilitators of your worship.</p>
+
+                <p class="mt-8 font-bold text-center">
+                    <a href="/booking" class="inline-block bg-gradient-to-r from-gold-primary to-amber-600 text-white px-8 py-3 rounded-full hover:shadow-xl transition-all shadow-lg text-lg">Book Your Umrah Transport</a>
+                </p>
+
+                <div class="text-center mt-8">
+                    <p><em>Begin your sacred journey with sincerity of intention, and let Al Kiswah Umrah Transport guide your steps toward the House of Allah.</em></p>
+                </div>
+            </div>
+        `,
+        category: 'Spiritual Guide',
+        date: new Date('2026-01-29'),
+        readTime: '8 min read',
+        image: '/images/blog/ihram-guide.png',
+        alt: 'Pilgrims in Ihram performing Tawaf around the Kaaba',
+        author: 'Al Kiswah Spiritual Team',
+        tags: [
+            'Umrah Preparation',
+            'Niyyah',
+            'Ihram',
+            'International Pilgrims',
+            'Spiritual Guide',
+            'Miqat',
+            'Makkah Transport'
+        ],
+        isPublished: true,
+        metaTitle: 'How to Prepare for Umrah: Niyyah, Ihram & Miqat Guide | Al Kiswah',
+        metaDescription: 'A comprehensive guide for international pilgrims on preparing for Umrah. Learn about making Niyyah, wearing Ihram, crossing Miqat, and booking reliable transport.',
+        createdAt: new Date('2026-01-29'),
+        updatedAt: new Date('2026-01-29'),
     }
 ];

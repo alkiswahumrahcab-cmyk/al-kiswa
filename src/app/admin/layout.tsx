@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { LayoutDashboard, Calendar, Car, DollarSign, Settings, LogOut, MapPin, MessageSquare, FileText, Users, Image as ImageIcon, PenTool, UserCheck, Navigation, BarChart3, Menu, X } from 'lucide-react';
+import { LayoutDashboard, Calendar, Car, DollarSign, Settings, LogOut, MapPin, MessageSquare, FileText, Users, Image as ImageIcon, PenTool, UserCheck, Navigation, BarChart3, Menu, X, Mail } from 'lucide-react';
 import { logout } from '@/lib/auth';
 import AdminThemeToggle from './AdminThemeToggle';
 import AdminAutoLock from '@/components/admin/AdminAutoLock';
@@ -87,6 +87,7 @@ export default function AdminLayout({
         { href: '/admin', label: 'Dashboard', icon: LayoutDashboard, roles: ['admin', 'manager', 'operational_manager'] },
         { href: '/admin/analytics', label: 'Analytics', icon: BarChart3, roles: ['admin', 'manager'] },
         { href: '/admin/bookings', label: 'Bookings', icon: Calendar, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/admin/inquiries', label: 'Inquiries', icon: Mail, roles: ['admin', 'manager'] },
         { href: '/admin/routes', label: 'Routes', icon: MapPin, roles: ['admin', 'manager', 'operational_manager'] },
         { href: '/admin/fleet', label: 'Fleet', icon: Car, roles: ['admin', 'manager', 'operational_manager'] },
         { href: '/admin/pricing', label: 'Pricing', icon: DollarSign, roles: ['admin'] },
