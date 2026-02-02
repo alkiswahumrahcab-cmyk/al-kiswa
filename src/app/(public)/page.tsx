@@ -11,26 +11,30 @@ import { getSectionContent, getSectionImage, getCustomField } from '@/lib/conten
 import AnimatedBackground from '@/components/ui/AnimatedBackground';
 
 // Lazy load heavy components
-const InstantPriceCalculator = dynamic(() => import('@/components/home/InstantPriceCalculator'));
+// Lazy load heavy components
+import {
+  InstantPriceCalculator,
+  FleetCarouselWrapper,
+  ReviewsSection,
+  GallerySection,
+  HomeFleetCarousel,
+  HotelsAndDistricts,
+  RealFleetShowcase,
+  FleetGallery
+} from '@/components/home/LazyHomeSections';
+
 const Features = dynamic(() => import('@/components/home/Features'));
 const SafetyPromise = dynamic(() => import('@/components/home/SafetyPromise'));
 const PassengerCare = dynamic(() => import('@/components/home/PassengerCare'));
-const FleetCarouselWrapper = dynamic(() => import('@/components/home/FleetCarouselWrapper'));
-const ReviewsSection = dynamic(() => import('@/components/reviews/ReviewsSection'));
-const GallerySection = dynamic(() => import('@/components/home/CustomerGallery'));
 const LatestArticles = dynamic(() => import('@/components/home/LatestArticles'));
 const SEOContentSectionFixed = dynamic(() => import('@/components/home/SEOContentSectionV3'));
 const TransportServices = dynamic(() => import('@/components/home/TransportServices'));
 const Testimonials = dynamic(() => import('@/components/home/Testimonials'));
-const HomeFleetCarousel = dynamic(() => import('@/components/home/HomeFleetCarousel'));
 const BookingGuide = dynamic(() => import('@/components/home/BookingGuide'));
 const ServiceDirectory = dynamic(() => import('@/components/home/ServiceDirectory'));
-const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 const MeetOurDrivers = dynamic(() => import('@/components/home/MeetOurDrivers'));
-const RealFleetShowcase = dynamic(() => import('@/components/home/RealFleetShowcase'));
 const ImpactStats = dynamic(() => import('@/components/about/ImpactStats'));
 const FAQSection = dynamic(() => import('@/components/blog/FAQSection'));
-const FleetGallery = dynamic(() => import('@/components/home/FleetGalleryV2'));
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { generateServiceSchema } from "@/components/seo/schema-generator";
 
@@ -38,8 +42,8 @@ import { metaKeywords } from '@/data/seo-keywords';
 
 export async function generateMetadata() {
   return {
-    title: "Umrah Taxi Service Jeddah to Makkah | VIP Transport & Ziyarat",
-    description: "Book trusted Al Kiswah Umrah Transport. Fixed price taxi from Jeddah Airport to Makkah hotels. VIP GMC Yukon fleet, 24/7 support & Madinah Ziyarat tours. Licensed Saudi operator.",
+    title: "Umrah Taxi Service Jeddah to Makkah | Trusted & Stress-Free",
+    description: "Start your blessed journey with peace of mind. Al Kiswah provides reliable, VIP Umrah transport from Jeddah Airport to Makkah. Trusted by 50,000+ pilgrims.",
     alternates: {
       canonical: 'https://alkiswahumrahtransport.com',
     },
@@ -52,8 +56,8 @@ export async function generateMetadata() {
       "Al Kiswah Umrah Transport"
     ],
     openGraph: {
-      title: "Umrah Taxi Service Jeddah to Makkah | VIP Transport & Ziyarat",
-      description: "Book trusted Al Kiswah Umrah Transport. Fixed price taxi from Jeddah Airport to Makkah hotels. VIP GMC Yukon fleet, 24/7 support & Madinah Ziyarat tours. Licensed Saudi operator.",
+      title: "Umrah Taxi Service Jeddah to Makkah | Trusted & Stress-Free",
+      description: "Start your blessed journey with peace of mind. Al Kiswah provides reliable, VIP Umrah transport from Jeddah Airport to Makkah. Trusted by 50,000+ pilgrims.",
       locale: 'en_US',
       type: 'website',
       images: [
@@ -67,8 +71,8 @@ export async function generateMetadata() {
     },
     twitter: {
       card: 'summary_large_image',
-      title: "Umrah Taxi Service Jeddah to Makkah | VIP Transport & Ziyarat",
-      description: "Book trusted Al Kiswah Umrah Transport. Fixed price taxi from Jeddah Airport to Makkah hotels. VIP GMC Yukon fleet, 24/7 support & Madinah Ziyarat tours. Licensed Saudi operator.",
+      title: "Umrah Taxi Service Jeddah to Makkah | Trusted & Stress-Free",
+      description: "Start your blessed journey with peace of mind. Al Kiswah provides reliable, VIP Umrah transport from Jeddah Airport to Makkah. Trusted by 50,000+ pilgrims.",
       images: ['/images/fleet/gmc-yukon-studio.png'],
     }
   };
@@ -76,10 +80,10 @@ export async function generateMetadata() {
 
 export default async function Home() {
   const heroSection = await getSectionContent('home-hero');
-  // SEO Optimized Fallbacks
-  const heroTitle = heroSection?.title || "Trusted Umrah Transport Services in Saudi Arabia";
+  // SEO Optimized Fallbacks - Humanized
+  const heroTitle = heroSection?.title || "Your Trusted Companion for a Blessed Umrah Journey";
   // Styled Subtitle with Arabic
-  const heroSubtitleText = heroSection?.subtitle || "Premium journeys designed for comfort, care, and spiritual alignment.";
+  const heroSubtitleText = heroSection?.subtitle || "Focus on your Ibadah, while we handle the road. Reliable, comfortable, and always on time—from Jeddah Airport to the Haram.";
   const heroSubtitleContent = (
     <>
       <span className="block opacity-90">{heroSubtitleText}</span>
@@ -90,21 +94,21 @@ export default async function Home() {
     <div className="flex flex-col items-center">
       <div className="w-12 h-[1px] bg-gold-primary/50 mb-4" />
       <h2
-        className="block text-2xl md:text-4xl text-gold-primary font-bold tracking-[0.2em] mb-4"
+        className="block text-2xl md:text-3xl text-gold-primary font-bold tracking-[0.1em] mb-4"
         style={{ fontFamily: 'var(--font-reem-kufi)' }}
         lang="ar"
         dir="rtl"
       >
-        خدمة نقل المعتمرين VIP
+        رفيقكم الأمين في رحلة العمرة
       </h2>
     </div>
   );
 
   const heroImage = getSectionImage(heroSection, 'desktop') || "/images/blog-hero-professional.png";
-  const ctaText = getCustomField(heroSection, 'cta_text') || "Book Your Journey";
+  const ctaText = getCustomField(heroSection, 'cta_text') || "Book Your Ride";
   const ctaLink = getCustomField(heroSection, 'cta_link') || "/booking";
-  const secondaryCtaText = "Explore Services";
-  const secondaryCtaLink = "/services";
+  const secondaryCtaText = "See Our Fleet";
+  const secondaryCtaLink = "/fleet";
 
   return (
     <main className="overflow-x-hidden">
@@ -132,9 +136,9 @@ export default async function Home() {
           label: "Happy Pilgrims"
         }}
         stats={[
-          { label: "Punctual & Safe", value: "100%", icon: <ShieldCheck size={20} /> },
-          { label: "Direct Support", value: "24/7", icon: <Clock size={20} /> },
-          { label: "Years Experience", value: "10+", icon: <Star size={20} /> }
+          { label: "Safety First", value: "100%", icon: <ShieldCheck size={20} /> },
+          { label: "24/7 Support", value: "Always", icon: <Clock size={20} /> },
+          { label: "Trusted Service", value: "10+ Yrs", icon: <Star size={20} /> }
         ]}
       />
 
@@ -206,10 +210,10 @@ export default async function Home() {
         <div className="container relative z-10 text-center px-4">
           <FadeIn>
             <h2 className="text-4xl md:text-6xl font-bold font-sans mb-6 drop-shadow-xl tracking-tight text-white">
-              Ready for a <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-primary via-gold-light to-gold-primary">Spiritual Journey?</span>
+              Start Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-primary via-gold-light to-gold-primary">Spiritual Journey</span> with Peace of Mind
             </h2>
             <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-              Book your VIP transport now and let us take care of the logistics while you focus on your worship.
+              Don't worry about logistics. Book your private transfer now and let us serve you with the care you deserve.
             </p>
             <Link
               href="/booking"

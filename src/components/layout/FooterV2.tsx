@@ -38,7 +38,7 @@ export default function Footer() {
                         <Link href="/" className="inline-flex items-center gap-3 group">
                             <div className="relative w-12 h-12 bg-white/5 backdrop-blur-sm rounded-xl p-1 shadow-2xl border border-gold-primary/20 overflow-hidden group-hover:border-gold-primary transition-all duration-500">
                                 <Image
-                                    src="/logo.png"
+                                    src="/logo.webp"
                                     alt="Al Kiswah Transport"
                                     fill
                                     sizes="128px"

@@ -161,14 +161,15 @@ const Hero: React.FC<HeroProps> = ({
             <div className={`container relative z-10 px-4 pt-32 pb-24 ${layout === 'two-column' ? 'grid lg:grid-cols-2 gap-12 lg:gap-24 items-center' : 'flex flex-col items-center text-center'}`}>
 
                 {/* Text Content */}
-                <motion.div
-                    className="flex flex-col gap-8 max-w-3xl"
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                >
+                {/* Text Content - Refactored for LCP (H1 is static) */}
+                <div className="flex flex-col gap-8 max-w-3xl">
                     {/* Badge */}
-                    <motion.div variants={itemVariants} className="flex flex-col justify-center lg:justify-start items-center lg:items-start gap-4 w-full">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+                        className="flex flex-col justify-center lg:justify-start items-center lg:items-start gap-4 w-full"
+                    >
                         {/* Bismillah Calligraphy - Text Version */}
                         <div className="mb-2 w-full text-center">
                             <div className="text-3xl md:text-4xl font-arabic text-white/90 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] leading-relaxed" dir="rtl">
@@ -193,8 +194,8 @@ const Hero: React.FC<HeroProps> = ({
                         )}
                     </motion.div>
 
-                    {/* Title */}
-                    <motion.div variants={itemVariants}>
+                    {/* Title - Static for LCP Optimization */}
+                    <div>
                         <h1 className="font-sans font-bold text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight drop-shadow-2xl">
                             {title.split(' ').map((word, i) => (
                                 <span key={i} className={i === 1 || word.includes('VIP') ? 'text-gold-metallic drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]' : ''}>
@@ -202,15 +203,25 @@ const Hero: React.FC<HeroProps> = ({
                                 </span>
                             ))}
                         </h1>
-                    </motion.div>
+                    </div>
 
                     {/* Subtitle */}
-                    <motion.div variants={itemVariants} className="text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-xl mx-auto lg:mx-0 border-l-2 border-gold-primary/30 pl-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+                        className="text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-xl mx-auto lg:mx-0 border-l-2 border-gold-primary/30 pl-6"
+                    >
                         {subtitle}
                     </motion.div>
 
                     {/* Buttons */}
-                    <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mt-2 justify-center lg:justify-start">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+                        className="flex flex-wrap gap-4 mt-2 justify-center lg:justify-start"
+                    >
                         {ctaText && ctaLink && (
                             <GlassButton
                                 href={ctaLink}
@@ -237,7 +248,12 @@ const Hero: React.FC<HeroProps> = ({
 
                     {/* Trust Indicators */}
                     {stats && (
-                        <motion.div variants={itemVariants} className="mt-12 pt-8 border-t border-white/10 grid grid-cols-3 gap-8 w-full max-w-2xl bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/5">
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
+                            className="mt-12 pt-8 border-t border-white/10 grid grid-cols-3 gap-8 w-full max-w-2xl bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-white/5"
+                        >
                             {stats.map((stat, i) => (
                                 <div key={i} className="flex flex-col gap-1 items-center lg:items-start text-center lg:text-left">
                                     <div className="flex items-center gap-2 text-gold-primary mb-1">
@@ -249,7 +265,7 @@ const Hero: React.FC<HeroProps> = ({
                             ))}
                         </motion.div>
                     )}
-                </motion.div>
+                </div>
 
                 {/* Right Column: Booking Widget */}
                 {children && (

@@ -17,31 +17,34 @@ export default function Features() {
 
             <div className="container px-4">
                 <FadeIn>
-                    <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 font-sans text-white leading-tight">
-                        Why Choose Al Kiswah for <br />
-                        <span className="text-gold-primary">Your Spiritual Hijrah?</span>
+                    <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 font-sans text-white leading-tight">
+                        Why Pilgrims Trust <br />
+                        <span className="text-gold-primary">Al Kiswah Transport</span>
                     </h2>
+                    <p className="text-lg text-gray-400 text-center max-w-2xl mx-auto mb-16 font-light leading-relaxed">
+                        We understand that this is not just a trip; it is a sacred journey. Our mission is to ensure your travel between the Holy Cities is as peaceful as your prayers.
+                    </p>
                 </FadeIn>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {[
                         {
                             icon: Shield,
-                            title: "Safe & Trusted",
-                            arabic: "نقل آمن وموثوق",
-                            desc: "Officially licensed chauffeurs & well-maintained vehicles. The most trusted choice for safe Makkah to Madinah travel."
+                            title: "Peace of Mind",
+                            arabic: "طمأنينة وآمان",
+                            desc: "Focus on your worship while we handle the road. Our licensed chauffeurs and insured vehicles guarantee a safe, stress-free journey for you and your family."
                         },
                         {
                             icon: Clock,
-                            title: "Punctual & Reliable",
+                            title: "Respecting Your Time",
                             arabic: "دقة في المواعيد",
-                            desc: "We track your flight to ensure timely pickups. Reliable Jeddah & Madinah Airport service available 24/7."
+                            desc: "We know every minute in the Holy Land is precious. We track your flight for delays and arrive early, so you never have to rush or wait."
                         },
                         {
                             icon: Heart,
-                            title: "VIP Hospitality",
-                            arabic: "ضيافة وراحة VIP",
-                            desc: "Spacious GMC Yukons & luxury vans for families. We serve the guests of Allah with utmost respect and premium comfort."
+                            title: "Guest of Allah Hospitality",
+                            arabic: "خدمة ضيوف الرحمن",
+                            desc: "Serving you is an honor. Experience true Arabian hospitality with our VIP meet & greet service, luggage assistance, and comfortable, cool vehicles."
                         }
                     ].map((feature, index) => (
                         <div key={index} className="text-center group relative h-full bg-white/5 backdrop-blur-md rounded-3xl p-8 hover:-translate-y-2 transition-all duration-500 hover:shadow-2xl hover:shadow-gold-primary/10 border border-white/5 hover:border-gold-primary/30">

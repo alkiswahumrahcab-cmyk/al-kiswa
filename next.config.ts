@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  experimental: {
+    optimizeCss: true, // Requires 'critters' package
+    scrollRestoration: true,
+  },
 
   images: {
     remotePatterns: [

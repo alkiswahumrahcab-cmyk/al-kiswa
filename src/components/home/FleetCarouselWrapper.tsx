@@ -1,35 +1,36 @@
-import { Suspense } from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import FleetCarousel from './FleetCarousel';
-import { vehicleService } from '@/services/vehicleService';
 import { Vehicle as FleetVehicle } from './FleetCarousel';
 
-import { getSettings } from '@/lib/settings-storage';
-
-async function FleetCarouselFetcher() {
-    const vehicles = await vehicleService.getVehicles();
-    const settings = await getSettings();
-
-    // Map to FleetCarousel format
-    const carouselVehicles: FleetVehicle[] = vehicles
-        .filter(v => v.isActive)
-        .slice(0, 6)
-        .map(v => ({
-            id: v.id,
-            name: v.name,
-            image: v.image,
-            passengers: v.name.toLowerCase().includes('hiace') ? "10/11" : v.passengers,
-            luggage: v.luggage,
-            features: v.features,
-            price: v.price
-        }));
-
-    return <FleetCarousel vehicles={carouselVehicles} discount={settings.discount} />;
-}
-
 export default function FleetCarouselWrapper() {
-    return (
-        <Suspense fallback={<div className="h-[400px] bg-slate-100 dark:bg-slate-800 animate-pulse rounded-xl" />}>
-            <FleetCarouselFetcher />
-        </Suspense>
-    );
+    const [data, setData] = useState<{ vehicles: FleetVehicle[], discount: any } | null>(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await fetch('/api/fleet/public');
+                if (res.ok) {
+                    const json = await res.json();
+                    setData(json);
+                }
+            } catch (error) {
+                console.error('Failed to load fleet data:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    if (loading) {
+        return <div className="h-[600px] bg-zinc-900/50 animate-pulse rounded-3xl mx-4 md:mx-8 border border-white/5" />;
+    }
+
+    if (!data || data.vehicles.length === 0) return null;
+
+    return <FleetCarousel vehicles={data.vehicles} discount={data.discount} />;
 }

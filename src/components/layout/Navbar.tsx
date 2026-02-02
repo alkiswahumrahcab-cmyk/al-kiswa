@@ -17,11 +17,19 @@ export default function Navbar() {
 
     useEffect(() => {
         setMounted(true);
+        let ticking = false;
+
         const handleScroll = () => {
-            setScrolled(window.scrollY > 20);
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    setScrolled(window.scrollY > 20);
+                    ticking = false;
+                });
+                ticking = true;
+            }
         };
 
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -104,7 +112,7 @@ export default function Navbar() {
                         <div className={`relative transition-all duration-500 ${scrolled ? 'w-10 h-10' : 'w-13 h-13'} bg-white rounded-full flex items-center justify-center border-2 border-gold-primary shadow-[0_0_15px_rgba(239,191,91,0.3)] group-hover:shadow-[0_0_25px_rgba(239,191,91,0.5)] overflow-hidden lg:mr-1`}>
                             <div className={`relative ${scrolled ? 'w-9 h-9' : 'w-12 h-12'} transition-all duration-500`}>
                                 <Image
-                                    src="/logo.png"
+                                    src="/logo.webp"
                                     alt="Al Kiswah"
                                     fill
                                     sizes="(max-width: 768px) 48px, 64px"
@@ -170,9 +178,12 @@ export default function Navbar() {
 
                 <div className="hidden xl:flex items-center gap-4">
                     {/* <ThemeToggle /> */}
-                    <button className="bg-gradient-to-r from-gold-primary to-gold-dark text-black px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:scale-105 transition-transform shadow-[0_0_20px_rgba(239,191,91,0.3)]">
-                        <Link href="/booking">Book Now</Link>
-                    </button>
+                    <Link
+                        href="/booking"
+                        className="bg-gradient-to-r from-gold-primary to-gold-dark text-black px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:scale-105 transition-transform shadow-[0_0_20px_rgba(239,191,91,0.3)] flex items-center justify-center"
+                    >
+                        Book Now
+                    </Link>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -232,9 +243,13 @@ export default function Navbar() {
                     ))}
                 </div>
                 <div className="p-6 border-t border-white/10 mt-auto space-y-4 bg-black/20">
-                    <button className="w-full bg-gold-primary text-black py-4 rounded-xl text-sm font-bold uppercase tracking-widest hover:brightness-110 transition-all" onClick={() => setIsMenuOpen(false)}>
-                        <Link href="/booking">Book Now</Link>
-                    </button>
+                    <Link
+                        href="/booking"
+                        className="w-full block text-center bg-gold-primary text-black py-4 rounded-xl text-sm font-bold uppercase tracking-widest hover:brightness-110 transition-all"
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                        Book Now
+                    </Link>
                     <div className="flex justify-center">
                         {/* Theme Toggle Removed - Enforced Dark Mode */}
                     </div>

@@ -1,9 +1,11 @@
 'use client';
 
+
 import { useState, useRef, useEffect } from 'react';
 import styles from './AIChatBox.module.css';
 import { Send, X, Minus, MessageSquare, Bot } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Message {
     id: string;
@@ -237,11 +239,12 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
             >
                 {isOpen ? <X size={28} /> : (
                     <div className="relative w-full h-full p-2">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                            src="/logo.png"
-                            alt="Al Kiswa Logo"
-                            className="w-full h-full object-contain"
+                        <Image
+                            src="/logo.webp"
+                            alt="Al Kiswah Logo"
+                            fill
+                            sizes="32px"
+                            className="object-contain"
                         />
                     </div>
                 )}
