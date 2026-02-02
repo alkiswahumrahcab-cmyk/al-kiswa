@@ -56,8 +56,8 @@ export default function BookingWizard() {
     useEffect(() => {
         if (bookingData.pickup && bookingData.dropoff && routes.length > 0) {
             const foundRoute = routes.find(r =>
-                (r.origin.toLowerCase() === bookingData.pickup.toLowerCase() || bookingData.pickup.toLowerCase().includes(r.origin.toLowerCase())) &&
-                (r.destination.toLowerCase() === bookingData.dropoff.toLowerCase() || bookingData.dropoff.toLowerCase().includes(r.destination.toLowerCase()))
+                ((r.origin || '').toLowerCase() === bookingData.pickup.toLowerCase() || bookingData.pickup.toLowerCase().includes((r.origin || '').toLowerCase())) &&
+                ((r.destination || '').toLowerCase() === bookingData.dropoff.toLowerCase() || bookingData.dropoff.toLowerCase().includes((r.destination || '').toLowerCase()))
             );
 
             if (foundRoute) {

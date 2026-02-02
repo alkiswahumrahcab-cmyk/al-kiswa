@@ -8,7 +8,7 @@ import Preloader from "@/components/common/Preloader";
 import NextTopLoader from 'nextjs-toploader';
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import { getSettings } from "@/lib/settings-storage";
-import FloatingAssistanceButton from "@/components/common/FloatingAssistanceButton";
+
 import ScrollToTop from "@/components/common/ScrollToTop";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { generateOrganizationSchema, generateLocalBusinessSchema } from "@/components/seo/schema-generator";

@@ -71,7 +71,7 @@ export default function VehicleSelector({ vehicles, selectedVehicleId, onSelect 
                                         }}
                                     >
                                         <div className={styles.optionIcon}>
-                                            <Icon size={20} />
+                                            {Icon && <Icon size={20} />}
                                         </div>
                                         <div className={styles.optionContent}>
                                             <span className={styles.optionName}>{vehicle.name}</span>
