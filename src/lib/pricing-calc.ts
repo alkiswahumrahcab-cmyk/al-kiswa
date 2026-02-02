@@ -16,9 +16,15 @@ export interface PricingResult {
 
 export const calculateFinalPrice = (
     basePrice: number,
-    discountSettings?: DiscountSettings | null
+    discountSettings?: DiscountSettings | null,
+    globalAdjustmentPercentage: number = 0
 ): PricingResult => {
-    const originalPrice = Math.round(basePrice);
+    // Apply global adjustment first
+    // e.g. 10% increase: price * 1.10
+    // e.g. 10% decrease: price * 0.90
+    const adjustedBase = basePrice * (1 + (globalAdjustmentPercentage / 100));
+
+    const originalPrice = Math.round(adjustedBase);
     let finalPrice = originalPrice;
     let discountApplied = 0;
     let discountType: 'percentage' | 'fixed' | undefined;

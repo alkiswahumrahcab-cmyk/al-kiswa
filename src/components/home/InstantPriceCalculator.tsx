@@ -1,11 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ArrowRight, ShieldCheck, Zap } from 'lucide-react';
-import Link from 'next/link';
 import { usePricing } from '@/context/PricingContext';
 import FadeIn from '@/components/common/FadeIn';
-import { motion, AnimatePresence } from 'framer-motion';
+import Link from 'next/link';
 import VehicleSelector from './VehicleSelector';
 import RouteSelector from './RouteSelector';
 

@@ -109,7 +109,7 @@ const FLEET_OFFERS: Vehicle[] = [
         id: 'coaster',
         name: 'Toyota Coaster',
         type: 'Luxury Bus',
-        image: '/images/fleet/toyota-coaster-studio.png',
+        image: '/images/fleet/toyota-coaster-2025.png',
         capacity: '22 Pax',
         luggage: '15 Bags',
         originalPrice: '800 SAR',

@@ -125,8 +125,8 @@ export const generateBookingInvoice = async (data: InvoiceData) => {
         [
             description,
             data.vehicleCount.toString(),
-            `SAR ${data.totalPrice / data.vehicleCount}`,
-            `SAR ${data.totalPrice}`
+            `SAR ${(data.vehicleCount > 0 ? (data.totalPrice / data.vehicleCount) : 0).toLocaleString('en-US', { minimumFractionDigits: 2 })}`,
+            `SAR ${data.totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2 })}`
         ]
     ];
 

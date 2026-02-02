@@ -147,7 +147,7 @@ export default async function RootLayout({
                 {children}
 
                 {/* Global Widgets */}
-                <FloatingAssistanceButton />
+                {/* FloatingAssistanceButton removed to avoid overlap */}
 
               </PricingProvider>
             </ThemeProvider>

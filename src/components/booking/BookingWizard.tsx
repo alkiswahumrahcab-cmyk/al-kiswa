@@ -47,6 +47,29 @@ export default function BookingWizard() {
         if (currentStep > 1) setCurrentStep(prev => prev - 1);
     };
 
+    // Scroll to top on step change
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [currentStep]);
+
+    // Auto-detect Route ID based on Pickup/Dropoff
+    useEffect(() => {
+        if (bookingData.pickup && bookingData.dropoff && routes.length > 0) {
+            const foundRoute = routes.find(r =>
+                (r.origin.toLowerCase() === bookingData.pickup.toLowerCase() || bookingData.pickup.toLowerCase().includes(r.origin.toLowerCase())) &&
+                (r.destination.toLowerCase() === bookingData.dropoff.toLowerCase() || bookingData.dropoff.toLowerCase().includes(r.destination.toLowerCase()))
+            );
+
+            if (foundRoute) {
+                console.log('[BookingWizard] Auto-matched route:', foundRoute.id);
+                updateData({ routeId: foundRoute.id });
+            } else {
+                console.log('[BookingWizard] No standard route found, defaulting to custom');
+                updateData({ routeId: 'custom' });
+            }
+        }
+    }, [bookingData.pickup, bookingData.dropoff, routes]);
+
     return (
         <div className="w-full max-w-4xl mx-auto px-0 md:px-4 py-8">
             {/* Minimalist Progress Header */}

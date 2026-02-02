@@ -16,13 +16,13 @@ interface PricingContextType {
 const PricingContext = createContext<PricingContextType | undefined>(undefined);
 
 const VEHICLE_IMAGES: Record<string, string> = {
-    'camry': '/images/fleet/camry-studio.png',
-    'gmc': '/images/fleet/gmc-yukon-studio.png',
-    'staria': '/images/fleet/hyundai-staria-studio.png',
-    'starex': '/images/fleet/hyundai-starex-studio.png',
-    'hiace': '/images/fleet/toyota-hiace-studio.png',
-    'coaster': '/images/fleet/toyota-coaster-studio.png',
-    'default': '/images/fleet/camry-studio.png'
+    'camry': '/images/fleet/camry-2025.png',
+    'gmc': '/images/fleet/gmc-yukon-2025.png',
+    'staria': '/images/fleet/hyundai-staria-2025.png',
+    'starex': '/images/fleet/hyundai-h1.png',
+    'hiace': '/images/fleet/toyota-hiace-2025.png',
+    'coaster': '/images/fleet/toyota-coaster-2025.png',
+    'default': '/images/fleet/camry-2025.png'
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -109,7 +109,7 @@ export function PricingProvider({ children }: { children: React.ReactNode }) {
         }
 
         // Use shared calculation logic
-        return calculateFinalPrice(base, settings?.discount);
+        return calculateFinalPrice(base, settings?.discount, settings?.pricing?.globalPercentageAdjustment);
     };
 
     return (

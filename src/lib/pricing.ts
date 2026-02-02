@@ -4,6 +4,8 @@ import pricingData from '@/data/pricing.json';
 export interface Route {
     id: string;
     name: string;
+    origin: string;
+    destination: string;
     distance: string;
     time: string;
     baseRate: number;

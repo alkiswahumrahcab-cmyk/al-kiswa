@@ -76,6 +76,10 @@ const PriceCell = memo(({
 
 PriceCell.displayName = 'PriceCell';
 
+import { Settings } from '@/lib/validations';
+
+// ... (existing imports)
+
 export default function PricingPage() {
     const [routes, setRoutes] = useState<Route[]>([]);
     const [vehicles, setVehicles] = useState<Vehicle[]>([]);
@@ -85,6 +89,8 @@ export default function PricingPage() {
     const [searchTerm, setSearchTerm] = useState('');
     const [modified, setModified] = useState<Record<string, boolean>>({});
     const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+    const [settings, setSettings] = useState<Settings | null>(null);
+    const [isSavingSettings, setIsSavingSettings] = useState(false);
 
     // Security Modal State
     const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);
@@ -103,15 +109,17 @@ export default function PricingPage() {
 
     const fetchData = useCallback(async () => {
         try {
-            const [routesRes, vehiclesRes, pricesRes] = await Promise.all([
+            const [routesRes, vehiclesRes, pricesRes, settingsRes] = await Promise.all([
                 fetch('/api/admin/routes'),
                 fetch('/api/admin/fleet'),
-                fetch('/api/admin/pricing')
+                fetch('/api/admin/pricing'),
+                fetch('/api/settings')
             ]);
 
             const routesData = await routesRes.json();
             const vehiclesData = await vehiclesRes.json();
             const pricesData = await pricesRes.json();
+            const settingsData = await settingsRes.json();
 
             if (Array.isArray(routesData)) {
                 setRoutes(routesData);
@@ -126,9 +134,14 @@ export default function PricingPage() {
                 priceMap[`${p.routeId}-${p.vehicleId}`] = p.price;
             });
             setPrices(priceMap);
+
+            if (settingsData && !settingsData.error) {
+                setSettings(settingsData);
+            }
+
         } catch (error) {
             console.error('Failed to fetch data:', error);
-            showToast('Failed to load pricing data', 'error');
+            showToast('Failed to load data', 'error');
         } finally {
             setLoading(false);
         }
@@ -161,6 +174,29 @@ export default function PricingPage() {
                 setConfirmDialog(prev => ({ ...prev, isOpen: false }));
             }
         });
+    };
+
+    const handleSaveGlobalSettings = async () => {
+        if (!settings) return;
+        setIsSavingSettings(true);
+        try {
+            const res = await fetch('/api/settings', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(settings)
+            });
+
+            if (res.ok) {
+                showToast('Global pricing adjustment saved!', 'success');
+            } else {
+                showToast('Failed to save settings', 'error');
+            }
+        } catch (error) {
+            console.error('Failed to save settings:', error);
+            showToast('Error saving settings', 'error');
+        } finally {
+            setIsSavingSettings(false);
+        }
     };
 
     const handleSaveAll = async () => {
@@ -201,14 +237,60 @@ export default function PricingPage() {
     if (loading) return <div className="p-8 text-center">Loading pricing data...</div>;
 
     return (
-        <div className="p-6 max-w-[95%] mx-auto">
+        <div className="p-6 max-w-[95%] mx-auto space-y-8">
             {toast && <Toast message={toast.message} type={toast.type} isVisible={true} onClose={() => setToast(null)} />}
 
-            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+            {/* Header */}
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
                     <h1 className={styles.title}>Price Management</h1>
                     <p className="text-muted-foreground">Manage dynamic pricing for routes and vehicles</p>
                 </div>
+            </div>
+
+            {/* Global Adjustment Card */}
+            {settings && (
+                <div className="bg-slate-900 border border-white/10 p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                            <RotateCcw className="text-gold-primary" size={20} />
+                            Global Price Adjustment
+                        </h2>
+                        <p className="text-gray-400 text-sm mt-1">
+                            Increase or decrease ALL prices on the website by a percentage.
+                            <br />
+                            <span className="text-xs text-amber-500 font-bold">Example: 10 = +10% Increase | -10 = -10% Discount</span>
+                        </p>
+                    </div>
+
+                    <div className="flex items-center gap-4 bg-black/20 p-2 rounded-xl border border-white/5">
+                        <div className="flex flex-col">
+                            <label className="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1 ml-1">Percentage %</label>
+                            <input
+                                type="number"
+                                value={settings.pricing?.globalPercentageAdjustment || 0}
+                                onChange={(e) => setSettings({
+                                    ...settings,
+                                    pricing: { ...settings.pricing, globalPercentageAdjustment: parseFloat(e.target.value) || 0 }
+                                })}
+                                className="bg-transparent text-white text-2xl font-bold w-32 px-4 py-2 border-b-2 border-gold-primary focus:outline-none focus:border-white transition-colors text-center"
+                                placeholder="0"
+                            />
+                        </div>
+                        <button
+                            onClick={handleSaveGlobalSettings}
+                            disabled={isSavingSettings}
+                            className="bg-gold-primary text-black px-6 py-4 rounded-xl font-bold shadow-lg hover:bg-white hover:scale-105 transition-all disabled:opacity-50 disabled:hover:scale-100"
+                        >
+                            {isSavingSettings ? 'Saving...' : 'Apply Adjustment'}
+                        </button>
+                    </div>
+                </div>
+            )}
+
+
+            {/* Table Controls */}
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-white/10">
                 <div className="relative flex-1 md:w-64">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
                     <input
@@ -220,38 +302,39 @@ export default function PricingPage() {
                     />
                 </div>
 
-                {Object.keys(modified).length > 0 && (
+                <div className="flex items-center gap-3">
+                    {Object.keys(modified).length > 0 && (
+                        <button
+                            onClick={handleReset}
+                            className="flex items-center gap-2 bg-slate-100 text-slate-600 px-4 py-2.5 rounded-full font-bold hover:bg-slate-200 transition-colors"
+                        >
+                            <RotateCcw size={18} />
+                            Reset Changes
+                        </button>
+                    )}
+
                     <button
-                        onClick={handleReset}
-                        className="flex items-center gap-2 bg-slate-100 text-slate-600 px-4 py-2.5 rounded-full font-bold hover:bg-slate-200 transition-colors"
+                        onClick={handleSaveAll}
+                        disabled={saving || Object.keys(modified).length === 0}
+                        className="flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 px-6 py-2.5 rounded-full font-bold shadow-lg shadow-amber-500/20 hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100 whitespace-nowrap"
                     >
-                        <RotateCcw size={18} />
-                        Reset
+                        <Save size={20} />
+                        {saving ? 'Saving...' : 'Save Table Changes'}
                     </button>
-                )}
-
-                <button
-                    onClick={handleSaveAll}
-                    disabled={saving || Object.keys(modified).length === 0}
-                    className="flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 px-6 py-2.5 rounded-full font-bold shadow-lg shadow-amber-500/20 hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100 whitespace-nowrap"
-                >
-                    <Save size={20} />
-                    {saving ? 'Saving...' : 'Save Changes'}
-                </button>
+                </div>
             </div>
-
 
             <div className={styles.glassCard}>
                 <div className="overflow-x-auto max-h-[calc(100vh-250px)] relative">
                     <table className={styles.table}>
-                        <thead className="sticky top-0 z-10 bg-white/95 backdrop-blur-sm shadow-sm">
+                        <thead className="sticky top-0 z-10 bg-slate-900 shadow-sm ring-1 ring-white/10">
                             <tr>
-                                <th className="bg-slate-50/90 min-w-[200px] p-4 text-left font-bold text-muted-foreground border-b border-border">
+                                <th className="bg-slate-900 min-w-[200px] p-4 text-left font-bold text-slate-300 border-b border-white/10">
                                     Route / Vehicle
                                 </th>
                                 {vehicles.map(vehicle => (
-                                    <th key={vehicle.id} className="text-center min-w-[150px] p-4 border-b border-border bg-slate-50/90">
-                                        <div className="font-bold text-foreground">{vehicle.name}</div>
+                                    <th key={vehicle.id} className="text-center min-w-[150px] p-4 border-b border-white/10 bg-slate-900">
+                                        <div className="font-bold text-white">{vehicle.name}</div>
                                     </th>
                                 ))}
                             </tr>

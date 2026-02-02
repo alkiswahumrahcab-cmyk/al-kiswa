@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Briefcase, Check, ArrowRight, ChevronLeft, Star } from 'lucide-react';
+import { Users, Briefcase, Check, ArrowRight, ChevronLeft, Star, ShieldCheck } from 'lucide-react';
 import { usePricing } from '@/context/PricingContext';
 
 interface VehicleStepProps {
@@ -69,121 +69,186 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                 </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Desktop Grid View */}
+            <div className="hidden md:grid md:grid-cols-2 gap-6">
                 {vehicles.map((vehicle) => {
                     const count = getCount(vehicle.id);
                     const isSelected = count > 0;
-
                     const pricing = data.routeId && data.routeId !== 'custom'
                         ? calculatePrice(data.routeId, vehicle.id)
                         : null;
-
-                    // Accessibility & Trust Logic
                     const isFamilyFriendly = Number(vehicle.capacity) >= 7;
                     const isLuxury = vehicle.name.includes('GMC') || vehicle.name.includes('BMW');
 
                     return (
                         <div
                             key={vehicle.id}
+                            onClick={() => count === 0 && handleIncrement(vehicle.id)}
                             className={`
-                                relative p-1 rounded-3xl transition-all duration-300 group
+                                relative p-1 rounded-3xl transition-all duration-300 group cursor-pointer
                                 ${isSelected
                                     ? 'bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37] shadow-[0_0_30px_-5px_rgba(212,175,55,0.4)] scale-[1.02]'
                                     : 'bg-white/5 border border-white/10 hover:border-[#D4AF37]/30 hover:bg-white/10'}
                             `}
                         >
-                            <div className="bg-black/60 backdrop-blur-md rounded-[22px] p-6 h-full relative z-10 overflow-hidden border border-white/5 group-hover:border-gold-primary/20 transition-colors">
-
-                                {/* Family Badge */}
+                            <div className="bg-black/60 backdrop-blur-md rounded-[22px] h-full relative z-10 overflow-hidden border border-white/5 group-hover:border-gold-primary/20 transition-colors flex flex-col">
                                 {isFamilyFriendly && (
-                                    <div className="absolute top-0 left-0 bg-emerald-900/80 border-b border-r border-emerald-500/30 text-emerald-400 text-[10px] font-bold px-3 py-1 rounded-br-xl uppercase tracking-wider z-20 flex items-center gap-1">
-                                        <Users size={12} /> Recommended for Families
+                                    <div className="absolute top-0 left-0 bg-emerald-900/90 border-b border-r border-emerald-500/30 text-emerald-400 text-[10px] font-bold px-4 py-1.5 rounded-br-2xl uppercase tracking-wider z-20 flex items-center gap-1.5 shadow-lg">
+                                        <Users size={12} /> Family Choice
                                     </div>
                                 )}
-
-                                <div className="flex gap-5 pt-4">
-                                    {/* Image Container */}
-                                    <div className="w-32 h-28 relative rounded-xl bg-black/40 border border-white/5 shrink-0 flex items-center justify-center overflow-hidden">
-                                        {vehicle.image ? (
-                                            <img
-                                                src={vehicle.image}
-                                                alt={vehicle.name}
-                                                className="w-full h-full object-contain p-2 group-hover:scale-110 transition-transform duration-500"
-                                            />
-                                        ) : (
-                                            <Users size={40} className="text-gray-600" />
-                                        )}
-                                        {isLuxury && (
-                                            <div className="absolute top-0 right-0 bg-gold-primary text-black text-[10px] font-black px-2 py-1 rounded-bl-lg uppercase tracking-wider">
-                                                VIP
-                                            </div>
-                                        )}
+                                {isLuxury && (
+                                    <div className="absolute top-0 right-0 bg-gradient-to-bl from-gold-primary to-gold-dark text-black text-xs font-black px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider z-20 shadow-lg shadow-gold-primary/20">
+                                        VIP Class
                                     </div>
-
-                                    {/* Content */}
-                                    <div className="flex-1 min-w-0 flex flex-col justify-between">
-                                        <div>
-                                            <h3 className={`font-sans font-bold text-xl leading-tight truncate ${isSelected ? 'text-gold-primary' : 'text-white'}`}>
+                                )}
+                                <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-black/80 backdrop-blur border border-gold-primary/30 text-gold-primary text-[9px] font-bold px-3 py-1 rounded-b-xl uppercase tracking-widest z-20 flex items-center gap-1 shadow-lg">
+                                    <ShieldCheck size={10} /> Verified Driver
+                                </div>
+                                <div className="w-full h-72 relative bg-gradient-to-b from-white/5 to-transparent flex items-center justify-center p-2 shrink-0 group-hover:bg-white/5 transition-colors duration-500">
+                                    {vehicle.image ? (
+                                        <motion.img
+                                            src={vehicle.image}
+                                            alt={vehicle.name}
+                                            className="w-full h-full object-contain drop-shadow-2xl z-10"
+                                            whileHover={{ scale: 1.15, y: -5 }}
+                                            transition={{ duration: 0.4 }}
+                                        />
+                                    ) : (
+                                        <Users size={80} className="text-gray-700" />
+                                    )}
+                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-gold-primary/5 blur-3xl rounded-full" />
+                                </div>
+                                <div className="p-6 flex-1 flex flex-col justify-between relative bg-black/40">
+                                    <div className="space-y-4">
+                                        <div className="flex justify-between items-start gap-2">
+                                            <h3 className={`font-sans font-bold text-2xl leading-tight ${isSelected ? 'text-gold-primary' : 'text-white'}`}>
                                                 {vehicle.name}
                                             </h3>
-
-                                            <div className="flex items-center gap-3 mt-3">
-                                                <div className="flex items-center gap-1.5 text-xs font-bold text-gray-400 bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/5">
-                                                    <Users size={14} className="text-gold-primary" />
-                                                    {vehicle.capacity} PAX
-                                                </div>
-                                                <div className="flex items-center gap-1.5 text-xs font-bold text-gray-400 bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/5">
-                                                    <Briefcase size={14} className="text-gold-primary" />
-                                                    {vehicle.luggage} BAGS
-                                                </div>
+                                        </div>
+                                        <div className="flex items-center gap-2">
+                                            <div className="flex items-center gap-1.5 text-[10px] sm:text-xs font-bold text-gray-300 bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/5">
+                                                <Users size={12} className="text-gold-primary" />
+                                                <span className="tracking-wide text-nowrap">{vehicle.capacity} {Number(vehicle.capacity) > 1 ? 'Passengers' : 'Passenger'}</span>
+                                            </div>
+                                            <div className="flex items-center gap-1.5 text-[10px] sm:text-xs font-bold text-gray-300 bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/5">
+                                                <Briefcase size={12} className="text-gold-primary" />
+                                                <span className="tracking-wide text-nowrap">{vehicle.luggage} Bags</span>
                                             </div>
                                         </div>
-
-                                        <div className="mt-4 flex flex-wrap items-end justify-between gap-4">
-                                            {/* Price Display */}
+                                    </div>
+                                    <div className="mt-4 pt-4 border-t border-white/5 flex items-end justify-between gap-4">
+                                        <div className="flex-1">
                                             {pricing ? (
-                                                <div className="flex-1">
+                                                <div className="flex flex-col">
+                                                    <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-0.5">Total Price</span>
                                                     <div className="flex items-baseline gap-1">
-                                                        <span className="text-4xl font-black text-white tracking-tight">
+                                                        <span className="text-2xl lg:text-3xl font-black text-white tracking-tight">
                                                             {pricing.price}
                                                         </span>
-                                                        <span className="text-sm font-bold text-gold-primary">SAR</span>
+                                                        <span className="text-[10px] font-bold text-gold-primary self-end mb-1">SAR</span>
                                                     </div>
                                                     {count > 1 && (
-                                                        <div className="text-xs text-gold-primary font-bold mt-1">
-                                                            Total: {(pricing.price * count).toLocaleString()} SAR
+                                                        <div className="text-[10px] text-gold-primary/80 font-mono mt-0.5">
+                                                            Single: {pricing.price} SAR
                                                         </div>
                                                     )}
                                                 </div>
                                             ) : (
-                                                <div className="flex-1">
-                                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">
-                                                        Fixed Price
-                                                    </span>
-                                                </div>
-                                            )}
-
-                                            {/* Quantity Controls */}
-                                            <div className="flex items-center gap-3 bg-white/5 rounded-xl p-1 border border-white/10">
-                                                <button
-                                                    onClick={(e) => { e.stopPropagation(); handleDecrement(vehicle.id); }}
-                                                    className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${count > 0 ? 'bg-white/10 text-white hover:bg-white/20' : 'text-gray-600 cursor-not-allowed'}`}
-                                                    disabled={count === 0}
-                                                >
-                                                    -
-                                                </button>
-                                                <span className="w-4 text-center font-bold text-lg text-white">
-                                                    {count}
+                                                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-white/5 px-2 py-1 rounded">
+                                                    Rate on Request
                                                 </span>
-                                                <button
-                                                    onClick={(e) => { e.stopPropagation(); handleIncrement(vehicle.id); }}
-                                                    className="w-8 h-8 rounded-lg bg-gold-primary text-black flex items-center justify-center hover:bg-[#F3D383] transition-colors font-bold"
-                                                >
-                                                    +
-                                                </button>
-                                            </div>
+                                            )}
+                                        </div>
+                                        <div className="flex items-center gap-1 bg-zinc-900 rounded-lg p-1 border border-white/10 shadow-lg">
+                                            <button
+                                                onClick={(e) => { e.stopPropagation(); handleDecrement(vehicle.id); }}
+                                                className={`w-8 h-8 rounded-md flex items-center justify-center transition-all ${count > 0 ? 'bg-white/10 text-white hover:bg-white/20' : 'text-zinc-600 cursor-not-allowed'}`}
+                                                disabled={count === 0}
+                                            >
+                                                -
+                                            </button>
+                                            <span className="w-8 text-center font-bold text-base text-white font-mono">
+                                                {count}
+                                            </span>
+                                            <button
+                                                onClick={(e) => { e.stopPropagation(); handleIncrement(vehicle.id); }}
+                                                className="w-8 h-8 rounded-md bg-gold-primary text-black flex items-center justify-center hover:bg-[#F3D383] transition-all hover:scale-105 shadow-[0_0_10px_rgba(212,175,55,0.2)] font-black text-base"
+                                            >
+                                                +
+                                            </button>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                })}
+            </div>
+
+            {/* Mobile List View (Dropdown Style) */}
+            <div className="block md:hidden space-y-4">
+                {vehicles.map((vehicle) => {
+                    const count = getCount(vehicle.id);
+                    const isSelected = count > 0;
+                    const pricing = data.routeId && data.routeId !== 'custom'
+                        ? calculatePrice(data.routeId, vehicle.id)
+                        : null;
+
+                    return (
+                        <div
+                            key={vehicle.id}
+                            className={`
+                                rounded-xl border transition-all duration-300 overflow-hidden
+                                ${isSelected
+                                    ? 'bg-gold-primary/10 border-gold-primary shadow-[0_0_15px_rgba(212,175,55,0.15)]'
+                                    : 'bg-white/5 border-white/10'}
+                            `}
+                        >
+                            <div className="p-3 flex items-center gap-4">
+                                {/* Small Thumbnail */}
+                                <div className="w-20 h-14 relative bg-white/5 rounded-lg flex items-center justify-center shrink-0">
+                                    {vehicle.image ? (
+                                        <img src={vehicle.image} alt={vehicle.name} className="w-full h-full object-contain" />
+                                    ) : (
+                                        <Users size={20} className="text-gray-500" />
+                                    )}
+                                </div>
+
+                                {/* Info */}
+                                <div className="flex-1 min-w-0">
+                                    <div className="flex justify-between items-start">
+                                        <h3 className={`font-bold text-sm truncate ${isSelected ? 'text-gold-primary' : 'text-white'}`}>
+                                            {vehicle.name}
+                                        </h3>
+                                        {pricing && (
+                                            <span className="font-mono text-white text-sm font-bold">
+                                                {pricing.price} SAR
+                                            </span>
+                                        )}
+                                    </div>
+                                    <div className="flex items-center gap-2 mt-1 text-[10px] text-gray-400">
+                                        <span className="flex items-center gap-1"><Users size={10} /> {vehicle.capacity}</span>
+                                        <span className="flex items-center gap-1"><Briefcase size={10} /> {vehicle.luggage}</span>
+                                    </div>
+                                </div>
+
+                                {/* Controls */}
+                                <div className="flex flex-col items-center gap-1">
+                                    {count === 0 ? (
+                                        <button
+                                            onClick={() => handleIncrement(vehicle.id)}
+                                            className="bg-gold-primary text-black text-xs font-bold px-3 py-1.5 rounded-lg hover:bg-[#F3D383]"
+                                        >
+                                            Select
+                                        </button>
+                                    ) : (
+                                        <div className="flex items-center bg-black/50 rounded-lg border border-white/10">
+                                            <button onClick={() => handleDecrement(vehicle.id)} className="w-7 h-7 flex items-center justify-center text-white hover:text-red-400">-</button>
+                                            <span className="w-4 text-center text-xs font-mono font-bold text-gold-primary">{count}</span>
+                                            <button onClick={() => handleIncrement(vehicle.id)} className="w-7 h-7 flex items-center justify-center text-white hover:text-gold-primary">+</button>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </div>

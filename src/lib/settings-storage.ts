@@ -45,6 +45,9 @@ const DEFAULT_SETTINGS: Settings = {
     emailTemplates: {
         bookingConfirmation: DEFAULT_BOOKING_CONFIRMATION_TEMPLATE,
         adminNotification: DEFAULT_ADMIN_NOTIFICATION_TEMPLATE,
+    },
+    pricing: {
+        globalPercentageAdjustment: 0,
     }
 };
 
@@ -100,6 +103,9 @@ export const getSettings = async (): Promise<Settings> => {
             emailTemplates: {
                 bookingConfirmation: settingsMap['email_template_booking_confirmation'] || DEFAULT_SETTINGS.emailTemplates?.bookingConfirmation || DEFAULT_BOOKING_CONFIRMATION_TEMPLATE,
                 adminNotification: settingsMap['email_template_admin_notification'] || DEFAULT_SETTINGS.emailTemplates?.adminNotification || DEFAULT_ADMIN_NOTIFICATION_TEMPLATE,
+            },
+            pricing: {
+                globalPercentageAdjustment: Number(settingsMap['pricing_global_percentage_adjustment']) || DEFAULT_SETTINGS.pricing?.globalPercentageAdjustment || 0,
             }
         };
 
@@ -148,6 +154,8 @@ export async function saveSettings(newSettings: Settings): Promise<void> {
 
         { key: 'email_template_booking_confirmation', value: newSettings.emailTemplates?.bookingConfirmation || '' },
         { key: 'email_template_admin_notification', value: newSettings.emailTemplates?.adminNotification || '' },
+
+        { key: 'pricing_global_percentage_adjustment', value: String(newSettings.pricing?.globalPercentageAdjustment || 0) },
     ];
 
     // Update each setting
@@ -159,5 +167,6 @@ export async function saveSettings(newSettings: Settings): Promise<void> {
         )
     ));
 
-    // revalidateTag('settings');
+    // @ts-expect-error: signature mismatch in this environment
+    revalidateTag('settings');
 }

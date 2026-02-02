@@ -52,9 +52,11 @@ export async function POST(request: Request) {
             user: user.name || 'Admin', // Use actual user name
         });
 
-        const { revalidatePath } = await import('next/cache');
+        const { revalidatePath, revalidateTag } = await import('next/cache');
         revalidatePath('/booking');
         revalidatePath('/admin/pricing');
+        // @ts-expect-error: revalidateTag signature mismatch in this next version
+        revalidateTag('routes');
 
         return NextResponse.json(updatedPrice);
     } catch {

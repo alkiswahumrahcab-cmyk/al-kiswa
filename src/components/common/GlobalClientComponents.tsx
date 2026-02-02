@@ -8,6 +8,8 @@ const AIChatBox = dynamic(() => import('@/components/home/AIChatBox'), { ssr: fa
 const CookieConsent = dynamic(() => import('@/components/privacy/CookieConsent'), { ssr: false });
 const PWAInstallPrompt = dynamic(() => import('@/components/common/PWAInstallPrompt'), { ssr: false });
 
+const WhatsAppVoiceButton = dynamic(() => import('@/components/common/WhatsAppVoiceButton'), { ssr: false });
+
 interface GlobalClientComponentsProps {
     contactSettings?: {
         phone: string;
@@ -30,6 +32,7 @@ export default function GlobalClientComponents({ contactSettings }: GlobalClient
                 contactPhone={contactSettings?.phone}
                 contactEmail={contactSettings?.email}
             />
+            <WhatsAppVoiceButton phoneNumber={contactSettings?.phone} />
             <CookieConsent />
             <PWAInstallPrompt />
         </>

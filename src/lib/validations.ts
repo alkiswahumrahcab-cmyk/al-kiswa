@@ -84,6 +84,7 @@ export const SettingsSchema = z.object({
         email: z.string().email('Invalid email'),
         phone: z.string(),
         phone2: z.string().optional(),
+        whatsapp: z.string().optional(),
         address: z.string(),
         social: z.object({
             facebook: z.string().optional(),
@@ -112,6 +113,9 @@ export const SettingsSchema = z.object({
     emailTemplates: z.object({
         bookingConfirmation: z.string().optional(),
         adminNotification: z.string().optional(),
+    }).optional(),
+    pricing: z.object({
+        globalPercentageAdjustment: z.number().optional().default(0),
     }).optional(),
 });
 

@@ -318,18 +318,24 @@ ${data.flightNumber ? `✈️ *Flight:* ${data.flightNumber}\n` : ''}${data.note
                             <div className="absolute -top-3 -left-3 w-6 h-6 bg-primary-black rounded-full" />
                             <div className="absolute -top-3 -right-3 w-6 h-6 bg-primary-black rounded-full" />
 
-                            <div className="flex items-center gap-3 text-gray-500">
-                                <Wallet size={16} />
-                                <p className="text-[10px] font-bold uppercase tracking-wider">Pay Cash or Card to Driver</p>
+                            <div className="flex items-center gap-3 text-gray-700 bg-white border border-gray-200 rounded-xl p-3 shadow-sm">
+                                <Wallet size={20} className="text-gold-primary" />
+                                <div>
+                                    <p className="text-[10px] font-bold uppercase tracking-wider text-gray-500">Payment Method</p>
+                                    <p className="text-sm font-bold text-black">Pay Cash to Driver (After Trip)</p>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="p-4 bg-gold-primary/10 rounded-2xl border border-gold-primary/20 flex items-start gap-3">
-                        <ShieldCheck className="text-gold-primary shrink-0 mt-0.5" size={18} />
-                        <p className="text-sm text-gray-300 font-medium leading-relaxed">
-                            <span className="text-gold-primary font-bold">No Payment Required Now:</span> Pay the driver directly upon arrival.
-                        </p>
+                    <div className="p-5 bg-gradient-to-br from-gold-primary/20 to-gold-primary/5 rounded-2xl border border-gold-primary/30 flex items-start gap-3 shadow-lg shadow-gold-primary/5">
+                        <ShieldCheck className="text-gold-primary shrink-0 mt-0.5" size={24} />
+                        <div>
+                            <h4 className="text-white font-bold text-sm mb-1">Book Now, Pay Later</h4>
+                            <p className="text-xs text-gray-300 font-medium leading-relaxed">
+                                No credit card needed. Your booking is confirmed instantly, and you only pay the driver once you reach your destination safely.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
