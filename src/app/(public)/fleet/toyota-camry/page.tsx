@@ -109,7 +109,7 @@ export default async function ToyotaCamryPage() {
 
             <FleetPricingGrid
                 vehicleId={camryId}
-                vehicleImage="/images/fleet/camry.png"
+                vehicleImage="/images/fleet/camry-2025.png"
                 vehicleType="camry"
                 title="Toyota Camry Rates | Jeddah, Makkah, Madinah"
                 subtitle="Reliable, comfortable, and economical. The smart choice for small families and couples."

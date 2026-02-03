@@ -38,7 +38,7 @@ export const viewport: Viewport = {
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSettings();
   const siteName = settings.general.siteName || "Al Kiswah Umrah Transport";
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://alkiswahumrahtransport.com';
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://kiswahumrahcab.com';
 
   return {
     metadataBase: new URL(siteUrl),

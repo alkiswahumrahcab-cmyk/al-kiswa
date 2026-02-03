@@ -127,7 +127,7 @@ export default async function GmcYukonPage() {
 
             <FleetPricingGrid
                 vehicleId={gmcId}
-                vehicleImage="/images/fleet/gmc.png"
+                vehicleImage="/images/fleet/gmc-yukon-2025.png"
                 vehicleType="gmc"
                 title="VIP GMC Yukon Rates | Jeddah, Makkah & Madinah"
                 subtitle="The pinnacle of comfort for your spiritual journey. Transparent VIP pricing for all routes."

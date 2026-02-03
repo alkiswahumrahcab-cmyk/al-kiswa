@@ -224,7 +224,7 @@ export default async function AirportTransfersPage() {
                                 <div className="h-72 relative overflow-hidden group bg-gradient-to-br from-white/5 to-transparent flex items-center justify-center p-6">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
-                                        src="/images/fleet/camry.png"
+                                        src="/images/fleet/camry-2025.png"
                                         alt="Toyota Camry Standard Sedan for Affordable Makkah Airport Transfer"
                                         className="w-auto h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-2xl"
                                     />
@@ -267,7 +267,7 @@ export default async function AirportTransfersPage() {
                                 <div className="h-72 relative overflow-hidden group bg-gradient-to-br from-white/5 to-transparent flex items-center justify-center p-6">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
-                                        src="/images/fleet/hiace.png"
+                                        src="/images/fleet/toyota-hiace-2025.png"
                                         alt="Toyota Hiace 10-Seater Family Van for Airport Group Transport"
                                         className="w-auto h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-2xl"
                                     />

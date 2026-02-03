@@ -119,7 +119,7 @@ export default async function HyundaiStariaPage() {
 
             <FleetPricingGrid
                 vehicleId={stariaId}
-                vehicleImage="/images/fleet/staria.png"
+                vehicleImage="/images/fleet/hyundai-staria-2025.png"
                 vehicleType="staria"
                 title="Hyundai Staria Rates | Jeddah, Makkah, Madinah"
                 subtitle="The perfect balance of modern luxury and group capacity. Ideal for families and small groups."
@@ -223,10 +223,16 @@ export default async function HyundaiStariaPage() {
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>
 
                     <div className="max-w-6xl mx-auto">
-                        <Interior360Viewer
-                            imageUrl="/images/fleet/staria-interior-360.jpg"
+                        {/* <Interior360Viewer
+                            imageUrl="/images/fleet/camry-interior-360.jpg"
                             title="Hyundai Staria Premium Interior"
-                        />
+                        /> */}
+                        <div className="w-full h-[400px] flex items-center justify-center bg-slate-800 rounded-2xl border border-slate-700">
+                            <div className="text-center">
+                                <h3 className="text-2xl font-bold text-white mb-2">360° View Coming Soon</h3>
+                                <p className="text-slate-400">We will upload the interior view later.</p>
+                            </div>
+                        </div>
                     </div>
                     <p className="text-slate-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
                 </div>

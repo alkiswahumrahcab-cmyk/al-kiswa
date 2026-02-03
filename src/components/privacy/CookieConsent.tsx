@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ShieldCheck, X } from 'lucide-react';
 import Link from 'next/link';
-import { ShieldCheck } from 'lucide-react';
-import styles from './CookieConsent.module.css';
 
 declare global {
     interface Window {
@@ -27,29 +26,15 @@ export default function CookieConsent() {
     };
 
     useEffect(() => {
-        // Check if user has already made a choice
         const consent = localStorage.getItem('cookie_consent');
 
         if (consent) {
-            // Apply existing preference
-            if (consent === 'accepted') {
-                updateConsent(true);
-            } else if (consent === 'rejected') {
-                updateConsent(false);
-            }
+            if (consent === 'accepted') updateConsent(true);
+            else if (consent === 'rejected') updateConsent(false);
         } else {
-            // Function to show banner
-            const showBanner = () => setIsVisible(true);
-
-            window.addEventListener('preloader-complete', showBanner);
-
-            // Fallback
-            const fallbackTimer = setTimeout(showBanner, 2500);
-
-            return () => {
-                window.removeEventListener('preloader-complete', showBanner);
-                clearTimeout(fallbackTimer);
-            };
+            // Delay for better UX
+            const timer = setTimeout(() => setIsVisible(true), 2000);
+            return () => clearTimeout(timer);
         }
     }, []);
 
@@ -69,45 +54,43 @@ export default function CookieConsent() {
         <AnimatePresence>
             {isVisible && (
                 <motion.div
-                    initial={{ y: 100, opacity: 0, scale: 0.95 }}
-                    animate={{ y: 0, opacity: 1, scale: 1 }}
-                    exit={{ y: 100, opacity: 0, scale: 0.95 }}
-                    transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 30,
-                        mass: 1
-                    }}
-                    className={styles.banner}
+                    initial={{ y: 100, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: 20, opacity: 0 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    className="fixed bottom-4 left-4 right-4 md:left-auto md:bottom-8 md:right-8 z-[9999] max-w-sm w-full"
                 >
-                    <div className={styles.glow} />
+                    <div className="bg-neutral-900/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.5)] p-6 relative overflow-hidden">
+                        {/* Decorative Gradient */}
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-50" />
 
-                    <div className={styles.content}>
-                        <div className={styles.textSection}>
-                            <div className={styles.iconWrapper}>
-                                <ShieldCheck size={28} />
+                        <div className="flex items-start gap-4 mb-4">
+                            <div className="bg-[#D4AF37]/10 p-2.5 rounded-xl text-[#D4AF37] border border-[#D4AF37]/20">
+                                <ShieldCheck size={20} />
                             </div>
-                            <div className={styles.textContent}>
-                                <h3 className="flex items-center gap-2">
-                                    Your Privacy Matters
-                                    <span className="text-amber-500 font-arabic text-sm opacity-80">| خصوصيتك تهمنا</span>
-                                </h3>
-                                <p>
-                                    We use cookies to enhance your experience, provide secure booking, and deliver personalized pilgrim services.
-                                    <span className="block font-arabic text-xs mt-1 opacity-70">نستخدم ملفات تعريف الارتباط لتحسين تجربتك وضمان حجز آمن لضيوف الرحمن.</span>
+                            <div>
+                                <h3 className="text-white font-bold text-sm mb-1">Privacy & Cookies</h3>
+                                <p className="text-gray-400 text-xs leading-relaxed">
+                                    We use cookies to improve your experience and ensure secure bookings.
                                 </p>
                             </div>
                         </div>
 
-                        <div className={styles.actions}>
-                            <button onClick={handleAccept} className={styles.btnAccept}>
-                                Accept All <span className="font-arabic text-xs ml-1">موافق</span>
+                        <div className="flex items-center gap-3">
+                            <button
+                                onClick={handleAccept}
+                                className="flex-1 bg-white text-black hover:bg-gray-200 text-xs font-bold py-2.5 px-4 rounded-lg transition-colors"
+                            >
+                                Accept <span className="font-arabic ml-1">موافق</span>
                             </button>
-                            <button onClick={handleReject} className={styles.btnReject}>
-                                Reject <span className="font-arabic text-xs ml-1">رفض</span>
+                            <button
+                                onClick={handleReject}
+                                className="flex-1 bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 text-xs font-medium py-2.5 px-4 rounded-lg transition-colors border border-white/5"
+                            >
+                                Reject
                             </button>
-                            <Link href="/cookie-preferences" className={styles.linkManage}>
-                                Preferences <span className="font-arabic text-xs ml-1">إعدادات</span>
+                            <Link href="/cookie-preferences" className="text-[10px] text-gray-500 hover:text-[#D4AF37] transition-colors underline decoration-dotted">
+                                Manage
                             </Link>
                         </div>
                     </div>

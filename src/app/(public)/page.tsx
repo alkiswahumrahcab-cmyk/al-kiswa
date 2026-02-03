@@ -201,7 +201,7 @@ export default async function Home() {
 
       {/* CTA Section */}
       {/* CTA Section */}
-      <section className="relative py-24 bg-primary-black border-t border-white/10 overflow-hidden">
+      <section className="relative py-6 md:py-24 bg-primary-black border-t border-white/10 overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-[0.03] bg-[url('/pattern.png')] pointer-events-none" />
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-gold-primary/5 rounded-full blur-[100px] pointer-events-none" />

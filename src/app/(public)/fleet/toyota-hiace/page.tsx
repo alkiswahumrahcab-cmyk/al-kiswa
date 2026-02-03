@@ -117,7 +117,7 @@ export default async function ToyotaHiacePage() {
 
             <FleetPricingGrid
                 vehicleId={hiaceId}
-                vehicleImage="/images/fleet/hiace.png"
+                vehicleImage="/images/fleet/toyota-hiace-2025.png"
                 vehicleType="hiace"
                 title="Toyota Hiace Rates | Jeddah, Makkah, Madinah"
                 subtitle="Spacious seating for up to 10 passengers. Perfect for large families and groups."

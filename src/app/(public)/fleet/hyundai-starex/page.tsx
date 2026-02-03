@@ -69,7 +69,7 @@ export default async function HyundaiStarexPage() {
 
             <FleetPricingGrid
                 vehicleId={starexId}
-                vehicleImage="/images/fleet/starex.png"
+                vehicleImage="/images/fleet/hyundai-h1.png"
                 vehicleType="starex"
                 title="Hyundai Starex Rates | Jeddah, Makkah, Madinah"
                 subtitle="Affordable comfort for up to 7 passengers. Great value for group travel."
@@ -173,10 +173,16 @@ export default async function HyundaiStarexPage() {
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>
 
                     <div className="max-w-6xl mx-auto">
-                        <Interior360Viewer
-                            imageUrl="/images/fleet/starex-interior-360.jpg"
+                        {/* <Interior360Viewer
+                            imageUrl="/images/fleet/camry-interior-360.jpg"
                             title="Hyundai H1 Starex Interior"
-                        />
+                        /> */}
+                        <div className="w-full h-[400px] flex items-center justify-center bg-slate-800 rounded-2xl border border-slate-700">
+                            <div className="text-center">
+                                <h3 className="text-2xl font-bold text-white mb-2">360° View Coming Soon</h3>
+                                <p className="text-slate-400">We will upload the interior view later.</p>
+                            </div>
+                        </div>
                     </div>
                     <p className="text-slate-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
                 </div>

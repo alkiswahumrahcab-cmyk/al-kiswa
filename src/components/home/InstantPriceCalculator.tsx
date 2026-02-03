@@ -7,6 +7,7 @@ import Link from 'next/link';
 import VehicleSelector from './VehicleSelector';
 import RouteSelector from './RouteSelector';
 
+
 // Note: Ensure VehicleSelector and RouteSelector are also updated to accept transparent/dark props if needed.
 // This redesign assumes they can inherit styles or use context, but for now we wrap them in dark containers.
 
@@ -31,7 +32,6 @@ export default function InstantPriceCalculator() {
             setPriceDetails(details);
         }
     }, [selectedRoute, selectedVehicle, calculatePrice]);
-
 
 
     const currentRoute = routes.find(r => r.id === selectedRoute);

@@ -12,6 +12,29 @@ interface Interior360ViewerProps {
     title?: string;
 }
 
+class ErrorBoundary extends React.Component<{ children: React.ReactNode, fallback: React.ReactNode }, { hasError: boolean }> {
+    constructor(props: any) {
+        super(props);
+        this.state = { hasError: false };
+    }
+
+    static getDerivedStateFromError(error: any) {
+        return { hasError: true };
+    }
+
+    componentDidCatch(error: any, errorInfo: any) {
+        console.error("360 Viewer Error:", error, errorInfo);
+    }
+
+    render() {
+        if (this.state.hasError) {
+            return this.props.fallback;
+        }
+
+        return this.props.children;
+    }
+}
+
 function Sphere({ imageUrl }: { imageUrl: string }) {
     const texture = useLoader(TextureLoader, imageUrl);
     return (
@@ -29,6 +52,17 @@ function Loader() {
             <div className="flex flex-col items-center justify-center p-6 bg-black/80 backdrop-blur-xl rounded-2xl border border-gold-primary/30 shadow-[0_0_30px_rgba(0,0,0,0.5)]">
                 <div className="w-12 h-12 border-4 border-gold-primary border-t-transparent rounded-full animate-spin mb-4 shadow-[0_0_15px_rgba(212,175,55,0.3)]"></div>
                 <div className="text-gold-primary font-mono text-xs tracking-[0.2em] font-bold">{progress.toFixed(0)}% LOADED</div>
+            </div>
+        </Html>
+    );
+}
+
+function ErrorFallback() {
+    return (
+        <Html center>
+            <div className="text-center p-6 bg-black/80 backdrop-blur-xl rounded-2xl border border-red-500/30">
+                <p className="text-red-400 font-bold mb-2">Image Unavailable</p>
+                <p className="text-gray-400 text-xs">The 360° view could not be loaded.</p>
             </div>
         </Html>
     );
@@ -86,10 +120,12 @@ export default function Interior360Viewer({ imageUrl, title = "360° Interior Ex
                 onPointerDown={() => setIsInteracting(true)}
                 className="cursor-move"
             >
-                <Suspense fallback={<Loader />}>
-                    <Sphere imageUrl={imageUrl} />
-                    <Preload all />
-                </Suspense>
+                <ErrorBoundary fallback={<ErrorFallback />}>
+                    <Suspense fallback={<Loader />}>
+                        <Sphere imageUrl={imageUrl} />
+                        <Preload all />
+                    </Suspense>
+                </ErrorBoundary>
 
                 <OrbitControls
                     enableZoom={true}

@@ -60,7 +60,7 @@ export default function HotelsAndDistricts() {
     };
 
     return (
-        <section className="py-20 bg-primary-black border-t border-white/5 relative overflow-hidden">
+        <section className="py-4 md:py-20 bg-primary-black border-t border-white/5 relative overflow-hidden">
             {/* Ambient Background */}
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.02] pointer-events-none" />
             <div className={`absolute top-0 right-0 w-[500px] h-[500px] bg-gold-primary/5 rounded-full blur-[120px] transition-all duration-1000 ${activeCity === 'makkah' ? 'translate-x-1/2 -translate-y-1/2' : 'translate-x-full opacity-50'}`} />
@@ -102,11 +102,11 @@ export default function HotelsAndDistricts() {
                     </div>
 
                     {/* Content Display */}
-                    <div className="relative min-h-[500px]">
+                    <div className="grid grid-cols-1">
                         {Object.entries(data).map(([key, cityData]) => (
                             <div
                                 key={key}
-                                className={`transition-all duration-500 absolute inset-0 ${activeCity === key
+                                className={`transition-all duration-500 col-start-1 row-start-1 ${activeCity === key
                                     ? 'opacity-100 translate-y-0 z-10'
                                     : 'opacity-0 translate-y-8 z-0 pointer-events-none'
                                     }`}
