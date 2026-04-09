@@ -1,7 +1,25 @@
-'use client';
-
 import React, { Suspense } from 'react';
 import BookingWizard from '@/components/booking/BookingWizard';
+
+export async function generateMetadata() {
+    return {
+        title: "Book Umrah Taxi | Al Kiswah Transport | حجز تاكسي المعتمرين",
+        description: "Book your VIP Umrah taxi with Al Kiswah Transport. Reliable, 24/7 transfers from Jeddah Airport to Makkah and Madinah.",
+        keywords: [
+            "Book Umrah Transport", "Umrah Taxi Booking", "Jeddah to Makkah taxi booking",
+            "Makkah to Madinah transport booking", "Al Kiswah booking", "حجز تاكسي العمرة"
+        ],
+        alternates: {
+            canonical: 'https://alkiswahumrahtransport.com/booking',
+        },
+        openGraph: {
+            title: "Book Umrah Taxi | Al Kiswah Transport",
+            description: "Reserve your safe and comfortable transport for Umrah. Real-time pricing & booking.",
+            url: "https://alkiswahumrahtransport.com/booking",
+            type: "website",
+        }
+    };
+}
 
 export default function BookingPage() {
     return (

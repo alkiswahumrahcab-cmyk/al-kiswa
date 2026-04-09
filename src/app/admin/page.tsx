@@ -6,6 +6,8 @@ import AdminAutoLock from '@/components/admin/AdminAutoLock';
 
 import { IBooking } from '@/models';
 
+export const dynamic = 'force-dynamic';
+
 export default async function AdminDashboard() {
     const [stats, recentBookings, logsData] = await Promise.all([
         getDashboardStats(),

@@ -1,11 +1,13 @@
 
-import dynamic from 'next/dynamic';
+
 import dbConnect from '@/lib/mongodb';
 import { Booking } from '@/models';
 import { requireRole } from '@/lib/server-auth';
 import { redirect } from 'next/navigation';
 
 import AnalyticsDashboard from '@/components/admin/analytics/AnalyticsCharts';
+
+export const dynamic = 'force-dynamic';
 
 export default async function AnalyticsPage() {
     // 1. Auth Check

@@ -6,7 +6,6 @@ import { usePathname } from 'next/navigation';
 const ScrollToTop = dynamic(() => import('@/components/common/ScrollToTop'), { ssr: false });
 const AIChatBox = dynamic(() => import('@/components/home/AIChatBox'), { ssr: false });
 const CookieConsent = dynamic(() => import('@/components/privacy/CookieConsent'), { ssr: false });
-const PWAInstallPrompt = dynamic(() => import('@/components/common/PWAInstallPrompt'), { ssr: false });
 
 const WhatsAppVoiceButton = dynamic(() => import('@/components/common/WhatsAppVoiceButton'), { ssr: false });
 
@@ -34,7 +33,6 @@ export default function GlobalClientComponents({ contactSettings }: GlobalClient
             />
             <WhatsAppVoiceButton phoneNumber={contactSettings?.phone} />
             <CookieConsent />
-            <PWAInstallPrompt />
         </>
     );
 }

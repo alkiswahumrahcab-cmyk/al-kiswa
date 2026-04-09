@@ -9,11 +9,9 @@ import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360Viewer';
 
-import pricingData from '@/data/pricing.json';
+import { vehicleService } from '@/services/vehicleService';
 
-const vehicleData = pricingData.vehicles.find(v => v.id === 'hiace');
-
-const jsonLd = {
+const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
     "@graph": [
         {
@@ -41,16 +39,16 @@ const jsonLd = {
         },
         {
             "@type": "Product",
-            "name": vehicleData?.seo?.title || "Toyota Hiace 12-Seater Bus Rental",
+            "name": vehicleData?.name || "Toyota Hiace 12-Seater Bus Rental",
             "image": "https://alkiswahumrahtransport.com/images/fleet/hiace-hero-professional.png",
-            "description": vehicleData?.seo?.description || "Rent Toyota Hiace bus in Makkah. Reliable 12-seater transport for Umrah groups and large families.",
+            "description": vehicleData ? `Rent ${vehicleData.name} bus in Makkah. Reliable ${vehicleData.passengers}-seater transport for Umrah groups and large families.` : "Rent Toyota Hiace bus in Makkah. Reliable 12-seater transport for Umrah groups and large families.",
             "brand": { "@type": "Brand", "name": "Toyota" },
             "offers": {
                 "@type": "Offer",
-                "price": "350",
+                "price": vehicleData?.basePrice?.toString() || "350",
                 "priceCurrency": "SAR",
                 "availability": "https://schema.org/InStock",
-                "priceValidUntil": "2025-12-31",
+                "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
                 "url": "https://alkiswahumrahtransport.com/fleet/toyota-hiace"
             },
             "aggregateRating": {
@@ -60,23 +58,28 @@ const jsonLd = {
             }
         }
     ]
-};
+});
 
-export const metadata: Metadata = {
-    title: "Toyota Hiace Bus Rental Makkah | Cheap Group Transport",
-    description: "Book Toyota Hiace 12-seater bus for Umrah groups. Affordable transport from Jeddah Airport to Makkah & Madinah. Reliable & spacious.",
-    keywords: [
-        "Toyota Hiace Rental Makkah",
-        "10 Seater Bus Makkah",
-        "Cheap Umrah Transport",
-        "Group Taxi Jeddah to Makkah",
-        "Toyota Hiace Bus Price",
-        "تأجير باص هايس",
-        "نقل جماعي مكة",
-        "باص 10 راكب جدة"
-    ],
-    alternates: { canonical: 'https://alkiswahumrahtransport.com/fleet/toyota-hiace' }
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const vehicles = await vehicleService.getActiveVehicles();
+    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('hiace'));
+
+    return {
+        title: vehicleData ? `${vehicleData.name} Bus Rental Makkah | Cheap Group Transport` : "Toyota Hiace Bus Rental Makkah | Cheap Group Transport",
+        description: vehicleData ? `Book ${vehicleData.name} ${vehicleData.passengers}-seater bus for Umrah groups. Affordable transport. Base Route: ${vehicleData.basePrice} SAR.` : "Book Toyota Hiace 12-seater bus for Umrah groups. Affordable transport from Jeddah Airport to Makkah & Madinah. Reliable & spacious.",
+        keywords: [
+            "Toyota Hiace Rental Makkah",
+            "10 Seater Bus Makkah",
+            "Cheap Umrah Transport",
+            "Group Taxi Jeddah to Makkah",
+            "Toyota Hiace Bus Price",
+            "تأجير باص هايس",
+            "نقل جماعي مكة",
+            "باص 10 راكب جدة"
+        ],
+        alternates: { canonical: 'https://alkiswahumrahtransport.com/fleet/toyota-hiace' }
+    };
+}
 
 const hiaceFAQs = [
     {
@@ -98,9 +101,14 @@ export default async function ToyotaHiacePage() {
     const phoneNumber = settings.contact.phone;
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20Toyota%20Hiace%20for%20Group%20Umrah`;
 
-    // Toyota Hiace ID: 692db09834f15bc89b45a5fb
-    const hiaceId = '692db09834f15bc89b45a5fb';
+    const vehicles = await vehicleService.getActiveVehicles();
+    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('hiace'));
+
+    // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
+    const hiaceId = vehicleData?.id || '692db09834f15bc89b45a5fb';
     const hiaceImage = '/images/fleet/hiace-hero-professional.png';
+
+    const jsonLd = generateJsonLd(vehicleData);
 
     return (
         <main className="overflow-x-hidden">

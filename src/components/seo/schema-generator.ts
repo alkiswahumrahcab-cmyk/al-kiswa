@@ -1,4 +1,4 @@
-import { WithContext, Organization, LocalBusiness, Service, BreadcrumbList, Offer } from 'schema-dts';
+import { WithContext, Organization, LocalBusiness, Service, BreadcrumbList, Offer, AboutPage, ContactPage, Article } from 'schema-dts';
 import settings from '@/data/settings.json';
 
 const siteUrl = 'https://alkiswahumrahtransport.com';
@@ -21,7 +21,7 @@ export const generateOrganizationSchema = (): WithContext<Organization> => ({
         settings.contact.social.instagram,
         settings.contact.social.twitter,
         // Add other social links if available
-    ].filter(Boolean),
+    ].filter(Boolean) as string[],
 });
 
 export const generateLocalBusinessSchema = (): WithContext<LocalBusiness> => ({
@@ -131,4 +131,58 @@ export const generateServiceSchema = (
         ],
     },
     ...(image && { image }),
+});
+
+export const generateAboutPageSchema = (): WithContext<AboutPage> => ({
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    name: "About Al Kiswah Umrah Transport",
+    description: "Information about Al Kiswah Umrah Transport, a leading provider of pilgrim transport services in Saudi Arabia.",
+    url: `${siteUrl}/about`,
+    mainEntity: {
+        '@type': 'LocalBusiness',
+        name: settings.general.siteName,
+        sameAs: siteUrl
+    }
+});
+
+export const generateContactPageSchema = (): WithContext<ContactPage> => ({
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: "Contact Al Kiswah Umrah Transport",
+    description: "Contact details and booking support for Al Kiswah Umrah Transport.",
+    url: `${siteUrl}/contact`,
+    mainEntity: {
+        '@type': 'LocalBusiness',
+        name: settings.general.siteName,
+        telephone: settings.contact.phone,
+        address: {
+            '@type': 'PostalAddress',
+            streetAddress: settings.contact.address,
+            addressLocality: 'Makkah',
+            addressRegion: 'Makkah Region',
+        }
+    }
+});
+
+export const generateArticleSchema = (post: any): WithContext<Article> => ({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    image: [post.image.startsWith('http') ? post.image : `${siteUrl}${post.image.startsWith('/') ? '' : '/'}${post.image}`],
+    datePublished: post.date,
+    author: {
+        '@type': 'Person',
+        name: post.author
+    },
+    publisher: {
+        '@type': 'Organization',
+        name: "Al Kiswah Umrah Transport",
+        logo: {
+            '@type': 'ImageObject',
+            url: `${siteUrl}/logo.png`
+        }
+    },
+    description: post.excerpt,
+    articleBody: post.content.replace(/<[^>]*>?/gm, '') // Strip HTML
 });

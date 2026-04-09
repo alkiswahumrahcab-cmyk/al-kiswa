@@ -9,26 +9,43 @@ import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360Viewer';
 
-import pricingData from '@/data/pricing.json';
+import { vehicleService } from '@/services/vehicleService';
 
-const vehicleData = pricingData.vehicles.find(v => v.id === 'starex');
-
-const jsonLd = {
+const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": vehicleData?.seo?.title || "Hyundai H1 Starex Van Rental",
+    "name": vehicleData?.name || "Hyundai H1 Starex Van Rental",
     "image": "https://alkiswahumrahtransport.com/images/fleet/starex-hero-professional.png",
-    "description": vehicleData?.seo?.description || "Rent Hyundai H1 Starex 7-seater van in Makkah. Spacious family transport for Umrah.",
+    "description": `Rent luxury ${vehicleData?.name || 'Hyundai H1 Starex'} in Makkah & Madinah. ${vehicleData?.passengers || 7} Seater SUV for VIP Umrah transport.`,
     "brand": { "@type": "Brand", "name": "Hyundai" },
-    "offers": { "@type": "Offer", "price": "250", "priceCurrency": "SAR", "availability": "https://schema.org/InStock" }
-};
+    "offers": { 
+        "@type": "Offer", 
+        "price": vehicleData?.basePrice?.toString() || "250", 
+        "priceCurrency": "SAR", 
+        "availability": "https://schema.org/InStock",
+        "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0]
+    }
+});
 
-export const metadata: Metadata = {
-    title: vehicleData?.seo?.title,
-    description: vehicleData?.seo?.description,
-    keywords: vehicleData?.seo?.keywords,
-    alternates: { canonical: 'https://alkiswahumrahtransport.com/fleet/hyundai-starex' }
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const vehicles = await vehicleService.getActiveVehicles();
+    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('starex'));
+
+    return {
+        title: vehicleData ? `${vehicleData.name} Rental Makkah | Family Van Umrah Taxi` : "Hyundai H1 Starex Van Rental Makkah",
+        description: vehicleData ? `Rent ${vehicleData.name} in Makkah & Madinah. ${vehicleData.passengers}-seater van. Base Route: ${vehicleData.basePrice} SAR.` : "Rent Hyundai H1 Starex 7-seater van in Makkah. Spacious family transport for Umrah.",
+        keywords: [
+            "Hyundai Starex Rental Makkah",
+            "H1 Van Rental Saudi Arabia",
+            "7 Seater Taxi Makkah",
+            "Jeddah Airport Family Taxi",
+            "حجز باص هيونداي مكة"
+        ],
+        alternates: {
+            canonical: 'https://alkiswahumrahtransport.com/fleet/hyundai-starex',
+        }
+    };
+}
 
 const starexFAQs = [
     {
@@ -50,9 +67,14 @@ export default async function HyundaiStarexPage() {
     const phoneNumber = settings.contact.phone;
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20Hyundai%20H1%20Starex%20for%20Umrah`;
 
-    // Hyundai Starex ID: 692db09834f15bc89b45a5fa
-    const starexId = '692db09834f15bc89b45a5fa';
+    const vehicles = await vehicleService.getActiveVehicles();
+    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('starex'));
+
+    // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
+    const starexId = vehicleData?.id || '692db09834f15bc89b45a5fa';
     const starexImage = '/images/fleet/starex-hero-professional.png';
+
+    const jsonLd = generateJsonLd(vehicleData);
 
     return (
         <main className="overflow-x-hidden">

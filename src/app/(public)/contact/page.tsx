@@ -9,6 +9,8 @@ import GlassCard from '@/components/ui/GlassCard';
 import { getSettings } from '@/lib/settings-storage';
 import ContactGrid from '@/components/contact/ContactGrid';
 import dynamic from 'next/dynamic';
+import { JsonLdScript } from '@/components/seo/JsonLd';
+import { generateContactPageSchema } from '@/components/seo/schema-generator';
 
 const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 
@@ -48,59 +50,10 @@ export default async function ContactPage() {
     const phone1 = settings?.contact.phone || '+966 54 549 4921';
     const email = settings?.contact.email || 'info@alkiswahumrahtransport.com';
     const address = settings?.contact.address || 'Al Aziziyah, Makkah, Saudi Arabia';
-    const whatsapp = phone1;
-
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "TransportationService",
-        "name": "Al Kiswah Umrah Transport",
-        "alternateName": "الكسوة لنقل المعتمرين",
-        "image": "https://alkiswahumrahtransport.com/images/logo.png",
-        "@id": "https://alkiswahumrahtransport.com",
-        "url": "https://alkiswahumrahtransport.com",
-        "telephone": phone1,
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Al Aziziyah",
-            "addressLocality": "Makkah",
-            "addressRegion": "Makkah Region",
-            "postalCode": "24243",
-            "addressCountry": "SA"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 21.4478336,
-            "longitude": 39.8126588
-        },
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-                "Sunday"
-            ],
-            "opens": "00:00",
-            "closes": "23:59"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": phone1,
-            "contactType": "customer service",
-            "areaServed": "SA",
-            "availableLanguage": ["en", "ar", "ur"]
-        }
-    };
 
     return (
         <div className="bg-primary-black min-h-screen relative text-white selection:bg-gold-primary/30">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
+            <JsonLdScript schema={generateContactPageSchema()} />
             {/* Background Pattern */}
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 

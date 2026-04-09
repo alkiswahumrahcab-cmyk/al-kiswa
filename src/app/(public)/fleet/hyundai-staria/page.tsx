@@ -10,11 +10,9 @@ import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360Viewer';
 
-import pricingData from '@/data/pricing.json';
+import { vehicleService } from '@/services/vehicleService';
 
-const vehicleData = pricingData.vehicles.find(v => v.id === 'staria');
-
-const jsonLd = {
+const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
     "@graph": [
         {
@@ -42,16 +40,16 @@ const jsonLd = {
         },
         {
             "@type": "Product",
-            "name": vehicleData?.seo?.title || "Hyundai Staria 2024 Luxury Van",
+            "name": vehicleData?.name || "Hyundai Staria 2024 Luxury Van",
             "image": "https://alkiswahumrahtransport.com/images/fleet/staria-hero-professional.png",
-            "description": vehicleData?.seo?.description || "Rent premium Hyundai Staria 2024 in Makkah. Luxury 7-seater van with panoramic views for VIP families.",
+            "description": `Rent premium ${vehicleData?.name || 'Hyundai Staria'} in Makkah. Luxury ${vehicleData?.passengers || 7}-seater van with panoramic views for VIP families.`,
             "brand": { "@type": "Brand", "name": "Hyundai" },
             "offers": {
                 "@type": "Offer",
-                "price": "450",
+                "price": vehicleData?.basePrice?.toString() || "450",
                 "priceCurrency": "SAR",
                 "availability": "https://schema.org/InStock",
-                "priceValidUntil": "2025-12-31",
+                "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
                 "url": "https://alkiswahumrahtransport.com/fleet/hyundai-staria"
             },
             "aggregateRating": {
@@ -61,23 +59,28 @@ const jsonLd = {
             }
         }
     ]
-};
+});
 
-export const metadata: Metadata = {
-    title: "Hyundai Staria Rental Saudi Arabia | Family Umrah Taxi",
-    description: "Rent Hyundai Staria 2025 in Makkah. Spacious 7-passenger luxury van for Umrah families. Modern comfort for Jeddah to Madinah trips.",
-    keywords: [
-        "Hyundai Staria Rental Makkah",
-        "Family Van for Umrah",
-        "Hyundai Staria Jeddah Airport",
-        "7 Seater Taxi Makkah",
-        "Luxury Van Rental Saudi Arabia",
-        "هيونداي ستاريا مكة",
-        "تاكسي عائلي جدة",
-        "سيارة عائلية للعمرة"
-    ],
-    alternates: { canonical: 'https://alkiswahumrahtransport.com/fleet/hyundai-staria' }
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const vehicles = await vehicleService.getActiveVehicles();
+    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('staria'));
+
+    return {
+        title: vehicleData ? `${vehicleData.name} Rental Saudi Arabia | Family Umrah Taxi` : "Hyundai Staria Rental Saudi Arabia | Family Umrah Taxi",
+        description: vehicleData ? `Rent ${vehicleData.name} in Makkah. Spacious ${vehicleData.passengers}-passenger luxury van for Umrah families. Base Route: ${vehicleData.basePrice} SAR.` : "Rent Hyundai Staria 2025 in Makkah. Spacious 7-passenger luxury van for Umrah families. Modern comfort for Jeddah to Madinah trips.",
+        keywords: [
+            "Hyundai Staria Rental Makkah",
+            "Family Van for Umrah",
+            "Hyundai Staria Jeddah Airport",
+            "7 Seater Taxi Makkah",
+            "Luxury Van Rental Saudi Arabia",
+            "هيونداي ستاريا مكة",
+            "تاكسي عائلي جدة",
+            "سيارة عائلية للعمرة"
+        ],
+        alternates: { canonical: 'https://alkiswahumrahtransport.com/fleet/hyundai-staria' }
+    };
+}
 
 const stariaFAQs = [
     {
@@ -99,9 +102,14 @@ export default async function HyundaiStariaPage() {
     const phoneNumber = settings.contact.phone;
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20Hyundai%20Staria%20for%20Umrah`;
 
-    // Hyundai Staria ID: 692db09834f15bc89b45a5f9
-    const stariaId = '692db09834f15bc89b45a5f9';
+    const vehicles = await vehicleService.getActiveVehicles();
+    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('staria'));
+
+    // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
+    const stariaId = vehicleData?.id || '692db09834f15bc89b45a5f9';
     const stariaImage = '/images/fleet/staria-hero-professional.png';
+
+    const jsonLd = generateJsonLd(vehicleData);
 
     return (
         <main className="overflow-x-hidden">

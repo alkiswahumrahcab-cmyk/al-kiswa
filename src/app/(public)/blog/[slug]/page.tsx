@@ -12,6 +12,8 @@ import ShareButtons from '@/components/blog/ShareButtons';
 import TableOfContents from '@/components/blog/TableOfContents';
 import SidebarBookingWidget from '@/components/blog/SidebarBookingWidget';
 import ReviewSnippet from '@/components/blog/ReviewSnippet';
+import { JsonLdScript } from '@/components/seo/JsonLd';
+import { generateArticleSchema } from '@/components/seo/schema-generator';
 
 // Helper to inject IDs into headers
 const injectIds = (content: string) => {
@@ -83,27 +85,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     }
 
     // JSON-LD Structured Data
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": post.title,
-        "image": [post.image], // In production, prepend domain
-        "datePublished": post.date, // Format should ideally be ISO 8601
-        "author": {
-            "@type": "Person",
-            "name": post.author
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Al Kiswah Umrah Transport",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://alkiswahumrahtransport.com/logo.png" // Update with actual logo URL
-            }
-        },
-        "description": post.excerpt,
-        "articleBody": post.content.replace(/<[^>]*>?/gm, '') // Strip HTML for plain text body
-    };
+    const jsonLd = generateArticleSchema(post);
 
     // Find related posts (exclude current post, prioritize category)
     const allPosts = await blogService.getPosts();
@@ -119,10 +101,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
     return (
         <main>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
+            <JsonLdScript schema={jsonLd} />
 
 
 

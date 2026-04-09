@@ -10,11 +10,9 @@ import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360Viewer';
 
-import pricingData from '@/data/pricing.json';
+import { vehicleService } from '@/services/vehicleService';
 
-const vehicleData = pricingData.vehicles.find(v => v.id === 'gmc');
-
-const jsonLd = {
+const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
     "@graph": [
         {
@@ -42,19 +40,19 @@ const jsonLd = {
         },
         {
             "@type": "Product",
-            "name": vehicleData?.seo?.title || "GMC Yukon XL 2024 Rental Makkah",
+            "name": vehicleData?.name || "GMC Yukon XL 2024 Rental Makkah",
             "image": "https://alkiswahumrahtransport.com/images/fleet/gmc-yukon-hero-professional.png",
-            "description": vehicleData?.seo?.description || "Rent luxury GMC Yukon XL in Makkah & Madinah. 7 Seater SUV for VIP Umrah transport.",
+            "description": `Rent luxury ${vehicleData?.name || 'GMC Yukon XL'} in Makkah & Madinah. ${vehicleData?.passengers || 7} Seater SUV for VIP Umrah transport.`,
             "brand": {
                 "@type": "Brand",
                 "name": "GMC"
             },
             "offers": {
                 "@type": "Offer",
-                "price": "600",
+                "price": vehicleData?.basePrice?.toString() || "600",
                 "priceCurrency": "SAR",
                 "availability": "https://schema.org/InStock",
-                "priceValidUntil": "2025-12-31",
+                "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
                 "url": "https://alkiswahumrahtransport.com/fleet/gmc-yukon-at4"
             },
             "aggregateRating": {
@@ -64,25 +62,30 @@ const jsonLd = {
             }
         }
     ]
-};
+});
 
-export const metadata: Metadata = {
-    title: "GMC Yukon Rental Makkah | VIP Umrah Taxi Cost",
-    description: "Book new GMC Yukon XL in Makkah. Luxury 7-seater SUV for Jeddah Airport pickup and Makkah to Madinah travel. VIP private chauffeur.",
-    keywords: [
-        "GMC Yukon Rental Makkah",
-        "GMC Yukon XL Saudi Arabia",
-        "VIP Umrah Taxi Makkah",
-        "Luxury SUV Rental Jeddah",
-        "GMC Yukon with Driver",
-        "حجز جمس يوكن مكة",
-        "ايجار سيارات فخمة جدة",
-        "توصيل كبار الشخصيات"
-    ],
-    alternates: {
-        canonical: 'https://alkiswahumrahtransport.com/fleet/gmc-yukon-at4',
-    }
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const vehicles = await vehicleService.getActiveVehicles();
+    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('yukon') || v.name.toLowerCase().includes('gmc'));
+
+    return {
+        title: vehicleData ? `${vehicleData.name} Rental Makkah | VIP Umrah Taxi` : "GMC Yukon Rental Makkah | VIP Umrah Taxi Cost",
+        description: vehicleData ? `Book new ${vehicleData.name} in Makkah. Luxury ${vehicleData.passengers}-seater SUV for Jeddah Airport pickup and Makkah to Madinah travel. VIP private chauffeur.` : "Book new GMC Yukon XL in Makkah. Luxury 7-seater SUV for Jeddah Airport pickup and Makkah to Madinah travel. VIP private chauffeur.",
+        keywords: [
+            "GMC Yukon Rental Makkah",
+            "GMC Yukon XL Saudi Arabia",
+            "VIP Umrah Taxi Makkah",
+            "Luxury SUV Rental Jeddah",
+            "GMC Yukon with Driver",
+            "حجز جمس يوكن مكة",
+            "ايجار سيارات فخمة جدة",
+            "توصيل كبار الشخصيات"
+        ],
+        alternates: {
+            canonical: 'https://alkiswahumrahtransport.com/fleet/gmc-yukon-at4',
+        }
+    };
+}
 
 const gmcFAQs = [
     {
@@ -104,9 +107,14 @@ export default async function GmcYukonPage() {
     const phoneNumber = settings.contact.phone;
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20GMC%20Yukon%20for%20Umrah`;
 
-    // GMC Yukon ID: 692db09834f15bc89b45a5f8
-    const gmcId = '692db09834f15bc89b45a5f8';
+    const vehicles = await vehicleService.getActiveVehicles();
+    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('yukon') || v.name.toLowerCase().includes('gmc'));
+
+    // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
+    const gmcId = vehicleData?.id || '692db09834f15bc89b45a5f8';
     const gmcImage = '/images/fleet/gmc-yukon-hero-professional.png';
+
+    const jsonLd = generateJsonLd(vehicleData);
 
     return (
         <main className="overflow-x-hidden">

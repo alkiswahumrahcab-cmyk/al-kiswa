@@ -10,11 +10,9 @@ import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360Viewer';
 
-import pricingData from '@/data/pricing.json';
+import { vehicleService } from '@/services/vehicleService';
 
-const vehicleData = pricingData.vehicles.find(v => v.id === 'camry');
-
-const jsonLd = {
+const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
     "@graph": [
         {
@@ -42,15 +40,16 @@ const jsonLd = {
         },
         {
             "@type": "Product",
-            "name": vehicleData?.seo?.title || "Toyota Camry 2024 Taxi Makkah",
+            "name": vehicleData?.name || "Toyota Camry 2024 Taxi Makkah",
             "image": "https://alkiswahumrahtransport.com/images/fleet/camry-hero-professional.png",
-            "description": vehicleData?.seo?.description || "Affordable Toyota Camry taxi for Umrah. Reliable 4-seater sedan for Jeddah to Makkah transfers.",
+            "description": `Affordable ${vehicleData?.name || 'Toyota Camry'} taxi for Umrah. Reliable ${vehicleData?.passengers || 4}-seater sedan for Jeddah to Makkah transfers.`,
             "brand": { "@type": "Brand", "name": "Toyota" },
             "offers": {
                 "@type": "Offer",
-                "price": "200",
+                "price": vehicleData?.basePrice?.toString() || "200",
                 "priceCurrency": "SAR",
                 "availability": "https://schema.org/InStock",
+                "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
                 "url": "https://alkiswahumrahtransport.com/fleet/toyota-camry"
             },
             "aggregateRating": {
@@ -60,14 +59,27 @@ const jsonLd = {
             }
         }
     ]
-};
+});
 
-export const metadata: Metadata = {
-    title: vehicleData?.seo?.title,
-    description: vehicleData?.seo?.description,
-    keywords: vehicleData?.seo?.keywords,
-    alternates: { canonical: 'https://alkiswahumrahtransport.com/fleet/toyota-camry' }
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const vehicles = await vehicleService.getActiveVehicles();
+    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('camry'));
+
+    return {
+        title: vehicleData ? `${vehicleData.name} Taxi Makkah | Umrah Cab Sedan` : "Toyota Camry 2024 Taxi Makkah",
+        description: vehicleData ? `Affordable ${vehicleData.name} taxi for Umrah. Reliable ${vehicleData.passengers}-seater sedan. Base Route: ${vehicleData.basePrice} SAR.` : "Affordable Toyota Camry taxi for Umrah. Reliable 4-seater sedan for Jeddah to Makkah transfers.",
+        keywords: [
+            "Toyota Camry Umrah Taxi",
+            "Makkah Taxi Service",
+            "Jeddah to Makkah Cab",
+            "Affordable Umrah Transport",
+            "4 Seater Sedan Jeddah",
+            "تاكسي مكة كامري",
+            "توصيل المطار جدة"
+        ],
+        alternates: { canonical: 'https://alkiswahumrahtransport.com/fleet/toyota-camry' }
+    };
+}
 
 const camryFAQs = [
     {
@@ -89,9 +101,14 @@ export default async function ToyotaCamryPage() {
     const phoneNumber = settings.contact.phone;
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20Toyota%20Camry%20for%20Umrah`;
 
-    // Toyota Camry ID: 692db09834f15bc89b45a5f6
-    const camryId = '692db09834f15bc89b45a5f6';
+    const vehicles = await vehicleService.getActiveVehicles();
+    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('camry'));
+
+    // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
+    const camryId = vehicleData?.id || '692db09834f15bc89b45a5f6';
     const camryImage = '/images/fleet/camry-hero-professional.png';
+
+    const jsonLd = generateJsonLd(vehicleData);
 
     return (
         <main className="overflow-x-hidden">

@@ -12,6 +12,8 @@ import TeamTeaser from '@/components/about/TeamTeaser';
 import PilgrimVoices from '@/components/about/PilgrimVoices';
 import { getSectionContent, getSectionImage } from '@/lib/content-service';
 import dynamic from 'next/dynamic';
+import { JsonLdScript } from '@/components/seo/JsonLd';
+import { generateAboutPageSchema } from '@/components/seo/schema-generator';
 
 const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 
@@ -54,26 +56,10 @@ export default async function AboutPage() {
     const subtitle = section?.subtitle || "Serving Guests of Allah with VIP Transport & Reliable Airport Transfers";
     const bgImage = getSectionImage(section, 'desktop') || "https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?q=80&w=2000&auto=format&fit=crop";
 
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "AboutPage",
-        "name": "About Al Kiswah Umrah Transport",
-        "description": "Information about Al Kiswah Umrah Transport, a leading provider of pilgrim transport services in Saudi Arabia.",
-        "url": "https://alkiswahumrahtransport.com/about",
-        "mainEntity": {
-            "@type": "TransportationService",
-            "name": "Al Kiswah Umrah Transport",
-            "sameAs": "https://alkiswahumrahtransport.com"
-        }
-    };
-
     return (
         <main className="min-h-screen bg-primary-black relative">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
+            <JsonLdScript schema={generateAboutPageSchema()} />
             <div className="contents relative z-10">
                 <Hero
                     title={title}

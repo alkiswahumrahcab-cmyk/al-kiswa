@@ -9,55 +9,56 @@ import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360Viewer';
 
-import pricingData from '@/data/pricing.json';
+import { vehicleService } from '@/services/vehicleService';
+export async function generateMetadata(): Promise<Metadata> {
+    const vehicles = await vehicleService.getActiveVehicles();
+    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('coaster'));
 
-// const vehicleData = pricingData.vehicles.find(v => v.id === 'coaster');
-
-
-export const metadata: Metadata = {
-    title: "Toyota Coaster Bus Rental Makkah | Group Umrah Transport",
-    description: "Book Toyota Coaster 22-seater bus for Umrah groups. Comfortable transport from Jeddah Airport to Makkah & Madinah. Large luggage capacity.",
-    keywords: [
-        "Toyota Coaster Rental Makkah",
-        "22 Seater Bus Makkah",
-        "Group Umrah Bus",
-        "Makkah Madinah Bus Transport",
-        "Toyota Coaster Price",
-        "تأجير باص كوستر",
-        "نقل جماعي مكة",
-        "باص 20 راكب جدة"
-    ],
-    alternates: { canonical: 'https://alkiswahumrahtransport.com/fleet/toyota-coaster' },
-    openGraph: {
-        title: "Toyota Coaster Bus Rental Makkah | Group Umrah Transport",
-        description: "Rent a 22-Seater Toyota Coaster for your Umrah group. Spacious, air-conditioned, and reliable transport between Jeddah, Makkah, and Madinah.",
-        url: 'https://alkiswahumrahtransport.com/fleet/toyota-coaster',
-        siteName: 'Al Kiswah Umrah Transport',
-        images: [
-            {
-                url: 'https://alkiswahumrahtransport.com/images/fleet/toyota-coaster-2025.png',
-                width: 1200,
-                height: 630,
-                alt: 'Toyota Coaster 22-Seater Bus',
-            },
+    return {
+        title: vehicleData ? `${vehicleData.name} Bus Rental Makkah | Group Umrah Transport` : "Toyota Coaster Bus Rental Makkah | Group Umrah Transport",
+        description: vehicleData ? `Book ${vehicleData.name} ${vehicleData.passengers}-seater bus for Umrah groups. Comfortable transport from Jeddah Airport to Makkah & Madinah. Base Route: ${vehicleData.basePrice} SAR.` : "Book Toyota Coaster 22-seater bus for Umrah groups. Comfortable transport from Jeddah Airport to Makkah & Madinah. Large luggage capacity.",
+        keywords: [
+            "Toyota Coaster Rental Makkah",
+            "22 Seater Bus Makkah",
+            "Group Umrah Bus",
+            "Makkah Madinah Bus Transport",
+            "Toyota Coaster Price",
+            "تأجير باص كوستر",
+            "نقل جماعي مكة",
+            "باص 20 راكب جدة"
         ],
-        type: 'website',
-    },
-};
+        alternates: { canonical: 'https://alkiswahumrahtransport.com/fleet/toyota-coaster' },
+        openGraph: {
+            title: vehicleData ? `${vehicleData.name} Bus Rental Makkah | Group Umrah Transport` : "Toyota Coaster Bus Rental Makkah | Group Umrah Transport",
+            description: vehicleData ? `Rent a ${vehicleData.passengers}-Seater ${vehicleData.name} for your Umrah group. Spacious, air-conditioned, and reliable transport.` : "Rent a 22-Seater Toyota Coaster for your Umrah group. Spacious, air-conditioned, and reliable transport between Jeddah, Makkah, and Madinah.",
+            url: 'https://alkiswahumrahtransport.com/fleet/toyota-coaster',
+            siteName: 'Al Kiswah Umrah Transport',
+            images: [
+                {
+                    url: 'https://alkiswahumrahtransport.com/images/fleet/toyota-coaster-2025.png',
+                    width: 1200,
+                    height: 630,
+                    alt: vehicleData?.name || 'Toyota Coaster 22-Seater Bus',
+                },
+            ],
+            type: 'website',
+        },
+    };
+}
 
-const jsonLd = {
+const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "Toyota Coaster 22-Seater Bus Rental",
+    "name": vehicleData ? `${vehicleData.name} ${vehicleData.passengers}-Seater Bus Rental` : "Toyota Coaster 22-Seater Bus Rental",
     "image": "https://alkiswahumrahtransport.com/images/fleet/toyota-coaster-2025.png",
-    "description": "Rent Toyota Coaster bus in Makkah. Premium 22-seater transport for Umrah groups. Spacious, comfortable, and reliable.",
+    "description": vehicleData ? `Rent ${vehicleData.name} bus in Makkah. Premium ${vehicleData.passengers}-seater transport for Umrah groups. Spacious, comfortable, and reliable.` : "Rent Toyota Coaster bus in Makkah. Premium 22-seater transport for Umrah groups. Spacious, comfortable, and reliable.",
     "brand": { "@type": "Brand", "name": "Toyota" },
     "offers": {
         "@type": "Offer",
-        "price": "700",
+        "price": vehicleData?.basePrice?.toString() || "700",
         "priceCurrency": "SAR",
         "availability": "https://schema.org/InStock",
-        "priceValidUntil": "2025-12-31",
+        "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
         "url": "https://alkiswahumrahtransport.com/fleet/toyota-coaster"
     },
     "aggregateRating": {
@@ -78,7 +79,7 @@ const jsonLd = {
         "datePublished": "2025-01-10",
         "reviewBody": "Excellent bus for our large family group. Very spacious and the AC was perfect for the heat."
     }
-};
+});
 
 const coasterFAQs = [
     {
@@ -100,9 +101,14 @@ export default async function ToyotaCoasterPage() {
     const phoneNumber = settings.contact.phone;
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20Toyota%20Coaster%20for%20Group%20Umrah`;
 
-    // Toyota Coaster ID placeholder
-    const coasterId = 'coaster_placeholder_id';
+    const vehicles = await vehicleService.getActiveVehicles();
+    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('coaster'));
+
+    // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
+    const coasterId = vehicleData?.id || '692db09834f15bc89b45a5f6_coaster';
     const coasterImage = '/images/fleet/toyota-coaster-2025.png';
+
+    const jsonLd = generateJsonLd(vehicleData);
 
     return (
         <main className="overflow-x-hidden">
