@@ -98,6 +98,16 @@ export async function generateMetadata(): Promise<Metadata> {
     verification: {
       google: 'inByUir4mwvGJCnd8ZM3EmfalkjtJSAgvU91',
     },
+    alternates: {
+      languages: {
+        'en': 'https://kiswahumrahcab.com/',
+        'ar': 'https://kiswahumrahcab.com/ar/',
+        'en-GB': 'https://kiswahumrahcab.com/umrah-transport-uk-pilgrims',
+        'fr': 'https://kiswahumrahcab.com/umrah-taxi-france',
+        'de': 'https://kiswahumrahcab.com/umrah-transport-germany',
+        'x-default': 'https://kiswahumrahcab.com/',
+      },
+    },
   };
 }
 
