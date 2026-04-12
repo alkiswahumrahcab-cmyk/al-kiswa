@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -81,9 +82,7 @@ export async function generateMetadata(): Promise<Metadata> {
             "ايجار سيارات فخمة جدة",
             "توصيل كبار الشخصيات"
         ],
-        alternates: {
-            canonical: 'https://alkiswahumrahtransport.com/fleet/gmc-yukon-at4',
-        }
+        alternates: generateMetadataAlternates("/fleet/gmc-yukon-at4"),
     };
 }
 

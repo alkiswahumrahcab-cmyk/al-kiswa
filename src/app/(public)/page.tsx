@@ -3,14 +3,11 @@ import Link from 'next/link';
 
 import FadeIn from '@/components/common/FadeIn';
 import Hero from '@/components/common/Hero';
-import BookingFormWrapper from '@/components/home/BookingFormWrapper';
-import { ArrowRight, Clock, ShieldCheck, Users, Star } from 'lucide-react';
-
+import { ArrowRight, Clock, ShieldCheck, Star } from 'lucide-react';
 import { getSectionContent, getSectionImage, getCustomField } from '@/lib/content-service';
-
 import AnimatedBackground from '@/components/ui/AnimatedBackground';
+import { generateMetadataAlternates } from '@/lib/hreflang';
 
-// Lazy load heavy components
 // Lazy load heavy components
 import {
   InstantPriceCalculator,
@@ -37,16 +34,13 @@ const ImpactStats = dynamic(() => import('@/components/about/ImpactStats'));
 const FAQSection = dynamic(() => import('@/components/blog/FAQSection'));
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { generateServiceSchema } from "@/components/seo/schema-generator";
-
 import { metaKeywords } from '@/data/seo-keywords';
 
 export async function generateMetadata() {
   return {
-    title: "Umrah Taxi Service Jeddah to Makkah | Trusted & Stress-Free",
-    description: "Start your blessed journey with peace of mind. Al Kiswah provides reliable, VIP Umrah transport from Jeddah Airport to Makkah. Trusted by 50,000+ pilgrims.",
-    alternates: {
-      canonical: 'https://alkiswahumrahtransport.com',
-    },
+    title: "Al Kiswah Umrah Transport | Trusted by 5,000+ Pilgrims | Jeddah · Makkah · Madinah",
+    description: "Licensed Umrah taxi service with 12,000+ trips completed and a 5-star rating. Private transfers from Jeddah Airport to Makkah, Makkah to Madinah. Serving UK, Gulf & European pilgrims.",
+    alternates: generateMetadataAlternates("/"),
     keywords: [
       ...metaKeywords,
       "Jeddah to Makkah taxi price",
@@ -56,33 +50,34 @@ export async function generateMetadata() {
       "Al Kiswah Umrah Transport"
     ],
     openGraph: {
-      title: "Umrah Taxi Service Jeddah to Makkah | Trusted & Stress-Free",
-      description: "Start your blessed journey with peace of mind. Al Kiswah provides reliable, VIP Umrah transport from Jeddah Airport to Makkah. Trusted by 50,000+ pilgrims.",
-      locale: 'en_US',
-      type: 'website',
+      title: "Al Kiswah Umrah Transport — 5,000+ Pilgrims Served",
+      description: "Your trusted private taxi for Umrah. Jeddah Airport → Makkah → Madinah. 10+ years · 5★ rated · Ministry licensed.",
+      url: "https://kiswahumrahcab.com",
+      siteName: "Al Kiswah Umrah Transport",
       images: [
         {
-          url: '/images/fleet/gmc-yukon-studio.png',
+          url: "https://kiswahumrahcab.com/images/og-image.jpg",
           width: 1200,
           height: 630,
-          alt: "Al Kiswah Umrah Transport Fleet",
-        }
+          alt: "Al Kiswah Umrah Transport — Jeddah Airport to Makkah Private Taxi",
+        },
       ],
+      locale: "en_GB",
+      alternateLocale: ["ar_SA", "fr_FR", "de_DE"],
+      type: "website",
     },
     twitter: {
-      card: 'summary_large_image',
-      title: "Umrah Taxi Service Jeddah to Makkah | Trusted & Stress-Free",
-      description: "Start your blessed journey with peace of mind. Al Kiswah provides reliable, VIP Umrah transport from Jeddah Airport to Makkah. Trusted by 50,000+ pilgrims.",
-      images: ['/images/fleet/gmc-yukon-studio.png'],
+      card: "summary_large_image",
+      title: "Al Kiswah Umrah Transport | 5,000+ Pilgrims Trusted Us",
+      description: "Private Umrah taxi from Jeddah Airport to Makkah. Ministry licensed. Fixed prices. 5★ rated.",
+      images: ["https://kiswahumrahcab.com/images/og-image.jpg"],
     }
   };
 }
 
 export default async function Home() {
   const heroSection = await getSectionContent('home-hero');
-  // SEO Optimized Fallbacks - Humanized
   const heroTitle = heroSection?.title || "Your Trusted Companion for a Blessed Umrah Journey";
-  // Styled Subtitle with Arabic
   const heroSubtitleText = heroSection?.subtitle || "Focus on your Ibadah, while we handle the road. Reliable, comfortable, and always on time—from Jeddah Airport to the Haram.";
   const heroSubtitleContent = (
     <>
@@ -142,7 +137,7 @@ export default async function Home() {
         ]}
       />
 
-      {/* Transport Services Section - NEW */}
+      {/* Transport Services Section */}
       <TransportServices />
 
       {/* Fleet Gallery - List View */}
@@ -151,7 +146,7 @@ export default async function Home() {
       {/* Instant Price Calculator Section */}
       <InstantPriceCalculator />
 
-      {/* Booking Guide Section - NEW */}
+      {/* Booking Guide Section */}
       <BookingGuide />
 
       {/* Features Section */}
@@ -160,13 +155,13 @@ export default async function Home() {
       {/* Passenger Care Section */}
       <PassengerCare />
 
-      {/* Fleet Carousel - NEW */}
+      {/* Fleet Carousel */}
       <HomeFleetCarousel />
 
-      {/* Meet Our Drivers - NEW */}
+      {/* Meet Our Drivers */}
       <MeetOurDrivers />
 
-      {/* Real Fleet Showcase - NEW */}
+      {/* Real Fleet Showcase */}
       <RealFleetShowcase />
 
       {/* Impact Stats - Authority */}
@@ -174,7 +169,6 @@ export default async function Home() {
 
       {/* Gallery Section */}
       <GallerySection />
-
 
       {/* Reviews Section */}
       <ReviewsSection />
@@ -188,21 +182,19 @@ export default async function Home() {
       {/* FAQ Section - Trust */}
       <FAQSection />
 
-      {/* Safety Promise Section - Moved to Bottom */}
+      {/* Safety Promise Section */}
       <FadeIn>
         <SafetyPromise />
       </FadeIn>
 
-      {/* SEO Service Directory - 600+ Keywords */}
+      {/* SEO Service Directory */}
       <ServiceDirectory />
 
-      {/* Hotels and Districts Covered - NEW */}
+      {/* Hotels and Districts Covered */}
       <HotelsAndDistricts />
 
       {/* CTA Section */}
-      {/* CTA Section */}
       <section className="relative py-6 md:py-24 bg-primary-black border-t border-white/10 overflow-hidden">
-        {/* Background Pattern */}
         <div className="absolute inset-0 opacity-[0.03] bg-[url('/pattern.png')] pointer-events-none" />
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-gold-primary/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gold-metallic/5 rounded-full blur-[100px] pointer-events-none" />
@@ -213,7 +205,7 @@ export default async function Home() {
               Start Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-primary via-gold-light to-gold-primary">Spiritual Journey</span> with Peace of Mind
             </h2>
             <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-              Don't worry about logistics. Book your private transfer now and let us serve you with the care you deserve.
+              Don&apos;t worry about logistics. Book your private transfer now and let us serve you with the care you deserve.
             </p>
             <Link
               href="/booking"
@@ -224,7 +216,6 @@ export default async function Home() {
           </FadeIn>
         </div>
       </section>
-      {/* Force Rebuild */}
     </main>
   );
 }

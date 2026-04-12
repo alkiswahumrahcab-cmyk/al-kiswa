@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -20,9 +21,7 @@ export const metadata: Metadata = {
         "ziarah madinah",
         "Seven Mosques Tour"
     ],
-    alternates: {
-        canonical: '/services/ziarah-madinah',
-    },
+    alternates: generateMetadataAlternates("/services/ziarah-madinah"),
     openGraph: {
         title: "Ziyarat Madinah Tours | Visit Masjid Quba & Uhud",
         description: "Comprehensive private tours of Madinah's historical sites. Follow the footsteps of the Prophet (SAW).",

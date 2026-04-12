@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -26,9 +27,7 @@ export const metadata: Metadata = {
         "توصيل من مطار المدينة للحرم",
         "سعر مشوار مطار المدينة"
     ],
-    alternates: {
-        canonical: 'https://alkiswahumrahtransport.com/services/madinah-airport-transfer',
-    },
+    alternates: generateMetadataAlternates("/services/madinah-airport-transfer"),
     openGraph: {
         title: "Madinah Airport Taxi to Hotel | Prince Mohammad Bin Abdulaziz Airport Transfer",
         description: "Reliable taxi from Madinah Airport (MED) to Masjid Nabawi hotels. 24/7 airport pickup, meet & greet service.",

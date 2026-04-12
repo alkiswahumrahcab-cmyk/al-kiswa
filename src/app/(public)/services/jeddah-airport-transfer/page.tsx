@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -26,9 +27,7 @@ export const metadata: Metadata = {
         "استقبال مطار جدة",
         "حجز سيارة من مطار جدة"
     ],
-    alternates: {
-        canonical: 'https://alkiswahumrahtransport.com/services/jeddah-airport-transfer',
-    },
+    alternates: generateMetadataAlternates("/services/jeddah-airport-transfer"),
     openGraph: {
         title: "Taxi Jeddah Airport to Makkah | Private Transfer Price",
         description: "Reliable transfer from Jeddah Airport (JED) to Makkah hotels. Our driver waits for you at the arrival hall.",

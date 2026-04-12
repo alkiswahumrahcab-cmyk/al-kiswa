@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -14,9 +15,7 @@ export const metadata = {
     title: "Makkah to Madinah Taxi & Intercity Transport | Al Kiswah",
     description: "Comfortable Makkah to Madinah transport. Reliable intercity taxi transfers between Jeddah, Makkah & Madinah. Enjoy a seamless, spiritual travel experience.",
     keywords: ["Makkah to Madinah taxi", "Madinah to Makkah transport", "Haramain transport", "VIP intercity taxi", "Jeddah to Madinah taxi", "KSA intercity transfer"],
-    alternates: {
-        canonical: 'https://alkiswahumrahtransport.com/services/intercity-transfer',
-    },
+    alternates: generateMetadataAlternates("/services/intercity-transfer"),
     openGraph: {
         title: "Makkah to Madinah Taxi & Intercity Transport | VIP Fleet",
         description: "Travel comfortably between Jeddah, Makkah, and Madinah. Premium private taxi service with experienced drivers.",

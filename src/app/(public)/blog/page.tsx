@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import HadithCarousel from '@/components/blog/HadithCarousel';
 import Hero from '@/components/common/Hero';
@@ -15,9 +16,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Umrah Travel Blog | Tips & Guides | مدونة العمرة',
     description: 'Read our latest articles on Umrah travel tips, transport advice, and spiritual guides. نصائح وارشادات للمعتمرين. دليل المواصلات في مكة والمدينة.',
-    alternates: {
-        canonical: 'https://alkiswahumrahtransport.com/blog',
-    },
+    alternates: generateMetadataAlternates("/blog"),
 };
 
 const CATEGORIES = ['All', 'Guide', 'Travel Tips', 'Safety', 'Accessibility', 'Experience', 'Value', 'Spiritual', 'News', 'FAQ'];

@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import FleetOfferGallery from '@/components/fleet/FleetOfferGallery';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -17,9 +18,7 @@ export async function generateMetadata() {
             "Toyota Hiace Bus Makkah", "Luxury Car Rental Saudi Arabia", "Family Umrah Transport",
             "أسطول نقل المعتمرين", "حجز جمس يوكن", "تأجير باص هيونداي"
         ],
-        alternates: {
-            canonical: 'https://alkiswahumrahtransport.com/fleet',
-        },
+        alternates: generateMetadataAlternates("/fleet"),
         openGraph: {
             title: "Premium Umrah Taxi Fleet 2025 | GMC, Toyota, Hyundai",
             description: "Browse our luxury fleet for Umrah transport. From GMC Yukon XL for VIPs to Toyota Coaster for groups. Book reliable transport in Makkah & Madinah.",

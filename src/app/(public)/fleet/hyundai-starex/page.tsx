@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Link from 'next/link';
@@ -41,9 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
             "Jeddah Airport Family Taxi",
             "حجز باص هيونداي مكة"
         ],
-        alternates: {
-            canonical: 'https://alkiswahumrahtransport.com/fleet/hyundai-starex',
-        }
+        alternates: generateMetadataAlternates("/fleet/hyundai-starex"),
     };
 }
 

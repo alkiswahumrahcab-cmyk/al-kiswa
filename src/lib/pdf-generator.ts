@@ -4,7 +4,7 @@ import { format } from 'date-fns';
 const COMPANY_NAME = "Al Kiswah Transport";
 const COMPANY_ADDRESS_1 = "Makkah Al Mukarramah";
 const COMPANY_ADDRESS_2 = "Saudi Arabia";
-const COMPANY_PHONE = "+966 54 549 4921";
+const COMPANY_PHONE = "+966 54 870 7332";
 const COMPANY_EMAIL = "bookings@alkiswahumrahtransport.com";
 const COMPANY_WEBSITE = "www.alkiswahumrahtransport.com";
 

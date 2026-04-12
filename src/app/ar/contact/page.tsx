@@ -1,0 +1,138 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
+import React from 'react';
+
+import { Clock, ShieldCheck, Globe, Star } from 'lucide-react';
+import FadeIn from '@/components/common/FadeIn';
+import ContactForm from '@/components/contact/ContactForm';
+import Hero from '@/components/common/Hero';
+import Breadcrumbs from '@/components/common/Breadcrumbs';
+import GlassCard from '@/components/ui/GlassCard';
+import { getSettings } from '@/lib/settings-storage';
+import ContactGrid from '@/components/contact/ContactGrid';
+import dynamic from 'next/dynamic';
+import { JsonLdScript } from '@/components/seo/JsonLd';
+import { generateContactPageSchema } from '@/components/seo/schema-generator';
+
+const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
+
+export async function generateMetadata() {
+    const title = "Contact Al Kiswah Umrah Transport | Book Your Ride Today";
+    const description = "Contact Al Kiswah Umrah Transport for bookings. 24/7 support via WhatsApp & phone. Let us serve the transport needs of your spiritual journey.";
+
+    return {
+        title: title,
+        description: description,
+        keywords: [
+            // English Keywords
+            "Umrah transport contact", "book Umrah transport", "Jeddah airport pickup contact",
+            "Makkah to Madinah transport booking", "Umrah taxi service contact", "Saudi Arabia pilgrim transport support",
+            "Al Kiswah Transport Booking", "VIP Umrah Taxi",
+            // Arabic Keywords
+            "اتصال نقل العمرة", "حجز نقل العمرة", "تواصل استقبال مطار جدة", "حجز نقل مكة المدينة",
+            "رقم تاكسي العمرة", "دعم نقل المعتمرين في السعودية", "شركة نقل في مكة", "توصيل الحرمين",
+            "واتساب تاكسي مكة", "رقم سائق في مكة", "حجز موصلات الحرم"
+        ],
+        alternates: {
+    ...generateMetadataAlternates("/contact"),
+    canonical: "https://kiswahumrahcab.com/ar/contact",
+  },
+        openGraph: {
+            title: title,
+            description: description,
+            type: 'website',
+            locale: 'en_US', // Primary, but content supports bilingual context
+        }
+    };
+}
+
+export default async function ContactPage() {
+    const settings = await getSettings();
+
+    // Fallback values
+    const phone1 = settings?.contact.phone || '+966 54 870 7332';
+    const email = settings?.contact.email || 'info@alkiswahumrahtransport.com';
+    const address = settings?.contact.address || 'Al Aziziyah, Makkah, Saudi Arabia';
+
+    return (
+        <div className="bg-primary-black min-h-screen relative text-white selection:bg-gold-primary/30">
+            <JsonLdScript schema={generateContactPageSchema()} />
+            {/* Background Pattern */}
+            <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
+
+            <Hero
+                title="Get in Touch | تواصل معنا"
+                subtitle="Reliable Booking & 24/7 Support for Your Umrah Journey. Premium Transport Services from Makkah to Madinah."
+                bgImage="/images/contact-hero.png"
+                breadcrumbs={<Breadcrumbs />}
+            />
+
+            <div className="container mx-auto px-4 -mt-16 relative z-10 pb-20">
+                {/* Intro Trust Strip */}
+                <FadeIn direction="up" delay={0.1}>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                        {[
+                            { icon: Clock, text: "24/7 Service", sub: "خدمة على مدار الساعة" },
+                            { icon: ShieldCheck, text: "Licensed & Safe", sub: "مرخص ومؤمن" },
+                            { icon: Globe, text: "Multilingual", sub: "دعم متعدد اللغات" },
+                            { icon: Star, text: "Top Rated", sub: "أعلى تقييم" }
+                        ].map((item, idx) => (
+                            <div key={idx} className="bg-black/60 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/10 text-center transform hover:-translate-y-1 transition-all duration-300 hover:border-gold-primary/30">
+                                <item.icon className="w-8 h-8 mx-auto mb-2 text-gold-primary" />
+                                <h3 className="font-bold text-white text-sm md:text-base">{item.text}</h3>
+                                <p className="text-xs text-gray-400 font-arabic">{item.sub}</p>
+                            </div>
+                        ))}
+                    </div>
+                </FadeIn>
+
+                <div className="grid lg:grid-cols-12 gap-8 items-start">
+                    {/* Contact Info Column */}
+                    <div className="lg:col-span-5 space-y-6">
+                        <ContactGrid contactSettings={{
+                            phone: phone1,
+                            email,
+                            address
+                        }} />
+
+                        {/* Map Placeholder */}
+                        <FadeIn direction="up" delay={0.4}>
+                            <GlassCard className="p-0 overflow-hidden min-h-[400px] relative flex items-center justify-center bg-black/40 border-white/10" id="map">
+                                <div className="absolute inset-0 bg-gold-primary/5 pointer-events-none z-10 mix-blend-overlay" />
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3713.526883410923!2d39.8126588!3d21.447833599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c21d9da1e4d599%3A0xb8a485c3949902cc!2zQWwgS2lzd2FoIFVtyoNoIFRyYW5zcG9ydA!5e0!3m2!1sen!2s"
+                                    width="100%"
+                                    height="100%"
+                                    loading="lazy"
+                                    className="w-full h-full min-h-[400px] border-0 opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+                                    title="Al Kiswah Umrah Transport Map"
+                                    allowFullScreen
+                                />
+                            </GlassCard>
+                        </FadeIn>
+                    </div>
+
+                    {/* Contact Form Column */}
+                    <div className="lg:col-span-7">
+                        <FadeIn direction="left" delay={0.3}>
+                            <GlassCard className="p-8 md:p-10 border-t-4 border-t-gold-primary bg-black/40 border-white/10">
+                                <div className="mb-8">
+                                    <h2 className="text-3xl font-bold text-white mb-2 font-sans">
+                                        Send Us a Message
+                                        <span className="block text-xl font-arabic font-normal text-gold-primary mt-1">أرسل لنا رسالة</span>
+                                    </h2>
+                                    <p className="text-gray-400 font-light">
+                                        Need a custom quote for your Umrah group? Have questions about our GMC Yukon fleet?
+                                        Fill out the form below and our team will get back to you within minutes.
+                                    </p>
+                                </div>
+                                <ContactForm />
+                            </GlassCard>
+                        </FadeIn>
+                    </div>
+                </div>
+            </div>
+
+            <HotelsAndDistricts />
+        </div >
+    );
+}

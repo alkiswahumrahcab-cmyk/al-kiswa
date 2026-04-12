@@ -120,7 +120,7 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
             } else if (text === "Book a Ride") {
                 responseText = "Great! You can use the Quick Booking form on our homepage to secure your ride immediately.";
             } else if (text === "Contact Support") {
-                responseText = `You can reach us at ${contactPhone || '+966 54 549 4921'} or email ${contactEmail || 'info@alkiswacab.com'}.`;
+                responseText = `You can reach us at ${contactPhone || '+966 54 870 7332'} or email ${contactEmail || 'info@alkiswacab.com'}.`;
             } else {
                 responseText = "I'm here to help. what else would you like to know?";
             }

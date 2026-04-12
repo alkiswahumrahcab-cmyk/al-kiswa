@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { ThemeToggle } from '../common/ThemeToggle';
 import { useMenu } from '@/context/MenuContext';
 
 export default function Navbar() {
@@ -177,7 +176,6 @@ export default function Navbar() {
                 </div>
 
                 <div className="hidden xl:flex items-center gap-4">
-                    {/* <ThemeToggle /> */}
                     <Link
                         href="/booking"
                         className="bg-gradient-to-r from-gold-primary to-gold-dark text-black px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:scale-105 transition-transform shadow-[0_0_20px_rgba(239,191,91,0.3)] flex items-center justify-center"

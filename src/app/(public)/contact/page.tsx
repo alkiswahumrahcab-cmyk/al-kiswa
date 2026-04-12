@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 
 import { Clock, ShieldCheck, Globe, Star } from 'lucide-react';
@@ -31,9 +32,7 @@ export async function generateMetadata() {
             "رقم تاكسي العمرة", "دعم نقل المعتمرين في السعودية", "شركة نقل في مكة", "توصيل الحرمين",
             "واتساب تاكسي مكة", "رقم سائق في مكة", "حجز موصلات الحرم"
         ],
-        alternates: {
-            canonical: 'https://alkiswahumrahtransport.com/contact',
-        },
+        alternates: generateMetadataAlternates("/contact"),
         openGraph: {
             title: title,
             description: description,
@@ -47,7 +46,7 @@ export default async function ContactPage() {
     const settings = await getSettings();
 
     // Fallback values
-    const phone1 = settings?.contact.phone || '+966 54 549 4921';
+    const phone1 = settings?.contact.phone || '+966 54 870 7332';
     const email = settings?.contact.email || 'info@alkiswahumrahtransport.com';
     const address = settings?.contact.address || 'Al Aziziyah, Makkah, Saudi Arabia';
 

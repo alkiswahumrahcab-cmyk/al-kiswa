@@ -122,6 +122,15 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <noscript>
+          <style dangerouslySetInnerHTML={{ __html: `
+            .counter-animated::before {
+              content: attr(data-fallback);
+            }
+          ` }} />
+        </noscript>
+      </head>
       <body className={`${montserrat.variable} ${tajawal.variable}`}>
         {settings.general.googleAnalyticsId && (
           <GoogleAnalytics gaId={settings.general.googleAnalyticsId} />

@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Link from 'next/link';
@@ -27,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
             "نقل جماعي مكة",
             "باص 20 راكب جدة"
         ],
-        alternates: { canonical: 'https://alkiswahumrahtransport.com/fleet/toyota-coaster' },
+        alternates: generateMetadataAlternates("/fleet/toyota-coaster"),
         openGraph: {
             title: vehicleData ? `${vehicleData.name} Bus Rental Makkah | Group Umrah Transport` : "Toyota Coaster Bus Rental Makkah | Group Umrah Transport",
             description: vehicleData ? `Rent a ${vehicleData.passengers}-Seater ${vehicleData.name} for your Umrah group. Spacious, air-conditioned, and reliable transport.` : "Rent a 22-Seater Toyota Coaster for your Umrah group. Spacious, air-conditioned, and reliable transport between Jeddah, Makkah, and Madinah.",

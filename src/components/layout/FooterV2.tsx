@@ -8,7 +8,7 @@ export default function Footer() {
     const { settings } = useSettings();
 
     // Default to a fallback number if settings hasn't loaded yet
-    const whatsappNumber = settings?.contact?.whatsapp || "+966500000000";
+    const whatsappNumber = settings?.contact?.whatsapp || "+966548707332";
 
     const structuredData = {
         "@context": "https://schema.org",

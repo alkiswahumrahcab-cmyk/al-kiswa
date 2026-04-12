@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+Allow: /ar/
+
+# Ensure both language versions are crawlable
+Allow: /ar/*
+
+# Block internal/utility pages from index
+Disallow: /api/
+Disallow: /_next/
+Disallow: /track-booking
+
+# Sitemaps
+Sitemap: https://kiswahumrahcab.com/sitemap.xml
+
+# Crawl delay for politeness
+Crawl-delay: 1

@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Hero from '@/components/common/Hero';
@@ -19,9 +20,7 @@ export const metadata: Metadata = {
         "طريق مكة المدينة", "مسارات النقل في السعودية", "توصيل بين المدن المقدسة",
         "شبكة مواصلات العمرة", "نقل من جدة الى مكة"
     ],
-    alternates: {
-        canonical: 'https://alkiswahumrahtransport.com/routes',
-    },
+    alternates: generateMetadataAlternates("/routes"),
     openGraph: {
         title: "Umrah Transport Routes Network | Al Kiswah Transport",
         description: "Connect seamlessly between Holy Cities. VIP Jeddah to Makkah, Makkah to Madinah. تنقل بسهولة بين المدن المقدسة.",

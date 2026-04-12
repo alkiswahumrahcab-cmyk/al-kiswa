@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -26,9 +27,7 @@ export const metadata: Metadata = {
         "نقل معتمرين بين المدن",
         "مشوار مكة المدينة"
     ],
-    alternates: {
-        canonical: 'https://alkiswahumrahtransport.com/services/makkah-madinah-taxi',
-    },
+    alternates: generateMetadataAlternates("/services/makkah-madinah-taxi"),
     openGraph: {
         title: "Taxi Makkah to Madinah Price 2025 | VIP Private Transport",
         description: "Book the most comfortable Makkah to Madinah taxi service. Private GMC Yukon, Hyundai Staria, and VIP buses.",

@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import { Shield, Sparkles, UserCheck, CheckCircle, Clock, Search, Heart, AlertTriangle, Phone, Activity, Wrench, FileCheck, Award } from 'lucide-react';
 import Hero from '@/components/common/Hero';
@@ -5,6 +6,7 @@ import Link from 'next/link';
 import FadeIn from '@/components/common/FadeIn';
 
 export const metadata = {
+  alternates: generateMetadataAlternates("/safety"),
     title: "Safety Standards & Protocols | Al Kiswah Transport | معايير السلامة",
     description: "Your safety is our sacred duty. Comprehensive vehicle sanitation, driver checks, & 24/7 support. معايير سلامة عالية لخدمة المعتمرين. تعقيم شامل وسائقين محترفين.",
     keywords: [

@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from 'next';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -22,9 +23,7 @@ export const metadata: Metadata = {
         "Last 10 Nights Umrah Taxi",
         "Taraweeh Transport Makkah"
     ],
-    alternates: {
-        canonical: '/ramadan-2026',
-    },
+    alternates: generateMetadataAlternates("/ramadan-2026"),
     openGraph: {
         title: "Ramadan 2026 Umrah Taxi Services | Al Kiswa Cab",
         description: "Secure your ride for Ramadan 2026. Premium vehicles, fixed rates, and 24/7 availability for Taraweeh and Qiyam.",

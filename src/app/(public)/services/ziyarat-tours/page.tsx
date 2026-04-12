@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -24,9 +25,7 @@ export const metadata: Metadata = {
         "جبل النور",
         "زيارة غار حراء"
     ],
-    alternates: {
-        canonical: 'https://alkiswahumrahtransport.com/services/ziyarat-tours',
-    },
+    alternates: generateMetadataAlternates("/services/ziyarat-tours"),
     openGraph: {
         title: "Ziyarat Makkah Madinah Tours | Historical Site Visits",
         description: "Guided private tours to Jabal Al-Nour, Masjid Quba, Mount Uhud, and more. deeply spiritual experience with knowledgeable drivers.",

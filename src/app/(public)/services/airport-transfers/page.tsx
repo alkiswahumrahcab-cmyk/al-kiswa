@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import Hero from '@/components/common/Hero';
 import FadeIn from '@/components/common/FadeIn';
@@ -17,9 +18,7 @@ export const metadata: Metadata = {
         "توصيل مطار جدة", "تاكسي مطار المدينة", "استقبال المعتمرين",
         "نقل من مطار الملك عبدالعزيز", "حجز تاكسي الحرم", "خدمات المعتمرين"
     ],
-    alternates: {
-        canonical: 'https://alkiswahumrahtransport.com/services/airport-transfers',
-    },
+    alternates: generateMetadataAlternates("/services/airport-transfers"),
     openGraph: {
         title: "Jeddah & Madinah Airport Transfers | Al Kiswah Transport",
         description: "Reliable airport pickups for Jeddah & Madinah. توصيل آمن ومريح من المطارات.",

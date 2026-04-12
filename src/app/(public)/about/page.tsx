@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -44,9 +45,7 @@ export async function generateMetadata() {
             ],
             type: "website",
         },
-        alternates: {
-            canonical: 'https://alkiswahumrahtransport.com/about',
-        },
+        alternates: generateMetadataAlternates("/about"),
     };
 }
 

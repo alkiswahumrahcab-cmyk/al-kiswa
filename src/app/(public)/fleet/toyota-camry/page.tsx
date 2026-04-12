@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -77,7 +78,7 @@ export async function generateMetadata(): Promise<Metadata> {
             "تاكسي مكة كامري",
             "توصيل المطار جدة"
         ],
-        alternates: { canonical: 'https://alkiswahumrahtransport.com/fleet/toyota-camry' }
+        alternates: generateMetadataAlternates("/fleet/toyota-camry"),
     };
 }
 

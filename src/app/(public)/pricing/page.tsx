@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from 'next';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -17,9 +18,7 @@ export const metadata: Metadata = {
         "GMC Yukon Price Makkah",
         "Taxi Cost Jeddah Airport"
     ],
-    alternates: {
-        canonical: '/pricing',
-    },
+    alternates: generateMetadataAlternates("/pricing"),
     openGraph: {
         title: "Umrah Transport Pricing 2026 | Best Rates Guaranteed",
         description: "See our fixed rates for Umrah transfers. Jeddah to Makkah from 200 SAR. No hidden charges.",

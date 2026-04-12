@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import { Metadata } from 'next';
 import Hero from '@/components/common/Hero';
@@ -11,6 +12,7 @@ import dynamic from 'next/dynamic';
 const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 
 export const metadata: Metadata = {
+  alternates: generateMetadataAlternates("/services/hotel-transfers"),
     title: 'Hotel Transfers Makkah & Madinah | Al Kiswah Umrah Transport',
     description: 'Reliable door-to-door hotel transfers in Makkah and Madinah. 24/7 comfortable transport between your hotel and the Holy Harams. Book your ride now.',
     keywords: ['hotel transfer Makkah', 'hotel transfer Madinah', 'Umrah hotel shuttle', 'family transport Makkah', 'VIP hotel transfer Saudi Arabia']

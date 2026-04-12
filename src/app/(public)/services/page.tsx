@@ -1,3 +1,4 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React, { Suspense } from 'react';
 import Link from 'next/link';
 import { Bus, MapPin, Users, Headphones, ArrowRight, Calendar, CheckCircle, Car, Check } from 'lucide-react';
@@ -21,9 +22,7 @@ export async function generateMetadata() {
             "Jeddah Airport Pickup", "Madinah Ziyarat", "Makkah to Madinah Taxi",
             "خدمات نقل المعتمرين", "زيارات المدينة المنورة", "توصيل مطار جدة"
         ],
-        alternates: {
-            canonical: 'https://alkiswahumrahtransport.com/services',
-        },
+        alternates: generateMetadataAlternates("/services"),
     };
 }
 
