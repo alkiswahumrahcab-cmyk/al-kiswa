@@ -189,7 +189,7 @@ export default async function HyundaiStariaPage() {
                             </div>
 
                             <div className="mt-10">
-                                <Link href="/booking" className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all border border-blue-500/20 shadow-lg shadow-blue-500/10">
+                                <Link href="/ar/booking" className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all border border-blue-500/20 shadow-lg shadow-blue-500/10">
                                     Book Hyundai Staria <ArrowRight size={20} />
                                 </Link>
                             </div>

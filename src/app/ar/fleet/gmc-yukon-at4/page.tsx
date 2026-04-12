@@ -163,7 +163,7 @@ export default async function GmcYukonPage() {
                                 Why Choose GMC Yukon for Umrah Travel?
                             </h2>
                             <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                                The GMC Yukon XL defines luxury travel in Saudi Arabia. Perfect for <Link href="/services/jeddah-airport-transfer" className="text-amber-600 hover:underline">Jeddah Airport pickups</Link> and comfortable journeys between <Link href="/services/makkah-madinah-taxi" className="text-amber-600 hover:underline">Makkah and Madinah</Link>,
+                                The GMC Yukon XL defines luxury travel in Saudi Arabia. Perfect for <Link href="/ar/services/jeddah-airport-transfer" className="text-amber-600 hover:underline">Jeddah Airport pickups</Link> and comfortable journeys between <Link href="/ar/services/makkah-madinah-taxi" className="text-amber-600 hover:underline">Makkah and Madinah</Link>,
                                 this vehicle offers American luxury, massive space, and top-tier safety for your family.
                             </p>
 
@@ -195,7 +195,7 @@ export default async function GmcYukonPage() {
                             </div>
 
                             <div className="mt-10">
-                                <Link href="/booking" className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-amber-500/20">
+                                <Link href="/ar/booking" className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-amber-500/20">
                                     Book GMC Yukon Now <ArrowRight size={20} />
                                 </Link>
                             </div>

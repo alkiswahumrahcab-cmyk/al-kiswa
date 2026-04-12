@@ -38,10 +38,10 @@ const ramadanPackages = [
     {
         title: "The First 20 Days",
         subtitle: "Feb 17 - Mar 8, 2026",
-        description: <>Avoid the peak crowds with our early Ramadan saver rates. <Link href="/pricing" className="text-gold-primary hover:underline">Cheap Umrah transport rates</Link> for early Ramadan bookings.</>,
+        description: <>Avoid the peak crowds with our early Ramadan saver rates. <Link href="/ar/pricing" className="text-gold-primary hover:underline">Cheap Umrah transport rates</Link> for early Ramadan bookings.</>,
         features: [
-            <span key="jed"><strong><Link href="/services/jeddah-airport-transfer" className="hover:text-gold-primary transition-colors">Jeddah Airport ➔ Makkah</Link></strong>: 200 SAR</span>,
-            <span key="mak"><strong><Link href="/services/makkah-madinah-taxi" className="hover:text-gold-primary transition-colors">Makkah ➔ Madinah</Link></strong>: 450 SAR</span>,
+            <span key="jed"><strong><Link href="/ar/services/jeddah-airport-transfer" className="hover:text-gold-primary transition-colors">Jeddah Airport ➔ Makkah</Link></strong>: 200 SAR</span>,
+            <span key="mak"><strong><Link href="/ar/services/makkah-madinah-taxi" className="hover:text-gold-primary transition-colors">Makkah ➔ Madinah</Link></strong>: 450 SAR</span>,
             "Available 24/7",
             "Standard Sedan or Family Van"
         ],
@@ -51,12 +51,12 @@ const ramadanPackages = [
     {
         title: "Last 10 Nights Special",
         subtitle: "Mar 9 - Mar 19, 2026",
-        description: <>Priority booking for Laylatul Qadr nights and Eid. <Link href="/fleet" className="text-gold-primary hover:underline">Premium family Umrah taxi packages</Link> for Laylatul Qadr.</>,
+        description: <>Priority booking for Laylatul Qadr nights and Eid. <Link href="/ar/fleet" className="text-gold-primary hover:underline">Premium family Umrah taxi packages</Link> for Laylatul Qadr.</>,
         features: [
             "Guaranteed Availability",
             "Taraweeh Pickup/Drop Service",
-            <span key="exp"><strong><Link href="/services/makkah-madinah-taxi" className="hover:text-gold-primary transition-colors">Makkah ➔ Madinah Express</Link></strong></span>,
-            <span key="vip">VIP <strong><Link href="/fleet/gmc-yukon-at4" className="hover:text-gold-primary transition-colors">GMC</Link></strong> / <strong><Link href="/fleet/hyundai-staria" className="hover:text-gold-primary transition-colors">Staria</Link></strong> Options</span>
+            <span key="exp"><strong><Link href="/ar/services/makkah-madinah-taxi" className="hover:text-gold-primary transition-colors">Makkah ➔ Madinah Express</Link></strong></span>,
+            <span key="vip">VIP <strong><Link href="/ar/fleet/gmc-yukon-at4" className="hover:text-gold-primary transition-colors">GMC</Link></strong> / <strong><Link href="/ar/fleet/hyundai-staria" className="hover:text-gold-primary transition-colors">Staria</Link></strong> Options</span>
         ],
         highlight: true,
         icon: <Star size={32} />
@@ -66,8 +66,8 @@ const ramadanPackages = [
         subtitle: "Flexible Schedule",
         description: "Complete spiritual tour of Makkah & Madinah.",
         features: [
-            <span key="ziy-mak">3 Hours <strong><Link href="/services/ziarah-makkah" className="hover:text-gold-primary transition-colors">Makkah Ziyarat</Link></strong></span>,
-            <span key="ziy-mad">3 Hours <strong><Link href="/services/ziarah-madinah" className="hover:text-gold-primary transition-colors">Madinah Ziyarat</Link></strong></span>,
+            <span key="ziy-mak">3 Hours <strong><Link href="/ar/services/ziarah-makkah" className="hover:text-gold-primary transition-colors">Makkah Ziyarat</Link></strong></span>,
+            <span key="ziy-mad">3 Hours <strong><Link href="/ar/services/ziarah-madinah" className="hover:text-gold-primary transition-colors">Madinah Ziyarat</Link></strong></span>,
             "Visit Badar & Taif (Optional)",
             "Experienced Historic Guide"
         ],
@@ -129,7 +129,7 @@ export default async function RamadanLandingPage() {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link
-                                href="/booking"
+                                href="/ar/booking"
                                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold-primary text-black font-bold text-lg rounded-full hover:bg-white transition-all hover:scale-105 shadow-[0_0_20px_rgba(212,175,55,0.4)]"
                             >
                                 Book Now for Ramadan
@@ -153,7 +153,7 @@ export default async function RamadanLandingPage() {
                     <FadeIn>
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Peace of Mind in the Holy Month</h2>
-                            <p className="text-gray-400 max-w-2xl mx-auto">Ramadan in Makkah is busy. Choose a transport partner that <Link href="/booking" className="text-gold-primary hover:underline">guarantees your arrival</Link>.</p>
+                            <p className="text-gray-400 max-w-2xl mx-auto">Ramadan in Makkah is busy. Choose a transport partner that <Link href="/ar/booking" className="text-gold-primary hover:underline">guarantees your arrival</Link>.</p>
                         </div>
 
                         <div className="grid md:grid-cols-3 gap-8">
@@ -176,7 +176,7 @@ export default async function RamadanLandingPage() {
                                     <CheckCircle size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3">Fixed Ramadan Rates</h3>
-                                <p className="text-gray-400">No surge pricing when you book in advance. Bypassing the high <Link href="/pricing" className="text-gold-primary hover:underline">on-spot taxi fares</Link>.</p>
+                                <p className="text-gray-400">No surge pricing when you book in advance. Bypassing the high <Link href="/ar/pricing" className="text-gold-primary hover:underline">on-spot taxi fares</Link>.</p>
                             </div>
                         </div>
                     </FadeIn>

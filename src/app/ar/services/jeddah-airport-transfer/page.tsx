@@ -161,12 +161,12 @@ export default async function JeddahAirportTransferPage() {
                                 {
                                     icon: <ShieldCheck size={40} className="text-gold-primary" />,
                                     title: "2. Luggage Assistance",
-                                    desc: <span>Our vehicles (<Link href="/fleet/gmc-yukon-at4" className="text-gold-primary hover:underline">GMC</Link>/<Link href="/fleet/hyundai-starex" className="text-gold-primary hover:underline">H1</Link>) are chosen for their large luggage capacity. The driver will handle your bags.</span>
+                                    desc: <span>Our vehicles (<Link href="/ar/fleet/gmc-yukon-at4" className="text-gold-primary hover:underline">GMC</Link>/<Link href="/ar/fleet/hyundai-starex" className="text-gold-primary hover:underline">H1</Link>) are chosen for their large luggage capacity. The driver will handle your bags.</span>
                                 },
                                 {
                                     icon: <Plane size={40} className="text-gold-primary" />,
                                     title: "3. Direct to Hotel",
-                                    desc: <span>Relax in a cooled vehicle while we take you directly to your <Link href="/services/makkah-madinah-taxi" className="text-gold-primary hover:underline">hotel door in Makkah</Link> (approx 60-75 mins).</span>
+                                    desc: <span>Relax in a cooled vehicle while we take you directly to your <Link href="/ar/services/makkah-madinah-taxi" className="text-gold-primary hover:underline">hotel door in Makkah</Link> (approx 60-75 mins).</span>
                                 }
                             ].map((item, idx) => (
                                 <div key={idx} className="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-gold-primary/30 transition-all text-center group hover:bg-black/60">
@@ -234,11 +234,11 @@ export default async function JeddahAirportTransferPage() {
             <section className="py-24 bg-transparent border-t border-white/10 relative z-10">
                 <div className="container mx-auto px-4 text-center">
                     <FadeIn delay={0.4}>
-                        <Link href="/booking" className="inline-flex items-center btn-gold px-12 py-5 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] text-black hover:scale-105">
+                        <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-5 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] text-black hover:scale-105">
                             Check Taxi Fares <ArrowRight size={20} className="ml-2" />
                         </Link>
                         <p className="mt-8 text-sm text-gray-400 font-light">
-                            Going to Madinah next? Check our <Link href="/services/makkah-madinah-taxi" className="text-gold-primary hover:text-white font-bold underline underline-offset-4 decoration-gold-primary/50">Makkah to Madinah Taxi</Link> rates.
+                            Going to Madinah next? Check our <Link href="/ar/services/makkah-madinah-taxi" className="text-gold-primary hover:text-white font-bold underline underline-offset-4 decoration-gold-primary/50">Makkah to Madinah Taxi</Link> rates.
                         </p>
                     </FadeIn>
                 </div>

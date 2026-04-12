@@ -207,7 +207,7 @@ export default async function ZiarahMakkahPage() {
                             </div>
                         </div>
                         <div className="mt-16">
-                            <Link href="/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105">
+                            <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105">
                                 Book Your Makkah Ziyarat <ArrowRight size={20} className="ml-2" />
                             </Link>
                         </div>

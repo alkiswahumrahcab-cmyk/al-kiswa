@@ -242,7 +242,7 @@ export default function PricingPage() {
                                 ))}
                             </div>
                             <div className="mt-8 text-center">
-                                <Link href="/booking" className="text-gold-primary hover:text-white underline text-sm transition-colors">See exact price for your specific date ➔</Link>
+                                <Link href="/ar/booking" className="text-gold-primary hover:text-white underline text-sm transition-colors">See exact price for your specific date ➔</Link>
                             </div>
                         </div>
                     </FadeIn>

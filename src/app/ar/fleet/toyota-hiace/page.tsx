@@ -155,7 +155,7 @@ export default async function ToyotaHiacePage() {
                                 Why Choose Toyota Hiace for Group Umrah?
                             </h2>
                             <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                                Keep your group united. The Toyota Hiace is perfect for families traveling from <Link href="/services/jeddah-airport-transfer" className="text-emerald-600 font-medium hover:underline">Jeddah Airport to Makkah</Link>.
+                                Keep your group united. The Toyota Hiace is perfect for families traveling from <Link href="/ar/services/jeddah-airport-transfer" className="text-emerald-600 font-medium hover:underline">Jeddah Airport to Makkah</Link>.
                                 Known for its reliability and powerful AC, it ensures a comfortable journey across Saudi Arabia for up to 12 passengers.
                             </p>
 
@@ -187,7 +187,7 @@ export default async function ToyotaHiacePage() {
                             </div>
 
                             <div className="mt-10">
-                                <Link href="/booking" className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-emerald-500/20">
+                                <Link href="/ar/booking" className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-emerald-500/20">
                                     Book Toyota Hiace <ArrowRight size={20} />
                                 </Link>
                             </div>

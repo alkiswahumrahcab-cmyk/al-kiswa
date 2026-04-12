@@ -141,7 +141,7 @@ export default function HotelTransferPage() {
                                 </div>
                                 <div className="mt-12">
                                     <Link
-                                        href="/booking"
+                                        href="/ar/booking"
                                         className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-[#D4AF37] to-[#B4932F] hover:bg-white hover:text-black text-black px-10 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] uppercase tracking-wider text-sm transform hover:-translate-y-1"
                                     >
                                         Book Your Hotel Transfer

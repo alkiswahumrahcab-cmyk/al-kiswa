@@ -235,7 +235,7 @@ export default function RoutesPage() {
                                                 </div>
                                                 <div className="flex gap-4 relative z-20 items-center">
                                                     <Link
-                                                        href="/fleet"
+                                                        href="/ar/fleet"
                                                         className="hidden md:flex items-center text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-wider"
                                                         aria-label="View Fleet"
                                                     >

@@ -209,7 +209,7 @@ export default async function ZiyaratToursPage() {
                                     <Clock size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">No Hasted Visits</h3>
-                                <p className="text-sm text-gray-400 leading-relaxed font-light">Unlike group buses, we wait for you. Travel in our private <Link href="/fleet/gmc-yukon-at4" className="text-gold-primary hover:text-white hover:underline decoration-gold-primary/50">GMC Yukon</Link> or <Link href="/fleet/hyundai-staria" className="text-gold-primary hover:text-white hover:underline decoration-gold-primary/50">Hyundai Staria</Link> and take your time to pray.</p>
+                                <p className="text-sm text-gray-400 leading-relaxed font-light">Unlike group buses, we wait for you. Travel in our private <Link href="/ar/fleet/gmc-yukon-at4" className="text-gold-primary hover:text-white hover:underline decoration-gold-primary/50">GMC Yukon</Link> or <Link href="/ar/fleet/hyundai-staria" className="text-gold-primary hover:text-white hover:underline decoration-gold-primary/50">Hyundai Staria</Link> and take your time to pray.</p>
                             </div>
                             <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-gold-primary/30 transition-all hover:bg-white/10 group">
                                 <div className="bg-gold-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold-primary border border-gold-primary/20 group-hover:bg-gold-primary group-hover:text-black transition-all">
@@ -227,11 +227,11 @@ export default async function ZiyaratToursPage() {
                             </div>
                         </div>
                         <div className="mt-16">
-                            <Link href="/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105">
+                            <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105">
                                 Book Your Private Ziyarat Tour <ArrowRight size={20} className="ml-2" />
                             </Link>
                             <p className="mt-8 text-sm text-gray-500 font-light">
-                                Need to travel between cities? We also offer <Link href="/services/makkah-madinah-taxi" className="text-gold-primary hover:text-white transition-colors hover:underline decoration-gold-primary/50">Makkah to Madinah Taxi</Link> services.
+                                Need to travel between cities? We also offer <Link href="/ar/services/makkah-madinah-taxi" className="text-gold-primary hover:text-white transition-colors hover:underline decoration-gold-primary/50">Makkah to Madinah Taxi</Link> services.
                             </p>
                         </div>
                     </FadeIn>

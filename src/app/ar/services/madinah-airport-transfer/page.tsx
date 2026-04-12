@@ -144,7 +144,7 @@ export default async function MadinahAirportPage() {
                                 </div>
 
                                 <div className="mt-12">
-                                    <Link href="/booking" className="inline-flex items-center gap-3 bg-gradient-to-r from-[#D4AF37] to-[#B4932F] text-black hover:bg-white hover:text-black hover:from-white hover:to-white px-10 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] uppercase tracking-wider text-sm transform hover:-translate-y-1">
+                                    <Link href="/ar/booking" className="inline-flex items-center gap-3 bg-gradient-to-r from-[#D4AF37] to-[#B4932F] text-black hover:bg-white hover:text-black hover:from-white hover:to-white px-10 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] uppercase tracking-wider text-sm transform hover:-translate-y-1">
                                         Book Transfer Now <ArrowRight size={20} />
                                     </Link>
                                 </div>
@@ -181,7 +181,7 @@ export default async function MadinahAirportPage() {
                                                 <MapPin size={24} />
                                             </div>
                                             <div>
-                                                <p className="font-bold text-white text-lg"><Link href="/services/makkah-madinah-taxi" className="hover:text-green-400 transition-colors underline decoration-dotted underline-offset-4">To Makkah Hotel</Link></p>
+                                                <p className="font-bold text-white text-lg"><Link href="/ar/services/makkah-madinah-taxi" className="hover:text-green-400 transition-colors underline decoration-dotted underline-offset-4">To Makkah Hotel</Link></p>
                                                 <p className="text-xs text-gray-500 uppercase tracking-wider">Direct Transfer</p>
                                             </div>
                                         </div>
@@ -197,7 +197,7 @@ export default async function MadinahAirportPage() {
                                                 <MapPin size={24} />
                                             </div>
                                             <div>
-                                                <p className="font-bold text-white text-lg"><Link href="/services/ziyarat-tours" className="hover:text-blue-400 transition-colors underline decoration-dotted underline-offset-4">To Masjid Quba</Link></p>
+                                                <p className="font-bold text-white text-lg"><Link href="/ar/services/ziyarat-tours" className="hover:text-blue-400 transition-colors underline decoration-dotted underline-offset-4">To Masjid Quba</Link></p>
                                                 <p className="text-xs text-gray-500 uppercase tracking-wider">Ziyarat Start</p>
                                             </div>
                                         </div>
