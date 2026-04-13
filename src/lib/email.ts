@@ -91,7 +91,8 @@ const formatPriceRow = (booking: BookingData) => {
 };
 
 // Generic function to prepare variables
-const prepareBookingVariables = (booking: BookingData) => {
+const prepareBookingVariables = (booking: BookingData, settings?: any) => {
+    const waNum = settings?.contact?.whatsapp?.replace(/\D/g, '') || '966545494921';
     return {
         name: booking.name,
         booking_id: booking.id,
@@ -111,15 +112,16 @@ const prepareBookingVariables = (booking: BookingData) => {
         arrival_date_row: booking.arrivalDate ? `<p><strong>Arrival Date:</strong> ${booking.arrivalDate}</p>` : '',
         notes_row: booking.notes ? `<p><strong>Notes:</strong> ${booking.notes}</p>` : '',
         phone_row: booking.phone ? `<p><strong>Phone:</strong> ${booking.phone}</p>` : '',
+        whatsapp_link: `https://wa.me/${waNum}`
     };
 };
 
-export const getBookingConfirmationTemplate = (booking: BookingData, templateString: string) => {
-    return replaceTemplateVariables(templateString, prepareBookingVariables(booking));
+export const getBookingConfirmationTemplate = (booking: BookingData, templateString: string, settings?: any) => {
+    return replaceTemplateVariables(templateString, prepareBookingVariables(booking, settings));
 };
 
-export const getAdminBookingNotificationTemplate = (booking: BookingData, templateString: string) => {
-    return replaceTemplateVariables(templateString, prepareBookingVariables(booking));
+export const getAdminBookingNotificationTemplate = (booking: BookingData, templateString: string, settings?: any) => {
+    return replaceTemplateVariables(templateString, prepareBookingVariables(booking, settings));
 };
 
 interface ContactFeedbackData {
@@ -150,7 +152,7 @@ export const sendBookingConfirmationEmail = async (booking: BookingData) => {
     const templateString = settings.emailTemplates?.bookingConfirmation || DEFAULT_BOOKING_CONFIRMATION_TEMPLATE;
 
     // 2. Prepare HTML using the dynamic template
-    const htmlContent = getBookingConfirmationTemplate(booking, templateString);
+    const htmlContent = getBookingConfirmationTemplate(booking, templateString, settings);
 
     // 3. Bilingual Subject
     const subject = `Booking Confirmation #${booking.id} | تأكيد الحجز`;
@@ -171,7 +173,7 @@ export const sendAdminNewBookingEmail = async (booking: BookingData) => {
     const settings = await getSettings();
     const templateString = settings.emailTemplates?.adminNotification || DEFAULT_ADMIN_NOTIFICATION_TEMPLATE;
 
-    const htmlContent = getAdminBookingNotificationTemplate(booking, templateString);
+    const htmlContent = getAdminBookingNotificationTemplate(booking, templateString, settings);
 
     return await sendEmail({
         to: adminEmail,

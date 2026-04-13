@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import { Calendar, Phone, User, ArrowRight, Car, Clock, CheckCircle, Bus, Mail, MapPin, PlaneLanding, PlaneTakeoff, CreditCard, ShieldCheck, HeartHandshake, MessageCircle } from 'lucide-react';
@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SearchableSelect from '@/components/ui/SearchableSelect';
 // import styles from './QuickBookingForm.module.css'; // Removing if unused or replacing with Tailwind
 import { usePricing } from '@/context/PricingContext';
+import { useSettings } from '@/context/SettingsContext';
 import { Route, Vehicle } from '@/lib/pricing';
 
 interface QuickBookingFormProps {
@@ -39,6 +40,7 @@ const QuickBookingForm = ({
     initialVehicles
 }: QuickBookingFormProps) => {
     const { routes: contextRoutes, vehicles: contextVehicles, isLoading: contextLoading, calculatePrice } = usePricing();
+    const { settings } = useSettings();
 
     // Helper to attach icons if missing
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -255,7 +257,13 @@ const QuickBookingForm = ({
                         animate={{ opacity: 1 }}
                     >
                         {/* WhatsApp Fast Track - Accessibility Feature */}
-                        <div className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between gap-4 mb-6 hover:bg-white/10 transition-all duration-300 group cursor-pointer hover:border-gold-primary/30" onClick={() => window.open('https://wa.me/966545494921', '_blank')}>
+                        <div 
+                            className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between gap-4 mb-6 hover:bg-white/10 transition-all duration-300 group cursor-pointer hover:border-gold-primary/30" 
+                            onClick={() => {
+                                const waNum = settings?.contact?.whatsapp?.replace(/\D/g, '') || '966545494921';
+                                window.open(`https://wa.me/${waNum}`, '_blank');
+                            }}
+                        >
                             <div className="flex items-center gap-3">
                                 <div className="bg-[#25D366] p-2 rounded-full text-white shadow-[0_0_15px_rgba(37,211,102,0.4)] animate-pulse">
                                     <MessageCircle size={20} className="fill-white" />

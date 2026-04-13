@@ -4,8 +4,10 @@ import React from 'react';
 import { curatedTestimonials } from '@/data/testimonials';
 import { Quote, Star } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
+import { useSettings } from '@/context/SettingsContext';
 
 export default function Testimonials() {
+    const { settings } = useSettings();
     return (
         <section className="py-24 relative overflow-hidden bg-primary-black border-t border-white/5">
             {/* Decorative Background Elements */}
@@ -90,7 +92,7 @@ export default function Testimonials() {
                 <FadeIn delay={0.4}>
                     <div className="flex justify-center">
                         <a
-                            href="https://wa.me/966545494921"
+                            href={`https://wa.me/${settings?.contact?.whatsapp?.replace(/\D/g, '') || '966545494921'}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-3 bg-gold-primary hover:bg-gold-light text-black px-8 py-4 rounded-full font-bold text-lg shadow-[0_10px_30px_-10px_rgba(212,175,55,0.4)] hover:shadow-[0_20px_40px_-10px_rgba(212,175,55,0.6)] hover:-translate-y-1 transition-all duration-300"

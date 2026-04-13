@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { User, Mail, Phone, MessageSquare, ChevronLeft, ArrowRight, ShieldCheck, MapPin, Calendar, Car, Loader2, CheckCircle, Wallet } from 'lucide-react';
 import { usePricing } from '@/context/PricingContext';
+import { useSettings } from '@/context/SettingsContext';
 import Link from 'next/link';
 
 interface DetailsStepProps {
@@ -13,6 +14,7 @@ interface DetailsStepProps {
 
 export default function DetailsStep({ data, updateData, onBack }: DetailsStepProps) {
     const { vehicles, calculatePrice } = usePricing();
+    const { settings } = useSettings();
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
@@ -68,7 +70,8 @@ ${data.flightNumber ? `✈️ *Flight:* ${data.flightNumber}\n` : ''}${data.note
 ------------------
 *Sent via Al Kiswah Website*`;
 
-        const whatsappUrl = `https://wa.me/966545494921?text=${encodeURIComponent(message)}`;
+        const whatsappNumber = settings?.contact?.whatsapp?.replace(/\D/g, '') || '966545494921';
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
         try {
             // Optional: Save to DB in background

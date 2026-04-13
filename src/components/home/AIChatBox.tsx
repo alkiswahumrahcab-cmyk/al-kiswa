@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from 'react';
 import styles from './AIChatBox.module.css';
 import { Send, X, Minus, MessageSquare, Bot } from 'lucide-react';
 import Link from 'next/link';
+import { useSettings } from '@/context/SettingsContext';
 import Image from 'next/image';
 
 interface Message {
@@ -20,6 +21,7 @@ interface AIChatBoxProps {
 }
 
 export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps) {
+    const { settings } = useSettings();
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<Message[]>([
         {
@@ -161,7 +163,10 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
 
                     {/* Priority Human Button */}
                     <button
-                        onClick={() => window.open('https://wa.me/966545494921', '_blank')}
+                        onClick={() => {
+                            const waNum = settings?.contact?.whatsapp?.replace(/\D/g, '') || '966545494921';
+                            window.open(`https://wa.me/${waNum}`, '_blank');
+                        }}
                         className="ml-auto mr-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500 hover:text-black transition-all text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full flex items-center gap-1.5"
                     >
                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />

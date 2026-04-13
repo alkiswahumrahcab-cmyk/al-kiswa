@@ -90,10 +90,9 @@ export const DEFAULT_BOOKING_CONFIRMATION_TEMPLATE = `
         <p style="margin: 5px 0 0 0; font-size: 14px; color: #666;"><em>"The reward of Umrah is expiation for the sins committed between it and the next Umrah."</em></p>
     </div>
 
-    <!-- Need Help -->
     <div style="text-align: center; color: #666; font-size: 14px; margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px;">
         <p>Need to make changes? Call/WhatsApp us anytime.</p>
-        <a href="https://wa.me/966545494921" style="display: inline-block; background-color: #25D366; color: white; text-decoration: none; padding: 10px 20px; border-radius: 25px; font-weight: bold; margin-top: 10px;">
+        <a href="{{whatsapp_link}}" style="display: inline-block; background-color: #25D366; color: white; text-decoration: none; padding: 10px 20px; border-radius: 25px; font-weight: bold; margin-top: 10px;">
             WhatsApp Support
         </a>
     </div>
