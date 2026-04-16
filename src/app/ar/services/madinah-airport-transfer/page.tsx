@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -12,7 +12,7 @@ import GlassCard from '@/components/ui/GlassCard';
 import FadeIn from '@/components/common/FadeIn';
 
 export const metadata: Metadata = {
-    title: "Madinah Airport Taxi to Hotel | Meet & Greet | تاكسي مطار المدينة",
+    title: "تاكسي مطار المدينة المنورة | استقبال وتوصيل فندق | الكسوة",
     description: "Reliable taxi from Madinah Airport (MED) to Masjid Nabawi hotels. 24/7 airport pickup. حجز تاكسي مطار المدينة المنورة. توصيل الى فندق الحرم.",
     keywords: [
         "Madinah Airport Taxi",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     canonical: "https://kiswahumrahcab.com/ar/services/madinah-airport-transfer",
   },
     openGraph: {
-        title: "Madinah Airport Taxi to Hotel | Prince Mohammad Bin Abdulaziz Airport Transfer",
+        title: "نقل مطار المدينة | مطار الأمير محمد بن عبدالعزيز | الكسوة",
         description: "Reliable taxi from Madinah Airport (MED) to Masjid Nabawi hotels. 24/7 airport pickup, meet & greet service.",
         images: [{ url: '/images/routes/madinah-airport-hero.png', width: 1200, height: 630, alt: 'Madinah Airport Transfer Service' }]
     }

@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import FleetOfferGallery from '@/components/fleet/FleetOfferGallery';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -11,12 +11,12 @@ import { getSectionContent, getSectionImage, getCustomField } from '@/lib/conten
 
 export async function generateMetadata() {
     return {
-        title: "Umrah Taxi Fleet 2025 | Book GMC Yukon & Hyundai Staria",
-        description: "Explore our premium Umrah taxi fleet. Book a luxury GMC Yukon XL, family Hyundai Staria, or Toyota Hiace for your journey in Saudi Arabia.",
+        title: "اسطول سيارات العمرة 2025 | حجز يوكن وستاريا | الكسوة",
+        description: "اكتشف أسطولنا المميز لرحلات العمرة. احجز جي إم سي يوكن أو هيونداي ستاريا أو تويوتا هايس لتنقلاتك المريحة في السعودية.",
         keywords: [
-            "Umrah Taxi Fleet", "GMC Yukon Booking", "Hyundai Staria Rental",
-            "Toyota Hiace Bus Makkah", "Luxury Car Rental Saudi Arabia", "Family Umrah Transport",
-            "أسطول نقل المعتمرين", "حجز جمس يوكن", "تأجير باص هيونداي"
+            "Umrah Taxi Fleet", "GMC Yukon Booking", "Hyundai Staria Booking",
+            "Toyota Hiace Bus Makkah", "Luxury Car Booking Saudi Arabia", "Family Umrah Transport",
+            "أسطول نقل المعتمرين", "حجز جمس يوكن", "حجز باص هيونداي"
         ],
         alternates: {
     ...generateMetadataAlternates("/fleet"),

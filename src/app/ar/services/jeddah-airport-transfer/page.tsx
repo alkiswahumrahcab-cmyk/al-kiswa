@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -13,7 +13,7 @@ import { getSettings } from '@/lib/settings-storage';
 import FadeIn from "@/components/common/FadeIn";
 
 export const metadata: Metadata = {
-    title: "Taxi Jeddah Airport to Makkah | Private Hotel Transfer Price",
+    title: "تاكسي مطار جدة إلى مكة | نقل خاص بسعر ثابت | الكسوة",
     description: "Book your Jeddah Airport to Makkah taxi. Private GMC Yukon & Hyundai Staria transfer with Meet & Greet service (استقبال المطار). Fixed rates, no hidden fees.",
     keywords: [
         "Jeddah Airport to Makkah Taxi",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     canonical: "https://kiswahumrahcab.com/ar/services/jeddah-airport-transfer",
   },
     openGraph: {
-        title: "Taxi Jeddah Airport to Makkah | Private Transfer Price",
+        title: "تاكسي مطار جدة إلى مكة | أسعار التوصيل الخاص | الكسوة",
         description: "Reliable transfer from Jeddah Airport (JED) to Makkah hotels. Our driver waits for you at the arrival hall.",
         images: [{ url: '/images/routes/jeddah-airport-hero-professional.png', width: 1200, height: 630, alt: 'Jeddah Airport VIP Transfer' }]
     }

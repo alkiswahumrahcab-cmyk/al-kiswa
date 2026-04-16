@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import { Shield, Sparkles, UserCheck, CheckCircle, Clock, Search, Heart, AlertTriangle, Phone, Activity, Wrench, FileCheck, Award } from 'lucide-react';
 import Hero from '@/components/common/Hero';
@@ -10,7 +10,7 @@ export const metadata = {
     ...generateMetadataAlternates("/safety"),
     canonical: "https://kiswahumrahcab.com/ar/safety",
   },
-    title: "Safety Standards & Protocols | Al Kiswah Transport | معايير السلامة",
+    title: "معايير السلامة والبروتوكولات | مواصلات الكسوة للعمرة",
     description: "Your safety is our sacred duty. Comprehensive vehicle sanitation, driver checks, & 24/7 support. معايير سلامة عالية لخدمة المعتمرين. تعقيم شامل وسائقين محترفين.",
     keywords: [
         "Umrah safety", "safe taxi Makkah", "sanitized transport Saudi",
@@ -19,7 +19,7 @@ export const metadata = {
         "أمان المعتمرين", "توصيل آمن للنساء", "سائقين مرخصين"
     ],
     openGraph: {
-        title: "Safety Standards | Al Kiswah Umrah Transport | الأمان والراحة",
+        title: "معايير الأمان والسلامة | مواصلات الكسوة للعمرة",
         description: "Verified drivers, sanitized vehicles, and 24/7 support. Travel with peace of mind. رحلة آمنة ومريحة مع الكسوة للنقل.",
         images: ['/images/blog/comfort-safety-new.png'],
     }

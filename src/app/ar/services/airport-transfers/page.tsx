@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import Hero from '@/components/common/Hero';
 import FadeIn from '@/components/common/FadeIn';
@@ -10,7 +10,7 @@ import { Metadata } from 'next';
 import GlassCard from '@/components/ui/GlassCard';
 
 export const metadata: Metadata = {
-    title: "Jeddah & Madinah Airport Transfers | Umrah Taxi | توصيل المطارات",
+    title: "توصيل مطارات جدة والمدينة | تاكسي العمرة | الكسوة",
     description: "Reliable airport pickups for Jeddah & Madinah. Punctual, hassle-free transfers. 24/7 service. توصيل من مطار جدة الى مكة. استقبال مطار المدينة المنورة.",
     keywords: [
         "Jeddah airport to Makkah taxi", "KAIA transfer", "Umrah airport pickup", "Madinah airport taxi",
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     canonical: "https://kiswahumrahcab.com/ar/services/airport-transfers",
   },
     openGraph: {
-        title: "Jeddah & Madinah Airport Transfers | Al Kiswah Transport",
+        title: "توصيل مطارات جدة والمدينة | مواصلات الكسوة",
         description: "Reliable airport pickups for Jeddah & Madinah. توصيل آمن ومريح من المطارات.",
         images: ["/images/fleet/gmc.png"],
         type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Jeddah & Madinah Airport Transfers | Umrah Taxi",
+        title: "نقل مطارات جدة والمدينة | تاكسي عمرة | الكسوة",
         description: "Reliable airport pickups for Jeddah & Madinah. توصيل من مطار جدة ومطار المدينة.",
         images: ["/images/fleet/gmc.png"],
     }

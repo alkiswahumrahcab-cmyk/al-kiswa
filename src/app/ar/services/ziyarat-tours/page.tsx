@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -10,7 +10,7 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FadeIn from "@/components/common/FadeIn";
 
 export const metadata: Metadata = {
-    title: "Ziyarat Makkah Madinah Tours | Visit Historical Sites",
+    title: "جولات زيارة مكة والمدينة | المواقع الأثرية | الكسوة",
     description: "Private Ziyarat tours in Makkah (Jabal Al-Nour, Arafat) & Madinah (Masjid Quba, Uhud). Experienced drivers sharing Islamic history.",
     keywords: [
         "Ziyarat Tours Makkah",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     canonical: "https://kiswahumrahcab.com/ar/services/ziyarat-tours",
   },
     openGraph: {
-        title: "Ziyarat Makkah Madinah Tours | Historical Site Visits",
+        title: "جولات زيارة مكة والمدينة | المواقع التاريخية | الكسوة",
         description: "Guided private tours to Jabal Al-Nour, Masjid Quba, Mount Uhud, and more. deeply spiritual experience with knowledgeable drivers.",
         images: [{ url: '/images/routes/makkah-ziyarat-hero.png', width: 1200, height: 630, alt: 'Jabal Al-Nour Makkah Ziyarat' }]
     }

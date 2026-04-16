@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from 'next';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -10,7 +10,7 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import { getSettings } from '@/lib/settings-storage';
 
 export const metadata: Metadata = {
-    title: "Ramadan Umrah Taxi Service 2026 | Makkah to Madinah",
+    title: "نقل عمرة رمضان 2026 | مكة إلى المدينة | الكسوة",
     description: "Book cheap Umrah transport for Ramadan 2026. 24/7 Umrah cab service for Makkah to Madinah. Family Umrah taxi packages available for Last 10 Nights.",
     keywords: [
         "umrah taxi ramadan 2026",

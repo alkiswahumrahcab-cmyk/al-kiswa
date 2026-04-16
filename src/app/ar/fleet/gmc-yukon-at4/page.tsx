@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -79,7 +79,7 @@ export async function generateMetadata(): Promise<Metadata> {
             "Luxury SUV Rental Jeddah",
             "GMC Yukon with Driver",
             "حجز جمس يوكن مكة",
-            "ايجار سيارات فخمة جدة",
+            "حجز سيارات فخمة جدة",
             "توصيل كبار الشخصيات"
         ],
         alternates: {

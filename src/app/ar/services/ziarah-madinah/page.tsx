@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -10,7 +10,7 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FadeIn from "@/components/common/FadeIn";
 
 export const metadata: Metadata = {
-    title: "Ziyarat Madinah Tours | Masjid Quba & Uhud Visit",
+    title: "زيارة المدينة المنورة | مسجد قباء وأُحد | الكسوة",
     description: "Private Ziyarat tours in Madinah. Visit Masjid Quba, Mount Uhud, Seven Mosques and Qiblatayn. Experienced drivers and comfortable transport.",
     keywords: [
         "Ziyarat Madinah",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     canonical: "https://kiswahumrahcab.com/ar/services/ziarah-madinah",
   },
     openGraph: {
-        title: "Ziyarat Madinah Tours | Visit Masjid Quba & Uhud",
+        title: "جولات المدينة المنورة | مسجد قباء وغزوة أُحد | الكسوة",
         description: "Comprehensive private tours of Madinah's historical sites. Follow the footsteps of the Prophet (SAW).",
         images: [{ url: '/images/routes/madinah-ziyarat-hero.png', width: 1200, height: 630, alt: 'Masjid Quba Madinah Ziyarat' }]
     }

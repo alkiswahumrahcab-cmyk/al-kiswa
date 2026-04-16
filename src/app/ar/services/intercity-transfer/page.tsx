@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -12,7 +12,7 @@ import { RouteWithPrices } from '@/services/routeService';
 import GlassCard from '@/components/ui/GlassCard';
 
 export const metadata = {
-    title: "Makkah to Madinah Taxi & Intercity Transport | Al Kiswah",
+    title: "نقل بين المدن مكة المدينة جدة | الكسوة",
     description: "Comfortable Makkah to Madinah transport. Reliable intercity taxi transfers between Jeddah, Makkah & Madinah. Enjoy a seamless, spiritual travel experience.",
     keywords: ["Makkah to Madinah taxi", "Madinah to Makkah transport", "Haramain transport", "VIP intercity taxi", "Jeddah to Madinah taxi", "KSA intercity transfer"],
     alternates: {
@@ -20,7 +20,7 @@ export const metadata = {
     canonical: "https://kiswahumrahcab.com/ar/services/intercity-transfer",
   },
     openGraph: {
-        title: "Makkah to Madinah Taxi & Intercity Transport | VIP Fleet",
+        title: "تاكسي مكة المدينة والتنقل بين المدن | اسطول VIP | الكسوة",
         description: "Travel comfortably between Jeddah, Makkah, and Madinah. Premium private taxi service with experienced drivers.",
         images: [{ url: '/images/routes/routes-network-hero.png', width: 1200, height: 630, alt: 'Saudi Arabia Intercity Transport Network' }]
     }

@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -13,7 +13,7 @@ import FadeIn from "@/components/common/FadeIn";
 import GlassCard from '@/components/ui/GlassCard';
 
 export const metadata: Metadata = {
-    title: "Taxi Makkah to Madinah Price 2025 | VIP Private Car Cost",
+    title: "تاكسي مكة إلى المدينة 2025 | سعر السيارة الخاصة | الكسوة",
     description: "Book private taxi from Makkah to Madinah. 4-hour luxury transfer in GMC Yukon or Hyundai Staria. Door-to-door service with Miqat option (احرام).",
     keywords: [
         "Taxi Makkah to Madinah",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     canonical: "https://kiswahumrahcab.com/ar/services/makkah-madinah-taxi",
   },
     openGraph: {
-        title: "Taxi Makkah to Madinah Price 2025 | VIP Private Transport",
+        title: "تاكسي مكة المدينة 2025 | نقل VIP خاص | الكسوة",
         description: "Book the most comfortable Makkah to Madinah taxi service. Private GMC Yukon, Hyundai Staria, and VIP buses.",
         images: [{ url: '/images/routes/makkah-madinah-route-hero.png', width: 1200, height: 630, alt: 'Makkah to Madinah Highway Scenic View' }]
     }

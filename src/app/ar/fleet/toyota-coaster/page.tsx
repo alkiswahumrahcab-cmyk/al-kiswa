@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Link from 'next/link';
@@ -24,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
             "Group Umrah Bus",
             "Makkah Madinah Bus Transport",
             "Toyota Coaster Price",
-            "تأجير باص كوستر",
+            "حجز باص كوستر",
             "نقل جماعي مكة",
             "باص 20 راكب جدة"
         ],
