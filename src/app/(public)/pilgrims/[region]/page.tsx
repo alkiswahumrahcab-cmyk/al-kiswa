@@ -6,6 +6,8 @@ import { ShieldCheck, MapPin, UserCheck, Star, Plane } from 'lucide-react';
 import Link from 'next/link';
 import { regions, getRegionById } from '@/data/regions';
 import { generateMetadataAlternates } from '@/lib/hreflang';
+import { JsonLdScript } from "@/components/seo/JsonLd";
+import { generateServiceSchema, generateLocalBusinessSchema } from "@/components/seo/schema-generator";
 
 interface Params {
     params: {
@@ -59,32 +61,31 @@ export default function RegionalLandingPage({ params }: Params) {
 
     const { name, nationality, popularOrigin, heroBg, trustCount, currency } = region;
 
-    // JSON-LD Schema
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": `Umrah Transport for ${name}`,
-        "description": `Premium Umrah Transport serving pilgrims from ${name}.`,
-        "publisher": {
-            "@type": "Organization",
-            "name": "Al Kiswah Umrah Transport"
-        },
-        "audience": {
-            "@type": "Audience",
-            "audienceType": "Pilgrims",
-            "geographicArea": {
-                "@type": "Country",
-                "name": name
-            }
+    // Highly targeted Service Schema + WebPage schema
+    const targetedServiceSchema = generateServiceSchema(
+        `Premium Umrah Transport for ${name} Pilgrims`,
+        `Fixed-price, reliable Umrah taxi service serving pilgrims arriving from ${popularOrigin}. Includes meet-and-greet at Jeddah airport and VIP GMC/Staria fleet.`,
+        "https://kiswahumrahcab.com/images/blog-hero-professional.png"
+    );
+
+    // Override the generic areaServed to hyper-target the adience region
+    targetedServiceSchema.areaServed = {
+        "@type": "Country",
+        "name": name
+    };
+    targetedServiceSchema.audience = {
+        "@type": "Audience",
+        "audienceType": "Pilgrims",
+        "geographicArea": {
+            "@type": "Country",
+            "name": name
         }
     };
 
     return (
         <main className="bg-primary-black text-white relative min-h-screen">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
+            <JsonLdScript schema={generateLocalBusinessSchema()} />
+            <JsonLdScript schema={targetedServiceSchema} />
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             {/* Regional Hero */}

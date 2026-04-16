@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useSettings } from '@/context/SettingsContext';
+import { regions } from '@/data/regions';
 
 export default function Footer() {
     const { settings } = useSettings();
@@ -167,7 +168,13 @@ export default function Footer() {
                             <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-[15px]">Contact Us</Link></li>
                             <li><Link href="/safety" className="text-gray-400 hover:text-white transition-colors text-[15px]">Safety Policy</Link></li>
                             <li><Link href="/track-booking" className="text-gray-400 hover:text-white transition-colors text-[15px]">Track My Booking</Link></li>
-                            <li><Link href="/umrah-transport-uk-pilgrims" className="text-gray-400 hover:text-white transition-colors text-[15px]">For UK Pilgrims</Link></li>
+                            {regions.slice(0, 4).map((region) => (
+                                <li key={region.id}>
+                                    <Link href={`/pilgrims/${region.id}`} className="text-gray-400 hover:text-white transition-colors text-[15px]">
+                                        Umrah Taxi {region.name}
+                                    </Link>
+                                </li>
+                            ))}
                             <li><Link href="/ar" className="text-gray-400 hover:text-white transition-colors text-[15px]" dir="rtl">للمعتمرين العرب</Link></li>
                         </ul>
                     </div>
@@ -208,8 +215,16 @@ export default function Footer() {
                         © 2026 Al Kiswah Umrah Transport. All rights reserved. | Jeddah · Makkah · Madinah
                     </div>
                     
-                    <div className="text-[11px] text-gray-600 lg:text-center order-last lg:order-none">
-                        Serving pilgrims from UK 🇬🇧 · France 🇫🇷 · Germany 🇩🇪 · UAE 🇦🇪 · Saudi Arabia 🇸🇦 · Kuwait 🇰🇼
+                    <div className="text-[11px] text-gray-600 lg:text-center order-last lg:order-none flex flex-wrap justify-center gap-2">
+                        <span>Serving pilgrims from:</span>
+                        {regions.map((region, index) => (
+                            <span key={region.id}>
+                                <Link href={`/pilgrims/${region.id}`} className="hover:text-gray-400 transition-colors">
+                                    {region.name}
+                                </Link>
+                                {index < regions.length - 1 && <span className="mx-1">·</span>}
+                            </span>
+                        ))}
                     </div>
 
                     <div className="flex items-center justify-center lg:justify-end gap-6 text-[13px] text-gray-500">
