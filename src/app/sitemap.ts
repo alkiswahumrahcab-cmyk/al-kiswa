@@ -1,4 +1,5 @@
 import { MetadataRoute } from "next";
+import { regions } from "@/data/regions";
 
 const BASE_URL = "https://kiswahumrahcab.com";
 
@@ -56,6 +57,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
           en: `${BASE_URL}${page.path}`,
           ar: `${BASE_URL}/ar${page.path}`,
           "x-default": `${BASE_URL}${page.path}`,
+        },
+      },
+    });
+  }
+
+  // Add dynamic regional landing pages
+  for (const region of regions) {
+    entries.push({
+      url: `${BASE_URL}/pilgrims/${region.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+      alternates: {
+        languages: {
+          en: `${BASE_URL}/pilgrims/${region.id}`,
+          ar: `${BASE_URL}/ar/pilgrims/${region.id}`,
+          "x-default": `${BASE_URL}/pilgrims/${region.id}`,
+        },
+      },
+    });
+
+    entries.push({
+      url: `${BASE_URL}/ar/pilgrims/${region.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.75,
+      alternates: {
+        languages: {
+          en: `${BASE_URL}/pilgrims/${region.id}`,
+          ar: `${BASE_URL}/ar/pilgrims/${region.id}`,
+          "x-default": `${BASE_URL}/pilgrims/${region.id}`,
         },
       },
     });
