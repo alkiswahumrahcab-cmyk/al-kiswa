@@ -10,25 +10,26 @@ import { Metadata } from 'next';
 import GlassCard from '@/components/ui/GlassCard';
 
 export const metadata: Metadata = {
-    title: "Jeddah & Madinah Airport Transfers | Umrah Taxi | توصيل المطارات",
-    description: "Reliable airport pickups for Jeddah & Madinah. Punctual, hassle-free transfers. 24/7 service. توصيل من مطار جدة الى مكة. استقبال مطار المدينة المنورة.",
+    title: "Jeddah & Madinah Airport VIP Transfers | Al Kiswah",
+    description: "Book VIP Jeddah and Madinah airport taxi transfers. Meet & greet, fixed prices, and professional drivers. Book your airport pickup online now.",
     keywords: [
-        "Jeddah airport to Makkah taxi", "KAIA transfer", "Umrah airport pickup", "Madinah airport taxi",
-        "VIP Umrah Transport", "Jeddah Airport Shuttle", "Makkah Private Taxi",
-        "توصيل مطار جدة", "تاكسي مطار المدينة", "استقبال المعتمرين",
-        "نقل من مطار الملك عبدالعزيز", "حجز تاكسي الحرم", "خدمات المعتمرين"
+        "jeddah airport to makkah taxi",
+        "madinah airport taxi",
+        "umrah airport private transfer",
+        "vip airport transfer jeddah",
+        "kaia transport to makkah"
     ],
     alternates: generateMetadataAlternates("/services/airport-transfers"),
     openGraph: {
-        title: "Jeddah & Madinah Airport Transfers | Al Kiswah Transport",
-        description: "Reliable airport pickups for Jeddah & Madinah. توصيل آمن ومريح من المطارات.",
+        title: "Jeddah & Madinah Airport VIP Transfers | Al Kiswah",
+        description: "Book VIP Jeddah and Madinah airport taxi transfers. Meet & greet, fixed prices, and professional drivers.",
         images: ["/images/fleet/gmc.png"],
         type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Jeddah & Madinah Airport Transfers | Umrah Taxi",
-        description: "Reliable airport pickups for Jeddah & Madinah. توصيل من مطار جدة ومطار المدينة.",
+        title: "Jeddah & Madinah Airport VIP Transfers | Al Kiswah",
+        description: "Book VIP Jeddah and Madinah airport taxi transfers. Meet & greet, fixed prices, and professional drivers.",
         images: ["/images/fleet/gmc.png"],
     }
 };
@@ -45,43 +46,28 @@ export default async function AirportTransfersPage() {
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Jeddah Airport Transfer to Makkah",
-        "alternateName": "توصيل من مطار جدة الى مكة",
+        "name": "Airport VIP Transfers",
         "provider": {
-            "@type": "TransportationService",
-            "name": "Al Kiswah Umrah Transport"
+            "@type": "LocalBusiness",
+            "name": "Al Kiswah",
+            "image": "https://kiswahumrahcab.com/logo.png"
         },
-        "description": "Premium airport transfer service from King Abdulaziz International Airport (KAIA) to Makkah. خدمة نقل فاخرة من مطار الملك عبدالعزيز الى مكة.",
-        "areaServed": {
-            "@type": "City",
-            "name": "Makkah"
-        },
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Airport Transfer Services",
-            "itemListElement": [
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Standard Sedan Transfer"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "VIP GMC Yukon Transfer"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Family Hiace Van Transfer"
-                    }
-                }
-            ]
+        "serviceType": "Airport Transfer",
+        "areaServed": [
+            {
+                "@type": "Airport",
+                "name": "King Abdulaziz International Airport"
+            },
+            {
+                "@type": "Airport",
+                "name": "Prince Mohammad Bin Abdulaziz International Airport"
+            }
+        ],
+        "description": "Premium VIP airport transfer service connecting Jeddah and Madinah airports to holy sites in Makkah and Madinah.",
+        "offers": {
+            "@type": "Offer",
+            "priceCurrency": "SAR",
+            "availability": "https://schema.org/InStock"
         }
     };
 

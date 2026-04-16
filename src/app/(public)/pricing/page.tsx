@@ -97,8 +97,36 @@ const pricingFAQs = [
 ];
 
 export default function PricingPage() {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Umrah Transport and Taxi Services 2026",
+        "description": "Transparent 2026 Umrah taxi rates. Check fares for Jeddah Airport to Makkah, Makkah to Madinah, and Ziyarat tours.",
+        "provider": {
+            "@type": "TransportationService",
+            "name": "Al Kiswah Umrah Transport"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Umrah Taxi Pricing Plans",
+            "itemListElement": pricingRoutes.map((route) => ({
+                "@type": "Offer",
+                "itemOffered": {
+                    "@type": "Service",
+                    "name": route.title
+                },
+                "priceSpecification": {
+                    "@type": "PriceSpecification",
+                    "price": route.price,
+                    "priceCurrency": route.currency
+                }
+            }))
+        }
+    };
+
     return (
         <main className="min-h-screen bg-primary-black relative">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <Hero

@@ -40,9 +40,9 @@ const generateJsonLd = (vehicleData: any) => ({
         },
         {
             "@type": "Product",
-            "name": vehicleData?.name || "Toyota Hiace 12-Seater Bus Rental",
+            "name": vehicleData?.name || "Toyota Hiace 12-Seater Bus Transport",
             "image": "https://alkiswahumrahtransport.com/images/fleet/hiace-hero-professional.png",
-            "description": vehicleData ? `Rent ${vehicleData.name} bus in Makkah. Reliable ${vehicleData.passengers}-seater transport for Umrah groups and large families.` : "Rent Toyota Hiace bus in Makkah. Reliable 12-seater transport for Umrah groups and large families.",
+            "description": vehicleData ? `Book ${vehicleData.name} bus in Makkah. Reliable ${vehicleData.passengers}-seater transport for Umrah groups and large families.` : "Book Toyota Hiace bus in Makkah. Reliable 12-seater transport for Umrah groups and large families.",
             "brand": { "@type": "Brand", "name": "Toyota" },
             "offers": {
                 "@type": "Offer",
@@ -66,16 +66,14 @@ export async function generateMetadata(): Promise<Metadata> {
     const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('hiace'));
 
     return {
-        title: vehicleData ? `${vehicleData.name} Bus Rental Makkah | Cheap Group Transport` : "Toyota Hiace Bus Rental Makkah | Cheap Group Transport",
-        description: vehicleData ? `Book ${vehicleData.name} ${vehicleData.passengers}-seater bus for Umrah groups. Affordable transport. Base Route: ${vehicleData.basePrice} SAR.` : "Book Toyota Hiace 12-seater bus for Umrah groups. Affordable transport from Jeddah Airport to Makkah & Madinah. Reliable & spacious.",
+        title: vehicleData ? vehicleData.name + " Group Umrah Transport | Al Kiswah" : "Toyota Hiace Group Transport | Al Kiswah",
+        description: vehicleData ? `Book ${vehicleData.name} ${vehicleData.passengers}-seater bus for Umrah groups. Affordable transport. Fixed Route pricing.` : "Book Toyota Hiace 12-seater bus for Umrah groups. Affordable transport from Jeddah Airport to Makkah & Madinah. Fixed prices.",
         keywords: [
-            "Toyota Hiace Rental Makkah",
-            "10 Seater Bus Makkah",
-            "Cheap Umrah Transport",
-            "Group Taxi Jeddah to Makkah",
-            "Toyota Hiace Bus Price",
+            "toyota hiace transport makkah",
+            "10 seater bus makkah",
+            "group transport jeddah to makkah",
+            "hiace umrah transfer",
             "تأجير باص هايس",
-            "نقل جماعي مكة",
             "باص 10 راكب جدة"
         ],
         alternates: generateMetadataAlternates("/fleet/toyota-hiace"),
@@ -273,7 +271,7 @@ export default async function ToyotaHiacePage() {
 
             <FleetCarouselWrapper />
 
-            <FAQSection items={hiaceFAQs} title="Toyota Hiace Rental - Frequently Asked Questions" />
+            <FAQSection items={hiaceFAQs} title="Toyota Hiace Transport - Frequently Asked Questions" />
         </main>
     );
 }

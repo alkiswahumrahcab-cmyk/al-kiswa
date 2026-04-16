@@ -14,8 +14,16 @@ import { blogService } from '@/services/blogService';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Umrah Travel Blog | Tips & Guides | مدونة العمرة',
-    description: 'Read our latest articles on Umrah travel tips, transport advice, and spiritual guides. نصائح وارشادات للمعتمرين. دليل المواصلات في مكة والمدينة.',
+    title: 'Umrah Travel Blog & Transport Guides | Al Kiswah',
+    description: 'Read our latest articles on Umrah travel tips, transport advice, and spiritual guides. VIP transport tips and fleet guides for pilgrims.',
+    keywords: [
+        "umrah travel blog",
+        "umrah transport tips",
+        "makkah transport guide",
+        "vip umrah travel advice",
+        "مدونة العمرة",
+        "نصائح المعتمرين"
+    ],
     alternates: generateMetadataAlternates("/blog"),
 };
 

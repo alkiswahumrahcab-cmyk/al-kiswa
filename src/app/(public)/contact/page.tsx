@@ -16,28 +16,23 @@ import { generateContactPageSchema } from '@/components/seo/schema-generator';
 const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 
 export async function generateMetadata() {
-    const title = "Contact Al Kiswah Umrah Transport | Book Your Ride Today";
-    const description = "Contact Al Kiswah Umrah Transport for bookings. 24/7 support via WhatsApp & phone. Let us serve the transport needs of your spiritual journey.";
-
     return {
-        title: title,
-        description: description,
+        title: "Contact 24/7 VIP Umrah Transport Support | Al Kiswah",
+        description: "Contact Al Kiswah Umrah Transport for bookings. 24/7 support via WhatsApp & phone. Let us serve the transport needs of your spiritual journey.",
         keywords: [
-            // English Keywords
-            "Umrah transport contact", "book Umrah transport", "Jeddah airport pickup contact",
-            "Makkah to Madinah transport booking", "Umrah taxi service contact", "Saudi Arabia pilgrim transport support",
-            "Al Kiswah Transport Booking", "VIP Umrah Taxi",
-            // Arabic Keywords
-            "اتصال نقل العمرة", "حجز نقل العمرة", "تواصل استقبال مطار جدة", "حجز نقل مكة المدينة",
-            "رقم تاكسي العمرة", "دعم نقل المعتمرين في السعودية", "شركة نقل في مكة", "توصيل الحرمين",
-            "واتساب تاكسي مكة", "رقم سائق في مكة", "حجز موصلات الحرم"
+            "umrah transport contact", 
+            "book umrah transport", 
+            "jeddah airport pickup contact",
+            "makkah to madinah transport booking", 
+            "vip umrah taxi contact", 
+            "al kiswah support"
         ],
         alternates: generateMetadataAlternates("/contact"),
         openGraph: {
-            title: title,
-            description: description,
+            title: "Contact 24/7 VIP Umrah Transport Support | Al Kiswah",
+            description: "Contact Al Kiswah Umrah Transport for bookings. 24/7 support via WhatsApp & phone.",
             type: 'website',
-            locale: 'en_US', // Primary, but content supports bilingual context
+            locale: 'en_US',
         }
     };
 }

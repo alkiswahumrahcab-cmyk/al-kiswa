@@ -20,29 +20,23 @@ const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDist
 
 export async function generateMetadata() {
     return {
-        title: "About Al Kiswah Umrah Transport | Premier Makkah Taxi | من نحن",
-        description: "Al Kiswah Umrah Transport: #1 choice for pilgrims. VIP Jeddah Airport transfers, Makkah to Madinah taxi, and GMC fleet. أفضل شركة نقل معتمرين في السعودية.",
+        title: "About Us: Premier VIP Umrah Transport | Al Kiswah",
+        description: "Learn about Al Kiswah Umrah Transport. We provide VIP Jeddah Airport transfers, Makkah to Madinah transport, and a reliable fleet for 5,000+ pilgrims.",
         keywords: [
-            "About Al Kiswah Transport", "Best Umrah transport company Saudi Arabia",
-            "Makkah to Madinah taxi price", "Jeddah airport to Makkah taxi service",
-            "VIP Umrah transfers", "Luxury GMC for Umrah", "Haramain transfer",
-            "Ziyarat Makkah Madinah", "Pilgrim transport services",
-            "من نحن", "مؤسسة الكسوة لنقل المعتمرين", "شركة نقل في مكة",
-            "ارقام تكاسي مكة", "خدمات المعتمرين", "توصيل مطار الملك عبدالعزيز"
+            "about al kiswah transport", 
+            "umrah transport company",
+            "makkah to madinah transfer", 
+            "vip umrah transfers", 
+            "pilgrim transport services",
+            "من نحن", 
+            "مؤسسة الكسوة لنقل المعتمرين"
         ],
         openGraph: {
-            title: "About Al Kiswah Umrah Transport | Leading Pilgrim Service",
-            description: "Trusted by thousands for safe and comfortable Umrah transport. From Jeddah Airport to Makkah hotels and Ziyarat tours, we travel with you.",
-            url: "https://alkiswahumrahtransport.com/about",
-            siteName: "Al Kiswah Umrah Transport",
-            images: [
-                {
-                    url: "/images/about-og.jpg",
-                    width: 1200,
-                    height: 630,
-                    alt: "Al Kiswah Transport Fleet",
-                },
-            ],
+            title: "About Us: Premier VIP Umrah Transport | Al Kiswah",
+            description: "Trusted by thousands for safe and comfortable Umrah transport. From Jeddah Airport to Makkah hotels and Ziyarat tours.",
+            url: "https://kiswahumrahcab.com/about",
+            siteName: "Al Kiswah",
+            images: [{ url: "/images/about-og.jpg", width: 1200, height: 630, alt: "Al Kiswah Transport Fleet" }],
             type: "website",
         },
         alternates: generateMetadataAlternates("/about"),

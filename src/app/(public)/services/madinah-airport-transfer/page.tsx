@@ -12,25 +12,20 @@ import GlassCard from '@/components/ui/GlassCard';
 import FadeIn from '@/components/common/FadeIn';
 
 export const metadata: Metadata = {
-    title: "Madinah Airport Taxi to Hotel | Meet & Greet | تاكسي مطار المدينة",
-    description: "Reliable taxi from Madinah Airport (MED) to Masjid Nabawi hotels. 24/7 airport pickup. حجز تاكسي مطار المدينة المنورة. توصيل الى فندق الحرم.",
+    title: "Madinah Airport Taxi to Hotel | Al Kiswah",
+    description: "Book a reliable Madinah Airport taxi to your Masjid Nabawi hotel. 24/7 VIP pickup, meet & greet, and fixed prices. Book your transfer online now.",
     keywords: [
-        "Madinah Airport Taxi",
-        "Madinah Airport to Masjid Nabawi",
-        "Prince Mohammad Bin Abdulaziz Airport",
-        "MED Airport Transfer",
-        "Madinah Airport to Makkah Taxi",
-        "Madinah Hotel Transfer",
-        "Umrah Taxi Madinah",
-        "تاكسي مطار المدينة",
-        "استقبال مطار الامير محمد بن عبدالعزيز",
-        "توصيل من مطار المدينة للحرم",
-        "سعر مشوار مطار المدينة"
+        "madinah airport taxi",
+        "madinah airport transfer",
+        "madinah airport to hotel",
+        "med airport taxi",
+        "taxi from madinah airport to masjid nabawi",
+        "vip taxi madinah airport"
     ],
     alternates: generateMetadataAlternates("/services/madinah-airport-transfer"),
     openGraph: {
-        title: "Madinah Airport Taxi to Hotel | Prince Mohammad Bin Abdulaziz Airport Transfer",
-        description: "Reliable taxi from Madinah Airport (MED) to Masjid Nabawi hotels. 24/7 airport pickup, meet & greet service.",
+        title: "Madinah Airport Taxi to Hotel | Al Kiswah",
+        description: "Book a reliable Madinah Airport taxi to your Masjid Nabawi hotel. 24/7 VIP pickup, meet & greet, and fixed prices.",
         images: [{ url: '/images/routes/madinah-airport-hero.png', width: 1200, height: 630, alt: 'Madinah Airport Transfer Service' }]
     }
 };
@@ -38,22 +33,22 @@ export const metadata: Metadata = {
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Madinah Airport Transfer",
-    "alternateName": "توصيل مطار المدينة المنورة",
+    "name": "Madinah Airport Taxi",
     "provider": {
         "@type": "LocalBusiness",
-        "name": "Al Kiswah Transport"
+        "name": "Al Kiswah",
+        "image": "https://kiswahumrahcab.com/logo.png"
     },
     "serviceType": "Airport Transfer",
     "areaServed": {
         "@type": "Airport",
         "name": "Prince Mohammad Bin Abdulaziz International Airport"
     },
-    "description": "Private transfer from Madinah Airport to Masjid Nabawi hotels.",
+    "description": "Private taxi transfer from Madinah Airport to Masjid Nabawi hotels.",
     "offers": {
         "@type": "Offer",
-        "price": "150",
-        "priceCurrency": "SAR"
+        "priceCurrency": "SAR",
+        "availability": "https://schema.org/InStock"
     }
 };
 

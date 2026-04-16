@@ -16,43 +16,26 @@ export async function generateMetadata(): Promise<Metadata> {
     const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('coaster'));
 
     return {
-        title: vehicleData ? `${vehicleData.name} Bus Rental Makkah | Group Umrah Transport` : "Toyota Coaster Bus Rental Makkah | Group Umrah Transport",
-        description: vehicleData ? `Book ${vehicleData.name} ${vehicleData.passengers}-seater bus for Umrah groups. Comfortable transport from Jeddah Airport to Makkah & Madinah. Base Route: ${vehicleData.basePrice} SAR.` : "Book Toyota Coaster 22-seater bus for Umrah groups. Comfortable transport from Jeddah Airport to Makkah & Madinah. Large luggage capacity.",
+        title: vehicleData ? vehicleData.name + " Group Umrah Transport | Al Kiswah" : "Toyota Coaster Group Transport | Al Kiswah",
+        description: vehicleData ? `Book ${vehicleData.name} in Makkah. ${vehicleData.passengers}-seater bus for large group Umrah transport. Licensed and fixed rates.` : "Book Toyota Coaster in Makkah. 22-seater bus for large group Umrah transport. Licensed service for 5,000+ pilgrims.",
         keywords: [
-            "Toyota Coaster Rental Makkah",
-            "22 Seater Bus Makkah",
-            "Group Umrah Bus",
-            "Makkah Madinah Bus Transport",
-            "Toyota Coaster Price",
-            "تأجير باص كوستر",
-            "نقل جماعي مكة",
-            "باص 20 راكب جدة"
+            "toyota coaster umrah transport",
+            "large group bus makkah",
+            "coaster umrah transfer",
+            "22 seater bus jeddah",
+            "باص كوستر مكة",
+            "نقل جماعي للعمرة"
         ],
         alternates: generateMetadataAlternates("/fleet/toyota-coaster"),
-        openGraph: {
-            title: vehicleData ? `${vehicleData.name} Bus Rental Makkah | Group Umrah Transport` : "Toyota Coaster Bus Rental Makkah | Group Umrah Transport",
-            description: vehicleData ? `Rent a ${vehicleData.passengers}-Seater ${vehicleData.name} for your Umrah group. Spacious, air-conditioned, and reliable transport.` : "Rent a 22-Seater Toyota Coaster for your Umrah group. Spacious, air-conditioned, and reliable transport between Jeddah, Makkah, and Madinah.",
-            url: 'https://alkiswahumrahtransport.com/fleet/toyota-coaster',
-            siteName: 'Al Kiswah Umrah Transport',
-            images: [
-                {
-                    url: 'https://alkiswahumrahtransport.com/images/fleet/toyota-coaster-2025.png',
-                    width: 1200,
-                    height: 630,
-                    alt: vehicleData?.name || 'Toyota Coaster 22-Seater Bus',
-                },
-            ],
-            type: 'website',
-        },
     };
 }
 
 const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": vehicleData ? `${vehicleData.name} ${vehicleData.passengers}-Seater Bus Rental` : "Toyota Coaster 22-Seater Bus Rental",
+    "name": vehicleData ? `${vehicleData.name} ${vehicleData.passengers}-Seater Bus Transport` : "Toyota Coaster 22-Seater Bus Transport",
     "image": "https://alkiswahumrahtransport.com/images/fleet/toyota-coaster-2025.png",
-    "description": vehicleData ? `Rent ${vehicleData.name} bus in Makkah. Premium ${vehicleData.passengers}-seater transport for Umrah groups. Spacious, comfortable, and reliable.` : "Rent Toyota Coaster bus in Makkah. Premium 22-seater transport for Umrah groups. Spacious, comfortable, and reliable.",
+    "description": vehicleData ? `Book ${vehicleData.name} bus in Makkah. Premium ${vehicleData.passengers}-seater transport for Umrah groups. Spacious, comfortable, and reliable.` : "Book Toyota Coaster bus in Makkah. Premium 22-seater transport for Umrah groups. Spacious, comfortable, and reliable.",
     "brand": { "@type": "Brand", "name": "Toyota" },
     "offers": {
         "@type": "Offer",
@@ -256,7 +239,7 @@ export default async function ToyotaCoasterPage() {
 
             <FleetCarouselWrapper />
 
-            <FAQSection items={coasterFAQs} title="Toyota Coaster Rental - Frequently Asked Questions" />
+            <FAQSection items={coasterFAQs} title="Toyota Coaster Transport - Frequently Asked Questions" />
         </main>
     );
 }

@@ -13,47 +13,41 @@ import { getSettings } from '@/lib/settings-storage';
 import FadeIn from "@/components/common/FadeIn";
 
 export const metadata: Metadata = {
-    title: "Taxi Jeddah Airport to Makkah | Private Hotel Transfer Price",
-    description: "Book your Jeddah Airport to Makkah taxi. Private GMC Yukon & Hyundai Staria transfer with Meet & Greet service (استقبال المطار). Fixed rates, no hidden fees.",
+    title: "Jeddah Airport to Makkah Taxi | Al Kiswah",
+    description: "Private taxi from Jeddah KAIA to Makkah hotels. Meet & greet, real-time flight tracking, no hidden fees. Book online in 60 seconds. Available 24/7.",
     keywords: [
-        "Jeddah Airport to Makkah Taxi",
-        "Taxi Jeddah Airport Price",
-        "Private Driver Jeddah Airport",
-        "KAIA Terminal 1 Taxi",
-        "GMC Yukon Jeddah Airport",
-        "تاكسي مطار جدة",
-        "توصيل من مطار جدة الى مكة",
-        "سعر التوصيل من مطار جدة للكعبة",
-        "استقبال مطار جدة",
-        "حجز سيارة من مطار جدة"
+        "jeddah airport to makkah taxi",
+        "kaia to makkah private transfer",
+        "jeddah airport makkah price 2026",
+        "meet and greet jeddah airport",
+        "King Abdulaziz International Airport (KAIA)",
+        "taxi from Jeddah to Mecca"
     ],
     alternates: generateMetadataAlternates("/services/jeddah-airport-transfer"),
     openGraph: {
-        title: "Taxi Jeddah Airport to Makkah | Private Transfer Price",
-        description: "Reliable transfer from Jeddah Airport (JED) to Makkah hotels. Our driver waits for you at the arrival hall.",
-        images: [{ url: '/images/routes/jeddah-airport-hero-professional.png', width: 1200, height: 630, alt: 'Jeddah Airport VIP Transfer' }]
+        title: "Jeddah Airport to Makkah Taxi | Al Kiswah",
+        description: "Private taxi from Jeddah KAIA to Makkah hotels. Meet & greet, real-time flight tracking, no hidden fees. Book online in 60 seconds.",
+        images: [{ url: '/images/routes/jeddah-airport-hero-professional.png', width: 1200, height: 630, alt: 'Jeddah Airport to Makkah Taxi' }]
     }
 };
 
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Jeddah Airport to Makkah Transfer",
-    "alternateName": "توصيل من مطار جدة الى مكة",
+    "name": "Jeddah Airport to Makkah Taxi",
     "provider": {
         "@type": "LocalBusiness",
-        "name": "Al Kiswah Transport",
-        "image": "https://alkiswahumrahtransport.com/logo.png"
+        "name": "Al Kiswah",
+        "image": "https://kiswahumrahcab.com/logo.png"
     },
     "serviceType": "Airport Transfer",
     "areaServed": {
         "@type": "Airport",
-        "name": "King Abdulaziz International Airport (JED)"
+        "name": "King Abdulaziz International Airport (KAIA)"
     },
-    "description": "Private VIP transfer from Jeddah Airport to Makkah hotels. 24/7 Meet & Greet. خدمة توصيل vip من المطار.",
+    "description": "Private VIP transfer from Jeddah Airport to Makkah hotels. Meet & greet, real-time flight tracking, no hidden fees.",
     "offers": {
         "@type": "Offer",
-        "price": "200",
         "priceCurrency": "SAR",
         "availability": "https://schema.org/InStock"
     },
@@ -64,19 +58,19 @@ const jsonLd = {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://alkiswahumrahtransport.com"
+                "item": "https://kiswahumrahcab.com"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Services",
-                "item": "https://alkiswahumrahtransport.com/services"
+                "item": "https://kiswahumrahcab.com/services"
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Jeddah Airport to Makkah",
-                "item": "https://alkiswahumrahtransport.com/services/jeddah-airport-transfer"
+                "item": "https://kiswahumrahcab.com/services/jeddah-airport-transfer"
             }
         ]
     }
@@ -84,20 +78,20 @@ const jsonLd = {
 
 const jeddahAirportFAQs = [
     {
-        question: "Where will the driver meet me?",
-        answer: "Our driver will be waiting for you at the arrival hall after you clear customs and baggage claim. They will be holding a sign with your name or 'Al Kiswah Transport'. We track your flight to ensure we are there when you land."
+        question: "How long does a Jeddah Airport to Makkah taxi take?",
+        answer: "The private transfer from King Abdulaziz International Airport (KAIA) to Makkah hotels typically takes 60–90 minutes, depending on traffic and terminal location."
+    },
+    {
+        question: "Where will the driver meet me at Jeddah Airport?",
+        answer: "Our driver will be waiting for you at the arrival hall of either the North Terminal or Terminal 1 (Hajj Terminal/New Airport) after you clear customs. They will be holding a sign with your name for a seamless meet and greet experience."
     },
     {
         question: "What if my flight is delayed?",
-        answer: "Don't worry. We monitor flight statuses in real-time. If your flight is delayed, we automatically adjust the pickup time. There are no extra charges for flight delays."
+        answer: "We provide real-time flight tracking. If your flight is delayed, we automatically adjust your pickup time at no extra cost. Your taxi from Jeddah to Mecca will be ready when you are."
     },
     {
-        question: "How long does the trip to Makkah take?",
-        answer: "The journey from King Abdulaziz International Airport (JED) to Makkah typically takes 60 to 75 minutes, depending on traffic conditions in Jeddah."
-    },
-    {
-        question: "Can I pay in cash?",
-        answer: "Yes, you can pay the driver in cash (SAR) upon arrival. However, we recommend booking online to secure your rate and vehicle."
+        question: "Can I book a GMC Yukon for Jeddah to Makkah?",
+        answer: "Yes, we have a premium fleet including GMC Yukon & Hyundai Staria, ideal for families and large luggage capacity."
     }
 ];
 
@@ -107,8 +101,8 @@ export default async function JeddahAirportTransferPage() {
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}`;
 
     const content = {
-        title: "Jeddah Airport to Makkah Transfers",
-        subtitle: "Start your Umrah with peace of mind. Professional drivers, Meet & Greet service (استقبال خاص). Direct transfer to your Makkah hotel.",
+        title: "Jeddah Airport to Makkah Taxi",
+        subtitle: "Private taxi from Jeddah KAIA to Makkah hotels. Meet & greet, real-time flight tracking, and fixed price guaranteed. Available 24/7 for all terminals.",
         heroImage: "/images/routes/jeddah-airport-hero-professional.png"
     };
 

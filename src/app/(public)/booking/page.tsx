@@ -3,19 +3,23 @@ import BookingWizard from '@/components/booking/BookingWizard';
 
 export async function generateMetadata() {
     return {
-        title: "Book Umrah Taxi | Al Kiswah Transport | حجز تاكسي المعتمرين",
-        description: "Book your VIP Umrah taxi with Al Kiswah Transport. Reliable, 24/7 transfers from Jeddah Airport to Makkah and Madinah.",
+        title: "Book VIP Umrah Taxi & Transfers | Al Kiswah",
+        description: "Book your VIP Umrah transport with Al Kiswah. Reliable 24/7 transfers from Jeddah Airport to Makkah and Madinah. Transparent fixed pricing.",
         keywords: [
-            "Book Umrah Transport", "Umrah Taxi Booking", "Jeddah to Makkah taxi booking",
-            "Makkah to Madinah transport booking", "Al Kiswah booking", "حجز تاكسي العمرة"
+            "book umrah transport", 
+            "umrah taxi booking", 
+            "jeddah to makkah transfer booking",
+            "makkah to madinah transport booking", 
+            "al kiswah booking", 
+            "حجز تاكسي المعتمرين"
         ],
         alternates: {
-            canonical: 'https://alkiswahumrahtransport.com/booking',
+            canonical: 'https://kiswahumrahcab.com/booking',
         },
         openGraph: {
-            title: "Book Umrah Taxi | Al Kiswah Transport",
+            title: "Book VIP Umrah Taxi & Transfers | Al Kiswah",
             description: "Reserve your safe and comfortable transport for Umrah. Real-time pricing & booking.",
-            url: "https://alkiswahumrahtransport.com/booking",
+            url: "https://kiswahumrahcab.com/booking",
             type: "website",
         }
     };

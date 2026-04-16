@@ -43,7 +43,7 @@ const generateJsonLd = (vehicleData: any) => ({
             "@type": "Product",
             "name": vehicleData?.name || "Hyundai Staria 2024 Luxury Van",
             "image": "https://alkiswahumrahtransport.com/images/fleet/staria-hero-professional.png",
-            "description": `Rent premium ${vehicleData?.name || 'Hyundai Staria'} in Makkah. Luxury ${vehicleData?.passengers || 7}-seater van with panoramic views for VIP families.`,
+            "description": `Book premium ${vehicleData?.name || 'Hyundai Staria'} in Makkah. Luxury ${vehicleData?.passengers || 7}-seater van with panoramic views for VIP families.`,
             "brand": { "@type": "Brand", "name": "Hyundai" },
             "offers": {
                 "@type": "Offer",
@@ -67,16 +67,14 @@ export async function generateMetadata(): Promise<Metadata> {
     const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('staria'));
 
     return {
-        title: vehicleData ? `${vehicleData.name} Rental Saudi Arabia | Family Umrah Taxi` : "Hyundai Staria Rental Saudi Arabia | Family Umrah Taxi",
-        description: vehicleData ? `Rent ${vehicleData.name} in Makkah. Spacious ${vehicleData.passengers}-passenger luxury van for Umrah families. Base Route: ${vehicleData.basePrice} SAR.` : "Rent Hyundai Staria 2025 in Makkah. Spacious 7-passenger luxury van for Umrah families. Modern comfort for Jeddah to Madinah trips.",
+        title: vehicleData ? vehicleData.name + " Family Umrah Transport | Al Kiswah" : "Hyundai Staria Family Transport | Al Kiswah",
+        description: vehicleData ? `Book ${vehicleData.name} in Makkah. Premium ${vehicleData.passengers}-seater SUV for family Umrah transport. Fixed price guarantee.` : "Book Hyundai Staria in Makkah. Premium 9-seater SUV for family Umrah transport. Fixed price guarantee and licensed chauffeur.",
         keywords: [
-            "Hyundai Staria Rental Makkah",
-            "Family Van for Umrah",
-            "Hyundai Staria Jeddah Airport",
-            "7 Seater Taxi Makkah",
-            "Luxury Van Rental Saudi Arabia",
+            "hyundai staria umrah transport",
+            "premium family taxi makkah",
+            "staria umrah transfer",
+            "vip minivan jeddah",
             "هيونداي ستاريا مكة",
-            "تاكسي عائلي جدة",
             "سيارة عائلية للعمرة"
         ],
         alternates: generateMetadataAlternates("/fleet/hyundai-staria"),

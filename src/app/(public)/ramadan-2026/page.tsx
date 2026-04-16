@@ -10,24 +10,37 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import { getSettings } from '@/lib/settings-storage';
 
 export const metadata: Metadata = {
-    title: "Ramadan Umrah Taxi Service 2026 | Makkah to Madinah",
-    description: "Book cheap Umrah transport for Ramadan 2026. 24/7 Umrah cab service for Makkah to Madinah. Family Umrah taxi packages available for Last 10 Nights.",
+    title: "Ramadan 2026 VIP Umrah Transfers | Al Kiswah",
+    description: "Book VIP Umrah transport for Ramadan 2026. 24/7 private transfers for Makkah, Madinah, and Taraweeh. Secure your Last 10 Nights booking.",
     keywords: [
-        "umrah taxi ramadan 2026",
-        "makkah to madinah taxi ramadan",
-        "cheap umrah transport ramadan",
-        "24/7 umrah cab service",
-        "family umrah taxi packages",
-        "ramadan umrah transportation",
-        "Ramadan Transport Makkah",
-        "Last 10 Nights Umrah Taxi",
-        "Taraweeh Transport Makkah"
+        "ramadan umrah transport 2026",
+        "makkah to madinah VIP ramadan",
+        "last 10 nights umrah transfer",
+        "taraweeh transport makkah",
+        "ramadan private taxi"
     ],
     alternates: generateMetadataAlternates("/ramadan-2026"),
     openGraph: {
-        title: "Ramadan 2026 Umrah Taxi Services | Al Kiswa Cab",
-        description: "Secure your ride for Ramadan 2026. Premium vehicles, fixed rates, and 24/7 availability for Taraweeh and Qiyam.",
+        title: "Ramadan 2026 VIP Umrah Transfers | Al Kiswah",
+        description: "Secure your VIP ride for Ramadan 2026. Premium vehicles, fixed rates, and 24/7 availability for Taraweeh and Qiyam.",
         images: [{ url: '/images/blog/ramadan-2026.png', width: 1200, height: 630, alt: 'Ramadan 2026 Umrah Transport' }]
+    }
+};
+
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Ramadan 2026 VIP Umrah Transfers",
+    "provider": {
+        "@type": "LocalBusiness",
+        "name": "Al Kiswah",
+        "image": "https://kiswahumrahcab.com/logo.png"
+    },
+    "description": "Premium VIP transport during Ramadan 2026 for Umrah pilgrims in Makkah and Madinah.",
+    "offers": {
+        "@type": "Offer",
+        "priceCurrency": "SAR",
+        "availability": "https://schema.org/InStock"
     }
 };
 
@@ -99,6 +112,10 @@ export default async function RamadanLandingPage() {
 
     return (
         <main className="min-h-screen bg-primary-black relative">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             {/* Custom Ramadan Hero */}

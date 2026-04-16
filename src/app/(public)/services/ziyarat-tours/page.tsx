@@ -10,25 +10,21 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FadeIn from "@/components/common/FadeIn";
 
 export const metadata: Metadata = {
-    title: "Ziyarat Makkah Madinah Tours | Visit Historical Sites",
-    description: "Private Ziyarat tours in Makkah (Jabal Al-Nour, Arafat) & Madinah (Masjid Quba, Uhud). Experienced drivers sharing Islamic history.",
+    title: "VIP Makkah & Madinah Ziyarat Tours | Al Kiswah",
+    description: "Book private VIP Ziyarat tours in Makkah and Madinah. Fixed prices, knowledgeable drivers for Jabal Al-Nour, Masjid Quba, and guided trips.",
     keywords: [
-        "Ziyarat Tours Makkah",
-        "Ziyarat Madinah Places",
-        "Masjid Quba Transport",
-        "Historical Places Tour Makkah",
-        "Private Ziyarat Taxi",
-        "Taif Day Trip from Makkah",
-        "رحلات زيارة مكة",
-        "مزارات المدينة المنورة",
-        "زيارة مسجد قباء",
-        "جبل النور",
-        "زيارة غار حراء"
+        "ziyarat tours makkah",
+        "ziyarat madinah places",
+        "historical places tour makkah",
+        "private ziyarat transfer",
+        "taif day trip from makkah",
+        "jabal al-nour transport",
+        "masjid quba taxi"
     ],
     alternates: generateMetadataAlternates("/services/ziyarat-tours"),
     openGraph: {
-        title: "Ziyarat Makkah Madinah Tours | Historical Site Visits",
-        description: "Guided private tours to Jabal Al-Nour, Masjid Quba, Mount Uhud, and more. deeply spiritual experience with knowledgeable drivers.",
+        title: "VIP Makkah & Madinah Ziyarat Tours | Al Kiswah",
+        description: "Book private VIP Ziyarat tours in Makkah and Madinah. Fixed prices, knowledgeable drivers.",
         images: [{ url: '/images/routes/makkah-ziyarat-hero.png', width: 1200, height: 630, alt: 'Jabal Al-Nour Makkah Ziyarat' }]
     }
 };
@@ -36,27 +32,27 @@ export const metadata: Metadata = {
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
-    "name": "Makkah and Madinah Ziyarat Tour",
-    "description": "Private guided tour of historical Islamic sites in Makkah and Madinah including Cave Hira and Masjid Quba.",
+    "name": "VIP Makkah & Madinah Ziyarat Tour",
     "provider": {
-        "@type": "TransportationService",
-        "name": "Al Kiswah Transport"
+        "@type": "LocalBusiness",
+        "name": "Al Kiswah",
+        "image": "https://kiswahumrahcab.com/logo.png"
     },
+    "description": "Private guided VIP tour of historical Islamic sites in Makkah and Madinah.",
     "itinerary": [
         {
             "@type": "City",
             "name": "Makkah",
-            "description": "Visit Jabal Al-Nour, Jabal Thawr, and Arafat. زيارة جبل النور وغار ثور."
+            "description": "Visit Jabal Al-Nour, Jabal Thawr, and Arafat."
         },
         {
             "@type": "City",
             "name": "Madinah",
-            "description": "Visit Masjid Quba, Mount Uhud, and Qiblatayn. زيارة مسجد قباء وجبل أحد."
+            "description": "Visit Masjid Quba, Mount Uhud, and Qiblatayn."
         }
     ],
     "offers": {
         "@type": "Offer",
-        "price": "300",
         "priceCurrency": "SAR",
         "availability": "https://schema.org/InStock"
     }

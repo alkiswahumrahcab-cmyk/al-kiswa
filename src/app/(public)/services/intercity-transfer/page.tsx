@@ -12,13 +12,20 @@ import { RouteWithPrices } from '@/services/routeService';
 import GlassCard from '@/components/ui/GlassCard';
 
 export const metadata = {
-    title: "Makkah to Madinah Taxi & Intercity Transport | Al Kiswah",
-    description: "Comfortable Makkah to Madinah transport. Reliable intercity taxi transfers between Jeddah, Makkah & Madinah. Enjoy a seamless, spiritual travel experience.",
-    keywords: ["Makkah to Madinah taxi", "Madinah to Makkah transport", "Haramain transport", "VIP intercity taxi", "Jeddah to Madinah taxi", "KSA intercity transfer"],
+    title: "Intercity VIP Transport Jeddah Makkah Madinah | Al Kiswah",
+    description: "Book private intercity taxi transfers between Jeddah, Makkah, and Madinah. Luxury fleet, professional drivers, fixed prices. Book online in 60 seconds.",
+    keywords: [
+        "intercity umrah transport",
+        "private intercity taxi ksa",
+        "makkah madinah jeddah transport",
+        "umrah vip transport 2026",
+        "taxi from makkah to madinah",
+        "KSA intercity transfer"
+    ],
     alternates: generateMetadataAlternates("/services/intercity-transfer"),
     openGraph: {
-        title: "Makkah to Madinah Taxi & Intercity Transport | VIP Fleet",
-        description: "Travel comfortably between Jeddah, Makkah, and Madinah. Premium private taxi service with experienced drivers.",
+        title: "Intercity VIP Transport Jeddah Makkah Madinah | Al Kiswah",
+        description: "Book private intercity taxi transfers between Jeddah, Makkah, and Madinah. Luxury fleet, professional drivers, fixed prices.",
         images: [{ url: '/images/routes/routes-network-hero.png', width: 1200, height: 630, alt: 'Saudi Arabia Intercity Transport Network' }]
     }
 };
@@ -29,17 +36,16 @@ const jsonLd = {
     "name": "Intercity Transport Service",
     "provider": {
         "@type": "LocalBusiness",
-        "name": "Al Kiswah Transport"
+        "name": "Al Kiswah"
     },
-    "serviceType": "Ground Transport",
+    "serviceType": "Intercity Taxi Transfer",
     "areaServed": {
         "@type": "Country",
         "name": "Saudi Arabia"
     },
-    "description": "Luxury intercity transfers between Makkah, Madinah, and Jeddah.",
+    "description": "Premium private taxi service for intercity travel between Jeddah, Makkah, and Madinah.",
     "offers": {
         "@type": "Offer",
-        "price": "450",
         "priceCurrency": "SAR",
         "availability": "https://schema.org/InStock"
     }
@@ -112,8 +118,8 @@ export default async function IntercityTransferPage() {
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <Hero
-                title="VIP Intercity Transfers"
-                subtitle="Travel between the Holy Cities in absolute comfort. Our premium fleet ensures a restful journey on the Hijrah Route."
+                title="Intercity VIP Transport"
+                subtitle="Book private intercity taxi transfers between Jeddah, Makkah, and Madinah. Luxury fleet, professional drivers, fixed prices."
                 bgImage="/images/routes/routes-network-hero.png"
                 ctaText="View Route Map"
                 ctaLink="#interactive-map"

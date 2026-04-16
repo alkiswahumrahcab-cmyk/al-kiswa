@@ -15,9 +15,9 @@ import { vehicleService } from '@/services/vehicleService';
 const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": vehicleData?.name || "Hyundai H1 Starex Van Rental",
+    "name": vehicleData?.name || "Hyundai H1 Starex Van Transport",
     "image": "https://alkiswahumrahtransport.com/images/fleet/starex-hero-professional.png",
-    "description": `Rent luxury ${vehicleData?.name || 'Hyundai H1 Starex'} in Makkah & Madinah. ${vehicleData?.passengers || 7} Seater SUV for VIP Umrah transport.`,
+    "description": `Book luxury ${vehicleData?.name || 'Hyundai H1 Starex'} in Makkah & Madinah. ${vehicleData?.passengers || 7} Seater SUV for VIP Umrah transport.`,
     "brand": { "@type": "Brand", "name": "Hyundai" },
     "offers": { 
         "@type": "Offer", 
@@ -33,14 +33,15 @@ export async function generateMetadata(): Promise<Metadata> {
     const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('starex'));
 
     return {
-        title: vehicleData ? `${vehicleData.name} Rental Makkah | Family Van Umrah Taxi` : "Hyundai H1 Starex Van Rental Makkah",
-        description: vehicleData ? `Rent ${vehicleData.name} in Makkah & Madinah. ${vehicleData.passengers}-seater van. Base Route: ${vehicleData.basePrice} SAR.` : "Rent Hyundai H1 Starex 7-seater van in Makkah. Spacious family transport for Umrah.",
+        title: vehicleData ? vehicleData.name + " Umrah Minivan Transport | Al Kiswah" : "Hyundai Starex Umrah Transport | Al Kiswah",
+        description: vehicleData ? `Book ${vehicleData.name} in Makkah. ${vehicleData.passengers}-seater family minivan for Umrah transport. Fixed price transfers.` : "Book Hyundai Starex in Makkah. 9-seater family minivan for Umrah transport. Fixed price transfers from Jeddah Airport.",
         keywords: [
-            "Hyundai Starex Rental Makkah",
-            "H1 Van Rental Saudi Arabia",
-            "7 Seater Taxi Makkah",
-            "Jeddah Airport Family Taxi",
-            "حجز باص هيونداي مكة"
+            "hyundai starex umrah transport",
+            "family minivan taxi makkah",
+            "jeddah airport to makkah transfer",
+            "starex umrah cab",
+            "فان عائلي مكة",
+            "توصيل مطار جدة"
         ],
         alternates: generateMetadataAlternates("/fleet/hyundai-starex"),
     };

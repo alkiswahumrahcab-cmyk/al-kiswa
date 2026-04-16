@@ -12,15 +12,53 @@ import dynamic from 'next/dynamic';
 const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 
 export const metadata: Metadata = {
-  alternates: generateMetadataAlternates("/services/hotel-transfers"),
-    title: 'Hotel Transfers Makkah & Madinah | Al Kiswah Umrah Transport',
-    description: 'Reliable door-to-door hotel transfers in Makkah and Madinah. 24/7 comfortable transport between your hotel and the Holy Harams. Book your ride now.',
-    keywords: ['hotel transfer Makkah', 'hotel transfer Madinah', 'Umrah hotel shuttle', 'family transport Makkah', 'VIP hotel transfer Saudi Arabia']
+    title: "VIP Hotel Transfers Makkah & Madinah | Al Kiswah",
+    description: "Book VIP hotel transfers in Makkah and Madinah. Enjoy door-to-door, fixed price transport to Masjid Al Haram and Masjid Nabawi.",
+    keywords: [
+        "vip hotel transfers makkah",
+        "masjid nabawi hotel taxi",
+        "umrah hotel transfer",
+        "makkah hotel private transport",
+        "madinah hotel shuttle services"
+    ],
+    alternates: generateMetadataAlternates("/services/hotel-transfers")
+};
+
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Makkah & Madinah Hotel Transfers",
+    "provider": {
+        "@type": "LocalBusiness",
+        "name": "Al Kiswah",
+        "image": "https://kiswahumrahcab.com/logo.png"
+    },
+    "serviceType": "Hotel Transfer",
+    "areaServed": [
+        {
+            "@type": "City",
+            "name": "Makkah"
+        },
+        {
+            "@type": "City",
+            "name": "Madinah"
+        }
+    ],
+    "description": "Premium VIP door-to-door hotel transport in Makkah and Madinah.",
+    "offers": {
+        "@type": "Offer",
+        "priceCurrency": "SAR",
+        "availability": "https://schema.org/InStock"
+    }
 };
 
 export default function HotelTransferPage() {
     return (
         <main className="bg-primary-black text-white min-h-screen relative">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none fixed" />
 
             {/* Hero Section */}

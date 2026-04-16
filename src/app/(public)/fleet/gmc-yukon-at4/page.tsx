@@ -41,9 +41,9 @@ const generateJsonLd = (vehicleData: any) => ({
         },
         {
             "@type": "Product",
-            "name": vehicleData?.name || "GMC Yukon XL 2024 Rental Makkah",
+            "name": vehicleData?.name || "GMC Yukon XL 2024 Transport Makkah",
             "image": "https://alkiswahumrahtransport.com/images/fleet/gmc-yukon-hero-professional.png",
-            "description": `Rent luxury ${vehicleData?.name || 'GMC Yukon XL'} in Makkah & Madinah. ${vehicleData?.passengers || 7} Seater SUV for VIP Umrah transport.`,
+            "description": `Book luxury ${vehicleData?.name || 'GMC Yukon XL'} in Makkah & Madinah. ${vehicleData?.passengers || 7} Seater SUV for VIP Umrah transport.`,
             "brand": {
                 "@type": "Brand",
                 "name": "GMC"
@@ -70,16 +70,14 @@ export async function generateMetadata(): Promise<Metadata> {
     const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('yukon') || v.name.toLowerCase().includes('gmc'));
 
     return {
-        title: vehicleData ? `${vehicleData.name} Rental Makkah | VIP Umrah Taxi` : "GMC Yukon Rental Makkah | VIP Umrah Taxi Cost",
-        description: vehicleData ? `Book new ${vehicleData.name} in Makkah. Luxury ${vehicleData.passengers}-seater SUV for Jeddah Airport pickup and Makkah to Madinah travel. VIP private chauffeur.` : "Book new GMC Yukon XL in Makkah. Luxury 7-seater SUV for Jeddah Airport pickup and Makkah to Madinah travel. VIP private chauffeur.",
+        title: vehicleData ? vehicleData.name + " VIP Umrah Transport | Al Kiswah" : "GMC Yukon VIP Umrah Transport | Al Kiswah",
+        description: vehicleData ? `Book ${vehicleData.name} in Makkah. Luxury ${vehicleData.passengers}-seater SUV for VIP Umrah transfers. Licensed chauffeur service.` : "Book GMC Yukon in Makkah. Luxury 7-seater SUV for VIP Umrah transfers. Licensed chauffeur service for 5,000+ pilgrims.",
         keywords: [
-            "GMC Yukon Rental Makkah",
-            "GMC Yukon XL Saudi Arabia",
-            "VIP Umrah Taxi Makkah",
-            "Luxury SUV Rental Jeddah",
-            "GMC Yukon with Driver",
+            "gmc yukon umrah transport",
+            "vip umrah taxi makkah",
+            "luxury suv transfer jeddah",
+            "gmc yukon with driver",
             "حجز جمس يوكن مكة",
-            "ايجار سيارات فخمة جدة",
             "توصيل كبار الشخصيات"
         ],
         alternates: generateMetadataAlternates("/fleet/gmc-yukon-at4"),
@@ -137,7 +135,7 @@ export default async function GmcYukonPage() {
                 vehicleImage="/images/fleet/gmc-yukon-2025.png"
                 vehicleType="gmc"
                 title="VIP GMC Yukon Rates | Jeddah, Makkah & Madinah"
-                subtitle="The pinnacle of comfort for your spiritual journey. Transparent VIP pricing for all routes."
+                subtitle="The pinnacle of comfort for your spiritual journey. Transpabook VIP pricing for all routes."
             />
 
             {/* Vehicle Highlights */}
@@ -285,7 +283,7 @@ export default async function GmcYukonPage() {
 
             <FleetCarouselWrapper />
 
-            <FAQSection items={gmcFAQs} title="GMC Yukon Rental - Frequently Asked Questions" />
+            <FAQSection items={gmcFAQs} title="GMC Yukon Transport - Frequently Asked Questions" />
         </main>
     );
 }

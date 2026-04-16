@@ -1,7 +1,7 @@
-import { WithContext, Organization, LocalBusiness, Service, BreadcrumbList, Offer, AboutPage, ContactPage, Article } from 'schema-dts';
+import { WithContext, Organization, LocalBusiness, Service, BreadcrumbList, Offer, AboutPage, ContactPage, Article, FAQPage, Question, Answer } from 'schema-dts';
 import settings from '@/data/settings.json';
 
-const siteUrl = 'https://alkiswahumrahtransport.com';
+const siteUrl = 'https://kiswahumrahcab.com';
 
 export const generateOrganizationSchema = (): WithContext<Organization> => ({
     '@context': 'https://schema.org',
@@ -20,29 +20,28 @@ export const generateOrganizationSchema = (): WithContext<Organization> => ({
         settings.contact.social.facebook,
         settings.contact.social.instagram,
         settings.contact.social.twitter,
-        // Add other social links if available
     ].filter(Boolean) as string[],
 });
 
 export const generateLocalBusinessSchema = (): WithContext<LocalBusiness> => ({
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness', // or TaxiService if more specific
+    '@type': 'LocalBusiness',
     name: settings.general.siteName,
-    image: `${siteUrl}/images/fleet/gmc-yukon-studio.png`, // Valid high-quality image
+    image: `${siteUrl}/images/fleet/gmc-yukon-studio.png`,
     '@id': siteUrl,
     url: siteUrl,
     telephone: settings.contact.phone,
     address: {
         '@type': 'PostalAddress',
-        streetAddress: settings.contact.address, // Update with more specific street if available
+        streetAddress: settings.contact.address,
         addressLocality: 'Makkah',
         addressRegion: 'Makkah Region',
-        postalCode: '24231', // Example default, update if known
+        postalCode: '24231',
         addressCountry: 'SA',
     },
     geo: {
         '@type': 'GeoCoordinates',
-        latitude: 21.3891, // Makkah coordinates
+        latitude: 21.3891,
         longitude: 39.8579,
     },
     openingHoursSpecification: {
@@ -62,6 +61,30 @@ export const generateLocalBusinessSchema = (): WithContext<LocalBusiness> => ({
     priceRange: '$$',
     currenciesAccepted: 'SAR, USD, GBP, EUR',
     paymentAccepted: 'Cash, Credit Card, Online Payment',
+});
+
+export const generateFAQSchema = (faqs: { question: string, answer: string }[]): WithContext<FAQPage> => ({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(faq => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer
+        }
+    })) as Question[]
+});
+
+export const generateBreadcrumbSchema = (items: { name: string, item: string }[]): WithContext<BreadcrumbList> => ({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        item: item.item.startsWith('http') ? item.item : `${siteUrl}${item.item}`
+    }))
 });
 
 export const generateServiceSchema = (
@@ -136,7 +159,7 @@ export const generateServiceSchema = (
 export const generateAboutPageSchema = (): WithContext<AboutPage> => ({
     '@context': 'https://schema.org',
     '@type': 'AboutPage',
-    name: "About Al Kiswah Umrah Transport",
+    name: `About ${settings.general.siteName}`,
     description: "Information about Al Kiswah Umrah Transport, a leading provider of pilgrim transport services in Saudi Arabia.",
     url: `${siteUrl}/about`,
     mainEntity: {
@@ -149,7 +172,7 @@ export const generateAboutPageSchema = (): WithContext<AboutPage> => ({
 export const generateContactPageSchema = (): WithContext<ContactPage> => ({
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    name: "Contact Al Kiswah Umrah Transport",
+    name: `Contact ${settings.general.siteName}`,
     description: "Contact details and booking support for Al Kiswah Umrah Transport.",
     url: `${siteUrl}/contact`,
     mainEntity: {
@@ -184,5 +207,6 @@ export const generateArticleSchema = (post: any): WithContext<Article> => ({
         }
     },
     description: post.excerpt,
-    articleBody: post.content.replace(/<[^>]*>?/gm, '') // Strip HTML
+    articleBody: (post.content || '').replace(/<[^>]*>?/gm, '') // Strip HTML
 });
+

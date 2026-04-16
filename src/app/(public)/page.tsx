@@ -38,20 +38,21 @@ import { metaKeywords } from '@/data/seo-keywords';
 
 export async function generateMetadata() {
   return {
-    title: "Al Kiswah Umrah Transport | Trusted by 5,000+ Pilgrims | Jeddah · Makkah · Madinah",
-    description: "Licensed Umrah taxi service with 12,000+ trips completed and a 5-star rating. Private transfers from Jeddah Airport to Makkah, Makkah to Madinah. Serving UK, Gulf & European pilgrims.",
+    title: "Umrah Taxi Jeddah–Makkah–Madinah | Al Kiswah",
+    description: "Book a private Umrah taxi in Saudi Arabia. Trusted by 5,000+ pilgrims since 2014. Fixed prices, 24/7 support, GMC Yukon & Staria fleet. No prepayment required.",
     alternates: generateMetadataAlternates("/"),
     keywords: [
-      ...metaKeywords,
-      "Jeddah to Makkah taxi price",
-      "Haramain high speed railway transfer",
+      "umrah taxi jeddah makkah madinah",
+      "private umrah transport saudi arabia",
+      "umrah cab service 2026",
+      "trusted umrah transport company",
+      "Jeddah Airport to Makkah taxi",
       "Mecca transport services",
-      "Madinah airport taxi",
-      "Al Kiswah Umrah Transport"
+      "Madinah airport taxi"
     ],
     openGraph: {
-      title: "Al Kiswah Umrah Transport — 5,000+ Pilgrims Served",
-      description: "Your trusted private taxi for Umrah. Jeddah Airport → Makkah → Madinah. 10+ years · 5★ rated · Ministry licensed.",
+      title: "Umrah Taxi Jeddah–Makkah–Madinah | Al Kiswah",
+      description: "Book a private Umrah taxi in Saudi Arabia. Trusted by 5,000+ pilgrims since 2014. Fixed prices, 24/7 support. GMC Yukon & Staria available.",
       url: "https://kiswahumrahcab.com",
       siteName: "Al Kiswah Umrah Transport",
       images: [
@@ -59,16 +60,16 @@ export async function generateMetadata() {
           url: "https://kiswahumrahcab.com/images/og-image.jpg",
           width: 1200,
           height: 630,
-          alt: "Al Kiswah Umrah Transport — Jeddah Airport to Makkah Private Taxi",
+          alt: "Al Kiswah Umrah Transport — Umrah Taxi Jeddah Makkah Madinah",
         },
       ],
       locale: "en_GB",
-      alternateLocale: ["ar_SA", "fr_FR", "de_DE"],
+      alternateLocale: ["ar_SA"],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Al Kiswah Umrah Transport | 5,000+ Pilgrims Trusted Us",
+      title: "Umrah Taxi Jeddah–Makkah–Madinah | Al Kiswah",
       description: "Private Umrah taxi from Jeddah Airport to Makkah. Ministry licensed. Fixed prices. 5★ rated.",
       images: ["https://kiswahumrahcab.com/images/og-image.jpg"],
     }
@@ -77,8 +78,8 @@ export async function generateMetadata() {
 
 export default async function Home() {
   const heroSection = await getSectionContent('home-hero');
-  const heroTitle = heroSection?.title || "Your Trusted Companion for a Blessed Umrah Journey";
-  const heroSubtitleText = heroSection?.subtitle || "Focus on your Ibadah, while we handle the road. Reliable, comfortable, and always on time—from Jeddah Airport to the Haram.";
+  const heroTitle = "Your Trusted Umrah Taxi in Jeddah, Makkah & Madinah";
+  const heroSubtitleText = "Book your private umrah transport with our licensed drivers. Direct transfers from Jeddah Airport to your hotel in Makkah or Madinah at a guaranteed fixed price. Dedicated to serving pilgrims since 2014.";
   const heroSubtitleContent = (
     <>
       <span className="block opacity-90">{heroSubtitleText}</span>
@@ -108,9 +109,10 @@ export default async function Home() {
   return (
     <main className="overflow-x-hidden">
       {/* JSON-LD Structured Data */}
+      <JsonLdScript schema={generateLocalBusinessSchema()} />
       <JsonLdScript schema={generateServiceSchema(
         "Umrah Taxi Services",
-        "Premium and reliable taxi services for pilgrims between Jeddah, Makkah, and Madinah.",
+        "Premium and reliable private umrah transport for pilgrims between Jeddah Airport, Makkah, and Madinah.",
         heroImage
       )} />
 

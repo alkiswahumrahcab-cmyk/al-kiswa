@@ -67,16 +67,15 @@ export async function generateMetadata(): Promise<Metadata> {
     const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('camry'));
 
     return {
-        title: vehicleData ? `${vehicleData.name} Taxi Makkah | Umrah Cab Sedan` : "Toyota Camry 2024 Taxi Makkah",
-        description: vehicleData ? `Affordable ${vehicleData.name} taxi for Umrah. Reliable ${vehicleData.passengers}-seater sedan. Base Route: ${vehicleData.basePrice} SAR.` : "Affordable Toyota Camry taxi for Umrah. Reliable 4-seater sedan for Jeddah to Makkah transfers.",
+        title: vehicleData ? vehicleData.name + " Private Umrah Transport | Al Kiswah" : "Toyota Camry Private Transport | Al Kiswah",
+        description: vehicleData ? `Book ${vehicleData.name} in Makkah. Comfortable ${vehicleData.passengers}-seater sedan for private Umrah transport. Fixed prices.` : "Book Toyota Camry in Makkah. Comfortable 4-seater sedan for private Umrah transport. Fixed prices and 24/7 availability.",
         keywords: [
-            "Toyota Camry Umrah Taxi",
-            "Makkah Taxi Service",
-            "Jeddah to Makkah Cab",
-            "Affordable Umrah Transport",
-            "4 Seater Sedan Jeddah",
-            "تاكسي مكة كامري",
-            "توصيل المطار جدة"
+            "toyota camry umrah transport",
+            "private sedan taxi makkah",
+            "camry umrah transfer",
+            "couple umrah taxi",
+            "كامري توصيل مكة",
+            "سيارة خاصة مكة"
         ],
         alternates: generateMetadataAlternates("/fleet/toyota-camry"),
     };
