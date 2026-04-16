@@ -33,7 +33,7 @@ const MeetOurDrivers = dynamic(() => import('@/components/home/MeetOurDrivers'))
 const ImpactStats = dynamic(() => import('@/components/about/ImpactStats'));
 const FAQSection = dynamic(() => import('@/components/blog/FAQSection'));
 import { JsonLdScript } from "@/components/seo/JsonLd";
-import { generateServiceSchema } from "@/components/seo/schema-generator";
+import { generateServiceSchema, generateLocalBusinessSchema } from "@/components/seo/schema-generator";
 import { metaKeywords } from '@/data/seo-keywords';
 
 export async function generateMetadata() {
