@@ -77,26 +77,8 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
 
         const fullPhone = `${selectedCountry.code}${data.phone.replace(/^\+?\d{1,4}/, '')}`;
 
-        const message = `📋 *New Booking Request*
-------------------
-👤 *Name:* ${data.name}
-📱 *Phone:* ${fullPhone}
-📍 *Pickup:* ${data.pickup || 'Not selected'}
-🏁 *Dropoff:* ${data.dropoff || 'Not selected'}
-📅 *Date:* ${data.date?.toLocaleDateString()}
-⏰ *Time:* ${data.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-🚗 *Vehicles:* 
-${selectedList.map((item: any) => `   - ${item.vehicle?.name} (x${item.count})`).join('\n')}
-💰 *Total:* ${grandTotal} SAR
-${data.notes ? `📝 *Notes:* ${data.notes}` : ''}
-------------------
-*Sent via Al Kiswah Website*`;
-
-        const whatsappNumber = settings?.contact?.whatsapp?.replace(/\D/g, '') || '966545494921';
-        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
         try {
-            fetch('/api/bookings', {
+            const response = await fetch('/api/bookings', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -112,7 +94,6 @@ ${data.notes ? `📝 *Notes:* ${data.notes}` : ''}
                     luggage: data.luggage || 0,
                     notes: data.notes || '',
                     routeId: data.routeId || '',
-                    // Fix: API expects { vehicleId, quantity } — not { id, count }
                     selectedVehicles: (data.selectedVehicles || []).map((item: any) => ({
                         vehicleId: item.id,
                         quantity: item.count,
@@ -120,13 +101,16 @@ ${data.notes ? `📝 *Notes:* ${data.notes}` : ''}
                     vehicleCount: selectedList.reduce((acc: number, i: any) => acc + i.count, 0),
                     status: 'pending',
                 })
-            }).catch(err => console.error('DB Save failed:', err));
+            });
 
-            await new Promise(resolve => setTimeout(resolve, 800));
-            window.open(whatsappUrl, '_blank');
-            setIsSuccess(true);
-        } catch {
-            window.open(whatsappUrl, '_blank');
+            if (response.ok) {
+                setIsSuccess(true);
+            } else {
+                setErrors({ submit: 'Something went wrong. Please try again.' });
+            }
+        } catch (err) {
+            console.error('Booking submission failed:', err);
+            setErrors({ submit: 'Connection error. Please check your internet.' });
         } finally {
             setIsSubmitting(false);
         }
@@ -143,9 +127,9 @@ ${data.notes ? `📝 *Notes:* ${data.notes}` : ''}
                 >
                     <CheckCircle size={44} strokeWidth={1.5} />
                 </motion.div>
-                <h2 className="text-3xl font-bold text-white mb-3">Request Received!</h2>
+                <h2 className="text-3xl font-bold text-white mb-3">Booking Confirmed!</h2>
                 <p className="text-gray-400 max-w-md mx-auto text-base font-light leading-relaxed mb-8">
-                    Our team will contact you via WhatsApp shortly to confirm your booking.
+                    A confirmation email has been sent to <span className="text-gold-primary font-medium">{data.email}</span>. Please check your inbox for trip details.
                 </p>
 
                 <button
@@ -342,9 +326,8 @@ ${data.notes ? `📝 *Notes:* ${data.notes}` : ''}
                         {errors.email && <p className="text-xs text-red-400 font-semibold ml-1">{errors.email}</p>}
                     </div>
 
-                    {/* Phone with Country Code */}
                     <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-gold-primary uppercase tracking-widest ml-1">WhatsApp / Phone</label>
+                        <label className="text-xs font-bold text-gold-primary uppercase tracking-widest ml-1">Phone Number</label>
                         <div className={`flex items-center bg-white/5 border rounded-2xl overflow-hidden transition-all focus-within:border-gold-primary focus-within:bg-white/10 focus-within:shadow-[0_0_20px_rgba(212,175,55,0.1)] ${errors.phone ? 'border-red-500/50' : 'border-white/10'}`}>
                             <div className="relative">
                                 <button
@@ -480,7 +463,6 @@ ${data.notes ? `📝 *Notes:* ${data.notes}` : ''}
                 </div>
             </div>
 
-            {/* ── Mobile Form Fields ── */}
             <div className="md:hidden space-y-4">
                 {/* Name */}
                 <div className="space-y-1.5">
@@ -518,9 +500,9 @@ ${data.notes ? `📝 *Notes:* ${data.notes}` : ''}
                     {errors.email && <p className="text-xs text-red-400 font-semibold ml-1">{errors.email}</p>}
                 </div>
 
-                {/* Phone with Country Code */}
+                {/* Phone Number - Mobile */}
                 <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-gold-primary uppercase tracking-widest ml-1">WhatsApp / Phone</label>
+                    <label className="text-xs font-bold text-gold-primary uppercase tracking-widest ml-1">Phone Number</label>
                     <div className={`flex items-center bg-white/5 border rounded-xl overflow-visible transition-all focus-within:border-gold-primary relative ${errors.phone ? 'border-red-500/50' : 'border-white/10'}`}>
                         <div className="relative z-10">
                             <button
@@ -599,10 +581,8 @@ ${data.notes ? `📝 *Notes:* ${data.notes}` : ''}
                         <Loader2 className="animate-spin" size={22} />
                     ) : (
                         <>
-                            <svg viewBox="0 0 24 24" className="w-5 h-5 fill-black" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-                            </svg>
-                            Confirm on WhatsApp
+                            <Mail size={20} className="group-hover:scale-110 transition-transform" />
+                            Confirm Booking
                             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </>
                     )}
