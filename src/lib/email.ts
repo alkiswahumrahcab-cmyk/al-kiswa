@@ -168,7 +168,7 @@ export const sendBookingConfirmationEmail = async (booking: BookingData) => {
 
 export const sendAdminNewBookingEmail = async (booking: BookingData) => {
     // Primary company email as requested by user
-    const adminEmail = 'alkiswahymrahcab@gmail.com' || process.env.ADMIN_EMAIL_NOTIFICATIONS || process.env.EMAIL_USER; 
+    const adminEmail = 'alkiswahymrahcab@gmail.com'; 
     if (!adminEmail) return false;
 
     // 1. Fetch Request Settings

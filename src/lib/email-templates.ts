@@ -136,7 +136,7 @@ export const replaceTemplateVariables = (template: string, variables: Record<str
     let result = template;
     for (const [key, value] of Object.entries(variables)) {
         // Replace {{key}} case-insensitive
-        const regex = new RegExp(\`{{\${key}}}\`, 'gi');
+        const regex = new RegExp(`{{${key}}}`, 'gi');
         result = result.replace(regex, value !== undefined && value !== null ? String(value) : '');
     }
     return result;
