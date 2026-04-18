@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './WhatsAppButton.module.css';
 
 import { useMenu } from '@/context/MenuContext';
@@ -9,10 +9,24 @@ import { useSettings } from '@/context/SettingsContext';
 const WhatsAppButton = () => {
     const { isMenuOpen } = useMenu();
     const { settings } = useSettings();
+    const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
 
-    if (isMenuOpen) return null;
+    useEffect(() => {
+        // Detect virtual keyboard using visualViewport API (iOS + Android)
+        const viewport = window.visualViewport;
+        if (!viewport) return;
 
-    if (isMenuOpen || !settings?.contact) return null;
+        const handleResize = () => {
+            // If viewport height shrinks by more than 150px, keyboard is open
+            const keyboardOpen = window.innerHeight - viewport.height > 150;
+            setIsKeyboardOpen(keyboardOpen);
+        };
+
+        viewport.addEventListener('resize', handleResize);
+        return () => viewport.removeEventListener('resize', handleResize);
+    }, []);
+
+    if (isMenuOpen || !settings?.contact || isKeyboardOpen) return null;
 
     const phoneNumber = settings.contact.phone || '+966548707332';
     const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\D/g, '')}`;
