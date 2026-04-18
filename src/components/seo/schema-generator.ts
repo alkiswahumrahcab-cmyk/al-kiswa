@@ -20,6 +20,7 @@ export const generateOrganizationSchema = (): WithContext<Organization> => ({
         settings.contact.social.facebook,
         settings.contact.social.instagram,
         settings.contact.social.twitter,
+        settings.contact.social.googleBusiness,
     ].filter(Boolean) as string[],
 });
 
