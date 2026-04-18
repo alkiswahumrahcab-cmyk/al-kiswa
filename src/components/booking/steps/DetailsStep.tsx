@@ -100,14 +100,25 @@ ${data.notes ? `📝 *Notes:* ${data.notes}` : ''}
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    ...data,
+                    name: data.name,
+                    email: data.email,
                     phone: fullPhone,
+                    pickup: data.pickup,
+                    dropoff: data.dropoff,
                     date: data.date?.toISOString().split('T')[0],
                     time: data.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }),
                     vehicle: vehicleNames,
-                    vehicleCount: selectedList.length,
-                    totalPrice: grandTotal,
-                    status: 'whatsapp_pending'
+                    passengers: data.passengers || 1,
+                    luggage: data.luggage || 0,
+                    notes: data.notes || '',
+                    routeId: data.routeId || '',
+                    // Fix: API expects { vehicleId, quantity } — not { id, count }
+                    selectedVehicles: (data.selectedVehicles || []).map((item: any) => ({
+                        vehicleId: item.id,
+                        quantity: item.count,
+                    })),
+                    vehicleCount: selectedList.reduce((acc: number, i: any) => acc + i.count, 0),
+                    status: 'pending',
                 })
             }).catch(err => console.error('DB Save failed:', err));
 
