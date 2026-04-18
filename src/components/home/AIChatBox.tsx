@@ -23,6 +23,7 @@ interface AIChatBoxProps {
 export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps) {
     const { settings } = useSettings();
     const [isOpen, setIsOpen] = useState(false);
+    const [showWelcome, setShowWelcome] = useState(true);
     const [messages, setMessages] = useState<Message[]>([
         {
             id: '1',
@@ -143,12 +144,22 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
     return (
         <div className={styles.container}>
             {/* Welcome Bubble */}
-            {!isOpen && (
+            {!isOpen && showWelcome && (
                 <div className={styles.welcomeBubble} onClick={toggleChat}>
                     <div className={styles.bubbleContent}>
                         <Bot size={20} className="text-[#EFBF5B]" />
                         <span>Need help with your booking?</span>
                     </div>
+                    <button 
+                        className={styles.bubbleClose}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setShowWelcome(false);
+                        }}
+                    >
+                        <X size={12} />
+                    </button>
+                    <div className={styles.bubbleArrow} />
                 </div>
             )}
 

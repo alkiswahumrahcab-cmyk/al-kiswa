@@ -378,6 +378,31 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    padding-right: 1.5rem;
+}
+
+.bubbleClose {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 10px;
+}
+
+.bubbleClose:hover {
+    background: rgba(239, 191, 91, 0.2);
+    color: #EFBF5B;
+    transform: scale(1.1);
 }
 
 .bubbleArrow {
