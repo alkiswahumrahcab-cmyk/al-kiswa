@@ -62,9 +62,43 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
 
     const validateForm = () => {
         const newErrors: Record<string, string> = {};
-        if (!data.name.trim()) newErrors.name = 'Full name is required';
-        if (!data.email.trim() || !data.email.includes('@')) newErrors.email = 'Valid email is required';
-        if (!data.phone.trim()) newErrors.phone = 'WhatsApp number is required';
+
+        // Name validation
+        if (!data.name || !data.name.trim()) {
+            newErrors.name = 'Full name is required';
+        } else if (data.name.trim().length < 2) {
+            newErrors.name = 'Name must be at least 2 characters';
+        }
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!data.email || !data.email.trim()) {
+            newErrors.email = 'Email address is required';
+        } else if (!emailRegex.test(data.email.trim())) {
+            newErrors.email = 'Please enter a valid email address (e.g. name@gmail.com)';
+        }
+
+        // Phone validation — user enters local number, we prepend country code
+        const rawPhone = data.phone ? data.phone.trim().replace(/[\s\-().]/g, '') : '';
+        if (!rawPhone) {
+            newErrors.phone = 'Phone number is required';
+        } else if (rawPhone.length < 7) {
+            newErrors.phone = 'Phone number is too short — please enter a valid local number';
+        } else if (!/^\d+$/.test(rawPhone)) {
+            newErrors.phone = 'Phone number must contain digits only (no spaces or dashes needed)';
+        }
+
+        // Journey data sanity checks (catch cases where user somehow reaches step 3 with missing data)
+        if (!data.pickup || !data.pickup.trim()) {
+            newErrors.submit = 'Pickup location is missing. Please go back and select your route.';
+        } else if (!data.dropoff || !data.dropoff.trim()) {
+            newErrors.submit = 'Dropoff location is missing. Please go back and select your route.';
+        } else if (!data.date) {
+            newErrors.submit = 'Travel date is missing. Please go back and select a date.';
+        } else if (!data.time) {
+            newErrors.submit = 'Travel time is missing. Please go back and select a time.';
+        }
+
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             return false;
@@ -75,34 +109,35 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
     const handleSubmit = async () => {
         if (!validateForm()) return;
         setIsSubmitting(true);
-        setErrors({}); // Clear any previous submission errors
+        setErrors({});
 
-        const fullPhone = `${selectedCountry.code}${data.phone.replace(/^\+?\d{1,4}/, '')}`;
-        
-        // Robust time formatting (HH:MM) to satisfy strict backend regex
-        const timeStr = data.time ? 
-            `${String(data.time.getHours()).padStart(2, '0')}:${String(data.time.getMinutes()).padStart(2, '0')}` : 
-            '12:00';
+        // FIX: Just prepend the country code to the raw local number — do NOT strip user digits
+        const rawPhone = data.phone.trim().replace(/[\s\-().]/g, '');
+        const fullPhone = `${selectedCountry.code}${rawPhone}`;
+
+        // Robust time formatting (HH:MM) to satisfy backend regex
+        const timeStr = data.time
+            ? `${String(data.time.getHours()).padStart(2, '0')}:${String(data.time.getMinutes()).padStart(2, '0')}`
+            : '12:00';
 
         const payload = {
-            name: data.name,
-            email: data.email,
+            name: data.name.trim(),
+            email: data.email.trim(),
             phone: fullPhone,
-            pickup: data.pickup,
-            dropoff: data.dropoff,
+            pickup: data.pickup.trim(),
+            dropoff: data.dropoff.trim(),
             date: data.date?.toISOString().split('T')[0],
             time: timeStr,
-            vehicle: vehicleNames,
-            passengers: Number(data.passengers || 1), // Explicitly cast to Number
-            luggage: Number(data.luggage || 0), // Explicitly cast to Number
+            vehicle: vehicleNames || 'Custom Booking',
+            passengers: Number(data.passengers || 1),
+            luggage: Number(data.luggage || 0),
             notes: data.notes || '',
-            routeId: data.routeId || '',
+            routeId: data.routeId || 'custom',
             selectedVehicles: (data.selectedVehicles || []).map((item: any) => ({
                 vehicleId: item.id,
-                quantity: Number(item.count), // Explicitly cast to Number
+                quantity: Number(item.count),
             })),
-            vehicleCount: Number(selectedList.reduce((acc: number, i: any) => acc + i.count, 0)),
-            status: 'pending',
+            vehicleCount: Number(selectedList.reduce((acc: number, i: any) => acc + i.count, 0)) || 1,
         };
 
         console.log('[Booking] Submitting payload:', payload);
@@ -118,17 +153,52 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
 
             if (response.ok) {
                 console.log('[Booking] Success:', result);
-                setConfirmedBooking(result.booking);
+                setConfirmedBooking(result);
                 setIsSuccess(true);
             } else {
                 console.error('[Booking] Server returned error:', result);
-                setErrors({ 
-                    submit: result.message || 'Something went wrong. Please try again or contact us via WhatsApp.' 
-                });
+
+                // Parse Zod field errors and map them to user-friendly messages
+                const fieldErrors: Record<string, string> = {};
+                if (result.errors) {
+                    const zodErrors = result.errors as Record<string, { _errors?: string[] }>;
+                    const fieldMap: Record<string, string> = {
+                        name: 'name',
+                        email: 'email',
+                        phone: 'phone',
+                        pickup: 'submit',
+                        dropoff: 'submit',
+                        date: 'submit',
+                        time: 'submit',
+                    };
+                    for (const [field, uiField] of Object.entries(fieldMap)) {
+                        const msg = zodErrors[field]?._errors?.[0];
+                        if (msg) {
+                            // Translate technical Zod messages into friendly ones
+                            if (field === 'phone' && msg.includes('min')) {
+                                fieldErrors[uiField] = 'Phone number is too short. Please include your full local number.';
+                            } else if (field === 'email') {
+                                fieldErrors[uiField] = 'Please provide a valid email address.';
+                            } else if (['pickup', 'dropoff', 'date', 'time'].includes(field)) {
+                                fieldErrors[uiField] = `${field.charAt(0).toUpperCase() + field.slice(1)} is missing. Please go back and fill in your journey details.`;
+                            } else {
+                                fieldErrors[uiField] = msg;
+                            }
+                        }
+                    }
+                }
+
+                if (Object.keys(fieldErrors).length > 0) {
+                    setErrors(fieldErrors);
+                } else {
+                    setErrors({
+                        submit: result.message || 'Something went wrong on our end. Please try again or contact us via WhatsApp.'
+                    });
+                }
             }
         } catch (err) {
             console.error('[Booking] Fetch failed:', err);
-            setErrors({ submit: 'Connection error. Please check your internet and try again.' });
+            setErrors({ submit: 'Could not reach our servers. Please check your internet connection and try again, or contact us directly on WhatsApp.' });
         } finally {
             setIsSubmitting(false);
         }

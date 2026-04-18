@@ -28,12 +28,18 @@ export async function POST(request: Request) {
         // Validate input
         const validation = BookingSchema.safeParse(body);
         if (!validation.success) {
-            console.error('[Booking API] Validation failed:', JSON.stringify(validation.error.format(), null, 2));
+            const formattedErrors = validation.error.format();
+            console.error('[Booking API] Validation failed. Fields with errors:',
+                Object.entries(formattedErrors)
+                    .filter(([key, val]) => key !== '_errors' && typeof val === 'object' && (val as any)._errors?.length)
+                    .map(([key, val]) => `${key}: ${(val as any)._errors.join(', ')}`)
+                    .join(' | ')
+            );
             return NextResponse.json(
-                { 
-                    success: false, 
-                    message: 'Invalid booking data. Please check your inputs.', 
-                    errors: validation.error.format() 
+                {
+                    success: false,
+                    message: 'Invalid booking data. Please check your inputs.',
+                    errors: formattedErrors
                 },
                 { status: 400 }
             );
