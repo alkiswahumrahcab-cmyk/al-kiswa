@@ -150,33 +150,100 @@ export const staticBlogPosts = [
         slug: 'private-taxi-vs-haramain-train-umrah',
         title: 'Private Taxi vs. Haramain Train: Which is Better for Umrah?',
         excerpt: 'Compare the speed of the train with the convenience of a private taxi. Find out which option offers the best peace of mind for your Umrah journey with family and luggage.',
+        metaTitle: 'Private Taxi vs Haramain Train: Which is Best for Umrah? (2025 Guide)',
+        metaDescription: 'Comparing Jeddah to Makkah transport? Discover the pros & cons of the Haramain High-Speed Train vs Private Taxis. Learn about costs, luggage, and family comfort.',
         content: `
-            <h2>The Great Debate: Comfort vs. Speed</h2>
-            <p>When planning your Umrah trip, one of the biggest questions is: <strong>Should I take the Haramain High-Speed Train or book a private taxi?</strong> Both are excellent options, but the right choice depends on your specific needs, especially if you are traveling with family or heavy luggage.</p>
+            <div class="prose max-w-none text-slate-800 dark:text-gray-200 dark:prose-invert">
+                <h2>The Great Debate: Comfort vs. Speed for Umrah Pilgrims</h2>
+                <p>When planning your Umrah trip, one of the biggest logistical questions is: <strong>"Should I take the Haramain High-Speed Train or book a private taxi?"</strong> Both options have transformed travel between Jeddah, Makkah, and Madinah, but the right choice depends on your specific needs—especially if you are traveling with family, seniors, or heavy luggage.</p>
+                <p>In this 2025 comparison guide, we break down everything you need to know about <strong>Umrah transport costs</strong>, travel times, and convenience to help you make an informed decision.</p>
 
-            <h3>The Haramain Train: Fast but Rigid</h3>
-            <p>The <strong>Haramain High-Speed Train</strong> is a marvel of modern engineering. It connects Jeddah Airport, Makkah, and Madinah at speeds of up to 300 km/h.</p>
-            <ul>
-                <li><strong>Pros:</strong> It is incredibly fast and comfortable.</li>
-                <li><strong>Cons:</strong> The stations are often located far from the main hotels. You will still need to find a taxi from the station to your hotel. Also, there are strict luggage limits and fixed schedules that might not match your flight arrival.</li>
-            </ul>
+                <hr class="my-8 border-slate-200 dark:border-slate-700" />
 
-            <h3>Private Taxi: Door-to-Door Peace of Mind</h3>
-            <p>For most pilgrims, a <strong>private taxi</strong> (like our GMC Yukon or Hyundai Staria) offers unmatched convenience.</p>
-            
-            <h4>1. Door-to-Door Service</h4>
-            <p>Unlike the train, a private car picks you up right outside the airport terminal and drops you off at your hotel lobby. No walking with bags, no waiting for connections.</p>
+                <h2>The Haramain High-Speed Train: Modern & Fast</h2>
+                <p>The <strong>Haramain High-Speed Railway</strong> is a state-of-the-art train system connecting Makkah and Madinah via Jeddah and King Abdullah Economic City (KAEC). Reaching speeds of 300 km/h, it is the fastest way to travel between the holy cities.</p>
+                
+                <h3>Pros of the Haramain Train:</h3>
+                <ul>
+                    <li><strong>Speed:</strong> Jeddah Airport to Makkah in just 54 minutes.</li>
+                    <li><strong>Comfort:</strong> Modern seats, onboard cafeteria, and clean restrooms.</li>
+                    <li><strong>Reliability:</strong> Fixed schedules and premium business class options.</li>
+                </ul>
 
-            <h4>2. 24/7 Availability</h4>
-            <p>Flights land at all times. While trains stop running at night, our <strong>24/7 Umrah taxi service</strong> is always ready. We track your flight and wait for you, even if you are delayed.</p>
+                <h3>Cons of the Haramain Train:</h3>
+                <ul>
+                    <li><strong>Station Logistics:</strong> Stations are often located 15-20 minutes away from the main Haram hotels. You will still need an <strong>Umrah taxi</strong> to bridge the "last mile."</li>
+                    <li><strong>Luggage Restrictions:</strong> Strict limits of one large suitcase per person. If you are doing shopping in Makkah, this becomes a major hurdle.</li>
+                    <li><strong>Rigid Schedule:</strong> Missing your train means waiting for the next available slot, which can be hours away during peak seasons.</li>
+                </ul>
 
-            <h4>3. Unlimited Luggage & Privacy</h4>
-            <p>Traveling with family? You need space. Our vehicles accommodate all your suitcases with ease, and you enjoy the privacy of your own vehicle without sharing with strangers.</p>
+                <hr class="my-8 border-slate-200 dark:border-slate-700" />
 
-            <h3>Conclusion: Choose What Fits You</h3>
-            <p>If you are a solo traveler with a backpack, the train is great. But for families, elderly pilgrims, or anyone who values stress-free, direct transport, a <strong>private taxi from Jeddah to Makkah</strong> is the clear winner.</p>
+                <h2>Private Umrah Taxi: The Door-to-Door Advantage</h2>
+                <p>For most pilgrims, especially families with children or elderly parents, a <a href="/booking">private Umrah taxi</a> (like our GMC Yukon or Hyundai Staria) offers unmatched peace of mind.</p>
+                
+                <h3>1. Seamless Door-to-Door Service</h3>
+                <p>Unlike the train, where you navigate multiple stations, a private car picks you up directly at the <a href="/services/jeddah-airport-transfer">Jeddah Airport arrival terminal</a> and drops you off exactly at your hotel lobby in Makkah. No walking with heavy bags, no waiting in line for secondary transport.</p>
 
-            <p>Experience the difference yourself. <a href="/booking">Book your private ride now</a> and start your Umrah with ease.</p>
+                <h3>2. 24/7 Availability & Flight Tracking</h3>
+                <p>Flights often land after midnight when trains have stopped running. At <strong>Al Kiswah Umrah Transport</strong>, we offer 24/7 service. We track your flight number and our driver waits for you, ensuring a stress-free arrival even if your flight is delayed.</p>
+
+                <h3>3. Unlimited Luggage & Group Privacy</h3>
+                <p>If you are traveling with 4-7 people, booking a <a href="/fleet/gmc-yukon-at4">GMC Yukon XL</a> is not only more comfortable but often more cost-effective than buying 7 individual train tickets. Plus, you have the privacy of your own vehicle without sharing space with strangers.</p>
+
+                <hr class="my-8 border-slate-200 dark:border-slate-700" />
+
+                <h2>Comparison Table: Taxi vs. Train</h2>
+                <div class="overflow-x-auto my-8">
+                    <table class="w-full text-left border-collapse border border-slate-200 dark:border-slate-700">
+                        <thead>
+                            <tr class="bg-slate-50 dark:bg-slate-800">
+                                <th class="p-4 border border-slate-200 dark:border-slate-700 uppercase text-xs font-bold">Feature</th>
+                                <th class="p-4 border border-slate-200 dark:border-slate-700 uppercase text-xs font-bold">Private Taxi</th>
+                                <th class="p-4 border border-slate-200 dark:border-slate-700 uppercase text-xs font-bold">Haramain Train</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="p-4 border border-slate-200 dark:border-slate-700 font-medium">Route</td>
+                                <td class="p-4 border border-slate-200 dark:border-slate-700 italic">Hotel-to-Hotel</td>
+                                <td class="p-4 border border-slate-200 dark:border-slate-700 italic">Station-to-Station</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 border border-slate-200 dark:border-slate-700 font-medium">Luggage</td>
+                                <td class="p-4 border border-slate-200 dark:border-slate-700">Unlimited (within car capacity)</td>
+                                <td class="p-4 border border-slate-200 dark:border-slate-700">1 Bag + 1 Carry-on limit</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 border border-slate-200 dark:border-slate-700 font-medium">Time</td>
+                                <td class="p-4 border border-slate-200 dark:border-slate-700">60-90 mins (Direct)</td>
+                                <td class="p-4 border border-slate-200 dark:border-slate-700">54 mins (Train only)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 border border-slate-200 dark:border-slate-700 font-medium">Availability</td>
+                                <td class="p-4 border border-slate-200 dark:border-slate-700">24/7 Priority Booking</td>
+                                <td class="p-4 border border-slate-200 dark:border-slate-700">Fixed Daily Schedules</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Frequently Asked Questions (FAQ)</h2>
+                <h3>Can I book a taxi from Jeddah Airport to Makkah on the spot?</h3>
+                <p>Yes, but you risk overpaying or getting a driver without a commercial license. Pre-booking a <strong>private car from Jeddah to Makkah</strong> guarantees a fixed price and a vetted, professional driver.</p>
+
+                <h3>Which is cheaper for a family of 5?</h3>
+                <p>For a family of 5, a private <strong>GMC Yukon for Umrah</strong> is usually cheaper than 5 Business Class train tickets plus the taxis needed to and from the stations.</p>
+
+                <h3>Does the train go directly to Masjid al-Haram?</h3>
+                <p>No. The Makkah Station is in the Rusaifa district. You will need a taxi or bus transfer to reach the hotels near the Haram or Clock Tower.</p>
+
+                <hr class="my-8 border-slate-200 dark:border-slate-700" />
+
+                <h2>Conclusion: Which should you choose?</h2>
+                <p>If you are a solo traveler with a backpack and arriving during the day, the <strong>Haramain High-Speed Train</strong> is a great experience. However, for families, elderly pilgrims, or anyone arriving with heavy luggage, a <strong>private taxi from Jeddah to Makkah</strong> is the clear winner for comfort, speed, and overall value.</p>
+                <p>Experience a stress-free pilgrimage. <a href="/booking">Check our latest Umrah transport rates</a> and book your private ride today with Al Kiswah.</p>
+            </div>
         `,
         category: 'Travel Guide',
         date: new Date('2024-12-30'),
@@ -186,8 +253,6 @@ export const staticBlogPosts = [
         author: 'Al Kiswah Team',
         tags: ['Haramain Train', 'Private Taxi', 'Makkah Transport', 'Family Travel'],
         isPublished: true,
-        metaTitle: 'Private Taxi vs Haramain Train for Umrah | 2024 Comparison',
-        metaDescription: 'Speed vs Comfort? We compare the Haramain High-Speed Train with Private Taxis for Umrah pilgrims. Discover why families choose door-to-door car service.',
         createdAt: new Date('2024-12-30'),
         updatedAt: new Date('2024-12-30'),
     },
