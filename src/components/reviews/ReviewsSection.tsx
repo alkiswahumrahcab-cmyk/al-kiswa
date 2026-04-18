@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import ReviewsCarousel from './ReviewsCarousel';
 import { Star, MessageSquarePlus, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import settings from '@/data/settings.json';
 
 interface Review {
     id: string;
@@ -189,7 +190,7 @@ export default function ReviewsSection() {
                             </div>
 
                             <a
-                                href="https://search.google.com/local/writereview?placeid=ChIJmdXkoZ0dwhURzAKZlMOFpLg"
+                                href={settings.contact.social.googleReview}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group flex items-center gap-3 bg-white text-black hover:bg-gold-primary px-8 py-3.5 rounded-lg font-bold text-sm transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]"
@@ -211,7 +212,7 @@ export default function ReviewsSection() {
                     className="text-center mt-12"
                 >
                     <a
-                        href="https://www.google.com/maps?cid=13304906274217460428"
+                        href={settings.contact.social.googleBusiness}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gold-primary hover:text-white transition-colors text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-2 group"
