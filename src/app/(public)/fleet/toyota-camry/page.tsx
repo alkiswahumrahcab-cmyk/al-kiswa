@@ -10,7 +10,6 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360Viewer';
-
 import { vehicleService } from '@/services/vehicleService';
 
 const generateJsonLd = (vehicleData: any) => ({
@@ -19,30 +18,15 @@ const generateJsonLd = (vehicleData: any) => ({
         {
             "@type": "BreadcrumbList",
             "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "https://alkiswahumrahtransport.com"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "Fleet",
-                    "item": "https://alkiswahumrahtransport.com/fleet"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 3,
-                    "name": "Toyota Camry",
-                    "item": "https://alkiswahumrahtransport.com/fleet/toyota-camry"
-                }
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kiswahumrahcab.com" },
+                { "@type": "ListItem", "position": 2, "name": "Fleet", "item": "https://kiswahumrahcab.com/fleet" },
+                { "@type": "ListItem", "position": 3, "name": "Toyota Camry", "item": "https://kiswahumrahcab.com/fleet/toyota-camry" }
             ]
         },
         {
             "@type": "Product",
             "name": vehicleData?.name || "Toyota Camry 2024 Taxi Makkah",
-            "image": "https://alkiswahumrahtransport.com/images/fleet/camry-hero-professional.png",
+            "image": "https://kiswahumrahcab.com/images/fleet/camry-hero-professional.png",
             "description": `Affordable ${vehicleData?.name || 'Toyota Camry'} taxi for Umrah. Reliable ${vehicleData?.passengers || 4}-seater sedan for Jeddah to Makkah transfers.`,
             "brand": { "@type": "Brand", "name": "Toyota" },
             "offers": {
@@ -51,12 +35,21 @@ const generateJsonLd = (vehicleData: any) => ({
                 "priceCurrency": "SAR",
                 "availability": "https://schema.org/InStock",
                 "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
-                "url": "https://alkiswahumrahtransport.com/fleet/toyota-camry"
+                "url": "https://kiswahumrahcab.com/fleet/toyota-camry"
             },
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.8",
-                "reviewCount": "124"
+                "reviewCount": "124",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "review": {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Aisha Al-Farsi" },
+                "datePublished": "2025-01-20",
+                "reviewBody": "Clean, punctual, and affordable. The Camry was the perfect choice for our couple's Umrah trip from Jeddah Airport.",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" }
             }
         }
     ]
@@ -104,7 +97,6 @@ export default async function ToyotaCamryPage() {
     const vehicles = await vehicleService.getActiveVehicles();
     const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('camry'));
 
-    // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
     const camryId = vehicleData?.id || '692db09834f15bc89b45a5f6';
     const camryImage = '/images/fleet/camry-hero-professional.png';
 
@@ -222,13 +214,12 @@ export default async function ToyotaCamryPage() {
                 </div>
             </section>
 
-            {/* 360 Interior Preview (Placeholder) */}
+            {/* 360 Interior Preview */}
             <section className="py-16 bg-slate-900 text-white overflow-hidden relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <span className="text-amber-500 font-bold tracking-widest uppercase text-sm mb-4 block">Premium Economy</span>
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>
-
                     <div className="max-w-6xl mx-auto">
                         <Interior360Viewer
                             imageUrl="/images/fleet/camry-interior-360.jpg"

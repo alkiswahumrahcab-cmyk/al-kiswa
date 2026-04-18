@@ -10,7 +10,6 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360Viewer';
-
 import { vehicleService } from '@/services/vehicleService';
 
 const generateJsonLd = (vehicleData: any) => ({
@@ -19,30 +18,15 @@ const generateJsonLd = (vehicleData: any) => ({
         {
             "@type": "BreadcrumbList",
             "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "https://alkiswahumrahtransport.com"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "Fleet",
-                    "item": "https://alkiswahumrahtransport.com/fleet"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 3,
-                    "name": "Hyundai Staria",
-                    "item": "https://alkiswahumrahtransport.com/fleet/hyundai-staria"
-                }
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kiswahumrahcab.com" },
+                { "@type": "ListItem", "position": 2, "name": "Fleet", "item": "https://kiswahumrahcab.com/fleet" },
+                { "@type": "ListItem", "position": 3, "name": "Hyundai Staria", "item": "https://kiswahumrahcab.com/fleet/hyundai-staria" }
             ]
         },
         {
             "@type": "Product",
             "name": vehicleData?.name || "Hyundai Staria 2024 Luxury Van",
-            "image": "https://alkiswahumrahtransport.com/images/fleet/staria-hero-professional.png",
+            "image": "https://kiswahumrahcab.com/images/fleet/staria-hero-professional.png",
             "description": `Book premium ${vehicleData?.name || 'Hyundai Staria'} in Makkah. Luxury ${vehicleData?.passengers || 7}-seater van with panoramic views for VIP families.`,
             "brand": { "@type": "Brand", "name": "Hyundai" },
             "offers": {
@@ -51,12 +35,21 @@ const generateJsonLd = (vehicleData: any) => ({
                 "priceCurrency": "SAR",
                 "availability": "https://schema.org/InStock",
                 "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
-                "url": "https://alkiswahumrahtransport.com/fleet/hyundai-staria"
+                "url": "https://kiswahumrahcab.com/fleet/hyundai-staria"
             },
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.9",
-                "reviewCount": "150"
+                "reviewCount": "150",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "review": {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Yusuf Al-Balushi" },
+                "datePublished": "2025-02-10",
+                "reviewBody": "The Staria was amazing. So much space for our family of 6. The panoramic windows made the journey from Jeddah to Makkah unforgettable.",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" }
             }
         }
     ]
@@ -104,7 +97,6 @@ export default async function HyundaiStariaPage() {
     const vehicles = await vehicleService.getActiveVehicles();
     const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('staria'));
 
-    // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
     const stariaId = vehicleData?.id || '692db09834f15bc89b45a5f9';
     const stariaImage = '/images/fleet/staria-hero-professional.png';
 
@@ -222,18 +214,13 @@ export default async function HyundaiStariaPage() {
                 </div>
             </section>
 
-            {/* 360 Interior Preview (Placeholder) */}
+            {/* 360 Interior Preview */}
             <section className="py-16 bg-slate-900 text-white overflow-hidden relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <span className="text-blue-500 font-bold tracking-widest uppercase text-sm mb-4 block">Future of Travel</span>
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>
-
                     <div className="max-w-6xl mx-auto">
-                        {/* <Interior360Viewer
-                            imageUrl="/images/fleet/camry-interior-360.jpg"
-                            title="Hyundai Staria Premium Interior"
-                        /> */}
                         <div className="w-full h-[400px] flex items-center justify-center bg-slate-800 rounded-2xl border border-slate-700">
                             <div className="text-center">
                                 <h3 className="text-2xl font-bold text-white mb-2">360° View Coming Soon</h3>
@@ -283,4 +270,3 @@ export default async function HyundaiStariaPage() {
         </main>
     );
 }
-

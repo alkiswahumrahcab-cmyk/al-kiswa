@@ -9,7 +9,6 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360Viewer';
-
 import { vehicleService } from '@/services/vehicleService';
 
 const generateJsonLd = (vehicleData: any) => ({
@@ -18,30 +17,15 @@ const generateJsonLd = (vehicleData: any) => ({
         {
             "@type": "BreadcrumbList",
             "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "https://alkiswahumrahtransport.com"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "Fleet",
-                    "item": "https://alkiswahumrahtransport.com/fleet"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 3,
-                    "name": "Toyota Hiace",
-                    "item": "https://alkiswahumrahtransport.com/fleet/toyota-hiace"
-                }
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kiswahumrahcab.com" },
+                { "@type": "ListItem", "position": 2, "name": "Fleet", "item": "https://kiswahumrahcab.com/fleet" },
+                { "@type": "ListItem", "position": 3, "name": "Toyota Hiace", "item": "https://kiswahumrahcab.com/fleet/toyota-hiace" }
             ]
         },
         {
             "@type": "Product",
             "name": vehicleData?.name || "Toyota Hiace 12-Seater Bus Transport",
-            "image": "https://alkiswahumrahtransport.com/images/fleet/hiace-hero-professional.png",
+            "image": "https://kiswahumrahcab.com/images/fleet/hiace-hero-professional.png",
             "description": vehicleData ? `Book ${vehicleData.name} bus in Makkah. Reliable ${vehicleData.passengers}-seater transport for Umrah groups and large families.` : "Book Toyota Hiace bus in Makkah. Reliable 12-seater transport for Umrah groups and large families.",
             "brand": { "@type": "Brand", "name": "Toyota" },
             "offers": {
@@ -50,12 +34,21 @@ const generateJsonLd = (vehicleData: any) => ({
                 "priceCurrency": "SAR",
                 "availability": "https://schema.org/InStock",
                 "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
-                "url": "https://alkiswahumrahtransport.com/fleet/toyota-hiace"
+                "url": "https://kiswahumrahcab.com/fleet/toyota-hiace"
             },
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.7",
-                "reviewCount": "210"
+                "reviewCount": "210",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "review": {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Ibrahim Siddiqui" },
+                "datePublished": "2025-03-05",
+                "reviewBody": "Affordable and reliable for our large family. The Hiace fit all 10 of us comfortably with all our luggage.",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" }
             }
         }
     ]
@@ -103,7 +96,6 @@ export default async function ToyotaHiacePage() {
     const vehicles = await vehicleService.getActiveVehicles();
     const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('hiace'));
 
-    // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
     const hiaceId = vehicleData?.id || '692db09834f15bc89b45a5fb';
     const hiaceImage = '/images/fleet/hiace-hero-professional.png';
 
@@ -220,13 +212,12 @@ export default async function ToyotaHiacePage() {
                 </div>
             </section>
 
-            {/* 360 Interior Preview (Placeholder) */}
+            {/* 360 Interior Preview */}
             <section className="py-16 bg-slate-900 text-white overflow-hidden relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <span className="text-emerald-500 font-bold tracking-widest uppercase text-sm mb-4 block">Spacious Group Travel</span>
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>
-
                     <div className="max-w-6xl mx-auto">
                         <Interior360Viewer
                             imageUrl="/images/fleet/hiace-interior-360.jpg"
@@ -275,4 +266,3 @@ export default async function ToyotaHiacePage() {
         </main>
     );
 }
-

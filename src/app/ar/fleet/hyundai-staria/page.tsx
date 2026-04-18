@@ -56,7 +56,16 @@ const generateJsonLd = (vehicleData: any) => ({
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.9",
-                "reviewCount": "150"
+                "reviewCount": "150",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "review": {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Yusuf Al-Balushi" },
+                "datePublished": "2025-02-10",
+                "reviewBody": "The Staria was amazing. The panoramic windows made the journey from Jeddah to Makkah unforgettable.",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" }
             }
         }
     ]

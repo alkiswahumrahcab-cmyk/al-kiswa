@@ -103,10 +103,18 @@ export default function Footer() {
                                 رفيقكم الأمين في رحلة العمرة المباركة
                             </p>
                         </div>
-                        <div className="flex flex-col gap-1">
-                            <span className="text-yellow-400 text-sm tracking-widest">⭐⭐⭐⭐⭐</span>
-                            <span className="text-xs text-gray-400">5.0 — Trusted by 5,000+ pilgrims</span>
-                        </div>
+                        <a 
+                            href="https://www.google.com/search?sca_esv=6139c4eb45c90f67&sxsrf=ANbL-n6GDKbvww5J7SRsQ6C1E8oxJIQvZg%3A1776539314409&q=Al%20Kiswah%20Umrah%20Cab&stick=H4sIAAAAAAAAAONgU1I1qDCzNEqxSDMyN0oySk4zNUmxAgkZm1qYWBgYmxsapiUZGy1iFXbMUfDOLC5PzFAIzS0Cks6JSQDqIOYzPwAAAA&mat=CVFSiV6mHqJu&ved=2ahUKEwjI847WjPiTAxUtcGwGHdz7HrMQrMcEegQICRAC"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block group w-fit hover:bg-white/5 rounded-lg border border-transparent hover:border-white/10 transition-all p-2 -ml-2"
+                        >
+                            <div className="flex items-center gap-2">
+                                <span className="text-yellow-400 text-sm tracking-widest group-hover:scale-105 transition-transform origin-left">⭐⭐⭐⭐⭐</span>
+                                <span className="text-[10px] font-bold text-white bg-blue-600/20 px-2 py-0.5 rounded border border-blue-500/30">Google Provider</span>
+                            </div>
+                            <span className="text-xs text-gray-400 mt-1 block group-hover:text-white transition-colors">5.0 Rating — See our reviews</span>
+                        </a>
                         <a
                             href={`https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}`}
                             target="_blank"

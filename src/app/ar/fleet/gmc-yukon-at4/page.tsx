@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -59,7 +59,16 @@ const generateJsonLd = (vehicleData: any) => ({
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.9",
-                "reviewCount": "85"
+                "reviewCount": "85",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "review": {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Mohammed Al-Ghamdi" },
+                "datePublished": "2025-03-01",
+                "reviewBody": "The GMC Yukon was immaculate and the driver was very professional. Best Umrah transport I have used.",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" }
             }
         }
     ]

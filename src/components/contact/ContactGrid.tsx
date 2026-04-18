@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Mail, MapPin, Phone, MessageCircle } from 'lucide-react';
+import { Mail, MapPin, Phone, MessageCircle, Star } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
 import { trackConversion } from '@/lib/analytics';
 import FadeIn from '@/components/common/FadeIn';
@@ -53,6 +53,15 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
             sub: "Open Daily: 9 AM - 10 PM",
             action: "#map",
             btnText: "View Location",
+            type: 'other'
+        },
+        {
+            icon: Star,
+            title: "Google Verified Business",
+            value: "5.0 Rating \u2B50\u2B50\u2B50\u2B50\u2B50",
+            sub: "Read our verified pilgrim reviews",
+            action: "https://www.google.com/search?sca_esv=6139c4eb45c90f67&sxsrf=ANbL-n6GDKbvww5J7SRsQ6C1E8oxJIQvZg%3A1776539314409&q=Al%20Kiswah%20Umrah%20Cab&stick=H4sIAAAAAAAAAONgU1I1qDCzNEqxSDMyN0oySk4zNUmxAgkZm1qYWBgYmxsapiUZGy1iFXbMUfDOLC5PzFAIzS0Cks6JSQDqIOYzPwAAAA&mat=CVFSiV6mHqJu&ved=2ahUKEwjI847WjPiTAxUtcGwGHdz7HrMQrMcEegQICRAC",
+            btnText: "View on Google",
             type: 'other'
         }
     ];

@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Link from 'next/link';
@@ -68,13 +68,17 @@ const generateJsonLd = (vehicleData: any) => ({
     "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",
-        "reviewCount": "124"
+        "reviewCount": "124",
+        "bestRating": "5",
+        "worstRating": "1"
     },
     "review": {
         "@type": "Review",
         "reviewRating": {
             "@type": "Rating",
-            "ratingValue": "5"
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1"
         },
         "author": {
             "@type": "Person",

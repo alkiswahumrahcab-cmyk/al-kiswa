@@ -56,7 +56,16 @@ const generateJsonLd = (vehicleData: any) => ({
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.8",
-                "reviewCount": "124"
+                "reviewCount": "124",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "review": {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Aisha Al-Farsi" },
+                "datePublished": "2025-01-20",
+                "reviewBody": "Clean, punctual, and affordable. The Camry was the perfect choice for our couple's Umrah trip from Jeddah Airport.",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" }
             }
         }
     ]

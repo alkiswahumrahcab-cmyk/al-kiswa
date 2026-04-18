@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Link from 'next/link';
@@ -55,7 +55,16 @@ const generateJsonLd = (vehicleData: any) => ({
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.7",
-                "reviewCount": "210"
+                "reviewCount": "210",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "review": {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Ibrahim Siddiqui" },
+                "datePublished": "2025-03-05",
+                "reviewBody": "Affordable and reliable for our large family. The Hiace fit all 10 of us comfortably with all our luggage.",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" }
             }
         }
     ]

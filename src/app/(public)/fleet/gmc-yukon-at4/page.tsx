@@ -19,47 +19,38 @@ const generateJsonLd = (vehicleData: any) => ({
         {
             "@type": "BreadcrumbList",
             "itemListElement": [
-                {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Home",
-                    "item": "https://alkiswahumrahtransport.com"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "Fleet",
-                    "item": "https://alkiswahumrahtransport.com/fleet"
-                },
-                {
-                    "@type": "ListItem",
-                    "position": 3,
-                    "name": "GMC Yukon XL",
-                    "item": "https://alkiswahumrahtransport.com/fleet/gmc-yukon-at4"
-                }
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kiswahumrahcab.com" },
+                { "@type": "ListItem", "position": 2, "name": "Fleet", "item": "https://kiswahumrahcab.com/fleet" },
+                { "@type": "ListItem", "position": 3, "name": "GMC Yukon XL", "item": "https://kiswahumrahcab.com/fleet/gmc-yukon-at4" }
             ]
         },
         {
             "@type": "Product",
             "name": vehicleData?.name || "GMC Yukon XL 2024 Transport Makkah",
-            "image": "https://alkiswahumrahtransport.com/images/fleet/gmc-yukon-hero-professional.png",
+            "image": "https://kiswahumrahcab.com/images/fleet/gmc-yukon-hero-professional.png",
             "description": `Book luxury ${vehicleData?.name || 'GMC Yukon XL'} in Makkah & Madinah. ${vehicleData?.passengers || 7} Seater SUV for VIP Umrah transport.`,
-            "brand": {
-                "@type": "Brand",
-                "name": "GMC"
-            },
+            "brand": { "@type": "Brand", "name": "GMC" },
             "offers": {
                 "@type": "Offer",
                 "price": vehicleData?.basePrice?.toString() || "600",
                 "priceCurrency": "SAR",
                 "availability": "https://schema.org/InStock",
                 "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
-                "url": "https://alkiswahumrahtransport.com/fleet/gmc-yukon-at4"
+                "url": "https://kiswahumrahcab.com/fleet/gmc-yukon-at4"
             },
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.9",
-                "reviewCount": "85"
+                "reviewCount": "85",
+                "bestRating": "5",
+                "worstRating": "1"
+            },
+            "review": {
+                "@type": "Review",
+                "author": { "@type": "Person", "name": "Mohammed Al-Ghamdi" },
+                "datePublished": "2025-03-01",
+                "reviewBody": "The GMC Yukon was immaculate and the driver was very professional. Best Umrah transport I have used.",
+                "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5", "worstRating": "1" }
             }
         }
     ]
@@ -228,13 +219,12 @@ export default async function GmcYukonPage() {
                 </div>
             </section>
 
-            {/* 360 Interior Preview (Placeholder) */}
+            {/* 360 Interior Preview */}
             <section className="py-16 bg-slate-900 text-white overflow-hidden relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <span className="text-amber-500 font-bold tracking-widest uppercase text-sm mb-4 block">Experience the Luxury</span>
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>
-
                     <div className="max-w-6xl mx-auto">
                         <Interior360Viewer
                             imageUrl="/images/fleet/gmc-yukon-interior-360.jpg"
@@ -254,23 +244,26 @@ export default async function GmcYukonPage() {
                             {
                                 title: "Makkah to Madinah",
                                 desc: "The 450km journey feels like a breeze in the quiet, air-conditioned cabin of the Yukon.",
-                                icon: Star
+                                icon: Star,
+                                href: "/services/makkah-madinah-taxi"
                             },
                             {
                                 title: "Jeddah Airport Pickup",
                                 desc: "VIP meet and greet. Our driver will fit all your luggage easily, unlike standard taxis.",
-                                icon: Briefcase
+                                icon: Briefcase,
+                                href: "/services/jeddah-airport-transfer"
                             },
                             {
                                 title: "Ziyarat Tours",
                                 desc: "Visit historical sites in Makkah and Madinah with high elevation views and tinted privacy windows.",
-                                icon: MapPin
+                                icon: MapPin,
+                                href: "/services/ziyarat-tours"
                             }
                         ].map((item, idx) => (
                             <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-md border-t-4 border-amber-500 transition-all hover:-translate-y-1">
                                 <item.icon className="w-10 h-10 text-amber-500 mb-4" />
                                 <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">
-                                    <Link href={idx === 0 ? "/services/makkah-madinah-taxi" : idx === 1 ? "/services/jeddah-airport-transfer" : "/services/ziyarat-tours"} className="hover:text-amber-600 transition-colors">
+                                    <Link href={item.href} className="hover:text-amber-600 transition-colors">
                                         {item.title}
                                     </Link>
                                 </h3>

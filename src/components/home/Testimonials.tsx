@@ -90,14 +90,23 @@ export default function Testimonials() {
                 </div>
 
                 <FadeIn delay={0.4}>
-                    <div className="flex justify-center">
+                    <div className="flex flex-col sm:flex-row justify-center items-center gap-4 border-t border-white/10 pt-10">
                         <a
                             href={`https://wa.me/${settings?.contact?.whatsapp?.replace(/\D/g, '') || '966545494921'}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-3 bg-gold-primary hover:bg-gold-light text-black px-8 py-4 rounded-full font-bold text-lg shadow-[0_10px_30px_-10px_rgba(212,175,55,0.4)] hover:shadow-[0_20px_40px_-10px_rgba(212,175,55,0.6)] hover:-translate-y-1 transition-all duration-300"
+                            className="inline-flex justify-center items-center gap-3 bg-gold-primary hover:bg-gold-light text-black px-8 py-4 rounded-full font-bold text-lg shadow-[0_10px_30px_-10px_rgba(212,175,55,0.4)] hover:shadow-[0_20px_40px_-10px_rgba(212,175,55,0.6)] hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto"
                         >
-                            <span>Book Your Sacred Journey</span>
+                            <span>Book Your Holy Journey</span>
+                        </a>
+                        <a
+                            href="https://www.google.com/search?sca_esv=6139c4eb45c90f67&sxsrf=ANbL-n6GDKbvww5J7SRsQ6C1E8oxJIQvZg%3A1776539314409&q=Al%20Kiswah%20Umrah%20Cab&stick=H4sIAAAAAAAAAONgU1I1qDCzNEqxSDMyN0oySk4zNUmxAgkZm1qYWBgYmxsapiUZGy1iFXbMUfDOLC5PzFAIzS0Cks6JSQDqIOYzPwAAAA&mat=CVFSiV6mHqJu&ved=2ahUKEwjI847WjPiTAxUtcGwGHdz7HrMQrMcEegQICRAC"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex justify-center items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 w-full sm:w-auto"
+                        >
+                            <span className="text-yellow-400">G</span>
+                            <span>Read Verified Google Reviews</span>
                         </a>
                     </div>
                 </FadeIn>

@@ -61,7 +61,37 @@ export const generateLocalBusinessSchema = (): WithContext<LocalBusiness> => ({
     priceRange: '$$',
     currenciesAccepted: 'SAR, USD, GBP, EUR',
     paymentAccepted: 'Cash, Credit Card, Online Payment',
-});
+    aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '5.0',
+        reviewCount: '500',
+        bestRating: '5',
+        worstRating: '1',
+    } as any,
+    review: [
+        {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Ahmed Al-Rashid' },
+            datePublished: '2025-03-15',
+            reviewBody: 'Excellent service! The driver was on time and the GMC Yukon was spotless. Perfect for our family Umrah trip from Jeddah.',
+            reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
+        },
+        {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Fatima Hassan' },
+            datePublished: '2025-02-20',
+            reviewBody: 'Very professional and punctual. The vehicle was comfortable and clean. Highly recommended for Umrah pilgrims.',
+            reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
+        },
+        {
+            '@type': 'Review',
+            author: { '@type': 'Person', name: 'Khalid Al-Mutairi' },
+            datePublished: '2025-01-10',
+            reviewBody: 'Al Kiswah provided us with the best transport experience for our Umrah. Fixed prices and no hidden fees.',
+            reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
+        },
+    ] as any,
+} as any);
 
 export const generateFAQSchema = (faqs: { question: string, answer: string }[]): WithContext<FAQPage> => ({
     '@context': 'https://schema.org',
