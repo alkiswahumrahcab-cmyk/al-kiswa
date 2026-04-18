@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import {
     User, Mail, Phone, MessageSquare, ChevronLeft, ArrowRight,
-    ShieldCheck, Loader2, CheckCircle, Wallet, ChevronDown, MapPin, Calendar, Clock, Car
+    ShieldCheck, Loader2, CheckCircle, Wallet, ChevronDown, MapPin, Calendar, Clock, Car, Printer
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePricing } from '@/context/PricingContext';
@@ -132,29 +132,33 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                     A confirmation email has been sent to <span className="text-gold-primary font-medium">{data.email}</span>. Please check your inbox for trip details.
                 </p>
 
-                <button
-                    onClick={() => {
-                        import('@/lib/pdf-generator').then(({ generateBookingInvoice }) => {
-                            generateBookingInvoice({
-                                id: Date.now().toString().slice(-6),
-                                date: data.date || new Date(),
-                                time: data.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-                                pickup: data.pickup,
-                                dropoff: data.dropoff,
-                                vehicle: vehicleNames,
-                                vehicleCount: selectedList.reduce((acc: number, item: any) => acc + item.count, 0),
-                                totalPrice: grandTotal,
-                                customerName: data.name,
-                                customerPhone: data.phone,
-                                customerEmail: data.email,
-                                status: 'PENDING'
+                <div className="flex flex-col gap-4 max-w-sm mx-auto mb-10">
+                    <button
+                        onClick={() => {
+                            import('@/lib/pdf-generator').then(({ generateBookingInvoice }) => {
+                                generateBookingInvoice({
+                                    id: Date.now().toString().slice(-6),
+                                    date: data.date || new Date(),
+                                    time: data.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                                    pickup: data.pickup,
+                                    dropoff: data.dropoff,
+                                    vehicle: vehicleNames,
+                                    vehicleCount: selectedList.reduce((acc: number, item: any) => acc + item.count, 0),
+                                    totalPrice: grandTotal,
+                                    customerName: data.name,
+                                    customerPhone: data.phone,
+                                    customerEmail: data.email,
+                                    status: 'PENDING'
+                                });
                             });
-                        });
-                    }}
-                    className="flex items-center justify-center gap-2 mx-auto mb-8 text-gold-primary hover:text-white transition-colors border-b border-gold-primary/30 pb-0.5 hover:border-white"
-                >
-                    <span className="text-sm font-bold uppercase tracking-widest">Download Receipt</span>
-                </button>
+                        }}
+                        className="w-full flex items-center justify-center gap-3 py-4 bg-white/10 hover:bg-white/20 border border-gold-primary/30 text-gold-primary font-bold uppercase tracking-widest rounded-2xl transition-all group"
+                    >
+                        <Printer size={20} className="group-hover:scale-110 transition-transform" />
+                        Download & Print Invoice
+                    </button>
+                    <p className="text-[10px] text-gray-500 font-medium">Click above to save your official trip voucher.</p>
+                </div>
 
                 <div className="flex flex-col gap-3 max-w-xs mx-auto">
                     <Link
