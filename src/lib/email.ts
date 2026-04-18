@@ -95,6 +95,8 @@ const prepareBookingVariables = (booking: BookingData, settings?: any) => {
     const waNum = settings?.contact?.whatsapp?.replace(/\D/g, '') || '966545494921';
     return {
         name: booking.name,
+        email: booking.email || 'N/A',
+        phone: booking.phone || 'N/A',
         booking_id: booking.id,
         date: booking.date,
         time: booking.time,
@@ -103,15 +105,14 @@ const prepareBookingVariables = (booking: BookingData, settings?: any) => {
         vehicle_details: formatVehicles(booking),
         passengers: booking.passengers,
         luggage: booking.luggage || 0,
-        price_row: formatPriceRow(booking), // Use row HTML for conditional rendering
+        price_row: formatPriceRow(booking), 
         status: booking.status,
         submission_time: new Date().toLocaleString(),
-        year: new Date().getFullYear(), // Added for footer
-        country_row: booking.country ? `<p><strong>Country:</strong> ${booking.country}</p>` : '',
-        flight_row: booking.flightNumber ? `<p><strong>Flight:</strong> ${booking.flightNumber}</p>` : '',
-        arrival_date_row: booking.arrivalDate ? `<p><strong>Arrival Date:</strong> ${booking.arrivalDate}</p>` : '',
-        notes_row: booking.notes ? `<p><strong>Notes:</strong> ${booking.notes}</p>` : '',
-        phone_row: booking.phone ? `<p><strong>Phone:</strong> ${booking.phone}</p>` : '',
+        year: new Date().getFullYear(),
+        country_row: booking.country ? `<tr><td style="padding: 5px 0; color: #666;">Country:</td><td style="font-weight: bold;">${booking.country}</td></tr>` : '',
+        flight_row: booking.flightNumber ? `<tr><td style="padding: 5px 0; color: #666;">Flight:</td><td style="font-weight: bold;">${booking.flightNumber}</td></tr>` : '',
+        arrival_date_row: booking.arrivalDate ? `<tr><td style="padding: 5px 0; color: #666;">Arrival:</td><td style="font-weight: bold;">${booking.arrivalDate}</td></tr>` : '',
+        notes_row: booking.notes ? `<tr><td style="padding: 10px 0; color: #666;" colspan="2"><strong>Notes:</strong><br/>${booking.notes}</td></tr>` : '',
         whatsapp_link: `https://wa.me/${waNum}`
     };
 };
@@ -166,7 +167,8 @@ export const sendBookingConfirmationEmail = async (booking: BookingData) => {
 };
 
 export const sendAdminNewBookingEmail = async (booking: BookingData) => {
-    const adminEmail = process.env.ADMIN_EMAIL_NOTIFICATIONS || process.env.EMAIL_USER; // Fallback
+    // Primary company email as requested by user
+    const adminEmail = 'alkiswahymrahcab@gmail.com' || process.env.ADMIN_EMAIL_NOTIFICATIONS || process.env.EMAIL_USER; 
     if (!adminEmail) return false;
 
     // 1. Fetch Request Settings

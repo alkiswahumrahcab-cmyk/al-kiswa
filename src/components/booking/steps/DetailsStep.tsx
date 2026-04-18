@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import {
     User, Mail, Phone, MessageSquare, ChevronLeft, ArrowRight,
-    ShieldCheck, Loader2, CheckCircle, Wallet, ChevronDown, MapPin, Calendar, Clock, Car, Printer
+    ShieldCheck, Loader2, CheckCircle, Wallet, ChevronDown, MapPin, Calendar, Clock, Car, Printer, ExternalLink
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePricing } from '@/context/PricingContext';
@@ -36,6 +36,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
+    const [confirmedBooking, setConfirmedBooking] = useState<any>(null);
     const [showSummary, setShowSummary] = useState(false);
     const [showCountryPicker, setShowCountryPicker] = useState(false);
     const [selectedCountry, setSelectedCountry] = useState(COUNTRY_CODES[0]);
@@ -74,43 +75,60 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
     const handleSubmit = async () => {
         if (!validateForm()) return;
         setIsSubmitting(true);
+        setErrors({}); // Clear any previous submission errors
 
         const fullPhone = `${selectedCountry.code}${data.phone.replace(/^\+?\d{1,4}/, '')}`;
+        
+        // Robust time formatting (HH:MM) to satisfy strict backend regex
+        const timeStr = data.time ? 
+            `${String(data.time.getHours()).padStart(2, '0')}:${String(data.time.getMinutes()).padStart(2, '0')}` : 
+            '12:00';
+
+        const payload = {
+            name: data.name,
+            email: data.email,
+            phone: fullPhone,
+            pickup: data.pickup,
+            dropoff: data.dropoff,
+            date: data.date?.toISOString().split('T')[0],
+            time: timeStr,
+            vehicle: vehicleNames,
+            passengers: Number(data.passengers || 1), // Explicitly cast to Number
+            luggage: Number(data.luggage || 0), // Explicitly cast to Number
+            notes: data.notes || '',
+            routeId: data.routeId || '',
+            selectedVehicles: (data.selectedVehicles || []).map((item: any) => ({
+                vehicleId: item.id,
+                quantity: Number(item.count), // Explicitly cast to Number
+            })),
+            vehicleCount: Number(selectedList.reduce((acc: number, i: any) => acc + i.count, 0)),
+            status: 'pending',
+        };
+
+        console.log('[Booking] Submitting payload:', payload);
 
         try {
             const response = await fetch('/api/bookings', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    name: data.name,
-                    email: data.email,
-                    phone: fullPhone,
-                    pickup: data.pickup,
-                    dropoff: data.dropoff,
-                    date: data.date?.toISOString().split('T')[0],
-                    time: data.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }),
-                    vehicle: vehicleNames,
-                    passengers: data.passengers || 1,
-                    luggage: data.luggage || 0,
-                    notes: data.notes || '',
-                    routeId: data.routeId || '',
-                    selectedVehicles: (data.selectedVehicles || []).map((item: any) => ({
-                        vehicleId: item.id,
-                        quantity: item.count,
-                    })),
-                    vehicleCount: selectedList.reduce((acc: number, i: any) => acc + i.count, 0),
-                    status: 'pending',
-                })
+                body: JSON.stringify(payload)
             });
 
+            const result = await response.json();
+
             if (response.ok) {
+                console.log('[Booking] Success:', result);
+                setConfirmedBooking(result.booking);
                 setIsSuccess(true);
             } else {
-                setErrors({ submit: 'Something went wrong. Please try again.' });
+                console.error('[Booking] Server returned error:', result);
+                setErrors({ 
+                    submit: result.message || 'Something went wrong. Please try again or contact us via WhatsApp.' 
+                });
             }
         } catch (err) {
-            console.error('Booking submission failed:', err);
-            setErrors({ submit: 'Connection error. Please check your internet.' });
+            console.error('[Booking] Fetch failed:', err);
+            setErrors({ submit: 'Connection error. Please check your internet and try again.' });
         } finally {
             setIsSubmitting(false);
         }
@@ -137,27 +155,38 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                         onClick={() => {
                             import('@/lib/pdf-generator').then(({ generateBookingInvoice }) => {
                                 generateBookingInvoice({
-                                    id: Date.now().toString().slice(-6),
+                                    id: confirmedBooking?.id || Date.now().toString().slice(-6),
                                     date: data.date || new Date(),
                                     time: data.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
                                     pickup: data.pickup,
                                     dropoff: data.dropoff,
                                     vehicle: vehicleNames,
-                                    vehicleCount: selectedList.reduce((acc: number, item: any) => acc + item.count, 0),
+                                    vehicleCount: Number(selectedList.reduce((acc: number, item: any) => acc + item.count, 0)),
                                     totalPrice: grandTotal,
                                     customerName: data.name,
                                     customerPhone: data.phone,
                                     customerEmail: data.email,
-                                    status: 'PENDING'
+                                    status: 'CONFIRMED'
                                 });
                             });
                         }}
-                        className="w-full flex items-center justify-center gap-3 py-4 bg-white/10 hover:bg-white/20 border border-gold-primary/30 text-gold-primary font-bold uppercase tracking-widest rounded-2xl transition-all group"
+                        className="w-full flex items-center justify-center gap-3 py-4 bg-[#D4AF37] hover:bg-[#B8962E] text-black font-bold uppercase tracking-widest rounded-2xl transition-all group"
                     >
                         <Printer size={20} className="group-hover:scale-110 transition-transform" />
                         Download & Print Invoice
                     </button>
-                    <p className="text-[10px] text-gray-500 font-medium">Click above to save your official trip voucher.</p>
+                    
+                    <a 
+                        href="https://g.page/r/CZZun_yR7p_9EAE/review" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="w-full flex items-center justify-center gap-3 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium rounded-2xl transition-all"
+                    >
+                        <ExternalLink size={20} className="text-[#D4AF37]" />
+                        <span>Share Review on Google</span>
+                    </a>
+                    
+                    <p className="text-[11px] text-gray-500 font-medium">Your receipt is ready to download. May your journey be blessed.</p>
                 </div>
 
                 <div className="flex flex-col gap-3 max-w-xs mx-auto">
@@ -576,6 +605,16 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
 
             {/* ── CTA ── */}
             <div className="pt-2">
+                {errors.submit && (
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="mb-4 p-4 bg-red-500/10 border border-red-500/50 rounded-2xl text-red-400 text-sm font-bold flex items-center gap-3"
+                    >
+                        <ShieldCheck className="shrink-0 rotate-180" size={20} />
+                        <p>{errors.submit}</p>
+                    </motion.div>
+                )}
                 <button
                     onClick={handleSubmit}
                     disabled={isSubmitting}
