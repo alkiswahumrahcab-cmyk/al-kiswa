@@ -104,7 +104,7 @@ export default function Footer() {
                             </p>
                         </div>
                         <a 
-                            href="https://www.google.com/search?sca_esv=6139c4eb45c90f67&sxsrf=ANbL-n6GDKbvww5J7SRsQ6C1E8oxJIQvZg%3A1776539314409&q=Al%20Kiswah%20Umrah%20Cab&stick=H4sIAAAAAAAAAONgU1I1qDCzNEqxSDMyN0oySk4zNUmxAgkZm1qYWBgYmxsapiUZGy1iFXbMUfDOLC5PzFAIzS0Cks6JSQDqIOYzPwAAAA&mat=CVFSiV6mHqJu&ved=2ahUKEwjI847WjPiTAxUtcGwGHdz7HrMQrMcEegQICRAC"
+                            href={settings?.contact?.social?.googleBusiness || "https://maps.google.com/?cid=7581057396656405298"}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block group w-fit hover:bg-white/5 rounded-lg border border-transparent hover:border-white/10 transition-all p-2 -ml-2"

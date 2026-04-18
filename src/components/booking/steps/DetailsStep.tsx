@@ -177,7 +177,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                     </button>
                     
                     <a 
-                        href="https://g.page/r/CZZun_yR7p_9EAE/review" 
+                        href={settings?.contact?.social?.googleReview || "https://search.google.com/local/writereview?placeid=ChIJXfUsKyePLR0RMvuRN4CEPWY"} 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="w-full flex items-center justify-center gap-3 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium rounded-2xl transition-all"

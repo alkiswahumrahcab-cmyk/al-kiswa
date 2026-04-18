@@ -92,6 +92,8 @@ export const SettingsSchema = z.object({
             instagram: z.string().optional(),
             tiktok: z.string().optional(),
             linkedin: z.string().optional(),
+            googleBusiness: z.string().optional(),
+            googleReview: z.string().optional(),
         }),
     }),
     seo: z.object({
