@@ -1,66 +1,67 @@
 import { NextResponse } from 'next/server';
 import { getBookings, addBooking } from '@/lib/db';
-import { sendEmail, getBookingConfirmationTemplate, getAdminBookingNotificationTemplate } from '@/lib/email';
 import { BookingSchema } from '@/lib/validations';
-import { validateRequest } from '@/lib/server-auth';
 import { getSettings } from '@/lib/settings-storage';
 import { routeService, RouteWithPrices } from '@/services/routeService';
 import { vehicleService } from '@/services/vehicleService';
 import { calculateFinalPrice } from '@/lib/pricing';
-
 
 export async function GET() {
     try {
         const bookings = await getBookings();
         return NextResponse.json(bookings);
     } catch (error) {
-        console.error('Error fetching bookings:', error);
+        console.error('[Booking GET] Error fetching bookings:', error);
         return NextResponse.json({ error: 'Failed to fetch bookings' }, { status: 500 });
     }
 }
 
 export async function POST(request: Request) {
+    const requestId = Date.now().toString(36).toUpperCase();
+    console.log(`\n========== [Booking ${requestId}] NEW REQUEST ==========`);
 
     try {
-        console.log('[Booking API] Received new booking request');
-        const body = await request.json();
+        // ── 1. Parse body ────────────────────────────────────────────────
+        let body: any;
+        try {
+            body = await request.json();
+            console.log(`[Booking ${requestId}] Body parsed. Fields:`, Object.keys(body).join(', '));
+        } catch (e) {
+            console.error(`[Booking ${requestId}] Failed to parse request body:`, e);
+            return NextResponse.json({ success: false, message: 'Invalid request body – could not parse JSON.' }, { status: 400 });
+        }
 
-        // Validate input
+        // ── 2. Zod Validation ────────────────────────────────────────────
         const validation = BookingSchema.safeParse(body);
         if (!validation.success) {
             const formattedErrors = validation.error.format();
-            console.error('[Booking API] Validation failed. Fields with errors:',
-                Object.entries(formattedErrors)
-                    .filter(([key, val]) => key !== '_errors' && typeof val === 'object' && (val as any)._errors?.length)
-                    .map(([key, val]) => `${key}: ${(val as any)._errors.join(', ')}`)
-                    .join(' | ')
-            );
+            const errorSummary = Object.entries(formattedErrors)
+                .filter(([k, v]) => k !== '_errors' && typeof v === 'object' && (v as any)._errors?.length)
+                .map(([k, v]) => `${k}: ${(v as any)._errors.join(', ')}`)
+                .join(' | ');
+            console.error(`[Booking ${requestId}] ❌ Validation failed: ${errorSummary}`);
             return NextResponse.json(
-                {
-                    success: false,
-                    message: 'Invalid booking data. Please check your inputs.',
-                    errors: formattedErrors
-                },
+                { success: false, message: 'Some fields are invalid. Please check your details.', errors: formattedErrors },
                 { status: 400 }
             );
         }
-
+        console.log(`[Booking ${requestId}] ✅ Validation passed`);
         const bookingData = validation.data;
-        let priceDetails: any = {};
-        const selectedVehiclesList = [];
 
-        // Normalize vehicle selection
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        let vehiclesToProcess: any[] = [];
+        // ── 3. Price calculation ─────────────────────────────────────────
+        let priceDetails: Record<string, any> = {};
+        const selectedVehiclesList: { name: string; quantity: number }[] = [];
+
+        let vehiclesToProcess: { vehicleId: string; quantity: number }[] = [];
         if (bookingData.selectedVehicles && bookingData.selectedVehicles.length > 0) {
-            vehiclesToProcess = bookingData.selectedVehicles;
+            vehiclesToProcess = bookingData.selectedVehicles.map(sv => ({ vehicleId: sv.vehicleId, quantity: sv.quantity }));
         } else if (bookingData.vehicleId) {
             vehiclesToProcess = [{ vehicleId: bookingData.vehicleId, quantity: bookingData.vehicleCount || 1 }];
         }
 
-        // Calculate price and resolve vehicle names
-        if (bookingData.routeId && vehiclesToProcess.length > 0) {
+        if (bookingData.routeId && bookingData.routeId !== 'custom' && vehiclesToProcess.length > 0) {
             try {
+                console.log(`[Booking ${requestId}] Calculating price for route ${bookingData.routeId}...`);
                 const [routes, vehicles, settings] = await Promise.all([
                     routeService.getRoutes(),
                     vehicleService.getVehicles(),
@@ -68,138 +69,186 @@ export async function POST(request: Request) {
                 ]);
 
                 const route = (routes as RouteWithPrices[]).find(r => r.id === bookingData.routeId);
-
                 let totalBasePrice = 0;
-                let vehicleNames: string[] = [];
+                const vehicleNames: string[] = [];
 
                 for (const sv of vehiclesToProcess) {
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
                     const vehicle = (vehicles as any[]).find(v => v.id === sv.vehicleId);
                     if (vehicle) {
-                        // Check availability
                         if (bookingData.date && vehicle.unavailableDates?.includes(bookingData.date)) {
-                            // If this specific vehicle is unavailable on the requested date
-                            throw new Error(`Vehicle ${vehicle.name} is unavailable on ${bookingData.date}`);
+                            return NextResponse.json(
+                                { success: false, message: `${vehicle.name} is unavailable on ${bookingData.date}. Please choose a different date or vehicle.` },
+                                { status: 409 }
+                            );
                         }
-
                         selectedVehiclesList.push({ name: vehicle.name, quantity: sv.quantity });
                         vehicleNames.push(`${sv.quantity} x ${vehicle.name}`);
 
                         if (route) {
-                            const priceEntry = route.prices?.find(p => p.vehicleId === sv.vehicleId);
-                            if (priceEntry) {
-                                totalBasePrice += (priceEntry.price * sv.quantity);
-                            }
+                            const priceEntry = (route as any).prices?.find((p: any) => p.vehicleId === sv.vehicleId);
+                            if (priceEntry) totalBasePrice += priceEntry.price * sv.quantity;
                         }
                     }
                 }
 
                 if (totalBasePrice > 0) {
                     const { price, originalPrice, discountApplied, discountType } = calculateFinalPrice(totalBasePrice, settings.discount);
-
-                    if (discountApplied > 0) {
-                        console.log(`[Booking] Discount applied: ${discountApplied} (${discountType})`);
-                    }
-
-                    priceDetails = {
-                        originalPrice,
-                        discountApplied,
-                        finalPrice: price,
-                        discountType,
-                        price: String(price) // Store final price as string for compatibility
-                    };
+                    priceDetails = { originalPrice, discountApplied, finalPrice: price, discountType, price: String(price) };
+                    console.log(`[Booking ${requestId}] Price calculated: ${price} SAR`);
                 }
 
-                // Set the fallback/summary vehicle string
                 if (vehicleNames.length > 0) {
                     bookingData.vehicle = vehicleNames.join(', ');
                 }
-
-            } catch (err) {
-                console.error('Error calculating price:', err);
+            } catch (priceErr) {
+                // Non-fatal: log and continue — price can be set manually by admin
+                console.warn(`[Booking ${requestId}] ⚠️ Price calculation failed (non-fatal):`, priceErr);
             }
         }
 
-        // Check if user is logged in (Optional)
-        let userId = undefined;
+        // ── 4. Get optional user ID ──────────────────────────────────────
+        let userId: string | undefined;
         try {
             const { verifyToken } = await import('@/lib/auth-utils');
             const { cookies } = await import('next/headers');
             const cookieStore = await cookies();
             const token = cookieStore.get('admin_token')?.value;
-
             if (token) {
                 const decoded = await verifyToken(token);
-                if (decoded && decoded.userId) {
-                    userId = decoded.userId;
-                }
+                if (decoded?.userId) userId = decoded.userId;
             }
-        } catch (err) {
-            console.log('Booking created as guest (no valid token found)');
+        } catch {
+            // Guest booking — expected
         }
 
-
-
-
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const booking = await addBooking({
-            ...bookingData,
-            ...priceDetails,
-            userId, // Attach User ID if authenticated
-            // Ensure we save the detailed selection if the DB supports it, 
-            // otherwise 'vehicle' string covers the basics. 
-            // We assume addBooking can handle extra fields or ignores them.
-            selectedVehicles: selectedVehiclesList
-        } as any);
-
-
-
-        // Send standardized confirmation email to customer
-        console.log('[Booking API] Processing customer email...');
+        // ── 5. SAVE to database ──────────────────────────────────────────
+        console.log(`[Booking ${requestId}] Saving booking to database...`);
+        let savedBooking: any;
         try {
-            if (booking && booking.email) {
-                const { sendBookingConfirmationEmail, sendAdminNewBookingEmail } = await import('@/lib/email');
-
-                const emailData = {
-                    name: booking.name,
-                    email: booking.email,
-                    status: booking.status,
-                    id: booking._id.toString().slice(-8).toUpperCase(),
-                    vehicle: booking.vehicle,
-                    pickup: booking.pickup,
-                    dropoff: booking.dropoff,
-                    date: booking.date,
-                    time: booking.time,
-                    passengers: booking.passengers,
-                    vehicleCount: booking.vehicleCount,
-                    luggage: booking.luggage,
-                    notes: booking.notes,
-                    price: booking.finalPrice ? `${booking.finalPrice} SAR` : undefined,
-                    selectedVehicles: selectedVehiclesList,
-                    country: booking.country,
-                    flightNumber: booking.flightNumber,
-                    arrivalDate: booking.arrivalDate,
-                    phone: booking.phone,
-                };
-
-                await sendBookingConfirmationEmail(emailData);
-                await sendAdminNewBookingEmail(emailData);
-                console.log('Standardized emails sent successfully');
-
-                const { pusherServer } = await import('@/lib/pusher');
-                await pusherServer.trigger('admin-channel', 'new-booking', {
-                    message: `New booking: ${booking._id}`,
-                    bookingId: booking._id,
-                    data: emailData
-                });
+            savedBooking = await addBooking({
+                ...bookingData,
+                ...priceDetails,
+                status: 'pending',
+                paymentStatus: 'unpaid',
+                userId,
+                selectedVehicles: selectedVehiclesList.map((sv, i) => ({
+                    vehicleId: vehiclesToProcess[i]?.vehicleId || '',
+                    quantity: sv.quantity,
+                    name: sv.name,
+                })),
+            } as any);
+            console.log(`[Booking ${requestId}] ✅ Booking SAVED. ID: ${savedBooking._id || savedBooking.id}`);
+        } catch (dbErr: any) {
+            console.error(`[Booking ${requestId}] ❌ DATABASE SAVE FAILED:`, dbErr.message);
+            // Check for specific MongoDB errors
+            if (dbErr.name === 'MongoNetworkError' || dbErr.message?.includes('ECONNREFUSED') || dbErr.message?.includes('querySrv')) {
+                return NextResponse.json(
+                    { success: false, message: 'We are experiencing a temporary database issue. Please try again in a moment or contact us via WhatsApp.' },
+                    { status: 503 }
+                );
             }
-        } catch (error) {
-            console.error('Error sending standardized emails or notifications:', error);
+            return NextResponse.json(
+                { success: false, message: 'Failed to save your booking. Please try again or contact us via WhatsApp.' },
+                { status: 500 }
+            );
         }
 
-        return NextResponse.json(booking);
-    } catch (error) {
-        console.error('Booking error:', error);
-        return NextResponse.json({ error: 'Failed to create booking' }, { status: 500 });
+        // ── 6. Send emails (non-fatal) ────────────────────────────────────
+        const bookingId = (savedBooking._id || savedBooking.id || '').toString();
+        const emailData = {
+            name: savedBooking.name,
+            email: savedBooking.email,
+            status: savedBooking.status || 'pending',
+            id: bookingId.slice(-8).toUpperCase(),
+            vehicle: savedBooking.vehicle || 'Custom Booking',
+            pickup: savedBooking.pickup,
+            dropoff: savedBooking.dropoff,
+            date: savedBooking.date,
+            time: savedBooking.time,
+            passengers: savedBooking.passengers || 1,
+            vehicleCount: savedBooking.vehicleCount || 1,
+            luggage: savedBooking.luggage || 0,
+            notes: savedBooking.notes,
+            price: savedBooking.finalPrice ? `${savedBooking.finalPrice} SAR` : undefined,
+            selectedVehicles: selectedVehiclesList,
+            country: savedBooking.country,
+            flightNumber: savedBooking.flightNumber,
+            arrivalDate: savedBooking.arrivalDate,
+            phone: savedBooking.phone,
+        };
+
+        console.log(`[Booking ${requestId}] Sending confirmation emails for booking ${emailData.id}...`);
+
+        // Fire-and-forget email sending — booking already saved above so emails failing = non-critical
+        Promise.allSettled([
+            (async () => {
+                try {
+                    const { sendBookingConfirmationEmail } = await import('@/lib/email');
+                    if (!emailData.email) {
+                        console.warn(`[Booking ${requestId}] ⚠️ No customer email — skipping customer confirmation`);
+                        return;
+                    }
+                    const result = await sendBookingConfirmationEmail(emailData);
+                    if (result) {
+                        console.log(`[Booking ${requestId}] ✅ Customer email sent to ${emailData.email}`);
+                    } else {
+                        console.error(`[Booking ${requestId}] ❌ Customer email failed (sendEmail returned false)`);
+                    }
+                } catch (e: any) {
+                    console.error(`[Booking ${requestId}] ❌ Customer email exception:`, e.message);
+                }
+            })(),
+            (async () => {
+                try {
+                    const { sendAdminNewBookingEmail } = await import('@/lib/email');
+                    const result = await sendAdminNewBookingEmail(emailData);
+                    if (result) {
+                        console.log(`[Booking ${requestId}] ✅ Admin email sent to alkiswahymrahcab@gmail.com`);
+                    } else {
+                        console.error(`[Booking ${requestId}] ❌ Admin email failed (sendEmail returned false)`);
+                    }
+                } catch (e: any) {
+                    console.error(`[Booking ${requestId}] ❌ Admin email exception:`, e.message);
+                }
+            })(),
+            (async () => {
+                try {
+                    const { pusherServer } = await import('@/lib/pusher');
+                    await pusherServer.trigger('admin-channel', 'new-booking', {
+                        message: `New booking #${emailData.id}`,
+                        bookingId,
+                        data: emailData,
+                    });
+                    console.log(`[Booking ${requestId}] ✅ Pusher notification sent`);
+                } catch (e: any) {
+                    console.warn(`[Booking ${requestId}] ⚠️ Pusher notification failed (non-critical):`, e.message);
+                }
+            })(),
+        ]).then(results => {
+            const failures = results.filter(r => r.status === 'rejected');
+            if (failures.length) {
+                console.warn(`[Booking ${requestId}] ${failures.length} async task(s) failed after booking save`);
+            }
+        });
+
+        // ── 7. Return success ─────────────────────────────────────────────
+        console.log(`[Booking ${requestId}] ✅ Returning success response`);
+        console.log(`==========================================================\n`);
+
+        return NextResponse.json({
+            success: true,
+            message: 'Booking confirmed successfully',
+            _id: bookingId,
+            id: bookingId,
+            bookingRef: emailData.id,
+            ...savedBooking,
+        });
+
+    } catch (error: any) {
+        console.error(`[Booking ${requestId}] ❌ UNHANDLED ERROR:`, error.message, error.stack);
+        return NextResponse.json(
+            { success: false, message: 'An unexpected error occurred. Please try again or contact us via WhatsApp.' },
+            { status: 500 }
+        );
     }
 }

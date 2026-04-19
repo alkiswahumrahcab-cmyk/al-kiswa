@@ -1,12 +1,27 @@
 import nodemailer from 'nodemailer';
 
-// Create a transporter using environment variables
+// Explicit SMTP config — more reliable than 'service: gmail' shorthand
 const transporter = nodemailer.createTransport({
-    service: 'gmail', // Or use 'host', 'port', etc. for other providers
+    host: process.env.SMTP_HOST || 'smtp.gmail.com',
+    port: Number(process.env.SMTP_PORT) || 465,
+    secure: (Number(process.env.SMTP_PORT) || 465) === 465, // true for 465, false for 587
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
     },
+    tls: {
+        rejectUnauthorized: false, // Allow self-signed certs in dev
+    },
+});
+
+// Verify connection on startup (non-fatal)
+transporter.verify((error) => {
+    if (error) {
+        console.error('[Email] ❌ SMTP transporter verification failed:', error.message);
+        console.error('[Email] Check EMAIL_USER and EMAIL_PASS environment variables are set correctly in Vercel.');
+    } else {
+        console.log('[Email] ✅ SMTP transporter connected and ready');
+    }
 });
 
 interface EmailOptions {
@@ -16,29 +31,37 @@ interface EmailOptions {
 }
 
 export const sendEmail = async ({ to, subject, html }: EmailOptions) => {
-    // Debug logging for server-side troubleshooting
-    console.log(`[Email] Attempting to send email to: ${to.substring(0, 3)}***@${to.split('@')[1]}`);
-    console.log(`[Email] Environment check - USER: ${!!process.env.EMAIL_USER ? 'Set' : 'Missing'}, PASS: ${!!process.env.EMAIL_PASS ? 'Set' : 'Missing'}`);
+    if (!to || !to.includes('@')) {
+        console.error(`[Email] ❌ Skipping send — invalid recipient address: "${to}"`);
+        return false;
+    }
+
+    console.log(`[Email] Sending to: ${to.substring(0, 3)}***@${to.split('@')[1]} | Subject: "${subject}"`);
+    console.log(`[Email] Config — USER: ${process.env.EMAIL_USER ? '✅ Set' : '❌ MISSING'}, PASS: ${process.env.EMAIL_PASS ? '✅ Set' : '❌ MISSING'}`);
 
     try {
         const mailOptions = {
-            from: process.env.EMAIL_USER,
+            from: `"Al Kiswah Umrah Transport" <${process.env.EMAIL_USER}>`,
             to,
             subject,
             html,
         };
 
         const info = await transporter.sendMail(mailOptions);
-        console.log('[Email] Sent successfully. MessageId:', info.messageId);
+        console.log('[Email] ✅ Sent successfully. MessageId:', info.messageId);
         return true;
     } catch (error: any) {
-        console.error('[Email] Failed to send:', error.message);
+        console.error('[Email] ❌ Failed to send:', error.message);
+        if (error.code === 'EAUTH') {
+            console.error('[Email] ❌ AUTHENTICATION FAILED — Check EMAIL_USER / EMAIL_PASS in Vercel environment variables');
+        }
         if (error.response) {
             console.error('[Email] SMTP Response:', error.response);
         }
         return false;
     }
 };
+
 
 interface BookingData {
     name: string;
