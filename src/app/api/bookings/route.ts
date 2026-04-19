@@ -179,23 +179,27 @@ export async function POST(request: Request) {
 
         console.log(`[Booking ${requestId}] Sending confirmation emails for booking ${emailData.id}...`);
 
-        // Fire-and-forget email sending — booking already saved above so emails failing = non-critical
-        Promise.allSettled([
+        // IMPORTANT: We MUST await this before returning — Vercel kills the serverless function
+        // the moment we return a response, so any fire-and-forget Promises would be terminated.
+        const emailResults = await Promise.allSettled([
             (async () => {
                 try {
                     const { sendBookingConfirmationEmail } = await import('@/lib/email');
                     if (!emailData.email) {
                         console.warn(`[Booking ${requestId}] ⚠️ No customer email — skipping customer confirmation`);
-                        return;
+                        return 'skipped';
                     }
                     const result = await sendBookingConfirmationEmail(emailData);
                     if (result) {
                         console.log(`[Booking ${requestId}] ✅ Customer email sent to ${emailData.email}`);
+                        return 'sent';
                     } else {
                         console.error(`[Booking ${requestId}] ❌ Customer email failed (sendEmail returned false)`);
+                        return 'failed';
                     }
                 } catch (e: any) {
                     console.error(`[Booking ${requestId}] ❌ Customer email exception:`, e.message);
+                    return 'error';
                 }
             })(),
             (async () => {
@@ -203,12 +207,15 @@ export async function POST(request: Request) {
                     const { sendAdminNewBookingEmail } = await import('@/lib/email');
                     const result = await sendAdminNewBookingEmail(emailData);
                     if (result) {
-                        console.log(`[Booking ${requestId}] ✅ Admin email sent to alkiswahymrahcab@gmail.com`);
+                        console.log(`[Booking ${requestId}] ✅ Admin notification email sent`);
+                        return 'sent';
                     } else {
                         console.error(`[Booking ${requestId}] ❌ Admin email failed (sendEmail returned false)`);
+                        return 'failed';
                     }
                 } catch (e: any) {
                     console.error(`[Booking ${requestId}] ❌ Admin email exception:`, e.message);
+                    return 'error';
                 }
             })(),
             (async () => {
@@ -220,16 +227,16 @@ export async function POST(request: Request) {
                         data: emailData,
                     });
                     console.log(`[Booking ${requestId}] ✅ Pusher notification sent`);
+                    return 'sent';
                 } catch (e: any) {
                     console.warn(`[Booking ${requestId}] ⚠️ Pusher notification failed (non-critical):`, e.message);
+                    return 'error';
                 }
             })(),
-        ]).then(results => {
-            const failures = results.filter(r => r.status === 'rejected');
-            if (failures.length) {
-                console.warn(`[Booking ${requestId}] ${failures.length} async task(s) failed after booking save`);
-            }
-        });
+        ]);
+
+        const [customerEmailResult, adminEmailResult, pusherResult] = emailResults;
+        console.log(`[Booking ${requestId}] Post-save tasks: customer_email=${customerEmailResult.status}, admin_email=${adminEmailResult.status}, pusher=${pusherResult.status}`);
 
         // ── 7. Return success ─────────────────────────────────────────────
         console.log(`[Booking ${requestId}] ✅ Returning success response`);
