@@ -115,7 +115,7 @@ export async function POST(request: Request) {
             const token = cookieStore.get('admin_token')?.value;
             if (token) {
                 const decoded = await verifyToken(token);
-                if (decoded?.userId) userId = decoded.userId;
+                if (decoded?.userId) userId = decoded.userId as string;
             }
         } catch {
             // Guest booking — expected
