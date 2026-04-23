@@ -1,33 +1,33 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import Link from 'next/link';
-import { ArrowRight, MapPin, Clock, Camera, CheckCircle, Heart } from 'lucide-react';
+import { ArrowLeft, MapPin, Clock, CheckCircle, Heart } from 'lucide-react';
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FadeIn from "@/components/common/FadeIn";
+import MobileStickyBarWrapper from "@/components/booking/MobileStickyBarWrapper";
 
 export const metadata: Metadata = {
     title: "زيارة المدينة المنورة | مسجد قباء وأُحد | الكسوة",
-    description: "Private Ziyarat tours in Madinah. Visit Masjid Quba, Mount Uhud, Seven Mosques and Qiblatayn. Experienced drivers and comfortable transport.",
+    description: "احجز جولات الزيارة الخاصة في المدينة المنورة. قم بزيارة مسجد قباء، جبل أحد، المساجد السبعة والقبلتين مع سائقين ذوي خبرة.",
     keywords: [
-        "Ziyarat Madinah",
-        "Masjid Quba Tour",
-        "Mount Uhud Visit",
-        "Madinah Historical Places",
-        "Private Ziyarat Taxi Madinah",
-        "ziarah madinah",
-        "Seven Mosques Tour"
+        "زيارة المدينة",
+        "جولة مسجد قباء",
+        "زيارة جبل أحد",
+        "الاماكن التاريخية في المدينة",
+        "تاكسي زيارة المدينة",
+        "زيارات العمرة"
     ],
     alternates: {
-    ...generateMetadataAlternates("/services/ziarah-madinah"),
-    canonical: "https://kiswahumrahcab.com/ar/services/ziarah-madinah",
-  },
+        ...generateMetadataAlternates("/services/ziarah-madinah"),
+        canonical: "https://kiswahumrahcab.com/ar/services/ziarah-madinah",
+    },
     openGraph: {
         title: "جولات المدينة المنورة | مسجد قباء وغزوة أُحد | الكسوة",
-        description: "Comprehensive private tours of Madinah's historical sites. Follow the footsteps of the Prophet (SAW).",
+        description: "جولات خاصة شاملة للمواقع التاريخية في المدينة المنورة. اتبع خطى النبي ﷺ.",
         images: [{ url: '/images/routes/madinah-ziyarat-hero.png', width: 1200, height: 630, alt: 'Masjid Quba Madinah Ziyarat' }]
     }
 };
@@ -68,26 +68,26 @@ const jsonLd = {
 
 const madinahFAQs = [
     {
-        question: "How long is the Madinah Ziyarat tour?",
-        answer: "The tour typically lasts 3 hours, covering all major historical mosques and sites."
+        question: "كم تستغرق جولة زيارة المدينة المنورة؟",
+        answer: "تستغرق الجولة عادة 3 ساعات، وتغطي جميع المساجد والمواقع التاريخية الرئيسية."
     },
     {
-        question: "Does the tour include the Printing Press?",
-        answer: "The Quran Printing Complex has specific opening hours (usually mornings). We can include it in the itinerary if it is open."
+        question: "هل تشمل الجولة مطبعة القرآن الكريم؟",
+        answer: "مجمع الملك فهد لطباعة المصحف الشريف له ساعات عمل محددة (عادة في الصباح). يمكننا إدراجه في خط سير الرحلة إذا كان مفتوحاً."
     },
     {
-        question: "Is Masjid Quba included?",
-        answer: "Yes, Masjid Quba is a key stop. We allow ample time for you to perform Wudhu and offer 2 Rakaats prayer."
+        question: "هل مسجد قباء مشمول في الجولة؟",
+        answer: "نعم، مسجد قباء محطة رئيسية. نتيح لك وقتاً كافياً للوضوء وصلاة ركعتين."
     },
 ];
 
 export default async function ZiarahMadinahPage() {
     const settings = await getSettings();
     const phoneNumber = settings.contact.phone;
-    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20Madinah%20Ziyarat`;
+    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=أنا%20مهتم%20بزيارة%20المدينة`;
 
     return (
-        <main className="min-h-screen bg-primary-black relative">
+        <main className="min-h-screen bg-primary-black relative" dir="rtl">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <script
@@ -95,10 +95,10 @@ export default async function ZiarahMadinahPage() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
             <Hero
-                title="Madinah Ziyarat Tours"
-                subtitle="Explore the City of the Prophet (SAW). Visit the first mosque of Islam and relive the earliest days of our faith."
+                title="جولات زيارة المدينة المنورة"
+                subtitle="استكشف مدينة النبي ﷺ. قم بزيارة أول مسجد في الإسلام وعش الأيام الأولى لديننا الحنيف."
                 bgImage="/images/routes/madinah-ziyarat-hero.png"
-                ctaText="Book Madinah Ziyarat"
+                ctaText="احجز زيارة المدينة"
                 ctaLink={whatsappLink}
                 layout="center"
                 breadcrumbs={<Breadcrumbs />}
@@ -109,39 +109,39 @@ export default async function ZiarahMadinahPage() {
             <section className="py-24 bg-transparent relative z-10">
                 <div className="container mx-auto px-4">
                     <FadeIn>
-                        <div className="flex flex-col md:flex-row-reverse gap-12 items-start">
+                        <div className="flex flex-col md:flex-row gap-12 items-start">
                             <div className="md:w-1/2">
-                                <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white border-l-4 border-gold-primary pl-4">
-                                    Illuminated Landmarks
+                                <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white border-r-4 border-gold-primary pr-4">
+                                    المعالم المنورة
                                 </h2>
                                 <p className="text-gray-300 mb-8 leading-relaxed font-light text-lg">
-                                    Madinah is filled with history in every corner. Our drivers take you to the most spiritually significant sites.
+                                    المدينة المنورة مليئة بالتاريخ في كل زاوية. سيأخذك سائقونا إلى أكثر المواقع روحانية.
                                 </p>
                                 <ul className="space-y-6">
                                     {[
                                         {
-                                            name: "Masjid Quba",
-                                            desc: "The first mosque built by the Prophet (SAW). Offering 2 Rakaats here is equivalent to an Umrah.",
+                                            name: "مسجد قباء",
+                                            desc: "أول مسجد بناه النبي ﷺ. صلاة ركعتين فيه تعادل أجر عمرة.",
                                             icon: <Heart size={24} />
                                         },
                                         {
-                                            name: "Mount Uhud & Martyrs Cemetery",
-                                            desc: "The site of the second major battle in Islam and the resting place of Hamza (RA).",
+                                            name: "جبل أحد ومقبرة الشهداء",
+                                            desc: "موقع الغزوة الثانية الكبرى في الإسلام ومثوى سيد الشهداء حمزة بن عبد المطلب (رضي الله عنه).",
                                             icon: <MapPin size={24} />
                                         },
                                         {
-                                            name: "Masjid Al-Qiblatayn",
-                                            desc: "The Mosque of the Two Qiblas, where the direction of prayer was changed towards the Kaaba.",
+                                            name: "مسجد القبلتين",
+                                            desc: "المسجد الذي نزل فيه الوحي بتغيير القبلة نحو الكعبة المشرفة.",
                                             icon: <Clock size={24} />
                                         },
                                         {
-                                            name: "The Seven Mosques",
-                                            desc: "A complex of small historical mosques at the site of the Battle of the Trench (Khandaq).",
+                                            name: "المساجد السبعة",
+                                            desc: "مجموعة من المساجد التاريخية الصغيرة في موقع غزوة الخندق.",
                                             icon: <CheckCircle size={24} />
                                         },
                                         {
-                                            name: "Masjid Al-Ghamamah",
-                                            desc: "Where the Prophet (SAW) offered the prayer for rain.",
+                                            name: "مسجد الغمامة",
+                                            desc: "المكان الذي صلى فيه النبي ﷺ صلاة الاستسقاء والعيدين.",
                                             icon: <MapPin size={24} />
                                         }
                                     ].map((site, idx) => (
@@ -167,8 +167,8 @@ export default async function ZiarahMadinahPage() {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-8 z-20">
                                         <div>
-                                            <span className="text-gold-primary font-bold tracking-wider uppercase text-sm mb-2 block">The First Mosque</span>
-                                            <h3 className="text-white text-3xl font-bold font-sans">Masjid Quba</h3>
+                                            <span className="text-gold-primary font-bold tracking-wider uppercase text-sm mb-2 block">أول مسجد</span>
+                                            <h3 className="text-white text-3xl font-bold font-sans">مسجد قباء</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -182,33 +182,33 @@ export default async function ZiarahMadinahPage() {
             <section className="py-24 bg-white/5 relative z-10 border-y border-white/5">
                 <div className="container mx-auto px-4 text-center">
                     <FadeIn delay={0.2}>
-                        <h2 className="text-3xl md:text-5xl font-bold mb-16 font-sans text-white">The City of Peace</h2>
+                        <h2 className="text-3xl md:text-5xl font-bold mb-16 font-sans text-white">مدينة السلام</h2>
                         <div className="grid md:grid-cols-3 gap-8">
                             <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold-primary/30 transition-all group">
                                 <div className="bg-gold-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold-primary border border-gold-primary/20 group-hover:bg-gold-primary group-hover:text-black transition-all">
                                     <Clock size={32} />
                                 </div>
-                                <h3 className="text-xl font-bold mb-3 text-white">Ample Time for Dua</h3>
-                                <p className="text-sm text-gray-400 leading-relaxed font-light">We ensure you have enough time at Uhud and Quba to make Dua and offer prayers without rushing.</p>
+                                <h3 className="text-xl font-bold mb-3 text-white">وقت كافٍ للدعاء</h3>
+                                <p className="text-sm text-gray-400 leading-relaxed font-light">نضمن لك وقتاً كافياً في جبل أحد ومسجد قباء للدعاء والصلاة دون استعجال.</p>
                             </div>
                             <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold-primary/30 transition-all group">
                                 <div className="bg-gold-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold-primary border border-gold-primary/20 group-hover:bg-gold-primary group-hover:text-black transition-all">
                                     <Heart size={32} />
                                 </div>
-                                <h3 className="text-xl font-bold mb-3 text-white">Knowledgeable Drivers</h3>
-                                <p className="text-sm text-gray-400 leading-relaxed font-light">Our drivers know the history and etiquette of visiting these sacred places.</p>
+                                <h3 className="text-xl font-bold mb-3 text-white">سائقون مطلعون</h3>
+                                <p className="text-sm text-gray-400 leading-relaxed font-light">يعرف سائقونا تاريخ وآداب زيارة هذه الأماكن المقدسة.</p>
                             </div>
                             <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold-primary/30 transition-all group">
                                 <div className="bg-gold-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold-primary border border-gold-primary/20 group-hover:bg-gold-primary group-hover:text-black transition-all">
-                                    <ArrowRight size={32} />
+                                    <ArrowLeft size={32} />
                                 </div>
-                                <h3 className="text-xl font-bold mb-3 text-white">Door-to-Door</h3>
-                                <p className="text-sm text-gray-400 leading-relaxed font-light">We pick you up from your hotel in the Markazia area and drop you back right at the door.</p>
+                                <h3 className="text-xl font-bold mb-3 text-white">من الباب للباب</h3>
+                                <p className="text-sm text-gray-400 leading-relaxed font-light">نقوم باصطحابك من فندقك في المنطقة المركزية ونعيدك إلى بابه مرة أخرى.</p>
                             </div>
                         </div>
                         <div className="mt-16">
-                            <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105">
-                                Book Your Madinah Ziyarat <ArrowRight size={20} className="ml-2" />
+                            <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] tracking-wider text-sm text-black hover:scale-105">
+                                احجز زيارتك للمدينة <ArrowLeft size={20} className="mr-2" />
                             </Link>
                         </div>
                     </FadeIn>
@@ -218,8 +218,10 @@ export default async function ZiarahMadinahPage() {
             <FleetCarouselWrapper />
 
             <div className="relative z-10">
-                <FAQSection items={madinahFAQs} title="Madinah Ziyarat - FAQ" />
+                <FAQSection items={madinahFAQs} title="زيارة المدينة - الأسئلة الشائعة" />
             </div>
+
+            <MobileStickyBarWrapper />
         </main>
     );
 }

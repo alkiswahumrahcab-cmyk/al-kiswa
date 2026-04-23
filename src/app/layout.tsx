@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { MenuProvider } from "@/context/MenuContext";
 import { PricingProvider } from '@/context/PricingContext';
 import { SettingsProvider } from '@/context/SettingsContext';
+import { CurrencyProvider } from '@/context/CurrencyContext';
 import Preloader from "@/components/common/Preloader";
 import NextTopLoader from 'nextjs-toploader';
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
@@ -105,6 +106,7 @@ export async function generateMetadata(): Promise<Metadata> {
         'en-GB': 'https://kiswahumrahcab.com/umrah-transport-uk-pilgrims',
         'fr': 'https://kiswahumrahcab.com/umrah-taxi-france',
         'de': 'https://kiswahumrahcab.com/umrah-transport-germany',
+        'nl': 'https://kiswahumrahcab.com/umrah-taxi-nederland',
         'x-default': 'https://kiswahumrahcab.com/',
       },
     },
@@ -142,34 +144,36 @@ export default async function RootLayout({
 
         <MenuProvider>
           <SettingsProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="dark"
-              forcedTheme="dark"
-              enableSystem={false}
-              disableTransitionOnChange
-            >
-              <PricingProvider>
-                <NextTopLoader
-                  color="#D4AF37"
-                  initialPosition={0.08}
-                  crawlSpeed={200}
-                  height={4}
-                  crawl={true}
-                  showSpinner={false}
-                  easing="ease"
-                  speed={200}
-                  shadow="0 0 15px #D4AF37,0 0 5px #D4AF37"
-                />
+            <CurrencyProvider>
+              <ThemeProvider
+                attribute="class"
+                defaultTheme="dark"
+                forcedTheme="dark"
+                enableSystem={false}
+                disableTransitionOnChange
+              >
+                <PricingProvider>
+                  <NextTopLoader
+                    color="#D4AF37"
+                    initialPosition={0.08}
+                    crawlSpeed={200}
+                    height={4}
+                    crawl={true}
+                    showSpinner={false}
+                    easing="ease"
+                    speed={200}
+                    shadow="0 0 15px #D4AF37,0 0 5px #D4AF37"
+                  />
 
-                {/* Main Content Area - Layouts downstream will inject Nav/Footer */}
-                {children}
+                  {/* Main Content Area - Layouts downstream will inject Nav/Footer */}
+                  {children}
 
-                {/* Global Widgets */}
-                {/* FloatingAssistanceButton removed to avoid overlap */}
+                  {/* Global Widgets */}
+                  {/* FloatingAssistanceButton removed to avoid overlap */}
 
-              </PricingProvider>
-            </ThemeProvider>
+                </PricingProvider>
+              </ThemeProvider>
+            </CurrencyProvider>
           </SettingsProvider>
         </MenuProvider>
 

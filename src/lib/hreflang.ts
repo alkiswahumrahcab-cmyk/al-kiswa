@@ -14,7 +14,7 @@ export function generateHreflangTags(englishPath: string): HreflangEntry[] {
   // Normalize path
   const path = englishPath === "/" ? "" : englishPath;
 
-  return [
+  const tags: HreflangEntry[] = [
     // Default English — serves all English speakers globally
     {
       hreflang: "en",
@@ -55,22 +55,30 @@ export function generateHreflangTags(englishPath: string): HreflangEntry[] {
       hreflang: "ar-QA",
       href: `${BASE_URL}/ar${path || "/"}`,
     },
-    // French — for French pilgrims (France, Belgium, Morocco, Algeria, Tunisia)
-    {
-      hreflang: "fr",
-      href: `${BASE_URL}/umrah-taxi-france`,
-    },
-    // German
-    {
-      hreflang: "de",
-      href: `${BASE_URL}/umrah-transport-germany`,
-    },
     // x-default — fallback for all other languages/regions
     {
       hreflang: "x-default",
-      href: `${BASE_URL}/`,
+      href: `${BASE_URL}${path || "/"}`,
     },
   ];
+
+  // Only link the specific regional landing pages as alternates for the root homepage
+  if (path === "") {
+    tags.push({
+      hreflang: "fr",
+      href: `${BASE_URL}/umrah-taxi-france`,
+    });
+    tags.push({
+      hreflang: "de",
+      href: `${BASE_URL}/umrah-transport-germany`,
+    });
+    tags.push({
+      hreflang: "nl",
+      href: `${BASE_URL}/umrah-taxi-nederland`,
+    });
+  }
+
+  return tags;
 }
 
 /**
@@ -79,21 +87,27 @@ export function generateHreflangTags(englishPath: string): HreflangEntry[] {
  */
 export function generateMetadataAlternates(englishPath: string) {
   const path = englishPath === "/" ? "" : englishPath;
+  
+  const languages: Record<string, string> = {
+    "en": `${BASE_URL}${path || "/"}`,
+    "en-GB": `${BASE_URL}${path || "/"}`,
+    "en-US": `${BASE_URL}${path || "/"}`,
+    "ar": `${BASE_URL}/ar${path || "/"}`,
+    "ar-SA": `${BASE_URL}/ar${path || "/"}`,
+    "ar-AE": `${BASE_URL}/ar${path || "/"}`,
+    "ar-KW": `${BASE_URL}/ar${path || "/"}`,
+    "ar-QA": `${BASE_URL}/ar${path || "/"}`,
+    "x-default": `${BASE_URL}${path || "/"}`,
+  };
+
+  if (path === "") {
+    languages["fr"] = `${BASE_URL}/umrah-taxi-france`;
+    languages["de"] = `${BASE_URL}/umrah-transport-germany`;
+    languages["nl"] = `${BASE_URL}/umrah-taxi-nederland`;
+  }
 
   return {
     canonical: `${BASE_URL}${path || "/"}`,
-    languages: {
-      "en": `${BASE_URL}${path || "/"}`,
-      "en-GB": `${BASE_URL}${path || "/"}`,
-      "en-US": `${BASE_URL}${path || "/"}`,
-      "ar": `${BASE_URL}/ar${path || "/"}`,
-      "ar-SA": `${BASE_URL}/ar${path || "/"}`,
-      "ar-AE": `${BASE_URL}/ar${path || "/"}`,
-      "ar-KW": `${BASE_URL}/ar${path || "/"}`,
-      "ar-QA": `${BASE_URL}/ar${path || "/"}`,
-      "fr": `${BASE_URL}/umrah-taxi-france`,
-      "de": `${BASE_URL}/umrah-transport-germany`,
-      "x-default": `${BASE_URL}/`,
-    },
+    languages,
   };
 }

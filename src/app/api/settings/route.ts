@@ -1,17 +1,46 @@
 import { NextResponse } from 'next/server';
 import { getSettings, saveSettings } from '@/lib/settings-storage';
+import { settingsService } from '@/services/settingsService';
 import { requireRole } from '@/lib/server-auth';
 import { SettingsSchema } from '@/lib/validations';
 import { logAction } from '@/lib/logger';
 
 export async function GET() {
     try {
-        const settings = await getSettings();
-        return NextResponse.json(settings);
-    } catch {
-        return NextResponse.json({ error: 'Failed to fetch settings' }, { status: 500 });
+        let settings: any = {};
+        let exchangeRate = '3.75';
+
+        try {
+            settings = await getSettings();
+        } catch (e) {
+            console.error('[/api/settings] getSettings failed:', e);
+        }
+
+        try {
+            const rawSettings = await settingsService.getSettings();
+            const rawMap = (rawSettings as any[]).reduce((acc: Record<string, string>, curr: any) => {
+                acc[curr.key] = curr.value;
+                return acc;
+            }, {} as Record<string, string>);
+            if (rawMap['exchange_rate']) exchangeRate = rawMap['exchange_rate'];
+        } catch (e) {
+            console.error('[/api/settings] settingsService.getSettings failed:', e);
+        }
+
+        return NextResponse.json({
+            ...settings,
+            exchange_rate: exchangeRate,
+        });
+    } catch (e) {
+        console.error('[/api/settings] GET error:', e);
+        // Return minimal valid response so SettingsContext doesn't crash
+        return NextResponse.json({
+            general: { siteName: 'Al Kiswah Umrah Transport' },
+            exchange_rate: '3.75',
+        });
     }
 }
+
 
 export async function POST(request: Request) {
     const user = await requireRole(['ADMIN']);

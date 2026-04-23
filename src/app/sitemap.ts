@@ -10,6 +10,8 @@ const englishPages = [
   { path: "/services/madinah-airport-transfer", priority: 0.8, changeFreq: "monthly" },
   { path: "/services/intercity-transfer", priority: 0.8, changeFreq: "monthly" },
   { path: "/services/ziyarat-tours", priority: 0.8, changeFreq: "monthly" },
+  { path: "/services/ziarah-makkah", priority: 0.8, changeFreq: "monthly" },
+  { path: "/services/ziarah-madinah", priority: 0.8, changeFreq: "monthly" },
   { path: "/services/airport-transfers", priority: 0.8, changeFreq: "monthly" },
   { path: "/services/hotel-transfers", priority: 0.7, changeFreq: "monthly" },
   { path: "/fleet/gmc-yukon-at4", priority: 0.7, changeFreq: "monthly" },
@@ -21,11 +23,13 @@ const englishPages = [
   { path: "/about", priority: 0.6, changeFreq: "monthly" },
   { path: "/blog", priority: 0.7, changeFreq: "weekly" },
   { path: "/contact", priority: 0.5, changeFreq: "yearly" },
-  { path: "/pricing", priority: 0.8, changeFreq: "monthly" },
+  { path: "/pricing", priority: 0.95, changeFreq: "weekly" },
+  { path: "/pricing/compare", priority: 0.90, changeFreq: "monthly" },
   { path: "/safety", priority: 0.5, changeFreq: "yearly" },
   { path: "/umrah-transport-uk-pilgrims", priority: 0.8, changeFreq: "monthly" },
   { path: "/umrah-taxi-france", priority: 0.7, changeFreq: "monthly" },
   { path: "/umrah-transport-germany", priority: 0.7, changeFreq: "monthly" },
+  { path: "/umrah-taxi-nederland", priority: 0.7, changeFreq: "monthly" },
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

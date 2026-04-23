@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Save, Globe, Phone, MapPin, Facebook, Instagram, Twitter, Linkedin, Video, Search, Code, Layout, AtSign, Hash, FileText, Link as LinkIcon, Lock, ShieldCheck, Percent, Mail, DatabaseBackup, Trash2 } from 'lucide-react';
+import { Save, Globe, Phone, MapPin, Facebook, Instagram, Twitter, Linkedin, Video, Search, Code, Layout, AtSign, Hash, FileText, Link as LinkIcon, Lock, ShieldCheck, Percent, Mail, DatabaseBackup, Trash2, Banknote } from 'lucide-react';
 import styles from '../admin.module.css';
 import { Toast, ToastType } from '@/components/ui/Toast';
 import dynamic from 'next/dynamic';
@@ -14,7 +14,7 @@ import EmailTemplateManager from '@/components/admin/settings/EmailTemplateManag
 import { Settings } from '@/lib/validations';
 import { DEFAULT_BOOKING_CONFIRMATION_TEMPLATE, DEFAULT_ADMIN_NOTIFICATION_TEMPLATE } from '@/lib/email-templates';
 
-type Tab = 'general' | 'contact' | 'social' | 'seo' | 'scripts' | 'security' | 'discount' | 'emails' | 'database';
+type Tab = 'general' | 'contact' | 'social' | 'seo' | 'scripts' | 'security' | 'discount' | 'emails' | 'database' | 'currency';
 
 export default function SettingsPage() {
     const [activeTab, setActiveTab] = useState<Tab>('general');
@@ -64,7 +64,8 @@ export default function SettingsPage() {
         emailTemplates: {
             bookingConfirmation: '',
             adminNotification: '',
-        }
+        },
+        exchange_rate: '3.75'
     });
 
     const [passwordForm, setPasswordForm] = useState({
@@ -247,6 +248,7 @@ export default function SettingsPage() {
         { id: 'seo', label: 'SEO', icon: Search, description: 'Search engine optimization' },
         { id: 'scripts', label: 'Scripts', icon: Code, description: 'Custom tracking scripts' },
         { id: 'discount', label: 'Discounts', icon: Percent, description: 'Promotions & offers' },
+        { id: 'currency', label: 'Pricing & Currency', icon: Banknote, description: 'Manage exchange rate' },
         { id: 'emails', label: 'Email Templates', icon: Mail, description: 'Customize emails' },
         { id: 'database', label: 'Maintenance', icon: DatabaseBackup, description: 'Data retention & cleanup' },
         { id: 'security', label: 'Security', icon: ShieldCheck, description: 'Password & access' },
@@ -595,6 +597,36 @@ export default function SettingsPage() {
                                     onSave={handleSectionSave}
                                     isSaving={saving}
                                 />
+                            )}
+
+                            {activeTab === 'currency' && (
+                                <div className="space-y-8">
+                                    <div>
+                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
+                                            <Banknote className="text-amber-500" size={28} />
+                                            Pricing & Currency
+                                        </h2>
+                                        <p className="text-muted-foreground">Manage the global USD to SAR exchange rate.</p>
+                                    </div>
+                                    <div className="grid gap-6">
+                                        <div className="space-y-2">
+                                            <label className="text-sm font-semibold text-slate-700 ml-1">Exchange Rate (1 USD to SAR)</label>
+                                            <div className="relative">
+                                                <Banknote className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+                                                <input
+                                                    type="number"
+                                                    step="0.01"
+                                                    name="exchange_rate"
+                                                    value={settings.exchange_rate}
+                                                    onChange={handleChange}
+                                                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
+                                                    placeholder="3.75"
+                                                />
+                                            </div>
+                                            <p className="text-xs text-muted-foreground ml-1">Example: 3.75 means 1 USD = 3.75 SAR</p>
+                                        </div>
+                                    </div>
+                                </div>
                             )}
 
                             {activeTab === 'emails' && (

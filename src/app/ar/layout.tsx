@@ -32,23 +32,21 @@ export default async function ArabicLayout({
   const settings = await getSettings();
 
   return (
-    <html lang="ar" dir="rtl" className={cairo.variable}>
-      <body className={`${cairo.className} rtl bg-primary-black text-white`}>
-        {/* Navbar — shared component, already handles RTL gracefully */}
-        <ClientLayoutWrapper>
-          <Navbar />
-        </ClientLayoutWrapper>
+    <div lang="ar" dir="rtl" className={`${cairo.variable} ${cairo.className} rtl bg-primary-black text-white`}>
+      {/* Navbar — shared component, already handles RTL gracefully */}
+      <ClientLayoutWrapper>
+        <Navbar />
+      </ClientLayoutWrapper>
 
-        <main style={{ minHeight: "calc(100vh - 80px - 300px)" }}>
-          {children}
-        </main>
+      <main style={{ minHeight: "calc(100vh - 80px - 300px)" }}>
+        {children}
+      </main>
 
-        {/* Footer + WhatsApp button */}
-        <ClientLayoutWrapper>
-          <Footer />
-          <GlobalClientComponents contactSettings={settings.contact} />
-        </ClientLayoutWrapper>
-      </body>
-    </html>
+      {/* Footer + WhatsApp button */}
+      <ClientLayoutWrapper>
+        <Footer />
+        <GlobalClientComponents contactSettings={settings.contact} />
+      </ClientLayoutWrapper>
+    </div>
   );
 }

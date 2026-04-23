@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users, Briefcase, Check, ArrowRight, ChevronLeft, ShieldCheck, ChevronDown, ChevronUp } from 'lucide-react';
 import { usePricing } from '@/context/PricingContext';
+import { useCurrency } from '@/context/CurrencyContext';
 
 interface VehicleStepProps {
     data: any;
@@ -14,6 +15,7 @@ interface VehicleStepProps {
 
 export default function VehicleStep({ data, updateData, onNext, onBack }: VehicleStepProps) {
     const { vehicles, calculatePrice } = usePricing();
+    const { currency, formatPrice } = useCurrency();
     const [expandedId, setExpandedId] = useState<string | null>(null);
 
     const handleIncrement = (vId: string) => {
@@ -130,8 +132,8 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                         </h3>
                                         {pricing && (
                                             <div className="text-right shrink-0">
-                                                <span className="text-base font-black text-white">{pricing.price}</span>
-                                                <span className="text-[10px] text-gold-primary font-bold ml-0.5">SAR</span>
+                                                <span className="text-base font-black text-white">{formatPrice(pricing.price).amount}</span>
+                                                <span className="text-[10px] text-gold-primary font-bold ml-0.5">{currency}</span>
                                             </div>
                                         )}
                                     </div>
@@ -172,7 +174,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                                 </div>
                                                 {count > 0 && (
                                                     <span className="text-[11px] text-gold-primary font-bold">
-                                                        {pricing ? `${pricing.price * count} SAR` : 'Added'}
+                                                        {pricing ? formatPrice(pricing.price * count).formatted : 'Added'}
                                                     </span>
                                                 )}
                                             </>
@@ -256,8 +258,8 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                                 <div>
                                                     <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold block mb-0.5">Total Price</span>
                                                     <div className="flex items-baseline gap-1">
-                                                        <span className="text-2xl font-black text-white">{pricing.price}</span>
-                                                        <span className="text-[10px] font-bold text-gold-primary">SAR</span>
+                                                        <span className="text-2xl font-black text-white">{formatPrice(pricing.price).amount}</span>
+                                                        <span className="text-[10px] font-bold text-gold-primary">{currency}</span>
                                                     </div>
                                                 </div>
                                             ) : (
@@ -320,7 +322,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                     `}
                 >
                     {totalSelected > 0
-                        ? `Continue — ${totalSelected} vehicle${totalSelected > 1 ? 's' : ''}${totalPrice > 0 ? ` · ${totalPrice} SAR` : ''}`
+                        ? `Continue — ${totalSelected} vehicle${totalSelected > 1 ? 's' : ''}${totalPrice > 0 ? ` · ${formatPrice(totalPrice).formatted}` : ''}`
                         : 'Select a Vehicle to Continue'}
                     {totalSelected > 0 && <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />}
                 </button>

@@ -73,6 +73,11 @@ export async function POST(request: Request) {
         // Invalidate cache
         revalidatePath('/admin/settings');
         revalidatePath('/', 'layout'); // Clears everything using layout (header/footer)
+        // If exchange rate changed, also revalidate public pricing pages
+        if (updates['exchange_rate'] || body['exchange_rate']) {
+            revalidatePath('/pricing');
+            revalidatePath('/ar/pricing');
+        }
         // revalidateTag('settings');
 
         // Audit Log

@@ -30,7 +30,9 @@ export const BookingSchema = z.object({
     paymentMethod: z.string().optional(),
     paymentStatus: z.enum(['paid', 'unpaid', 'refunded']).optional(),
     price: z.string().optional(),
+    currency: z.string().optional(),
 });
+
 
 export const VehicleSchema = z.object({
     name: z.string().min(2, 'Vehicle name is required'),

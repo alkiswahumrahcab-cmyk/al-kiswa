@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Check, HelpCircle, Shield, CreditCard, Banknote, AlertCircle } from 'lucide-react';
 import FAQSection from '@/components/services/FAQSection';
 import FadeIn from '@/components/common/FadeIn';
+import PricingGrid from './PricingGrid';
 
 export const metadata: Metadata = {
     title: "Umrah Taxi Prices 2026 | Jeddah to Makkah Taxi Fare",
@@ -19,60 +20,15 @@ export const metadata: Metadata = {
         "Taxi Cost Jeddah Airport"
     ],
     alternates: {
-    ...generateMetadataAlternates("/pricing"),
-    canonical: "https://kiswahumrahcab.com/ar/pricing",
-  },
+        ...generateMetadataAlternates("/pricing"),
+        canonical: "https://kiswahumrahcab.com/ar/pricing",
+    },
     openGraph: {
         title: "Umrah Transport Pricing 2026 | Best Rates Guaranteed",
         description: "See our fixed rates for Umrah transfers. Jeddah to Makkah from 200 SAR. No hidden charges.",
         images: [{ url: '/images/fleet/gmc-yukon-hero-professional.png', width: 1200, height: 630, alt: 'Umrah Taxi Pricing' }]
     }
 };
-
-const pricingRoutes = [
-    {
-        title: "Jeddah Airport ➔ Makkah",
-        price: "200",
-        currency: "SAR",
-        duration: "1 Hour",
-        features: [
-            "Meet & Greet at Arrivals",
-            "Flight Tracking",
-            "60 Mins Free Waiting",
-            "Luggage Assistance"
-        ],
-        link: "/services/jeddah-airport-transfer",
-        highlight: true
-    },
-    {
-        title: "Makkah ➔ Madinah",
-        price: "450",
-        currency: "SAR",
-        duration: "4.5 Hours",
-        features: [
-            "Door-to-Door Service",
-            "Prayer Stop at Miqat",
-            "Comfort Break Available",
-            "Freeway Route"
-        ],
-        link: "/services/makkah-madinah-taxi",
-        highlight: false
-    },
-    {
-        title: "Ziyarat (City Tour)",
-        price: "250",
-        currency: "SAR",
-        duration: "3 Hours",
-        features: [
-            "Visit Historical Sites",
-            "Private Driver Guide",
-            "Flexible Photo Stops",
-            "Hotel Pickup & Drop"
-        ],
-        link: "/services/ziyarat-tours",
-        highlight: false
-    }
-];
 
 const vehicles = [
     { name: "Sedan (Camry/Sonata)", capacity: "3 Pax", bags: "2 Bags" },
@@ -126,50 +82,7 @@ export default function PricingPage() {
                             </p>
                         </div>
 
-                        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                            {pricingRoutes.map((route, idx) => (
-                                <div key={idx} className={`relative p-8 rounded-3xl border transition-all duration-300 group hover:-translate-y-2
-                                    ${route.highlight
-                                        ? 'bg-gradient-to-b from-white/10 to-black border-gold-primary shadow-[0_0_30px_rgba(212,175,55,0.15)]'
-                                        : 'bg-white/5 border-white/10 hover:border-gold-primary/50'
-                                    }`}>
-                                    {route.highlight && (
-                                        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold-primary text-black font-bold px-4 py-1 rounded-full text-sm uppercase tracking-wider shadow-lg">
-                                            Most Popular
-                                        </div>
-                                    )}
-                                    <div className="text-center mb-8">
-                                        <h3 className="text-xl font-bold text-white mb-4">{route.title}</h3>
-                                        <div className="flex justify-center items-end gap-1 mb-2">
-                                            <span className="text-sm text-gray-400 mb-2">from</span>
-                                            <span className="text-5xl font-bold text-gold-primary">{route.price}</span>
-                                            <span className="text-xl font-bold text-gray-400 mb-2">{route.currency}</span>
-                                        </div>
-                                        <p className="text-gray-500 font-light text-sm">{route.duration} • Sedan Class</p>
-                                    </div>
-
-                                    <ul className="space-y-4 mb-8">
-                                        {route.features.map((feat, i) => (
-                                            <li key={i} className="flex items-start gap-3 text-gray-300 text-sm">
-                                                <Check className="text-gold-primary shrink-0" size={18} />
-                                                <span>{feat}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-
-                                    <Link
-                                        href={route.link}
-                                        className={`block w-full py-4 rounded-xl font-bold text-center uppercase tracking-wider transition-all
-                                            ${route.highlight
-                                                ? 'bg-gold-primary text-black hover:bg-white hover:shadow-lg'
-                                                : 'bg-white/10 text-white hover:bg-gold-primary hover:text-black'
-                                            }`}
-                                    >
-                                        Check Availability
-                                    </Link>
-                                </div>
-                            ))}
-                        </div>
+                        <PricingGrid />
                     </FadeIn>
                 </div>
             </section>

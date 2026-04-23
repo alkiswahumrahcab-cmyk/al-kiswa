@@ -162,6 +162,7 @@ export default function Footer() {
                             <li><Link href="/fleet/hyundai-staria" className="text-gray-400 hover:text-white transition-colors text-[15px]">Hyundai Staria — Family MPV</Link></li>
                             <li><Link href="/fleet/toyota-hiace" className="text-gray-400 hover:text-white transition-colors text-[15px]">Toyota Hiace — Group Bus</Link></li>
                             <li><Link href="/pricing" className="text-gray-400 hover:text-white transition-colors text-[15px]">Pricing & Rates</Link></li>
+                            <li><Link href="/pricing/compare" className="text-gold-primary/70 hover:text-gold-primary transition-colors text-[15px]">Compare vs Kiwi · Telixo · 5Star</Link></li>
                         </ul>
                     </div>
 

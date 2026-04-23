@@ -8,6 +8,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePricing } from '@/context/PricingContext';
 import { useSettings } from '@/context/SettingsContext';
+import { useCurrency } from '@/context/CurrencyContext';
 import Link from 'next/link';
 
 interface DetailsStepProps {
@@ -33,6 +34,7 @@ const COUNTRY_CODES = [
 export default function DetailsStep({ data, updateData, onBack }: DetailsStepProps) {
     const { vehicles, calculatePrice } = usePricing();
     const { settings } = useSettings();
+    const { currency, formatPrice } = useCurrency();
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSuccess, setIsSuccess] = useState(false);
@@ -138,6 +140,8 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                 quantity: Number(item.count),
             })),
             vehicleCount: Number(selectedList.reduce((acc: number, i: any) => acc + i.count, 0)) || 1,
+            price: grandTotal > 0 ? formatPrice(grandTotal).formatted : undefined,
+            currency: currency,
         };
 
         console.log('[Booking] Submitting payload:', payload);
@@ -236,7 +240,9 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                     customerName: data.name,
                                     customerPhone: data.phone,
                                     customerEmail: data.email,
-                                    status: 'CONFIRMED'
+                                    status: 'CONFIRMED',
+                                    currency: currency,
+                                    formattedTotal: formatPrice(grandTotal).amount
                                 });
                             });
                         }}
@@ -304,7 +310,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                 {selectedList.length > 0
                                     ? selectedList.map((i: any) => `${i.vehicle?.name} ×${i.count}`).join(', ')
                                     : 'No vehicle selected'}
-                                {grandTotal > 0 && <span className="ml-2 text-gold-primary">· {grandTotal} SAR</span>}
+                                {grandTotal > 0 && <span className="ml-2 text-gold-primary">· {formatPrice(grandTotal).formatted}</span>}
                             </p>
                         </div>
                     </div>
@@ -330,7 +336,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                         {selectedList.map((item: any) => (
                                             <div key={item.id} className="flex justify-between text-sm font-bold border-b border-black/10 pb-1 last:border-0 last:pb-0">
                                                 <span>{item.vehicle?.name} <span className="font-normal opacity-70">×{item.count}</span></span>
-                                                <span>SAR {item.total}</span>
+                                                <span>{formatPrice(item.total).formatted}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -370,7 +376,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                     <div className="flex justify-between items-center pt-1 border-t border-gray-100">
                                         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Total Estimate</p>
                                         <p className="text-2xl font-black">
-                                            {grandTotal > 0 ? grandTotal : '—'} <span className="text-xs font-bold text-amber-600">SAR</span>
+                                            {grandTotal > 0 ? formatPrice(grandTotal).amount : '—'} <span className="text-xs font-bold text-amber-600">{currency}</span>
                                         </p>
                                     </div>
 
@@ -503,7 +509,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                 {selectedList.map((item: any) => (
                                     <div key={item.id} className="flex justify-between text-sm font-bold border-b border-black/10 pb-1 last:border-0 last:pb-0">
                                         <span>{item.vehicle?.name} <span className="font-normal opacity-70">×{item.count}</span></span>
-                                        <span>SAR {item.total}</span>
+                                        <span>{formatPrice(item.total).formatted}</span>
                                     </div>
                                 ))}
                             </div>
@@ -539,7 +545,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                             </div>
                             <div className="flex justify-between items-center pt-1">
                                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Total Estimate</p>
-                                <p className="text-3xl font-black">{grandTotal > 0 ? grandTotal : '—'} <span className="text-xs font-bold text-amber-600">SAR</span></p>
+                                <p className="text-3xl font-black">{grandTotal > 0 ? formatPrice(grandTotal).amount : '—'} <span className="text-xs font-bold text-amber-600">{currency}</span></p>
                             </div>
                         </div>
                         <div className="bg-gray-50 border-t border-gray-100 p-4 relative">

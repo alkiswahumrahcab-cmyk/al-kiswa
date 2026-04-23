@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { getBookings, addBooking } from '@/lib/db';
 import { BookingSchema } from '@/lib/validations';
 import { getSettings } from '@/lib/settings-storage';
+import { settingsService } from '@/services/settingsService';
 import { routeService, RouteWithPrices } from '@/services/routeService';
 import { vehicleService } from '@/services/vehicleService';
 import { calculateFinalPrice } from '@/lib/pricing';
@@ -62,11 +63,17 @@ export async function POST(request: Request) {
         if (bookingData.routeId && bookingData.routeId !== 'custom' && vehiclesToProcess.length > 0) {
             try {
                 console.log(`[Booking ${requestId}] Calculating price for route ${bookingData.routeId}...`);
-                const [routes, vehicles, settings] = await Promise.all([
+                const [routes, vehicles, settings, rawSettingsArr] = await Promise.all([
                     routeService.getRoutes(),
                     vehicleService.getVehicles(),
-                    getSettings()
+                    getSettings(),
+                    settingsService.getSettings()
                 ]);
+
+                const rawSettingsMap = (rawSettingsArr as any[]).reduce((acc: Record<string, string>, curr: any) => {
+                    acc[curr.key] = curr.value;
+                    return acc;
+                }, {} as Record<string, string>);
 
                 const route = (routes as RouteWithPrices[]).find(r => r.id === bookingData.routeId);
                 let totalBasePrice = 0;
@@ -93,8 +100,20 @@ export async function POST(request: Request) {
 
                 if (totalBasePrice > 0) {
                     const { price, originalPrice, discountApplied, discountType } = calculateFinalPrice(totalBasePrice, settings.discount);
-                    priceDetails = { originalPrice, discountApplied, finalPrice: price, discountType, price: String(price) };
-                    console.log(`[Booking ${requestId}] Price calculated: ${price} SAR`);
+                    
+                    let displayPrice = String(price) + ' SAR';
+                    if (bookingData.currency === 'USD') {
+                        const exchangeRate = rawSettingsMap['exchange_rate'] ? parseFloat(rawSettingsMap['exchange_rate']) : 3.75;
+                        const usdAmount = Math.round(price / exchangeRate);
+                        displayPrice = `$${usdAmount}`;
+                    } else if (bookingData.currency === 'SAR') {
+                        displayPrice = `${price} SAR`;
+                    } else if (bookingData.price) {
+                        displayPrice = bookingData.price;
+                    }
+
+                    priceDetails = { originalPrice, discountApplied, finalPrice: price, discountType, price: displayPrice };
+                    console.log(`[Booking ${requestId}] Price calculated: ${displayPrice}`);
                 }
 
                 if (vehicleNames.length > 0) {
@@ -169,7 +188,7 @@ export async function POST(request: Request) {
             vehicleCount: savedBooking.vehicleCount || 1,
             luggage: savedBooking.luggage || 0,
             notes: savedBooking.notes,
-            price: savedBooking.finalPrice ? `${savedBooking.finalPrice} SAR` : undefined,
+            price: savedBooking.price || (savedBooking.finalPrice ? `${savedBooking.finalPrice} SAR` : undefined),
             selectedVehicles: selectedVehiclesList,
             country: savedBooking.country,
             flightNumber: savedBooking.flightNumber,

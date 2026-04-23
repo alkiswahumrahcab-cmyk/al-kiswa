@@ -26,6 +26,8 @@ export interface InvoiceData {
     customerEmail?: string;
     customerPhone: string;
     status?: string;
+    currency?: string;
+    formattedTotal?: number;
 }
 
 export const generateBookingInvoice = async (data: InvoiceData) => {
@@ -121,12 +123,15 @@ export const generateBookingInvoice = async (data: InvoiceData) => {
     // @ts-ignore
     if (data.time) description += `\nTime: ${data.time}`;
 
+    const curr = data.currency || 'SAR';
+    const amount = data.formattedTotal || data.totalPrice;
+
     const tableBody = [
         [
             description,
             data.vehicleCount.toString(),
-            `SAR ${(data.vehicleCount > 0 ? (data.totalPrice / data.vehicleCount) : 0).toLocaleString('en-US', { minimumFractionDigits: 2 })}`,
-            `SAR ${data.totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2 })}`
+            `${curr} ${(data.vehicleCount > 0 ? (amount / data.vehicleCount) : 0).toLocaleString('en-US', { minimumFractionDigits: 2 })}`,
+            `${curr} ${amount.toLocaleString('en-US', { minimumFractionDigits: 2 })}`
         ]
     ];
 
@@ -170,7 +175,7 @@ export const generateBookingInvoice = async (data: InvoiceData) => {
     doc.setFont("helvetica", "normal");
     doc.setTextColor(COLOR_TEXT_GRAY);
     doc.text("Subtotal", totalsX, finalY + 8);
-    doc.text(`SAR ${data.totalPrice}`, pageWidth - 20, finalY + 8, { align: "right" });
+    doc.text(`${curr} ${amount}`, pageWidth - 20, finalY + 8, { align: "right" });
 
     // Total (Large)
     doc.setFillColor(COLOR_PRIMARY);
@@ -179,7 +184,7 @@ export const generateBookingInvoice = async (data: InvoiceData) => {
     doc.setFontSize(14);
     doc.setTextColor(COLOR_SECONDARY);
     doc.text("Total", totalsX, finalY + 20);
-    doc.text(`SAR ${data.totalPrice}`, pageWidth - 20, finalY + 20, { align: "right" });
+    doc.text(`${curr} ${amount}`, pageWidth - 20, finalY + 20, { align: "right" });
 
     // Tax Note
     doc.setFontSize(8);
