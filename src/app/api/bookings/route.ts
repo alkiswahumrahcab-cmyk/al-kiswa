@@ -6,6 +6,10 @@ import { settingsService } from '@/services/settingsService';
 import { routeService, RouteWithPrices } from '@/services/routeService';
 import { vehicleService } from '@/services/vehicleService';
 import { calculateFinalPrice } from '@/lib/pricing';
+import { rateLimit } from '@/lib/rate-limit';
+
+const RATE_LIMIT_INTERVAL = 10 * 60 * 1000; // 10 minutes
+const RATE_LIMIT_MAX_REQUESTS = 3; // 3 bookings per 10 minutes per IP
 
 export async function GET() {
     try {
@@ -22,6 +26,24 @@ export async function POST(request: Request) {
     console.log(`\n========== [Booking ${requestId}] NEW REQUEST ==========`);
 
     try {
+        // ── 0. Rate Limiting ─────────────────────────────────────────────
+        let ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown-ip';
+        if (ip.includes(',')) ip = ip.split(',')[0].trim();
+        
+        const rateLimitResult = await rateLimit(ip, { 
+            interval: RATE_LIMIT_INTERVAL, 
+            limit: RATE_LIMIT_MAX_REQUESTS, 
+            endpoint: 'bookings_post' 
+        });
+
+        if (!rateLimitResult.success) {
+            console.warn(`[Booking ${requestId}] 🛑 Rate limit exceeded for IP: ${ip}`);
+            return NextResponse.json(
+                { success: false, message: 'You have submitted too many bookings recently. Please try again later or contact us via WhatsApp.' },
+                { status: 429 }
+            );
+        }
+
         // ── 1. Parse body ────────────────────────────────────────────────
         let body: any;
         try {
@@ -106,10 +128,9 @@ export async function POST(request: Request) {
                         const exchangeRate = rawSettingsMap['exchange_rate'] ? parseFloat(rawSettingsMap['exchange_rate']) : 3.75;
                         const usdAmount = Math.round(price / exchangeRate);
                         displayPrice = `$${usdAmount}`;
-                    } else if (bookingData.currency === 'SAR') {
+                    } else {
+                        // Force SAR display for any unknown currency to prevent display price spoofing
                         displayPrice = `${price} SAR`;
-                    } else if (bookingData.price) {
-                        displayPrice = bookingData.price;
                     }
 
                     priceDetails = { originalPrice, discountApplied, finalPrice: price, discountType, price: displayPrice };
@@ -123,6 +144,11 @@ export async function POST(request: Request) {
                 // Non-fatal: log and continue — price can be set manually by admin
                 console.warn(`[Booking ${requestId}] ⚠️ Price calculation failed (non-fatal):`, priceErr);
             }
+        } else if (bookingData.routeId === 'custom') {
+            // Prevent price tampering for custom routes
+            console.log(`[Booking ${requestId}] Custom route detected. Forcing "Pending Quote" state.`);
+            priceDetails = { price: 'Pending Quote' };
+            bookingData.price = 'Pending Quote';
         }
 
         // ── 4. Get optional user ID ──────────────────────────────────────

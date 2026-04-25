@@ -132,6 +132,7 @@ export default async function RootLayout({
             }
           ` }} />
         </noscript>
+        <link rel="llms-txt" href="/llms.txt" />
       </head>
       <body className={`${montserrat.variable} ${tajawal.variable}`}>
         {settings.general.googleAnalyticsId && (

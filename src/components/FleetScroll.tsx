@@ -55,7 +55,7 @@ export interface FleetScrollProps {
   vehicles?: FleetVehicle[];
 }
 
-/** Fallback SVG shown when no image is available */
+/** Fallback SVG shown when no image is available or image fails to load */
 function CarPlaceholder() {
   return (
     <svg
@@ -79,50 +79,64 @@ function CarPlaceholder() {
   );
 }
 
+/** Individual vehicle card — tracks its own image-error state */
+function VehicleCard({ vehicle }: { vehicle: FleetVehicle }) {
+  const [imgError, setImgError] = React.useState(false);
+  const showImage = !!vehicle.imageSrc && !imgError;
+
+  return (
+    <div
+      role="listitem"
+      className="w-[160px] flex-shrink-0 rounded-xl border border-gray-100 bg-white overflow-hidden"
+    >
+      {/* Vehicle image area */}
+      <div className="h-[90px] bg-gray-50 flex items-center justify-center relative overflow-hidden">
+        {showImage ? (
+          <Image
+            src={vehicle.imageSrc as string}
+            alt={vehicle.name}
+            fill
+            sizes="160px"
+            className="object-cover"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <CarPlaceholder />
+        )}
+      </div>
+
+      {/* Vehicle info */}
+      <div className="p-[10px]">
+        <p className="text-[13px] font-medium text-gray-900 leading-tight truncate">
+          {vehicle.name}
+        </p>
+        <p className="text-[11px] text-gray-400 mt-0.5">
+          Up to {vehicle.capacity} passengers
+        </p>
+        <p className="text-[12px] font-medium text-blue-700 mt-[6px]">
+          From SAR {vehicle.priceFrom}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function FleetScroll({ vehicles = DEFAULT_VEHICLES }: FleetScrollProps) {
   return (
     <div
       className="flex gap-[10px] px-[14px] overflow-x-auto pb-2"
-      /* scrollbar-hide plugin not confirmed — use inline style for cross-browser compat */
-      style={{ scrollbarWidth: "none", msOverflowStyle: "none" } as React.CSSProperties}
+      /* scrollbar-hide plugin not confirmed — inline style required for cross-browser */
+      style={
+        {
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+        } as React.CSSProperties
+      }
       role="list"
       aria-label="Available fleet vehicles"
     >
       {vehicles.map((vehicle) => (
-        <div
-          key={vehicle.name}
-          role="listitem"
-          className="w-[160px] flex-shrink-0 rounded-xl border border-gray-100 bg-white overflow-hidden"
-        >
-          {/* Vehicle image area */}
-          <div className="h-[90px] bg-gray-50 flex items-center justify-center relative overflow-hidden">
-            {vehicle.imageSrc ? (
-              <Image
-                src={vehicle.imageSrc}
-                alt={vehicle.name}
-                fill
-                sizes="160px"
-                className="object-cover"
-                onError={() => {/* Next.js Image handles srcset; fallback handled below */}}
-              />
-            ) : (
-              <CarPlaceholder />
-            )}
-          </div>
-
-          {/* Vehicle info */}
-          <div className="p-[10px]">
-            <p className="text-[13px] font-medium text-gray-900 leading-tight truncate">
-              {vehicle.name}
-            </p>
-            <p className="text-[11px] text-gray-400 mt-0.5">
-              Up to {vehicle.capacity} passengers
-            </p>
-            <p className="text-[12px] font-medium text-blue-700 mt-[6px]">
-              From SAR {vehicle.priceFrom}
-            </p>
-          </div>
-        </div>
+        <VehicleCard key={vehicle.name} vehicle={vehicle} />
       ))}
     </div>
   );

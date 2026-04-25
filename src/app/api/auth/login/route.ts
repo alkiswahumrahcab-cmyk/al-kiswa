@@ -8,7 +8,7 @@ export async function POST(request: Request) {
         // Rate Limiting
         const ip = request.headers.get('x-forwarded-for') || 'unknown';
         const { rateLimit } = await import('@/lib/rate-limit');
-        const limiter = rateLimit(ip, { interval: 60 * 1000, limit: 5 }); // 5 attempts per minute
+        const limiter = await rateLimit(ip, { interval: 60 * 1000, limit: 5, endpoint: 'login' }); // 5 attempts per minute
 
         if (!limiter.success) {
             return NextResponse.json({ success: false, error: 'Too many login attempts. Please try again later.' }, { status: 429 });
@@ -41,14 +41,12 @@ export async function POST(request: Request) {
         let isValid = false;
 
         if (user && user.password) {
-            // Check if it's a bcrypt hash (starts with $2a$ or $2b$)
+            // Must be a bcrypt hash (starts with $2a$ or $2b$) to ensure no plain text matches
             if (user.password.startsWith('$2a$') || user.password.startsWith('$2b$')) {
                 const { verifyPassword } = await import('@/lib/password-utils');
                 isValid = await verifyPassword(password, user.password);
-            } else {
-                // Fallback to plain text check
-                isValid = user.password === password;
             }
+            // The plain text fallback has been permanently removed to enforce security.
         }
 
         if (!user || !isValid) {

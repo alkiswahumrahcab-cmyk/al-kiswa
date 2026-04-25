@@ -423,6 +423,11 @@
         right: auto;
     }
 
+    .toggleButton {
+        width: 56px;
+        height: 56px;
+    }
+
     .chatWindow {
         position: fixed;
         bottom: 0;

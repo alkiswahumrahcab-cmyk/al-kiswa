@@ -516,5 +516,21 @@ const PaymentSchema = new Schema<IPayment>({
 
 export const Payment: Model<IPayment> = mongoose.models.Payment || mongoose.model<IPayment>('Payment', PaymentSchema);
 
+export interface IRateLimit extends Document {
+    ip: string;
+    endpoint: string;
+    count: number;
+    resetTime: Date;
+}
 
+const RateLimitSchema = new Schema<IRateLimit>({
+    ip: { type: String, required: true },
+    endpoint: { type: String, required: true },
+    count: { type: Number, default: 1 },
+    resetTime: { type: Date, required: true, index: { expires: 0 } } // TTL index automatically deletes document when resetTime is reached
+}, { timestamps: true });
+
+RateLimitSchema.index({ ip: 1, endpoint: 1 }, { unique: true });
+
+export const RateLimit: Model<IRateLimit> = mongoose.models.RateLimit || mongoose.model<IRateLimit>('RateLimit', RateLimitSchema);
 
