@@ -30,8 +30,23 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# env files — NEVER commit these
+.env
+.env.*
+.env*.local
+.env.backup
+
+# Migration scripts with credentials — run locally only
+migrate.js
+
+# Build logs — never commit
+build-log*.txt
+build_errors*.txt
+build_troubleshoot.log
+lint-log.txt
+lint_output.txt
+status.txt
+files_list.txt
 
 # vercel
 .vercel
