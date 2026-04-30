@@ -129,7 +129,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         <div className={styles.heroMeta}>
                             <div className={styles.metaItem}>
                                 <Calendar size={18} />
-                                {new Date(post.date).toLocaleDateString()}
+                                {new Date(post.date).toISOString().split('T')[0]}
                             </div>
                             <div className={styles.metaDivider}>•</div>
                             <div className={styles.metaItem}>

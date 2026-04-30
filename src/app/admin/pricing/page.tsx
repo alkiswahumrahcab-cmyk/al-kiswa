@@ -25,6 +25,7 @@ interface RoutePrice {
     routeId: string;
     vehicleId: string;
     price: number;
+    priceUSD?: number;
 }
 
 // Memoized Cell Component to prevent table re-renders on typing
@@ -45,7 +46,7 @@ const PriceCell = memo(({
 
     // Sync with external changes if needed (e.g. after save)
     useEffect(() => {
-        setValue(initialValue.toString());
+        setValue(initialValue?.toString() || '0');
     }, [initialValue]);
 
     const handleBlur = () => {
@@ -84,11 +85,14 @@ export default function PricingPage() {
     const [routes, setRoutes] = useState<Route[]>([]);
     const [vehicles, setVehicles] = useState<Vehicle[]>([]);
     const [prices, setPrices] = useState<Record<string, number>>({});
+    const [pricesUSD, setPricesUSD] = useState<Record<string, number>>({});
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
     const [modified, setModified] = useState<Record<string, boolean>>({});
+    const [modifiedUSD, setModifiedUSD] = useState<Record<string, boolean>>({});
     const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+    const [activeCurrency, setActiveCurrency] = useState<'SAR' | 'USD'>('SAR');
     const [settings, setSettings] = useState<Settings | null>(null);
     const [isSavingSettings, setIsSavingSettings] = useState(false);
 
@@ -130,10 +134,15 @@ export default function PricingPage() {
             setVehicles(Array.isArray(vehiclesData) ? vehiclesData : []);
 
             const priceMap: Record<string, number> = {};
+            const priceUSDMap: Record<string, number> = {};
             pricesData.forEach((p: RoutePrice) => {
                 priceMap[`${p.routeId}-${p.vehicleId}`] = p.price;
+                if (p.priceUSD !== undefined) {
+                    priceUSDMap[`${p.routeId}-${p.vehicleId}`] = p.priceUSD;
+                }
             });
             setPrices(priceMap);
+            setPricesUSD(priceUSDMap);
 
             if (settingsData && !settingsData.error) {
                 setSettings(settingsData);
@@ -153,15 +162,17 @@ export default function PricingPage() {
 
     const handleCellSave = useCallback((routeId: string, vehicleId: string, newValue: number) => {
         const key = `${routeId}-${vehicleId}`;
-        setPrices(prev => ({
-            ...prev,
-            [key]: newValue
-        }));
-        setModified(prev => ({ ...prev, [key]: true }));
-    }, []);
+        if (activeCurrency === 'SAR') {
+            setPrices(prev => ({ ...prev, [key]: newValue }));
+            setModified(prev => ({ ...prev, [key]: true }));
+        } else {
+            setPricesUSD(prev => ({ ...prev, [key]: newValue }));
+            setModifiedUSD(prev => ({ ...prev, [key]: true }));
+        }
+    }, [activeCurrency]);
 
     const handleReset = () => {
-        if (Object.keys(modified).length === 0) return;
+        if (Object.keys(modified).length === 0 && Object.keys(modifiedUSD).length === 0) return;
 
         setConfirmDialog({
             isOpen: true,
@@ -169,6 +180,7 @@ export default function PricingPage() {
             message: 'Are you sure you want to discard all unsaved changes?',
             onConfirm: () => {
                 setModified({});
+                setModifiedUSD({});
                 fetchData(); // Refetch to reset values
                 showToast('Changes discarded', 'success');
                 setConfirmDialog(prev => ({ ...prev, isOpen: false }));
@@ -207,19 +219,27 @@ export default function PricingPage() {
         setIsPasswordModalOpen(false);
         setSaving(true);
         try {
-            const promises = Object.entries(prices).map(([key, price]) => {
-                // Only save modified prices
-                if (!modified[key]) return Promise.resolve();
+            // Combine all keys from prices and pricesUSD
+            const allKeys = new Set([...Object.keys(prices), ...Object.keys(pricesUSD)]);
+            const promises = Array.from(allKeys).map((key) => {
+                // Only save if modified in either currency
+                if (!modified[key] && !modifiedUSD[key]) return Promise.resolve();
 
                 const [routeId, vehicleId] = key.split('-');
                 return fetch('/api/admin/pricing', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ routeId, vehicleId, price }),
+                    body: JSON.stringify({ 
+                        routeId, 
+                        vehicleId, 
+                        price: prices[key], 
+                        priceUSD: pricesUSD[key] 
+                    }),
                 });
             });
             await Promise.all(promises);
             setModified({});
+            setModifiedUSD({});
             showToast('All changes saved successfully!', 'success');
         } catch (error) {
             console.error('Failed to save all prices:', error);
@@ -240,11 +260,34 @@ export default function PricingPage() {
         <div className="p-6 max-w-[95%] mx-auto space-y-8">
             {toast && <Toast message={toast.message} type={toast.type} isVisible={true} onClose={() => setToast(null)} />}
 
-            {/* Header */}
+            {/* Header and Currency Tabs */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
                     <h1 className={styles.title}>Price Management</h1>
                     <p className="text-muted-foreground">Manage dynamic pricing for routes and vehicles</p>
+                </div>
+                
+                <div className="flex bg-slate-800 p-1 rounded-xl">
+                    <button
+                        onClick={() => setActiveCurrency('SAR')}
+                        className={`px-6 py-2 rounded-lg font-bold transition-all ${
+                            activeCurrency === 'SAR' 
+                            ? 'bg-amber-500 text-slate-900 shadow-md' 
+                            : 'text-slate-400 hover:text-white hover:bg-slate-700'
+                        }`}
+                    >
+                        🇸🇦 SAR Pricing
+                    </button>
+                    <button
+                        onClick={() => setActiveCurrency('USD')}
+                        className={`px-6 py-2 rounded-lg font-bold transition-all ${
+                            activeCurrency === 'USD' 
+                            ? 'bg-blue-500 text-white shadow-md' 
+                            : 'text-slate-400 hover:text-white hover:bg-slate-700'
+                        }`}
+                    >
+                        🇺🇸 USD Pricing
+                    </button>
                 </div>
             </div>
 
@@ -303,7 +346,7 @@ export default function PricingPage() {
                 </div>
 
                 <div className="flex items-center gap-3">
-                    {Object.keys(modified).length > 0 && (
+                    {(Object.keys(modified).length > 0 || Object.keys(modifiedUSD).length > 0) && (
                         <button
                             onClick={handleReset}
                             className="flex items-center gap-2 bg-slate-100 text-slate-600 px-4 py-2.5 rounded-full font-bold hover:bg-slate-200 transition-colors"
@@ -315,7 +358,7 @@ export default function PricingPage() {
 
                     <button
                         onClick={handleSaveAll}
-                        disabled={saving || Object.keys(modified).length === 0}
+                        disabled={saving || (Object.keys(modified).length === 0 && Object.keys(modifiedUSD).length === 0)}
                         className="flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 px-6 py-2.5 rounded-full font-bold shadow-lg shadow-amber-500/20 hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100 whitespace-nowrap"
                     >
                         <Save size={20} />
@@ -352,14 +395,16 @@ export default function PricingPage() {
                                     </td>
                                     {vehicles.map(vehicle => {
                                         const key = `${route.id}-${vehicle.id}`;
+                                        const val = activeCurrency === 'SAR' ? (prices[key] || 0) : (pricesUSD[key] || 0);
+                                        const isMod = activeCurrency === 'SAR' ? !!modified[key] : !!modifiedUSD[key];
                                         return (
                                             <PriceCell
                                                 key={vehicle.id}
                                                 routeId={route.id}
                                                 vehicleId={vehicle.id}
-                                                initialValue={prices[key] || 0}
+                                                initialValue={val}
                                                 onSave={handleCellSave}
-                                                isModified={!!modified[key]}
+                                                isModified={isMod}
                                             />
                                         );
                                     })}

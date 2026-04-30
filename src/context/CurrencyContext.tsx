@@ -10,7 +10,7 @@ interface CurrencyContextType {
     exchangeRate: number;
     toggleCurrency: () => void;
     setCurrency: (c: Currency) => void;
-    formatPrice: (priceInSar: number) => { amount: number; formatted: string };
+    formatPrice: (priceInSar: number, explicitPriceUSD?: number) => { amount: number; formatted: string };
 }
 
 const CurrencyContext = createContext<CurrencyContextType | undefined>(undefined);
@@ -41,14 +41,14 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
         setCurrency(currency === 'SAR' ? 'USD' : 'SAR');
     };
 
-    const formatPrice = (priceInSar: number) => {
+    const formatPrice = (priceInSar: number, explicitPriceUSD?: number) => {
         if (currency === 'SAR') {
             return {
                 amount: priceInSar,
                 formatted: `${priceInSar} SAR`
             };
         } else {
-            const amountInUsd = Math.round(priceInSar / exchangeRate);
+            const amountInUsd = explicitPriceUSD !== undefined ? explicitPriceUSD : Math.round(priceInSar / exchangeRate);
             return {
                 amount: amountInUsd,
                 formatted: `$${amountInUsd}`

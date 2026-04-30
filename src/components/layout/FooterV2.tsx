@@ -31,18 +31,14 @@ export default function Footer() {
             "opens": "00:00",
             "closes": "23:59"
         },
-        "sameAs": [
-            settings?.contact?.social?.instagram || "https://www.instagram.com/kiswahumrahcab",
-            settings?.contact?.social?.facebook || "https://www.facebook.com/kiswahumrahcab",
-            settings?.contact?.social?.tiktok || "https://www.tiktok.com/@kiswahumrahcab"
-        ],
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "500",
-            "bestRating": "5",
-            "worstRating": "1"
-        },
+        "sameAs": Array.from(new Set([
+            settings?.contact?.social?.instagram,
+            settings?.contact?.social?.facebook,
+            settings?.contact?.social?.tiktok,
+            "https://www.instagram.com/kiswahumrahcab",
+            "https://www.facebook.com/kiswahumrahcab",
+            "https://www.tiktok.com/@kiswahumrahcab"
+        ].filter((url): url is string => typeof url === 'string' && url.trim().length > 0))),
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Umrah Transport Services",

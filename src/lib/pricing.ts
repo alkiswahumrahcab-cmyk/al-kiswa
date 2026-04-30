@@ -13,6 +13,7 @@ export interface Route {
     promotionalDiscount?: number; // Percentage discount
     category?: string; // e.g. 'Airport', 'Ziarat', 'Intercity'
     customRates?: { [vehicleId: string]: number };
+    customRatesUSD?: { [vehicleId: string]: number };
     seo?: {
         title: string;
         description: string;

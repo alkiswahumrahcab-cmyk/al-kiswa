@@ -8,7 +8,7 @@ import { useSettings } from './SettingsContext';
 interface PricingContextType {
     routes: Route[];
     vehicles: Vehicle[];
-    calculatePrice: (routeId: string, vehicleId: string) => { price: number; originalPrice: number; discountApplied: number; discountType?: 'percentage' | 'fixed' };
+    calculatePrice: (routeId: string, vehicleId: string) => { price: number; originalPrice: number; discountApplied: number; discountType?: 'percentage' | 'fixed'; priceUSD?: number; originalPriceUSD?: number };
     refreshPricing: () => Promise<void>;
     isLoading: boolean;
 }
@@ -100,16 +100,29 @@ export function PricingProvider({ children }: { children: React.ReactNode }) {
 
         if (!route || !vehicle) return { price: 0, originalPrice: 0, discountApplied: 0 };
 
-        let base = 0;
+        let baseSAR = 0;
+        let baseUSD: number | undefined = undefined;
+
         // Check for custom vehicle rate
         if (route.customRates && route.customRates[vehicleId]) {
-            base = route.customRates[vehicleId];
+            baseSAR = route.customRates[vehicleId];
         } else {
-            base = route.baseRate * vehicle.multiplier;
+            baseSAR = route.baseRate * vehicle.multiplier;
+        }
+
+        if (route.customRatesUSD && route.customRatesUSD[vehicleId]) {
+            baseUSD = route.customRatesUSD[vehicleId];
         }
 
         // Use shared calculation logic
-        return calculateFinalPrice(base, settings?.discount, settings?.pricing?.globalPercentageAdjustment);
+        const sarCalc = calculateFinalPrice(baseSAR, settings?.discount, settings?.pricing?.globalPercentageAdjustment);
+        const usdCalc = baseUSD ? calculateFinalPrice(baseUSD, settings?.discount, settings?.pricing?.globalPercentageAdjustment) : undefined;
+
+        return {
+            ...sarCalc,
+            priceUSD: usdCalc?.price,
+            originalPriceUSD: usdCalc?.originalPrice
+        };
     };
 
     return (

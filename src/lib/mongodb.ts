@@ -1,4 +1,9 @@
 import mongoose from 'mongoose';
+import dns from 'dns';
+
+// Fix for Windows: Node.js sometimes fails to resolve MongoDB Atlas SRV records
+// because it prefers IPv6. Force IPv4 to fix querySrv ECONNREFUSED errors.
+dns.setDefaultResultOrder('ipv4first');
 
 const MONGODB_URI = process.env.MONGODB_URI;
 

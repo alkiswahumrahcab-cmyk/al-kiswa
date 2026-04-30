@@ -14,11 +14,12 @@ export async function GET() {
         // Or we can just return the routes and let the frontend handle it, but to minimize frontend changes, let's flatten.
         const routes = await routeService.getRoutes();
         const prices = routes.flatMap(route =>
-            (route.prices || []).map((p: { vehicleId: string; price: number }) => ({
+            (route.prices || []).map((p: { vehicleId: string; price: number; priceUSD?: number }) => ({
                 id: `${route.id}_${p.vehicleId}`, // Synthetic ID
                 routeId: route.id,
                 vehicleId: p.vehicleId,
-                price: p.price
+                price: p.price,
+                priceUSD: p.priceUSD
             }))
         );
         return NextResponse.json(prices);
@@ -35,9 +36,14 @@ export async function POST(request: Request) {
 
     try {
         const body = await request.json();
-        const { routeId, vehicleId, price } = body;
+        const { routeId, vehicleId, price, priceUSD } = body;
 
-        const updatedPrice = await routeService.updateRoutePrice(routeId, vehicleId, parseFloat(price));
+        const updatedPrice = await routeService.updateRoutePrice(
+            routeId, 
+            vehicleId, 
+            parseFloat(price), 
+            priceUSD !== undefined && priceUSD !== null && priceUSD !== '' ? parseFloat(priceUSD) : undefined
+        );
 
         if (!updatedPrice) {
             return NextResponse.json({ error: 'Route not found' }, { status: 404 });

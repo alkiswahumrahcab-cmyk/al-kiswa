@@ -31,6 +31,8 @@ export const BookingSchema = z.object({
     paymentStatus: z.enum(['paid', 'unpaid', 'refunded']).optional(),
     price: z.string().optional(),
     currency: z.string().optional(),
+    priceInSelectedCurrency: z.number().optional(),
+    priceInSAR: z.number().optional(),
 });
 
 

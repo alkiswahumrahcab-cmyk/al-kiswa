@@ -121,32 +121,7 @@ export default function ImpactStats() {
       <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
-      {/* JSON-LD Schema (TASK 3A) */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "TransportationCompany",
-            name: "Al Kiswah Umrah Transport",
-            url: "https://kiswahumrahcab.com",
-            foundingDate: "2014",
-            numberOfEmployees: {
-              "@type": "QuantitativeValue",
-              value: 25,
-            },
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: "5.0",
-              bestRating: "5",
-              worstRating: "1",
-              reviewCount: "500",
-            },
-            slogan: "Your Trusted Companion for a Blessed Umrah Journey",
-            award: "Ministry of Hajj Licensed Transport Provider — Kingdom of Saudi Arabia",
-          }),
-        }}
-      />
+      {/* Canonical aggregateRating schema is in the page-level JSON-LD only — not here */}
 
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">

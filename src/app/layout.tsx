@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Suspense } from "react";
 import { Montserrat, Tajawal } from "next/font/google"; // Elegant & Light + Arabic
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { MenuProvider } from "@/context/MenuContext";
@@ -12,7 +13,7 @@ import { getSettings } from "@/lib/settings-storage";
 
 import ScrollToTop from "@/components/common/ScrollToTop";
 import { JsonLdScript } from "@/components/seo/JsonLd";
-import { generateOrganizationSchema, generateLocalBusinessSchema } from "@/components/seo/schema-generator";
+import { generateOrganizationSchema } from "@/components/seo/schema-generator";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -139,9 +140,8 @@ export default async function RootLayout({
           <GoogleAnalytics gaId={settings.general.googleAnalyticsId} />
         )}
 
-        {/* JSON-LD Structured Data */}
+        {/* JSON-LD: Organization schema (no aggregateRating — belongs on individual pages only) */}
         <JsonLdScript schema={generateOrganizationSchema()} />
-        <JsonLdScript schema={generateLocalBusinessSchema()} />
 
         <MenuProvider>
           <SettingsProvider>
@@ -154,17 +154,19 @@ export default async function RootLayout({
                 disableTransitionOnChange
               >
                 <PricingProvider>
-                  <NextTopLoader
-                    color="#D4AF37"
-                    initialPosition={0.08}
-                    crawlSpeed={200}
-                    height={4}
-                    crawl={true}
-                    showSpinner={false}
-                    easing="ease"
-                    speed={200}
-                    shadow="0 0 15px #D4AF37,0 0 5px #D4AF37"
-                  />
+                  <Suspense fallback={null}>
+                    <NextTopLoader
+                      color="#D4AF37"
+                      initialPosition={0.08}
+                      crawlSpeed={200}
+                      height={4}
+                      crawl={true}
+                      showSpinner={false}
+                      easing="ease"
+                      speed={200}
+                      shadow="0 0 15px #D4AF37,0 0 5px #D4AF37"
+                    />
+                  </Suspense>
 
                   {/* Main Content Area - Layouts downstream will inject Nav/Footer */}
                   {children}

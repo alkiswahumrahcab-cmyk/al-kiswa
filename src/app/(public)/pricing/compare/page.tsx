@@ -185,7 +185,7 @@ export default function ComparePage() {
                 description: 'Detailed price comparison of direct operator Al Kiswah vs middleman platforms Kiwi Taxi and Booking.com for Saudi Arabia Umrah transport.',
                 author: { '@type': 'Organization', name: 'Al Kiswah Umrah Transport' },
                 datePublished: '2026-01-01',
-                dateModified: new Date().toISOString().split('T')[0],
+                dateModified: '2026-04-29',
             },
         ],
     };

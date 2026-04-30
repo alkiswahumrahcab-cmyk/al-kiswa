@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import BookingWizard from '@/components/booking/BookingWizard';
+import BookingForm from '@/components/booking/BookingForm';
 
 export async function generateMetadata() {
     return {
@@ -45,7 +45,7 @@ export default function BookingPage() {
                         <div className="text-gold-primary/50 text-sm font-medium tracking-widest uppercase">Loading Booking Engine...</div>
                     </div>
                 }>
-                    <BookingWizard />
+                    <BookingForm />
                 </Suspense>
             </div>
         </main>

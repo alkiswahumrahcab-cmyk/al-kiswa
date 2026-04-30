@@ -38,6 +38,13 @@ export async function GET() {
                 return acc;
             }, {} as Record<string, number>);
 
+            const customRatesUSD = (route.prices || []).reduce((acc: Record<string, number>, rp: any) => {
+                if (rp.priceUSD !== undefined) {
+                    acc[rp.vehicleId] = rp.priceUSD;
+                }
+                return acc;
+            }, {} as Record<string, number>);
+
             return {
                 id: route.id,
                 name: `${route.origin} → ${route.destination}`,
@@ -55,7 +62,8 @@ export async function GET() {
                 baseRate: customRates && Object.values(customRates).length > 0
                     ? Math.min(...(Object.values(customRates) as number[]))
                     : 0,
-                customRates
+                customRates,
+                customRatesUSD
             };
         });
 

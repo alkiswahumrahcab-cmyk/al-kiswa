@@ -60,6 +60,9 @@ export interface IBooking extends Document {
     updatedAt: Date;
     groupId?: string;
     isBulk?: boolean;
+    currency?: 'SAR' | 'USD';
+    priceInSelectedCurrency?: number;
+    priceInSAR?: number;
 }
 
 export interface IUser extends Document {
@@ -130,6 +133,7 @@ export interface IRoutePrice extends Document {
     route: string; // Reference to Route
     vehicle: string; // Reference to Vehicle
     price: number;
+    priceUSD?: number;
     createdAt: Date;
     updatedAt: Date;
 }
@@ -281,6 +285,9 @@ const BookingSchema = new Schema<IBooking>({
     reviewEmailSent: { type: Boolean, default: false },
     groupId: { type: String, index: true },
     isBulk: { type: Boolean, default: false },
+    currency: { type: String, enum: ['SAR', 'USD'], default: 'SAR' },
+    priceInSelectedCurrency: { type: Number },
+    priceInSAR: { type: Number },
 }, { timestamps: true });
 
 const UserSchema = new Schema<IUser>({
@@ -343,6 +350,7 @@ const RoutePriceSchema = new Schema<IRoutePrice>({
     route: { type: String, required: true }, // Storing ID as string for now, or ObjectId if we migrate IDs
     vehicle: { type: String, required: true },
     price: { type: Number, required: true },
+    priceUSD: { type: Number },
 }, { timestamps: true });
 
 // Add indexes for performance

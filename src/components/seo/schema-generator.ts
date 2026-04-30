@@ -24,54 +24,56 @@ export const generateOrganizationSchema = (): WithContext<Organization> => ({
     ].filter(Boolean) as string[],
 });
 
-export const generateLocalBusinessSchema = (): WithContext<LocalBusiness> => ({
+export const generateLocalBusinessSchema = () => ({
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: settings.general.siteName,
-    image: `${siteUrl}/images/fleet/gmc-yukon-studio.png`,
-    '@id': siteUrl,
-    url: siteUrl,
-    telephone: settings.contact.phone,
-    address: {
-        '@type': 'PostalAddress',
-        streetAddress: settings.contact.address,
-        addressLocality: 'Makkah',
-        addressRegion: 'Makkah Region',
-        postalCode: '24231',
-        addressCountry: 'SA',
-    },
-    geo: {
-        '@type': 'GeoCoordinates',
-        latitude: 21.3891,
-        longitude: 39.8579,
-    },
-    openingHoursSpecification: {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: [
-            'Monday',
-            'Tuesday',
-            'Wednesday',
-            'Thursday',
-            'Friday',
-            'Saturday',
-            'Sunday',
-        ],
-        opens: '00:00',
-        closes: '23:59',
-    },
-    priceRange: '$$',
-    currenciesAccepted: 'SAR, USD, GBP, EUR',
-    paymentAccepted: 'Cash, Credit Card, Online Payment',
-    aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5.0',
-        reviewCount: '500',
-        bestRating: '5',
-        worstRating: '1',
-    } as any,
-    review: [
+    '@graph': [
+        {
+            '@type': 'LocalBusiness',
+            '@id': `${siteUrl}/#business`,
+            name: settings.general.siteName,
+            image: `${siteUrl}/images/fleet/gmc-yukon-studio.png`,
+            url: siteUrl,
+            telephone: settings.contact.phone,
+            address: {
+                '@type': 'PostalAddress',
+                streetAddress: settings.contact.address,
+                addressLocality: 'Makkah',
+                addressRegion: 'Makkah Region',
+                postalCode: '24231',
+                addressCountry: 'SA',
+            },
+            geo: {
+                '@type': 'GeoCoordinates',
+                latitude: 21.3891,
+                longitude: 39.8579,
+            },
+            openingHoursSpecification: {
+                '@type': 'OpeningHoursSpecification',
+                dayOfWeek: [
+                    'Monday', 'Tuesday', 'Wednesday', 'Thursday',
+                    'Friday', 'Saturday', 'Sunday',
+                ],
+                opens: '00:00',
+                closes: '23:59',
+            },
+            priceRange: '$$',
+            currenciesAccepted: 'SAR, USD, GBP, EUR',
+            paymentAccepted: 'Cash, Credit Card, Online Payment',
+            // Single, canonical aggregateRating — the ONLY aggregateRating on any page
+            aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: '5.0',
+                reviewCount: '500',
+                bestRating: '5',
+                worstRating: '1',
+            },
+        },
+        // Individual Review nodes — separate @graph entries, NOT nested inside LocalBusiness
+        // This prevents Google from misidentifying them as multiple aggregateRatings
         {
             '@type': 'Review',
+            '@id': `${siteUrl}/#review-1`,
+            itemReviewed: { '@id': `${siteUrl}/#business` },
             author: { '@type': 'Person', name: 'Ahmed Al-Rashid' },
             datePublished: '2025-03-15',
             reviewBody: 'Excellent service! The driver was on time and the GMC Yukon was spotless. Perfect for our family Umrah trip from Jeddah.',
@@ -79,6 +81,8 @@ export const generateLocalBusinessSchema = (): WithContext<LocalBusiness> => ({
         },
         {
             '@type': 'Review',
+            '@id': `${siteUrl}/#review-2`,
+            itemReviewed: { '@id': `${siteUrl}/#business` },
             author: { '@type': 'Person', name: 'Fatima Hassan' },
             datePublished: '2025-02-20',
             reviewBody: 'Very professional and punctual. The vehicle was comfortable and clean. Highly recommended for Umrah pilgrims.',
@@ -86,13 +90,15 @@ export const generateLocalBusinessSchema = (): WithContext<LocalBusiness> => ({
         },
         {
             '@type': 'Review',
+            '@id': `${siteUrl}/#review-3`,
+            itemReviewed: { '@id': `${siteUrl}/#business` },
             author: { '@type': 'Person', name: 'Khalid Al-Mutairi' },
             datePublished: '2025-01-10',
             reviewBody: 'Al Kiswah provided us with the best transport experience for our Umrah. Fixed prices and no hidden fees.',
             reviewRating: { '@type': 'Rating', ratingValue: '5', bestRating: '5', worstRating: '1' },
         },
-    ] as any,
-} as any);
+    ],
+});
 
 export const generateFAQSchema = (faqs: { question: string, answer: string }[]): WithContext<FAQPage> => ({
     '@context': 'https://schema.org',

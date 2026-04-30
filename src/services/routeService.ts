@@ -47,7 +47,8 @@ export const routeService = {
                                 as: "p",
                                 in: {
                                     vehicleId: "$$p.vehicle",
-                                    price: "$$p.price"
+                                    price: "$$p.price",
+                                    priceUSD: "$$p.priceUSD"
                                 }
                             }
                         }
@@ -106,7 +107,8 @@ export const routeService = {
                                 as: "p",
                                 in: {
                                     vehicleId: "$$p.vehicle",
-                                    price: "$$p.price"
+                                    price: "$$p.price",
+                                    priceUSD: "$$p.priceUSD"
                                 }
                             }
                         }
@@ -138,7 +140,7 @@ export const routeService = {
             id: route._id.toString(),
             createdAt: route.createdAt,
             updatedAt: route.updatedAt,
-            prices: prices.map(p => ({ vehicleId: p.vehicle, price: p.price }))
+            prices: prices.map(p => ({ vehicleId: p.vehicle, price: p.price, priceUSD: p.priceUSD }))
         } as unknown as RouteWithPrices;
     },
 
@@ -155,16 +157,19 @@ export const routeService = {
         return { ...updatedRoute, id: updatedRoute._id.toString() };
     },
 
-    async updateRoutePrice(routeId: string, vehicleId: string, price: number) {
+    async updateRoutePrice(routeId: string, vehicleId: string, price: number, priceUSD?: number) {
         await dbConnect();
+
+        const updateData: any = { price };
+        if (priceUSD !== undefined) updateData.priceUSD = priceUSD;
 
         const updatedPrice = await RoutePrice.findOneAndUpdate(
             { route: routeId, vehicle: vehicleId },
-            { price },
+            updateData,
             { upsert: true, new: true }
         ).lean();
 
-        return { routeId, vehicleId, price: updatedPrice.price };
+        return { routeId, vehicleId, price: updatedPrice.price, priceUSD: updatedPrice.priceUSD };
     },
 
     async deleteRoute(id: string) {

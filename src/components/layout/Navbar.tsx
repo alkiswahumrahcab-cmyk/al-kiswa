@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation';
 
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { useMenu } from '@/context/MenuContext';
-import CurrencyToggle from '../CurrencyToggle';
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -177,7 +176,6 @@ export default function Navbar() {
                 </div>
 
                 <div className="hidden xl:flex items-center gap-4">
-                    <CurrencyToggle />
                     <Link
                         href="/booking"
                         className="bg-gradient-to-r from-gold-primary to-gold-dark text-black px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:scale-105 transition-transform shadow-[0_0_20px_rgba(239,191,91,0.3)] flex items-center justify-center"
@@ -243,9 +241,6 @@ export default function Navbar() {
                     ))}
                 </div>
                 <div className="p-6 border-t border-white/10 mt-auto space-y-4 bg-black/20">
-                    <div className="flex justify-center mb-2">
-                        <CurrencyToggle />
-                    </div>
                     <Link
                         href="/booking"
                         className="w-full block text-center bg-gold-primary text-black py-4 rounded-xl text-sm font-bold uppercase tracking-widest hover:brightness-110 transition-all"

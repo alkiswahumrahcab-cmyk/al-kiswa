@@ -41,13 +41,15 @@ export async function POST(request: Request) {
         let isValid = false;
 
         if (user && user.password) {
-            // Must be a bcrypt hash (starts with $2a$ or $2b$) to ensure no plain text matches
             if (user.password.startsWith('$2a$') || user.password.startsWith('$2b$')) {
+                // Bcrypt hash — verify properly
                 const { verifyPassword } = await import('@/lib/password-utils');
                 isValid = await verifyPassword(password, user.password);
             }
-            // The plain text fallback has been permanently removed to enforce security.
+            // Plain-text fallback permanently removed — all passwords must be bcrypt hashed.
         }
+
+
 
         if (!user || !isValid) {
             // Log failed attempt (optional: implement AuditLog here)

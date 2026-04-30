@@ -50,7 +50,7 @@ const generateJsonLd = (vehicleData: any) => ({
                 "price": vehicleData?.basePrice?.toString() || "450",
                 "priceCurrency": "SAR",
                 "availability": "https://schema.org/InStock",
-                "priceValidUntil": new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0],
+                "priceValidUntil": '2026-12-31',
                 "url": "https://alkiswahumrahtransport.com/fleet/hyundai-staria"
             },
             "aggregateRating": {
