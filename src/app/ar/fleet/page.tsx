@@ -29,7 +29,7 @@ export async function generateMetadata() {
             siteName: 'Al Kiswah Umrah Transport',
             images: [
                 {
-                    url: '/images/fleet/fleet-group-hero.png',
+                    url: '/images/fleet/fleet-group-hero.webp',
                     width: 1200,
                     height: 630,
                     alt: 'Al Kiswah Fleet Collection',
@@ -103,7 +103,7 @@ export default async function FleetPage() {
 
     const title = section?.title || "Our Premium Fleet";
     const subtitle = section?.subtitle || "Experience luxury and comfort with our diverse range of vehicles, tailored for your spiritual journey.";
-    const bgImage = getSectionImage(section, 'desktop') || "/images/fleet/fleet-group-hero.png";
+    const bgImage = getSectionImage(section, 'desktop') || "/images/fleet/fleet-group-hero.webp";
     const badge = getCustomField(section, 'badge_text') || "Premium Collection 2025";
 
     return (
@@ -124,9 +124,9 @@ export default async function FleetPage() {
                     badge={badge}
                     breadcrumbs={<Breadcrumbs />}
                     fleetImages={[
-                        '/images/fleet/gmc-yukon-hero-professional.png',     // Center
-                        '/images/fleet/hiace-hero-professional.png',  // Left
-                        '/images/fleet/staria-hero-professional.png' // Right
+                        '/images/fleet/gmc-yukon-hero-professional.webp',     // Center
+                        '/images/fleet/hiace-hero-professional.webp',  // Left
+                        '/images/fleet/staria-hero-professional.webp' // Right
                     ]}
                 />
 

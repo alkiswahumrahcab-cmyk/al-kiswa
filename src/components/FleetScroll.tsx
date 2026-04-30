@@ -29,25 +29,25 @@ const DEFAULT_VEHICLES: FleetVehicle[] = [
     name: "GMC Yukon XL",
     capacity: 7,
     priceFrom: 450,
-    imageSrc: "/images/fleet/gmc-yukon.jpg",
+    imageSrc: "/images/fleet/gmc-yukon.webp",
   },
   {
     name: "Hyundai Staria",
     capacity: 9,
     priceFrom: 320,
-    imageSrc: "/images/fleet/hyundai-staria.jpg",
+    imageSrc: "/images/fleet/hyundai-staria.webp",
   },
   {
     name: "Toyota Hiace",
     capacity: 12,
     priceFrom: 280,
-    imageSrc: "/images/fleet/toyota-hiace.jpg",
+    imageSrc: "/images/fleet/toyota-hiace.webp",
   },
   {
     name: "Toyota Camry",
     capacity: 3,
     priceFrom: 200,
-    imageSrc: "/images/fleet/toyota-camry.jpg",
+    imageSrc: "/images/fleet/toyota-camry.webp",
   },
 ];
 

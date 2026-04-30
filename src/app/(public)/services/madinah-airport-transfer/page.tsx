@@ -12,7 +12,7 @@ import GlassCard from '@/components/ui/GlassCard';
 import FadeIn from '@/components/common/FadeIn';
 
 export const metadata: Metadata = {
-    title: "Madinah Airport Taxi to Hotel | Al Kiswah",
+    title: "Madinah Airport Taxi to Hotel 2026 | Al Kiswah",
     description: "Book a reliable Madinah Airport taxi to your Masjid Nabawi hotel. 24/7 VIP pickup, meet & greet, and fixed prices. Book your transfer online now.",
     keywords: [
         "madinah airport taxi",
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     ],
     alternates: generateMetadataAlternates("/services/madinah-airport-transfer"),
     openGraph: {
-        title: "Madinah Airport Taxi to Hotel | Al Kiswah",
+        title: "Madinah Airport Taxi to Hotel 2026 | Al Kiswah",
         description: "Book a reliable Madinah Airport taxi to your Masjid Nabawi hotel. 24/7 VIP pickup, meet & greet, and fixed prices.",
-        images: [{ url: '/images/routes/madinah-airport-hero.png', width: 1200, height: 630, alt: 'Madinah Airport Transfer Service' }]
+        images: [{ url: '/images/routes/madinah-airport-hero.webp', width: 1200, height: 630, alt: 'Madinah Airport Transfer Service' }]
     }
 };
 
@@ -83,7 +83,7 @@ export default async function MadinahAirportPage() {
             <Hero
                 title="Madinah Airport (MED) Transfers"
                 subtitle="Start your visit to the Prophet's City with peace of mind. Reliable meet & greet service from Prince Mohammad Bin Abdulaziz Airport."
-                bgImage="/images/routes/madinah-airport-hero.png"
+                bgImage="/images/routes/madinah-airport-hero.webp"
                 ctaText="Book Airport Pickup"
                 ctaLink={whatsappLink}
                 layout="center"

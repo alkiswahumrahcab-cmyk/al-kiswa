@@ -79,7 +79,7 @@ export default function RouteDetail({ params }: Props) {
             <Hero
                 title={route.name}
                 subtitle={`Reliable transport from ${route.name.split(' to ')[0] || 'Start'} to ${route.name.split(' to ')[1] || 'Destination'}. Best rates guaranteed.`}
-                bgImage="/images/routes/jeddah-airport-hero-professional.png" // Fallback or dynamic based on slug logic
+                bgImage="/images/routes/jeddah-airport-hero-professional.webp" // Fallback or dynamic based on slug logic
                 breadcrumbs={<Breadcrumbs />}
                 layout="center"
                 ctaText="Book This Route"
@@ -136,7 +136,7 @@ export default function RouteDetail({ params }: Props) {
                                                 <Car size={12} /> {vehicle.capacity}
                                             </div>
                                             <Image
-                                                src={`/images/fleet/${vehicle.id}.png`}
+                                                src={`/images/fleet/${vehicle.id}.webp`}
                                                 alt={vehicle.name}
                                                 fill
                                                 className="object-contain group-hover:scale-110 transition-transform duration-500"

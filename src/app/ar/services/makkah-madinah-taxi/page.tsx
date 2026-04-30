@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "تاكسي مكة المدينة 2025 | نقل VIP خاص | الكسوة",
         description: "Book the most comfortable Makkah to Madinah taxi service. Private GMC Yukon, Hyundai Staria, and VIP buses.",
-        images: [{ url: '/images/routes/makkah-madinah-route-hero.png', width: 1200, height: 630, alt: 'Makkah to Madinah Highway Scenic View' }]
+        images: [{ url: '/images/routes/makkah-madinah-route-hero.webp', width: 1200, height: 630, alt: 'Makkah to Madinah Highway Scenic View' }]
     }
 };
 
@@ -116,7 +116,7 @@ export default async function MakkahMadinahTaxiPage() {
     const content = {
         title: "VIP Makkah to Madinah Taxi Services",
         subtitle: "Experience a spiritual journey with absolute comfort (راحة تامة). 4-5 hours travel time in luxury GMC Yukon or Hyundai Staria.",
-        heroImage: "/images/routes/makkah-madinah-route-hero.png"
+        heroImage: "/images/routes/makkah-madinah-route-hero.webp"
     };
 
     return (

@@ -10,7 +10,7 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FadeIn from "@/components/common/FadeIn";
 
 export const metadata: Metadata = {
-    title: "Ziyarat Madinah Tours | Masjid Quba & Uhud Visit",
+    title: "Ziyarat Madinah Tours 2026 | Masjid Quba & Uhud Visit",
     description: "Private Ziyarat tours in Madinah. Visit Masjid Quba, Mount Uhud, Seven Mosques and Qiblatayn. Experienced drivers and comfortable transport.",
     keywords: [
         "Ziyarat Madinah",
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
     ],
     alternates: generateMetadataAlternates("/services/ziarah-madinah"),
     openGraph: {
-        title: "Ziyarat Madinah Tours | Visit Masjid Quba & Uhud",
+        title: "Ziyarat Madinah Tours 2026 | Visit Masjid Quba & Uhud",
         description: "Comprehensive private tours of Madinah's historical sites. Follow the footsteps of the Prophet (SAW).",
-        images: [{ url: '/images/routes/madinah-ziyarat-hero.png', width: 1200, height: 630, alt: 'Masjid Quba Madinah Ziyarat' }]
+        images: [{ url: '/images/routes/madinah-ziyarat-hero.webp', width: 1200, height: 630, alt: 'Masjid Quba Madinah Ziyarat' }]
     }
 };
 
@@ -94,7 +94,7 @@ export default async function ZiarahMadinahPage() {
             <Hero
                 title="Madinah Ziyarat Tours"
                 subtitle="Explore the City of the Prophet (SAW). Visit the first mosque of Islam and relive the earliest days of our faith."
-                bgImage="/images/routes/madinah-ziyarat-hero.png"
+                bgImage="/images/routes/madinah-ziyarat-hero.webp"
                 ctaText="Book Madinah Ziyarat"
                 ctaLink={whatsappLink}
                 layout="center"

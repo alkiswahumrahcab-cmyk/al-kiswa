@@ -146,7 +146,7 @@ export const blogPosts: BlogPost[] = [
         category: "دليل المعتمر",
         date: "Jan 01, 2025",
         readTime: "8 دقائق للقراءة",
-        image: "/images/routes/makkah-madinah-route-hero.png",
+        image: "/images/routes/makkah-madinah-route-hero.webp",
         alt: "GMC Yukon on Makkah Madinah Highway",
         author: "فريق الكسوة",
         tags: ["نقل معتمرين", "مكة المدينة", "قطار الحرمين", "حجز تاكسي", "دليل شامل"]
@@ -186,7 +186,7 @@ export const blogPosts: BlogPost[] = [
         category: "Travel Guide",
         date: "Dec 30, 2024",
         readTime: "6 min read",
-        image: "/images/fleet/gmc-yukon-hero-professional.png",
+        image: "/images/fleet/gmc-yukon-hero-professional.webp",
         alt: "Private GMC Yukon Taxi vs Haramain Train for Umrah Transport",
         author: "Al Kiswah Team",
         tags: ["Haramain Train", "Private Taxi", "Makkah Transport", "Family Travel"]
@@ -462,7 +462,7 @@ export const blogPosts: BlogPost[] = [
         category: "Travel Tips",
         date: "Jan 25, 2025",
         readTime: "6 min read",
-        image: "/images/fleet/gmc-yukon-interior.png",
+        image: "/images/fleet/gmc-yukon-interior.webp",
         alt: "GMC Yukon Interior Luxury vs Bus",
         author: "Sarah Khan",
         tags: ["Family Travel", "GMC Yukon", "Comfort", "Luggage"]

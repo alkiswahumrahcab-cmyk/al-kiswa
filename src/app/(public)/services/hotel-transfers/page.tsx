@@ -12,7 +12,7 @@ import dynamic from 'next/dynamic';
 const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 
 export const metadata: Metadata = {
-    title: "VIP Hotel Transfers Makkah & Madinah | Al Kiswah",
+    title: "VIP Hotel Transfers Makkah & Madinah 2026 | Al Kiswah",
     description: "Book VIP hotel transfers in Makkah and Madinah. Enjoy door-to-door, fixed price transport to Masjid Al Haram and Masjid Nabawi.",
     keywords: [
         "vip hotel transfers makkah",

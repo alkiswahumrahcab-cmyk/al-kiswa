@@ -16,13 +16,13 @@ interface PricingContextType {
 const PricingContext = createContext<PricingContextType | undefined>(undefined);
 
 const VEHICLE_IMAGES: Record<string, string> = {
-    'camry': '/images/fleet/camry-2025.png',
-    'gmc': '/images/fleet/gmc-yukon-2025.png',
-    'staria': '/images/fleet/hyundai-staria-2025.png',
-    'starex': '/images/fleet/hyundai-h1.png',
-    'hiace': '/images/fleet/toyota-hiace-2025.png',
-    'coaster': '/images/fleet/toyota-coaster-2025.png',
-    'default': '/images/fleet/camry-2025.png'
+    'camry': '/images/fleet/camry-2025.webp',
+    'gmc': '/images/fleet/gmc-yukon-2025.webp',
+    'staria': '/images/fleet/hyundai-staria-2025.webp',
+    'starex': '/images/fleet/hyundai-h1.webp',
+    'hiace': '/images/fleet/toyota-hiace-2025.webp',
+    'coaster': '/images/fleet/toyota-coaster-2025.webp',
+    'default': '/images/fleet/camry-2025.webp'
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

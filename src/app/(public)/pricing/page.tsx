@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Umrah Taxi Prices 2026 | Al Kiswah — Book Direct, No Commission",
         description: "We own our fleet. No middleman. Jeddah to Makkah from 200 SAR — 20% cheaper than Booking.com. Fixed price, WhatsApp support, Saudi-licensed.",
-        images: [{ url: '/images/fleet/gmc-yukon-hero-professional.png', width: 1200, height: 630, alt: 'Al Kiswah Umrah Taxi Pricing — Direct Operator' }]
+        images: [{ url: '/images/fleet/gmc-yukon-hero-professional.webp', width: 1200, height: 630, alt: 'Al Kiswah Umrah Taxi Pricing — Direct Operator' }]
     }
 };
 

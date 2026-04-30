@@ -94,9 +94,6 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                     <h2 className="text-2xl md:text-3xl font-bold text-white">Plan Your Journey</h2>
                     <p className="text-gray-400 mt-1 text-sm">Choose your route, date, and time.</p>
                 </div>
-                <div className="shrink-0">
-                    <WhatsAppVoiceButton />
-                </div>
             </div>
 
             {/* Service Type Selector */}
@@ -334,6 +331,10 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                     </div>
                     {errors.time && <p className="text-xs text-red-400 font-semibold ml-1">{errors.time}</p>}
                 </div>
+            </div>
+
+            <div className="pt-2">
+                <WhatsAppVoiceButton />
             </div>
 
             {/* CTA */}

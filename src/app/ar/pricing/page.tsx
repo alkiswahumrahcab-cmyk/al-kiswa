@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Umrah Transport Pricing 2026 | Best Rates Guaranteed",
         description: "See our fixed rates for Umrah transfers. Jeddah to Makkah from 200 SAR. No hidden charges.",
-        images: [{ url: '/images/fleet/gmc-yukon-hero-professional.png', width: 1200, height: 630, alt: 'Umrah Taxi Pricing' }]
+        images: [{ url: '/images/fleet/gmc-yukon-hero-professional.webp', width: 1200, height: 630, alt: 'Umrah Taxi Pricing' }]
     }
 };
 

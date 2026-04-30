@@ -26,7 +26,7 @@ const generateJsonLd = (vehicleData: any) => ({
         {
             "@type": "Product",
             "name": vehicleData?.name || "Hyundai Staria 2024 Luxury Van",
-            "image": "https://kiswahumrahcab.com/images/fleet/staria-hero-professional.png",
+            "image": "https://kiswahumrahcab.com/images/fleet/staria-hero-professional.webp",
             "description": `Book premium ${vehicleData?.name || 'Hyundai Staria'} in Makkah. Luxury ${vehicleData?.passengers || 7}-seater van with panoramic views for VIP families.`,
             "brand": { "@type": "Brand", "name": "Hyundai" },
             "offers": {
@@ -98,7 +98,7 @@ export default async function HyundaiStariaPage() {
     const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('staria'));
 
     const stariaId = vehicleData?.id || '692db09834f15bc89b45a5f9';
-    const stariaImage = '/images/fleet/staria-hero-professional.png';
+    const stariaImage = '/images/fleet/staria-hero-professional.webp';
 
     const jsonLd = generateJsonLd(vehicleData);
 
@@ -118,7 +118,7 @@ export default async function HyundaiStariaPage() {
 
             <FleetPricingGrid
                 vehicleId={stariaId}
-                vehicleImage="/images/fleet/hyundai-staria-2025.png"
+                vehicleImage="/images/fleet/hyundai-staria-2025.webp"
                 vehicleType="staria"
                 title="Hyundai Staria Rates | Jeddah, Makkah, Madinah"
                 subtitle="The perfect balance of modern luxury and group capacity. Ideal for families and small groups."
@@ -130,7 +130,7 @@ export default async function HyundaiStariaPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                             <FleetFeatureImage
-                                src="/images/fleet/staria-feature.png"
+                                src="/images/fleet/staria-feature.webp"
                                 alt="Hyundai Staria Exterior"
                                 fallbackSrc={stariaImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"

@@ -12,7 +12,7 @@ import { RouteWithPrices } from '@/services/routeService';
 import GlassCard from '@/components/ui/GlassCard';
 
 export const metadata = {
-    title: "Intercity VIP Transport Jeddah Makkah Madinah | Al Kiswah",
+    title: "Intercity VIP Transport Jeddah Makkah Madinah 2026 | Al Kiswah",
     description: "Book private intercity taxi transfers between Jeddah, Makkah, and Madinah. Luxury fleet, professional drivers, fixed prices. Book online in 60 seconds.",
     keywords: [
         "intercity umrah transport",
@@ -24,9 +24,9 @@ export const metadata = {
     ],
     alternates: generateMetadataAlternates("/services/intercity-transfer"),
     openGraph: {
-        title: "Intercity VIP Transport Jeddah Makkah Madinah | Al Kiswah",
+        title: "Intercity VIP Transport Jeddah Makkah Madinah 2026 | Al Kiswah",
         description: "Book private intercity taxi transfers between Jeddah, Makkah, and Madinah. Luxury fleet, professional drivers, fixed prices.",
-        images: [{ url: '/images/routes/routes-network-hero.png', width: 1200, height: 630, alt: 'Saudi Arabia Intercity Transport Network' }]
+        images: [{ url: '/images/routes/routes-network-hero.webp', width: 1200, height: 630, alt: 'Saudi Arabia Intercity Transport Network' }]
     }
 };
 
@@ -120,7 +120,7 @@ export default async function IntercityTransferPage() {
             <Hero
                 title="Intercity VIP Transport"
                 subtitle="Book private intercity taxi transfers between Jeddah, Makkah, and Madinah. Luxury fleet, professional drivers, fixed prices."
-                bgImage="/images/routes/routes-network-hero.png"
+                bgImage="/images/routes/routes-network-hero.webp"
                 ctaText="View Route Map"
                 ctaLink="#interactive-map"
                 backgroundChildren={<AnimatedMapBackground />}

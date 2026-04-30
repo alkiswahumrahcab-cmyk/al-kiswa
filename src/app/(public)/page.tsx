@@ -28,8 +28,7 @@ const SEOContentSectionFixed = dynamic(() => import('@/components/home/SEOConten
 const TransportServices = dynamic(() => import('@/components/home/TransportServices'));
 const Testimonials = dynamic(() => import('@/components/home/Testimonials'));
 const BookingGuide = dynamic(() => import('@/components/home/BookingGuide'));
-const ServiceDirectory = dynamic(() => import('@/components/home/ServiceDirectory'));
-const MeetOurDrivers = dynamic(() => import('@/components/home/MeetOurDrivers'));
+
 const ImpactStats = dynamic(() => import('@/components/about/ImpactStats'));
 const FAQSection = dynamic(() => import('@/components/blog/FAQSection'));
 import { JsonLdScript } from "@/components/seo/JsonLd";
@@ -38,7 +37,7 @@ import { metaKeywords } from '@/data/seo-keywords';
 
 export async function generateMetadata() {
   return {
-    title: "Umrah Taxi Jeddah–Makkah–Madinah | Al Kiswah",
+    title: "Umrah Taxi Jeddah–Makkah–Madinah 2026 | Al Kiswah",
     description: "Book a private Umrah taxi in Saudi Arabia. Trusted by 5,000+ pilgrims since 2014. Fixed prices, 24/7 support, GMC Yukon & Staria fleet. No prepayment required.",
     alternates: generateMetadataAlternates("/"),
     keywords: [
@@ -160,8 +159,6 @@ export default async function Home() {
       {/* Fleet Carousel */}
       <HomeFleetCarousel />
 
-      {/* Meet Our Drivers */}
-      <MeetOurDrivers />
 
       {/* Real Fleet Showcase */}
       <RealFleetShowcase />
@@ -188,9 +185,6 @@ export default async function Home() {
       <FadeIn>
         <SafetyPromise />
       </FadeIn>
-
-      {/* SEO Service Directory */}
-      <ServiceDirectory />
 
       {/* Hotels and Districts Covered */}
       <HotelsAndDistricts />

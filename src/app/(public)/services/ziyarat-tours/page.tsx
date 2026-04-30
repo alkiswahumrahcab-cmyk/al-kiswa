@@ -10,7 +10,7 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FadeIn from "@/components/common/FadeIn";
 
 export const metadata: Metadata = {
-    title: "VIP Makkah & Madinah Ziyarat Tours | Al Kiswah",
+    title: "VIP Makkah & Madinah Ziyarat Tours 2026 | Al Kiswah",
     description: "Book private VIP Ziyarat tours in Makkah and Madinah. Fixed prices, knowledgeable drivers for Jabal Al-Nour, Masjid Quba, and guided trips.",
     keywords: [
         "ziyarat tours makkah",
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
     ],
     alternates: generateMetadataAlternates("/services/ziyarat-tours"),
     openGraph: {
-        title: "VIP Makkah & Madinah Ziyarat Tours | Al Kiswah",
+        title: "VIP Makkah & Madinah Ziyarat Tours 2026 | Al Kiswah",
         description: "Book private VIP Ziyarat tours in Makkah and Madinah. Fixed prices, knowledgeable drivers.",
-        images: [{ url: '/images/routes/makkah-ziyarat-hero.png', width: 1200, height: 630, alt: 'Jabal Al-Nour Makkah Ziyarat' }]
+        images: [{ url: '/images/routes/makkah-ziyarat-hero.webp', width: 1200, height: 630, alt: 'Jabal Al-Nour Makkah Ziyarat' }]
     }
 };
 
@@ -89,7 +89,7 @@ export default async function ZiyaratToursPage() {
             <Hero
                 title="Ziyarat Tours: Relive Islamic History"
                 subtitle="Walk in the footsteps of the Prophet (SAW). Comprehensive engaging tours of the holy sites in Makkah and Madinah."
-                bgImage="/images/routes/makkah-ziyarat-hero.png"
+                bgImage="/images/routes/makkah-ziyarat-hero.webp"
                 ctaText="Book Ziyarat Tour"
                 ctaLink={whatsappLink}
                 layout="center"

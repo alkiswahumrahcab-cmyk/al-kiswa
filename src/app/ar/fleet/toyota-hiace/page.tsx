@@ -41,7 +41,7 @@ const generateJsonLd = (vehicleData: any) => ({
         {
             "@type": "Product",
             "name": vehicleData?.name || "Toyota Hiace 12-Seater Bus Rental",
-            "image": "https://alkiswahumrahtransport.com/images/fleet/hiace-hero-professional.png",
+            "image": "https://alkiswahumrahtransport.com/images/fleet/hiace-hero-professional.webp",
             "description": vehicleData ? `Rent ${vehicleData.name} bus in Makkah. Reliable ${vehicleData.passengers}-seater transport for Umrah groups and large families.` : "Rent Toyota Hiace bus in Makkah. Reliable 12-seater transport for Umrah groups and large families.",
             "brand": { "@type": "Brand", "name": "Toyota" },
             "offers": {
@@ -119,7 +119,7 @@ export default async function ToyotaHiacePage() {
 
     // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
     const hiaceId = vehicleData?.id || '692db09834f15bc89b45a5fb';
-    const hiaceImage = '/images/fleet/hiace-hero-professional.png';
+    const hiaceImage = '/images/fleet/hiace-hero-professional.webp';
 
     const jsonLd = generateJsonLd(vehicleData);
 
@@ -138,7 +138,7 @@ export default async function ToyotaHiacePage() {
 
             <FleetPricingGrid
                 vehicleId={hiaceId}
-                vehicleImage="/images/fleet/toyota-hiace-2025.png"
+                vehicleImage="/images/fleet/toyota-hiace-2025.webp"
                 vehicleType="hiace"
                 title="Toyota Hiace Rates | Jeddah, Makkah, Madinah"
                 subtitle="Spacious seating for up to 10 passengers. Perfect for large families and groups."
@@ -150,7 +150,7 @@ export default async function ToyotaHiacePage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                             <FleetFeatureImage
-                                src="/images/fleet/hiace-feature.png"
+                                src="/images/fleet/hiace-feature.webp"
                                 alt="Toyota Hiace Bus"
                                 fallbackSrc={hiaceImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
@@ -243,7 +243,7 @@ export default async function ToyotaHiacePage() {
 
                     <div className="max-w-6xl mx-auto">
                         <Interior360Viewer
-                            imageUrl="/images/fleet/hiace-interior-360.jpg"
+                            imageUrl="/images/fleet/hiace-interior-360.webp"
                             title="Toyota Hiace Interior"
                         />
                     </div>

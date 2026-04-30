@@ -11,7 +11,7 @@ import { getSectionContent, getSectionImage, getCustomField } from '@/lib/conten
 
 export async function generateMetadata() {
     return {
-        title: "Umrah Taxi Fleet 2025 | Book GMC Yukon & Hyundai Staria",
+        title: "Umrah Taxi Fleet 2026 | Book GMC Yukon & Hyundai Staria",
         description: "Explore our premium Umrah taxi fleet. Book a luxury GMC Yukon XL, family Hyundai Staria, or Toyota Hiace for your journey in Saudi Arabia.",
         keywords: [
             "Umrah Taxi Fleet", "GMC Yukon Booking", "Hyundai Staria Rental",
@@ -20,13 +20,13 @@ export async function generateMetadata() {
         ],
         alternates: generateMetadataAlternates("/fleet"),
         openGraph: {
-            title: "Premium Umrah Taxi Fleet 2025 | GMC, Toyota, Hyundai",
+            title: "Premium Umrah Taxi Fleet 2026 | GMC, Toyota, Hyundai",
             description: "Browse our luxury fleet for Umrah transport. From GMC Yukon XL for VIPs to Toyota Coaster for groups. Book reliable transport in Makkah & Madinah.",
             url: 'https://alkiswahumrahtransport.com/fleet',
             siteName: 'Al Kiswah Umrah Transport',
             images: [
                 {
-                    url: '/images/fleet/fleet-group-hero.png',
+                    url: '/images/fleet/fleet-group-hero.webp',
                     width: 1200,
                     height: 630,
                     alt: 'Al Kiswah Fleet Collection',
@@ -100,8 +100,8 @@ export default async function FleetPage() {
 
     const title = section?.title || "Our Premium Fleet";
     const subtitle = section?.subtitle || "Experience luxury and comfort with our diverse range of vehicles, tailored for your spiritual journey.";
-    const bgImage = getSectionImage(section, 'desktop') || "/images/fleet/fleet-group-hero.png";
-    const badge = getCustomField(section, 'badge_text') || "Premium Collection 2025";
+    const bgImage = getSectionImage(section, 'desktop') || "/images/fleet/fleet-group-hero.webp";
+    const badge = getCustomField(section, 'badge_text') || "Premium Collection 2026";
 
     return (
         <main className="min-h-screen bg-primary-black relative text-white">
@@ -121,9 +121,9 @@ export default async function FleetPage() {
                     badge={badge}
                     breadcrumbs={<Breadcrumbs />}
                     fleetImages={[
-                        '/images/fleet/gmc-yukon-hero-professional.png',     // Center
-                        '/images/fleet/hiace-hero-professional.png',  // Left
-                        '/images/fleet/staria-hero-professional.png' // Right
+                        '/images/fleet/gmc-yukon-hero-professional.webp',     // Center
+                        '/images/fleet/hiace-hero-professional.webp',  // Left
+                        '/images/fleet/staria-hero-professional.webp' // Right
                     ]}
                 />
 

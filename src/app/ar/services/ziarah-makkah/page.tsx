@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "زيارة مكة | غار حراء وجبل عرفات | الكسوة",
         description: "جولات خاصة شاملة للمواقع التاريخية في مكة المكرمة. نقل مريح وسائقون ذوو خبرة.",
-        images: [{ url: '/images/routes/makkah-ziyarat-hero.png', width: 1200, height: 630, alt: 'Jabal Al-Nour Makkah Ziyarat' }]
+        images: [{ url: '/images/routes/makkah-ziyarat-hero.webp', width: 1200, height: 630, alt: 'Jabal Al-Nour Makkah Ziyarat' }]
     }
 };
 
@@ -97,7 +97,7 @@ export default async function ZiarahMakkahPage() {
             <Hero
                 title="جولات زيارة مكة المكرمة"
                 subtitle="امشِ حيث مشى النبي ﷺ. رحلة روحانية عبر تاريخ الإسلام في المدينة المقدسة."
-                bgImage="/images/routes/makkah-ziyarat-hero.png"
+                bgImage="/images/routes/makkah-ziyarat-hero.webp"
                 ctaText="احجز زيارة مكة"
                 ctaLink={whatsappLink}
                 layout="center"

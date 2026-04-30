@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Al Kiswah vs Kiwi Taxi / Telixo / 5Star — Save 20–30% Booking Direct',
         description: 'We supply Kiwi Taxi, Telixo, 5Star & Booking.com with vehicles in Saudi Arabia. Book direct with us and skip the commission. Same car, lower price.',
-        images: [{ url: '/images/fleet/gmc-yukon-hero-professional.png', width: 1200, height: 630 }],
+        images: [{ url: '/images/fleet/gmc-yukon-hero-professional.webp', width: 1200, height: 630 }],
     },
 };
 

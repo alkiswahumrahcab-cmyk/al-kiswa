@@ -13,7 +13,7 @@ import { getSettings } from '@/lib/settings-storage';
 import FadeIn from "@/components/common/FadeIn";
 
 export const metadata: Metadata = {
-    title: "Jeddah Airport to Makkah Taxi | Al Kiswah",
+    title: "Jeddah Airport to Makkah Taxi 2026 | Al Kiswah",
     description: "Private taxi from Jeddah KAIA to Makkah hotels. Meet & greet, real-time flight tracking, no hidden fees. Book online in 60 seconds. Available 24/7.",
     keywords: [
         "jeddah airport to makkah taxi",
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     ],
     alternates: generateMetadataAlternates("/services/jeddah-airport-transfer"),
     openGraph: {
-        title: "Jeddah Airport to Makkah Taxi | Al Kiswah",
+        title: "Jeddah Airport to Makkah Taxi 2026 | Al Kiswah",
         description: "Private taxi from Jeddah KAIA to Makkah hotels. Meet & greet, real-time flight tracking, no hidden fees. Book online in 60 seconds.",
-        images: [{ url: '/images/routes/jeddah-airport-hero-professional.png', width: 1200, height: 630, alt: 'Jeddah Airport to Makkah Taxi' }]
+        images: [{ url: '/images/routes/jeddah-airport-hero-professional.webp', width: 1200, height: 630, alt: 'Jeddah Airport to Makkah Taxi' }]
     }
 };
 
@@ -103,7 +103,7 @@ export default async function JeddahAirportTransferPage() {
     const content = {
         title: "Jeddah Airport to Makkah Taxi",
         subtitle: "Private taxi from Jeddah KAIA to Makkah hotels. Meet & greet, real-time flight tracking, and fixed price guaranteed. Available 24/7 for all terminals.",
-        heroImage: "/images/routes/jeddah-airport-hero-professional.png"
+        heroImage: "/images/routes/jeddah-airport-hero-professional.webp"
     };
 
     return (

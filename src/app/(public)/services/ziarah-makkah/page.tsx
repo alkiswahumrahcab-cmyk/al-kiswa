@@ -10,7 +10,7 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FadeIn from "@/components/common/FadeIn";
 
 export const metadata: Metadata = {
-    title: "Ziyarat Makkah Tours | Historical Places Visit",
+    title: "Ziyarat Makkah Tours 2026 | Historical Places Visit",
     description: "Book private Ziyarat tours in Makkah. Visit Jabal Al-Nour (Cave Hira), Jabal Thawr, Arafat, and Mina with experienced drivers.",
     keywords: [
         "Ziyarat Makkah",
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
     ],
     alternates: generateMetadataAlternates("/services/ziarah-makkah"),
     openGraph: {
-        title: "Ziyarat Makkah Tours | Visit Cave Hira & Arafat",
+        title: "Ziyarat Makkah Tours 2026 | Visit Cave Hira & Arafat",
         description: "Comprehensive private tours of Makkah's historical sites. Comfortable transport and knowledgeable drivers.",
-        images: [{ url: '/images/routes/makkah-ziyarat-hero.png', width: 1200, height: 630, alt: 'Jabal Al-Nour Makkah Ziyarat' }]
+        images: [{ url: '/images/routes/makkah-ziyarat-hero.webp', width: 1200, height: 630, alt: 'Jabal Al-Nour Makkah Ziyarat' }]
     }
 };
 
@@ -94,7 +94,7 @@ export default async function ZiarahMakkahPage() {
             <Hero
                 title="Makkah Ziyarat Tours"
                 subtitle="Walk where the Prophet (SAW) walked. A spiritual journey through the history of Islam in the Holy City."
-                bgImage="/images/routes/makkah-ziyarat-hero.png"
+                bgImage="/images/routes/makkah-ziyarat-hero.webp"
                 ctaText="Book Makkah Ziyarat"
                 ctaLink={whatsappLink}
                 layout="center"

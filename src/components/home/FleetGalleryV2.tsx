@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight, Users, Briefcase, ArrowRight, Star } from 'l
 
 const FLEET_IMAGES = [
     {
-        src: '/images/fleet/camry-hero-professional.png',
+        src: '/images/fleet/camry-hero-professional.webp',
         alt: 'Toyota Camry 2025 White Studio Shot',
         name: 'Toyota Camry',
         badge: 'Best Value',
@@ -18,7 +18,7 @@ const FLEET_IMAGES = [
         rating: 4.8
     },
     {
-        src: '/images/fleet/gmc-yukon-hero-professional.png',
+        src: '/images/fleet/gmc-yukon-hero-professional.webp',
         alt: 'GMC Yukon XL 2025 Black Studio Shot',
         name: 'GMC Yukon XL',
         badge: 'VIP Choice',
@@ -28,7 +28,7 @@ const FLEET_IMAGES = [
         rating: 5.0
     },
     {
-        src: '/images/fleet/hiace-hero-professional.png',
+        src: '/images/fleet/hiace-hero-professional.webp',
         alt: 'Toyota Hiace High Roof Studio Shot',
         name: 'Toyota Hiace',
         badge: 'Large Groups',
@@ -38,7 +38,7 @@ const FLEET_IMAGES = [
         rating: 4.9
     },
     {
-        src: '/images/fleet/staria-hero-professional.png',
+        src: '/images/fleet/staria-hero-professional.webp',
         alt: 'Hyundai Staria 2025 Studio Shot',
         name: 'Hyundai Staria',
         badge: 'Family Favorite',
@@ -48,7 +48,7 @@ const FLEET_IMAGES = [
         rating: 4.9
     },
     {
-        src: '/images/fleet/starex-hero-professional.png',
+        src: '/images/fleet/starex-hero-professional.webp',
         alt: 'Hyundai H1 Starex Studio Shot',
         name: 'Hyundai H1 Starex',
         badge: 'Comfort',
@@ -58,7 +58,7 @@ const FLEET_IMAGES = [
         rating: 4.8
     },
     {
-        src: '/images/fleet/toyota-coaster-2025.png',
+        src: '/images/fleet/toyota-coaster-2025.webp',
         alt: 'Toyota Coaster Luxury Bus Studio Shot',
         name: 'Toyota Coaster',
         badge: 'Groups 20+',

@@ -10,7 +10,7 @@ import { Metadata } from 'next';
 import GlassCard from '@/components/ui/GlassCard';
 
 export const metadata: Metadata = {
-    title: "Jeddah & Madinah Airport VIP Transfers | Al Kiswah",
+    title: "Jeddah & Madinah Airport VIP Transfers 2026 | Al Kiswah",
     description: "Book VIP Jeddah and Madinah airport taxi transfers. Meet & greet, fixed prices, and professional drivers. Book your airport pickup online now.",
     keywords: [
         "jeddah airport to makkah taxi",
@@ -21,16 +21,16 @@ export const metadata: Metadata = {
     ],
     alternates: generateMetadataAlternates("/services/airport-transfers"),
     openGraph: {
-        title: "Jeddah & Madinah Airport VIP Transfers | Al Kiswah",
+        title: "Jeddah & Madinah Airport VIP Transfers 2026 | Al Kiswah",
         description: "Book VIP Jeddah and Madinah airport taxi transfers. Meet & greet, fixed prices, and professional drivers.",
-        images: ["/images/fleet/gmc.png"],
+        images: ["/images/fleet/gmc.webp"],
         type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Jeddah & Madinah Airport VIP Transfers | Al Kiswah",
+        title: "Jeddah & Madinah Airport VIP Transfers 2026 | Al Kiswah",
         description: "Book VIP Jeddah and Madinah airport taxi transfers. Meet & greet, fixed prices, and professional drivers.",
-        images: ["/images/fleet/gmc.png"],
+        images: ["/images/fleet/gmc.webp"],
     }
 };
 
@@ -209,7 +209,7 @@ export default async function AirportTransfersPage() {
                                 <div className="h-72 relative overflow-hidden group bg-gradient-to-br from-white/5 to-transparent flex items-center justify-center p-6">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
-                                        src="/images/fleet/camry-2025.png"
+                                        src="/images/fleet/camry-2025.webp"
                                         alt="Toyota Camry Standard Sedan for Affordable Makkah Airport Transfer"
                                         className="w-auto h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-2xl"
                                     />
@@ -232,7 +232,7 @@ export default async function AirportTransfersPage() {
                                     <div className="absolute inset-0 bg-[#D4AF37]/5 blur-3xl rounded-full" />
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
-                                        src="/images/fleet/gmc.png"
+                                        src="/images/fleet/gmc.webp"
                                         alt="GMC Yukon XL VIP Luxury SUV for Jeddah Airport Pickup"
                                         className="relative z-10 w-auto h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-2xl"
                                     />
@@ -252,7 +252,7 @@ export default async function AirportTransfersPage() {
                                 <div className="h-72 relative overflow-hidden group bg-gradient-to-br from-white/5 to-transparent flex items-center justify-center p-6">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
-                                        src="/images/fleet/toyota-hiace-2025.png"
+                                        src="/images/fleet/toyota-hiace-2025.webp"
                                         alt="Toyota Hiace 10-Seater Family Van for Airport Group Transport"
                                         className="w-auto h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-2xl"
                                     />

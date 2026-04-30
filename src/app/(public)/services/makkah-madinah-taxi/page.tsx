@@ -11,9 +11,8 @@ import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FadeIn from "@/components/common/FadeIn";
 import GlassCard from '@/components/ui/GlassCard';
-
 export const metadata: Metadata = {
-    title: "Makkah to Madinah Taxi | Al Kiswah",
+    title: "Makkah to Madinah Taxi 2026 | Al Kiswah",
     description: "Book a private Makkah to Madinah taxi transfer. 4-hour luxury journey in GMC Yukon. Door-to-door, fixed price guaranteed. Book online in 60 seconds.",
     keywords: [
         "makkah to madinah taxi",
@@ -25,9 +24,9 @@ export const metadata: Metadata = {
     ],
     alternates: generateMetadataAlternates("/services/makkah-madinah-taxi"),
     openGraph: {
-        title: "Makkah to Madinah Taxi | Al Kiswah",
+        title: "Makkah to Madinah Taxi 2026 | Al Kiswah",
         description: "Book a private Makkah to Madinah taxi transfer. 4-hour luxury journey in GMC Yukon. Door-to-door, fixed price guaranteed.",
-        images: [{ url: '/images/routes/makkah-madinah-route-hero.png', width: 1200, height: 630, alt: 'Makkah to Madinah Taxi' }]
+        images: [{ url: '/images/routes/makkah-madinah-route-hero.webp', width: 1200, height: 630, alt: 'Makkah to Madinah Taxi' }]
     }
 };
 
@@ -99,6 +98,23 @@ const makkahMadinahFAQs = [
     }
 ];
 
+const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": makkahMadinahFAQs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": typeof faq.answer === 'string' 
+                ? faq.answer 
+                : (faq.question.includes("How long") 
+                    ? "The distance is approximately 450 km. By private taxi (GMC/Staria), the journey typically takes 4.5 to 5 hours. We can stop at the Miqat (Bir Ali) for 15-30 minutes if you wish to assume Ihram before entering Makkah."
+                    : "Yes, we specialize in Jeddah Airport transfers. Our driver will meet you at the arrival hall and take you directly to your hotel or the Haram.")
+        }
+    }))
+};
+
 export default async function MakkahMadinahTaxiPage() {
     const settings = await getSettings();
     const phoneNumber = settings.contact.phone;
@@ -107,7 +123,7 @@ export default async function MakkahMadinahTaxiPage() {
     const content = {
         title: "Makkah to Madinah Taxi",
         subtitle: "Book a private Makkah to Madinah taxi transfer. 4-hour luxury journey in GMC Yukon. Door-to-door, fixed price guaranteed.",
-        heroImage: "/images/routes/makkah-madinah-route-hero.png"
+        heroImage: "/images/routes/makkah-madinah-route-hero.webp"
     };
 
     return (
@@ -116,7 +132,7 @@ export default async function MakkahMadinahTaxiPage() {
 
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, faqJsonLd]) }}
             />
             <Hero
                 title={content.title}
@@ -198,6 +214,33 @@ export default async function MakkahMadinahTaxiPage() {
                         <FadeIn delay={0.2}>
                             <h2 className="text-3xl font-bold text-center mb-12 font-sans text-white">Your Journey Map</h2>
                             <RouteVisual />
+                        </FadeIn>
+                    </div>
+
+                    {/* Route Insights - NEW */}
+                    <div className="mt-24 relative z-10">
+                        <FadeIn delay={0.3}>
+                            <h2 className="text-3xl font-bold text-center mb-12 font-sans text-white">Route Guide: What to Expect</h2>
+                            <div className="grid md:grid-cols-3 gap-8 text-left">
+                                <GlassCard className="p-8 bg-neutral-900/50 rounded-2xl border border-white/5">
+                                    <h3 className="text-xl font-bold text-[#D4AF37] mb-4">Travel Time & Traffic</h3>
+                                    <p className="text-gray-400 font-light leading-relaxed">
+                                        The drive via Route 15 (Al Hijrah Expressway) takes exactly <strong>4.5 to 5 hours</strong>. Traffic is usually smooth, except during peak Ramadan/Hajj nights near the Haram boundaries.
+                                    </p>
+                                </GlassCard>
+                                <GlassCard className="p-8 bg-neutral-900/50 rounded-2xl border border-white/5">
+                                    <h3 className="text-xl font-bold text-[#D4AF37] mb-4">Rest Stops & Amenities</h3>
+                                    <p className="text-gray-400 font-light leading-relaxed">
+                                        We typically stop midway at a major <strong>SASCO</strong> or <strong>Al Tashilat</strong> station. These feature clean prayer rooms, Al Baik or similar fast food, and convenience stores for the family.
+                                    </p>
+                                </GlassCard>
+                                <GlassCard className="p-8 bg-neutral-900/50 rounded-2xl border border-white/5">
+                                    <h3 className="text-xl font-bold text-[#D4AF37] mb-4">Gas Stations & Bathrooms</h3>
+                                    <p className="text-gray-400 font-light leading-relaxed">
+                                        The highway is highly developed for 2026. Clean, well-lit bathrooms are available every 50-80 km. Just let your driver know 10 minutes in advance if you need a break.
+                                    </p>
+                                </GlassCard>
+                            </div>
                         </FadeIn>
                     </div>
                 </div>

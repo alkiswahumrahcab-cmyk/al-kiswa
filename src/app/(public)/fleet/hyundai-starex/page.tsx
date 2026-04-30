@@ -16,7 +16,7 @@ const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.name || "Hyundai H1 Starex Van Transport",
-    "image": "https://alkiswahumrahtransport.com/images/fleet/starex-hero-professional.png",
+    "image": "https://alkiswahumrahtransport.com/images/fleet/starex-hero-professional.webp",
     "description": `Book luxury ${vehicleData?.name || 'Hyundai H1 Starex'} in Makkah & Madinah. ${vehicleData?.passengers || 7} Seater SUV for VIP Umrah transport.`,
     "brand": { "@type": "Brand", "name": "Hyundai" },
     "offers": { 
@@ -72,7 +72,7 @@ export default async function HyundaiStarexPage() {
 
     // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
     const starexId = vehicleData?.id || '692db09834f15bc89b45a5fa';
-    const starexImage = '/images/fleet/starex-hero-professional.png';
+    const starexImage = '/images/fleet/starex-hero-professional.webp';
 
     const jsonLd = generateJsonLd(vehicleData);
 
@@ -91,7 +91,7 @@ export default async function HyundaiStarexPage() {
 
             <FleetPricingGrid
                 vehicleId={starexId}
-                vehicleImage="/images/fleet/hyundai-h1.png"
+                vehicleImage="/images/fleet/hyundai-h1.webp"
                 vehicleType="starex"
                 title="Hyundai Starex Rates | Jeddah, Makkah, Madinah"
                 subtitle="Affordable comfort for up to 7 passengers. Great value for group travel."
@@ -103,7 +103,7 @@ export default async function HyundaiStarexPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                             <FleetFeatureImage
-                                src="/images/fleet/starex-feature.png"
+                                src="/images/fleet/starex-feature.webp"
                                 alt="Hyundai H1 Starex Interior"
                                 fallbackSrc={starexImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
@@ -196,7 +196,7 @@ export default async function HyundaiStarexPage() {
 
                     <div className="max-w-6xl mx-auto">
                         {/* <Interior360Viewer
-                            imageUrl="/images/fleet/camry-interior-360.jpg"
+                            imageUrl="/images/fleet/camry-interior-360.webp"
                             title="Hyundai H1 Starex Interior"
                         /> */}
                         <div className="w-full h-[400px] flex items-center justify-center bg-slate-800 rounded-2xl border border-slate-700">

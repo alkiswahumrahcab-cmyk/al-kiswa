@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "جولات المدينة المنورة | مسجد قباء وغزوة أُحد | الكسوة",
         description: "جولات خاصة شاملة للمواقع التاريخية في المدينة المنورة. اتبع خطى النبي ﷺ.",
-        images: [{ url: '/images/routes/madinah-ziyarat-hero.png', width: 1200, height: 630, alt: 'Masjid Quba Madinah Ziyarat' }]
+        images: [{ url: '/images/routes/madinah-ziyarat-hero.webp', width: 1200, height: 630, alt: 'Masjid Quba Madinah Ziyarat' }]
     }
 };
 
@@ -97,7 +97,7 @@ export default async function ZiarahMadinahPage() {
             <Hero
                 title="جولات زيارة المدينة المنورة"
                 subtitle="استكشف مدينة النبي ﷺ. قم بزيارة أول مسجد في الإسلام وعش الأيام الأولى لديننا الحنيف."
-                bgImage="/images/routes/madinah-ziyarat-hero.png"
+                bgImage="/images/routes/madinah-ziyarat-hero.webp"
                 ctaText="احجز زيارة المدينة"
                 ctaLink={whatsappLink}
                 layout="center"

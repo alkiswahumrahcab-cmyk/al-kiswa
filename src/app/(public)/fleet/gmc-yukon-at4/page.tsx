@@ -27,7 +27,7 @@ const generateJsonLd = (vehicleData: any) => ({
         {
             "@type": "Product",
             "name": vehicleData?.name || "GMC Yukon XL 2024 Transport Makkah",
-            "image": "https://kiswahumrahcab.com/images/fleet/gmc-yukon-hero-professional.png",
+            "image": "https://kiswahumrahcab.com/images/fleet/gmc-yukon-hero-professional.webp",
             "description": `Book luxury ${vehicleData?.name || 'GMC Yukon XL'} in Makkah & Madinah. ${vehicleData?.passengers || 7} Seater SUV for VIP Umrah transport.`,
             "brand": { "@type": "Brand", "name": "GMC" },
             "offers": {
@@ -100,7 +100,7 @@ export default async function GmcYukonPage() {
 
     // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
     const gmcId = vehicleData?.id || '692db09834f15bc89b45a5f8';
-    const gmcImage = '/images/fleet/gmc-yukon-hero-professional.png';
+    const gmcImage = '/images/fleet/gmc-yukon-hero-professional.webp';
 
     const jsonLd = generateJsonLd(vehicleData);
 
@@ -123,7 +123,7 @@ export default async function GmcYukonPage() {
 
             <FleetPricingGrid
                 vehicleId={gmcId}
-                vehicleImage="/images/fleet/gmc-yukon-2025.png"
+                vehicleImage="/images/fleet/gmc-yukon-2025.webp"
                 vehicleType="gmc"
                 title="VIP GMC Yukon Rates | Jeddah, Makkah & Madinah"
                 subtitle="The pinnacle of comfort for your spiritual journey. Transpabook VIP pricing for all routes."
@@ -135,7 +135,7 @@ export default async function GmcYukonPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                             <FleetFeatureImage
-                                src="/images/fleet/gmc-yukon-feature.png"
+                                src="/images/fleet/gmc-yukon-feature.webp"
                                 alt="GMC Yukon Denali XL"
                                 fallbackSrc={gmcImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
@@ -227,7 +227,7 @@ export default async function GmcYukonPage() {
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>
                     <div className="max-w-6xl mx-auto">
                         <Interior360Viewer
-                            imageUrl="/images/fleet/gmc-yukon-interior-360.jpg"
+                            imageUrl="/images/fleet/gmc-yukon-interior-360.webp"
                             title="GMC Yukon XL Denali Interior"
                         />
                     </div>

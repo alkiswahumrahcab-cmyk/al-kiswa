@@ -34,7 +34,7 @@ const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData ? `${vehicleData.name} ${vehicleData.passengers}-Seater Bus Transport` : "Toyota Coaster 22-Seater Bus Transport",
-    "image": "https://alkiswahumrahtransport.com/images/fleet/toyota-coaster-2025.png",
+    "image": "https://alkiswahumrahtransport.com/images/fleet/toyota-coaster-2025.webp",
     "description": vehicleData ? `Book ${vehicleData.name} bus in Makkah. Premium ${vehicleData.passengers}-seater transport for Umrah groups. Spacious, comfortable, and reliable.` : "Book Toyota Coaster bus in Makkah. Premium 22-seater transport for Umrah groups. Spacious, comfortable, and reliable.",
     "brand": { "@type": "Brand", "name": "Toyota" },
     "offers": {
@@ -94,7 +94,7 @@ export default async function ToyotaCoasterPage() {
 
     // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
     const coasterId = vehicleData?.id || '692db09834f15bc89b45a5f6_coaster';
-    const coasterImage = '/images/fleet/toyota-coaster-2025.png';
+    const coasterImage = '/images/fleet/toyota-coaster-2025.webp';
 
     const jsonLd = generateJsonLd(vehicleData);
 
@@ -125,7 +125,7 @@ export default async function ToyotaCoasterPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                             <FleetFeatureImage
-                                src="/images/fleet/toyota-coaster-2025.png"
+                                src="/images/fleet/toyota-coaster-2025.webp"
                                 alt="Toyota Coaster Bus"
                                 fallbackSrc={coasterImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"

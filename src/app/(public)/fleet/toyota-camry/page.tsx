@@ -26,7 +26,7 @@ const generateJsonLd = (vehicleData: any) => ({
         {
             "@type": "Product",
             "name": vehicleData?.name || "Toyota Camry 2024 Taxi Makkah",
-            "image": "https://kiswahumrahcab.com/images/fleet/camry-hero-professional.png",
+            "image": "https://kiswahumrahcab.com/images/fleet/camry-hero-professional.webp",
             "description": `Affordable ${vehicleData?.name || 'Toyota Camry'} taxi for Umrah. Reliable ${vehicleData?.passengers || 4}-seater sedan for Jeddah to Makkah transfers.`,
             "brand": { "@type": "Brand", "name": "Toyota" },
             "offers": {
@@ -98,7 +98,7 @@ export default async function ToyotaCamryPage() {
     const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('camry'));
 
     const camryId = vehicleData?.id || '692db09834f15bc89b45a5f6';
-    const camryImage = '/images/fleet/camry-hero-professional.png';
+    const camryImage = '/images/fleet/camry-hero-professional.webp';
 
     const jsonLd = generateJsonLd(vehicleData);
 
@@ -118,7 +118,7 @@ export default async function ToyotaCamryPage() {
 
             <FleetPricingGrid
                 vehicleId={camryId}
-                vehicleImage="/images/fleet/camry-2025.png"
+                vehicleImage="/images/fleet/camry-2025.webp"
                 vehicleType="camry"
                 title="Toyota Camry Rates | Jeddah, Makkah, Madinah"
                 subtitle="Reliable, comfortable, and economical. The smart choice for small families and couples."
@@ -130,7 +130,7 @@ export default async function ToyotaCamryPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
                             <FleetFeatureImage
-                                src="/images/fleet/camry-feature.png"
+                                src="/images/fleet/camry-feature.webp"
                                 alt="Toyota Camry Interior"
                                 fallbackSrc={camryImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
@@ -222,7 +222,7 @@ export default async function ToyotaCamryPage() {
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>
                     <div className="max-w-6xl mx-auto">
                         <Interior360Viewer
-                            imageUrl="/images/fleet/camry-interior-360.jpg"
+                            imageUrl="/images/fleet/camry-interior-360.webp"
                             title="Toyota Camry 2024 Interior"
                         />
                     </div>

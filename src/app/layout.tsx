@@ -76,7 +76,7 @@ export async function generateMetadata(): Promise<Metadata> {
       url: siteUrl,
       images: [
         {
-          url: '/images/fleet/gmc-yukon-studio.png', // Default OG Image
+          url: '/images/fleet/gmc-yukon-studio.webp', // Default OG Image
           width: 1200,
           height: 630,
           alt: siteName,
@@ -87,7 +87,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: settings.seo.defaultTitle || "Umrah Transport Services Saudi Arabia",
       description: settings.seo.defaultDescription || "Reliable Umrah taxi service in Makkah and Madinah.",
-      images: ['/images/fleet/gmc-yukon-studio.png'],
+      images: ['/images/fleet/gmc-yukon-studio.webp'],
       creator: settings.contact.social.twitter ? `@${settings.contact.social.twitter.split('/').pop()}` : undefined // extract handle if available
     },
     icons: {

@@ -31,7 +31,7 @@ export const generateLocalBusinessSchema = () => ({
             '@type': 'LocalBusiness',
             '@id': `${siteUrl}/#business`,
             name: settings.general.siteName,
-            image: `${siteUrl}/images/fleet/gmc-yukon-studio.png`,
+            image: `${siteUrl}/images/fleet/gmc-yukon-studio.webp`,
             url: siteUrl,
             telephone: settings.contact.phone,
             address: {
@@ -58,6 +58,20 @@ export const generateLocalBusinessSchema = () => ({
             },
             priceRange: '$$',
             currenciesAccepted: 'SAR, USD, GBP, EUR',
+            areaServed: [
+                {
+                    '@type': 'City',
+                    name: 'Makkah'
+                },
+                {
+                    '@type': 'City',
+                    name: 'Jeddah'
+                },
+                {
+                    '@type': 'City',
+                    name: 'Madinah'
+                }
+            ],
             paymentAccepted: 'Cash, Credit Card, Online Payment',
             // Single, canonical aggregateRating — the ONLY aggregateRating on any page
             aggregateRating: {
