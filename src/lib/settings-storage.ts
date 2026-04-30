@@ -24,6 +24,8 @@ const DEFAULT_SETTINGS: Settings = {
             instagram: '',
             tiktok: '',
             linkedin: '',
+            googleBusiness: 'https://share.google/ARbbVaAackyOs8N7G',
+            googleReview: 'https://share.google/ARbbVaAackyOs8N7G',
         },
     },
     seo: {
@@ -82,6 +84,8 @@ export const getSettings = async (): Promise<Settings> => {
                     instagram: settingsMap['social_instagram'] || DEFAULT_SETTINGS.contact.social.instagram,
                     tiktok: settingsMap['social_tiktok'] || DEFAULT_SETTINGS.contact.social.tiktok,
                     linkedin: settingsMap['social_linkedin'] || DEFAULT_SETTINGS.contact.social.linkedin,
+                    googleBusiness: settingsMap['social_google_business'] || DEFAULT_SETTINGS.contact.social.googleBusiness,
+                    googleReview: settingsMap['social_google_review'] || DEFAULT_SETTINGS.contact.social.googleReview,
                 },
             },
             seo: {
@@ -138,6 +142,8 @@ export async function saveSettings(newSettings: Settings): Promise<void> {
         { key: 'social_instagram', value: newSettings.contact.social.instagram || '' },
         { key: 'social_tiktok', value: newSettings.contact.social.tiktok || '' },
         { key: 'social_linkedin', value: newSettings.contact.social.linkedin || '' },
+        { key: 'social_google_business', value: newSettings.contact.social.googleBusiness || '' },
+        { key: 'social_google_review', value: newSettings.contact.social.googleReview || '' },
 
         { key: 'seo_title', value: newSettings.seo.defaultTitle },
         { key: 'seo_description', value: newSettings.seo.defaultDescription },

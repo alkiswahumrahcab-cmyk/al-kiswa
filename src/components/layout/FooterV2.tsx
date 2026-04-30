@@ -100,7 +100,7 @@ export default function Footer() {
                             </p>
                         </div>
                         <a 
-                            href={settings?.contact?.social?.googleBusiness || "https://maps.google.com/?cid=7581057396656405298"}
+                            href={settings?.contact?.social?.googleBusiness || "https://share.google/ARbbVaAackyOs8N7G"}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block group w-fit hover:bg-white/5 rounded-lg border border-transparent hover:border-white/10 transition-all p-2 -ml-2"

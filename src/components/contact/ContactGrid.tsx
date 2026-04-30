@@ -5,6 +5,7 @@ import { Mail, MapPin, Phone, MessageCircle, Star } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
 import { trackConversion } from '@/lib/analytics';
 import FadeIn from '@/components/common/FadeIn';
+import { useSettings } from '@/context/SettingsContext';
 
 interface ContactGridProps {
     contactSettings: {
@@ -16,7 +17,8 @@ interface ContactGridProps {
 
 export default function ContactGrid({ contactSettings }: ContactGridProps) {
     const { phone, email, address } = contactSettings;
-    const whatsapp = phone;
+    const { settings } = useSettings();
+    const googleBusiness = settings?.contact?.social?.googleBusiness || "https://share.google/ARbbVaAackyOs8N7G";
 
     const contactCards = [
         {
@@ -60,7 +62,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
             title: "Google Verified Business",
             value: "5.0 Rating \u2B50\u2B50\u2B50\u2B50\u2B50",
             sub: "Read our verified pilgrim reviews",
-            action: "https://www.google.com/search?sca_esv=6139c4eb45c90f67&sxsrf=ANbL-n6GDKbvww5J7SRsQ6C1E8oxJIQvZg%3A1776539314409&q=Al%20Kiswah%20Umrah%20Cab&stick=H4sIAAAAAAAAAONgU1I1qDCzNEqxSDMyN0oySk4zNUmxAgkZm1qYWBgYmxsapiUZGy1iFXbMUfDOLC5PzFAIzS0Cks6JSQDqIOYzPwAAAA&mat=CVFSiV6mHqJu&ved=2ahUKEwjI847WjPiTAxUtcGwGHdz7HrMQrMcEegQICRAC",
+            action: googleBusiness,
             btnText: "View on Google",
             type: 'other'
         }

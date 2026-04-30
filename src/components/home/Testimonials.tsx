@@ -100,7 +100,7 @@ export default function Testimonials() {
                             <span>Book Your Holy Journey</span>
                         </a>
                         <a
-                            href="https://www.google.com/search?sca_esv=6139c4eb45c90f67&sxsrf=ANbL-n6GDKbvww5J7SRsQ6C1E8oxJIQvZg%3A1776539314409&q=Al%20Kiswah%20Umrah%20Cab&stick=H4sIAAAAAAAAAONgU1I1qDCzNEqxSDMyN0oySk4zNUmxAgkZm1qYWBgYmxsapiUZGy1iFXbMUfDOLC5PzFAIzS0Cks6JSQDqIOYzPwAAAA&mat=CVFSiV6mHqJu&ved=2ahUKEwjI847WjPiTAxUtcGwGHdz7HrMQrMcEegQICRAC"
+                            href={settings?.contact?.social?.googleBusiness || "https://share.google/ARbbVaAackyOs8N7G"}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex justify-center items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg transition-all duration-300 w-full sm:w-auto"

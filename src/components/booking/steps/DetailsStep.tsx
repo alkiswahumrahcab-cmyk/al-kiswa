@@ -253,7 +253,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                     </button>
                     
                     <a 
-                        href={settings?.contact?.social?.googleReview || "https://search.google.com/local/writereview?placeid=ChIJXfUsKyePLR0RMvuRN4CEPWY"} 
+                        href={settings?.contact?.social?.googleReview || "https://share.google/ARbbVaAackyOs8N7G"} 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="w-full flex items-center justify-center gap-3 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium rounded-2xl transition-all"
