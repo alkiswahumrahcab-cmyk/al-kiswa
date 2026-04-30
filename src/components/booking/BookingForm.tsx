@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     MapPin, Calendar, Clock, ChevronDown,
-    Search, User, Mail, Phone, Plane, Users, Briefcase
+    Search, User, Mail, Phone, Plane, Users, Briefcase, Baby
 } from 'lucide-react';
 import { usePricing } from '@/context/PricingContext';
 import { useCurrency } from '@/context/CurrencyContext';
@@ -28,6 +28,7 @@ export default function BookingForm() {
         time: '',
         selectedVehicleId: '',
         passengers: 1,
+        childSeats: false,
         name: '',
         email: '',
         phone: '',
@@ -141,7 +142,7 @@ export default function BookingForm() {
                     phone: data.phone,
                     whatsapp: data.phone,
                     flightNumber: data.flightNumber,
-                    childSeats: false
+                    childSeats: data.childSeats
                 },
                 notes: data.notes,
                 price: sarPrice,
@@ -393,6 +394,29 @@ export default function BookingForm() {
                                         +
                                     </button>
                                 </div>
+                            </div>
+                        </div>
+
+                        {/* Child Seat Toggle */}
+                        <div className="relative md:col-span-2 lg:col-span-1">
+                            <Baby className="absolute left-0 top-4 text-gold-primary" size={20} />
+                            <div className="flex items-center justify-between w-full pl-8 pr-4 py-3 bg-transparent border-b-2 border-white/20">
+                                <span className="text-gray-400">Child Seat Required?</span>
+                                <button
+                                    type="button"
+                                    onClick={() => updateData({ childSeats: !data.childSeats })}
+                                    className={`relative w-14 h-8 rounded-full transition-colors duration-300 focus:outline-none ${data.childSeats ? 'bg-gold-primary' : 'bg-white/10'}`}
+                                >
+                                    <span className="sr-only">Toggle Child Seat</span>
+                                    <motion.div
+                                        className="absolute top-1 bottom-1 w-6 bg-white rounded-full shadow-md"
+                                        initial={false}
+                                        animate={{
+                                            left: data.childSeats ? 'calc(100% - 28px)' : '4px',
+                                        }}
+                                        transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                                    />
+                                </button>
                             </div>
                         </div>
 
