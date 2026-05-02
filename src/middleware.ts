@@ -7,6 +7,11 @@ const ARABIC_COUNTRIES = ["SA", "AE", "KW", "QA", "BH", "OM", "EG", "JO", "LB", 
 export async function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
+    // --- 0. PERMANENT SEO REDIRECTS ---
+    if (pathname === '/ramadan-2026' || pathname === '/ramadan-2026/') {
+        return NextResponse.redirect(new URL('/ramadan', request.url), { status: 301 });
+    }
+
     // --- 1. ADMIN AUTHENTICATION ---
     if (pathname.startsWith('/admin') || pathname.startsWith('/api/admin')) {
         if (pathname === '/admin/login' || pathname === '/api/auth/login') {

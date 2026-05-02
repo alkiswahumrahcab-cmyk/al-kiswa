@@ -221,6 +221,31 @@ export default async function MadinahAirportPage() {
                             />
                         </FadeIn>
                     </div>
+
+                    {/* Hotels We Serve — Fix P4-Bug3: hotel name keyword targeting */}
+                    <div className="mt-24">
+                        <FadeIn delay={0.2}>
+                            <div className="max-w-3xl mx-auto text-center">
+                                <h3 className="text-2xl font-bold text-white mb-4 font-sans">Hotels We Serve Near Masjid Nabawi</h3>
+                                <p className="text-gray-400 leading-relaxed font-light mb-6">
+                                    We provide direct transfers from <strong className="text-white">Madinah Airport (PMIA)</strong> to all major hotels in the Markazia District and beyond, including:
+                                    <strong className="text-white"> Movenpick Hotel Madinah</strong>, <strong className="text-white">Dar Al Taqwa</strong>, <strong className="text-white">Anwar Al Madinah Movenpick</strong>,
+                                    <strong className="text-white"> Oberoi Madinah</strong>, <strong className="text-white">Sheraton Madinah Hotel</strong>, <strong className="text-white">Al Rawda Royal Inn</strong>,
+                                    <strong className="text-white"> Hilton Madinah</strong>, <strong className="text-white">Swissôtel Al Maqam</strong>, <strong className="text-white">Pullman Zamzam Madinah</strong>,
+                                    and all hotels on <strong className="text-white">King Faisal Road</strong>, <strong className="text-white">Abu Bakr Al-Siddiq Road</strong>, and throughout the <strong className="text-white">Markazia (Central) District</strong>.
+                                </p>
+                                <p className="text-sm text-gray-500 italic font-light">
+                                    Not sure if we cover your hotel? WhatsApp us the hotel name and we will confirm within minutes.
+                                </p>
+                                <Link
+                                    href="/booking"
+                                    className="inline-flex items-center gap-2 mt-6 px-8 py-3 bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black rounded-full font-bold transition-all text-sm uppercase tracking-wider"
+                                >
+                                    Book Airport to Hotel Transfer
+                                </Link>
+                            </div>
+                        </FadeIn>
+                    </div>
                 </div>
             </section>
 

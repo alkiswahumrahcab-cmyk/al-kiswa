@@ -5,7 +5,7 @@ import Breadcrumbs from '@/components/common/Breadcrumbs';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import Features from '@/components/home/Features';
 import Link from 'next/link';
-import { ArrowRight, Plane, ShieldCheck, UserCheck } from 'lucide-react';
+import { ArrowRight, Plane, ShieldCheck, UserCheck, CheckCircle2 } from 'lucide-react';
 import FAQSection from '@/components/services/FAQSection';
 import VehicleCapacityGuide from '@/components/services/VehicleCapacityGuide';
 import RouteVisual from '@/components/services/RouteVisual';
@@ -29,6 +29,33 @@ export const metadata: Metadata = {
         description: "Private taxi from Jeddah KAIA to Makkah hotels. Meet & greet, real-time flight tracking, no hidden fees. Book online in 60 seconds.",
         images: [{ url: '/images/routes/jeddah-airport-hero-professional.webp', width: 1200, height: 630, alt: 'Jeddah Airport to Makkah Taxi' }]
     }
+};
+
+const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How long does a Jeddah Airport to Makkah taxi take?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The private transfer from King Abdulaziz International Airport (KAIA) to Makkah hotels typically takes 60–90 minutes, depending on traffic and terminal location." }
+        },
+        {
+            "@type": "Question",
+            "name": "Where will the driver meet me at Jeddah Airport?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Our driver will be waiting at the arrival hall of either the North Terminal or Terminal 1 (Hajj Terminal) after you clear customs. They will be holding a sign with your name for a seamless meet and greet experience." }
+        },
+        {
+            "@type": "Question",
+            "name": "What if my flight is delayed?",
+            "acceptedAnswer": { "@type": "Answer", "text": "We provide real-time flight tracking. If your flight is delayed, we automatically adjust your pickup time at no extra cost. Your taxi from Jeddah to Makkah will be ready when you are." }
+        },
+        {
+            "@type": "Question",
+            "name": "What is the price for Jeddah Airport to Makkah taxi?",
+            "acceptedAnswer": { "@type": "Answer", "text": "A private sedan (Toyota Camry) starts from SAR 180 for Jeddah Airport to Makkah. A family van (Hyundai Staria) starts from SAR 280, and a luxury GMC Yukon XL starts from SAR 350. All prices are per vehicle, not per person." }
+        }
+    ]
 };
 
 const jsonLd = {
@@ -112,7 +139,7 @@ export default async function JeddahAirportTransferPage() {
 
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, faqJsonLd]) }}
             />
             <Hero
                 title={content.title}
@@ -200,6 +227,64 @@ export default async function JeddahAirportTransferPage() {
                                 Some regional carriers use the North Terminal.
                                 Don't worry, we track your flight number and adjust the pickup location automatically.
                             </p>
+                        </div>
+                    </FadeIn>
+                </div>
+            </section>
+
+            {/* Route Pricing Table — Fix P2-Bug4 */}
+            <section className="py-16 relative z-10">
+                <div className="container mx-auto px-4">
+                    <FadeIn delay={0.3}>
+                        <div className="max-w-4xl mx-auto">
+                            <div className="text-center mb-10">
+                                <h2 className="text-3xl font-bold text-white font-sans mb-3">
+                                    Route <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37]">Pricing</span>
+                                </h2>
+                                <p className="text-gray-400 font-light">Fixed prices per vehicle — no hidden fees, no surge pricing</p>
+                            </div>
+
+                            <div className="overflow-x-auto rounded-2xl border border-white/10 shadow-2xl">
+                                <table className="w-full text-sm">
+                                    <thead>
+                                        <tr className="bg-[#D4AF37]/10 border-b border-[#D4AF37]/20">
+                                            <th className="text-left p-5 text-[#D4AF37] font-bold uppercase tracking-wider">Vehicle</th>
+                                            <th className="text-center p-5 text-[#D4AF37] font-bold uppercase tracking-wider">Seats</th>
+                                            <th className="text-center p-5 text-[#D4AF37] font-bold uppercase tracking-wider">Jeddah → Makkah</th>
+                                            <th className="text-center p-5 text-[#D4AF37] font-bold uppercase tracking-wider">Jeddah → Madinah</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="divide-y divide-white/5">
+                                        {[
+                                            { vehicle: 'Toyota Camry', link: '/fleet/toyota-camry', seats: '1–4', makkah: 'SAR 180', madinah: 'SAR 380', highlight: false },
+                                            { vehicle: 'Hyundai Staria', link: '/fleet/hyundai-staria', seats: '1–9', makkah: 'SAR 280', madinah: 'SAR 480', highlight: false },
+                                            { vehicle: 'GMC Yukon XL', link: '/fleet/gmc-yukon-at4', seats: '1–7', makkah: 'SAR 350', madinah: 'SAR 580', highlight: true },
+                                        ].map((row, i) => (
+                                            <tr key={i} className={`group transition-colors ${row.highlight ? 'bg-[#D4AF37]/5 hover:bg-[#D4AF37]/10' : 'bg-black/40 hover:bg-white/5'}`}>
+                                                <td className="p-5">
+                                                    <Link href={row.link} className="font-bold text-white group-hover:text-[#D4AF37] transition-colors flex items-center gap-2">
+                                                        {row.vehicle}
+                                                        {row.highlight && <span className="text-xs bg-[#D4AF37] text-black px-2 py-0.5 rounded-full font-bold">Popular</span>}
+                                                    </Link>
+                                                </td>
+                                                <td className="p-5 text-center text-gray-400">{row.seats}</td>
+                                                <td className="p-5 text-center font-bold text-white">{row.makkah}</td>
+                                                <td className="p-5 text-center font-bold text-white">{row.madinah}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                                <div className="flex items-center gap-2 text-sm text-gray-400">
+                                    <CheckCircle2 size={16} className="text-[#D4AF37] shrink-0" />
+                                    <span>All prices are per vehicle, not per person. Pay on arrival.</span>
+                                </div>
+                                <Link href="/pricing" className="text-sm text-[#D4AF37] hover:text-white font-bold underline underline-offset-4 transition-colors">
+                                    → See full pricing for all routes
+                                </Link>
+                            </div>
                         </div>
                     </FadeIn>
                 </div>

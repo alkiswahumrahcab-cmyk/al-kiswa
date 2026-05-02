@@ -98,6 +98,73 @@ export default async function ZiyaratToursPage() {
                 alt="Makkah and Madinah Historical Ziyarat Tours - Jabal Al Noor"
             />
 
+            {/* Tour at a Glance — Fix P6-Bug4: duration + starting price */}
+            <section className="py-16 bg-neutral-900/40 border-b border-white/5 relative z-10">
+                <div className="container mx-auto px-4">
+                    <FadeIn>
+                        <div className="text-center mb-10">
+                            <h2 className="text-2xl md:text-3xl font-bold text-white font-sans mb-2">Tour Info at a Glance</h2>
+                            <p className="text-gray-400 font-light">Private vehicle — you choose which sites to visit and how long to stay</p>
+                        </div>
+                        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                            {/* Makkah Tour */}
+                            <div className="bg-black/50 border border-[#D4AF37]/20 rounded-3xl p-8 hover:border-[#D4AF37]/40 transition-all group">
+                                <div className="flex items-center gap-3 mb-5">
+                                    <div className="bg-[#D4AF37]/10 p-3 rounded-xl text-[#D4AF37]"><MapPin size={24} /></div>
+                                    <h3 className="text-xl font-bold text-white font-sans">Makkah Ziyarat Tour</h3>
+                                </div>
+                                <div className="flex gap-6 mb-5">
+                                    <div>
+                                        <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Duration</p>
+                                        <p className="text-white font-bold text-lg flex items-center gap-1.5"><Clock size={16} className="text-[#D4AF37]" /> 4–6 Hours</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Starting From</p>
+                                        <p className="text-[#D4AF37] font-bold text-2xl">SAR 250</p>
+                                        <p className="text-xs text-gray-500">per vehicle</p>
+                                    </div>
+                                </div>
+                                <ul className="space-y-2 text-sm text-gray-400 mb-6">
+                                    {["Jabal Al-Nour (Cave Hira)", "Jabal Thawr", "Arafat, Mina & Muzdalifah", "Jannat Al-Mu'alla"].map((s, i) => (
+                                        <li key={i} className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />{s}</li>
+                                    ))}
+                                </ul>
+                                <Link href={whatsappLink} className="block w-full text-center py-3 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] font-bold hover:bg-[#D4AF37] hover:text-black transition-all text-sm uppercase tracking-wider">
+                                    Book Makkah Tour →
+                                </Link>
+                            </div>
+                            {/* Madinah Tour */}
+                            <div className="bg-black/50 border border-[#D4AF37]/20 rounded-3xl p-8 hover:border-[#D4AF37]/40 transition-all group">
+                                <div className="flex items-center gap-3 mb-5">
+                                    <div className="bg-[#D4AF37]/10 p-3 rounded-xl text-[#D4AF37]"><Heart size={24} /></div>
+                                    <h3 className="text-xl font-bold text-white font-sans">Madinah Ziyarat Tour</h3>
+                                </div>
+                                <div className="flex gap-6 mb-5">
+                                    <div>
+                                        <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Duration</p>
+                                        <p className="text-white font-bold text-lg flex items-center gap-1.5"><Clock size={16} className="text-[#D4AF37]" /> 3–5 Hours</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Starting From</p>
+                                        <p className="text-[#D4AF37] font-bold text-2xl">SAR 200</p>
+                                        <p className="text-xs text-gray-500">per vehicle</p>
+                                    </div>
+                                </div>
+                                <ul className="space-y-2 text-sm text-gray-400 mb-6">
+                                    {["Masjid Quba (reward = Umrah)", "Mount Uhud & Martyrs Cemetery", "Masjid Al-Qiblatayn", "The Seven Mosques (Khandaq)"].map((s, i) => (
+                                        <li key={i} className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />{s}</li>
+                                    ))}
+                                </ul>
+                                <Link href={whatsappLink} className="block w-full text-center py-3 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#D4AF37] font-bold hover:bg-[#D4AF37] hover:text-black transition-all text-sm uppercase tracking-wider">
+                                    Book Madinah Tour →
+                                </Link>
+                            </div>
+                        </div>
+                        <p className="text-center text-xs text-gray-500 mt-6">All tours depart from your hotel. Customize your itinerary on WhatsApp before booking.</p>
+                    </FadeIn>
+                </div>
+            </section>
+
             {/* Makkah Ziyarat */}
             <section className="py-24 bg-transparent relative z-10">
                 <div className="container mx-auto px-4">

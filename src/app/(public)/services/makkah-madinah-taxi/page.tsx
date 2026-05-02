@@ -255,7 +255,50 @@ export default async function MakkahMadinahTaxiPage() {
                 <Features />
             </div>
 
-            {/* FAQ Section - NEW */}
+            {/* Return Journey CTA — Fix P3-Bug4 */}
+            <section className="py-16 relative z-10 border-t border-white/5">
+                <div className="container mx-auto px-4">
+                    <FadeIn delay={0.2}>
+                        <div className="max-w-4xl mx-auto rounded-[2rem] border border-[#D4AF37]/20 bg-gradient-to-br from-neutral-900 to-black p-8 md:p-12 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-full blur-[80px] pointer-events-none" />
+                            <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+                                <div className="flex-1">
+                                    <span className="text-[#D4AF37] font-bold tracking-[0.2em] uppercase text-xs border-b border-[#D4AF37]/30 pb-1 mb-4 block w-fit">Round-Trip Offer</span>
+                                    <h2 className="text-2xl md:text-3xl font-bold text-white font-sans mb-3">
+                                        Heading Back from <span className="text-[#D4AF37]">Madinah</span> to Makkah?
+                                    </h2>
+                                    <p className="text-gray-400 font-light leading-relaxed mb-4">
+                                        Book your return journey from Madinah to Makkah at the same time and
+                                        <strong className="text-white"> save 10%</strong> with a round-trip booking.
+                                        Our driver picks you up from your Madinah hotel lobby — no stress, no haggling.
+                                    </p>
+                                    <div className="flex flex-wrap gap-4 text-sm text-gray-400">
+                                        <span className="flex items-center gap-1.5"><ArrowRight size={14} className="text-[#D4AF37]" /> Door-to-door from Madinah hotel</span>
+                                        <span className="flex items-center gap-1.5"><ArrowRight size={14} className="text-[#D4AF37]" /> Optional Miqat stop (Bir Ali)</span>
+                                        <span className="flex items-center gap-1.5"><ArrowRight size={14} className="text-[#D4AF37]" /> Same trusted driver available</span>
+                                    </div>
+                                </div>
+                                <div className="flex flex-col gap-3 w-full md:w-auto shrink-0">
+                                    <Link
+                                        href="/booking"
+                                        className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#D4AF37] to-[#B4932F] text-black px-8 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] hover:scale-105 text-sm uppercase tracking-wider whitespace-nowrap"
+                                    >
+                                        Book Round-Trip <ArrowRight size={16} />
+                                    </Link>
+                                    <Link
+                                        href="/services/madinah-airport-transfer"
+                                        className="text-center text-sm text-[#D4AF37] hover:text-white transition-colors underline underline-offset-4 decoration-dotted"
+                                    >
+                                        → Madinah Airport transfer info
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </FadeIn>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
             <div className="relative z-10">
                 <FAQSection items={makkahMadinahFAQs} title="Frequently Asked Questions" />
             </div>
