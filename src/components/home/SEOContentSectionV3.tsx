@@ -1,10 +1,35 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import FadeIn from '@/components/common/FadeIn';
+import { ChevronDown } from 'lucide-react';
+
+const seoFaqs = [
+    {
+        question: "How to go from Jeddah to Makkah?",
+        answer: <>The most convenient option is a <strong>private taxi from Jeddah Airport to Makkah hotel</strong>. Our drivers track your flight and provide a seamless meet-and-greet service.</>
+    },
+    {
+        question: "How much is a taxi from Jeddah Airport to Makkah in 2026?",
+        answer: <>Our prices are fixed and affordable. We offer the best rates for private taxis, starting from competitive prices for sedans up to VIP <strong>GMC Yukon for Umrah</strong>.</>
+    },
+    {
+        question: "Is there a bus from Makkah to Madinah?",
+        answer: <>Yes, SAPTCO buses are available, but for comfort and speed, we recommend our <strong>Makkah to Madinah taxi</strong> service. It offers door-to-door transfer in 4-5 hours.</>
+    },
+    {
+        question: "Do you offer Ziarah within Makkah and Madinah?",
+        answer: <>Absolutely. We provide comprehensive <strong>Makkah Ziyarat taxi</strong> tours visiting historical sites like Cave Hira, Cave Thawr, Masjid Quba, and Mount Uhud.</>
+    },
+    {
+        question: "Can I book a GMC Yukon for Umrah?",
+        answer: <>Yes, the <strong>GMC Yukon 2024/2025</strong> is our most popular choice for families looking for a <strong>luxury bus for Umrah</strong> or a large VIP SUV. It offers ample space for 7 passengers and heavy luggage.</>
+    }
+];
 
 export default function SEOContentSectionV3() {
+    const [activeFaq, setActiveFaq] = useState<number | null>(null);
     return (
         <section className="py-12 md:py-16 bg-primary-black relative overflow-hidden">
             {/* Ambient Background Glow */}
@@ -131,28 +156,31 @@ export default function SEOContentSectionV3() {
 
                             {/* Section 6: Additional Keyword Rich Content - hidden in natural flow */}
                             <div className="bg-white/5 p-6 rounded-lg border border-white/10 my-8">
-                                <h4 className="text-xl font-bold text-gold-primary mb-3">Frequently Asked Questions about Umrah Transport</h4>
-                                <div className="space-y-4">
-                                    <div>
-                                        <h5 className="font-semibold text-white">How to go from Jeddah to Makkah?</h5>
-                                        <p className="text-sm text-gray-400">The most convenient option is a <strong>private taxi from Jeddah Airport to Makkah hotel</strong>. Our drivers track your flight and provide a seamless meet-and-greet service.</p>
-                                    </div>
-                                    <div>
-                                        <h5 className="font-semibold text-white">How much is a taxi from Jeddah Airport to Makkah in 2026?</h5>
-                                        <p className="text-sm text-gray-400">Our prices are fixed and affordable. We offer the best rates for private taxis, starting from competitive prices for sedans up to VIP <strong>GMC Yukon for Umrah</strong>.</p>
-                                    </div>
-                                    <div>
-                                        <h5 className="font-semibold text-white">Is there a bus from Makkah to Madinah?</h5>
-                                        <p className="text-sm text-gray-400">Yes, SAPTCO buses are available, but for comfort and speed, we recommend our <strong>Makkah to Madinah taxi</strong> service. It offers door-to-door transfer in 4-5 hours.</p>
-                                    </div>
-                                    <div>
-                                        <h5 className="font-semibold text-white">Do you offer Ziarah within Makkah and Madinah?</h5>
-                                        <p className="text-sm text-gray-400">Absolutely. We provide comprehensive <strong>Makkah Ziyarat taxi</strong> tours visiting historical sites like Cave Hira, Cave Thawr, Masjid Quba, and Mount Uhud.</p>
-                                    </div>
-                                    <div>
-                                        <h5 className="font-semibold text-white">Can I book a GMC Yukon for Umrah?</h5>
-                                        <p className="text-sm text-gray-400">Yes, the <strong>GMC Yukon 2024/2025</strong> is our most popular choice for families looking for a <strong>luxury bus for Umrah</strong> or a large VIP SUV. It offers ample space for 7 passengers and heavy luggage.</p>
-                                    </div>
+                                <h4 className="text-xl font-bold text-gold-primary mb-4">Frequently Asked Questions about Umrah Transport</h4>
+                                <div className="space-y-3">
+                                    {seoFaqs.map((faq, index) => (
+                                        <div key={index} className="border border-white/5 rounded-lg overflow-hidden bg-black/20">
+                                            <button
+                                                className="w-full flex items-center justify-between p-4 text-left hover:bg-white/5 transition-colors"
+                                                onClick={() => setActiveFaq(activeFaq === index ? null : index)}
+                                            >
+                                                <h5 className={`font-semibold transition-colors ${activeFaq === index ? 'text-gold-primary' : 'text-white'}`}>
+                                                    {faq.question}
+                                                </h5>
+                                                <ChevronDown 
+                                                    size={18} 
+                                                    className={`text-gray-400 transition-transform duration-300 shrink-0 ml-4 ${activeFaq === index ? 'rotate-180 text-gold-primary' : ''}`} 
+                                                />
+                                            </button>
+                                            <div 
+                                                className={`transition-all duration-300 ease-in-out overflow-hidden ${activeFaq === index ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}
+                                            >
+                                                <div className="p-4 pt-0 text-sm text-gray-400 border-t border-white/5 mt-3 pt-3">
+                                                    {faq.answer}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>
