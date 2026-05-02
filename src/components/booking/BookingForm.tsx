@@ -127,24 +127,21 @@ export default function BookingForm() {
             const selectedRouteInfo = routes.find(r => r.id === data.routeId);
 
             const bookingPayload = {
-                serviceType: data.serviceType,
+                name: data.name,
+                email: data.email,
+                phone: data.phone,
+                flightNumber: data.flightNumber,
                 pickup: data.pickup,
                 dropoff: data.dropoff,
-                date: new Date(`${data.date}T${data.time}`).toISOString(),
+                date: data.date,
                 time: data.time,
+                routeId: data.routeId,
+                vehicleId: data.selectedVehicleId,
                 selectedVehicles: [{ vehicleId: data.selectedVehicleId, quantity: 1 }],
                 vehicleCount: 1,
                 passengers: data.passengers,
-                luggage: 0, // Simplified for this view
-                personalDetails: {
-                    name: data.name,
-                    email: data.email,
-                    phone: data.phone,
-                    whatsapp: data.phone,
-                    flightNumber: data.flightNumber,
-                    childSeats: data.childSeats
-                },
-                notes: data.notes,
+                luggage: 0,
+                notes: data.notes || (data.childSeats ? 'Child seats requested' : undefined),
                 price: sarPrice,
                 currency: currency,
                 priceInSelectedCurrency: finalDisplayPrice.amount,
