@@ -150,8 +150,8 @@ export default function SEOContentSectionV3() {
                                         <p className="text-sm text-gray-400">Absolutely. We provide comprehensive <strong>Makkah Ziyarat taxi</strong> tours visiting historical sites like Cave Hira, Cave Thawr, Masjid Quba, and Mount Uhud.</p>
                                     </div>
                                     <div>
-                                        <h5 className="font-semibold text-white">Can I book a GMC Yukon for Umrah??</h5>
-                                        <p className="text-sm text-gray-400">Yes, the <strong>GMC Yukon 2024/2025</strong> is our most popular choice for families regarding <strong>luxury bus for Umrah</strong> or large SUVs. It offers ample space for 7 passengers and luggage.</p>
+                                        <h5 className="font-semibold text-white">Can I book a GMC Yukon for Umrah?</h5>
+                                        <p className="text-sm text-gray-400">Yes, the <strong>GMC Yukon 2024/2025</strong> is our most popular choice for families looking for a <strong>luxury bus for Umrah</strong> or a large VIP SUV. It offers ample space for 7 passengers and heavy luggage.</p>
                                     </div>
                                 </div>
                             </div>
