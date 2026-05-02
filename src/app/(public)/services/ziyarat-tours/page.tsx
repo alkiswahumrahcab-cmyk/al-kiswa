@@ -1,5 +1,6 @@
 import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
+import Image from 'next/image';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import Link from 'next/link';
@@ -130,10 +131,13 @@ export default async function ZiyaratToursPage() {
                             </div>
                             <div className="md:w-1/2 relative h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
                                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10" />
-                                <img
+                                <Image
                                     src="https://images.unsplash.com/photo-1537181534458-7dc2614c9546?q=80&w=1000&auto=format&fit=crop"
                                     alt="Jabal Al-Nour (Cave of Hira) Mountain View Makkah"
-                                    className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700"
+                                    fill
+                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    loading="lazy"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-8 z-20">
                                     <span className="text-white text-2xl font-bold font-sans">Jabal Al-Nour</span>
@@ -177,10 +181,13 @@ export default async function ZiyaratToursPage() {
                             </div>
                             <div className="md:w-1/2 relative h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
                                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10" />
-                                <img
+                                <Image
                                     src="https://images.unsplash.com/photo-1551041777-ed02bed74fc4?q=80&w=1000&auto=format&fit=crop"
                                     alt="Masjid Quba Madinah First Mosque in Islam Exterior"
-                                    className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700"
+                                    fill
+                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    loading="lazy"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-8 z-20">
                                     <span className="text-white text-2xl font-bold font-sans">Masjid Quba</span>

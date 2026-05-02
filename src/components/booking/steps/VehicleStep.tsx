@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Users, Briefcase, Check, ArrowRight, ChevronLeft, ShieldCheck, ChevronDown, ChevronUp } from 'lucide-react';
 import { usePricing } from '@/context/PricingContext';
@@ -107,7 +108,15 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                     onClick={() => setExpandedId(isExpanded ? null : vehicle.id)}
                                 >
                                     {vehicle.image ? (
-                                        <img src={vehicle.image} alt={vehicle.name} className="w-full h-full object-contain p-1" />
+                                        <Image
+                                            src={vehicle.image}
+                                            alt={vehicle.name}
+                                            width={112}
+                                            height={80}
+                                            className="w-full h-full object-contain p-1"
+                                            loading="lazy"
+                                            sizes="112px"
+                                        />
                                     ) : (
                                         <Users size={28} className="text-gray-500" />
                                     )}

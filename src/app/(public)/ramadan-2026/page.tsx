@@ -1,5 +1,6 @@
 import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import Link from 'next/link';
@@ -121,11 +122,14 @@ export default async function RamadanLandingPage() {
             {/* Custom Ramadan Hero */}
             <div className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 z-0">
-                    <img
-                        src="/images/blog/ramadan-family-2026.jpg"
-                        alt="Ramadan 2026 Family Umrah Transport"
-                        className="w-full h-full object-cover opacity-60"
-                    />
+                    <Image
+                    src="/images/blog/ramadan-family-2026.jpg"
+                    alt="Ramadan 2026 Family Umrah Transport"
+                    fill
+                    priority
+                    className="object-cover opacity-60"
+                    sizes="100vw"
+                />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary-black via-primary-black/60 to-transparent" />
                 </div>
 

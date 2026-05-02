@@ -1,6 +1,8 @@
 import { generateMetadataAlternates } from "@/lib/hreflang";
 import React, { Suspense } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
+
 import { Bus, MapPin, Users, Headphones, ArrowRight, Calendar, CheckCircle, Car, Check } from 'lucide-react';
 import FleetSectionLoader from '@/components/services/FleetSectionLoader';
 import FadeIn from '@/components/common/FadeIn';
@@ -146,10 +148,14 @@ export default function ServicesPage() {
                                         <div className={`w-full lg:w-1/2 relative h-[400px] lg:h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/5 ${isImageRight ? 'lg:order-2' : 'lg:order-1'}`}>
                                             <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all duration-500 z-10" />
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60 z-10" />
-                                            <img
+                                            <Image
                                                 src={service.image}
                                                 alt={service.alt}
-                                                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                                                fill
+                                                className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                                priority={index === 0}
+                                                loading={index === 0 ? undefined : 'lazy'}
                                             />
                                         </div>
 

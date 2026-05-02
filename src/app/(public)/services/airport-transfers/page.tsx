@@ -1,5 +1,6 @@
 import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
+import Image from 'next/image';
 import Hero from '@/components/common/Hero';
 import FadeIn from '@/components/common/FadeIn';
 import { Plane, Clock, ShieldCheck, MapPin, UserCheck, Smartphone, CheckCircle2, Star, ChevronDown, Award } from 'lucide-react';
@@ -207,11 +208,14 @@ export default async function AirportTransfersPage() {
                         <FadeIn delay={0.1}>
                             <div className="bg-neutral-900/50 rounded-[2rem] overflow-hidden shadow-lg border border-white/10 h-full flex flex-col group hover:border-[#D4AF37]/30 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]">
                                 <div className="h-72 relative overflow-hidden group bg-gradient-to-br from-white/5 to-transparent flex items-center justify-center p-6">
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
+                                    <Image
                                         src="/images/fleet/camry-2025.webp"
                                         alt="Toyota Camry Standard Sedan for Affordable Makkah Airport Transfer"
+                                        width={480}
+                                        height={288}
                                         className="w-auto h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-2xl"
+                                        loading="lazy"
+                                        sizes="(max-width: 768px) 90vw, 33vw"
                                     />
                                 </div>
                                 <div className="p-8 flex-1 flex flex-col border-t border-white/5 bg-black/20 backdrop-blur-sm">
@@ -230,11 +234,14 @@ export default async function AirportTransfersPage() {
                                 <div className="absolute top-6 right-6 bg-gradient-to-r from-[#D4AF37] to-[#B4932F] text-black text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest z-10 shadow-lg">Most Popular</div>
                                 <div className="h-72 relative overflow-hidden group bg-gradient-to-br from-[#D4AF37]/5 to-transparent flex items-center justify-center p-6">
                                     <div className="absolute inset-0 bg-[#D4AF37]/5 blur-3xl rounded-full" />
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
+                                    <Image
                                         src="/images/fleet/gmc.webp"
                                         alt="GMC Yukon XL VIP Luxury SUV for Jeddah Airport Pickup"
+                                        width={480}
+                                        height={288}
                                         className="relative z-10 w-auto h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-2xl"
+                                        loading="lazy"
+                                        sizes="(max-width: 768px) 90vw, 33vw"
                                     />
                                 </div>
                                 <div className="p-8 flex-1 flex flex-col border-t border-white/10 bg-black/80 backdrop-blur-md">
@@ -250,11 +257,14 @@ export default async function AirportTransfersPage() {
                         <FadeIn delay={0.3}>
                             <div className="bg-neutral-900/50 rounded-[2rem] overflow-hidden shadow-lg border border-white/10 h-full flex flex-col group hover:border-[#D4AF37]/30 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]">
                                 <div className="h-72 relative overflow-hidden group bg-gradient-to-br from-white/5 to-transparent flex items-center justify-center p-6">
-                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                    <img
+                                    <Image
                                         src="/images/fleet/toyota-hiace-2025.webp"
                                         alt="Toyota Hiace 10-Seater Family Van for Airport Group Transport"
+                                        width={480}
+                                        height={288}
                                         className="w-auto h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-2xl"
+                                        loading="lazy"
+                                        sizes="(max-width: 768px) 90vw, 33vw"
                                     />
                                 </div>
                                 <div className="p-8 flex-1 flex flex-col border-t border-white/5 bg-black/20 backdrop-blur-sm">

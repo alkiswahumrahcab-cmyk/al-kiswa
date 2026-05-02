@@ -141,8 +141,8 @@ export default async function Home() {
       {/* Transport Services Section */}
       <TransportServices />
 
-      {/* Fleet Gallery - List View */}
-      <FleetGallery />
+      {/* Fleet Carousel */}
+      <HomeFleetCarousel />
 
       {/* Instant Price Calculator Section */}
       <InstantPriceCalculator />
@@ -156,12 +156,13 @@ export default async function Home() {
       {/* Passenger Care Section */}
       <PassengerCare />
 
-      {/* Fleet Carousel */}
-      <HomeFleetCarousel />
 
 
       {/* Real Fleet Showcase */}
       <RealFleetShowcase />
+
+      {/* Fleet Gallery - List View */}
+      <FleetGallery />
 
       {/* Impact Stats - Authority */}
       <ImpactStats />

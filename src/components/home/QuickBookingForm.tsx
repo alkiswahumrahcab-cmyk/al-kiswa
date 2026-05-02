@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Calendar, Phone, User, ArrowRight, Car, Clock, CheckCircle, Bus, Mail, MapPin, PlaneLanding, PlaneTakeoff, CreditCard, ShieldCheck, HeartHandshake, MessageCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -414,9 +415,15 @@ const QuickBookingForm = ({
                                     <div className="flex items-center justify-between w-full p-1">
                                         <div className="flex items-center gap-3">
                                             {option.image && (
-                                                <div className="w-12 h-8 relative rounded-md overflow-hidden bg-gray-100">
-                                                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                                                    <img src={option.image} alt={option.label} className="object-cover w-full h-full" />
+                                                <div className="w-12 h-8 relative rounded-md overflow-hidden bg-gray-100 shrink-0">
+                                                    <Image
+                                                        src={option.image}
+                                                        alt={option.label}
+                                                        fill
+                                                        className="object-cover"
+                                                        sizes="48px"
+                                                        loading="lazy"
+                                                    />
                                                 </div>
                                             )}
                                             <div className="flex flex-col text-left">

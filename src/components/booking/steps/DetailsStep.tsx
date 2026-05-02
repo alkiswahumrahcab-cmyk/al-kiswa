@@ -685,10 +685,22 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                     <motion.div 
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="mb-4 p-4 bg-red-500/10 border border-red-500/50 rounded-2xl text-red-400 text-sm font-bold flex items-center gap-3"
+                        className="mb-4 p-5 bg-red-500/10 border border-red-500/50 rounded-2xl text-red-400 text-sm font-bold flex flex-col gap-3"
                     >
-                        <ShieldCheck className="shrink-0 rotate-180" size={20} />
-                        <p>{errors.submit}</p>
+                        <div className="flex items-center gap-3">
+                            <ShieldCheck className="shrink-0 rotate-180 text-red-500" size={20} />
+                            <p className="text-red-300">{errors.submit}</p>
+                        </div>
+
+                        <a 
+                            href={`https://wa.me/966548707332?text=${encodeURIComponent(`Hi, I am trying to book a taxi but received an error on the website. Can you help?\n\nName: ${data.name || ''}\nPhone: ${selectedCountry.code} ${data.phone || ''}\nPickup: ${data.pickup || ''}\nDropoff: ${data.dropoff || ''}\nDate: ${data.date ? data.date.toLocaleDateString() : ''}\nTime: ${data.time ? data.time.toLocaleTimeString() : ''}`)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-2 bg-[#25D366] text-black py-3 px-4 rounded-xl flex items-center justify-center gap-2 hover:bg-[#20bd5a] hover:text-black transition-colors shadow-lg shadow-[#25D366]/20 font-bold"
+                        >
+                            <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            Complete Booking via WhatsApp Instead
+                        </a>
                     </motion.div>
                 )}
                 <button
