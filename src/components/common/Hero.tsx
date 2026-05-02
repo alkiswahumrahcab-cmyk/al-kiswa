@@ -158,7 +158,7 @@ const Hero: React.FC<HeroProps> = ({
             </motion.div>
 
             {/* Content Container */}
-            <div className={`container relative z-10 px-4 pt-44 lg:pt-52 pb-24 ${layout === 'two-column' ? 'grid lg:grid-cols-2 gap-12 lg:gap-24 items-center' : 'flex flex-col items-center text-center'}`}>
+            <div className={`container relative z-10 px-4 pt-32 md:pt-36 lg:pt-40 pb-24 ${layout === 'two-column' ? 'grid lg:grid-cols-2 gap-12 lg:gap-24 items-center' : 'flex flex-col items-center text-center'}`}>
 
                 {/* Text Content */}
                 {/* Text Content - Refactored for LCP (H1 is static) */}
