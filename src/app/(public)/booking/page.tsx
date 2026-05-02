@@ -36,7 +36,7 @@ export default function BookingPage() {
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-primary/10 rounded-full blur-[120px] pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold-secondary/5 rounded-full blur-[120px] pointer-events-none" />
 
-            <div className="container relative z-20 pt-10 md:pt-16 pb-20 px-4 max-w-5xl mx-auto">
+            <div className="container relative z-20 pt-32 md:pt-40 lg:pt-48 pb-20 px-4 max-w-5xl mx-auto">
 
                 {/* Page Header — visible H1 for SEO */}
                 <div className="text-center mb-8">
