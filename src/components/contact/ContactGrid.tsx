@@ -18,6 +18,7 @@ interface ContactGridProps {
 export default function ContactGrid({ contactSettings }: ContactGridProps) {
     const { phone, email, address } = contactSettings;
     const { settings } = useSettings();
+    const whatsapp = settings?.contact?.whatsapp || phone;
     const googleBusiness = settings?.contact?.social?.googleBusiness || "https://share.google/ARbbVaAackyOs8N7G";
 
     const contactCards = [
