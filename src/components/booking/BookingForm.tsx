@@ -484,11 +484,14 @@ export default function BookingForm() {
                             <Mail className="absolute left-0 top-4 text-gold-primary" size={20} />
                             <input
                                 type="email"
-                                placeholder="Email Address (Optional)"
+                                placeholder="Email Address *"
                                 value={data.email}
                                 onChange={(e) => updateData({ email: e.target.value })}
-                                className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 border-white/20 focus:border-gold-primary text-white outline-none transition-colors placeholder-gray-600"
+                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors placeholder-gray-600
+                                    ${errors.email ? 'border-red-500' : 'border-white/20 focus:border-gold-primary'}`}
                             />
+                            {errors.email && <p className="text-red-500 text-xs mt-1 absolute">{errors.email}</p>}
+                            <p className="text-gray-400 text-xs mt-2 pl-8">We will send a confirmation mail to this email address.</p>
                         </div>
                     </div>
 

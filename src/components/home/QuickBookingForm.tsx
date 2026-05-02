@@ -507,12 +507,13 @@ const QuickBookingForm = ({
                                             <input
                                                 type="email"
                                                 name="email"
-                                                placeholder="Email Address"
+                                                placeholder="Email Address *"
                                                 value={formData.email}
                                                 onChange={handleChange}
                                                 className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold-primary focus:ring-4 focus:ring-gold-primary/10 transition-all text-sm font-light hover:bg-white/10"
                                             />
                                             {errors.email && <span className="text-red-400 text-xs ml-2">{errors.email}</span>}
+                                            <p className="text-gray-400 text-[10px] mt-1 ml-2">We will send a confirmation mail to this email address.</p>
                                         </div>
                                     </div>
                                 </motion.div>
