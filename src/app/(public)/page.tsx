@@ -99,7 +99,7 @@ export default async function Home() {
     </div>
   );
 
-  const heroImage = getSectionImage(heroSection, 'desktop') || "/images/blog-hero-professional.png";
+  const heroImage = "/images/fleet/fleet-lineup-real.webp";
   const ctaText = getCustomField(heroSection, 'cta_text') || "Book Your Ride";
   const ctaLink = getCustomField(heroSection, 'cta_link') || "/booking";
   const secondaryCtaText = "See Our Fleet";

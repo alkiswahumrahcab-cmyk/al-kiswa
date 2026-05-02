@@ -146,7 +146,7 @@ const Hero: React.FC<HeroProps> = ({
                             alt={alt || "Al Kiswah Umrah Taxi Fleet at Jeddah Airport"}
                             fill
                             priority
-                            className="object-cover opacity-60"
+                            className="object-cover object-bottom opacity-60"
                             sizes="100vw"
                         />
                     )}
