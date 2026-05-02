@@ -442,8 +442,10 @@ const QuickBookingForm = ({
                                                 <span className="text-[10px] text-gray-500">{option.label.split('(')[1]?.replace(')', '')}</span>
                                             </div>
                                         </div>
-                                        {option.price > 0 && (
+                                        {option.price > 0 ? (
                                             <span className="text-gold-metal font-bold text-xs">{option.price} SAR</span>
+                                        ) : (
+                                            <span className="text-red-400 font-bold text-[10px] uppercase">Route Not Available</span>
                                         )}
                                     </div>
                                 )}
@@ -453,10 +455,14 @@ const QuickBookingForm = ({
                             {/* Price Display */}
                             {formData.vehicleId && formData.routeId && formData.routeId !== 'custom' && (() => {
                                 const selected = vehicleOptions.find(v => v.value === formData.vehicleId);
-                                if (selected && selected.price > 0) return (
+                                if (selected) return (
                                     <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col items-end pointer-events-none">
-                                        <span className="text-[10px] text-gray-400 uppercase tracking-wider">Est. Fare</span>
-                                        <span className="text-gold-primary font-bold text-lg leading-none">{selected.price} <span className="text-xs">SAR</span></span>
+                                        <span className="text-[10px] text-gray-400 uppercase tracking-wider">{selected.price > 0 ? 'Est. Fare' : 'Status'}</span>
+                                        {selected.price > 0 ? (
+                                            <span className="text-gold-primary font-bold text-lg leading-none">{selected.price} <span className="text-xs">SAR</span></span>
+                                        ) : (
+                                            <span className="text-red-400 font-bold text-xs uppercase tracking-wider">Not Available</span>
+                                        )}
                                     </div>
                                 );
                             })()}

@@ -326,11 +326,20 @@ export default function BookingForm() {
                                         <h3 className={`text-lg font-bold ${isSelected ? 'text-gold-primary' : 'text-white'}`}>{vehicle.name}</h3>
                                         {dispPrice && (
                                             <div className="text-right">
-                                                <span className="text-sm text-gray-400">Total</span>
-                                                <p className="text-lg font-bold text-white">
-                                                    {currency === 'USD' ? '$' : ''}{dispPrice.amount}
-                                                    {currency === 'SAR' ? ' SAR' : ''}
-                                                </p>
+                                                {Number(dispPrice.amount) > 0 ? (
+                                                    <>
+                                                        <span className="text-sm text-gray-400">Total</span>
+                                                        <p className="text-lg font-bold text-white">
+                                                            {currency === 'USD' ? '$' : ''}{dispPrice.amount}
+                                                            {currency === 'SAR' ? ' SAR' : ''}
+                                                        </p>
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <span className="text-sm text-gray-400">Status</span>
+                                                        <p className="text-sm font-bold text-red-400 uppercase tracking-wider mt-1">Not Available</p>
+                                                    </>
+                                                )}
                                             </div>
                                         )}
                                     </div>
