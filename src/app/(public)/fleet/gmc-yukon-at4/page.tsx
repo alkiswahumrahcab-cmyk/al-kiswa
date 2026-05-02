@@ -148,10 +148,19 @@ export default async function GmcYukonPage() {
                             <h2 className="text-3xl font-bold mb-6 font-playfair text-slate-800 dark:text-slate-100">
                                 Why Choose GMC Yukon for Umrah Travel?
                             </h2>
-                            <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                            <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
                                 The GMC Yukon XL defines luxury travel in Saudi Arabia. Perfect for <Link href="/services/jeddah-airport-transfer" className="text-amber-600 hover:underline">Jeddah Airport pickups</Link> and comfortable journeys between <Link href="/services/makkah-madinah-taxi" className="text-amber-600 hover:underline">Makkah and Madinah</Link>,
                                 this vehicle offers American luxury, massive space, and top-tier safety for your family.
                             </p>
+                            
+                            <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-4 rounded-xl mb-8">
+                                <h3 className="font-bold text-amber-800 dark:text-amber-400 mb-1 flex items-center gap-2">
+                                    <Star size={18} /> Who Should Choose This Vehicle?
+                                </h3>
+                                <p className="text-sm text-slate-700 dark:text-slate-300">
+                                    Best for VIP families, groups of up to 7 passengers with heavy luggage (5+ large bags), and pilgrims seeking the highest level of comfort, legroom, and privacy during long trips.
+                                </p>
+                            </div>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">

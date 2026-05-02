@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import Link from 'next/link';
-import { ArrowRight, Shield, Star, Briefcase, Users, Wifi, Fuel } from 'lucide-react';
+import { ArrowRight, Shield, Star, Briefcase, Users, Wifi, Fuel, MapPin } from 'lucide-react';
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
@@ -143,10 +143,19 @@ export default async function HyundaiStariaPage() {
                             <h2 className="text-3xl font-bold mb-6 font-playfair text-slate-800 dark:text-slate-100">
                                 Experience Luxury: Hyundai Staria in Makkah
                             </h2>
-                            <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                                Enjoy panoramic views of the Holy Lands with the Hyundai Staria. Its lounge-style seating makes the journey between Jeddah, Makkah, and Madinah
+                            <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+                                Enjoy panoramic views of the Holy Lands with the Hyundai Staria. Its lounge-style seating makes the journey between <Link href="/services/jeddah-airport-transfer" className="text-blue-600 hover:underline">Jeddah</Link>, Makkah, and <Link href="/services/makkah-madinah-taxi" className="text-blue-600 hover:underline">Madinah</Link>
                                 incredibly relaxing for pilgrims seeking a premium travel experience.
                             </p>
+
+                            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-4 rounded-xl mb-8">
+                                <h3 className="font-bold text-blue-800 dark:text-blue-400 mb-1 flex items-center gap-2">
+                                    <Star size={18} /> Who Should Choose This Vehicle?
+                                </h3>
+                                <p className="text-sm text-slate-700 dark:text-slate-300">
+                                    Best for families and groups (up to 9 passengers) who want a balance of space, comfort, and affordability. Perfect for pilgrims traveling with elderly parents due to easy sliding door access.
+                                </p>
+                            </div>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
@@ -232,31 +241,38 @@ export default async function HyundaiStariaPage() {
                 </div>
             </section>
 
-            {/* Use Cases */}
+            {/* Popular Routes */}
             <section className="py-16 bg-slate-50 dark:bg-slate-950">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-12 font-playfair">Why Families Love The Staria</h2>
+                    <h2 className="text-3xl font-bold text-center mb-12 font-playfair">Popular Routes for Hyundai Staria</h2>
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
                             {
-                                title: "Panoramic Views",
-                                desc: "Large windows let you enjoy the scenic mountains and desert landscapes between Makkah and Madinah.",
-                                icon: Star
+                                title: "Makkah to Madinah",
+                                desc: "Enjoy panoramic views of the scenic mountains and desert landscapes between Makkah and Madinah.",
+                                icon: Star,
+                                href: "/services/makkah-madinah-taxi"
                             },
                             {
-                                title: "Easy Entry/Exit",
-                                desc: "Dual electronic sliding doors and lower floor height make it perfect for elderly pilgrims.",
-                                icon: Users
+                                title: "Jeddah Airport Pickup",
+                                desc: "Easy entry/exit with dual electronic sliding doors, perfect for elderly pilgrims arriving tired from flights.",
+                                icon: Users,
+                                href: "/services/jeddah-airport-transfer"
                             },
                             {
-                                title: "Futuristic Design",
-                                desc: "Arrive at your hotel in style with the most eye-catching van on the Saudi highways.",
-                                icon: Shield
+                                title: "Ziyarat Tours",
+                                desc: "Visit historical sites in style with the most eye-catching van on the Saudi highways.",
+                                icon: MapPin,
+                                href: "/services/ziyarat-tours"
                             }
                         ].map((item, idx) => (
                             <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-md border-t-4 border-blue-500 transition-transform hover:-translate-y-1">
                                 <item.icon className="w-10 h-10 text-blue-500 mb-4" />
-                                <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">{item.title}</h3>
+                                <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">
+                                    <Link href={item.href} className="hover:text-blue-600 transition-colors">
+                                        {item.title}
+                                    </Link>
+                                </h3>
                                 <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
                             </div>
                         ))}

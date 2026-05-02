@@ -175,6 +175,60 @@ export default async function IntercityTransferPage() {
                 </div>
             </section>
 
+            {/* Route Distance & Time Table */}
+            <section className="py-16 relative z-10 bg-neutral-950 border-y border-white/5">
+                <div className="container mx-auto px-4">
+                    <FadeIn>
+                        <div className="max-w-4xl mx-auto">
+                            <h3 className="text-2xl md:text-3xl font-bold font-sans text-center mb-8 text-white">
+                                Popular Intercity Routes: Distance & Estimated Time
+                            </h3>
+                            <div className="overflow-x-auto rounded-xl border border-white/10 shadow-2xl">
+                                <table className="w-full text-left text-sm md:text-base border-collapse">
+                                    <thead>
+                                        <tr className="bg-black/80 text-[#D4AF37] border-b border-white/10 uppercase tracking-wider text-xs font-bold">
+                                            <th className="p-4 md:p-6 font-sans">Route</th>
+                                            <th className="p-4 md:p-6 font-sans">Distance (km)</th>
+                                            <th className="p-4 md:p-6 font-sans">Estimated Time</th>
+                                            <th className="p-4 md:p-6 font-sans">Vehicle Types</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="bg-neutral-900/50 divide-y divide-white/5 text-gray-300">
+                                        <tr className="hover:bg-white/5 transition-colors">
+                                            <td className="p-4 md:p-6 font-medium text-white">Makkah ↔ Madinah</td>
+                                            <td className="p-4 md:p-6">450 km</td>
+                                            <td className="p-4 md:p-6">4 hrs 30 mins</td>
+                                            <td className="p-4 md:p-6 text-sm text-gray-400">GMC Yukon, Hyundai Staria, Camry, Hiace</td>
+                                        </tr>
+                                        <tr className="hover:bg-white/5 transition-colors">
+                                            <td className="p-4 md:p-6 font-medium text-white">Jeddah Airport ↔ Makkah</td>
+                                            <td className="p-4 md:p-6">100 km</td>
+                                            <td className="p-4 md:p-6">1 hr 15 mins</td>
+                                            <td className="p-4 md:p-6 text-sm text-gray-400">All Vehicles</td>
+                                        </tr>
+                                        <tr className="hover:bg-white/5 transition-colors">
+                                            <td className="p-4 md:p-6 font-medium text-white">Jeddah Airport ↔ Madinah</td>
+                                            <td className="p-4 md:p-6">410 km</td>
+                                            <td className="p-4 md:p-6">4 hrs 10 mins</td>
+                                            <td className="p-4 md:p-6 text-sm text-gray-400">GMC Yukon, Hyundai Staria, Camry, Hiace</td>
+                                        </tr>
+                                        <tr className="hover:bg-white/5 transition-colors">
+                                            <td className="p-4 md:p-6 font-medium text-white">Madinah Airport ↔ Madinah Hotel</td>
+                                            <td className="p-4 md:p-6">25 km</td>
+                                            <td className="p-4 md:p-6">30 mins</td>
+                                            <td className="p-4 md:p-6 text-sm text-gray-400">All Vehicles</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p className="text-center text-xs text-gray-500 mt-4">
+                                * Times are estimates under normal traffic conditions. Journey may take longer during Hajj and Ramadan peaks.
+                            </p>
+                        </div>
+                    </FadeIn>
+                </div>
+            </section>
+
             {/* Interactive Map Section - FULL WIDTH */}
             <section id="interactive-map" className="py-0 relative z-10 border-y border-white/10 shadow-2xl">
                 <div className="w-full bg-neutral-900/50 backdrop-blur-sm">

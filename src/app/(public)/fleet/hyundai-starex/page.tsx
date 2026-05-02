@@ -2,7 +2,7 @@ import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Link from 'next/link';
-import { ArrowRight, Shield, Star, Briefcase, Users, Wifi, LayoutGrid } from 'lucide-react';
+import { ArrowRight, Shield, Star, Briefcase, Users, Wifi, LayoutGrid, MapPin } from 'lucide-react';
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
@@ -116,10 +116,19 @@ export default async function HyundaiStarexPage() {
                             <h2 className="text-3xl font-bold mb-6 font-playfair text-slate-800 dark:text-slate-100">
                                 Why Book Hyundai Starex for Makkah Travel?
                             </h2>
-                            <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                                The Hyundai H1 (Starex) is the top choice for families performing Umrah. It offers excellent value for trips from Jeddah Airport to Makkah and
+                            <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+                                The Hyundai H1 (Starex) is the top choice for families performing Umrah. It offers excellent value for trips from <Link href="/services/jeddah-airport-transfer" className="text-teal-600 hover:underline">Jeddah Airport</Link> to Makkah and
                                 provides a comfortable ride for Ziyarat tours in the Holy Cities.
                             </p>
+
+                            <div className="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 p-4 rounded-xl mb-8">
+                                <h3 className="font-bold text-teal-800 dark:text-teal-400 mb-1 flex items-center gap-2">
+                                    <Star size={18} /> Who Should Choose This Vehicle?
+                                </h3>
+                                <p className="text-sm text-slate-700 dark:text-slate-300">
+                                    Best for budget-conscious families and medium-sized groups (up to 7 passengers) who need more luggage space than a sedan but want a more affordable option than the Staria or Yukon.
+                                </p>
+                            </div>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
@@ -210,31 +219,38 @@ export default async function HyundaiStarexPage() {
                 </div>
             </section>
 
-            {/* Use Cases */}
+            {/* Popular Routes */}
             <section className="py-16 bg-slate-50 dark:bg-slate-950">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-12 font-playfair">Reliability for Every Trip</h2>
+                    <h2 className="text-3xl font-bold text-center mb-12 font-playfair">Popular Routes for Hyundai Starex</h2>
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
                             {
-                                title: "Airport Transfers",
-                                desc: "The perfect size for a family and all their luggage arriving at Jeddah or Madinah.",
-                                icon: Briefcase
+                                title: "Makkah to Madinah",
+                                desc: "Stable and comfortable for the long highway stretch between Makkah and Madinah.",
+                                icon: Shield,
+                                href: "/services/makkah-madinah-taxi"
                             },
                             {
-                                title: "Full Day Ziyarat",
+                                title: "Jeddah Airport Pickup",
+                                desc: "The perfect size for a family and all their luggage arriving at Jeddah Airport.",
+                                icon: Briefcase,
+                                href: "/services/jeddah-airport-transfer"
+                            },
+                            {
+                                title: "Ziyarat Tours",
                                 desc: "Private, air-conditioned, and flexible for visiting holy sites at your own pace.",
-                                icon: Star
-                            },
-                            {
-                                title: "Intercity Highway",
-                                desc: "Stable and comfortable for the long highway stretch between Makker and Madinah.",
-                                icon: Shield
+                                icon: MapPin,
+                                href: "/services/ziyarat-tours"
                             }
                         ].map((item, idx) => (
                             <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-md border-t-4 border-teal-500 transition-all hover:-translate-y-1">
                                 <item.icon className="w-10 h-10 text-teal-500 mb-4" />
-                                <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">{item.title}</h3>
+                                <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">
+                                    <Link href={item.href} className="hover:text-teal-600 transition-colors">
+                                        {item.title}
+                                    </Link>
+                                </h3>
                                 <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
                             </div>
                         ))}

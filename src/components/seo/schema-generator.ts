@@ -228,20 +228,49 @@ export const generateContactPageSchema = (): WithContext<ContactPage> => ({
     url: `${siteUrl}/contact`,
     mainEntity: {
         '@type': 'LocalBusiness',
+        '@id': `${siteUrl}/#business`,
         name: settings.general.siteName,
+        image: `${siteUrl}/images/fleet/gmc-yukon-studio.webp`,
         telephone: settings.contact.phone,
+        url: siteUrl,
         address: {
             '@type': 'PostalAddress',
             streetAddress: settings.contact.address,
             addressLocality: 'Makkah',
             addressRegion: 'Makkah Region',
+            postalCode: '24231',
+            addressCountry: 'SA',
+        },
+        geo: {
+            '@type': 'GeoCoordinates',
+            latitude: 21.3891,
+            longitude: 39.8579,
+        },
+        openingHoursSpecification: {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: [
+                'Monday', 'Tuesday', 'Wednesday', 'Thursday',
+                'Friday', 'Saturday', 'Sunday',
+            ],
+            opens: '00:00',
+            closes: '23:59',
+        },
+        priceRange: '$$',
+        currenciesAccepted: 'SAR, USD, GBP, EUR',
+        paymentAccepted: 'Cash, Credit Card, Online Payment',
+        aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '5.0',
+            reviewCount: '500',
+            bestRating: '5',
+            worstRating: '1',
         }
     }
 });
 
-export const generateArticleSchema = (post: any): WithContext<Article> => ({
+export const generateArticleSchema = (post: any): WithContext<any> => ({
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: post.title,
     image: [post.image.startsWith('http') ? post.image : `${siteUrl}${post.image.startsWith('/') ? '' : '/'}${post.image}`],
     datePublished: post.date,

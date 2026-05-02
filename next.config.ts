@@ -39,6 +39,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/makkah-ziyarah',
+        destination: '/services/ziyarat-tours',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

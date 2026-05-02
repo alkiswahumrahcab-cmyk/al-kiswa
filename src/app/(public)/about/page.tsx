@@ -7,6 +7,7 @@ import CompanyStory from '@/components/about/CompanyStory';
 import MissionVision from '@/components/about/MissionVision';
 import CoreValues from '@/components/about/CoreValues';
 import TrustSection from '@/components/about/TrustSection';
+import CredentialsSection from '@/components/about/CredentialsSection';
 import SEOContent from '@/components/about/SEOContent';
 import ImpactStats from '@/components/about/ImpactStats';
 import TeamTeaser from '@/components/about/TeamTeaser';
@@ -69,6 +70,7 @@ export default async function AboutPage() {
                     <MissionVision />
                     <CoreValues />
                     <TrustSection />
+                    <CredentialsSection />
                     <HotelsAndDistricts />
                     <TeamTeaser />
                     <PilgrimVoices />
