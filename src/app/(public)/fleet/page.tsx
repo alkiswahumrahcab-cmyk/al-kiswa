@@ -121,6 +121,28 @@ export default async function FleetPage() {
                     badge={badge}
                     breadcrumbs={<Breadcrumbs />}
                     fleetImages={[
+                        '/images/fleet/gmc-yukon-hero-professional.webp',     // Center
+                        '/images/fleet/hiace-hero-professional.webp',  // Left
+                        '/images/fleet/staria-hero-professional.webp' // Right
+                    ]}
+                />
+
+                <FadeIn>
+                    <FleetOfferGallery />
+                </FadeIn>
+
+                <FadeIn>
+                    <FeatureHighlights />
+                </FadeIn>
+
+                <FadeIn>
+                    <ComparisonTable />
+                </FadeIn>
+
+                <section className="py-20 bg-gradient-to-t from-black to-transparent">
+                    <div className="container mx-auto px-4">
+                        <FadeIn direction="up">
+                            <div className="max-w-4xl mx-auto">
                                 <QuickBookingForm
                                     title="Book Your Luxury Ride"
                                     subtitle="Reserve your premium vehicle for a comfortable spiritual journey"
