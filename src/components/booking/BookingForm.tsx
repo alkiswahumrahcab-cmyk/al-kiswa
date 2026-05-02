@@ -177,7 +177,17 @@ export default function BookingForm() {
                 });
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
-                alert(`Failed to submit booking: ${result.message || 'Unknown error'}`);
+                if (result.errors) {
+                    const backendErrors: Record<string, string> = {};
+                    Object.keys(result.errors).forEach(key => {
+                        if (key !== '_errors' && result.errors[key]?._errors?.length > 0) {
+                            backendErrors[key] = result.errors[key]._errors[0];
+                        }
+                    });
+                    setErrors(backendErrors);
+                } else {
+                    alert(`Failed to submit booking: ${result.message || 'Unknown error'}`);
+                }
             }
         } catch (error) {
             console.error(error);
