@@ -28,6 +28,22 @@ const faqs = [
     {
         question: "Do you offer Ziyarat tours in Makkah and Madinah?",
         answer: "Yes, we provide comprehensive Ziyarat packages. Our knowledgeable drivers can take you to all significant historical and spiritual sites (Uhud, Quba, Hira Cave) in both holy cities."
+    },
+    {
+        question: "Why are your Umrah taxi rates lower than other booking websites?",
+        answer: "We offer the lowest wholesale rates because we own and operate our entire fleet. Unlike aggregator platforms or broker websites that add middleman commissions, booking directly with Al Kiswa ensures you get the best price without hidden fees."
+    },
+    {
+        question: "Do you provide transport from Makkah to Jeddah Airport for departure?",
+        answer: "Yes, we offer reliable return transfers from your Makkah hotel to King Abdulaziz International Airport (Jeddah). We recommend booking your departure taxi at least 6 hours before your flight to ensure a stress-free journey."
+    },
+    {
+        question: "Can I book a GMC Yukon for a family of 7 for Umrah?",
+        answer: "Absolutely. The GMC Yukon XL 2025 is our most popular luxury SUV for Umrah. It comfortably seats up to 7 passengers with ample room for large luggage, making it perfect for VIP family transfers between Jeddah, Makkah, and Madinah."
+    },
+    {
+        question: "How early should I book my Umrah transport for Ramadan 2026?",
+        answer: "Ramadan is the peak season for Umrah. We highly recommend booking your Jeddah to Makkah taxi and Makkah to Madinah transfers at least 2-3 months in advance to secure your preferred vehicle, such as a Hyundai Staria or GMC Yukon, as our premium fleet availability becomes limited."
     }
 ];
 
