@@ -290,9 +290,10 @@ export async function POST(request: Request) {
         return NextResponse.json({
             success: true,
             message: 'Booking confirmed successfully',
+            bookingId: emailData.id,   // Human-readable ref e.g. "AK-2026-XXXX"
+            bookingRef: emailData.id,
             _id: bookingId,
             id: bookingId,
-            bookingRef: emailData.id,
             ...savedBooking,
         });
 

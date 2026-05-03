@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     MapPin, Calendar, Clock, ChevronDown,
-    Search, User, Mail, Phone, Plane, Users, Briefcase, Baby
+    Search, User, Mail, Phone, Plane, Users, Briefcase, Baby, Loader2
 } from 'lucide-react';
 import { usePricing } from '@/context/PricingContext';
 import { useCurrency } from '@/context/CurrencyContext';
@@ -12,6 +12,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import MobileStickySummary from './MobileStickySummary';
 import Receipt from './Receipt';
+import BookingSuccessModal from './BookingSuccessModal';
 import CurrencyToggle from '../CurrencyToggle';
 
 export default function BookingForm() {
@@ -40,6 +41,7 @@ export default function BookingForm() {
     const [generalError, setGeneralError] = useState<string | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [receiptData, setReceiptData] = useState<any>(null);
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
 
     // Flow State
     const [activeSection, setActiveSection] = useState<'route' | 'vehicle' | 'details'>('route');
@@ -160,9 +162,10 @@ export default function BookingForm() {
 
             const result = await response.json();
             if (response.ok && result.success) {
-                // Show receipt instead of redirecting
-                setReceiptData({
-                    id: result.bookingId || result.id || 'BKG-' + Math.floor(Math.random() * 10000),
+                // Build receipt data for both modal and printable receipt
+                const humanReadableId = result.bookingId || result.bookingRef || 'BKG-' + Math.floor(Math.random() * 10000);
+                const receipt = {
+                    id: humanReadableId,
                     name: data.name,
                     email: data.email,
                     phone: data.phone,
@@ -175,7 +178,9 @@ export default function BookingForm() {
                     passengers: data.passengers,
                     currency: currency,
                     totalAmount: finalDisplayPrice.amount
-                });
+                };
+                setReceiptData(receipt);
+                setShowSuccessModal(true); // Show modal overlay — not page replacement
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 if (result.errors) {
@@ -212,14 +217,6 @@ export default function BookingForm() {
 
     if (isLoading) {
         return <div className="p-10 text-center text-white">Loading booking engine...</div>;
-    }
-
-    if (receiptData) {
-        return (
-            <div className="w-full px-4 py-10 md:py-16">
-                <Receipt bookingData={receiptData} onClose={() => router.push('/')} />
-            </div>
-        );
     }
 
     return (
@@ -501,28 +498,39 @@ export default function BookingForm() {
                         </div>
                     </div>
 
-                    {generalError && (
-                        <div className="pl-0 md:pl-11 mt-8">
-                            <div className="bg-red-500/10 border border-red-500/50 rounded-xl p-4 flex items-start gap-3">
-                                <svg className="w-6 h-6 text-red-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                                <div>
-                                    <h4 className="text-red-500 font-medium">Booking Could Not Be Completed</h4>
-                                    <p className="text-red-400/90 text-sm mt-1">{generalError}</p>
+                    <AnimatePresence>
+                        {generalError && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -8 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: -8 }}
+                                className="pl-0 md:pl-11 mt-8"
+                            >
+                                <div className="bg-red-500/10 border border-red-500/50 rounded-xl p-4 flex items-start gap-3">
+                                    <svg className="w-6 h-6 text-red-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <div>
+                                        <h4 className="text-red-500 font-medium">Booking Could Not Be Completed</h4>
+                                        <p className="text-red-400/90 text-sm mt-1">{generalError}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    )}
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
 
                     {/* Desktop Submit Button */}
                     <div className="pl-0 md:pl-11 mt-12 hidden md:block">
                         <button
                             onClick={handleSubmit}
                             disabled={isSubmitting}
-                            className="w-full md:w-auto px-12 py-4 bg-gold-primary hover:bg-white text-black font-bold text-lg rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(239,191,91,0.2)]"
+                            className="w-full md:w-auto px-12 py-4 bg-gold-primary hover:bg-white text-black font-bold text-lg rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(239,191,91,0.2)] flex items-center justify-center gap-3"
                         >
-                            {isSubmitting ? 'Processing...' : `Confirm Booking - ${currency === 'USD' ? '$' : ''}${summaryDisplayPrice.amount}${currency === 'SAR' ? ' SAR' : ''}`}
+                            {isSubmitting ? (
+                                <><Loader2 size={20} className="animate-spin" /> Processing...</>
+                            ) : (
+                                `Confirm Booking - ${currency === 'USD' ? '$' : ''}${summaryDisplayPrice.amount}${currency === 'SAR' ? ' SAR' : ''}`
+                            )}
                         </button>
                     </div>
                 </section>
@@ -537,6 +545,30 @@ export default function BookingForm() {
                 onConfirm={handleSubmit}
                 isSubmitting={isSubmitting}
             />
+
+            {/* Booking Success Modal */}
+            {receiptData && (
+                <BookingSuccessModal
+                    isOpen={showSuccessModal}
+                    bookingData={{
+                        bookingId: receiptData.id,
+                        name: receiptData.name,
+                        email: receiptData.email,
+                        phone: receiptData.phone,
+                        pickup: receiptData.pickupLocation,
+                        dropoff: receiptData.dropoffLocation,
+                        date: receiptData.date,
+                        time: receiptData.time,
+                        vehicleName: receiptData.vehicleName,
+                        passengers: receiptData.passengers,
+                        currency: receiptData.currency,
+                        totalAmount: receiptData.totalAmount,
+                    }}
+                    whatsappNumber="966548707332"
+                    onPrint={() => { setShowSuccessModal(false); setTimeout(() => window.print(), 100); }}
+                    onClose={() => router.push('/')}
+                />
+            )}
         </div>
     );
 }
