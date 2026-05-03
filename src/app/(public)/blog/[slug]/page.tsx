@@ -14,6 +14,7 @@ import SidebarBookingWidget from '@/components/blog/SidebarBookingWidget';
 import ReviewSnippet from '@/components/blog/ReviewSnippet';
 import { JsonLdScript } from '@/components/seo/JsonLd';
 import { generateArticleSchema } from '@/components/seo/schema-generator';
+import { marked } from 'marked';
 
 // Helper to inject IDs into headers
 const injectIds = (content: string) => {
@@ -153,7 +154,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                             <article className={styles.articleBody}>
                                 <div
                                     className={styles.content}
-                                    dangerouslySetInnerHTML={{ __html: injectIds(post.content) }}
+                                    dangerouslySetInnerHTML={{ __html: injectIds(await marked.parse(post.content)) }}
                                 />
                             </article>
                         </FadeIn>
