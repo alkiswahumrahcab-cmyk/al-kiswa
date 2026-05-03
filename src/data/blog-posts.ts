@@ -2055,5 +2055,51 @@ export const staticBlogPosts = [
         metaDescription: 'A comprehensive guide for international pilgrims on preparing for Umrah. Learn about making Niyyah, wearing Ihram, crossing Miqat, and booking reliable transport.',
         createdAt: new Date('2026-01-29'),
         updatedAt: new Date('2026-01-29'),
+    },
+    {
+        _id: 'madinah-to-jeddah-taxi-price-2026',
+        slug: 'madinah-to-jeddah-taxi-prices-2026',
+        title: 'Madinah to Jeddah Taxi Prices 2026: Comprehensive Guide',
+        excerpt: 'Discover the latest and most affordable taxi prices for your journey from Madinah to Jeddah. Compare vehicles from Camry to GMC.',
+        content: `
+            <div class="prose max-w-none text-slate-800 dark:text-gray-200 dark:prose-invert prose-a:text-amber-600 dark:prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline">
+                <h2>Latest Madinah to Jeddah Taxi Prices</h2>
+                <p>Planning your travel from the Prophet's City to the coastal city of Jeddah? Al Kiswah Umrah Transport offers a premium, direct fleet tailored for pilgrims and travelers. Below are the definitive <strong>Madinah to Jeddah taxi prices</strong> for our premium vehicles.</p>
+                
+                <hr class="my-8 border-slate-200 dark:border-slate-700" />
+                
+                <h3>Vehicle Fleet Pricing</h3>
+                <ul>
+                    <li><strong>Toyota Camry:</strong> 450 SAR (Up to 4 Passengers)</li>
+                    <li><strong>Hyundai Staria:</strong> 500 SAR (Up to 7 Passengers)</li>
+                    <li><strong>Hyundai Starex / H1:</strong> 450 SAR (Up to 7 Passengers)</li>
+                    <li><strong>Toyota Hiace:</strong> 550 SAR (Up to 10 Passengers)</li>
+                    <li><strong>Toyota Coaster:</strong> 850 SAR (Up to 22 Passengers)</li>
+                    <li><strong>GMC Yukon:</strong> 900 SAR (VIP Luxury, Up to 7 Passengers)</li>
+                </ul>
+
+                <p><em>Note: Prices are highly competitive and direct from us—no middlemen or hidden agency fees. Experience a safe, air-conditioned, and comfortable journey tailored to your family's size and luggage requirements.</em></p>
+
+                <h3>Why Choose Al Kiswah?</h3>
+                <p>We own our entire fleet. This means absolute quality control, professional drivers familiar with the Haramain routes, and guaranteed punctuality. Whether you need a standard sedan or a spacious VIP SUV, your comfort is our priority.</p>
+            </div>
+        `,
+        category: 'Travel Guides',
+        readTime: '4 min read',
+        image: '/images/blog/makkah-madinah-road.jpg',
+        alt: 'Fleet of Al Kiswah Vehicles on the road',
+        author: 'Al Kiswah Fleet Management',
+        tags: [
+            'Madinah to Jeddah',
+            'Taxi Prices',
+            'Umrah Transport',
+            'VIP Fleet'
+        ],
+        isPublished: true,
+        metaTitle: 'Madinah to Jeddah Taxi Prices | 450 SAR Camry, 900 SAR GMC',
+        metaDescription: 'Find the best Madinah to Jeddah taxi prices. Camry for 450 SAR, Staria for 500 SAR, and GMC for 900 SAR. Direct fleet, no middleman.',
+        createdAt: new Date('2026-05-03'),
+        updatedAt: new Date('2026-05-03'),
     }
 ];
+

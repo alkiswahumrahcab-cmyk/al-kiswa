@@ -9,6 +9,8 @@ import SearchableSelect from '@/components/ui/SearchableSelect';
 // import styles from './QuickBookingForm.module.css'; // Removing if unused or replacing with Tailwind
 import { usePricing } from '@/context/PricingContext';
 import { useSettings } from '@/context/SettingsContext';
+import { useCurrency } from '@/context/CurrencyContext';
+import Receipt from '../booking/Receipt';
 import { Route, Vehicle } from '@/lib/pricing';
 
 interface QuickBookingFormProps {
@@ -42,6 +44,7 @@ const QuickBookingForm = ({
 }: QuickBookingFormProps) => {
     const { routes: contextRoutes, vehicles: contextVehicles, isLoading: contextLoading, calculatePrice } = usePricing();
     const { settings } = useSettings();
+    const { currency, formatPrice } = useCurrency();
 
     // Helper to attach icons if missing
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -63,8 +66,10 @@ const QuickBookingForm = ({
     });
 
     const [errors, setErrors] = useState<Record<string, string>>({});
+    const [generalError, setGeneralError] = useState<string | null>(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [receiptData, setReceiptData] = useState<any>(null);
 
     // Auto-detect route
     useEffect(() => {
@@ -154,7 +159,11 @@ const QuickBookingForm = ({
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!validateForm()) return;
+        setGeneralError(null);
+        if (!validateForm()) {
+            setGeneralError('Please fix the errors highlighted below.');
+            return;
+        }
         setIsSubmitting(true);
 
         try {
@@ -181,7 +190,23 @@ const QuickBookingForm = ({
             });
 
             if (res.ok) {
+                const result = await res.json().catch(() => ({}));
                 setIsSubmitted(true);
+                setReceiptData({
+                    id: result.bookingId || result.id || 'BKG-' + Math.floor(Math.random() * 10000),
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    pickupLocation: formData.pickup,
+                    dropoffLocation: formData.dropoff,
+                    date: formData.date ? `${formData.date.getFullYear()}-${String(formData.date.getMonth() + 1).padStart(2, '0')}-${String(formData.date.getDate()).padStart(2, '0')}` : '',
+                    time: formData.time ? `${String(formData.time.getHours()).padStart(2, '0')}:${String(formData.time.getMinutes()).padStart(2, '0')}` : '',
+                    routeName: `${formData.pickup} to ${formData.dropoff}`,
+                    vehicleName: selectedVehicle ? selectedVehicle.name : 'Any',
+                    passengers: formData.passengers,
+                    currency: result.currency || currency,
+                    totalAmount: result.priceInSelectedCurrency || result.priceInSAR || result.price || 0
+                });
                 setFormData({
                     name: '', phone: '', email: '', date: null, time: null, routeId: '', vehicleId: '',
                     pickup: '', dropoff: '', vehicleCount: 1, passengers: 1, luggage: 0, notes: ''
@@ -197,13 +222,14 @@ const QuickBookingForm = ({
                         }
                     });
                     setErrors(backendErrors);
+                    setGeneralError('Please fix the errors highlighted below.');
                 } else {
-                    throw new Error(result.message || 'Booking failed');
+                    setGeneralError(result.message || 'Booking failed. Please try again.');
                 }
             }
         } catch (error) {
             console.error('Booking error:', error);
-            alert('Failed to submit booking. Please try again.');
+            setGeneralError('An unexpected network error occurred. Please try again.');
         } finally {
             setIsSubmitting(false);
         }
@@ -237,6 +263,10 @@ const QuickBookingForm = ({
                 {isLoading ? (
                     <motion.div key="skeleton" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
                         <SkeletonLoader />
+                    </motion.div>
+                ) : receiptData ? (
+                    <motion.div key="receipt" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+                        <Receipt bookingData={receiptData} onClose={() => { setIsSubmitted(false); setReceiptData(null); }} />
                     </motion.div>
                 ) : isSubmitted ? (
                     <motion.div
@@ -519,6 +549,21 @@ const QuickBookingForm = ({
                                 </motion.div>
                             )}
                         </AnimatePresence>
+
+                        {generalError && (
+                            <motion.div 
+                                initial={{ opacity: 0, y: -10 }} 
+                                animate={{ opacity: 1, y: 0 }} 
+                                className="bg-red-500/10 border border-red-500/50 rounded-xl p-3 flex items-start gap-3 mt-2 mb-2"
+                            >
+                                <svg className="w-5 h-5 text-red-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <div>
+                                    <p className="text-red-400 text-sm">{generalError}</p>
+                                </div>
+                            </motion.div>
+                        )}
 
                         {/* Submit Button */}
                         <button

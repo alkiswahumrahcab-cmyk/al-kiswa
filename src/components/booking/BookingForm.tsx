@@ -37,6 +37,7 @@ export default function BookingForm() {
     });
 
     const [errors, setErrors] = useState<Record<string, string>>({});
+    const [generalError, setGeneralError] = useState<string | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [receiptData, setReceiptData] = useState<any>(null);
 
@@ -102,6 +103,7 @@ export default function BookingForm() {
         : 'Search for a route (e.g., Makkah to Madinah)...';
 
     const handleSubmit = async () => {
+        setGeneralError(null);
         const newErrors: Record<string, string> = {};
         if (!data.routeId) newErrors.route = 'Please select a route';
         if (!data.selectedVehicleId) newErrors.vehicle = 'Please select a vehicle';
@@ -109,9 +111,11 @@ export default function BookingForm() {
         if (!data.time) newErrors.time = 'Required';
         if (!data.name) newErrors.name = 'Required';
         if (!data.phone) newErrors.phone = 'Required';
+        if (!data.email) newErrors.email = 'Required';
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
+            setGeneralError('Please fix the errors highlighted above before confirming your booking.');
             window.scrollTo({ top: 0, behavior: 'smooth' });
             return;
         }
@@ -182,13 +186,15 @@ export default function BookingForm() {
                         }
                     });
                     setErrors(backendErrors);
+                    setGeneralError('Please fix the errors highlighted below.');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 } else {
-                    alert(`Failed to submit booking: ${result.message || 'Unknown error'}`);
+                    setGeneralError(`Failed to submit booking: ${result.message || 'Unknown error'}`);
                 }
             }
         } catch (error) {
             console.error(error);
-            alert('An unexpected error occurred.');
+            setGeneralError('An unexpected network error occurred. Please try again.');
         } finally {
             setIsSubmitting(false);
         }
@@ -494,6 +500,20 @@ export default function BookingForm() {
                             <p className="text-gray-400 text-xs mt-2 pl-8">We will send a confirmation mail to this email address.</p>
                         </div>
                     </div>
+
+                    {generalError && (
+                        <div className="pl-0 md:pl-11 mt-8">
+                            <div className="bg-red-500/10 border border-red-500/50 rounded-xl p-4 flex items-start gap-3">
+                                <svg className="w-6 h-6 text-red-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <div>
+                                    <h4 className="text-red-500 font-medium">Booking Could Not Be Completed</h4>
+                                    <p className="text-red-400/90 text-sm mt-1">{generalError}</p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
 
                     {/* Desktop Submit Button */}
                     <div className="pl-0 md:pl-11 mt-12 hidden md:block">
