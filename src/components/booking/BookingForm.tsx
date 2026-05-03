@@ -148,7 +148,7 @@ export default function BookingForm() {
                 passengers: data.passengers,
                 luggage: 0,
                 notes: data.notes || (data.childSeats ? 'Child seats requested' : undefined),
-                price: sarPrice,
+                price: sarPrice != null ? String(sarPrice) : undefined,  // must be string per schema
                 currency: currency,
                 priceInSelectedCurrency: finalDisplayPrice.amount,
                 priceInSAR: sarPrice,
