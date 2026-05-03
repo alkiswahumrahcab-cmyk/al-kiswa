@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
             title: post.metaTitle || post.title,
             description: post.metaDescription || post.excerpt,
             type: 'article',
-            publishedTime: post.date.toString(),
+            publishedTime: post.date ? new Date(post.date).toISOString() : new Date().toISOString(),
             authors: [post.author],
             images: [
                 {
@@ -130,7 +130,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         <div className={styles.heroMeta}>
                             <div className={styles.metaItem}>
                                 <Calendar size={18} />
-                                {new Date(post.date).toISOString().split('T')[0]}
+                                {post.date ? new Date(post.date).toISOString().split('T')[0] : ''}
                             </div>
                             <div className={styles.metaDivider}>•</div>
                             <div className={styles.metaItem}>
