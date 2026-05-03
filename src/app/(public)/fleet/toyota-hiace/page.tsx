@@ -151,16 +151,7 @@ export default async function ToyotaHiacePage() {
             {/* ── HERO ── */}
             <HiaceHero whatsappLink={whatsappLink} phoneNumber={phoneNumber} />
 
-            {/* ── PRICING ── */}
-            <div className="bg-[#0a0a0a]">
-                <FleetPricingGrid
-                    vehicleId={hiaceId}
-                    vehicleImage="/images/fleet/toyota-hiace-2025.webp"
-                    vehicleType="hiace"
-                    title="Toyota Hiace 2026 – Route Pricing"
-                    subtitle="Fixed, transparent pricing. No hidden fees. Your entire group, one vehicle."
-                />
-            </div>
+
 
             {/* ── EXTERIOR HIGHLIGHTS ── */}
             <section className="py-24 bg-[#0d0d0d]" id="exterior">
@@ -336,6 +327,17 @@ export default async function ToyotaHiacePage() {
                     </div>
                 </div>
             </section>
+
+            {/* ── PRICING ── */}
+            <div className="bg-[#0a0a0a]">
+                <FleetPricingGrid
+                    vehicleId={hiaceId}
+                    vehicleImage="/images/fleet/toyota-hiace-2025.webp"
+                    vehicleType="hiace"
+                    title="Toyota Hiace 2026 – Route Pricing"
+                    subtitle="Fixed, transparent pricing. No hidden fees. Your entire group, one vehicle."
+                />
+            </div>
 
             <FleetCarouselWrapper />
             <FAQSection items={hiaceFAQs} title="Toyota Hiace 2026 – Frequently Asked Questions" />
