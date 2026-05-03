@@ -1,15 +1,11 @@
 import mongoose from 'mongoose';
-import dns from 'dns';
 
-// Fix for Windows: Node.js sometimes fails to resolve MongoDB Atlas SRV records
-// because it prefers IPv6. Force IPv4 to fix querySrv ECONNREFUSED errors.
-dns.setDefaultResultOrder('ipv4first');
-
-const MONGODB_URI = process.env.MONGODB_URI;
+// Use MONGODB_URI (preferred) or DATABASE_URL as fallback
+const MONGODB_URI = process.env.MONGODB_URI || process.env.DATABASE_URL;
 
 if (!MONGODB_URI) {
     if (process.env.NODE_ENV === 'development') {
-        console.warn('MONGODB_URI is not defined in environment variables');
+        console.warn('[MongoDB] MONGODB_URI is not defined in environment variables');
     }
 }
 
@@ -19,7 +15,6 @@ interface MongooseCache {
 }
 
 declare global {
-
     var mongoose: MongooseCache | undefined;
 }
 
@@ -34,22 +29,25 @@ async function dbConnect() {
         return cached!.conn;
     }
 
-    if (!cached!.promise) {
-        if (!MONGODB_URI) {
-            console.warn('MONGODB_URI is not defined. Proceeding without database connection.');
-            return null;
-        }
+    if (!MONGODB_URI) {
+        console.warn('[MongoDB] No URI defined. Skipping database connection.');
+        return null;
+    }
 
+    if (!cached!.promise) {
         const opts = {
             bufferCommands: false,
-            serverSelectionTimeoutMS: 5000,
+            // Longer timeout for Vercel serverless cold starts
+            serverSelectionTimeoutMS: 15000,
+            connectTimeoutMS: 15000,
             socketTimeoutMS: 45000,
         };
 
-        cached!.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
-            return mongoose;
+        cached!.promise = mongoose.connect(MONGODB_URI, opts).then((m) => {
+            console.log('[MongoDB] Connected successfully');
+            return m;
         }).catch(err => {
-            console.error('Mongoose connection error:', err);
+            console.error('[MongoDB] Connection error:', err.message);
             throw err;
         });
     }
@@ -57,8 +55,7 @@ async function dbConnect() {
     try {
         cached!.conn = await cached!.promise;
     } catch (e) {
-        console.error('Database connection failed:', e);
-        cached!.promise = null; // Clear failing promise to allow retry
+        cached!.promise = null; // Allow retry on next request
         cached!.conn = null;
         throw e;
     }
