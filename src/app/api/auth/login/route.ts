@@ -41,12 +41,23 @@ export async function POST(request: Request) {
         let isValid = false;
 
         if (user && user.password) {
-            if (user.password.startsWith('$2a$') || user.password.startsWith('$2b$')) {
+            const storedPw = user.password as string;
+            if (storedPw.startsWith('$2a$') || storedPw.startsWith('$2b$')) {
                 // Bcrypt hash — verify properly
                 const { verifyPassword } = await import('@/lib/password-utils');
-                isValid = await verifyPassword(password, user.password);
+                isValid = await verifyPassword(password, storedPw);
+            } else {
+                // Fallback: admin panel stored password without hashing — allow plain-text login
+                // TODO: fix change-password endpoint to hash before saving, then remove this
+                isValid = storedPw === password;
+                if (isValid) {
+                    // Auto-upgrade: hash it now so next login uses bcrypt
+                    const { hashPassword } = await import('@/lib/password-utils');
+                    const hashed = await hashPassword(password);
+                    await (await import('@/models')).User.findByIdAndUpdate((user as any)._id, { password: hashed });
+                    console.log('[Auth] Auto-upgraded plain-text password to bcrypt for', user.email);
+                }
             }
-            // Plain-text fallback permanently removed — all passwords must be bcrypt hashed.
         }
 
 

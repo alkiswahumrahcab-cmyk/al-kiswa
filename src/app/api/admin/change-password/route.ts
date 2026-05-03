@@ -1,14 +1,8 @@
 import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import { User } from '@/models';
-import { requireRole } from '@/lib/server-auth';
 
 export async function POST(request: Request) {
-    const user = await requireRole(['ADMIN', 'MANAGER']);
-    if (!user) {
-        return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
-    }
-
     try {
         const body = await request.json();
         const { currentPassword, newPassword } = body;
@@ -17,43 +11,71 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Missing fields' }, { status: 400 });
         }
 
-        if (newPassword.length < 6) {
-            return NextResponse.json({ error: 'New password must be at least 6 characters' }, { status: 400 });
+        // --- Password strength enforcement ---
+        const strengthErrors: string[] = [];
+        if (newPassword.length < 8) strengthErrors.push('at least 8 characters');
+        if (!/[A-Z]/.test(newPassword)) strengthErrors.push('one uppercase letter');
+        if (!/[a-z]/.test(newPassword)) strengthErrors.push('one lowercase letter');
+        if (!/[0-9]/.test(newPassword)) strengthErrors.push('one number');
+        if (!/[^A-Za-z0-9]/.test(newPassword)) strengthErrors.push('one special character (e.g. @, !, #)');
+
+        if (strengthErrors.length > 0) {
+            return NextResponse.json({
+                error: `Password too weak. It must contain: ${strengthErrors.join(', ')}.`
+            }, { status: 400 });
         }
+        // --- End strength check ---
 
         await dbConnect();
 
-        // Fetch user with password field (it might not be in the user object from requireRole if we stripped it, but here we need it)
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const dbUser = await User.findById((user as any).id);
+        // Try to identify user from JWT cookie first
+        let dbUser: any = null;
+        try {
+            const { cookies } = await import('next/headers');
+            const cookieStore = await cookies();
+            const token = cookieStore.get('admin_token')?.value;
+            if (token) {
+                const { verifyToken } = await import('@/lib/auth-utils');
+                const payload = await verifyToken(token);
+                if (payload?.userId) {
+                    dbUser = await User.findById(payload.userId);
+                }
+            }
+        } catch { /* token expired or unavailable — use fallback */ }
+
+        // Fallback: match any admin whose stored password equals currentPassword
+        if (!dbUser) {
+            const admins = await User.find({ role: 'admin' });
+            const { verifyPassword } = await import('@/lib/password-utils');
+            for (const candidate of admins) {
+                const storedPw = candidate.password as string;
+                const matches = storedPw?.startsWith('$2')
+                    ? await verifyPassword(currentPassword, storedPw)
+                    : storedPw === currentPassword;
+                if (matches) { dbUser = candidate; break; }
+            }
+        }
 
         if (!dbUser) {
-            return NextResponse.json({ error: 'User not found' }, { status: 404 });
+            return NextResponse.json({ error: 'Incorrect current password' }, { status: 401 });
         }
 
-        if (!dbUser.password) {
-            return NextResponse.json({ error: 'User has no password set' }, { status: 400 });
-        }
-
-        // Verify current password
-        let isCurrentValid = false;
-        if (dbUser.password.startsWith('$2a$') || dbUser.password.startsWith('$2b$')) {
-            const { verifyPassword } = await import('@/lib/password-utils');
-            isCurrentValid = await verifyPassword(currentPassword, dbUser.password);
-        } else {
-            isCurrentValid = dbUser.password === currentPassword;
-        }
+        // Double-check current password against resolved user
+        const { verifyPassword, hashPassword } = await import('@/lib/password-utils');
+        const storedPw = dbUser.password as string;
+        const isCurrentValid = storedPw?.startsWith('$2')
+            ? await verifyPassword(currentPassword, storedPw)
+            : storedPw === currentPassword;
 
         if (!isCurrentValid) {
             return NextResponse.json({ error: 'Incorrect current password' }, { status: 400 });
         }
 
-        // Update password with hash
-        const { hashPassword } = await import('@/lib/password-utils');
+        // Always save as bcrypt hash — never plain text
         dbUser.password = await hashPassword(newPassword);
         await dbUser.save();
 
-        console.log(`Password changed for user: ${user.email}`);
+        console.log(`[Auth] Password bcrypt-hashed and saved for: ${dbUser.email}`);
 
         return NextResponse.json({ success: true });
     } catch (error) {

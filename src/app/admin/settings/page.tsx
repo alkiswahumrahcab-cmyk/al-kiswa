@@ -75,6 +75,16 @@ export default function SettingsPage() {
     });
     const [passwordLoading, setPasswordLoading] = useState(false);
 
+    // Password strength checks
+    const pwChecks = {
+        length: passwordForm.newPassword.length >= 8,
+        upper: /[A-Z]/.test(passwordForm.newPassword),
+        lower: /[a-z]/.test(passwordForm.newPassword),
+        number: /[0-9]/.test(passwordForm.newPassword),
+        special: /[^A-Za-z0-9]/.test(passwordForm.newPassword),
+    };
+    const pwStrong = Object.values(pwChecks).every(Boolean);
+
     const showToast = useCallback((message: string, type: ToastType) => {
         setToast({ message, type, isVisible: true });
     }, []);
@@ -202,13 +212,13 @@ export default function SettingsPage() {
     const handlePasswordSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (passwordForm.newPassword !== passwordForm.confirmPassword) {
-            showToast('New passwords do not match', 'error');
+        if (!pwStrong) {
+            showToast('Password does not meet strength requirements', 'error');
             return;
         }
 
-        if (passwordForm.newPassword.length < 6) {
-            showToast('Password must be at least 6 characters', 'error');
+        if (passwordForm.newPassword !== passwordForm.confirmPassword) {
+            showToast('New passwords do not match', 'error');
             return;
         }
 
@@ -742,10 +752,29 @@ export default function SettingsPage() {
                                                     value={passwordForm.newPassword}
                                                     onChange={handlePasswordChange}
                                                     required
-                                                    minLength={6}
-                                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
+                                                    className={`w-full px-4 py-3 rounded-xl border bg-white dark:bg-slate-900 focus:ring-2 focus:ring-amber-500/20 transition-all outline-none ${
+                                                        passwordForm.newPassword
+                                                            ? pwStrong ? 'border-green-400 focus:border-green-500' : 'border-red-300 focus:border-red-400'
+                                                            : 'border-slate-200 dark:border-slate-700 focus:border-amber-500'
+                                                    }`}
                                                     placeholder="Enter new password"
                                                 />
+                                                {/* Live strength checklist */}
+                                                {passwordForm.newPassword && (
+                                                    <ul className="mt-2 space-y-1 text-xs">
+                                                        {([
+                                                            [pwChecks.length,  '8+ characters'],
+                                                            [pwChecks.upper,   'Uppercase letter (A-Z)'],
+                                                            [pwChecks.lower,   'Lowercase letter (a-z)'],
+                                                            [pwChecks.number,  'Number (0-9)'],
+                                                            [pwChecks.special, 'Special character (@, !, # …)'],
+                                                        ] as [boolean, string][]).map(([ok, label]) => (
+                                                            <li key={label} className={`flex items-center gap-1.5 ${ok ? 'text-green-600' : 'text-red-500'}`}>
+                                                                <span className="text-base leading-none">{ok ? '✓' : '✗'}</span> {label}
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                )}
                                             </div>
                                             <div className="space-y-2">
                                                 <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">Confirm New Password</label>
@@ -755,19 +784,28 @@ export default function SettingsPage() {
                                                     value={passwordForm.confirmPassword}
                                                     onChange={handlePasswordChange}
                                                     required
-                                                    minLength={6}
-                                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
+                                                    className={`w-full px-4 py-3 rounded-xl border bg-white dark:bg-slate-900 focus:ring-2 focus:ring-amber-500/20 transition-all outline-none ${
+                                                        passwordForm.confirmPassword
+                                                            ? passwordForm.newPassword === passwordForm.confirmPassword ? 'border-green-400' : 'border-red-300'
+                                                            : 'border-slate-200 dark:border-slate-700 focus:border-amber-500'
+                                                    }`}
                                                     placeholder="Confirm new password"
                                                 />
+                                                {passwordForm.confirmPassword && passwordForm.newPassword !== passwordForm.confirmPassword && (
+                                                    <p className="text-xs text-red-500 mt-1">Passwords do not match</p>
+                                                )}
                                             </div>
                                             <div className="pt-2">
                                                 <button
                                                     type="submit"
-                                                    disabled={passwordLoading}
-                                                    className="px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
+                                                    disabled={passwordLoading || !pwStrong || passwordForm.newPassword !== passwordForm.confirmPassword}
+                                                    className="px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
                                                 >
                                                     {passwordLoading ? 'Updating...' : 'Update Password'}
                                                 </button>
+                                                {passwordForm.newPassword && !pwStrong && (
+                                                    <p className="text-xs text-amber-600 mt-2">⚠ Password does not meet all requirements above</p>
+                                                )}
                                             </div>
                                         </form>
                                     </div>
