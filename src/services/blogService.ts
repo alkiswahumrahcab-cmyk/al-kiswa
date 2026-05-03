@@ -117,7 +117,7 @@ export const blogService = {
                         ...staticContent,
                         ...data,
                         // Ensure dates are valid Date objects
-                        date: data.date ? new Date(data.date) : new Date(staticContent.date),
+                        date: data.date ? new Date(data.date) : new Date(staticContent.date ?? Date.now()),
                         createdAt: new Date(),
                         updatedAt: new Date(),
                     };
