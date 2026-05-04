@@ -5,31 +5,23 @@ import { motion } from 'framer-motion';
 import { MapPin, Calendar, Car, ArrowRight, ShieldCheck, MousePointerClick } from 'lucide-react';
 import Link from 'next/link';
 
-const STEPS = [
-    {
-        id: 1,
-        title: "Search & Schedule",
-        description: "Enter your pickup location and schedule. Our smart system instantly routes your journey.",
-        icon: MapPin,
-        delay: 0.1
-    },
-    {
-        id: 2,
-        title: "Select VIP Vehicle",
-        description: "Choose from our premium GMC Yukon or Family Staria fleet. Transparent pricing, no hidden costs.",
-        icon: Car,
-        delay: 0.2
-    },
-    {
-        id: 3,
-        title: "Instant Confirmation",
-        description: "Receive immediate booking confirmation. Pay securely upon arrival with our trusted service.",
-        icon: ShieldCheck,
-        delay: 0.3
-    }
-];
+const STEPS = {
+    en: [
+        { id: 1, title: "Search & Schedule", description: "Enter your pickup location and schedule. Our smart system instantly routes your journey.", icon: MapPin, delay: 0.1 },
+        { id: 2, title: "Select VIP Vehicle", description: "Choose from our premium GMC Yukon or Family Staria fleet. Transparent pricing, no hidden costs.", icon: Car, delay: 0.2 },
+        { id: 3, title: "Instant Confirmation", description: "Receive immediate booking confirmation. Pay securely upon arrival with our trusted service.", icon: ShieldCheck, delay: 0.3 },
+    ],
+    ar: [
+        { id: 1, title: "ابحث وحدد موعدك", description: "أدخل موقع الاستقبال والوقت المطلوب. نظامنا الذكي يرسم مسار رحلتك فوراً.", icon: MapPin, delay: 0.1 },
+        { id: 2, title: "اختر المركبة الفاخرة", description: "اختر من أسطولنا المتميز: GMC يونك أو ستاريا العائلي. أسعار شفافة بلا رسوم مخفية.", icon: Car, delay: 0.2 },
+        { id: 3, title: "تأكيد فوري", description: "استلم تأكيد حجزك فوراً. ادفع عند الوصول بأمان مع خدمتنا الموثوقة.", icon: ShieldCheck, delay: 0.3 },
+    ],
+};
 
-export default function BookingGuide() {
+interface Props { lang?: 'ar' | 'en'; }
+
+export default function BookingGuide({ lang = 'en' }: Props) {
+    const steps = STEPS[lang];
     return (
         <section className="py-24 bg-primary-black overflow-hidden relative border-t border-white/5">
             {/* Elegant Background Patterns */}
@@ -46,7 +38,7 @@ export default function BookingGuide() {
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/10 text-gold dark:text-gold text-xs font-bold uppercase tracking-widest border border-gold/20 mb-6"
                     >
                         <span className="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
-                        Simple & Professional
+                        {lang === 'ar' ? 'بسيط واحترافي' : 'Simple & Professional'}
                     </motion.div>
 
                     <motion.h2
@@ -56,11 +48,11 @@ export default function BookingGuide() {
                         transition={{ delay: 0.1 }}
                         className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight tracking-tight"
                     >
-                        Your Journey in <br className="hidden md:block" />
-                        <span className="relative inline-block">
-                            <span className="relative z-10 text-gradient-gold">3 Simple Steps</span>
-                            <span className="absolute bottom-2 left-0 w-full h-3 bg-gold-primary/10 -rotate-1 z-0 rounded-full blur-sm"></span>
-                        </span>
+                        {lang === 'ar' ? (
+                            <>رحلتك في <span className="relative inline-block"><span className="relative z-10 text-gradient-gold">٣ خطوات بسيطة</span></span></>
+                        ) : (
+                            <>Your Journey in <br className="hidden md:block" /><span className="relative inline-block"><span className="relative z-10 text-gradient-gold">3 Simple Steps</span><span className="absolute bottom-2 left-0 w-full h-3 bg-gold-primary/10 -rotate-1 z-0 rounded-full blur-sm"></span></span></>
+                        )}
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 10 }}
@@ -69,7 +61,7 @@ export default function BookingGuide() {
                         transition={{ delay: 0.2 }}
                         className="text-gray-400 text-lg leading-relaxed font-medium font-light"
                     >
-                        Experience the gold standard of Umrah transport. Streamlined for your comfort and peace of mind.
+                        {lang === 'ar' ? 'اختبر أعلى معايير نقل العمرة. سلاسة تامة لراحتكم وطمأنينتكم.' : 'Experience the gold standard of Umrah transport. Streamlined for your comfort and peace of mind.'}
                     </motion.p>
                 </div>
 
@@ -78,7 +70,7 @@ export default function BookingGuide() {
                     {/* Connecting Dotted Line (Desktop) */}
                     <div className="hidden md:block absolute top-[60px] left-[15%] right-[15%] border-t-2 border-dashed border-white/10 z-0"></div>
 
-                    {STEPS.map((step, idx) => (
+                    {steps.map((step, idx) => (
                         <motion.div
                             key={step.id}
                             initial={{ opacity: 0, y: 30 }}
@@ -123,16 +115,16 @@ export default function BookingGuide() {
                     className="mt-20 text-center"
                 >
                     <Link
-                        href="/booking"
+                        href={lang === 'ar' ? '/ar/booking' : '/booking'}
                         className="inline-flex items-center gap-3 bg-gradient-to-r from-gold-primary to-gold-dark text-black px-12 py-6 rounded-2xl font-bold text-lg shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:shadow-[0_0_50px_rgba(212,175,55,0.5)] hover:-translate-y-1 transition-all group relative overflow-hidden"
                     >
                         <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                        Book Your Ride Now
+                        {lang === 'ar' ? 'احجز رحلتك الآن' : 'Book Your Ride Now'}
                         <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                     <p className="mt-6 text-sm font-medium text-gray-500 flex items-center justify-center gap-2 uppercase tracking-wide">
                         <MousePointerClick size={16} className="text-gold-primary" />
-                        No prepayment required • Pay upon arrival
+                        {lang === 'ar' ? 'لا دفع مسبق مطلوب • الدفع عند الوصول' : 'No prepayment required • Pay upon arrival'}
                     </p>
                 </motion.div>
             </div>

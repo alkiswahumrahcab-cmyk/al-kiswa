@@ -56,22 +56,48 @@ const careOptions = [
     }
 ];
 
-export default function PassengerCare() {
+interface Props { lang?: 'ar' | 'en'; }
+
+export default function PassengerCare({ lang = 'en' }: Props) {
+    const options = lang === 'ar' ? [
+        {
+            id: 'sisters', title: 'أمان تام للأخوات', arabicTitle: 'Solo Sisters',
+            icon: <Shield className="w-8 h-8" />,
+            description: 'نتخصص في نقل الأخوات بأمان تام. سائقونا مدربون ومعتمدون ويحترمون خصوصيتكن بشكل كامل.',
+            features: ['تتبع مركزي على مدار الساعة', 'مشاركة رابط الرحلة فوراً', 'شاشات خصوصية متاحة', 'سياسة عدم التفاعل الصارمة'],
+            image: '/images/services/solo-sister-transport.png', linkText: 'قراءة دليل السلامة', link: '/ar/safety'
+        },
+        {
+            id: 'families', title: 'خصوصية وراحة للعائلات', arabicTitle: 'Families',
+            icon: <Users className="w-8 h-8" />,
+            description: 'سافروا معاً بكل راحة. نوفر GMC يونك فسيحاً حتى تبقى عائلتكم معاً. بيئة هادئة مناسبة للأطفال.',
+            features: ['مساحات واسعة للعربات', 'توقفات مرنة للصلاة والطعام', 'كراسي أطفال مجاناً', 'شاشات ترفيهية'],
+            image: '/images/services/family-transport-umrah.png', linkText: 'نصائح سفر العائلة', link: '/ar/blog/how-to-choose-best-umrah-transport-family'
+        },
+        {
+            id: 'elderly', title: 'رعاية كبار السن', arabicTitle: 'Elderly Care',
+            icon: <Heart className="w-8 h-8" />,
+            description: 'خدمتهم شرف لنا. سائقونا مدربون على الصبر والمساعدة بلطف وعناية.',
+            features: ['مساعدة من الباب للباب', 'أقرب مواقف الفنادق', 'قيادة هادئة وآمنة', 'مساعدة كراسي المقعدين'],
+            image: '/images/services/elderly-care-transport.png', linkText: 'دليل كبار السن', link: '/ar/blog/guide-umrah-with-elderly-parents-transport'
+        }
+    ] : careOptions;
+
     return (
         <section className="bg-zinc-950 relative overflow-hidden">
             <div className="container mx-auto px-4 py-24 text-center relative z-10">
                 <FadeIn>
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-sans">
-                        Tailored for <span className="text-gold-primary italic font-serif">Every Pilgrim</span>
+                        {lang === 'ar' ? <>مصمم لـ<span className="text-gold-primary italic font-serif">كل معتمر</span></> : <>Tailored for <span className="text-gold-primary italic font-serif">Every Pilgrim</span></>}
                     </h2>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto font-light">
-                        Specialized care for every member of your family.
+                        {lang === 'ar' ? 'رعاية متخصصة لكل فرد في عائلتكم.' : 'Specialized care for every member of your family.'}
                     </p>
                 </FadeIn>
             </div>
 
             <div className="flex flex-col w-full">
-                {careOptions.map((option, index) => {
+                {options.map((option, index) => {
                     const isEven = index % 2 === 0;
                     return (
                         <div key={option.id} className="grid grid-cols-1 lg:grid-cols-2 min-h-[450px]">

@@ -103,7 +103,7 @@ export default async function ArabicHomePage() {
       />
 
       {/* Transport Services Section */}
-      <TransportServices />
+      <TransportServices lang="ar" />
 
       {/* Fleet Gallery */}
       <FleetGallery />
@@ -112,13 +112,13 @@ export default async function ArabicHomePage() {
       <InstantPriceCalculator />
 
       {/* Booking Guide Section */}
-      <BookingGuide />
+      <BookingGuide lang="ar" />
 
       {/* Features Section */}
-      <Features />
+      <Features lang="ar" />
 
       {/* Passenger Care Section */}
-      <PassengerCare />
+      <PassengerCare lang="ar" />
 
       {/* Fleet Carousel */}
       <HomeFleetCarousel />
