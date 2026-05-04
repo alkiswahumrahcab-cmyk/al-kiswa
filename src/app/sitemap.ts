@@ -5,6 +5,7 @@ const BASE_URL = "https://kiswahumrahcab.com";
 
 const englishPages = [
   { path: "/", priority: 1.0, changeFreq: "weekly" },
+  { path: "/booking", priority: 0.95, changeFreq: "weekly" },
   { path: "/services/jeddah-airport-transfer", priority: 0.9, changeFreq: "monthly" },
   { path: "/services/makkah-madinah-taxi", priority: 0.9, changeFreq: "monthly" },
   { path: "/services/madinah-airport-transfer", priority: 0.8, changeFreq: "monthly" },
@@ -18,11 +19,12 @@ const englishPages = [
   { path: "/fleet/hyundai-staria", priority: 0.7, changeFreq: "monthly" },
   { path: "/fleet/hyundai-starex", priority: 0.6, changeFreq: "monthly" },
   { path: "/fleet/toyota-hiace", priority: 0.6, changeFreq: "monthly" },
-  { path: "/fleet/toyota-camry", priority: 0.6, changeFreq: "monthly" },
+  { path: "/fleet/toyota-camry", priority: 0.7, changeFreq: "monthly" },
+  { path: "/fleet/toyota-coaster", priority: 0.7, changeFreq: "monthly" },
   { path: "/ramadan-2026", priority: 0.9, changeFreq: "weekly" },
-  { path: "/about", priority: 0.6, changeFreq: "monthly" },
+  { path: "/about", priority: 0.7, changeFreq: "monthly" },
   { path: "/blog", priority: 0.7, changeFreq: "weekly" },
-  { path: "/contact", priority: 0.5, changeFreq: "yearly" },
+  { path: "/contact", priority: 0.7, changeFreq: "monthly" },
   { path: "/pricing", priority: 0.95, changeFreq: "weekly" },
   { path: "/pricing/compare", priority: 0.90, changeFreq: "monthly" },
   { path: "/safety", priority: 0.5, changeFreq: "yearly" },
