@@ -1,46 +1,19 @@
-import nodemailer from 'nodemailer';
-import { replaceTemplateVariables, DEFAULT_BOOKING_CONFIRMATION_TEMPLATE, DEFAULT_ADMIN_NOTIFICATION_TEMPLATE } from './email-templates';
-import { getSettings } from './settings-storage';
+import { Resend } from 'resend';
 
 // ─────────────────────────────────────────────────────────────────────────────
-// IMPORTANT: We create the transporter INSIDE the sendEmail function, NOT at
-// module load time. On Vercel, the module is evaluated during a cold start
-// before environment variables are injected, which can cause the credentials
-// to be undefined when the transporter is first created.
+// We initialize the Resend client.
+// It will look for process.env.RESEND_API_KEY automatically, 
+// but we provide a fallback for testing if it's missing in local environment.
 // ─────────────────────────────────────────────────────────────────────────────
 
-function createTransporter() {
-    const host = process.env.SMTP_HOST || 'smtp.gmail.com';
-    const port = Number(process.env.SMTP_PORT) || 465;
-    const secure = port === 465; // true for SSL (465), false for TLS (587)
-    const user = process.env.EMAIL_USER;
-    const pass = process.env.EMAIL_PASS;
+const RESEND_API_KEY = process.env.RESEND_API_KEY || 're_3HLuZUtk_7r2PDPKpBAQAjf3nXMU5ENGy';
+const resend = new Resend(RESEND_API_KEY);
 
-    console.log('[Email] Creating transporter with config:', {
-        host,
-        port,
-        secure,
-        user: user ? `${user.substring(0, 3)}***@${user.split('@')[1]}` : '❌ MISSING',
-        pass: pass ? '✅ Set (hidden)' : '❌ MISSING',
-    });
-
-    if (!user || !pass) {
-        throw new Error(
-            `[Email] ❌ SMTP credentials not configured. EMAIL_USER="${user || 'MISSING'}", EMAIL_PASS="${pass ? 'SET' : 'MISSING'}". ` +
-            'Please add EMAIL_USER and EMAIL_PASS to Vercel Environment Variables and redeploy.'
-        );
-    }
-
-    return nodemailer.createTransport({
-        host,
-        port,
-        secure,
-        auth: { user, pass },
-        // tls.rejectUnauthorized=false is only for local / self-signed cert dev environments.
-        // Keep it false here to maximise compatibility without sacrificing G-mail auth integrity.
-        tls: { rejectUnauthorized: false },
-    });
-}
+// Default sender email. 
+// IMPORTANT: Resend requires a verified domain to send emails to arbitrary addresses.
+// If you are using the onboarding domain, you can only send to your own email address.
+// Please verify your domain in Resend Dashboard (e.g., bookings@kiswahumrahcab.com).
+const DEFAULT_SENDER = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Core email sender — used by all higher-level functions
@@ -59,37 +32,31 @@ export const sendEmail = async ({ to, subject, html }: EmailOptions): Promise<bo
         return false;
     }
 
-    console.log(`[Email] ─── Preparing to send ───`);
+    console.log(`[Email] ─── Preparing to send via Resend ───`);
     console.log(`[Email]  To:      ${to.substring(0, 3)}***@${to.split('@')[1]}`);
     console.log(`[Email]  Subject: ${subject}`);
-    console.log(`[Email]  Env check — EMAIL_USER: ${process.env.EMAIL_USER ? '✅ Set' : '❌ MISSING'}, EMAIL_PASS: ${process.env.EMAIL_PASS ? '✅ Set' : '❌ MISSING'}`);
-
+    
     try {
-        const transporter = createTransporter();
+        const { data, error } = await resend.emails.send({
+            from: `Al Kiswah Umrah Transport <${DEFAULT_SENDER}>`,
+            to: [to],
+            subject: subject,
+            html: html,
+        });
 
-        const mailOptions = {
-            from: `"Al Kiswah Umrah Transport" <${process.env.EMAIL_USER}>`,
-            to,
-            subject,
-            html,
-        };
+        if (error) {
+            console.error(`[Email] ❌ Resend API Error:`, error);
+            // If the user tries to send to a customer using the onboarding domain, it will fail
+            if (error.message.includes('verified domain')) {
+                console.error('[Email] ❌ You need to verify your custom domain in Resend to send to customers!');
+            }
+            return false;
+        }
 
-        const info = await transporter.sendMail(mailOptions);
-        console.log(`[Email] ✅ Sent successfully! MessageId: ${info.messageId}, Response: ${info.response}`);
+        console.log(`[Email] ✅ Sent successfully via Resend! ID: ${data?.id}`);
         return true;
     } catch (error: any) {
-        console.error(`[Email] ❌ Failed to send email to ${to.substring(0, 3)}*** — Error: ${error.message}`);
-        if (error.code === 'EAUTH') {
-            console.error('[Email] ❌ AUTHENTICATION FAILED — The Gmail App Password is incorrect or 2FA is not enabled on the Google account.');
-            console.error('[Email] ❌ Fix: Go to myaccount.google.com → Security → 2-Step Verification → App passwords → Generate one for "Mail".');
-            console.error('[Email] ❌ Then update EMAIL_PASS in Vercel Dashboard → Settings → Environment Variables → Redeploy.');
-        }
-        if (error.code === 'ECONNREFUSED' || error.code === 'ETIMEDOUT') {
-            console.error('[Email] ❌ NETWORK ERROR — Could not reach SMTP host. Check SMTP_HOST and SMTP_PORT.');
-        }
-        if (error.response) {
-            console.error('[Email] SMTP Error Response:', error.response);
-        }
+        console.error(`[Email] ❌ Failed to send email via Resend — Error: ${error.message}`);
         return false;
     }
 };
