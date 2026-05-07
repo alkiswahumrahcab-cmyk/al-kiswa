@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { requireRole } from '@/lib/server-auth';
 import { getBookings, addBooking } from '@/lib/db';
 import { BookingSchema } from '@/lib/validations';
 import { getSettings } from '@/lib/settings-storage';
@@ -13,6 +14,9 @@ const RATE_LIMIT_MAX_REQUESTS = 3; // 3 bookings per 10 minutes per IP
 
 export async function GET() {
     try {
+        if (!await requireRole(['ADMIN', 'MANAGER', 'OPERATIONAL_MANAGER'])) {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+        }
         const bookings = await getBookings();
         return NextResponse.json(bookings);
     } catch (error) {
