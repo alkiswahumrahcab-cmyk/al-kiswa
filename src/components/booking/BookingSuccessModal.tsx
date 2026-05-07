@@ -1,9 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle, X, Printer, MessageCircle, Home, Copy, Check, MapPin, Calendar, Clock, Users, Car } from 'lucide-react';
-import { useState } from 'react';
+import {
+    CheckCircle, X, Printer, MessageCircle, Home,
+    Copy, Check, MapPin, Calendar, Clock, Users, Car,
+    ArrowRight, Shield, Star
+} from 'lucide-react';
 
 interface BookingSuccessModalProps {
     isOpen: boolean;
@@ -38,23 +41,46 @@ export default function BookingSuccessModal({
     const copyBookingId = () => {
         navigator.clipboard.writeText(bookingData.bookingId);
         setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+        setTimeout(() => setCopied(false), 2500);
     };
 
+    const pickup  = bookingData.pickup  || '—';
+    const dropoff = bookingData.dropoff && bookingData.dropoff.toLowerCase() !== 'destination'
+        ? bookingData.dropoff
+        : null;
+
     const whatsappMessage = encodeURIComponent(
-        `Hello Al Kiswah! I just confirmed my booking.\nBooking ID: ${bookingData.bookingId}\nRoute: ${bookingData.pickup} → ${bookingData.dropoff}\nDate: ${bookingData.date} at ${bookingData.time}\nName: ${bookingData.name}`
+        `✅ Booking Confirmed — Al Kiswah Transport\n` +
+        `────────────────────\n` +
+        `📋 Booking ID: #${bookingData.bookingId}\n` +
+        `👤 Name: ${bookingData.name}\n` +
+        `📍 From: ${pickup}\n` +
+        (dropoff ? `📍 To: ${dropoff}\n` : '') +
+        `📅 Date: ${bookingData.date} at ${bookingData.time}\n` +
+        `🚗 Vehicle: ${bookingData.vehicleName}\n` +
+        `👥 Passengers: ${bookingData.passengers}\n` +
+        `💰 Total: ${bookingData.totalAmount} ${bookingData.currency}\n` +
+        `────────────────────\n` +
+        `Please confirm this booking. JazakAllah Khair!`
     );
     const whatsappLink = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${whatsappMessage}`;
 
     const formattedDate = (() => {
         try {
             return new Date(bookingData.date).toLocaleDateString('en-GB', {
-                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
             });
         } catch {
             return bookingData.date;
         }
     })();
+
+    const currencySymbol = bookingData.currency === 'USD' ? '$'
+        : bookingData.currency === 'EUR' ? '€'
+        : bookingData.currency === 'GBP' ? '£'
+        : '';
+    const currencySuffix = bookingData.currency === 'SAR' ? ' SAR' : '';
+    const priceDisplay = `${currencySymbol}${bookingData.totalAmount}${currencySuffix}`;
 
     return (
         <AnimatePresence>
@@ -63,157 +89,232 @@ export default function BookingSuccessModal({
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
+                    className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/85 backdrop-blur-md"
                     onClick={(e) => e.target === e.currentTarget && onClose()}
                 >
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.85, y: 40 }}
+                        initial={{ opacity: 0, scale: 0.88, y: 50 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                        transition={{ type: 'spring', stiffness: 300, damping: 28 }}
-                        className="w-full max-w-lg bg-[#0F172A] rounded-3xl overflow-hidden shadow-2xl border border-gold-primary/20 relative"
+                        exit={{ opacity: 0, scale: 0.92, y: 20 }}
+                        transition={{ type: 'spring', stiffness: 280, damping: 26 }}
+                        className="w-full max-w-md relative"
                     >
-                        {/* Close Button */}
+                        {/* Close */}
                         <button
                             onClick={onClose}
-                            className="absolute top-4 right-4 z-10 text-white/40 hover:text-white transition-colors bg-white/5 p-1.5 rounded-full"
+                            className="absolute -top-3 -right-3 z-20 w-8 h-8 bg-slate-800 border border-white/10 text-white/50 hover:text-white rounded-full flex items-center justify-center transition-colors shadow-lg"
                         >
-                            <X size={18} />
+                            <X size={15} />
                         </button>
 
-                        {/* Gold Header */}
-                        <div className="relative bg-gradient-to-br from-[#1a1200] to-[#0F172A] pt-10 pb-8 px-8 flex flex-col items-center text-center border-b border-gold-primary/20">
-                            {/* Animated Check Icon */}
-                            <motion.div
-                                initial={{ scale: 0 }}
-                                animate={{ scale: 1 }}
-                                transition={{ type: 'spring', stiffness: 400, damping: 20, delay: 0.15 }}
-                                className="w-20 h-20 rounded-full bg-gold-primary/10 border-2 border-gold-primary flex items-center justify-center mb-5 shadow-[0_0_40px_rgba(245,158,11,0.3)]"
-                            >
-                                <motion.div
-                                    initial={{ scale: 0, rotate: -90 }}
-                                    animate={{ scale: 1, rotate: 0 }}
-                                    transition={{ delay: 0.25, type: 'spring', stiffness: 500 }}
-                                >
-                                    <CheckCircle size={40} className="text-gold-primary" />
-                                </motion.div>
-                            </motion.div>
+                        {/* ═══ TICKET CARD ═══ */}
+                        <div className="bg-[#080E1D] rounded-[2rem] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.8)] border border-gold-primary/20">
 
-                            <motion.h2
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 }}
-                                className="text-2xl font-bold text-white mb-1"
-                            >
-                                Booking Confirmed!
-                            </motion.h2>
-                            <motion.p
+                            {/* ── Header ── */}
+                            <div className="relative bg-gradient-to-b from-[#1C1200] via-[#0D0900] to-[#080E1D] px-8 pt-10 pb-8 text-center overflow-hidden">
+                                {/* Glow rings */}
+                                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                    <div className="w-48 h-48 rounded-full bg-gold-primary/5 blur-2xl" />
+                                </div>
+
+                                {/* Animated check */}
+                                <div className="relative flex justify-center mb-5">
+                                    <motion.div
+                                        initial={{ scale: 0, rotate: -30 }}
+                                        animate={{ scale: 1, rotate: 0 }}
+                                        transition={{ type: 'spring', stiffness: 420, damping: 18, delay: 0.1 }}
+                                        className="w-20 h-20 rounded-full border-2 border-gold-primary bg-gold-primary/10 flex items-center justify-center shadow-[0_0_50px_rgba(212,175,55,0.35)]"
+                                    >
+                                        <CheckCircle size={38} className="text-gold-primary" />
+                                    </motion.div>
+                                    {/* Pulse ring */}
+                                    <motion.div
+                                        initial={{ scale: 0.8, opacity: 0 }}
+                                        animate={{ scale: 1.6, opacity: 0 }}
+                                        transition={{ duration: 1.2, repeat: Infinity, delay: 0.5 }}
+                                        className="absolute inset-0 m-auto w-20 h-20 rounded-full border border-gold-primary/40"
+                                    />
+                                </div>
+
+                                {/* Status badge */}
+                                <motion.div
+                                    initial={{ opacity: 0, y: 8 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.25 }}
+                                    className="inline-flex items-center gap-1.5 bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3"
+                                >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                                    Confirmed
+                                </motion.div>
+
+                                <motion.h2
+                                    initial={{ opacity: 0, y: 8 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.3 }}
+                                    className="text-2xl font-extrabold text-white tracking-tight mb-1"
+                                >
+                                    Booking Confirmed
+                                </motion.h2>
+
+                                <motion.p
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.38 }}
+                                    className="text-slate-400 text-sm"
+                                >
+                                    Thank you, <span className="text-white font-semibold">{bookingData.name}</span>
+                                </motion.p>
+                                <motion.p
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ delay: 0.42 }}
+                                    className="text-slate-500 text-xs mt-0.5"
+                                >
+                                    Receipt sent to <span className="text-gold-primary/90">{bookingData.email}</span>
+                                </motion.p>
+
+                                {/* Booking ID pill */}
+                                <motion.button
+                                    initial={{ opacity: 0, y: 6 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: 0.48 }}
+                                    onClick={copyBookingId}
+                                    className="mt-5 inline-flex items-center gap-2 bg-white/5 border border-gold-primary/25 hover:border-gold-primary/60 hover:bg-gold-primary/10 text-gold-primary px-5 py-2 rounded-full text-sm font-mono font-bold transition-all duration-200 group"
+                                >
+                                    <span className="text-slate-400 text-xs font-sans font-normal">ID</span>
+                                    <span>#{bookingData.bookingId}</span>
+                                    {copied
+                                        ? <Check size={13} className="text-emerald-400" />
+                                        : <Copy size={13} className="opacity-50 group-hover:opacity-100 transition-opacity" />
+                                    }
+                                </motion.button>
+                            </div>
+
+                            {/* ── Dashed Ticket Tear ── */}
+                            <div className="relative flex items-center px-6 -my-0.5 z-10">
+                                <div className="w-6 h-6 rounded-full bg-black -ml-6 shrink-0" />
+                                <div className="flex-1 border-t-2 border-dashed border-white/8" />
+                                <div className="w-6 h-6 rounded-full bg-black -mr-6 shrink-0" />
+                            </div>
+
+                            {/* ── Trip Details ── */}
+                            <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
-                                transition={{ delay: 0.4 }}
-                                className="text-slate-400 text-sm"
+                                transition={{ delay: 0.52 }}
+                                className="px-7 py-6 space-y-3"
                             >
-                                A confirmation email has been sent to <span className="text-gold-primary">{bookingData.email}</span>
-                            </motion.p>
+                                {/* Route */}
+                                <div className="bg-white/[0.04] border border-white/8 rounded-2xl p-4">
+                                    <p className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold mb-2.5 flex items-center gap-1.5">
+                                        <MapPin size={10} className="text-gold-primary" /> Route
+                                    </p>
+                                    <div className="flex items-center gap-2 min-w-0">
+                                        <div className="flex-1 min-w-0">
+                                            <p className="text-white text-sm font-semibold truncate">{pickup}</p>
+                                        </div>
+                                        {dropoff && (
+                                            <>
+                                                <ArrowRight size={14} className="text-gold-primary shrink-0" />
+                                                <div className="flex-1 min-w-0 text-right">
+                                                    <p className="text-slate-300 text-sm font-medium truncate">{dropoff}</p>
+                                                </div>
+                                            </>
+                                        )}
+                                    </div>
+                                </div>
 
-                            {/* Booking ID */}
-                            <motion.button
+                                {/* Date / Time / Passengers grid */}
+                                <div className="grid grid-cols-3 gap-2.5">
+                                    <div className="bg-white/[0.04] border border-white/8 rounded-xl p-3 flex flex-col gap-1.5">
+                                        <Calendar size={13} className="text-gold-primary" />
+                                        <p className="text-[10px] text-slate-500 uppercase tracking-wider">Date</p>
+                                        <p className="text-white text-xs font-semibold leading-tight">{formattedDate}</p>
+                                    </div>
+                                    <div className="bg-white/[0.04] border border-white/8 rounded-xl p-3 flex flex-col gap-1.5">
+                                        <Clock size={13} className="text-gold-primary" />
+                                        <p className="text-[10px] text-slate-500 uppercase tracking-wider">Time</p>
+                                        <p className="text-white text-sm font-bold">{bookingData.time}</p>
+                                    </div>
+                                    <div className="bg-white/[0.04] border border-white/8 rounded-xl p-3 flex flex-col gap-1.5">
+                                        <Users size={13} className="text-gold-primary" />
+                                        <p className="text-[10px] text-slate-500 uppercase tracking-wider">Pax</p>
+                                        <p className="text-white text-sm font-bold">{bookingData.passengers}</p>
+                                    </div>
+                                </div>
+
+                                {/* Vehicle & Price */}
+                                <div className="bg-gradient-to-r from-gold-primary/10 to-transparent border border-gold-primary/20 rounded-2xl px-4 py-3.5 flex items-center justify-between">
+                                    <div className="flex items-center gap-2.5">
+                                        <div className="w-9 h-9 rounded-xl bg-gold-primary/15 flex items-center justify-center">
+                                            <Car size={16} className="text-gold-primary" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[10px] text-slate-500 uppercase tracking-wider">Vehicle</p>
+                                            <p className="text-white text-sm font-semibold">{bookingData.vehicleName}</p>
+                                        </div>
+                                    </div>
+                                    <div className="text-right">
+                                        <p className="text-[10px] text-slate-500 uppercase tracking-wider">Total</p>
+                                        <p className="text-gold-primary text-xl font-extrabold tracking-tight">{priceDisplay}</p>
+                                    </div>
+                                </div>
+
+                                {/* Trust badge */}
+                                <div className="flex items-center justify-center gap-4 pt-1">
+                                    <div className="flex items-center gap-1.5 text-slate-500 text-[11px]">
+                                        <Shield size={11} className="text-gold-primary/60" />
+                                        Pay on arrival
+                                    </div>
+                                    <div className="w-px h-3 bg-white/10" />
+                                    <div className="flex items-center gap-1.5 text-slate-500 text-[11px]">
+                                        <Star size={11} className="text-gold-primary/60" />
+                                        Licensed & insured
+                                    </div>
+                                    <div className="w-px h-3 bg-white/10" />
+                                    <div className="flex items-center gap-1.5 text-slate-500 text-[11px]">
+                                        <CheckCircle size={11} className="text-gold-primary/60" />
+                                        24/7 support
+                                    </div>
+                                </div>
+                            </motion.div>
+
+                            {/* ── Action Buttons ── */}
+                            <motion.div
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.45 }}
-                                onClick={copyBookingId}
-                                className="mt-4 flex items-center gap-2 bg-gold-primary/10 border border-gold-primary/30 text-gold-primary px-4 py-2 rounded-full text-sm font-mono font-bold hover:bg-gold-primary/20 transition-colors"
+                                transition={{ delay: 0.62 }}
+                                className="px-7 pb-7 flex flex-col gap-2.5"
                             >
-                                <span>#{bookingData.bookingId}</span>
-                                {copied ? <Check size={14} className="text-green-400" /> : <Copy size={14} />}
-                            </motion.button>
+                                {/* WhatsApp — Primary */}
+                                <a
+                                    href={whatsappLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-full flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20c05e] active:scale-[0.98] text-white font-bold py-3.5 rounded-xl transition-all duration-200 shadow-[0_8px_24px_rgba(37,211,102,0.25)] text-sm"
+                                >
+                                    <MessageCircle size={18} />
+                                    Confirm via WhatsApp
+                                </a>
+
+                                <div className="grid grid-cols-2 gap-2.5">
+                                    <button
+                                        onClick={onPrint}
+                                        className="flex items-center justify-center gap-2 bg-white/[0.06] hover:bg-white/10 active:scale-[0.98] border border-white/10 hover:border-white/20 text-white/80 hover:text-white font-medium py-3 rounded-xl transition-all text-sm"
+                                    >
+                                        <Printer size={15} />
+                                        Print Receipt
+                                    </button>
+                                    <button
+                                        onClick={onClose}
+                                        className="flex items-center justify-center gap-2 bg-white/[0.06] hover:bg-white/10 active:scale-[0.98] border border-white/10 hover:border-white/20 text-white/80 hover:text-white font-medium py-3 rounded-xl transition-all text-sm"
+                                    >
+                                        <Home size={15} />
+                                        Return Home
+                                    </button>
+                                </div>
+                            </motion.div>
                         </div>
-
-                        {/* Trip Summary */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.5 }}
-                            className="px-8 py-6 space-y-3"
-                        >
-                            {/* Route */}
-                            <div className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/5">
-                                <MapPin size={16} className="text-gold-primary mt-0.5 shrink-0" />
-                                <div className="min-w-0">
-                                    <p className="text-xs text-slate-500 uppercase tracking-wider font-medium mb-0.5">Route</p>
-                                    <p className="text-white text-sm font-semibold truncate">{bookingData.pickup}</p>
-                                    <p className="text-slate-400 text-xs">→ {bookingData.dropoff}</p>
-                                </div>
-                            </div>
-
-                            <div className="grid grid-cols-3 gap-2">
-                                {/* Date */}
-                                <div className="flex flex-col gap-1 p-3 rounded-xl bg-white/5 border border-white/5">
-                                    <Calendar size={14} className="text-gold-primary" />
-                                    <p className="text-xs text-slate-500">Date</p>
-                                    <p className="text-white text-xs font-semibold leading-tight">{formattedDate}</p>
-                                </div>
-                                {/* Time */}
-                                <div className="flex flex-col gap-1 p-3 rounded-xl bg-white/5 border border-white/5">
-                                    <Clock size={14} className="text-gold-primary" />
-                                    <p className="text-xs text-slate-500">Time</p>
-                                    <p className="text-white text-sm font-semibold">{bookingData.time}</p>
-                                </div>
-                                {/* Passengers */}
-                                <div className="flex flex-col gap-1 p-3 rounded-xl bg-white/5 border border-white/5">
-                                    <Users size={14} className="text-gold-primary" />
-                                    <p className="text-xs text-slate-500">Pax</p>
-                                    <p className="text-white text-sm font-semibold">{bookingData.passengers}</p>
-                                </div>
-                            </div>
-
-                            {/* Vehicle & Price */}
-                            <div className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/5">
-                                <div className="flex items-center gap-2">
-                                    <Car size={14} className="text-gold-primary shrink-0" />
-                                    <p className="text-white text-sm font-semibold">{bookingData.vehicleName}</p>
-                                </div>
-                                <p className="text-gold-primary text-lg font-bold">
-                                    {bookingData.currency === 'USD' ? '$' : ''}{bookingData.totalAmount}{bookingData.currency === 'SAR' ? ' SAR' : ''}
-                                </p>
-                            </div>
-                        </motion.div>
-
-                        {/* Action Buttons */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.6 }}
-                            className="px-8 pb-8 flex flex-col gap-3"
-                        >
-                            {/* WhatsApp — Primary CTA */}
-                            <a
-                                href={whatsappLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb85a] text-white font-bold py-3 rounded-xl transition-colors shadow-lg shadow-[#25D366]/20"
-                            >
-                                <MessageCircle size={18} />
-                                Confirm via WhatsApp
-                            </a>
-
-                            <div className="grid grid-cols-2 gap-3">
-                                <button
-                                    onClick={onPrint}
-                                    className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium py-3 rounded-xl transition-colors"
-                                >
-                                    <Printer size={16} />
-                                    Print Receipt
-                                </button>
-                                <button
-                                    onClick={onClose}
-                                    className="flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white font-medium py-3 rounded-xl transition-colors"
-                                >
-                                    <Home size={16} />
-                                    Return Home
-                                </button>
-                            </div>
-                        </motion.div>
                     </motion.div>
                 </motion.div>
             )}

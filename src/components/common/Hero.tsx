@@ -32,6 +32,7 @@ interface HeroProps {
         icon?: React.ReactNode;
     }>;
     fleetImages?: string[];
+    isSpiritual?: boolean;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -50,7 +51,8 @@ const Hero: React.FC<HeroProps> = ({
     alt,
     trustBadge,
     stats,
-    fleetImages
+    fleetImages,
+    isSpiritual = false
 }) => {
     const ref = useRef<HTMLElement>(null);
     const { scrollYProgress } = useScroll({
@@ -150,19 +152,39 @@ const Hero: React.FC<HeroProps> = ({
                             sizes="100vw"
                         />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-b from-primary-black/80 via-primary-black/40 to-primary-black" />
-                    {!fleetImages && (
+                    {isSpiritual && (
+                        <>
+                            {/* Spiritual Gradient Overlay - Darker on left for text readability - Neutral Dark */}
+                            <div
+                                className="absolute inset-0 z-[1]"
+                                style={{
+                                    background: 'linear-gradient(105deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.60) 50%, rgba(0, 0, 0, 0.20) 100%)'
+                                }}
+                            />
+                            {/* Bottom fade for smooth section transition - Primary Black */}
+                            <div
+                                className="absolute bottom-0 left-0 right-0 h-[120px] z-[2]"
+                                style={{
+                                    background: 'linear-gradient(to bottom, transparent, #0f172a)'
+                                }}
+                            />
+                        </>
+                    )}
+                    {!isSpiritual && (
+                        <div className="absolute inset-0 bg-gradient-to-b from-primary-black/80 via-primary-black/40 to-primary-black" />
+                    )}
+                    {!fleetImages && !isSpiritual && (
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold-primary/10 via-transparent to-transparent opacity-60" />
                     )}
                 </div>
             </motion.div>
 
             {/* Content Container */}
-            <div className={`container relative z-10 px-4 pt-24 md:pt-28 lg:pt-32 pb-24 ${layout === 'two-column' ? 'grid lg:grid-cols-2 gap-12 lg:gap-24 items-center' : 'flex flex-col items-center text-center'}`}>
+            <div className={`container relative z-10 px-4 pt-24 md:pt-28 lg:pt-32 pb-24 ${layout === 'two-column' ? 'grid lg:grid-cols-2 gap-12 lg:gap-24 items-center' : 'flex flex-col items-center text-center'} ${isSpiritual && layout === 'two-column' ? 'lg:grid-cols-[1.2fr,0.8fr]' : ''}`}>
 
                 {/* Text Content */}
                 {/* Text Content - Refactored for LCP (H1 is static) */}
-                <div className="flex flex-col gap-8 max-w-3xl">
+                <div className={`flex flex-col gap-8 ${layout === 'center' ? 'items-center text-center max-w-4xl' : 'max-w-3xl'}`}>
                     {/* Badge */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -210,7 +232,7 @@ const Hero: React.FC<HeroProps> = ({
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                        className="text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-xl mx-auto lg:mx-0 border-l-2 border-gold-primary/30 pl-6"
+                        className={`text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-2xl ${layout === 'center' ? 'mx-auto' : 'mx-auto lg:mx-0 border-l-2 border-gold-primary/30 pl-6'} ${isSpiritual ? 'text-white/90 drop-shadow-md' : ''}`}
                     >
                         {subtitle}
                     </motion.div>

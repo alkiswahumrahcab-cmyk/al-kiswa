@@ -99,7 +99,7 @@ export default async function Home() {
     </div>
   );
 
-  const heroImage = "/images/fleet/fleet-lineup-real.webp";
+  const heroImage = "/images/haram-hero.webp";
   const ctaText = getCustomField(heroSection, 'cta_text') || "Book Your Ride";
   const ctaLink = getCustomField(heroSection, 'cta_link') || "/booking";
   const secondaryCtaText = "See Our Fleet";
@@ -122,11 +122,11 @@ export default async function Home() {
         badge={heroBadge as any}
         bgImage={heroImage}
         layout="center"
+        isSpiritual={true}
         ctaText={ctaText}
         ctaLink={ctaLink}
         secondaryCtaText={secondaryCtaText}
         secondaryCtaLink={secondaryCtaLink}
-        backgroundChildren={<AnimatedBackground />}
         trustBadge={{
           count: "50K+",
           label: "Happy Pilgrims"
