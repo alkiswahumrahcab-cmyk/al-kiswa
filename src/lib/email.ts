@@ -6,7 +6,7 @@ import { Resend } from 'resend';
 // but we provide a fallback for testing if it's missing in local environment.
 // ─────────────────────────────────────────────────────────────────────────────
 
-const RESEND_API_KEY = process.env.RESEND_API_KEY || 're_3HLuZUtk_7r2PDPKpBAQAjf3nXMU5ENGy';
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const resend = new Resend(RESEND_API_KEY);
 
 // Default sender email. 
