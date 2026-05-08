@@ -137,7 +137,7 @@ Don't leave your ground transport to chance. Secure your authorized, licensed Ha
         category: 'Hajj Guide',
         date: new Date('2026-05-08'),
         readTime: '10 min read',
-        image: '/images/blog/hajj-transport-2026.png',
+        image: '/images/blog/hajj-transport-2026.jpg',
         alt: 'Hajj 2026 pilgrims using private taxi service in Mecca',
         author: 'Al Kiswah Tours Team',
         tags: [
