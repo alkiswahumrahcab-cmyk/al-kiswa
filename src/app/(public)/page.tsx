@@ -37,8 +37,8 @@ import { metaKeywords } from '@/data/seo-keywords';
 
 export async function generateMetadata() {
   return {
-    title: "Umrah Taxi Jeddah–Makkah–Madinah 2026 | Al Kiswah",
-    description: "Book a private Umrah taxi in Saudi Arabia. Trusted by 5,000+ pilgrims since 2014. Fixed prices, 24/7 support, GMC Yukon & Staria fleet. No prepayment required.",
+    title: "Umrah & Hajj Taxi Jeddah–Makkah–Madinah 2026 | Al Kiswah",
+    description: "Book a private Umrah and Hajj taxi in Saudi Arabia. Trusted by 5,000+ pilgrims since 2014. Fixed prices, 24/7 support, GMC Yukon & Staria fleet. No prepayment required.",
     alternates: generateMetadataAlternates("/"),
     keywords: [
       "umrah taxi jeddah makkah madinah",
@@ -114,6 +114,17 @@ export default async function Home() {
         "Premium and reliable private umrah transport for pilgrims between Jeddah Airport, Makkah, and Madinah.",
         heroImage
       )} />
+
+      {/* Hajj 2026 Banner */}
+      <div className="bg-gold-primary text-black py-2.5 px-4 text-center z-40 relative">
+        <p className="text-sm font-semibold flex items-center justify-center gap-2 flex-wrap">
+          <span className="animate-pulse">🕋</span>
+          Planning for Hajj 2026? 
+          <Link href="/blog/hajj-2026-guidance-taxi-service-pilgrims" className="underline decoration-2 underline-offset-2 hover:text-white transition-colors">
+            Read our complete transport & preparation guide here &rarr;
+          </Link>
+        </p>
+      </div>
 
       {/* Hero Section */}
       <Hero

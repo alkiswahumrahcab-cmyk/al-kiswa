@@ -127,6 +127,13 @@ export default async function FleetPage() {
                     ]}
                 />
 
+                {/* Hajj 2026 Contextual Link */}
+                <div className="bg-gold-primary/10 border-y border-gold-primary/30 py-3 text-center">
+                    <p className="text-gold-primary font-medium flex items-center justify-center gap-2">
+                        <span className="animate-pulse">🕋</span> Planning Hajj 2026? <a href="/blog/hajj-2026-guidance-taxi-service-pilgrims" className="underline hover:text-white transition-colors">Read our complete guidance & transport options &rarr;</a>
+                    </p>
+                </div>
+
                 <FadeIn>
                     <FleetOfferGallery />
                 </FadeIn>

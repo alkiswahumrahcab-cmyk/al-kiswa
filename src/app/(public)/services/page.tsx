@@ -253,6 +253,27 @@ export default function ServicesPage() {
             {/* Hotels and Districts Covered */}
             <HotelsAndDistricts />
 
+            {/* Hajj 2026 Contextual Link */}
+            <section className="py-12 bg-deep-black border-t border-white/10 relative z-10">
+                <div className="container text-center px-4">
+                    <FadeIn>
+                        <div className="max-w-3xl mx-auto bg-white/5 border border-gold-primary/20 rounded-2xl p-8 backdrop-blur-sm">
+                            <h3 className="text-2xl text-gold-primary font-bold mb-4 flex items-center justify-center gap-3">
+                                🕋 Preparing for Hajj 2026?
+                            </h3>
+                            <p className="text-gray-300 mb-6 leading-relaxed">
+                                Ensure a smooth and comfortable journey by planning your transportation early. Read our comprehensive guide on booking your Hajj taxi, expected travel times, and essential tips for pilgrims.
+                            </p>
+                            <Link 
+                                href="/blog/hajj-2026-guidance-taxi-service-pilgrims"
+                                className="inline-flex items-center gap-2 text-white bg-gold-primary/20 hover:bg-gold-primary hover:text-black transition-all px-6 py-3 rounded-full font-semibold border border-gold-primary"
+                            >
+                                Read Hajj 2026 Guide <ArrowRight size={18} />
+                            </Link>
+                        </div>
+                    </FadeIn>
+                </div>
+            </section>
             {/* Booking CTA */}
             <section className="py-32 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gold-primary/80 z-0">
