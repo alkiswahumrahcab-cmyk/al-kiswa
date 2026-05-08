@@ -16,6 +16,25 @@ import { JsonLdScript } from '@/components/seo/JsonLd';
 import { generateArticleSchema } from '@/components/seo/schema-generator';
 import { marked } from 'marked';
 
+// Helper to outdent string to prevent markdown treating indented HTML as code blocks
+const outdent = (str: string) => {
+    const lines = str.split('\n');
+    let minIndent = Infinity;
+    
+    for (const line of lines) {
+        if (line.trim().length > 0) {
+            const indent = line.match(/^\s*/)?.[0].length || 0;
+            if (indent < minIndent) {
+                minIndent = indent;
+            }
+        }
+    }
+    
+    if (minIndent === Infinity || minIndent === 0) return str;
+    
+    return lines.map(line => line.length >= minIndent ? line.slice(minIndent) : line).join('\n');
+};
+
 // Helper to inject IDs into headers
 const injectIds = (content: string) => {
     return content.replace(/<h([2-3])([^>]*)>(.*?)<\/h\1>/g, (match, level, attrs, text) => {
@@ -154,7 +173,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                             <article className={styles.articleBody}>
                                 <div
                                     className={styles.content}
-                                    dangerouslySetInnerHTML={{ __html: injectIds(await marked.parse(post.content)) }}
+                                    dangerouslySetInnerHTML={{ __html: injectIds(await marked.parse(outdent(post.content))) }}
                                 />
                             </article>
                         </FadeIn>
