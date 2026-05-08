@@ -137,7 +137,7 @@ Don't leave your ground transport to chance. Secure your authorized, licensed Ha
         category: 'Hajj Guide',
         date: new Date('2026-05-08'),
         readTime: '10 min read',
-        image: '/images/blog/hajj-transport-2026.jpg',
+        image: '/images/blog/hajj-transport-2026.png',
         alt: 'Hajj 2026 pilgrims using private taxi service in Mecca',
         author: 'Al Kiswah Tours Team',
         tags: [
@@ -161,64 +161,77 @@ Don't leave your ground transport to chance. Secure your authorized, licensed Ha
         title: 'Ramadan 2026 Umrah Taxi: A Spiritual Journey & Transport Guide',
         excerpt: 'The ultimate guide to Ramadan 2026 Umrah transport. extensive guide on spiritual preparation, reliable Makkah to Madinah taxi services, and Laylatul Qadr travel tips.',
         content: `
-            <div class="prose max-w-none text-slate-800 dark:text-gray-200 dark:prose-invert prose-a:text-amber-600 dark:prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline">
-                <h2>The Spiritual Significance of Ramadan 2026</h2>
-                <p><strong>Ramadan 2026</strong> is not merely a month of fasting; it is a season of divine mercy. For the believer, it is an invitation to return to Allah with a sincere heart through <strong>Sawm</strong> (fasting), <strong>Salah</strong> (prayer), and <strong>Sadaqah</strong> (charity).</p>
-                <p>The Prophet Muhammad (peace be upon him) said: <em>"Whoever observes fasts during the month of Ramadan out of sincere faith... all his past sins will be forgiven."</em> (Bukhari)</p>
-                <p>Performing <strong>Umrah in Ramadan 2026</strong> holds a reward equivalent to Hajj with the Prophet (SAW). This profound promise draws millions of pilgrims to Makkah and Madinah, seeking spiritual closeness to their Creator.</p>
 
-                <hr class="my-8 border-slate-200 dark:border-slate-700" />
+The Spiritual Significance of Ramadan 2026
+------------------------------------------
 
-                <h2>Ramadan in Saudi Arabia: Atmosphere & Transport</h2>
-                <p>There is no place on Earth like <strong>Makkah and Madinah during Ramadan</strong>. The atmosphere is charged with devotion, from the quiet days of Quran recitation to the vibrant nights of <strong>Taraweeh</strong> and <strong>Qiyam-ul-Layl</strong>.</p>
-                
-                <h3>Navigating the Holy Cities</h3>
-                <p>With millions of calm hearts descending on the Haramain, logistics can be a test of <em>Sabr</em> (patience). Reliable <strong>Umrah transport services</strong> are essential to ensure you arrive at the Masjid on time for Iftar and Salah.</p>
+**Ramadan 2026** is not merely a month of fasting; it is a season of divine mercy. For the believer, it is an invitation to return to Allah with a sincere heart through **Sawm** (fasting), **Salah** (prayer), and **Sadaqah** (charity).
 
-                <h2>Best Umrah Taxi Services for Ramadan 2026</h2>
-                <p>Moving between Holy Cities requires planning. <strong>Al Kiswah Umrah Transport</strong> offers premium, 24/7 taxi services tailored for the fasting pilgrim.</p>
+The Prophet Muhammad (peace be upon him) said: _"Whoever observes fasts during the month of Ramadan out of sincere faith... all his past sins will be forgiven."_ (Bukhari)
 
-                <h3>1. Jeddah Airport to Makkah Taxi</h3>
-                <p>Start your journey with ease. Our <a href="/services/jeddah-airport-transfer">Jeddah Airport to Makkah taxi service</a> tracks your flight and waits for you, ensuring a seamless arrival even if your flight is delayed. We provide:</p>
-                <ul>
-                    <li><strong>Meet & Greet:</strong> A warm welcome at the arrival terminal.</li>
-                    <li><strong>Ihram Comfort:</strong> Spacious vehicles for those arriving in Ihram.</li>
-                    <li><strong>Fixed Prices:</strong> No surge pricing during Ramadan peak hours.</li>
-                </ul>
+Performing **Umrah in Ramadan 2026** holds a reward equivalent to Hajj with the Prophet (SAW). This profound promise draws millions of pilgrims to Makkah and Madinah, seeking spiritual closeness to their Creator.
 
-                <h3>2. Makkah to Madinah Taxi Transfers</h3>
-                <p>The journey between Makkah and Madinah is a spiritual transition. Avoid the crowds of public buses. Our <strong>private car prices from Makkah to Madinah</strong> are competitive, offering:</p>
-                <ul>
-                    <li><strong>GMC Yukon / Hyundai Staria:</strong> Recline and rest in our air-conditioned fleet.</li>
-                    <li><strong>Flexible Timing:</strong> Depart after Fajr or late at night to suit your Ibadah schedule.</li>
-                    <li><strong>Door-to-Door:</strong> Pickup from your Makkah hotel and drop-off at your Madinah hotel.</li>
-                </ul>
+* * *
 
-                <h3>3. Laylatul Qadr & Last 10 Nights Transport</h3>
-                <p>The <strong>Last 10 Nights of Ramadan</strong> are the peak of spiritual intensity. Traffic in Makkah is heavy. Our drivers know the best routes to get you close to the Haram for <strong>Laylatul Qadr</strong> prayers. <em>Tip: Book your Last 10 Nights transport early as availability is limited.</em></p>
+Ramadan in Saudi Arabia: Atmosphere & Transport
+-----------------------------------------------
 
-                <h2>Practical Travel Tips for Ramadan 2026</h2>
-                
-                <h3>Visa and Preparation</h3>
-                <p>Ensure your <strong>Umrah Visa</strong> is secured. Pack light, but bring essentials: comfortable sandals, fragrance-free sunblock, and a travel prayer mat.</p>
+There is no place on Earth like **Makkah and Madinah during Ramadan**. The atmosphere is charged with devotion, from the quiet days of Quran recitation to the vibrant nights of **Taraweeh** and **Qiyam-ul-Layl**.
 
-                <h3>Health and Wellness</h3>
-                <p>Pace yourself. Hydrate well with Zamzam between Maghrib and Fajr. Our vehicles are stocked with cool water to refresh you the moment you step in.</p>
+### Navigating the Holy Cities
 
-                <div class="bg-amber-50 dark:bg-slate-900/50 p-6 rounded-xl border-l-4 border-amber-500 my-8">
-                    <h4 class="font-bold text-lg mb-2 text-amber-800 dark:text-amber-400">A Note on Patience (Sabr)</h4>
-                    <p class="text-slate-700 dark:text-slate-300">Remember, every delay in traffic or crowd is an expiation of sins. Carry the character of the Prophet (SAW)—smile, forgive, and be gentle. Let us handle the driving while you focus on Dhikr.</p>
-                </div>
+With millions of calm hearts descending on the Haramain, logistics can be a test of _Sabr_ (patience). Reliable **Umrah transport services** are essential to ensure you arrive at the Masjid on time for Iftar and Salah.
 
-                <h2>Why Choose Al Kiswah for Ramadan Transport?</h2>
-                <p>We are more than just a <strong>taxi service in Makkah</strong>; we are facilitators of your worship. Our vetted drivers respected your state of fasting and prayer.</p>
-                <p>May Allah invite you to His House in <strong>Ramadan 2026</strong>, accept your fasting, and grant you the reward of a Hajj with the Messenger of Allah (peace be upon him).</p>
+Best Umrah Taxi Services for Ramadan 2026
+-----------------------------------------
 
-                <p class="mt-8 font-bold text-center">
-                    <a href="/booking" class="inline-block bg-gradient-to-r from-gold-primary to-amber-600 text-white px-8 py-3 rounded-full hover:shadow-xl transition-all shadow-lg text-lg">Book Your Ramadan 2026 Ride</a>
-                </p>
-            </div>
-        `,
+Moving between Holy Cities requires planning. **Al Kiswah Umrah Transport** offers premium, 24/7 taxi services tailored for the fasting pilgrim.
+
+### 1\. Jeddah Airport to Makkah Taxi
+
+Start your journey with ease. Our [Jeddah Airport to Makkah taxi service](/services/jeddah-airport-transfer) tracks your flight and waits for you, ensuring a seamless arrival even if your flight is delayed. We provide:
+
+*   **Meet & Greet:** A warm welcome at the arrival terminal.
+*   **Ihram Comfort:** Spacious vehicles for those arriving in Ihram.
+*   **Fixed Prices:** No surge pricing during Ramadan peak hours.
+
+### 2\. Makkah to Madinah Taxi Transfers
+
+The journey between Makkah and Madinah is a spiritual transition. Avoid the crowds of public buses. Our **private car prices from Makkah to Madinah** are competitive, offering:
+
+*   **GMC Yukon / Hyundai Staria:** Recline and rest in our air-conditioned fleet.
+*   **Flexible Timing:** Depart after Fajr or late at night to suit your Ibadah schedule.
+*   **Door-to-Door:** Pickup from your Makkah hotel and drop-off at your Madinah hotel.
+
+### 3\. Laylatul Qadr & Last 10 Nights Transport
+
+The **Last 10 Nights of Ramadan** are the peak of spiritual intensity. Traffic in Makkah is heavy. Our drivers know the best routes to get you close to the Haram for **Laylatul Qadr** prayers. _Tip: Book your Last 10 Nights transport early as availability is limited._
+
+Practical Travel Tips for Ramadan 2026
+--------------------------------------
+
+### Visa and Preparation
+
+Ensure your **Umrah Visa** is secured. Pack light, but bring essentials: comfortable sandals, fragrance-free sunblock, and a travel prayer mat.
+
+### Health and Wellness
+
+Pace yourself. Hydrate well with Zamzam between Maghrib and Fajr. Our vehicles are stocked with cool water to refresh you the moment you step in.
+
+#### A Note on Patience (Sabr)
+
+Remember, every delay in traffic or crowd is an expiation of sins. Carry the character of the Prophet (SAW)—smile, forgive, and be gentle. Let us handle the driving while you focus on Dhikr.
+
+Why Choose Al Kiswah for Ramadan Transport?
+-------------------------------------------
+
+We are more than just a **taxi service in Makkah**; we are facilitators of your worship. Our vetted drivers respected your state of fasting and prayer.
+
+May Allah invite you to His House in **Ramadan 2026**, accept your fasting, and grant you the reward of a Hajj with the Messenger of Allah (peace be upon him).
+
+[Book Your Ramadan 2026 Ride](/booking)
+
+`,
         category: 'Ramadan Special',
         date: new Date('2026-02-10'),
         readTime: '6 min read',
@@ -309,98 +322,112 @@ Don't leave your ground transport to chance. Secure your authorized, licensed Ha
         metaTitle: 'Private Taxi vs Haramain Train: Which is Best for Umrah? (2025 Guide)',
         metaDescription: 'Comparing Jeddah to Makkah transport? Discover the pros & cons of the Haramain High-Speed Train vs Private Taxis. Learn about costs, luggage, and family comfort.',
         content: `
-            <div class="prose max-w-none text-slate-800 dark:text-gray-200 dark:prose-invert">
-                <h2>The Great Debate: Comfort vs. Speed for Umrah Pilgrims</h2>
-                <p>When planning your Umrah trip, one of the biggest logistical questions is: <strong>"Should I take the Haramain High-Speed Train or book a private taxi?"</strong> Both options have transformed travel between Jeddah, Makkah, and Madinah, but the right choice depends on your specific needs—especially if you are traveling with family, seniors, or heavy luggage.</p>
-                <p>In this 2025 comparison guide, we break down everything you need to know about <strong>Umrah transport costs</strong>, travel times, and convenience to help you make an informed decision.</p>
 
-                <hr class="my-8 border-slate-200 dark:border-slate-700" />
+The Great Debate: Comfort vs. Speed for Umrah Pilgrims
+------------------------------------------------------
 
-                <h2>The Haramain High-Speed Train: Modern & Fast</h2>
-                <p>The <strong>Haramain High-Speed Railway</strong> is a state-of-the-art train system connecting Makkah and Madinah via Jeddah and King Abdullah Economic City (KAEC). Reaching speeds of 300 km/h, it is the fastest way to travel between the holy cities.</p>
-                
-                <h3>Pros of the Haramain Train:</h3>
-                <ul>
-                    <li><strong>Speed:</strong> Jeddah Airport to Makkah in just 54 minutes.</li>
-                    <li><strong>Comfort:</strong> Modern seats, onboard cafeteria, and clean restrooms.</li>
-                    <li><strong>Reliability:</strong> Fixed schedules and premium business class options.</li>
-                </ul>
+When planning your Umrah trip, one of the biggest logistical questions is: **"Should I take the Haramain High-Speed Train or book a private taxi?"** Both options have transformed travel between Jeddah, Makkah, and Madinah, but the right choice depends on your specific needs—especially if you are traveling with family, seniors, or heavy luggage.
 
-                <h3>Cons of the Haramain Train:</h3>
-                <ul>
-                    <li><strong>Station Logistics:</strong> Stations are often located 15-20 minutes away from the main Haram hotels. You will still need an <strong>Umrah taxi</strong> to bridge the "last mile."</li>
-                    <li><strong>Luggage Restrictions:</strong> Strict limits of one large suitcase per person. If you are doing shopping in Makkah, this becomes a major hurdle.</li>
-                    <li><strong>Rigid Schedule:</strong> Missing your train means waiting for the next available slot, which can be hours away during peak seasons.</li>
-                </ul>
+In this 2025 comparison guide, we break down everything you need to know about **Umrah transport costs**, travel times, and convenience to help you make an informed decision.
 
-                <hr class="my-8 border-slate-200 dark:border-slate-700" />
+* * *
 
-                <h2>Private Umrah Taxi: The Door-to-Door Advantage</h2>
-                <p>For most pilgrims, especially families with children or elderly parents, a <a href="/booking">private Umrah taxi</a> (like our GMC Yukon or Hyundai Staria) offers unmatched peace of mind.</p>
-                
-                <h3>1. Seamless Door-to-Door Service</h3>
-                <p>Unlike the train, where you navigate multiple stations, a private car picks you up directly at the <a href="/services/jeddah-airport-transfer">Jeddah Airport arrival terminal</a> and drops you off exactly at your hotel lobby in Makkah. No walking with heavy bags, no waiting in line for secondary transport.</p>
+The Haramain High-Speed Train: Modern & Fast
+--------------------------------------------
 
-                <h3>2. 24/7 Availability & Flight Tracking</h3>
-                <p>Flights often land after midnight when trains have stopped running. At <strong>Al Kiswah Umrah Transport</strong>, we offer 24/7 service. We track your flight number and our driver waits for you, ensuring a stress-free arrival even if your flight is delayed.</p>
+The **Haramain High-Speed Railway** is a state-of-the-art train system connecting Makkah and Madinah via Jeddah and King Abdullah Economic City (KAEC). Reaching speeds of 300 km/h, it is the fastest way to travel between the holy cities.
 
-                <h3>3. Unlimited Luggage & Group Privacy</h3>
-                <p>If you are traveling with 4-7 people, booking a <a href="/fleet/gmc-yukon-at4">GMC Yukon XL</a> is not only more comfortable but often more cost-effective than buying 7 individual train tickets. Plus, you have the privacy of your own vehicle without sharing space with strangers.</p>
+### Pros of the Haramain Train:
 
-                <hr class="my-8 border-slate-200 dark:border-slate-700" />
+*   **Speed:** Jeddah Airport to Makkah in just 54 minutes.
+*   **Comfort:** Modern seats, onboard cafeteria, and clean restrooms.
+*   **Reliability:** Fixed schedules and premium business class options.
 
-                <h2>Comparison Table: Taxi vs. Train</h2>
-                <div class="overflow-x-auto my-8">
-                    <table class="w-full text-left border-collapse border border-slate-200 dark:border-slate-700">
-                        <thead>
-                            <tr class="bg-slate-50 dark:bg-slate-800">
-                                <th class="p-4 border border-slate-200 dark:border-slate-700 uppercase text-xs font-bold">Feature</th>
-                                <th class="p-4 border border-slate-200 dark:border-slate-700 uppercase text-xs font-bold">Private Taxi</th>
-                                <th class="p-4 border border-slate-200 dark:border-slate-700 uppercase text-xs font-bold">Haramain Train</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="p-4 border border-slate-200 dark:border-slate-700 font-medium">Route</td>
-                                <td class="p-4 border border-slate-200 dark:border-slate-700 italic">Hotel-to-Hotel</td>
-                                <td class="p-4 border border-slate-200 dark:border-slate-700 italic">Station-to-Station</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 border border-slate-200 dark:border-slate-700 font-medium">Luggage</td>
-                                <td class="p-4 border border-slate-200 dark:border-slate-700">Unlimited (within car capacity)</td>
-                                <td class="p-4 border border-slate-200 dark:border-slate-700">1 Bag + 1 Carry-on limit</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 border border-slate-200 dark:border-slate-700 font-medium">Time</td>
-                                <td class="p-4 border border-slate-200 dark:border-slate-700">60-90 mins (Direct)</td>
-                                <td class="p-4 border border-slate-200 dark:border-slate-700">54 mins (Train only)</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 border border-slate-200 dark:border-slate-700 font-medium">Availability</td>
-                                <td class="p-4 border border-slate-200 dark:border-slate-700">24/7 Priority Booking</td>
-                                <td class="p-4 border border-slate-200 dark:border-slate-700">Fixed Daily Schedules</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+### Cons of the Haramain Train:
 
-                <h2>Frequently Asked Questions (FAQ)</h2>
-                <h3>Can I book a taxi from Jeddah Airport to Makkah on the spot?</h3>
-                <p>Yes, but you risk overpaying or getting a driver without a commercial license. Pre-booking a <strong>private car from Jeddah to Makkah</strong> guarantees a fixed price and a vetted, professional driver.</p>
+*   **Station Logistics:** Stations are often located 15-20 minutes away from the main Haram hotels. You will still need an **Umrah taxi** to bridge the "last mile."
+*   **Luggage Restrictions:** Strict limits of one large suitcase per person. If you are doing shopping in Makkah, this becomes a major hurdle.
+*   **Rigid Schedule:** Missing your train means waiting for the next available slot, which can be hours away during peak seasons.
 
-                <h3>Which is cheaper for a family of 5?</h3>
-                <p>For a family of 5, a private <strong>GMC Yukon for Umrah</strong> is usually cheaper than 5 Business Class train tickets plus the taxis needed to and from the stations.</p>
+* * *
 
-                <h3>Does the train go directly to Masjid al-Haram?</h3>
-                <p>No. The Makkah Station is in the Rusaifa district. You will need a taxi or bus transfer to reach the hotels near the Haram or Clock Tower.</p>
+Private Umrah Taxi: The Door-to-Door Advantage
+----------------------------------------------
 
-                <hr class="my-8 border-slate-200 dark:border-slate-700" />
+For most pilgrims, especially families with children or elderly parents, a [private Umrah taxi](/booking) (like our GMC Yukon or Hyundai Staria) offers unmatched peace of mind.
 
-                <h2>Conclusion: Which should you choose?</h2>
-                <p>If you are a solo traveler with a backpack and arriving during the day, the <strong>Haramain High-Speed Train</strong> is a great experience. However, for families, elderly pilgrims, or anyone arriving with heavy luggage, a <strong>private taxi from Jeddah to Makkah</strong> is the clear winner for comfort, speed, and overall value.</p>
-                <p>Experience a stress-free pilgrimage. <a href="/booking">Check our latest Umrah transport rates</a> and book your private ride today with Al Kiswah.</p>
-            </div>
-        `,
+### 1\. Seamless Door-to-Door Service
+
+Unlike the train, where you navigate multiple stations, a private car picks you up directly at the [Jeddah Airport arrival terminal](/services/jeddah-airport-transfer) and drops you off exactly at your hotel lobby in Makkah. No walking with heavy bags, no waiting in line for secondary transport.
+
+### 2\. 24/7 Availability & Flight Tracking
+
+Flights often land after midnight when trains have stopped running. At **Al Kiswah Umrah Transport**, we offer 24/7 service. We track your flight number and our driver waits for you, ensuring a stress-free arrival even if your flight is delayed.
+
+### 3\. Unlimited Luggage & Group Privacy
+
+If you are traveling with 4-7 people, booking a [GMC Yukon XL](/fleet/gmc-yukon-at4) is not only more comfortable but often more cost-effective than buying 7 individual train tickets. Plus, you have the privacy of your own vehicle without sharing space with strangers.
+
+* * *
+
+Comparison Table: Taxi vs. Train
+--------------------------------
+
+Feature
+
+Private Taxi
+
+Haramain Train
+
+Route
+
+Hotel-to-Hotel
+
+Station-to-Station
+
+Luggage
+
+Unlimited (within car capacity)
+
+1 Bag + 1 Carry-on limit
+
+Time
+
+60-90 mins (Direct)
+
+54 mins (Train only)
+
+Availability
+
+24/7 Priority Booking
+
+Fixed Daily Schedules
+
+Frequently Asked Questions (FAQ)
+--------------------------------
+
+### Can I book a taxi from Jeddah Airport to Makkah on the spot?
+
+Yes, but you risk overpaying or getting a driver without a commercial license. Pre-booking a **private car from Jeddah to Makkah** guarantees a fixed price and a vetted, professional driver.
+
+### Which is cheaper for a family of 5?
+
+For a family of 5, a private **GMC Yukon for Umrah** is usually cheaper than 5 Business Class train tickets plus the taxis needed to and from the stations.
+
+### Does the train go directly to Masjid al-Haram?
+
+No. The Makkah Station is in the Rusaifa district. You will need a taxi or bus transfer to reach the hotels near the Haram or Clock Tower.
+
+* * *
+
+Conclusion: Which should you choose?
+------------------------------------
+
+If you are a solo traveler with a backpack and arriving during the day, the **Haramain High-Speed Train** is a great experience. However, for families, elderly pilgrims, or anyone arriving with heavy luggage, a **private taxi from Jeddah to Makkah** is the clear winner for comfort, speed, and overall value.
+
+Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/booking) and book your private ride today with Al Kiswah.
+
+`,
         category: 'Travel Guide',
         date: new Date('2024-12-30'),
         readTime: '6 min read',
@@ -2093,104 +2120,120 @@ Don't leave your ground transport to chance. Secure your authorized, licensed Ha
         title: 'How to Prepare for and Perform Umrah: A Guide for International Pilgrims',
         excerpt: 'A complete guide for international pilgrims on preparing for Umrah, with a special focus on the spiritual significance of Niyyah and the sacred state of Ihram.',
         content: `
-            <div class="prose max-w-none text-slate-800 dark:text-gray-200 dark:prose-invert prose-a:text-amber-600 dark:prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline">
-                <h2>The Spiritual Essence of Umrah</h2>
-                <p>Umrah is a journey of the soul, beginning with a sincere <strong>niyyah (intention)</strong> to seek closeness to Allah. For pilgrims traveling from abroad, the act of wearing Ihram before crossing Miqat is a profound reminder of humility, unity, and devotion. As you prepare for Umrah in 2026, <strong>Al Kiswah Umrah Transport</strong> is honored to guide you through every step—ensuring your journey is both spiritually uplifting and professionally supported.</p>
-                <p>Performing Umrah is a lifelong dream for many. It is a visit to the House of Allah, a cleansing of the soul, and a renewal of faith. Whether you are arriving during the blessed month of Ramadan or any other time of the year, the journey requires both physical preparation and spiritual readiness.</p>
 
-                <hr class="my-8 border-slate-200 dark:border-slate-700" />
+The Spiritual Essence of Umrah
+------------------------------
 
-                <h2>The Spiritual Significance of Niyyah (Intention)</h2>
-                <p>Every act of worship in Islam begins with the heart. The Prophet Muhammad (peace be upon him) said, <em>"Actions are judged by intentions."</em> (Bukhari)</p>
-                <p>For Umrah, your <strong>Niyyah</strong> is the foundation of your pilgrimage. It is not just a verbal statement but a firm resolve in your heart that you are undertaking this journey solely for the sake of Allah.</p>
-                
-                <div class="bg-amber-50 dark:bg-slate-900/50 p-6 rounded-xl border-l-4 border-amber-500 my-8">
-                    <h4 class="font-bold text-lg mb-2 text-amber-800 dark:text-amber-400">The Intention for Umrah</h4>
-                    <p class="text-slate-700 dark:text-slate-300">When you are ready to enter the state of Ihram, you pronounce:</p>
-                    <p class="text-xl font-arabic text-center my-4 font-bold">لَبَّيْكَ اللَّهُمَّ عُمْرَةً</p>
-                    <p class="text-center italic">"Labbayk Allahumma Umrah"<br>(Here I am, O Allah, for Umrah)</p>
-                </div>
+Umrah is a journey of the soul, beginning with a sincere **niyyah (intention)** to seek closeness to Allah. For pilgrims traveling from abroad, the act of wearing Ihram before crossing Miqat is a profound reminder of humility, unity, and devotion. As you prepare for Umrah in 2026, **Al Kiswah Umrah Transport** is honored to guide you through every step—ensuring your journey is both spiritually uplifting and professionally supported.
 
-                <p>This intention must be made <strong>before</strong> crossing the Miqat boundary. It marks the shift from your daily life into a sacred state of devotion.</p>
+Performing Umrah is a lifelong dream for many. It is a visit to the House of Allah, a cleansing of the soul, and a renewal of faith. Whether you are arriving during the blessed month of Ramadan or any other time of the year, the journey requires both physical preparation and spiritual readiness.
 
-                <h2>The Sacred State of Ihram</h2>
-                <p>Ihram is more than just two pieces of white cloth; it is a state of being. It symbolizes:</p>
-                <ul>
-                    <li><strong>Purity:</strong> A physical and spiritual cleansing before entering the ambit of the Divine.</li>
-                    <li><strong>Equality:</strong> Stripping away signs of wealth, status, and nationality. King and commoner stand shoulder to shoulder, indistinguishable in their humility.</li>
-                    <li><strong>Devotion:</strong> A commitment to avoid prohibited acts (like arguing, hunting, or using perfume) to focus entirely on Allah.</li>
-                </ul>
+* * *
 
-                <h2>Preparing for Umrah from Abroad</h2>
-                <p>Traveling from another country adds a layer of logistical planning to your spiritual journey. Here is a checklist for the international pilgrim:</p>
-                
-                <h3>1. Visa & Travel Documents</h3>
-                <p>Ensure your <strong>Umrah Visa</strong> or Tourist Visa is valid. Download the <strong>Nusuk App</strong> to book your Rawdah slot in Madinah.</p>
+The Spiritual Significance of Niyyah (Intention)
+------------------------------------------------
 
-                <h3>2. Packing Essentials</h3>
-                <p>Aside from your Ihram garments (bring two sets just in case), pack:</p>
-                <ul>
-                    <li>A small travel prayer mat.</li>
-                    <li>Unscented soap and deodorant (for use while in Ihram).</li>
-                    <li>Comfortable walking sandals.</li>
-                    <li>A small bag for your shoes when entering the Haram.</li>
-                </ul>
+Every act of worship in Islam begins with the heart. The Prophet Muhammad (peace be upon him) said, _"Actions are judged by intentions."_ (Bukhari)
 
-                <h3>3. Spiritual Readiness</h3>
-                <p>Before you leave, settle your debts, ask for forgiveness from those you may have wronged, and make sincere Tawbah (repentance).</p>
+For Umrah, your **Niyyah** is the foundation of your pilgrimage. It is not just a verbal statement but a firm resolve in your heart that you are undertaking this journey solely for the sake of Allah.
 
-                <h2>Wearing Ihram Abroad & The Miqat</h2>
-                <p>For those flying into Jeddah (King Abdulaziz International Airport), you will likely cross the <strong>Miqat</strong> (the boundary line) while in the air.</p>
-                
-                <div class="bg-blue-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-blue-500 my-8">
-                    <h4 class="font-bold text-lg mb-2 text-blue-800 dark:text-blue-400">Important for Air Travelers</h4>
-                    <p class="text-slate-700 dark:text-slate-300">You must be in the state of Ihram <strong>before</strong> the plane crosses the Miqat. Airlines usually announce this 30 minutes prior. It is highly recommended to wear your Ihram garments <strong>at your departure airport</strong> or during a stopover.</p>
-                </div>
+#### The Intention for Umrah
 
-                <p><strong>The Miqat Points:</strong></p>
-                <ul>
-                    <li><strong>Dhul Hulaifah (Abyar Ali):</strong> For those coming from Madinah (or landing in Madinah first).</li>
-                    <li><strong>Yalamlam (Sa'adiyah):</strong> For those coming from the south (Yemen) and many flights from Asia/South Africa.</li>
-                    <li><strong>Qarn al-Manazil (As-Sayl Al-Kabir):</strong> For those coming from the east (Najd, UAE, etc.).</li>
-                    <li><strong>Juhfah (Rabigh):</strong> For those coming from the north (Levant, Egypt, North Africa).</li>
-                </ul>
+When you are ready to enter the state of Ihram, you pronounce:
 
-                <h2>Step-by-Step Guide to Performing Umrah</h2>
-                
-                <h3>1. Arrival in Makkah</h3>
-                <p>Upon arriving at your hotel, refresh yourself (without using scented products if in Ihram) and proceed to Al-Masjid Al-Haram. Enter with your right foot, reciting the Dua of entering the mosque, and let the sight of the Kaaba fill your heart with awe.</p>
+لَبَّيْكَ اللَّهُمَّ عُمْرَةً
 
-                <h3>2. Tawaf (Circumambulation)</h3>
-                <p>Perform seven circuits around the Kaaba, starting from the Black Stone (Hajar al-Aswad). This act symbolizes the unity of believers revolving around the One God.</p>
+"Labbayk Allahumma Umrah"
+(Here I am, O Allah, for Umrah)
 
-                <h3>3. Sa’i (Walking between Safa and Marwah)</h3>
-                <p>Walk seven times between the hills of Safa and Marwah. This commemorates the struggle of Hajar (AS) searching for water for her son Ismail (AS). Reflect on her trust in Allah and her perseverance.</p>
+This intention must be made **before** crossing the Miqat boundary. It marks the shift from your daily life into a sacred state of devotion.
 
-                <h3>4. Halq or Taqsir (Shaving or Trimming)</h3>
-                <p>Upon completing Sa’i, men shave their heads (Halq) or trim their hair (Taqsir). Women cut a small portion of their hair (about a fingertip's length). This act releases you from the state of Ihram and marks the completion of your Umrah.</p>
+The Sacred State of Ihram
+-------------------------
 
-                <hr class="my-8 border-slate-200 dark:border-slate-700" />
+Ihram is more than just two pieces of white cloth; it is a state of being. It symbolizes:
 
-                <h2>Al Kiswah Umrah Transport: Your Companion on this Sacred Path</h2>
-                <p>Your journey doesn't end with the flight. Navigating from Jeddah Airport to Makkah, or Makkah to Madinah, requires a partner who understands the sanctity of your trip.</p>
-                <p><strong>Al Kiswah Umrah Transport</strong> is dedicated to serving the Guests of Allah with:</p>
-                <ul>
-                    <li><strong>Reliability:</strong> We track your flight to ensure we are there when you land.</li>
-                    <li><strong>Comfort:</strong> Our fleet of GMC Yukons and luxury buses ensures you rest well between rites.</li>
-                    <li><strong>Spirituality:</strong> Our drivers are vetted to provide a peaceful, respectful environment for your travel.</li>
-                </ul>
+*   **Purity:** A physical and spiritual cleansing before entering the ambit of the Divine.
+*   **Equality:** Stripping away signs of wealth, status, and nationality. King and commoner stand shoulder to shoulder, indistinguishable in their humility.
+*   **Devotion:** A commitment to avoid prohibited acts (like arguing, hunting, or using perfume) to focus entirely on Allah.
 
-                <p>We are not just a transport company; we are facilitators of your worship.</p>
+Preparing for Umrah from Abroad
+-------------------------------
 
-                <p class="mt-8 font-bold text-center">
-                    <a href="/booking" class="inline-block bg-gradient-to-r from-gold-primary to-amber-600 text-white px-8 py-3 rounded-full hover:shadow-xl transition-all shadow-lg text-lg">Book Your Umrah Transport</a>
-                </p>
+Traveling from another country adds a layer of logistical planning to your spiritual journey. Here is a checklist for the international pilgrim:
 
-                <div class="text-center mt-8">
-                    <p><em>Begin your sacred journey with sincerity of intention, and let Al Kiswah Umrah Transport guide your steps toward the House of Allah.</em></p>
-                </div>
-            </div>
-        `,
+### 1\. Visa & Travel Documents
+
+Ensure your **Umrah Visa** or Tourist Visa is valid. Download the **Nusuk App** to book your Rawdah slot in Madinah.
+
+### 2\. Packing Essentials
+
+Aside from your Ihram garments (bring two sets just in case), pack:
+
+*   A small travel prayer mat.
+*   Unscented soap and deodorant (for use while in Ihram).
+*   Comfortable walking sandals.
+*   A small bag for your shoes when entering the Haram.
+
+### 3\. Spiritual Readiness
+
+Before you leave, settle your debts, ask for forgiveness from those you may have wronged, and make sincere Tawbah (repentance).
+
+Wearing Ihram Abroad & The Miqat
+--------------------------------
+
+For those flying into Jeddah (King Abdulaziz International Airport), you will likely cross the **Miqat** (the boundary line) while in the air.
+
+#### Important for Air Travelers
+
+You must be in the state of Ihram **before** the plane crosses the Miqat. Airlines usually announce this 30 minutes prior. It is highly recommended to wear your Ihram garments **at your departure airport** or during a stopover.
+
+**The Miqat Points:**
+
+*   **Dhul Hulaifah (Abyar Ali):** For those coming from Madinah (or landing in Madinah first).
+*   **Yalamlam (Sa'adiyah):** For those coming from the south (Yemen) and many flights from Asia/South Africa.
+*   **Qarn al-Manazil (As-Sayl Al-Kabir):** For those coming from the east (Najd, UAE, etc.).
+*   **Juhfah (Rabigh):** For those coming from the north (Levant, Egypt, North Africa).
+
+Step-by-Step Guide to Performing Umrah
+--------------------------------------
+
+### 1\. Arrival in Makkah
+
+Upon arriving at your hotel, refresh yourself (without using scented products if in Ihram) and proceed to Al-Masjid Al-Haram. Enter with your right foot, reciting the Dua of entering the mosque, and let the sight of the Kaaba fill your heart with awe.
+
+### 2\. Tawaf (Circumambulation)
+
+Perform seven circuits around the Kaaba, starting from the Black Stone (Hajar al-Aswad). This act symbolizes the unity of believers revolving around the One God.
+
+### 3\. Sa’i (Walking between Safa and Marwah)
+
+Walk seven times between the hills of Safa and Marwah. This commemorates the struggle of Hajar (AS) searching for water for her son Ismail (AS). Reflect on her trust in Allah and her perseverance.
+
+### 4\. Halq or Taqsir (Shaving or Trimming)
+
+Upon completing Sa’i, men shave their heads (Halq) or trim their hair (Taqsir). Women cut a small portion of their hair (about a fingertip's length). This act releases you from the state of Ihram and marks the completion of your Umrah.
+
+* * *
+
+Al Kiswah Umrah Transport: Your Companion on this Sacred Path
+-------------------------------------------------------------
+
+Your journey doesn't end with the flight. Navigating from Jeddah Airport to Makkah, or Makkah to Madinah, requires a partner who understands the sanctity of your trip.
+
+**Al Kiswah Umrah Transport** is dedicated to serving the Guests of Allah with:
+
+*   **Reliability:** We track your flight to ensure we are there when you land.
+*   **Comfort:** Our fleet of GMC Yukons and luxury buses ensures you rest well between rites.
+*   **Spirituality:** Our drivers are vetted to provide a peaceful, respectful environment for your travel.
+
+We are not just a transport company; we are facilitators of your worship.
+
+[Book Your Umrah Transport](/booking)
+
+_Begin your sacred journey with sincerity of intention, and let Al Kiswah Umrah Transport guide your steps toward the House of Allah._
+
+`,
         category: 'Spiritual Guide',
         date: new Date('2026-01-29'),
         readTime: '8 min read',
@@ -2218,28 +2261,30 @@ Don't leave your ground transport to chance. Secure your authorized, licensed Ha
         title: 'Madinah to Jeddah Taxi Prices 2026: Comprehensive Guide',
         excerpt: 'Discover the latest and most affordable taxi prices for your journey from Madinah to Jeddah. Compare vehicles from Camry to GMC.',
         content: `
-            <div class="prose max-w-none text-slate-800 dark:text-gray-200 dark:prose-invert prose-a:text-amber-600 dark:prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline">
-                <h2>Latest Madinah to Jeddah Taxi Prices</h2>
-                <p>Planning your travel from the Prophet's City to the coastal city of Jeddah? Al Kiswah Umrah Transport offers a premium, direct fleet tailored for pilgrims and travelers. Below are the definitive <strong>Madinah to Jeddah taxi prices</strong> for our premium vehicles.</p>
-                
-                <hr class="my-8 border-slate-200 dark:border-slate-700" />
-                
-                <h3>Vehicle Fleet Pricing</h3>
-                <ul>
-                    <li><strong>Toyota Camry:</strong> 450 SAR (Up to 4 Passengers)</li>
-                    <li><strong>Hyundai Staria:</strong> 500 SAR (Up to 7 Passengers)</li>
-                    <li><strong>Hyundai Starex / H1:</strong> 450 SAR (Up to 7 Passengers)</li>
-                    <li><strong>Toyota Hiace:</strong> 550 SAR (Up to 10 Passengers)</li>
-                    <li><strong>Toyota Coaster:</strong> 850 SAR (Up to 22 Passengers)</li>
-                    <li><strong>GMC Yukon:</strong> 900 SAR (VIP Luxury, Up to 7 Passengers)</li>
-                </ul>
 
-                <p><em>Note: Prices are highly competitive and direct from us—no middlemen or hidden agency fees. Experience a safe, air-conditioned, and comfortable journey tailored to your family's size and luggage requirements.</em></p>
+Latest Madinah to Jeddah Taxi Prices
+------------------------------------
 
-                <h3>Why Choose Al Kiswah?</h3>
-                <p>We own our entire fleet. This means absolute quality control, professional drivers familiar with the Haramain routes, and guaranteed punctuality. Whether you need a standard sedan or a spacious VIP SUV, your comfort is our priority.</p>
-            </div>
-        `,
+Planning your travel from the Prophet's City to the coastal city of Jeddah? Al Kiswah Umrah Transport offers a premium, direct fleet tailored for pilgrims and travelers. Below are the definitive **Madinah to Jeddah taxi prices** for our premium vehicles.
+
+* * *
+
+### Vehicle Fleet Pricing
+
+*   **Toyota Camry:** 450 SAR (Up to 4 Passengers)
+*   **Hyundai Staria:** 500 SAR (Up to 7 Passengers)
+*   **Hyundai Starex / H1:** 450 SAR (Up to 7 Passengers)
+*   **Toyota Hiace:** 550 SAR (Up to 10 Passengers)
+*   **Toyota Coaster:** 850 SAR (Up to 22 Passengers)
+*   **GMC Yukon:** 900 SAR (VIP Luxury, Up to 7 Passengers)
+
+_Note: Prices are highly competitive and direct from us—no middlemen or hidden agency fees. Experience a safe, air-conditioned, and comfortable journey tailored to your family's size and luggage requirements._
+
+### Why Choose Al Kiswah?
+
+We own our entire fleet. This means absolute quality control, professional drivers familiar with the Haramain routes, and guaranteed punctuality. Whether you need a standard sedan or a spacious VIP SUV, your comfort is our priority.
+
+`,
         category: 'Travel Guides',
         readTime: '4 min read',
         image: '/images/blog/makkah-madinah-road.jpg',
