@@ -1,5 +1,74 @@
 export const staticBlogPosts = [
     {
+        _id: 'static-new-hajj-2026',
+        slug: 'hajj-taxi-service-mecca-2026-jeddah-transport',
+        title: 'Hajj 2026 Taxi Service: Mecca Transport & Jeddah Airport Transfers',
+        excerpt: 'Your complete guide to booking a reliable Hajj taxi service for Mecca 2026. Secure your Jeddah Airport to Makkah transport, Makkah to Madinah transfers, and avoid the Hajj rush with Al Kiswah Cab.',
+        content: `
+            <div class="prose max-w-none text-slate-800 dark:text-gray-200 dark:prose-invert prose-a:text-amber-600 dark:prose-a:text-amber-400 prose-a:no-underline hover:prose-a:underline">
+                <h2>Preparing for Hajj 2026: Your Transport Guide</h2>
+                <p>Millions of Muslims will travel to Saudi Arabia for <strong>Hajj 2026</strong>. While the spiritual preparation is paramount, the logistical planning—specifically securing a reliable <strong>Hajj taxi service Mecca 2026</strong>—can define the ease of your entire pilgrimage. Navigating the crowds, road closures, and heat requires a trusted transport partner.</p>
+                <p>At Al Kiswah Umrah Transport, we specialize in providing premium, licensed <strong>taxi for Hajj pilgrims Saudi Arabia</strong>. Here is your ultimate guide to booking the right transport for your sacred journey.</p>
+                
+                <hr class="my-8 border-slate-200 dark:border-slate-700" />
+
+                <h2>Jeddah Airport to Makkah Taxi Hajj</h2>
+                <p>Your Hajj journey typically begins at King Abdulaziz International Airport in Jeddah. During the Hajj season, the airport experiences unprecedented foot traffic. Finding an immediate <strong>airport transfer Hajj pilgrims Jeddah</strong> can be overwhelming, with long queues and fluctuating prices.</p>
+                <p>Pre-booking your <strong>Hajj transportation service Jeddah to Makkah</strong> ensures a seamless transition. Our chauffeurs monitor your flight, greet you at arrivals, and guide you to a pre-cooled, spacious vehicle. This allows you to maintain your focus and Ihram state without the stress of negotiating fares on the spot.</p>
+
+                <h3>Why Choose a Private Car Hire Makkah Hajj 2026?</h3>
+                <p>While public buses are available, a <strong>private car hire Makkah Hajj 2026</strong> offers unmatched benefits:</p>
+                <ul>
+                    <li><strong>Direct Hotel Drops:</strong> Buses often drop pilgrims at central stations, requiring a secondary taxi. We provide door-to-door service directly to your Makkah accommodation.</li>
+                    <li><strong>Luggage Space:</strong> Hajj requires specific packing. Our <a href="/fleet/gmc-yukon-at4">GMC Yukon XL</a> and Hyundai Staria vehicles accommodate ample luggage comfortably.</li>
+                    <li><strong>Flexibility:</strong> Travel on your schedule, not a fixed bus timetable.</li>
+                </ul>
+
+                <h2>Navigating Makkah to Madinah Taxi Hajj Season</h2>
+                <p>Many pilgrims choose to visit Madinah either before or after the Hajj rites. The journey between the two Holy Cities is approximately 4.5 hours by road. Booking a <strong>Makkah to Madinah taxi Hajj season</strong> requires careful timing, as highways can be congested.</p>
+                <p>Our drivers are intimately familiar with the best routes and travel times to avoid peak traffic. We ensure your transit is a peaceful time for rest and reflection, rather than an exhausting ordeal.</p>
+
+                <div class="bg-amber-50 dark:bg-slate-900/50 p-6 rounded-xl border-l-4 border-amber-500 my-8">
+                    <h4 class="font-bold text-lg mb-2 text-amber-800 dark:text-amber-400">Important: Licensed Transport Only</h4>
+                    <p class="text-slate-700 dark:text-slate-300">During Hajj, Saudi authorities strictly enforce transport regulations. Only <strong>licensed Hajj transport Saudi Arabia</strong> is permitted past checkpoints. Al Kiswah Cab is fully certified, ensuring you will not face delays or being turned away at crucial borders.</p>
+                </div>
+
+                <h2>Al Kiswah Cab Hajj Guidance: Booking Early</h2>
+                <p>The demand for a quality <strong>Hajj cab service for pilgrims</strong> skyrockets months before the actual dates. Our strongest piece of advice is to book early.</p>
+                <ul>
+                    <li><strong>Secure Your Vehicle:</strong> High-demand VIP vehicles sell out quickly.</li>
+                    <li><strong>Lock in Your Price:</strong> Avoid the surge pricing that inevitably happens closer to Hajj.</li>
+                    <li><strong>Peace of Mind:</strong> Cross the most stressful logistical hurdle off your checklist months in advance.</li>
+                </ul>
+
+                <p>May Allah accept your Hajj in 2026. Allow us to handle the roads so you can focus entirely on the House of Allah.</p>
+
+                <p class="mt-8 font-bold text-center">
+                    <a href="/booking" class="inline-block bg-gradient-to-r from-gold-primary to-amber-600 text-white px-8 py-3 rounded-full hover:shadow-xl transition-all shadow-lg text-lg">Secure Your Hajj 2026 Transport Now</a>
+                </p>
+            </div>
+        `,
+        category: 'Hajj Guide',
+        date: new Date('2026-05-10'),
+        readTime: '6 min read',
+        image: '/images/blog/hajj-transport-2026.jpg',
+        alt: 'Hajj 2026 pilgrims using private taxi service in Mecca',
+        author: 'Al Kiswah Transport Team',
+        tags: [
+            'Hajj 2026',
+            'Taxi Service',
+            'Jeddah to Makkah',
+            'Makkah to Madinah',
+            'Hajj Transport',
+            'Private Car',
+            'Airport Transfer'
+        ],
+        isPublished: true,
+        metaTitle: 'Hajj Taxi Service Mecca 2026 | Jeddah & Madinah Transport',
+        metaDescription: 'Book your Hajj taxi service for Mecca 2026. Reliable private transfers from Jeddah Airport to Makkah, and Makkah to Madinah. Secure your ride with Al Kiswah Cab.',
+        createdAt: new Date('2026-05-10'),
+        updatedAt: new Date('2026-05-10'),
+    },
         _id: 'static-ramadan-2026',
         slug: 'ramadan-umrah-taxi-service-2026-makkah-madinah',
         title: 'Ramadan 2026 Umrah Taxi: A Spiritual Journey & Transport Guide',
