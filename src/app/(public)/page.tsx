@@ -115,16 +115,6 @@ export default async function Home() {
         heroImage
       )} />
 
-      {/* Hajj 2026 Banner */}
-      <div className="bg-gold-primary text-black py-2.5 px-4 text-center z-40 relative">
-        <p className="text-sm font-semibold flex items-center justify-center gap-2 flex-wrap">
-          <span className="animate-pulse">🕋</span>
-          Planning for Hajj 2026? 
-          <Link href="/blog/hajj-2026-guidance-taxi-service-pilgrims" className="underline decoration-2 underline-offset-2 hover:text-white transition-colors">
-            Read our complete transport & preparation guide here &rarr;
-          </Link>
-        </p>
-      </div>
 
       {/* Hero Section */}
       <Hero
