@@ -247,6 +247,7 @@ export default function BookingSuccessModal({
 
                                     {/* Total Amount & QR Code */}
                                     <div className="flex items-stretch gap-3">
+                                        {/* QR Code (Temporarily disabled as requested)
                                         <div className="bg-white border-2 border-gold-primary/30 rounded-2xl p-2.5 flex items-center justify-center shrink-0 shadow-lg">
                                             <img 
                                                 src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(`${typeof window !== 'undefined' ? window.location.origin : process.env.NEXT_PUBLIC_APP_URL || 'https://alkiswahumrahcab.com'}/receipt/${bookingData.bookingId}`)}`} 
@@ -255,6 +256,7 @@ export default function BookingSuccessModal({
                                                 crossOrigin="anonymous"
                                             />
                                         </div>
+                                        */}
                                         <div className="flex-1 bg-gold-primary/10 border border-gold-primary/30 text-white rounded-2xl p-4 flex flex-col justify-center shadow-lg backdrop-blur-sm relative overflow-hidden">
                                             <div className="absolute inset-0 bg-gradient-to-r from-gold-primary/5 to-transparent pointer-events-none" />
                                             <div className="relative z-10 flex justify-between items-end">

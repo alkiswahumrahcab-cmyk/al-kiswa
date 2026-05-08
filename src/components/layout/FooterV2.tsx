@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useSettings } from '@/context/SettingsContext';
 import { regions } from '@/data/regions';
+import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 
 export default function Footer() {
     const { settings } = useSettings();
@@ -127,6 +128,30 @@ export default function Footer() {
                                 <span className="bg-gray-800 px-2 py-1 rounded">GBP</span>
                                 <span className="bg-gray-800 px-2 py-1 rounded">EUR</span>
                             </div>
+                        </div>
+
+                        {/* Social Links */}
+                        <div className="flex items-center gap-4 pt-2">
+                            {settings?.contact?.social?.facebook && (
+                                <a href={settings.contact.social.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-500 transition-colors" aria-label="Facebook">
+                                    <Facebook size={20} strokeWidth={1.5} />
+                                </a>
+                            )}
+                            {settings?.contact?.social?.instagram && (
+                                <a href={settings.contact.social.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition-colors" aria-label="Instagram">
+                                    <Instagram size={20} strokeWidth={1.5} />
+                                </a>
+                            )}
+                            {settings?.contact?.social?.twitter && (
+                                <a href={settings.contact.social.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Twitter">
+                                    <Twitter size={20} strokeWidth={1.5} />
+                                </a>
+                            )}
+                            {settings?.contact?.social?.linkedin && (
+                                <a href={settings.contact.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 transition-colors" aria-label="LinkedIn">
+                                    <Linkedin size={20} strokeWidth={1.5} />
+                                </a>
+                            )}
                         </div>
                     </div>
 

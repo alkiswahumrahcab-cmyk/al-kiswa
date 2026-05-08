@@ -136,51 +136,35 @@ export default async function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: `{
-  "@context": "https://schema.org",
-  "@type": "TransportationCompany",
-  "@id": "https://kiswahumrahcab.com/#organization",
-  "name": "Al Kiswah Umrah Transport",
-  "alternateName": [
-    "Al Kiswa Umrah Transport",
-    "Kiswah Umrah Cab",
-    "Kiswah Umrah Taxi Service"
-  ],
-  "url": "https://kiswahumrahcab.com",
-  "logo": "https://kiswahumrahcab.com/logo.webp",
-  "image": "https://kiswahumrahcab.com/images/og-image.jpg",
-  "description": "Licensed Umrah taxi and private transport service in Saudi Arabia. Airport transfers between Jeddah, Makkah, Madinah, and Ziyarat tours with professional drivers.",
-  "foundingDate": "2014",
-  "founder": {
-    "@type": "Person",
-    "name": "Al Kiswah Transport Group"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "SA",
-    "addressRegion": "Makkah",
-    "addressLocality": "Makkah"
-  },
-  "areaServed": [
-    {"@type": "City", "name": "Jeddah"},
-    {"@type": "City", "name": "Makkah"},
-    {"@type": "City", "name": "Madinah"},
-    {"@type": "Country", "name": "Saudi Arabia"}
-  ],
-  "telephone": "+966548707332",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer service",
-    "telephone": "+966548707332",
-    "availableLanguage": ["English", "Arabic", "Urdu"],
-    "hoursAvailable": "Mo-Su 00:00-24:00"
-  },
-  "sameAs": [
-    "https://www.google.com/search?q=Al+Kiswah+Umrah+Transport",
-    "https://wa.me/966548707332",
-    "https://maps.google.com/?q=Al+Kiswah+Umrah+Transport"
-  ]
-}`
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "TransportationCompany",
+              "@id": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://kiswahumrahcab.com'}/#organization`,
+              "name": settings.general.siteName || "Al Kiswah Umrah Transport",
+              "alternateName": "Al Kiswa Umrah Transport",
+              "url": process.env.NEXT_PUBLIC_SITE_URL || "https://kiswahumrahcab.com",
+              "logo": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://kiswahumrahcab.com'}/logo.webp`,
+              "image": `${process.env.NEXT_PUBLIC_SITE_URL || 'https://kiswahumrahcab.com'}/images/og-image.jpg`,
+              "description": settings.seo.defaultDescription || "Licensed private Umrah taxi service in Saudi Arabia. Transfers between Jeddah Airport, Makkah and Madinah.",
+              "foundingDate": "2014",
+              "areaServed": [
+                { "@type": "City", "name": "Jeddah" },
+                { "@type": "City", "name": "Makkah" },
+                { "@type": "City", "name": "Madinah" }
+              ],
+              "telephone": settings.contact.phone || "+966548707332",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer service",
+                "telephone": settings.contact.phone || "+966548707332",
+                "availableLanguage": ["English", "Arabic", "Urdu"],
+                "hoursAvailable": "Mo-Su 00:00-24:00"
+              },
+              "sameAs": [
+                "https://www.google.com/search?q=Al+Kiswah+Umrah+Transport",
+                "https://wa.me/966548707332"
+              ]
+            })
           }}
         />
       </head>
