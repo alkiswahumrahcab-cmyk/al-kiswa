@@ -151,6 +151,16 @@ export const generateServiceSchema = (
         '@type': 'LocalBusiness',
         name: settings.general.siteName,
         image: `${siteUrl}/opengraph-image.png`,
+        telephone: settings.contact.phone,
+        priceRange: '$$',
+        address: {
+            '@type': 'PostalAddress',
+            streetAddress: settings.contact.address,
+            addressLocality: 'Makkah',
+            addressRegion: 'Makkah Region',
+            postalCode: '24231',
+            addressCountry: 'SA',
+        },
     },
     areaServed: {
         '@type': 'State',
@@ -216,7 +226,18 @@ export const generateAboutPageSchema = (): WithContext<AboutPage> => ({
     mainEntity: {
         '@type': 'LocalBusiness',
         name: settings.general.siteName,
-        sameAs: siteUrl
+        sameAs: siteUrl,
+        image: `${siteUrl}/images/fleet/gmc-yukon-studio.webp`,
+        telephone: settings.contact.phone,
+        priceRange: '$$',
+        address: {
+            '@type': 'PostalAddress',
+            streetAddress: settings.contact.address,
+            addressLocality: 'Makkah',
+            addressRegion: 'Makkah Region',
+            postalCode: '24231',
+            addressCountry: 'SA',
+        },
     }
 });
 

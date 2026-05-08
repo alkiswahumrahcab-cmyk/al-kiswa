@@ -10,7 +10,8 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import RouteVisual from '@/components/services/RouteVisual';
 import GlassCard from '@/components/ui/GlassCard';
 import FadeIn from '@/components/common/FadeIn';
-
+import { JsonLdScript } from "@/components/seo/JsonLd";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/components/seo/schema-generator";
 export const metadata: Metadata = {
     title: "Madinah Airport Taxi to Hotel 2026 | Al Kiswah",
     description: "Book a reliable Madinah Airport taxi to your Masjid Nabawi hotel. 24/7 VIP pickup, meet & greet, and fixed prices. Book your transfer online now.",
@@ -30,27 +31,7 @@ export const metadata: Metadata = {
     }
 };
 
-const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Madinah Airport Taxi",
-    "provider": {
-        "@type": "LocalBusiness",
-        "name": "Al Kiswah",
-        "image": "https://kiswahumrahcab.com/logo.png"
-    },
-    "serviceType": "Airport Transfer",
-    "areaServed": {
-        "@type": "Airport",
-        "name": "Prince Mohammad Bin Abdulaziz International Airport"
-    },
-    "description": "Private taxi transfer from Madinah Airport to Masjid Nabawi hotels.",
-    "offers": {
-        "@type": "Offer",
-        "priceCurrency": "SAR",
-        "availability": "https://schema.org/InStock"
-    }
-};
+
 
 const madinahAirportFAQs = [
     {
@@ -76,10 +57,19 @@ export default async function MadinahAirportPage() {
         <main className="overflow-x-hidden bg-primary-black min-h-screen relative">
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none fixed" />
 
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
+            <JsonLdScript schema={[
+                generateServiceSchema(
+                    "Madinah Airport Taxi",
+                    "Private taxi transfer from Madinah Airport to Masjid Nabawi hotels.",
+                    "https://kiswahumrahcab.com/images/routes/madinah-airport-hero.webp"
+                ),
+                generateBreadcrumbSchema([
+                    { name: "Home", item: "/" },
+                    { name: "Services", item: "/services" },
+                    { name: "Madinah Airport Taxi", item: "/services/madinah-airport-transfer" }
+                ]),
+                generateFAQSchema(madinahAirportFAQs)
+            ]} />
             <Hero
                 title="Madinah Airport (MED) Transfers"
                 subtitle="Start your visit to the Prophet's City with peace of mind. Reliable meet & greet service from Prince Mohammad Bin Abdulaziz Airport."

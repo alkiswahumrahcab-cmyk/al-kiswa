@@ -13,7 +13,6 @@ import { getSettings } from "@/lib/settings-storage";
 
 import ScrollToTop from "@/components/common/ScrollToTop";
 import { JsonLdScript } from "@/components/seo/JsonLd";
-import { generateOrganizationSchema } from "@/components/seo/schema-generator";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -134,14 +133,62 @@ export default async function RootLayout({
           ` }} />
         </noscript>
         <link rel="llms-txt" href="/llms.txt" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: `{
+  "@context": "https://schema.org",
+  "@type": "TransportationCompany",
+  "@id": "https://kiswahumrahcab.com/#organization",
+  "name": "Al Kiswah Umrah Transport",
+  "alternateName": [
+    "Al Kiswa Umrah Transport",
+    "Kiswah Umrah Cab",
+    "Kiswah Umrah Taxi Service"
+  ],
+  "url": "https://kiswahumrahcab.com",
+  "logo": "https://kiswahumrahcab.com/logo.webp",
+  "image": "https://kiswahumrahcab.com/images/og-image.jpg",
+  "description": "Licensed Umrah taxi and private transport service in Saudi Arabia. Airport transfers between Jeddah, Makkah, Madinah, and Ziyarat tours with professional drivers.",
+  "foundingDate": "2014",
+  "founder": {
+    "@type": "Person",
+    "name": "Al Kiswah Transport Group"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "SA",
+    "addressRegion": "Makkah",
+    "addressLocality": "Makkah"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Jeddah"},
+    {"@type": "City", "name": "Makkah"},
+    {"@type": "City", "name": "Madinah"},
+    {"@type": "Country", "name": "Saudi Arabia"}
+  ],
+  "telephone": "+966548707332",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "telephone": "+966548707332",
+    "availableLanguage": ["English", "Arabic", "Urdu"],
+    "hoursAvailable": "Mo-Su 00:00-24:00"
+  },
+  "sameAs": [
+    "https://www.google.com/search?q=Al+Kiswah+Umrah+Transport",
+    "https://wa.me/966548707332",
+    "https://maps.google.com/?q=Al+Kiswah+Umrah+Transport"
+  ]
+}`
+          }}
+        />
       </head>
       <body className={`${montserrat.variable} ${tajawal.variable}`}>
         {settings.general.googleAnalyticsId && (
           <GoogleAnalytics gaId={settings.general.googleAnalyticsId} />
         )}
 
-        {/* JSON-LD: Organization schema (no aggregateRating — belongs on individual pages only) */}
-        <JsonLdScript schema={generateOrganizationSchema()} />
 
         <MenuProvider>
           <SettingsProvider>

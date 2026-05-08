@@ -1,15 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-
-  typescript: {
-    // ignoreBuildErrors: false,
-    // Trigger Restart
-  },
-  // @ts-ignore
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   experimental: {
     optimizeCss: true, // Requires 'critters' package
     scrollRestoration: true,

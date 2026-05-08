@@ -225,33 +225,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                 </p>
 
                 <div className="flex flex-col gap-4 max-w-sm mx-auto mb-10">
-                    <button
-                        onClick={() => {
-                            import('@/lib/pdf-generator').then(({ generateBookingInvoice }) => {
-                                generateBookingInvoice({
-                                    id: confirmedBooking?.id || Date.now().toString().slice(-6),
-                                    date: data.date || new Date(),
-                                    time: data.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-                                    pickup: data.pickup,
-                                    dropoff: data.dropoff,
-                                    vehicle: vehicleNames,
-                                    vehicleCount: Number(selectedList.reduce((acc: number, item: any) => acc + item.count, 0)),
-                                    totalPrice: grandTotal,
-                                    customerName: data.name,
-                                    customerPhone: data.phone,
-                                    customerEmail: data.email,
-                                    status: 'CONFIRMED',
-                                    currency: currency,
-                                    formattedTotal: formatPrice(grandTotal).amount
-                                });
-                            });
-                        }}
-                        className="w-full flex items-center justify-center gap-3 py-4 bg-[#D4AF37] hover:bg-[#B8962E] text-black font-bold uppercase tracking-widest rounded-2xl transition-all group"
-                    >
-                        <Printer size={20} className="group-hover:scale-110 transition-transform" />
-                        Download & Print Invoice
-                    </button>
-                    
+
                     <a 
                         href={settings?.contact?.social?.googleReview || "https://share.google/ARbbVaAackyOs8N7G"} 
                         target="_blank" 
@@ -262,7 +236,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                         <span>Share Review on Google</span>
                     </a>
                     
-                    <p className="text-[11px] text-gray-500 font-medium">Your receipt is ready to download. May your journey be blessed.</p>
+                    <p className="text-[11px] text-gray-500 font-medium">Your receipt has been sent via email. May your journey be blessed.</p>
                 </div>
 
                 <div className="flex flex-col gap-3 max-w-xs mx-auto">

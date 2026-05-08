@@ -9,7 +9,8 @@ import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FadeIn from "@/components/common/FadeIn";
-
+import { JsonLdScript } from "@/components/seo/JsonLd";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/components/seo/schema-generator";
 export const metadata: Metadata = {
     title: "VIP Makkah & Madinah Ziyarat Tours 2026 | Al Kiswah",
     description: "Book private VIP Ziyarat tours in Makkah and Madinah. Fixed prices, knowledgeable drivers for Jabal Al-Nour, Masjid Quba, and guided trips.",
@@ -30,34 +31,7 @@ export const metadata: Metadata = {
     }
 };
 
-const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "TouristTrip",
-    "name": "VIP Makkah & Madinah Ziyarat Tour",
-    "provider": {
-        "@type": "LocalBusiness",
-        "name": "Al Kiswah",
-        "image": "https://kiswahumrahcab.com/logo.png"
-    },
-    "description": "Private guided VIP tour of historical Islamic sites in Makkah and Madinah.",
-    "itinerary": [
-        {
-            "@type": "City",
-            "name": "Makkah",
-            "description": "Visit Jabal Al-Nour, Jabal Thawr, and Arafat."
-        },
-        {
-            "@type": "City",
-            "name": "Madinah",
-            "description": "Visit Masjid Quba, Mount Uhud, and Qiblatayn."
-        }
-    ],
-    "offers": {
-        "@type": "Offer",
-        "priceCurrency": "SAR",
-        "availability": "https://schema.org/InStock"
-    }
-};
+
 
 const ziyaratFAQs = [
     {
@@ -83,10 +57,19 @@ export default async function ZiyaratToursPage() {
         <main className="min-h-screen bg-primary-black relative">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
+            <JsonLdScript schema={[
+                generateServiceSchema(
+                    "VIP Makkah & Madinah Ziyarat Tour",
+                    "Private guided VIP tour of historical Islamic sites in Makkah and Madinah.",
+                    "https://kiswahumrahcab.com/images/routes/makkah-ziyarat-hero.webp"
+                ),
+                generateBreadcrumbSchema([
+                    { name: "Home", item: "/" },
+                    { name: "Services", item: "/services" },
+                    { name: "Ziyarat Tours", item: "/services/ziyarat-tours" }
+                ]),
+                generateFAQSchema(ziyaratFAQs)
+            ]} />
             <Hero
                 title="Ziyarat Tours: Relive Islamic History"
                 subtitle="Walk in the footsteps of the Prophet (SAW). Comprehensive engaging tours of the holy sites in Makkah and Madinah."

@@ -10,7 +10,14 @@ import { routeService } from '@/services/routeService';
 import { ShieldCheck, Star, UserCheck, Timer, ChevronDown } from 'lucide-react';
 import { RouteWithPrices } from '@/services/routeService';
 import GlassCard from '@/components/ui/GlassCard';
+import { JsonLdScript } from "@/components/seo/JsonLd";
+import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/components/seo/schema-generator";
 
+const intercityFAQs = [
+    { question: "How long is the journey?", answer: "Makkah to Madinah takes approximately 4.5 hours on the smooth Hijrah Highway. We adjust speed for your comfort and safety." },
+    { question: "Is the Miqat stop included?", answer: "Yes! If you are traveling from Madinah to Makkah, we will stop at Miqat Dhul Hulayfah (Abyar Ali) for 15-20 minutes for you to assume Ihram, free of charge." },
+    { question: "Are there hidden fees?", answer: "No. The price quoted is per vehicle, all-inclusive of fuel, driver, and taxes. No per-person charges." }
+];
 export const metadata = {
     title: "Intercity VIP Transport Jeddah Makkah Madinah 2026 | Al Kiswah",
     description: "Book private intercity taxi transfers between Jeddah, Makkah, and Madinah. Luxury fleet, professional drivers, fixed prices. Book online in 60 seconds.",
@@ -30,26 +37,7 @@ export const metadata = {
     }
 };
 
-const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Intercity Transport Service",
-    "provider": {
-        "@type": "LocalBusiness",
-        "name": "Al Kiswah"
-    },
-    "serviceType": "Intercity Taxi Transfer",
-    "areaServed": {
-        "@type": "Country",
-        "name": "Saudi Arabia"
-    },
-    "description": "Premium private taxi service for intercity travel between Jeddah, Makkah, and Madinah.",
-    "offers": {
-        "@type": "Offer",
-        "priceCurrency": "SAR",
-        "availability": "https://schema.org/InStock"
-    }
-};
+
 
 // Fallback data
 const MOCK_ROUTES = [
@@ -110,10 +98,19 @@ export default async function IntercityTransferPage() {
 
     return (
         <main className="bg-primary-black text-white relative">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
+            <JsonLdScript schema={[
+                generateServiceSchema(
+                    "Intercity Transport Service",
+                    "Premium private taxi service for intercity travel between Jeddah, Makkah, and Madinah.",
+                    "https://kiswahumrahcab.com/images/routes/routes-network-hero.webp"
+                ),
+                generateBreadcrumbSchema([
+                    { name: "Home", item: "/" },
+                    { name: "Services", item: "/services" },
+                    { name: "Intercity Transfer", item: "/services/intercity-transfer" }
+                ]),
+                generateFAQSchema(intercityFAQs)
+            ]} />
             {/* Background Texture */}
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
@@ -245,17 +242,13 @@ export default async function IntercityTransferPage() {
                             Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37]">Questions</span>
                         </h2>
                         <div className="space-y-6">
-                            {[
-                                { q: "How long is the journey?", a: "Makkah to Madinah takes approximately 4.5 hours on the smooth Hijrah Highway. We adjust speed for your comfort and safety." },
-                                { q: "Is the Miqat stop included?", a: "Yes! If you are traveling from Madinah to Makkah, we will stop at Miqat Dhul Hulayfah (Abyar Ali) for 15-20 minutes for you to assume Ihram, free of charge." },
-                                { q: "Are there hidden fees?", a: "No. The price quoted is per vehicle, all-inclusive of fuel, driver, and taxes. No per-person charges." }
-                            ].map((faq, i) => (
+                            {intercityFAQs.map((faq, i) => (
                                 <div key={i} className="bg-black/40 border border-white/5 rounded-2xl p-8 hover:border-[#D4AF37]/30 transition-all duration-300">
                                     <h3 className="font-bold text-lg mb-3 text-white flex items-start gap-4 font-sans">
                                         <span className="text-[#D4AF37] mt-1 p-1 bg-[#D4AF37]/10 rounded-full flex items-center justify-center"><ChevronDown size={16} /></span>
-                                        {faq.q}
+                                        {faq.question}
                                     </h3>
-                                    <p className="text-gray-400 font-light leading-relaxed pl-10">{faq.a}</p>
+                                    <p className="text-gray-400 font-light leading-relaxed pl-10">{faq.answer}</p>
                                 </div>
                             ))}
                         </div>

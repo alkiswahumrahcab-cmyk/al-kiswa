@@ -8,8 +8,13 @@ import { DEFAULT_BOOKING_CONFIRMATION_TEMPLATE, DEFAULT_ADMIN_NOTIFICATION_TEMPL
 // but we provide a fallback for testing if it's missing in local environment.
 // ─────────────────────────────────────────────────────────────────────────────
 
-const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const resend = new Resend(RESEND_API_KEY);
+const getResendClient = () => {
+    const key = process.env.RESEND_API_KEY;
+    if (!key) {
+        console.warn('[Email] ⚠️ RESEND_API_KEY is not defined. Email sending will fail at runtime.');
+    }
+    return new Resend(key || 'dummy_key_to_prevent_build_crash');
+};
 
 // Default sender email. 
 // IMPORTANT: Resend requires a verified domain to send emails to arbitrary addresses.
@@ -43,7 +48,8 @@ export const sendEmail = async ({ to, subject, html, attachments }: EmailOptions
     }
     
     try {
-        const { data, error } = await resend.emails.send({
+        const resendClient = getResendClient();
+        const { data, error } = await resendClient.emails.send({
             from: `Al Kiswah Umrah Transport <${DEFAULT_SENDER}>`,
             to: [to],
             subject: subject,
