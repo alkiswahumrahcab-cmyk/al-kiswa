@@ -565,10 +565,10 @@ export default function BookingForm() {
                         totalAmount: receiptData.totalAmount,
                     }}
                     whatsappNumber="966548707332"
-                    onPrint={() => { setShowSuccessModal(false); setTimeout(() => window.print(), 100); }}
                     onClose={() => router.push('/')}
                 />
             )}
         </div>
     );
 }
+

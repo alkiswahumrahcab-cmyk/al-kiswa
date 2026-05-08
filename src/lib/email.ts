@@ -1,4 +1,6 @@
 import { Resend } from 'resend';
+import { getSettings } from './settings-storage';
+import { DEFAULT_BOOKING_CONFIRMATION_TEMPLATE, DEFAULT_ADMIN_NOTIFICATION_TEMPLATE, replaceTemplateVariables } from './email-templates';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // We initialize the Resend client.
@@ -23,9 +25,10 @@ interface EmailOptions {
     to: string;
     subject: string;
     html: string;
+    attachments?: { filename: string; content: Buffer }[];
 }
 
-export const sendEmail = async ({ to, subject, html }: EmailOptions): Promise<boolean> => {
+export const sendEmail = async ({ to, subject, html, attachments }: EmailOptions): Promise<boolean> => {
     // Validate recipient
     if (!to || !to.includes('@')) {
         console.error(`[Email] ❌ Skipping send — invalid recipient: "${to}"`);
@@ -35,6 +38,9 @@ export const sendEmail = async ({ to, subject, html }: EmailOptions): Promise<bo
     console.log(`[Email] ─── Preparing to send via Resend ───`);
     console.log(`[Email]  To:      ${to.substring(0, 3)}***@${to.split('@')[1]}`);
     console.log(`[Email]  Subject: ${subject}`);
+    if (attachments?.length) {
+        console.log(`[Email]  Attachments: ${attachments.length} files`);
+    }
     
     try {
         const { data, error } = await resend.emails.send({
@@ -42,6 +48,7 @@ export const sendEmail = async ({ to, subject, html }: EmailOptions): Promise<bo
             to: [to],
             subject: subject,
             html: html,
+            attachments: attachments,
         });
 
         if (error) {
@@ -80,11 +87,12 @@ interface BookingData {
     luggage?: number;
     notes?: string;
     price?: string;
-    selectedVehicles?: { name: string; quantity: number }[];
+    selectedVehicles?: { name?: string; quantity: number }[];
     country?: string;
     flightNumber?: string;
     arrivalDate?: string;
     phone?: string;
+    pdfBuffer?: Buffer;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -170,7 +178,12 @@ export const sendBookingConfirmationEmail = async (booking: BookingData): Promis
     const htmlContent = getBookingConfirmationTemplate(booking, templateString, settings);
     const subject = `Booking Confirmation #${booking.id} | تأكيد الحجز`;
 
-    return await sendEmail({ to: booking.email, subject, html: htmlContent });
+    const attachments = booking.pdfBuffer ? [{
+        filename: `Receipt_AK_${booking.id}.pdf`,
+        content: booking.pdfBuffer
+    }] : undefined;
+
+    return await sendEmail({ to: booking.email, subject, html: htmlContent, attachments });
 };
 
 export const sendAdminNewBookingEmail = async (booking: BookingData): Promise<boolean> => {
@@ -185,10 +198,16 @@ export const sendAdminNewBookingEmail = async (booking: BookingData): Promise<bo
     const templateString = settings.emailTemplates?.adminNotification || DEFAULT_ADMIN_NOTIFICATION_TEMPLATE;
     const htmlContent = getAdminBookingNotificationTemplate(booking, templateString, settings);
 
+    const attachments = booking.pdfBuffer ? [{
+        filename: `Receipt_AK_${booking.id}.pdf`,
+        content: booking.pdfBuffer
+    }] : undefined;
+
     return await sendEmail({
         to: adminEmail,
         subject: `🔔 New Booking #${booking.id} Received`,
         html: htmlContent,
+        attachments
     });
 };
 

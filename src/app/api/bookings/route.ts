@@ -202,100 +202,43 @@ export async function POST(request: Request) {
             );
         }
 
-        // ── 6. Send emails (non-fatal) ────────────────────────────────────
+        // ── 6. Trigger Background Job (Fast/Fire-and-forget) ──────────────
         const bookingId = (savedBooking._id || savedBooking.id || '').toString();
-        const emailData = {
-            name: savedBooking.name,
-            email: savedBooking.email,
-            status: savedBooking.status || 'pending',
-            id: bookingId.slice(-8).toUpperCase(),
-            vehicle: savedBooking.vehicle || 'Custom Booking',
-            pickup: savedBooking.pickup,
-            dropoff: savedBooking.dropoff,
-            date: savedBooking.date,
-            time: savedBooking.time,
-            passengers: savedBooking.passengers || 1,
-            vehicleCount: savedBooking.vehicleCount || 1,
-            luggage: savedBooking.luggage || 0,
-            notes: savedBooking.notes,
-            price: savedBooking.price || (savedBooking.finalPrice ? `${savedBooking.finalPrice} SAR` : undefined),
-            selectedVehicles: selectedVehiclesList,
-            country: savedBooking.country,
-            flightNumber: savedBooking.flightNumber,
-            arrivalDate: savedBooking.arrivalDate,
-            phone: savedBooking.phone,
-        };
+        
+        console.log(`[Booking ${requestId}] Triggering background job for PDF & Emails...`);
+        
+        try {
+            const protocol = request.headers.get('x-forwarded-proto') || 'http';
+            const host = request.headers.get('host');
+            // If host is available, trigger the background job via an internal fetch
+            if (host) {
+                const baseUrl = `${protocol}://${host}`;
+                fetch(`${baseUrl}/api/jobs/process-booking`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ bookingId }),
+                    // Next.js specific: don't cache this request
+                    cache: 'no-store'
+                }).catch(err => console.error(`[Booking ${requestId}] Background job fetch failed:`, err));
+            }
+        } catch (jobErr) {
+            console.error(`[Booking ${requestId}] Failed to dispatch background job:`, jobErr);
+        }
 
-        console.log(`[Booking ${requestId}] Sending confirmation emails for booking ${emailData.id}...`);
-
-        // IMPORTANT: We MUST await this before returning — Vercel kills the serverless function
-        // the moment we return a response, so any fire-and-forget Promises would be terminated.
-        const emailResults = await Promise.allSettled([
-            (async () => {
-                try {
-                    const { sendBookingConfirmationEmail } = await import('@/lib/email');
-                    if (!emailData.email) {
-                        console.warn(`[Booking ${requestId}] ⚠️ No customer email — skipping customer confirmation`);
-                        return 'skipped';
-                    }
-                    const result = await sendBookingConfirmationEmail(emailData);
-                    if (result) {
-                        console.log(`[Booking ${requestId}] ✅ Customer email sent to ${emailData.email}`);
-                        return 'sent';
-                    } else {
-                        console.error(`[Booking ${requestId}] ❌ Customer email failed (sendEmail returned false)`);
-                        return 'failed';
-                    }
-                } catch (e: any) {
-                    console.error(`[Booking ${requestId}] ❌ Customer email exception:`, e.message);
-                    return 'error';
-                }
-            })(),
-            (async () => {
-                try {
-                    const { sendAdminNewBookingEmail } = await import('@/lib/email');
-                    const result = await sendAdminNewBookingEmail(emailData);
-                    if (result) {
-                        console.log(`[Booking ${requestId}] ✅ Admin notification email sent`);
-                        return 'sent';
-                    } else {
-                        console.error(`[Booking ${requestId}] ❌ Admin email failed (sendEmail returned false)`);
-                        return 'failed';
-                    }
-                } catch (e: any) {
-                    console.error(`[Booking ${requestId}] ❌ Admin email exception:`, e.message);
-                    return 'error';
-                }
-            })(),
-            (async () => {
-                try {
-                    const { pusherServer } = await import('@/lib/pusher');
-                    await pusherServer.trigger('admin-channel', 'new-booking', {
-                        message: `New booking #${emailData.id}`,
-                        bookingId,
-                        data: emailData,
-                    });
-                    console.log(`[Booking ${requestId}] ✅ Pusher notification sent`);
-                    return 'sent';
-                } catch (e: any) {
-                    console.warn(`[Booking ${requestId}] ⚠️ Pusher notification failed (non-critical):`, e.message);
-                    return 'error';
-                }
-            })(),
-        ]);
-
-        const [customerEmailResult, adminEmailResult, pusherResult] = emailResults;
-        console.log(`[Booking ${requestId}] Post-save tasks: customer_email=${customerEmailResult.status}, admin_email=${adminEmailResult.status}, pusher=${pusherResult.status}`);
+        // We do NOT await the email or PDF generation!
+        console.log(`[Booking ${requestId}] Post-save tasks dispatched to background.`);
 
         // ── 7. Return success ─────────────────────────────────────────────
         console.log(`[Booking ${requestId}] ✅ Returning success response`);
         console.log(`==========================================================\n`);
 
+        const shortId = bookingId.slice(-8).toUpperCase();
+
         return NextResponse.json({
             success: true,
-            message: 'Booking confirmed successfully',
-            bookingId: emailData.id,   // Human-readable ref e.g. "AK-2026-XXXX"
-            bookingRef: emailData.id,
+            message: 'Booking confirmed. PDF receipt sent to your email.',
+            bookingId: shortId,   // Human-readable ref e.g. "AK-2026-XXXX"
+            bookingRef: shortId,
             _id: bookingId,
             id: bookingId,
             ...savedBooking,
