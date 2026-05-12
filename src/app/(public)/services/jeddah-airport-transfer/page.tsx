@@ -58,49 +58,78 @@ const faqJsonLd = {
     ]
 };
 
-const jsonLd = {
+const serviceJsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Jeddah Airport to Makkah Taxi",
-    "provider": {
-        "@type": "LocalBusiness",
-        "name": "Al Kiswah",
-        "image": "https://kiswahumrahcab.com/logo.png"
-    },
+    "name": "Jeddah Airport to Makkah Private Taxi Transfer",
+    "alternateName": "KAIA to Makkah Hotel Taxi",
     "serviceType": "Airport Transfer",
-    "areaServed": {
-        "@type": "Airport",
-        "name": "King Abdulaziz International Airport (KAIA)"
+    "description": "Private Umrah taxi from King Abdulaziz International Airport (KAIA) Jeddah to your hotel in Makkah. Fixed price, meet and greet, flight tracking included. 60–90 minute journey.",
+    "url": "https://kiswahumrahcab.com/services/jeddah-airport-transfer",
+    "provider": {
+        "@type": "TransportationCompany",
+        "@id": "https://kiswahumrahcab.com/#organization",
+        "name": "Al Kiswah Umrah Transport"
     },
-    "description": "Private VIP transfer from Jeddah Airport to Makkah hotels. Meet & greet, real-time flight tracking, no hidden fees.",
+    "areaServed": [
+        { "@type": "City", "name": "Jeddah" },
+        { "@type": "City", "name": "Makkah" }
+    ],
+    "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://kiswahumrahcab.com/booking",
+        "availableLanguage": ["English", "Arabic", "Urdu"]
+    },
     "offers": {
         "@type": "Offer",
         "priceCurrency": "SAR",
-        "availability": "https://schema.org/InStock"
+        "price": "180",
+        "priceSpecification": {
+            "@type": "PriceSpecification",
+            "priceCurrency": "SAR",
+            "description": "Fixed price — no hidden fees or surcharges"
+        },
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-01",
+        "seller": {
+            "@type": "TransportationCompany",
+            "name": "Al Kiswah Umrah Transport"
+        }
     },
-    "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://kiswahumrahcab.com"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Services",
-                "item": "https://kiswahumrahcab.com/services"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Jeddah Airport to Makkah",
-                "item": "https://kiswahumrahcab.com/services/jeddah-airport-transfer"
-            }
-        ]
-    }
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "245"
+    },
+    "termsOfService": "https://kiswahumrahcab.com/terms",
+    "logo": "https://kiswahumrahcab.com/logo.webp"
+};
+
+const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://kiswahumrahcab.com"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Services",
+            "item": "https://kiswahumrahcab.com/services"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Jeddah Airport to Makkah Taxi",
+            "item": "https://kiswahumrahcab.com/services/jeddah-airport-transfer"
+        }
+    ]
 };
 
 const jeddahAirportFAQs = [
@@ -139,7 +168,7 @@ export default async function JeddahAirportTransferPage() {
 
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, faqJsonLd]) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify([serviceJsonLd, breadcrumbJsonLd, faqJsonLd]) }}
             />
             <Hero
                 title={content.title}
