@@ -122,7 +122,7 @@ export default async function ZiyaratToursPage() {
             <Hero
                 title="Ziyarat Tours: Explore Islamic History"
                 subtitle="Private guided tours of 43+ sacred sites across Makkah, Madinah, Jeddah & Taif. Walk in the footsteps of the Prophet (SAW)."
-                bgImage="/images/routes/makkah-ziyarat-hero.webp"
+                bgImage="/images/hero/pilgrims-walking-makkah-haram.jpg"
                 ctaText="Book Ziyarat Tour"
                 ctaLink={whatsappLink}
                 layout="center"

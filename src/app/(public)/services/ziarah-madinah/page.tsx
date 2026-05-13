@@ -88,7 +88,7 @@ export default async function ZiarahMadinahPage() {
             <Hero
                 title="Madinah Ziyarat Tour — 14 Sacred Sites"
                 subtitle="Explore the City of the Prophet (SAW). Visit Masjid Quba, Mount Uhud, the Seven Mosques, Jannat Al-Baqi & more."
-                bgImage="/images/routes/madinah-airport-hero.webp"
+                bgImage="/images/hero/masjid-nabawi-sunset-umbrellas.jpg"
                 ctaText="Book Madinah Ziyarat"
                 ctaLink={whatsappLink}
                 layout="center"

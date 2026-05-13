@@ -171,7 +171,7 @@ export default function RoutesPage() {
             <Hero
                 title="Our Transport Network"
                 subtitle="8 routes connecting Jeddah, Makkah, Madinah & Taif. Premium VIP transfers for Umrah pilgrims. شبكة مواصلات شاملة لخدمة ضيوف الرحمن."
-                bgImage="/images/routes/routes-network-hero.webp"
+                bgImage="/images/hero/desert-highway-makkah-tower.jpg"
                 ctaText="Book Now"
                 ctaLink="/booking"
                 layout="center"

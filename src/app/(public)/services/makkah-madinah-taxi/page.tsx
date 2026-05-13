@@ -155,7 +155,7 @@ export default async function MakkahMadinahTaxiPage() {
     const content = {
         title: "Makkah to Madinah Taxi",
         subtitle: "Book a private Makkah to Madinah taxi transfer. 4-hour luxury journey in GMC Yukon. Door-to-door, fixed price guaranteed.",
-        heroImage: "/images/routes/makkah-madinah-route-hero.webp"
+        heroImage: "/images/hero/masjid-nabawi-blue-hour-dome.jpg"
     };
 
     return (

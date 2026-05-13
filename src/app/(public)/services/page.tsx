@@ -118,7 +118,7 @@ export default function ServicesPage() {
             <Hero
                 title="Trusted Umrah Transport Services in Saudi Arabia"
                 subtitle="From Jeddah Airport pickup to Ziyarat tours, we provide safe, affordable, and comfortable taxi services for pilgrims."
-                bgImage="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=2000&auto=format&fit=crop"
+                bgImage="/images/hero/pilgrims-walking-makkah-haram.jpg"
                 ctaText="Book Your Ride"
                 ctaLink="/booking"
                 secondaryCtaText="Contact Us"

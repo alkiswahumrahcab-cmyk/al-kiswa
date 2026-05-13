@@ -117,7 +117,7 @@ export default async function IntercityTransferPage() {
             <Hero
                 title="Intercity VIP Transport"
                 subtitle="Book private intercity taxi transfers between Jeddah, Makkah, and Madinah. Luxury fleet, professional drivers, fixed prices."
-                bgImage="/images/routes/routes-network-hero.webp"
+                bgImage="/images/hero/desert-highway-makkah-tower.jpg"
                 ctaText="View Route Map"
                 ctaLink="#interactive-map"
                 backgroundChildren={<AnimatedMapBackground />}

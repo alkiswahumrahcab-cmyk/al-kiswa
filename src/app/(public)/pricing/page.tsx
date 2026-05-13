@@ -199,7 +199,7 @@ export default async function PricingPage() {
             <Hero
                 title="Our Prices. Direct. No Commission."
                 subtitle="We own our Saudi fleet. No middleman markup. What you see is what you pay — fixed price, all-inclusive, guaranteed."
-                bgImage="https://images.unsplash.com/photo-1631631480669-535cc43f2327?q=80&w=2000&auto=format&fit=crop"
+                bgImage="/images/hero/desert-highway-makkah-tower.jpg"
                 ctaText="Book Direct Now"
                 ctaLink="/booking"
                 layout="center"

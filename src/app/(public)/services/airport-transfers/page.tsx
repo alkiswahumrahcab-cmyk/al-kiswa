@@ -84,7 +84,7 @@ export default async function AirportTransfersPage() {
             <Hero
                 title="VIP Jeddah Airport Transfers"
                 subtitle="Experience a seamless arrival with our premium chauffeur service. We track your flight and wait for you at KAIA, ensuring a stress-free journey to Makkah."
-                bgImage="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2000&auto=format&fit=crop"
+                bgImage="/images/hero/masjid-nabawi-sunset-umbrellas.jpg"
                 ctaText="Book Transfer Now"
                 ctaLink="/booking?service=airport"
                 alt="Jeddah Airport Arrival Lounge Private Chauffeur Transfer"

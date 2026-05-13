@@ -88,7 +88,7 @@ export default async function ZiarahMakkahPage() {
             <Hero
                 title="Makkah Ziyarat Tour — 15 Sacred Sites"
                 subtitle="Walk where revelation began. Private tours of Cave Hira, Jabal Thawr, Arafat, Mina, Muzdalifah & 10 more sacred locations."
-                bgImage="/images/routes/makkah-ziyarat-hero.webp"
+                bgImage="/images/hero/pilgrims-walking-makkah-haram.jpg"
                 ctaText="Book Makkah Ziyarat"
                 ctaLink={whatsappLink}
                 layout="center"

@@ -73,7 +73,7 @@ export default async function MadinahAirportPage() {
             <Hero
                 title="Madinah Airport (MED) Transfers"
                 subtitle="Start your visit to the Prophet's City with peace of mind. Reliable meet & greet service from Prince Mohammad Bin Abdulaziz Airport."
-                bgImage="/images/routes/madinah-airport-hero.webp"
+                bgImage="/images/hero/masjid-nabawi-blue-hour-dome.jpg"
                 ctaText="Book Airport Pickup"
                 ctaLink={whatsappLink}
                 layout="center"
