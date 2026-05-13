@@ -14,6 +14,7 @@ import TeamTeaser from '@/components/about/TeamTeaser';
 import PilgrimVoices from '@/components/about/PilgrimVoices';
 import { getSectionContent, getSectionImage } from '@/lib/content-service';
 import dynamic from 'next/dynamic';
+import NusukTrustStrip from '@/components/trust/NusukTrustStrip';
 import { JsonLdScript } from '@/components/seo/JsonLd';
 import { generateAboutPageSchema } from '@/components/seo/schema-generator';
 
@@ -65,6 +66,7 @@ export default async function AboutPage() {
                 {/* Wrap content in a relative div to ensure it sits above the background pattern */}
                 <div className="relative z-10 space-y-12 pb-20">
                     <WelcomeSection />
+                    <NusukTrustStrip />
                     <ImpactStats />
                     <CompanyStory />
                     <MissionVision />

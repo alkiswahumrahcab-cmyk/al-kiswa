@@ -14,6 +14,7 @@ import MobileStickySummary from './MobileStickySummary';
 import Receipt from './Receipt';
 import BookingSuccessModal from './BookingSuccessModal';
 import CurrencyToggle from '../CurrencyToggle';
+import NusukBookingAlert from '@/components/trust/NusukBookingAlert';
 
 export default function BookingForm() {
     const { routes, vehicles, isLoading, calculatePrice } = usePricing();
@@ -232,6 +233,8 @@ export default function BookingForm() {
                     <CurrencyToggle />
                 </div>
             </div>
+
+            <NusukBookingAlert />
 
             <div className="space-y-16">
                 

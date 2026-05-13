@@ -6,6 +6,7 @@ import { ArrowRight, ChevronDown, CheckCircle, Shield, Clock } from 'lucide-reac
 import { motion, useScroll, useTransform, useSpring, Variants } from 'framer-motion';
 import GlassButton from '@/components/ui/GlassButton';
 import { trackConversion } from '@/lib/analytics';
+import NusukHeroBadges from '@/components/trust/NusukHeroBadges';
 
 interface HeroProps {
     title: string;
@@ -267,6 +268,9 @@ const Hero: React.FC<HeroProps> = ({
                             </GlassButton>
                         )}
                     </motion.div>
+
+                    {/* Nusuk Hero Badges */}
+                    <NusukHeroBadges />
 
                     {/* Trust Indicators */}
                     {stats && (

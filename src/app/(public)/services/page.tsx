@@ -11,6 +11,7 @@ import Breadcrumbs from '@/components/common/Breadcrumbs';
 import FAQSection from '@/components/services/FAQSection';
 import TrustAmenities from '@/components/services/TrustAmenities';
 import ReviewsSection from '@/components/reviews/ReviewsSection';
+import NusukTrustStrip from '@/components/trust/NusukTrustStrip';
 import dynamic from 'next/dynamic';
 
 const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
@@ -128,6 +129,8 @@ export default function ServicesPage() {
 
             {/* Trust Amenities Section */}
             <TrustAmenities />
+
+            <NusukTrustStrip />
 
             {/* Services Section */}
             <section className="py-24 relative z-10">

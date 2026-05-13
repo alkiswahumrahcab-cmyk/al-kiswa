@@ -8,7 +8,6 @@ import GlobalClientComponents from "@/components/common/GlobalClientComponents";
 import { getSettings } from "@/lib/settings-storage";
 import ClientLayoutWrapper from "@/components/layout/ClientLayoutWrapper";
 import UmrahPWA from "@/components/common/UmrahPWA";
-
 export const viewport: Viewport = {
     themeColor: '#D4AF37', // Gold theme
     width: 'device-width',
@@ -45,7 +44,6 @@ export default async function UmrahLayout({
             <ClientLayoutWrapper>
                 <UmrahPWA />
                 <AnnouncementBanner discount={settings.discount || { enabled: false, type: 'percentage', value: 0 }} />
-
                 <Navbar />
             </ClientLayoutWrapper>
 

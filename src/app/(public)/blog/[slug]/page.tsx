@@ -12,6 +12,7 @@ import ShareButtons from '@/components/blog/ShareButtons';
 import TableOfContents from '@/components/blog/TableOfContents';
 import SidebarBookingWidget from '@/components/blog/SidebarBookingWidget';
 import ReviewSnippet from '@/components/blog/ReviewSnippet';
+import NusukSidebarCard from '@/components/trust/NusukSidebarCard';
 import { JsonLdScript } from '@/components/seo/JsonLd';
 import { generateArticleSchema } from '@/components/seo/schema-generator';
 import { marked } from 'marked';
@@ -213,6 +214,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         {/* Booking Widget (High Conversion) */}
                         <div className="mb-8">
                             <SidebarBookingWidget />
+                        </div>
+
+                        {/* Nusuk Trust Card */}
+                        <div className="mb-8 hidden lg:block">
+                            <NusukSidebarCard />
                         </div>
 
                         {/* Social Proof (Trust Builder) */}

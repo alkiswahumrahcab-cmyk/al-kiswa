@@ -7,6 +7,7 @@ import ComparisonTable from '@/components/fleet/ComparisonTable';
 import FeatureHighlights from '@/components/fleet/FeatureHighlights';
 import QuickBookingForm from '@/components/home/QuickBookingForm';
 import FadeIn from '@/components/common/FadeIn';
+import NusukTrustStrip from '@/components/trust/NusukTrustStrip';
 import { getSectionContent, getSectionImage, getCustomField } from '@/lib/content-service';
 
 export async function generateMetadata() {
@@ -133,6 +134,8 @@ export default async function FleetPage() {
                         <span className="animate-pulse">🕋</span> Planning Hajj 2026? <a href="/blog/hajj-2026-guidance-taxi-service-pilgrims" className="underline hover:text-white transition-colors">Read our complete guidance & transport options &rarr;</a>
                     </p>
                 </div>
+
+                <NusukTrustStrip />
 
                 <FadeIn>
                     <FleetOfferGallery />

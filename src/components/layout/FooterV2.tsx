@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useSettings } from '@/context/SettingsContext';
 import { regions } from '@/data/regions';
 import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
+import NusukFooterSeal from '@/components/trust/NusukFooterSeal';
 
 export default function Footer() {
     const { settings } = useSettings();
@@ -210,6 +211,9 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
+
+            {/* Nusuk Footer Seal */}
+            <NusukFooterSeal />
 
             {/* Full-Width Trust Bar */}
             <div className="border-y border-white/5 py-6 bg-gray-900/50">

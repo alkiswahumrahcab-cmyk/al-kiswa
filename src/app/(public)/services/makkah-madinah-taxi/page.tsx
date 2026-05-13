@@ -30,51 +30,6 @@ export const metadata: Metadata = {
     }
 };
 
-const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Makkah to Madinah Taxi",
-    "provider": {
-        "@type": "LocalBusiness",
-        "name": "Al Kiswah",
-        "image": "https://kiswahumrahcab.com/logo.png"
-    },
-    "serviceType": "Intercity Transfer",
-    "areaServed": {
-        "@type": "Country",
-        "name": "Saudi Arabia"
-    },
-    "description": "Premium private taxi from Makkah to Madinah. 4-hour door-to-door transfer in GMC Yukon or Staria.",
-    "offers": {
-        "@type": "Offer",
-        "priceCurrency": "SAR",
-        "availability": "https://schema.org/InStock"
-    },
-    "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://kiswahumrahcab.com"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Services",
-                "item": "https://kiswahumrahcab.com/services"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Makkah to Madinah Taxi",
-                "item": "https://kiswahumrahcab.com/services/makkah-madinah-taxi"
-            }
-        ]
-    }
-};
-
 const makkahMadinahFAQs = [
     {
         question: "How long is the journey from Makkah to Madinah?",
@@ -98,22 +53,99 @@ const makkahMadinahFAQs = [
     }
 ];
 
-const faqJsonLd = {
+const generateJsonLd = (phoneNumber: string) => ({
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": makkahMadinahFAQs.map(faq => ({
-        "@type": "Question",
-        "name": faq.question,
-        "acceptedAnswer": {
-            "@type": "Answer",
-            "text": typeof faq.answer === 'string' 
-                ? faq.answer 
-                : (faq.question.includes("How long") 
-                    ? "The distance is approximately 450 km. By private taxi (GMC/Staria), the journey typically takes 4.5 to 5 hours. We can stop at the Miqat (Bir Ali) for 15-30 minutes if you wish to assume Ihram before entering Makkah."
-                    : "Yes, we specialize in Jeddah Airport transfers. Our driver will meet you at the arrival hall and take you directly to your hotel or the Haram.")
+    "@graph": [
+        {
+            "@type": "Service",
+            "@id": "https://kiswahumrahcab.com/services/makkah-madinah-taxi#service",
+            "name": "Makkah to Madinah Taxi",
+            "serviceType": "Intercity Taxi Transfer",
+            "provider": {
+                "@type": "LocalBusiness",
+                "name": "Al Kiswah Umrah Cab",
+                "image": "https://kiswahumrahcab.com/logo.png",
+                "telephone": phoneNumber
+            },
+            "areaServed": [
+                { "@type": "City", "name": "Makkah" },
+                { "@type": "City", "name": "Madinah" }
+            ],
+            "description": "Premium private taxi from Makkah to Madinah. 4.5-hour door-to-door transfer in luxury GMC Yukon or Hyundai Staria. Stop at Miqat available.",
+            "url": "https://kiswahumrahcab.com/services/makkah-madinah-taxi",
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "SAR",
+                "price": "400",
+                "availability": "https://schema.org/InStock",
+                "url": "https://kiswahumrahcab.com/services/makkah-madinah-taxi"
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "248"
+            }
+        },
+        {
+            "@type": "Product",
+            "@id": "https://kiswahumrahcab.com/services/makkah-madinah-taxi#product-gmc",
+            "name": "GMC Yukon XL - Makkah to Madinah Transfer",
+            "image": "https://kiswahumrahcab.com/images/routes/makkah-madinah-route-hero.webp",
+            "description": "Luxury 7-seater GMC Yukon XL for VIP Umrah transport between Makkah and Madinah.",
+            "brand": {
+                "@type": "Brand",
+                "name": "GMC"
+            },
+            "offers": {
+                "@type": "Offer",
+                "priceCurrency": "SAR",
+                "price": "600",
+                "availability": "https://schema.org/InStock",
+                "url": "https://kiswahumrahcab.com/services/makkah-madinah-taxi"
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "@id": "https://kiswahumrahcab.com/services/makkah-madinah-taxi#breadcrumb",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://kiswahumrahcab.com"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Services",
+                    "item": "https://kiswahumrahcab.com/services"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Makkah to Madinah Taxi",
+                    "item": "https://kiswahumrahcab.com/services/makkah-madinah-taxi"
+                }
+            ]
+        },
+        {
+            "@type": "FAQPage",
+            "@id": "https://kiswahumrahcab.com/services/makkah-madinah-taxi#faq",
+            "mainEntity": makkahMadinahFAQs.map(faq => ({
+                "@type": "Question",
+                "name": faq.question,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": typeof faq.answer === 'string' 
+                        ? faq.answer 
+                        : (faq.question.includes("How long") 
+                            ? "The distance is approximately 450 km. By private taxi (GMC/Staria), the journey typically takes 4.5 to 5 hours. We can stop at the Miqat (Bir Ali) for 15-30 minutes if you wish to assume Ihram before entering Makkah."
+                            : "Yes, we specialize in Jeddah Airport transfers. Our driver will meet you at the arrival hall and take you directly to your hotel or the Haram.")
+                }
+            }))
         }
-    }))
-};
+    ]
+});
 
 export default async function MakkahMadinahTaxiPage() {
     const settings = await getSettings();
@@ -132,7 +164,7 @@ export default async function MakkahMadinahTaxiPage() {
 
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLd, faqJsonLd]) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(generateJsonLd(phoneNumber)) }}
             />
             <Hero
                 title={content.title}
