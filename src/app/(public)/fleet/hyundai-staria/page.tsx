@@ -8,6 +8,7 @@ import { getSettings } from '@/lib/settings-storage';
 import { vehicleService } from '@/services/vehicleService';
 import StariaAnimations from './StariaAnimations'; // We will create this client component
 import StariaGallery from './StariaGallery';
+import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 
 const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
@@ -441,6 +442,9 @@ export default async function HyundaiStariaPage() {
                                 </a>
                             </div>
                         </StariaAnimations>
+                        <div className="mt-8">
+                            <SeasonalPricingNote />
+                        </div>
                     </div>
                 </div>
             </section>

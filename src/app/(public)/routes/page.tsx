@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { ArrowRight, MapPin, Clock, ShieldCheck, Star, CheckCircle } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
 import FadeIn from '@/components/common/FadeIn';
+import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 import dynamic from 'next/dynamic';
 
 const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
@@ -229,6 +230,9 @@ export default function RoutesPage() {
                             </div>
                         </FadeIn>
                     ))}
+                </div>
+                <div className="mt-12 text-center max-w-2xl mx-auto">
+                    <SeasonalPricingNote />
                 </div>
             </section>
 

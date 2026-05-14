@@ -6,6 +6,7 @@ import FadeIn from '@/components/common/FadeIn';
 import Link from 'next/link';
 import VehicleSelector from './VehicleSelector';
 import RouteSelector from './RouteSelector';
+import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 
 
 // Note: Ensure VehicleSelector and RouteSelector are also updated to accept transparent/dark props if needed.
@@ -127,9 +128,10 @@ export default function InstantPriceCalculator() {
                                     >
                                         Book Now
                                     </Link>
-                                    <p className="text-center text-gray-600 text-[10px] mt-3">
+                                    <p className="text-center text-gray-600 text-[10px] mt-3 mb-4">
                                         All taxes included. No hidden fees.
                                     </p>
+                                    <SeasonalPricingNote />
                                 </div>
                             </div>
                         </div>

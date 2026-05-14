@@ -10,6 +10,7 @@ import VehicleCapacityGuide from '@/components/services/VehicleCapacityGuide';
 import RouteVisual from '@/components/services/RouteVisual';
 import { getSettings } from '@/lib/settings-storage';
 import FadeIn from "@/components/common/FadeIn";
+import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 
 export const metadata: Metadata = {
     title: "Jeddah Airport to Makkah Taxi 2026 | Al Kiswah",
@@ -270,6 +271,7 @@ export default async function JeddahAirportTransferPage() {
                                     </tbody>
                                 </table>
                             </div>
+                            <SeasonalPricingNote className="mt-8" />
                         </div>
                     </FadeIn>
                 </div>

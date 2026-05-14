@@ -10,6 +10,7 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import RouteVisual from '@/components/services/RouteVisual';
 import GlassCard from '@/components/ui/GlassCard';
 import FadeIn from '@/components/common/FadeIn';
+import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/components/seo/schema-generator";
 export const metadata: Metadata = {
@@ -193,6 +194,7 @@ export default async function MadinahAirportPage() {
                                 <p className="text-center text-xs text-gray-500 mt-8 italic font-light">
                                     *Travel times may vary based on traffic conditions
                                 </p>
+                                <SeasonalPricingNote className="mt-6" />
                             </div>
                         </FadeIn>
                     </div>

@@ -8,6 +8,7 @@ import FadeIn from '@/components/common/FadeIn';
 import pricingData from '@/data/pricing.json';
 import { trackConversion } from '@/lib/analytics';
 import GlassCard from '@/components/ui/GlassCard';
+import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 
 interface RouteProduct {
     id: string;
@@ -129,6 +130,10 @@ export default function FleetPricingGrid({
                         </FadeIn>
                     ))}
                 </div>
+                
+                <FadeIn delay={0.2}>
+                    <SeasonalPricingNote className="mt-8" />
+                </FadeIn>
             </div>
         </section>
     );

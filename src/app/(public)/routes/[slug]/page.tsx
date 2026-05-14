@@ -7,6 +7,7 @@ import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import { ArrowRight, Clock, MapPin, CheckCircle, Car } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
+import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 
 // Generate static params for all routes in pricing.json
 export async function generateStaticParams() {
@@ -175,6 +176,7 @@ export default function RouteDetail({ params }: Props) {
                             );
                         })}
                     </div>
+                    <SeasonalPricingNote className="mt-8" />
                 </div>
             </section>
 

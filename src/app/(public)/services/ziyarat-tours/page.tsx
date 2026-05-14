@@ -8,6 +8,7 @@ import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FadeIn from "@/components/common/FadeIn";
+import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 import { LocationGrid } from '@/components/ziyarat/LocationGrid';
 import { PackagePricingTable } from '@/components/ziyarat/PackagePricingTable';
 import { makkahSites, madinahSites, jeddahSites, taifSites } from '@/data/ziyarat-locations';
@@ -141,6 +142,7 @@ export default async function ZiyaratToursPage() {
                         <div className="bg-black/50 border border-[#D4AF37]/20 rounded-3xl p-6 md:p-8">
                             <PackagePricingTable packages={tourPackages} whatsappLink={whatsappLink} />
                         </div>
+                        <SeasonalPricingNote className="mt-6" />
                     </FadeIn>
                 </div>
             </section>

@@ -11,6 +11,7 @@ import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FadeIn from "@/components/common/FadeIn";
 import GlassCard from '@/components/ui/GlassCard';
+import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 export const metadata: Metadata = {
     title: "Makkah to Madinah Taxi 2026 | Al Kiswah",
     description: "Book a private Makkah to Madinah taxi transfer. 4-hour luxury journey in GMC Yukon. Door-to-door, fixed price guaranteed. Book online in 60 seconds.",
@@ -232,10 +233,11 @@ export default async function MakkahMadinahTaxiPage() {
                                 </div>
 
                                 <div className="mt-8 pt-8 border-t border-white/10">
-                                    <div className="flex items-center justify-between">
+                                    <div className="flex items-center justify-between mb-4">
                                         <span className="text-sm text-gray-500 uppercase tracking-widest font-bold">Starting From</span>
                                         <span className="text-2xl font-bold text-white">SAR 400</span>
                                     </div>
+                                    <SeasonalPricingNote />
                                 </div>
                             </GlassCard>
                         </div>

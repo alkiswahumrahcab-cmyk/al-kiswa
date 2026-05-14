@@ -9,6 +9,7 @@ import { routeService } from '@/services/routeService';
 import AirportInteractiveMap from '@/components/services/airport/AirportInteractiveMap';
 import { Metadata } from 'next';
 import GlassCard from '@/components/ui/GlassCard';
+import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 
 export const metadata: Metadata = {
     title: "Jeddah & Madinah Airport VIP Transfers 2026 | Al Kiswah",
@@ -277,6 +278,9 @@ export default async function AirportTransfersPage() {
                                 </div>
                             </div>
                         </FadeIn>
+                    </div>
+                    <div className="mt-12 text-center max-w-2xl mx-auto">
+                        <SeasonalPricingNote />
                     </div>
                 </div>
             </section>

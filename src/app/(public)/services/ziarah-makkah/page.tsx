@@ -8,6 +8,7 @@ import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FadeIn from "@/components/common/FadeIn";
+import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 import { LocationGrid } from '@/components/ziyarat/LocationGrid';
 import { makkahSites } from '@/data/ziyarat-locations';
 
@@ -117,6 +118,7 @@ export default async function ZiarahMakkahPage() {
                             ))}
                         </div>
                         <p className="text-center text-xs text-gray-500 mt-4">All prices per vehicle • Fuel, tolls & waiting included • Duration: 3–4 hours</p>
+                        <SeasonalPricingNote className="mt-4" />
                     </FadeIn>
                 </div>
             </section>

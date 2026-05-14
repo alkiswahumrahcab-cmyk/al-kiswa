@@ -12,6 +12,7 @@ import PriceComparisonTable from '@/components/pricing/PriceComparisonTable';
 import { settingsService } from '@/services/settingsService';
 import { routeService } from '@/services/routeService';
 import { Suspense } from 'react';
+import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 
 export const metadata: Metadata = {
     title: "Umrah Taxi Prices 2026 | Jeddah to Makkah — Direct Operator, No Middleman",
@@ -227,6 +228,7 @@ export default async function PricingPage() {
                         <Suspense fallback={<PricingTableSkeleton />}>
                             <LivePricingTable exchangeRate={exchangeRate} />
                         </Suspense>
+                        <SeasonalPricingNote className="mt-8" />
                     </FadeIn>
                 </div>
             </section>

@@ -6,6 +6,7 @@ import FadeIn from '@/components/common/FadeIn';
 import BookingFormWrapper from '@/components/home/BookingFormWrapper';
 import InteractiveMapSection from '@/components/services/intercity/InteractiveMapSection';
 import AnimatedMapBackground from '@/components/ui/AnimatedMapBackground';
+import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 import { routeService } from '@/services/routeService';
 import { ShieldCheck, Star, UserCheck, Timer, ChevronDown } from 'lucide-react';
 import { RouteWithPrices } from '@/services/routeService';
@@ -221,6 +222,7 @@ export default async function IntercityTransferPage() {
                             <p className="text-center text-xs text-gray-500 mt-4">
                                 * Times are estimates under normal traffic conditions. Journey may take longer during Hajj and Ramadan peaks.
                             </p>
+                            <SeasonalPricingNote className="mt-4" />
                         </div>
                     </FadeIn>
                 </div>
