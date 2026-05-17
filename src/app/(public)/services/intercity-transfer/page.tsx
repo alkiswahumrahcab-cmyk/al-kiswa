@@ -11,8 +11,7 @@ import { routeService } from '@/services/routeService';
 import { ShieldCheck, Star, UserCheck, Timer, ChevronDown } from 'lucide-react';
 import { RouteWithPrices } from '@/services/routeService';
 import GlassCard from '@/components/ui/GlassCard';
-import { JsonLdScript } from "@/components/seo/JsonLd";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/components/seo/schema-generator";
+import { ServiceSchema } from '@/components/seo/ServiceSchema';
 
 const intercityFAQs = [
     { question: "How long is the journey?", answer: "Makkah to Madinah takes approximately 4.5 hours on the smooth Hijrah Highway. We adjust speed for your comfort and safety." },
@@ -99,19 +98,24 @@ export default async function IntercityTransferPage() {
 
     return (
         <main className="bg-primary-black text-white relative">
-            <JsonLdScript schema={[
-                generateServiceSchema(
-                    "Intercity Transport Service",
-                    "Premium private taxi service for intercity travel between Jeddah, Makkah, and Madinah.",
-                    "https://kiswahumrahcab.com/images/routes/routes-network-hero.webp"
-                ),
-                generateBreadcrumbSchema([
-                    { name: "Home", item: "/" },
-                    { name: "Services", item: "/services" },
-                    { name: "Intercity Transfer", item: "/services/intercity-transfer" }
-                ]),
-                generateFAQSchema(intercityFAQs)
-            ]} />
+            <ServiceSchema
+                serviceName="Jeddah to Madinah Direct Private Transfer"
+                serviceType="Intercity Transfer"
+                description="Direct private taxi from Jeddah city or KAIA Airport to Madinah Munawwarah. 400km journey. Premium SUV and MPV available. No stops unless requested."
+                pageUrl="https://kiswahumrahcab.com/services/intercity-transfer"
+                citiesServed={["Jeddah", "Madinah", "Makkah"]}
+                ratingValue="4.9"
+                ratingCount={245}
+                priceFrom={200}
+                priceTo={580}
+                image="https://kiswahumrahcab.com/images/routes/routes-network-hero.webp"
+                breadcrumbs={[
+                    { name: "Home", url: "https://kiswahumrahcab.com" },
+                    { name: "Services", url: "https://kiswahumrahcab.com/services" },
+                    { name: "Intercity Transfer", url: "https://kiswahumrahcab.com/services/intercity-transfer" }
+                ]}
+                faqs={intercityFAQs}
+            />
             {/* Background Texture */}
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 

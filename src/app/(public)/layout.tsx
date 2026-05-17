@@ -12,8 +12,6 @@ export const viewport: Viewport = {
     themeColor: '#D4AF37', // Gold theme
     width: 'device-width',
     initialScale: 1,
-    maximumScale: 1,
-    userScalable: false,
 };
 
 export const metadata: Metadata = {

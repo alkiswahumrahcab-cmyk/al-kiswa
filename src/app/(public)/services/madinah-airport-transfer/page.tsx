@@ -11,8 +11,7 @@ import RouteVisual from '@/components/services/RouteVisual';
 import GlassCard from '@/components/ui/GlassCard';
 import FadeIn from '@/components/common/FadeIn';
 import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
-import { JsonLdScript } from "@/components/seo/JsonLd";
-import { generateServiceSchema, generateBreadcrumbSchema, generateFAQSchema } from "@/components/seo/schema-generator";
+import { ServiceSchema } from '@/components/seo/ServiceSchema';
 export const metadata: Metadata = {
     title: "Madinah Airport Taxi to Hotel 2026 | Al Kiswah",
     description: "Book a reliable Madinah Airport taxi to your Masjid Nabawi hotel. 24/7 VIP pickup, meet & greet, and fixed prices. Book your transfer online now.",
@@ -58,19 +57,24 @@ export default async function MadinahAirportPage() {
         <main className="overflow-x-hidden bg-primary-black min-h-screen relative">
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none fixed" />
 
-            <JsonLdScript schema={[
-                generateServiceSchema(
-                    "Madinah Airport Taxi",
-                    "Private taxi transfer from Madinah Airport to Masjid Nabawi hotels.",
-                    "https://kiswahumrahcab.com/images/routes/madinah-airport-hero.webp"
-                ),
-                generateBreadcrumbSchema([
-                    { name: "Home", item: "/" },
-                    { name: "Services", item: "/services" },
-                    { name: "Madinah Airport Taxi", item: "/services/madinah-airport-transfer" }
-                ]),
-                generateFAQSchema(madinahAirportFAQs)
-            ]} />
+            <ServiceSchema
+                serviceName="Madinah Airport to Hotel Private Transfer"
+                serviceType="Airport Transfer"
+                description="Private taxi from Prince Mohammad Bin Abdulaziz International Airport to your hotel in Madinah. Meet and greet, luggage assistance, real-time flight tracking included."
+                pageUrl="https://kiswahumrahcab.com/services/madinah-airport-transfer"
+                citiesServed={["Madinah"]}
+                ratingValue="4.9"
+                ratingCount={245}
+                priceFrom={120}
+                priceTo={350}
+                image="https://kiswahumrahcab.com/images/routes/madinah-airport-hero.webp"
+                breadcrumbs={[
+                    { name: "Home", url: "https://kiswahumrahcab.com" },
+                    { name: "Services", url: "https://kiswahumrahcab.com/services" },
+                    { name: "Madinah Airport Transfer", url: "https://kiswahumrahcab.com/services/madinah-airport-transfer" }
+                ]}
+                faqs={madinahAirportFAQs}
+            />
             <Hero
                 title="Madinah Airport (MED) Transfers"
                 subtitle="Start your visit to the Prophet's City with peace of mind. Reliable meet & greet service from Prince Mohammad Bin Abdulaziz Airport."

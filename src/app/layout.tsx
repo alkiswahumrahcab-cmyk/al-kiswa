@@ -32,7 +32,6 @@ const tajawal = Tajawal({
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
   themeColor: '#D4AF37',
 };
 

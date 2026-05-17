@@ -51,7 +51,7 @@ const ziyaratFAQs = [
 ];
 
 /* ── Consolidated @graph JSON-LD ── */
-const siteUrl = "https://www.kiswahumrahcab.com";
+const siteUrl = "https://kiswahumrahcab.com";
 const pageUrl = `${siteUrl}/services/ziyarat-tours`;
 
 const jsonLd = {
@@ -73,11 +73,22 @@ const jsonLd = {
         },
         {
             "@type": "TouristTrip", "@id": `${pageUrl}#makkah-trip`,
-            "name": "Makkah Ziyarat Tour — 15 Islamic Historical Sites",
-            "description": "Private tour of Makkah's most significant landmarks: Jabal Al-Nour, Jabal Thawr, Arafat, Mina, Muzdalifah, Masjid Aisha, Jannat Al-Mu'alla, Masjid Al-Jinn, and more.",
-            "touristType": "Umrah Pilgrim",
+            "name": "Makkah Ziyarat City Tour — Private Taxi",
+            "description": "Private Ziyarat tours of Makkah's historical Islamic sites. Visit Jabal Al-Noor, Jannat Al-Mualla, Cave of Hira, Mina, Arafat and Muzdalifah. Customisable duration.",
+            "url": pageUrl,
+            "provider": {
+                "@type": "TransportationCompany",
+                "@id": `${siteUrl}/#organization`
+            },
+            "touristType": ["Muslim pilgrims", "Umrah visitors", "Hajj pilgrims"],
             "itinerary": { "@type": "ItemList", "numberOfItems": 15, "itemListElement": makkahSites.map((s, i) => ({ "@type": "ListItem", "position": i + 1, "name": s.name, "description": s.significance })) },
             "offers": { "@type": "Offer", "priceCurrency": "SAR", "price": "200", "availability": "https://schema.org/InStock" },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "bestRating": "5",
+                "ratingCount": "245"
+            }
         },
         {
             "@type": "TouristTrip", "@id": `${pageUrl}#madinah-trip`,
