@@ -7,6 +7,9 @@ function rtl(text: string) {
     return text.split(' ').reverse().join(' ');
 }
 
+// Global cache for the base64 encoded font to avoid duplicate network fetches in serverless environments
+let cachedFontBase64: string | null = null;
+
 export async function generateBookingPDF(booking: any): Promise<Buffer> {
     const doc = new jsPDF({
         orientation: 'portrait',
@@ -14,18 +17,24 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
         format: 'a4',
     });
 
-    // 1. Fetch and add Arabic font (Noto Sans Arabic) dynamically to avoid bundle bloat
+    // 1. Fetch and add Arabic font (Noto Sans Arabic) dynamically to avoid bundle bloat (cached globally for hot containers)
     try {
-        const fontUrl = 'https://raw.githubusercontent.com/googlefonts/noto-fonts/main/unhinted/ttf/NotoSansArabic/NotoSansArabic-Regular.ttf';
-        const fontRes = await fetch(fontUrl);
-        const fontBuffer = await fontRes.arrayBuffer();
+        if (!cachedFontBase64) {
+            console.log('[PDF Generator] 🌐 Fetching Noto Sans Arabic font from CDN...');
+            const fontUrl = 'https://raw.githubusercontent.com/googlefonts/noto-fonts/main/unhinted/ttf/NotoSansArabic/NotoSansArabic-Regular.ttf';
+            const fontRes = await fetch(fontUrl);
+            if (!fontRes.ok) throw new Error(`HTTP error! status: ${fontRes.status}`);
+            const fontBuffer = await fontRes.arrayBuffer();
+            cachedFontBase64 = Buffer.from(fontBuffer).toString('base64');
+            console.log('[PDF Generator] ✅ Font fetched and cached successfully.');
+        } else {
+            console.log('[PDF Generator] ⚡ Using cached Noto Sans Arabic font.');
+        }
         
-        // Convert to base64 for jsPDF VFS
-        const base64Font = Buffer.from(fontBuffer).toString('base64');
-        doc.addFileToVFS('NotoArabic.ttf', base64Font);
+        doc.addFileToVFS('NotoArabic.ttf', cachedFontBase64);
         doc.addFont('NotoArabic.ttf', 'NotoArabic', 'normal');
-    } catch (e) {
-        console.warn('Failed to load Arabic font from CDN, falling back to default', e);
+    } catch (e: any) {
+        console.warn('[PDF Generator] ⚠️ Failed to load Arabic font from CDN, falling back to default:', e.message);
     }
 
     const goldColor = '#C9A86A';

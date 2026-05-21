@@ -8,6 +8,7 @@ import { routeService, RouteWithPrices } from '@/services/routeService';
 import { vehicleService } from '@/services/vehicleService';
 import { calculateFinalPrice } from '@/lib/pricing';
 import { rateLimit } from '@/lib/rate-limit';
+import { processBookingAction } from '@/lib/bookingProcessor';
 
 const RATE_LIMIT_INTERVAL = 10 * 60 * 1000; // 10 minutes
 const RATE_LIMIT_MAX_REQUESTS = 3; // 3 bookings per 10 minutes per IP
@@ -202,31 +203,21 @@ export async function POST(request: Request) {
             );
         }
 
-        // ── 6. Trigger Background Job (Fast/Fire-and-forget) ──────────────
+        // ── 6. Execute Post-Booking Tasks (Direct await to guarantee execution on Vercel) ──
         const bookingId = (savedBooking._id || savedBooking.id || '').toString();
         
-        console.log(`[Booking ${requestId}] Triggering background job for PDF & Emails...`);
+        console.log(`[Booking ${requestId}] Executing post-booking tasks (PDF, Email, Pusher) for ID: ${bookingId}...`);
         
         try {
-            const protocol = request.headers.get('x-forwarded-proto') || 'http';
-            const host = request.headers.get('host');
-            // If host is available, trigger the background job via an internal fetch
-            if (host) {
-                const baseUrl = `${protocol}://${host}`;
-                fetch(`${baseUrl}/api/jobs/process-booking`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ bookingId }),
-                    // Next.js specific: don't cache this request
-                    cache: 'no-store'
-                }).catch(err => console.error(`[Booking ${requestId}] Background job fetch failed:`, err));
+            const processResult = await processBookingAction(bookingId);
+            if (processResult.success) {
+                console.log(`[Booking ${requestId}] ✅ Post-booking tasks completed successfully for ID: ${bookingId}`);
+            } else {
+                console.error(`[Booking ${requestId}] ❌ Post-booking tasks failed: ${processResult.error}`);
             }
-        } catch (jobErr) {
-            console.error(`[Booking ${requestId}] Failed to dispatch background job:`, jobErr);
+        } catch (jobErr: any) {
+            console.error(`[Booking ${requestId}] ❌ Failed to execute post-booking tasks:`, jobErr.message || jobErr);
         }
-
-        // We do NOT await the email or PDF generation!
-        console.log(`[Booking ${requestId}] Post-save tasks dispatched to background.`);
 
         // ── 7. Return success ─────────────────────────────────────────────
         console.log(`[Booking ${requestId}] ✅ Returning success response`);
