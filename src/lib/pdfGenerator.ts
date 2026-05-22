@@ -85,11 +85,6 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
         doc.setFontSize(size);
     };
 
-    // --- WATERMARK ---
-    doc.setTextColor(240, 240, 240); // Very light grey
-    setFontEn(45, 'bold');
-    doc.text('Al Kiswah Umrah Transport', 105, 150, { align: 'center', angle: 45 });
-
     // --- HEADER ---
     doc.setTextColor(blackColor);
     setFontEn(18, 'bold');
@@ -111,16 +106,6 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
     doc.text(rtl('رقم الإيصال'), 196, 42, { align: 'right' });
     setFontAr(9);
     doc.text(shortId, 196, 48, { align: 'right' });
-
-    // QR Code
-    try {
-        const baseUrl = process.env.BASE_URL || process.env.NEXT_PUBLIC_APP_URL || 'https://kiswahumrahcab.com';
-        const qrUrl = `${baseUrl}/receipt/${shortId}`;
-        const qrDataUrl = await QRCode.toDataURL(qrUrl, { margin: 1, color: { dark: '#000000', light: '#FFFFFF' } });
-        doc.addImage(qrDataUrl, 'PNG', 160, 10, 35, 35);
-    } catch (e) {
-        console.warn('QR Code generation failed', e);
-    }
 
     // Divider
     doc.setDrawColor(220, 220, 220);
@@ -150,9 +135,10 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
         const linesCount = Math.max(linesEn.length, linesAr.length);
         const boxHeight = 24 + (linesCount * 8); // Increased padding
         
-        // Background Box (Transparent with borders so watermark shows through)
+        // Background Box (Light Grey, Soft borders)
+        doc.setFillColor(248, 248, 248);
         doc.setDrawColor(230, 230, 230);
-        doc.roundedRect(14, y, 182, boxHeight, 3, 3, 'S'); // 'S' is Stroke only
+        doc.roundedRect(14, y, 182, boxHeight, 3, 3, 'FD');
 
         // Headers
         doc.setTextColor(goldColor);
@@ -294,6 +280,17 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
     setFontEn(8, 'normal');
     doc.text('Support WhatsApp: +966-54-870-7332  |  Website: kiswahumrahcab.com', 105, pageHeight - 8, { align: 'center' });
     doc.text(`Generated: ${new Date().toLocaleString()}`, 105, pageHeight - 4, { align: 'center' });
+
+    // --- WATERMARK OVERLAY ---
+    // Draw at the very end so it overlays the boxes, using opacity if supported
+    try {
+        doc.setGState(new (doc as any).GState({opacity: 0.08}));
+        doc.setTextColor(0, 0, 0);
+    } catch(e) {
+        doc.setTextColor(240, 240, 240);
+    }
+    setFontEn(45, 'bold');
+    doc.text('Al Kiswah Umrah Transport', 105, 150, { align: 'center', angle: 45 });
 
     const pdfOutput = doc.output('arraybuffer');
     return Buffer.from(pdfOutput);
