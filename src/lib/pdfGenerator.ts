@@ -148,12 +148,11 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
     ) => {
         // Calculate dynamic height
         const linesCount = Math.max(linesEn.length, linesAr.length);
-        const boxHeight = 16 + (linesCount * 8);
+        const boxHeight = 24 + (linesCount * 8); // Increased padding
         
-        // Background Box (Light Grey, Soft borders)
-        doc.setFillColor(248, 248, 248);
+        // Background Box (Transparent with borders so watermark shows through)
         doc.setDrawColor(230, 230, 230);
-        doc.roundedRect(14, y, 182, boxHeight, 3, 3, 'FD');
+        doc.roundedRect(14, y, 182, boxHeight, 3, 3, 'S'); // 'S' is Stroke only
 
         // Headers
         doc.setTextColor(goldColor);
@@ -246,23 +245,28 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
     );
 
     // --- 3. FARE SUMMARY ---
-    // Sanitize fare value — strip "SAR" / "ريال" if already present to avoid "150 SAR SAR"
+    // Detect currency from booking object or raw price string
     const rawFare = String(booking.totalAmount || booking.price || '0');
+    const isUSD = booking.currency === 'USD' || rawFare.includes('USD') || rawFare.includes('$');
+    const currencyEn = isUSD ? 'USD' : 'SAR';
+    const currencyAr = isUSD ? 'دولار' : 'ريال';
+    
+    // Sanitize fare value
     const fareNumeric = rawFare.replace(/[^0-9.,]/g, '').trim() || '0';
     const paymentMethod = booking.paymentMethod || 'Cash / Card on Arrival';
 
     startY = drawSection(startY,
         'Fare Summary', 'ملخص الأجرة',
         [
-            ['Base Fare', `${fareNumeric} SAR`],
-            ['Additional', '0 SAR'],
-            ['Total Fare', `${fareNumeric} SAR`],
+            ['Base Fare', `${fareNumeric} ${currencyEn}`],
+            ['Additional', `0 ${currencyEn}`],
+            ['Total Fare', `${fareNumeric} ${currencyEn}`],
             ['Payment', paymentMethod]
         ],
         [
-            ['الأجرة الأساسية', `${fareNumeric} ريال`],
-            ['الرسوم الإضافية', '0 ريال'],
-            ['إجمالي الأجرة', `${fareNumeric} ريال`],
+            ['الأجرة الأساسية', `${fareNumeric} ${currencyAr}`],
+            ['الرسوم الإضافية', `0 ${currencyAr}`],
+            ['إجمالي الأجرة', `${fareNumeric} ${currencyAr}`],
             ['طريقة الدفع', 'نقداً / بطاقة عند الوصول']
         ]
     );
