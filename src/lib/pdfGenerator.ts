@@ -1,10 +1,44 @@
 import { jsPDF } from 'jspdf';
 import QRCode from 'qrcode';
 
-// RTL helper as per requirements
-function rtl(text: string) {
+// ─────────────────────────────────────────────────────────────────────────────
+// RTL Helpers for jsPDF (which does NOT support bidi / RTL natively)
+//
+// jsPDF renders text left-to-right at the glyph level. To display Arabic
+// correctly (right-to-left) we must reverse the WORD order of Arabic text
+// so that when jsPDF places the words LTR, a reader scanning RTL sees
+// the intended reading order.
+//
+// CRITICAL: English words, numbers, and punctuation must NOT be reversed
+// among themselves — only the overall Arabic word sequence is flipped.
+// ─────────────────────────────────────────────────────────────────────────────
+
+/**
+ * Reverse word order for a pure-Arabic string.
+ * Use ONLY for strings that are entirely Arabic (section titles, labels).
+ * Never pass mixed Arabic+English strings here.
+ */
+function rtl(text: string): string {
     if (!text) return '';
     return text.split(' ').reverse().join(' ');
+}
+
+/**
+ * Smart RTL for values that may be Arabic, English, numeric, or mixed.
+ * - Pure Arabic  → reverse word order (so jsPDF LTR renders correct RTL).
+ * - Contains Latin letters → keep as-is (English names, emails, routes).
+ * - Pure numbers / symbols → keep as-is.
+ */
+function rtlValue(value: string): string {
+    if (!value) return '—';
+    const hasArabic = /[\u0600-\u06FF]/.test(value);
+    const hasLatin  = /[a-zA-Z]/.test(value);
+
+    if (hasArabic && !hasLatin) {
+        // Pure Arabic (possibly with digits / punctuation) — reverse words
+        return value.split(' ').reverse().join(' ');
+    }
+    return value;
 }
 
 // Global cache for the base64 encoded font to avoid duplicate network fetches in serverless environments
@@ -71,12 +105,16 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
     
     setFontEn(10, 'bold');
     doc.text(`Receipt No: ${shortId}`, 14, 45);
+    
+    // Arabic receipt number — label and value rendered separately to avoid scrambling
     setFontAr(12);
-    doc.text(rtl(`رقم الإيصال: ${shortId}`), 196, 45, { align: 'right' });
+    doc.text(rtl('رقم الإيصال'), 196, 42, { align: 'right' });
+    setFontAr(9);
+    doc.text(shortId, 196, 48, { align: 'right' });
 
     // QR Code
     try {
-        const baseUrl = process.env.BASE_URL || process.env.NEXT_PUBLIC_APP_URL || 'https://alkiswahumrahcab.com';
+        const baseUrl = process.env.BASE_URL || process.env.NEXT_PUBLIC_APP_URL || 'https://kiswahumrahcab.com';
         const qrUrl = `${baseUrl}/receipt/${shortId}`;
         const qrDataUrl = await QRCode.toDataURL(qrUrl, { margin: 1, color: { dark: '#000000', light: '#FFFFFF' } });
         doc.addImage(qrDataUrl, 'PNG', 160, 10, 35, 35);
@@ -91,8 +129,23 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
 
     let startY = 60;
 
-    // Helper to draw two-column sections
-    const drawSection = (y: number, titleEn: string, titleAr: string, linesEn: [string, string][], linesAr: [string, string][]) => {
+    // ─────────────────────────────────────────────────────────────────────
+    // Helper to draw bilingual two-column sections
+    // English column on the left, Arabic column on the right.
+    //
+    // Arabic rendering strategy:
+    //   1. Arabic LABEL is rendered right-aligned at x=190  (using rtl())
+    //   2. VALUE is rendered right-aligned at x=140          (using rtlValue())
+    //   This keeps label and value as independent text calls,
+    //   completely avoiding the mixed-script scrambling bug.
+    // ─────────────────────────────────────────────────────────────────────
+    const drawSection = (
+        y: number,
+        titleEn: string,
+        titleAr: string,
+        linesEn: [string, string][],
+        linesAr: [string, string][]
+    ) => {
         // Calculate dynamic height
         const linesCount = Math.max(linesEn.length, linesAr.length);
         const boxHeight = 16 + (linesCount * 8);
@@ -123,11 +176,25 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
             curY += 8;
         });
 
-        // Arabic Column (Right)
+        // Arabic Column (Right) — label and value rendered SEPARATELY
         curY = y + 18;
         linesAr.forEach(([label, value]) => {
+            // 1. Arabic label — right-aligned at the right margin
             setFontAr(10);
-            doc.text(rtl(`${value || '—'} :${label}`), 190, curY, { align: 'right' });
+            const renderedLabel = rtl(label);
+            doc.text(renderedLabel, 190, curY, { align: 'right' });
+
+            // 2. Colon separator — placed to the left of the label
+            const labelWidth = doc.getTextWidth(renderedLabel);
+            setFontEn(9, 'normal');
+            doc.text(':', 190 - labelWidth - 1, curY);
+
+            // 3. Value — right-aligned further left, using rtlValue for Arabic values
+            const colonX = 190 - labelWidth - 3;
+            setFontAr(9);
+            const renderedValue = rtlValue(value || '—');
+            doc.text(renderedValue, colonX, curY, { align: 'right' });
+
             curY += 8;
         });
 
@@ -169,7 +236,7 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
             ['رقم الحجز', shortId],
             ['موقع الاستلام', booking.pickup],
             ['موقع الوصول', booking.dropoff],
-            ['المسار', booking.routeName || booking.route || `${booking.pickup} إلى ${booking.dropoff}`],
+            ['المسار', booking.routeName || booking.route || `${booking.pickup} to ${booking.dropoff}`],
             ['المركبة', booking.vehicleName || booking.vehicle],
             ['عدد الركاب', `${booking.passengers}`],
             ['تاريخ الرحلة', booking.date],
@@ -179,23 +246,24 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
     );
 
     // --- 3. FARE SUMMARY ---
-    const baseFare = booking.totalAmount || booking.price || '0';
+    // Sanitize fare value — strip "SAR" / "ريال" if already present to avoid "150 SAR SAR"
+    const rawFare = String(booking.totalAmount || booking.price || '0');
+    const fareNumeric = rawFare.replace(/[^0-9.,]/g, '').trim() || '0';
     const paymentMethod = booking.paymentMethod || 'Cash / Card on Arrival';
-    const paymentMethodAr = 'نقداً / بطاقة عند الوصول';
 
     startY = drawSection(startY,
         'Fare Summary', 'ملخص الأجرة',
         [
-            ['Base Fare', `${baseFare} SAR`],
+            ['Base Fare', `${fareNumeric} SAR`],
             ['Additional', '0 SAR'],
-            ['Total Fare', `${baseFare} SAR`],
+            ['Total Fare', `${fareNumeric} SAR`],
             ['Payment', paymentMethod]
         ],
         [
-            ['الأجرة الأساسية', `${baseFare} ريال`],
+            ['الأجرة الأساسية', `${fareNumeric} ريال`],
             ['الرسوم الإضافية', '0 ريال'],
-            ['إجمالي الأجرة', `${baseFare} ريال`],
-            ['طريقة الدفع', paymentMethodAr]
+            ['إجمالي الأجرة', `${fareNumeric} ريال`],
+            ['طريقة الدفع', 'نقداً / بطاقة عند الوصول']
         ]
     );
 
@@ -215,12 +283,12 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
     
     // Arabic Footer
     setFontAr(10);
-    doc.text(rtl('شكرًا لاختياركم شركة الكسوة لسيارات العمرة.'), 105, pageHeight - 22, { align: 'center' });
-    doc.text(rtl('نتمنى لكم رحلة عمرة مباركة وآمنة.'), 105, pageHeight - 17, { align: 'center' });
+    doc.text(rtl('شكرًا لاختياركم شركة الكسوة لسيارات العمرة'), 105, pageHeight - 22, { align: 'center' });
+    doc.text(rtl('نتمنى لكم رحلة عمرة مباركة وآمنة'), 105, pageHeight - 17, { align: 'center' });
 
     // Contacts & Timestamp
     setFontEn(8, 'normal');
-    doc.text(`Support WhatsApp: +966-54-870-7332  |  Website: alkiswahumrahcab.com`, 105, pageHeight - 8, { align: 'center' });
+    doc.text('Support WhatsApp: +966-54-870-7332  |  Website: kiswahumrahcab.com', 105, pageHeight - 8, { align: 'center' });
     doc.text(`Generated: ${new Date().toLocaleString()}`, 105, pageHeight - 4, { align: 'center' });
 
     const pdfOutput = doc.output('arraybuffer');

@@ -9,7 +9,7 @@ export default function WhatsAppVoiceButton() {
     const { settings } = useSettings();
 
     // Get number from settings or fallback
-    const rawPhone = settings?.contact.whatsapp || settings?.contact.phone || '966545494921';
+    const rawPhone = settings?.contact.whatsapp || settings?.contact.phone || '966548707332';
     const cleanPhone = rawPhone.replace(/\D/g, ''); // Remove all non-numeric characters
 
     return (

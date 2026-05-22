@@ -128,7 +128,7 @@ const formatPriceRow = (booking: BookingData) => {
 };
 
 const prepareBookingVariables = (booking: BookingData, settings?: any) => {
-    const waNum = settings?.contact?.whatsapp?.replace(/\D/g, '') || '966545494921';
+    const waNum = settings?.contact?.whatsapp?.replace(/\D/g, '') || '966548707332';
     return {
         name: booking.name,
         email: booking.email || 'N/A',

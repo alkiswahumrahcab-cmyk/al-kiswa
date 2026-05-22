@@ -302,7 +302,7 @@ const QuickBookingForm = ({
                         <div 
                             className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between gap-4 mb-6 hover:bg-white/10 transition-all duration-300 group cursor-pointer hover:border-gold-primary/30" 
                             onClick={() => {
-                                const waNum = settings?.contact?.whatsapp?.replace(/\D/g, '') || '966545494921';
+                                const waNum = settings?.contact?.whatsapp?.replace(/\D/g, '') || '966548707332';
                                 window.open(`https://wa.me/${waNum}`, '_blank');
                             }}
                         >

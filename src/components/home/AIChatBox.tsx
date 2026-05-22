@@ -175,7 +175,7 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
                     {/* Priority Human Button */}
                     <button
                         onClick={() => {
-                            const waNum = settings?.contact?.whatsapp?.replace(/\D/g, '') || '966545494921';
+                            const waNum = settings?.contact?.whatsapp?.replace(/\D/g, '') || '966548707332';
                             window.open(`https://wa.me/${waNum}`, '_blank');
                         }}
                         className="ml-auto mr-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500 hover:text-black transition-all text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full flex items-center gap-1.5"
