@@ -58,21 +58,21 @@ export default function Navbar() {
             href: '/routes',
             label: 'Routes',
             children: [
-                { href: '/services/makkah-madinah-taxi', label: 'Makkah ⇄ Madinah' },
-                { href: '/services/jeddah-airport-transfer', label: 'Jeddah Airport ⇄ Makkah' },
-                { href: '/services/madinah-airport-transfer', label: 'Madinah Airport ⇄ Hotel' },
-                { href: '/services/intercity-transfer', label: 'Jeddah Airport ⇄ Madinah' },
-                { href: '/services/ziyarat-tours', label: 'Ziyarat Tours (City Tours)' },
+                { href: '/services/makkah-madinah-taxi', label: 'Makkah ⇄ Madinah', description: 'Direct transfer between the two Holy Cities' },
+                { href: '/services/jeddah-airport-transfer', label: 'Jeddah Airport ⇄ Makkah', description: 'Seamless arrival to the Holy Mosque' },
+                { href: '/services/madinah-airport-transfer', label: 'Madinah Airport ⇄ Hotel', description: 'Quick transfer to your Madinah hotel' },
+                { href: '/services/intercity-transfer', label: 'Jeddah Airport ⇄ Madinah', description: 'Direct transfer from Jeddah to Madinah' },
+                { href: '/services/ziyarat-tours', label: 'Ziyarat Tours (City Tours)', description: 'Guided tours of historical sites' },
             ]
         },
         {
             href: '/services',
             label: 'Services',
             children: [
-                { href: '/services/airport-transfers', label: 'Airport Transfer (General)' },
-                { href: '/services/intercity-transfer', label: 'Intercity Transfer' },
-                { href: '/services/hotel-transfers', label: 'Hotel Transfer' },
-                { href: '/track-booking', label: 'Track Booking' },
+                { href: '/services/airport-transfers', label: 'Airport Transfer (General)', description: 'Reliable airport pickups and drop-offs' },
+                { href: '/services/intercity-transfer', label: 'Intercity Transfer', description: 'Comfortable travel between Saudi cities' },
+                { href: '/services/hotel-transfers', label: 'Hotel Transfer', description: 'Door-to-door hotel transportation' },
+                { href: '/track-booking', label: 'Track Booking', description: 'Check the status of your ride' },
             ]
         },
         { href: '/ramadan-2026', label: 'Ramadan 2026' },
@@ -80,18 +80,18 @@ export default function Navbar() {
             href: '/fleet',
             label: 'Fleet',
             children: [
-                { href: '/fleet/gmc-yukon-at4', label: 'GMC Yukon XL' },
-                { href: '/fleet/hyundai-staria', label: 'Hyundai Staria' },
-                { href: '/fleet/hyundai-starex', label: 'Hyundai H1 Starex' },
-                { href: '/fleet/toyota-hiace', label: 'Toyota Hiace' },
-                { href: '/fleet/toyota-camry', label: 'Toyota Camry' },
+                { href: '/fleet/gmc-yukon-at4', label: 'GMC Yukon XL', description: 'VIP Luxury 7-Seater. Elite comfort.' },
+                { href: '/fleet/hyundai-staria', label: 'Hyundai Staria', description: 'Premium Family 7-Seater. Modern space.' },
+                { href: '/fleet/hyundai-starex', label: 'Hyundai H1 Starex', description: 'Comfortable Family 7-Seater.' },
+                { href: '/fleet/toyota-hiace', label: 'Toyota Hiace', description: 'Group Travel 11-Seater. Perfect for luggage.' },
+                { href: '/fleet/toyota-camry', label: 'Toyota Camry', description: 'Standard Sedan 4-Seater.' },
             ]
         },
         {
             href: '/about',
             label: 'About Us',
             children: [
-                { href: '/about', label: 'Company Profile' },
+                { href: '/about', label: 'Company Profile', description: 'Learn more about Al Kiswah Transport' },
             ]
         },
         { href: '/blog', label: 'Blog' },
@@ -155,19 +155,35 @@ export default function Navbar() {
                                 </Link>
                             )}
 
-                            {/* Dropdown Menu */}
+                            {/* Premium Dropdown Menu */}
                             {link.children && (
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-                                    <div className="bg-primary-black/95 backdrop-blur-xl rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.8)] border border-white/10 overflow-hidden p-1.5 min-w-[220px]">
-                                        {link.children.map((child) => (
-                                            <Link
-                                                key={child.href}
-                                                href={child.href}
-                                                className="block px-4 py-3 text-xs font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all border border-transparent hover:border-white/5"
-                                            >
-                                                {child.label}
-                                            </Link>
-                                        ))}
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-400 translate-y-3 group-hover:translate-y-0">
+                                    <div className={`bg-primary-black/95 backdrop-blur-2xl rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.9)] border border-white/10 p-3 relative overflow-hidden ${link.children.length > 4 ? 'w-[600px]' : 'w-[320px]'}`}>
+                                        
+                                        {/* Subtle elegant top highlight */}
+                                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-gold-primary/50 to-transparent"></div>
+
+                                        <div className={`grid gap-1 ${link.children.length > 4 ? 'grid-cols-2' : 'grid-cols-1'}`}>
+                                            {link.children.map((child) => (
+                                                <Link
+                                                    key={child.href}
+                                                    href={child.href}
+                                                    className="group/link relative flex flex-col justify-center px-4 py-3.5 rounded-xl transition-all duration-300 hover:bg-white/[0.03] overflow-hidden"
+                                                >
+                                                    {/* Hover accent line */}
+                                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-0 bg-gold-primary transition-all duration-300 group-hover/link:h-3/4 rounded-r-full opacity-0 group-hover/link:opacity-100"></div>
+                                                    
+                                                    <div className="font-sans font-bold text-gray-200 text-sm tracking-wide transition-colors duration-300 group-hover/link:text-gold-primary group-hover/link:translate-x-1 transform">
+                                                        {child.label}
+                                                    </div>
+                                                    {child.description && (
+                                                        <div className="text-[11px] text-gray-500 mt-1.5 leading-relaxed tracking-wider transition-all duration-300 group-hover/link:text-gray-400 group-hover/link:translate-x-1 transform">
+                                                            {child.description}
+                                                        </div>
+                                                    )}
+                                                </Link>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
                             )}
