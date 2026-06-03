@@ -8,9 +8,9 @@ import { regions, getRegionById } from '@/data/regions';
 import { generateMetadataAlternates } from '@/lib/hreflang';
 
 interface Params {
-    params: {
+    params: Promise<{
         region: string;
-    };
+    }>;
 }
 
 export async function generateStaticParams() {
@@ -20,7 +20,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-    const region = getRegionById(params.region);
+    const { region: regionId } = await params;
+    const region = getRegionById(regionId);
     
     if (!region) {
         return {
@@ -48,8 +49,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     };
 }
 
-export default function ArabicRegionalLandingPage({ params }: Params) {
-    const region = getRegionById(params.region);
+export default async function ArabicRegionalLandingPage({ params }: Params) {
+    const { region: regionId } = await params;
+    const region = getRegionById(regionId);
 
     if (!region) {
         notFound();

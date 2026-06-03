@@ -18,12 +18,13 @@ export async function generateStaticParams() {
 }
 
 type Props = {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 };
 
 // Generate SEO Metadata dynamically
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const route = pricingData.routes.find((r) => r.slug === params.slug);
+    const { slug } = await params;
+    const route = pricingData.routes.find((r) => r.slug === slug);
 
     if (!route || !route.seo) {
         return {
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: route.seo.description,
         keywords: route.seo.keywords,
         alternates: {
-            canonical: `https://alkiswahumrahtransport.com/routes/${params.slug}`,
+            canonical: `https://alkiswahumrahtransport.com/routes/${slug}`,
         },
         openGraph: {
             title: route.seo.title,
@@ -45,8 +46,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default function RouteDetail({ params }: Props) {
-    const route = pricingData.routes.find((r) => r.slug === params.slug);
+export default async function RouteDetail({ params }: Props) {
+    const { slug } = await params;
+    const route = pricingData.routes.find((r) => r.slug === slug);
 
     if (!route) {
         notFound();
