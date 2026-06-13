@@ -87,9 +87,23 @@ export async function POST(request: Request) {
             vehiclesToProcess = [{ vehicleId: bookingData.vehicleId, quantity: bookingData.vehicleCount || 1 }];
         }
 
-        if (bookingData.routeId && bookingData.routeId !== 'custom' && vehiclesToProcess.length > 0) {
+        // Normalize legs
+        const legs = bookingData.legs && bookingData.legs.length > 0 
+            ? bookingData.legs 
+            : (bookingData.routeId ? [{
+                routeId: bookingData.routeId,
+                pickup: bookingData.pickup || '',
+                dropoff: bookingData.dropoff || '',
+                date: bookingData.date || '',
+                time: bookingData.time || '',
+                flightNumber: bookingData.flightNumber
+            }] : []);
+
+        const hasCustomRoute = legs.some((leg: any) => leg.routeId === 'custom');
+
+        if (legs.length > 0 && !hasCustomRoute && vehiclesToProcess.length > 0) {
             try {
-                console.log(`[Booking ${requestId}] Calculating price for route ${bookingData.routeId}...`);
+                console.log(`[Booking ${requestId}] Calculating price for ${legs.length} routes...`);
                 const [routes, vehicles, settings, rawSettingsArr] = await Promise.all([
                     routeService.getRoutes(),
                     vehicleService.getVehicles(),
@@ -102,39 +116,74 @@ export async function POST(request: Request) {
                     return acc;
                 }, {} as Record<string, string>);
 
-                const route = (routes as RouteWithPrices[]).find(r => r.id === bookingData.routeId);
                 let totalBasePrice = 0;
                 const vehicleNames: string[] = [];
+                let vehiclesUnavailable = false;
+                let unavailableMessage = '';
 
                 for (const sv of vehiclesToProcess) {
                     const vehicle = (vehicles as any[]).find(v => v.id === sv.vehicleId);
                     if (vehicle) {
-                        if (bookingData.date && vehicle.unavailableDates?.includes(bookingData.date)) {
-                            return NextResponse.json(
-                                { success: false, message: `${vehicle.name} is unavailable on ${bookingData.date}. Please choose a different date or vehicle.` },
-                                { status: 409 }
-                            );
-                        }
                         selectedVehiclesList.push({ name: vehicle.name, quantity: sv.quantity });
                         vehicleNames.push(`${sv.quantity} x ${vehicle.name}`);
-
-                        if (route) {
-                            const priceEntry = (route as any).prices?.find((p: any) => p.vehicleId === sv.vehicleId);
-                            if (priceEntry) totalBasePrice += priceEntry.price * sv.quantity;
-                        }
                     }
                 }
 
-                if (totalBasePrice > 0) {
-                    const { price, originalPrice, discountApplied, discountType } = calculateFinalPrice(totalBasePrice, settings.discount);
+                for (const leg of legs) {
+                    const route = (routes as RouteWithPrices[]).find(r => r.id === leg.routeId);
+                    let legPrice = 0;
+
+                    for (const sv of vehiclesToProcess) {
+                        const vehicle = (vehicles as any[]).find(v => v.id === sv.vehicleId);
+                        if (vehicle) {
+                            if (leg.date && vehicle.unavailableDates?.includes(leg.date)) {
+                                vehiclesUnavailable = true;
+                                unavailableMessage = `${vehicle.name} is unavailable on ${leg.date}. Please choose a different date or vehicle.`;
+                                break;
+                            }
+                            if (route) {
+                                const priceEntry = (route as any).prices?.find((p: any) => p.vehicleId === sv.vehicleId);
+                                if (priceEntry) legPrice += priceEntry.price * sv.quantity;
+                            }
+                        }
+                    }
+                    if (vehiclesUnavailable) break;
                     
+                    const isHourly = route?.name?.toLowerCase().includes('hourly') || (route as any)?.origin?.toLowerCase().includes('hourly');
+                    if (isHourly && leg.hours) {
+                        legPrice = legPrice * leg.hours;
+                    }
+
+                    leg.price = legPrice;
+                    totalBasePrice += legPrice;
+                }
+
+                if (vehiclesUnavailable) {
+                    return NextResponse.json(
+                        { success: false, message: unavailableMessage },
+                        { status: 409 }
+                    );
+                }
+
+                bookingData.legs = legs;
+
+                if (totalBasePrice > 0) {
+                    let { price, originalPrice, discountApplied, discountType } = calculateFinalPrice(totalBasePrice, settings.discount);
+                    
+                    if (legs.length >= 3) {
+                        const multiLegDiscount = price * 0.05;
+                        price = Math.round(price - multiLegDiscount);
+                        discountApplied = (discountApplied || 0) + multiLegDiscount;
+                        discountType = discountType ? 'mixed' : 'percentage';
+                        console.log(`[Booking ${requestId}] Applied 5% multi-leg discount for 3+ rides.`);
+                    }
+
                     let displayPrice = String(price) + ' SAR';
                     if (bookingData.currency === 'USD') {
                         const exchangeRate = rawSettingsMap['exchange_rate'] ? parseFloat(rawSettingsMap['exchange_rate']) : 3.75;
                         const usdAmount = Math.round(price / exchangeRate);
                         displayPrice = `$${usdAmount}`;
                     } else {
-                        // Force SAR display for any unknown currency to prevent display price spoofing
                         displayPrice = `${price} SAR`;
                     }
 
@@ -146,14 +195,15 @@ export async function POST(request: Request) {
                     bookingData.vehicle = vehicleNames.join(', ');
                 }
             } catch (priceErr) {
-                // Non-fatal: log and continue — price can be set manually by admin
                 console.warn(`[Booking ${requestId}] ⚠️ Price calculation failed (non-fatal):`, priceErr);
             }
-        } else if (bookingData.routeId === 'custom') {
-            // Prevent price tampering for custom routes
+        } else if (hasCustomRoute) {
             console.log(`[Booking ${requestId}] Custom route detected. Forcing "Pending Quote" state.`);
             priceDetails = { price: 'Pending Quote' };
             bookingData.price = 'Pending Quote';
+            bookingData.legs = legs;
+        } else {
+            bookingData.legs = legs;
         }
 
         // ── 4. Get optional user ID ──────────────────────────────────────

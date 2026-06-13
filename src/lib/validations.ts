@@ -4,12 +4,29 @@ export const BookingSchema = z.object({
     name: z.string().min(2, 'Name must be at least 2 characters'),
     email: z.string().email('Invalid email address'),
     phone: z.string().min(10, 'Phone number must be at least 10 characters'),
-    pickup: z.string().min(3, 'Pickup location is required'),
-    dropoff: z.string().min(3, 'Dropoff location is required'),
-    date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Invalid date format (YYYY-MM-DD)'),
-    time: z.string().regex(/^\d{2}:\d{2}$/, 'Invalid time format (HH:MM)'),
-    vehicle: z.string().optional(), // Made optional for backward compatibility
-    passengers: z.number().int().min(1, 'At least 1 passenger is required').max(50, 'Max 50 passengers').optional(), // Made optional as vehicle capacity determines this
+    
+    // Legacy single-route fields (optional now)
+    pickup: z.string().optional(),
+    dropoff: z.string().optional(),
+    date: z.string().optional(),
+    time: z.string().optional(),
+    routeId: z.string().optional(),
+    flightNumber: z.string().optional(),
+
+    // New multi-route legs array
+    legs: z.array(z.object({
+        pickup: z.string(),
+        dropoff: z.string(),
+        date: z.string(),
+        time: z.string(),
+        routeId: z.string().optional(),
+        flightNumber: z.string().optional(),
+        hours: z.number().optional(),
+        price: z.number().optional()
+    })).optional(),
+
+    vehicle: z.string().optional(), 
+    passengers: z.number().int().min(1, 'At least 1 passenger is required').max(50, 'Max 50 passengers').optional(), 
     vehicleCount: z.number().int().min(1, 'At least 1 vehicle is required').max(10, 'Max 10 vehicles').optional(),
     luggage: z.number().int().min(0, 'Luggage cannot be negative').optional(),
     notes: z.string().optional(),
@@ -17,15 +34,13 @@ export const BookingSchema = z.object({
     discountApplied: z.number().optional(),
     finalPrice: z.number().optional(),
     discountType: z.enum(['percentage', 'fixed']).optional(),
-    routeId: z.string().optional(),
-    vehicleId: z.string().optional(), // Kept for backward compatibility
+    vehicleId: z.string().optional(),
     selectedVehicles: z.array(z.object({
         vehicleId: z.string(),
         quantity: z.number().min(1),
         name: z.string().optional()
     })).optional(),
     country: z.string().optional(),
-    flightNumber: z.string().optional(),
     arrivalDate: z.string().optional(),
     paymentMethod: z.string().optional(),
     paymentStatus: z.enum(['paid', 'unpaid', 'refunded']).optional(),

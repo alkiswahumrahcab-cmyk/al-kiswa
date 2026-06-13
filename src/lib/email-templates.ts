@@ -27,29 +27,28 @@ export const DEFAULT_BOOKING_CONFIRMATION_TEMPLATE = `
                 <span style="color: #D4AF37; font-weight: bold; font-family: monospace;">#{{booking_id}}</span>
             </div>
             
+            <div style="padding: 15px 20px;">
+                <p style="margin: 0 0 15px 0; color: #1a1a1a; font-weight: 600; font-size: 14px;">Service Details / تفاصيل الخدمة</p>
+                <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+                    <thead>
+                        <tr>
+                            <th style="padding: 10px; background-color: #000; color: #fff; text-align: left; border: 1px solid #ddd;">#</th>
+                            <th style="padding: 10px; background-color: #000; color: #fff; text-align: left; border: 1px solid #ddd;">Route</th>
+                            <th style="padding: 10px; background-color: #000; color: #fff; text-align: left; border: 1px solid #ddd;">Date & Time</th>
+                            <th style="padding: 10px; background-color: #000; color: #fff; text-align: left; border: 1px solid #ddd;">Vehicle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{legs_html}}
+                    </tbody>
+                </table>
+            </div>
+
             <table style="width: 100%; border-collapse: collapse;">
                 <tr>
-                    <td style="padding: 15px 20px; border-bottom: 1px solid #f5f5f5; color: #888; font-size: 12px; text-transform: uppercase;">Route / المسار</td>
-                    <td style="padding: 15px 20px; border-bottom: 1px solid #f5f5f5; color: #1a1a1a; font-weight: 600;">
-                        {{pickup}} <span style="color: #D4AF37;">→</span> {{dropoff}}
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding: 15px 20px; border-bottom: 1px solid #f5f5f5; color: #888; font-size: 12px; text-transform: uppercase;">Date & Time / الموعد</td>
-                    <td style="padding: 15px 20px; border-bottom: 1px solid #f5f5f5; color: #1a1a1a; font-weight: 600;">
-                        {{date}} @ <span style="color: #D4AF37;">{{time}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding: 15px 20px; border-bottom: 1px solid #f5f5f5; color: #888; font-size: 12px; text-transform: uppercase;">Vehicle(s) / نوع السيارة</td>
-                    <td style="padding: 15px 20px; border-bottom: 1px solid #f5f5f5; color: #1a1a1a; font-weight: 600;">
-                        {{vehicle_details}}
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding: 15px 20px; border-bottom: 1px solid #f5f5f5; color: #888; font-size: 12px; text-transform: uppercase;">Passengers / الركاب</td>
-                    <td style="padding: 15px 20px; border-bottom: 1px solid #f5f5f5; color: #1a1a1a; font-weight: 600;">
-                        {{passengers}} Persons | {{luggage}} Bags
+                    <td style="padding: 15px 20px; border-top: 1px solid #f5f5f5; border-bottom: 1px solid #f5f5f5; color: #888; font-size: 12px; text-transform: uppercase;">Passengers / الركاب</td>
+                    <td style="padding: 15px 20px; border-top: 1px solid #f5f5f5; border-bottom: 1px solid #f5f5f5; color: #1a1a1a; font-weight: 600;">
+                        {{passengers}} Persons
                     </td>
                 </tr>
                 {{price_row}}
@@ -104,13 +103,23 @@ export const DEFAULT_ADMIN_NOTIFICATION_TEMPLATE = `
             </table>
 
             <h3 style="margin: 25px 0 15px 0; border-bottom: 2px solid #D4AF37; padding-bottom: 8px; font-size: 16px;">Trip & Vehicle Details</h3>
+            <div style="margin-bottom: 15px;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+                    <thead>
+                        <tr>
+                            <th style="padding: 8px; background-color: #000; color: #fff; text-align: left; border: 1px solid #ddd;">#</th>
+                            <th style="padding: 8px; background-color: #000; color: #fff; text-align: left; border: 1px solid #ddd;">Route</th>
+                            <th style="padding: 8px; background-color: #000; color: #fff; text-align: left; border: 1px solid #ddd;">Date & Time</th>
+                            <th style="padding: 8px; background-color: #000; color: #fff; text-align: left; border: 1px solid #ddd;">Vehicle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{legs_html_admin}}
+                    </tbody>
+                </table>
+            </div>
             <table style="width: 100%; font-size: 14px;">
-                <tr><td style="padding: 5px 0; color: #666; width: 100px;">Pickup:</td><td style="font-weight: bold;">{{pickup}}</td></tr>
-                <tr><td style="padding: 5px 0; color: #666;">Dropoff:</td><td style="font-weight: bold;">{{dropoff}}</td></tr>
-                <tr><td style="padding: 5px 0; color: #666;">Schedule:</td><td style="font-weight: bold;">{{date}} at {{time}}</td></tr>
-                <tr><td style="padding: 5px 0; color: #666;">Vehicles:</td><td style="font-weight: bold; color: #D4AF37;">{{vehicle_details}}</td></tr>
-                <tr><td style="padding: 5px 0; color: #666;">Passengers:</td><td>{{passengers}} Pax | {{luggage}} Bags</td></tr>
-                {{flight_row}}
+                <tr><td style="padding: 5px 0; color: #666; width: 100px;">Passengers:</td><td>{{passengers}} Pax</td></tr>
                 {{arrival_date_row}}
                 {{notes_row}}
                 {{price_row}}

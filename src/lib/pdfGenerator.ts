@@ -1,47 +1,8 @@
 import { jsPDF } from 'jspdf';
 import QRCode from 'qrcode';
+import autoTable from 'jspdf-autotable';
 
-// ─────────────────────────────────────────────────────────────────────────────
-// RTL Helpers for jsPDF (which does NOT support bidi / RTL natively)
-//
-// jsPDF renders text left-to-right at the glyph level. To display Arabic
-// correctly (right-to-left) we must reverse the WORD order of Arabic text
-// so that when jsPDF places the words LTR, a reader scanning RTL sees
-// the intended reading order.
-//
-// CRITICAL: English words, numbers, and punctuation must NOT be reversed
-// among themselves — only the overall Arabic word sequence is flipped.
-// ─────────────────────────────────────────────────────────────────────────────
-
-/**
- * Reverse word order for a pure-Arabic string.
- * Use ONLY for strings that are entirely Arabic (section titles, labels).
- * Never pass mixed Arabic+English strings here.
- */
-function rtl(text: string): string {
-    if (!text) return '';
-    return text.split(' ').reverse().join(' ');
-}
-
-/**
- * Smart RTL for values that may be Arabic, English, numeric, or mixed.
- * - Pure Arabic  → reverse word order (so jsPDF LTR renders correct RTL).
- * - Contains Latin letters → keep as-is (English names, emails, routes).
- * - Pure numbers / symbols → keep as-is.
- */
-function rtlValue(value: string): string {
-    if (!value) return '—';
-    const hasArabic = /[\u0600-\u06FF]/.test(value);
-    const hasLatin  = /[a-zA-Z]/.test(value);
-
-    if (hasArabic && !hasLatin) {
-        // Pure Arabic (possibly with digits / punctuation) — reverse words
-        return value.split(' ').reverse().join(' ');
-    }
-    return value;
-}
-
-// Global cache for the base64 encoded font to avoid duplicate network fetches in serverless environments
+// Global cache for the base64 encoded font
 let cachedFontBase64: string | null = null;
 
 export async function generateBookingPDF(booking: any): Promise<Buffer> {
@@ -51,246 +12,268 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
         format: 'a4',
     });
 
-    // 1. Fetch and add Arabic font (Noto Sans Arabic) dynamically to avoid bundle bloat (cached globally for hot containers)
-    try {
-        if (!cachedFontBase64) {
-            console.log('[PDF Generator] 🌐 Fetching Noto Sans Arabic font from CDN...');
-            const fontUrl = 'https://raw.githubusercontent.com/googlefonts/noto-fonts/main/unhinted/ttf/NotoSansArabic/NotoSansArabic-Regular.ttf';
-            const fontRes = await fetch(fontUrl);
-            if (!fontRes.ok) throw new Error(`HTTP error! status: ${fontRes.status}`);
-            const fontBuffer = await fontRes.arrayBuffer();
-            cachedFontBase64 = Buffer.from(fontBuffer).toString('base64');
-            console.log('[PDF Generator] ✅ Font fetched and cached successfully.');
-        } else {
-            console.log('[PDF Generator] ⚡ Using cached Noto Sans Arabic font.');
-        }
-        
-        doc.addFileToVFS('NotoArabic.ttf', cachedFontBase64);
-        doc.addFont('NotoArabic.ttf', 'NotoArabic', 'normal');
-    } catch (e: any) {
-        console.warn('[PDF Generator] ⚠️ Failed to load Arabic font from CDN, falling back to default:', e.message);
-    }
-
     const goldColor = '#C9A86A';
     const blackColor = '#000000';
-    
-    // Setup typography helpers
+    const darkGray = '#333333';
+
+    // Fonts
+    try {
+        if (!cachedFontBase64) {
+            const fontUrl = 'https://raw.githubusercontent.com/googlefonts/noto-fonts/main/unhinted/ttf/NotoSansArabic/NotoSansArabic-Regular.ttf';
+            const fontRes = await fetch(fontUrl);
+            if (fontRes.ok) {
+                const fontBuffer = await fontRes.arrayBuffer();
+                cachedFontBase64 = Buffer.from(fontBuffer).toString('base64');
+            }
+        }
+        if (cachedFontBase64) {
+            doc.addFileToVFS('NotoArabic.ttf', cachedFontBase64);
+            doc.addFont('NotoArabic.ttf', 'NotoArabic', 'normal');
+        }
+    } catch (e: any) {
+        console.warn('Failed to load Arabic font:', e.message);
+    }
+
     const setFontEn = (size: number, style: 'normal' | 'bold' = 'normal') => {
         doc.setFont('helvetica', style);
         doc.setFontSize(size);
     };
-    
-    const setFontAr = (size: number) => {
-        doc.setFont('NotoArabic', 'normal');
-        doc.setFontSize(size);
-    };
-
-    // --- HEADER ---
-    doc.setTextColor(blackColor);
-    setFontEn(18, 'bold');
-    doc.text('Al Kiswah Umrah Cab', 105, 20, { align: 'center' });
-    
-    setFontEn(12, 'normal');
-    doc.text('Official Booking Receipt', 105, 28, { align: 'center' });
-    
-    setFontAr(14);
-    doc.text(rtl('إيصال الحجز الرسمي'), 105, 36, { align: 'center' });
 
     const shortId = booking.id || booking.bookingId || booking._id?.toString() || 'N/A';
     
+    // ==========================================
+    // PAGE 1: INVOICE
+    // ==========================================
+    
+    // Top Header Banner
+    doc.setFillColor(201, 168, 106); // Gold
+    doc.rect(0, 0, 210, 30, 'F');
+    
+    doc.setTextColor(255, 255, 255);
+    setFontEn(24, 'bold');
+    doc.text('AL KISWAH UMRAH TRANSPORT', 105, 16, { align: 'center' });
+    setFontEn(12, 'normal');
+    doc.text('GOLD TRANSFER', 105, 24, { align: 'center' });
+
+    // Header Details
+    doc.setTextColor(blackColor);
+    
+    // From Column
     setFontEn(10, 'bold');
-    doc.text(`Receipt No: ${shortId}`, 14, 45);
+    doc.text('From:', 14, 40);
+    setFontEn(11, 'bold');
+    doc.text('AL KISWAH UMRAH TRANSPORT', 14, 46);
+    setFontEn(10, 'normal');
+    doc.text('Makkah Saudi Arabia', 14, 52);
+    doc.text('kiswahumrahcab.com', 14, 58);
+    doc.text('+966-54-870-7332', 14, 64);
+
+    // Bill To Column
+    setFontEn(10, 'bold');
+    doc.text('Bill To:', 90, 40);
+    setFontEn(11, 'bold');
+    doc.text(booking.name || 'Guest', 90, 46);
+    setFontEn(10, 'normal');
+    doc.text(`Phone: ${booking.phone || 'N/A'}`, 90, 52);
+    doc.text(`Email: ${booking.email || 'N/A'}`, 90, 58);
+
+    // Invoice Details Column
+    setFontEn(10, 'bold');
+    doc.text('Invoice No:', 150, 46);
+    doc.text('Date:', 150, 52);
+    doc.text('Status:', 150, 58);
+    doc.text('Payment:', 150, 64);
     
-    // Arabic receipt number — label and value rendered separately to avoid scrambling
-    setFontAr(12);
-    doc.text(rtl('رقم الإيصال'), 196, 42, { align: 'right' });
-    setFontAr(9);
-    doc.text(shortId, 196, 48, { align: 'right' });
-
-    // Divider
-    doc.setDrawColor(220, 220, 220);
-    doc.setLineWidth(0.5);
-    doc.line(14, 52, 196, 52);
-
-    let startY = 60;
-
-    // ─────────────────────────────────────────────────────────────────────
-    // Helper to draw bilingual two-column sections
-    // English column on the left, Arabic column on the right.
-    //
-    // Arabic rendering strategy:
-    //   1. Arabic LABEL is rendered right-aligned at x=190  (using rtl())
-    //   2. VALUE is rendered right-aligned at x=140          (using rtlValue())
-    //   This keeps label and value as independent text calls,
-    //   completely avoiding the mixed-script scrambling bug.
-    // ─────────────────────────────────────────────────────────────────────
-    const drawSection = (
-        y: number,
-        titleEn: string,
-        titleAr: string,
-        linesEn: [string, string][],
-        linesAr: [string, string][]
-    ) => {
-        // Calculate dynamic height
-        const linesCount = Math.max(linesEn.length, linesAr.length);
-        const boxHeight = 24 + (linesCount * 8); // Increased padding
-        
-        // Background Box (Light Grey, Soft borders)
-        doc.setFillColor(248, 248, 248);
-        doc.setDrawColor(230, 230, 230);
-        doc.roundedRect(14, y, 182, boxHeight, 3, 3, 'FD');
-
-        // Headers
-        doc.setTextColor(goldColor);
-        setFontEn(11, 'bold');
-        doc.text(titleEn, 20, y + 8);
-        
-        setFontAr(12);
-        doc.text(rtl(titleAr), 190, y + 8, { align: 'right' });
-
-        doc.setTextColor(blackColor);
-        
-        // English Column (Left)
-        let curY = y + 18;
-        linesEn.forEach(([label, value]) => {
-            setFontEn(9, 'bold');
-            doc.text(`${label}: `, 20, curY);
-            const w = doc.getTextWidth(`${label}: `);
-            setFontEn(9, 'normal');
-            doc.text(`${value || '—'}`, 20 + w, curY);
-            curY += 8;
-        });
-
-        // Arabic Column (Right) — label and value rendered SEPARATELY
-        curY = y + 18;
-        linesAr.forEach(([label, value]) => {
-            // 1. Arabic label — right-aligned at the right margin
-            setFontAr(10);
-            const renderedLabel = rtl(label);
-            doc.text(renderedLabel, 190, curY, { align: 'right' });
-
-            // 2. Colon separator — placed to the left of the label
-            const labelWidth = doc.getTextWidth(renderedLabel);
-            setFontEn(9, 'normal');
-            doc.text(':', 190 - labelWidth - 1, curY);
-
-            // 3. Value — right-aligned further left, using rtlValue for Arabic values
-            const colonX = 190 - labelWidth - 3;
-            setFontAr(9);
-            const renderedValue = rtlValue(value || '—');
-            doc.text(renderedValue, colonX, curY, { align: 'right' });
-
-            curY += 8;
-        });
-
-        return y + boxHeight + 8; // return next Y pos
-    };
-
-    // --- 1. CUSTOMER INFORMATION ---
-    startY = drawSection(startY, 
-        'Customer Information', 'معلومات العميل',
-        [
-            ['Full Name', booking.name],
-            ['Phone', booking.phone],
-            ['Email', booking.email],
-            ['Nationality', booking.nationality || '—']
-        ],
-        [
-            ['الاسم الكامل', booking.name],
-            ['رقم الجوال', booking.phone],
-            ['البريد الإلكتروني', booking.email],
-            ['الجنسية', booking.nationality || '—']
-        ]
-    );
-
-    // --- 2. BOOKING DETAILS ---
-    startY = drawSection(startY, 
-        'Booking Details', 'تفاصيل الحجز',
-        [
-            ['Booking ID', shortId],
-            ['Pickup', booking.pickup],
-            ['Drop-off', booking.dropoff],
-            ['Route', booking.routeName || booking.route || `${booking.pickup} to ${booking.dropoff}`],
-            ['Vehicle', booking.vehicleName || booking.vehicle],
-            ['Passengers', `${booking.passengers}`],
-            ['Travel Date', booking.date],
-            ['Travel Time', booking.time],
-            ['Notes', booking.notes || '—']
-        ],
-        [
-            ['رقم الحجز', shortId],
-            ['موقع الاستلام', booking.pickup],
-            ['موقع الوصول', booking.dropoff],
-            ['المسار', booking.routeName || booking.route || `${booking.pickup} to ${booking.dropoff}`],
-            ['المركبة', booking.vehicleName || booking.vehicle],
-            ['عدد الركاب', `${booking.passengers}`],
-            ['تاريخ الرحلة', booking.date],
-            ['وقت الرحلة', booking.time],
-            ['ملاحظات', booking.notes || '—']
-        ]
-    );
-
-    // --- 3. FARE SUMMARY ---
-    // Detect currency from booking object or raw price string
-    const rawFare = String(booking.totalAmount || booking.price || '0');
-    const isUSD = booking.currency === 'USD' || rawFare.includes('USD') || rawFare.includes('$');
-    const currencyEn = isUSD ? 'USD' : 'SAR';
-    const currencyAr = isUSD ? 'دولار' : 'ريال';
+    setFontEn(10, 'normal');
+    doc.text(shortId, 175, 46);
+    doc.text(new Date().toLocaleDateString('en-GB'), 175, 52);
     
-    // Sanitize fare value
-    const fareNumeric = rawFare.replace(/[^0-9.,]/g, '').trim() || '0';
-    const paymentMethod = booking.paymentMethod || 'Cash / Card on Arrival';
-
-    startY = drawSection(startY,
-        'Fare Summary', 'ملخص الأجرة',
-        [
-            ['Base Fare', `${fareNumeric} ${currencyEn}`],
-            ['Additional', `0 ${currencyEn}`],
-            ['Total Fare', `${fareNumeric} ${currencyEn}`],
-            ['Payment', paymentMethod]
-        ],
-        [
-            ['الأجرة الأساسية', `${fareNumeric} ${currencyAr}`],
-            ['الرسوم الإضافية', `0 ${currencyAr}`],
-            ['إجمالي الأجرة', `${fareNumeric} ${currencyAr}`],
-            ['طريقة الدفع', 'نقداً / بطاقة عند الوصول']
-        ]
-    );
-
-    // --- FOOTER ---
-    const pageHeight = doc.internal.pageSize.height;
-    
-    // Bottom divider
-    doc.setDrawColor(220, 220, 220);
-    doc.line(14, pageHeight - 45, 196, pageHeight - 45);
-
-    doc.setTextColor(100, 100, 100); // Muted grey text
-    
-    // English Footer
-    setFontEn(9, 'normal');
-    doc.text('Thank you for choosing Al Kiswah Umrah Cab.', 105, pageHeight - 35, { align: 'center' });
-    doc.text('We wish you a blessed and safe Umrah journey.', 105, pageHeight - 30, { align: 'center' });
-    
-    // Arabic Footer
-    setFontAr(10);
-    doc.text(rtl('شكرًا لاختياركم شركة الكسوة لسيارات العمرة'), 105, pageHeight - 22, { align: 'center' });
-    doc.text(rtl('نتمنى لكم رحلة عمرة مباركة وآمنة'), 105, pageHeight - 17, { align: 'center' });
-
-    // Contacts & Timestamp
-    setFontEn(8, 'normal');
-    doc.text('Support WhatsApp: +966-54-870-7332  |  Website: kiswahumrahcab.com', 105, pageHeight - 8, { align: 'center' });
-    doc.text(`Generated: ${new Date().toLocaleString()}`, 105, pageHeight - 4, { align: 'center' });
-
-    // --- WATERMARK OVERLAY ---
-    // Draw at the very end so it overlays the boxes, using opacity if supported
-    try {
-        doc.setGState(new (doc as any).GState({opacity: 0.08}));
-        doc.setTextColor(0, 0, 0);
-    } catch(e) {
-        doc.setTextColor(240, 240, 240);
+    const paymentStatus = booking.paymentStatus?.toUpperCase() || 'UNPAID';
+    if (paymentStatus === 'PAID') {
+        doc.setTextColor(0, 128, 0); // Green
+    } else {
+        doc.setTextColor(200, 0, 0); // Red
     }
-    setFontEn(45, 'bold');
-    doc.text('Al Kiswah Umrah Transport', 105, 150, { align: 'center', angle: 45 });
+    doc.text(paymentStatus, 175, 58);
+    
+    doc.setTextColor(blackColor);
+    doc.text(booking.paymentMethod || 'Cash', 175, 64);
+
+    // Service Details Table
+    const tableData: any[][] = [];
+    let totalSAR = 0;
+    
+    const currency = booking.currency || 'SAR';
+    const isUSD = currency === 'USD';
+    const symbol = isUSD ? '$' : 'SAR';
+
+    const legs = booking.legs && booking.legs.length > 0 ? booking.legs : [{
+        pickup: booking.pickup,
+        dropoff: booking.dropoff,
+        date: booking.date,
+        time: booking.time,
+        price: booking.priceInSAR || booking.price
+    }];
+
+    const vehicleName = booking.vehicleName || booking.vehicle || 'Standard Vehicle';
+
+    legs.forEach((leg: any, index: number) => {
+        const hoursText = leg.hours ? ` (${leg.hours} Hours)` : '';
+        const desc = `${leg.pickup || 'Unknown'} to ${leg.dropoff || 'Unknown'}${hoursText}`;
+        const amount = leg.price || 0;
+        totalSAR += Number(amount);
+        tableData.push([
+            (index + 1).toString(),
+            desc,
+            `${leg.date || ''} ${leg.time || ''}`,
+            vehicleName,
+            '1',
+            `${amount}`
+        ]);
+    });
+
+    autoTable(doc, {
+        startY: 80,
+        head: [['#', 'Service Description', 'Date & Time', 'Vehicle', 'Qty', `Amount (${symbol})`]],
+        body: tableData,
+        theme: 'grid',
+        headStyles: { fillColor: [0, 0, 0], textColor: 255, fontStyle: 'bold' },
+        styles: { fontSize: 9, cellPadding: 4, halign: 'center' },
+        columnStyles: {
+            1: { halign: 'left' }
+        }
+    });
+
+    const finalY = (doc as any).lastAutoTable.finalY + 10;
+
+    // Totals Box
+    // Apply discount if any
+    const finalTotal = booking.priceInSAR || booking.price || totalSAR;
+    
+    doc.setFillColor(245, 245, 245);
+    doc.rect(130, finalY, 66, 24, 'F');
+    doc.setDrawColor(200, 200, 200);
+    doc.rect(130, finalY, 66, 24, 'S');
+
+    setFontEn(10, 'bold');
+    doc.text('Subtotal:', 135, finalY + 8);
+    doc.text(`${totalSAR} ${symbol}`, 190, finalY + 8, { align: 'right' });
+    
+    const discount = Math.max(0, totalSAR - Number(finalTotal));
+    if (discount > 0) {
+        doc.text('Discount:', 135, finalY + 15);
+        doc.text(`-${discount} ${symbol}`, 190, finalY + 15, { align: 'right' });
+    }
+
+    doc.setFillColor(201, 168, 106); // Gold
+    doc.rect(130, finalY + 18, 66, 8, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.text('Total:', 135, finalY + 24);
+    doc.text(`${finalTotal} ${symbol}`, 190, finalY + 24, { align: 'right' });
+
+    // Terms and Conditions
+    doc.setTextColor(blackColor);
+    let currentY = finalY + 50;
+    
+    setFontEn(11, 'bold');
+    doc.text('TERMS & CONDITION', 14, currentY);
+    setFontEn(9, 'normal');
+    const terms = [
+        "1. All bookings are subject to availability and confirmation.",
+        "2. Cancellation within 24 hours of pickup time is non-refundable.",
+        "3. Toll gates, parking fees, and other miscellaneous charges are not included unless specified.",
+        "4. AL KISWAH UMRAH TRANSPORT reserves the right to change the vehicle model within the same category if the selected vehicle is unavailable.",
+        "5. The company is not responsible for any items left in the vehicle."
+    ];
+    
+    currentY += 6;
+    terms.forEach(term => {
+        doc.text(term, 14, currentY);
+        currentY += 5;
+    });
+
+    // ==========================================
+    // PAGE 2: RULES & REGULATIONS
+    // ==========================================
+    doc.addPage();
+    
+    // Top Banner
+    doc.setFillColor(0, 0, 0); // Black
+    doc.rect(0, 0, 210, 25, 'F');
+    doc.setTextColor(201, 168, 106); // Gold
+    setFontEn(20, 'bold');
+    doc.text('WELCOME TO AL KISWAH TRANSFER', 105, 16, { align: 'center' });
+
+    doc.setTextColor(blackColor);
+    setFontEn(14, 'bold');
+    doc.text('Rules & Regulations:', 14, 40);
+
+    setFontEn(10, 'normal');
+    let ruleY = 50;
+    const rules = [
+        "• Maximum Wait Time: 90 Minutes at the Airport. Wait time begins from the flight's",
+        "  actual arrival time.",
+        "• We monitor all flight arrivals, so your driver will be there when you land.",
+        "• Hotel Pickup: Maximum 20 minutes wait time from the scheduled pickup time.",
+        "• Our driver will meet you at the Airport Arrivals holding a Name Sign.",
+        "• If you encounter any issues finding the driver, please contact us immediately.",
+        "• We do not provide child car seats. You must bring your own.",
+        "• Consuming food or beverages inside the vehicle is strictly prohibited to maintain cleanliness.",
+        "• Smoking is absolutely not allowed in the vehicle.",
+        "• Any damages caused to the vehicle by the passenger will incur repair or cleaning charges."
+    ];
+    
+    rules.forEach(rule => {
+        doc.text(rule, 14, ruleY);
+        ruleY += 6;
+    });
+
+    ruleY += 10;
+    doc.setTextColor(220, 0, 0); // Red
+    setFontEn(14, 'bold');
+    doc.text('IMPORTANT - PLEASE READ CAREFULLY', 14, ruleY);
+    
+    doc.setTextColor(blackColor);
+    setFontEn(10, 'normal');
+    ruleY += 10;
+    
+    const importantRules = [
+        "1. Vehicle Capacity:",
+        "   - Toyota Camry / Hyundai Sonata: Max 4 Passengers & 3 Medium Bags.",
+        "   - GMC Yukon / Chevrolet Tahoe: Max 7 Passengers & 7 Medium Bags.",
+        "   - Hyundai Staria / H1: Max 7 Passengers & 7 Medium Bags.",
+        "   - Toyota Hiace: Max 10 Passengers & 10 Medium Bags.",
+        "   - Ford Transit: Max 12 Passengers & 12 Medium Bags.",
+        "   - VIP Coaster Bus: Max 20 Passengers & 20 Medium Bags.",
+        "",
+        "2. Luggage Policy:",
+        "   - Please adhere to the luggage limits. Overloading is not permitted.",
+        "   - If you have extra luggage, you must inform us in advance to arrange a suitable vehicle.",
+        "   - Additional charges may apply for a larger or extra vehicle.",
+        "",
+        "3. Ziyarat & Hourly Bookings:",
+        "   - Ziyarat (City Tour) duration is 3 Hours.",
+        "   - Any extra hour will be charged at 50 SAR per hour.",
+        "   - The driver will strictly follow the agreed Ziyarat itinerary.",
+        "   - Any deviation or extra stops requested by the passenger may incur additional charges."
+    ];
+
+    importantRules.forEach(line => {
+        if (line.startsWith('1.') || line.startsWith('2.') || line.startsWith('3.')) {
+            setFontEn(10, 'bold');
+        } else {
+            setFontEn(10, 'normal');
+        }
+        doc.text(line, 14, ruleY);
+        ruleY += 6;
+    });
+
+    // Footer bottom page 2
+    doc.setFillColor(201, 168, 106); // Gold
+    doc.rect(0, 280, 210, 17, 'F');
+    doc.setTextColor(255, 255, 255);
+    setFontEn(10, 'bold');
+    doc.text('Contact: +966-54-870-7332   |   Email: booking@kiswahumrahcab.com   |   Web: kiswahumrahcab.com', 105, 289, { align: 'center' });
 
     const pdfOutput = doc.output('arraybuffer');
     return Buffer.from(pdfOutput);

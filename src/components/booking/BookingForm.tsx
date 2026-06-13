@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     MapPin, Calendar, Clock, ChevronDown,
-    Search, User, Mail, Phone, Plane, Users, Briefcase, Baby, Loader2
+    Search, User, Mail, Phone, Plane, Users, Briefcase, Baby, Loader2, Plus, Trash2
 } from 'lucide-react';
 import { usePricing } from '@/context/PricingContext';
 import { useCurrency } from '@/context/CurrencyContext';
@@ -23,18 +23,13 @@ export default function BookingForm() {
 
     const [data, setData] = useState({
         serviceType: 'Intercity',
-        routeId: '',
-        pickup: '',
-        dropoff: '',
-        date: '',
-        time: '',
+        legs: [{ id: Date.now().toString(), routeId: '', pickup: '', dropoff: '', date: '', time: '', flightNumber: '', hours: undefined as number | undefined }],
         selectedVehicleId: '',
         passengers: 1,
         childSeats: false,
         name: '',
         email: '',
         phone: '',
-        flightNumber: '',
         notes: ''
     });
 
@@ -49,14 +44,13 @@ export default function BookingForm() {
     const vehicleSectionRef = useRef<HTMLDivElement>(null);
     const detailsSectionRef = useRef<HTMLDivElement>(null);
 
-    // Route Dropdown state
-    const [showRouteDropdown, setShowRouteDropdown] = useState(false);
-    const [routeSearch, setRouteSearch] = useState('');
+    // Dropdowns for multiple legs
+    const [activeDropdownIndex, setActiveDropdownIndex] = useState<number | null>(null);
+    const [routeSearches, setRouteSearches] = useState<Record<number, string>>({});
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     const updateData = (updates: Partial<typeof data>) => {
         setData(prev => ({ ...prev, ...updates }));
-        // Clear errors for updated fields
         if (Object.keys(updates).length > 0) {
             setErrors(prev => {
                 const newErrors = { ...prev };
@@ -66,31 +60,50 @@ export default function BookingForm() {
         }
     };
 
-    // Close dropdown on click outside
+    const addLeg = () => {
+        setData(prev => ({
+            ...prev,
+            legs: [...prev.legs, { id: Date.now().toString(), routeId: '', pickup: '', dropoff: '', date: '', time: '', flightNumber: '', hours: undefined }]
+        }));
+    };
+
+    const removeLeg = (index: number) => {
+        if (data.legs.length <= 1) return;
+        setData(prev => {
+            const newLegs = [...prev.legs];
+            newLegs.splice(index, 1);
+            return { ...prev, legs: newLegs };
+        });
+    };
+
+    const updateLeg = (index: number, updates: any) => {
+        setData(prev => {
+            const newLegs = [...prev.legs];
+            newLegs[index] = { ...newLegs[index], ...updates };
+            return { ...prev, legs: newLegs };
+        });
+        
+        setErrors(prev => {
+            const newErrors = { ...prev };
+            Object.keys(updates).forEach(key => delete newErrors[`leg_${index}_${key}`]);
+            return newErrors;
+        });
+    };
+
     useEffect(() => {
         const handler = (e: MouseEvent) => {
             if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-                setShowRouteDropdown(false);
+                setActiveDropdownIndex(null);
             }
         };
         document.addEventListener('mousedown', handler);
         return () => document.removeEventListener('mousedown', handler);
     }, []);
 
-    const filteredRoutes = routes.filter((r) => {
-        const searchLower = routeSearch.toLowerCase();
-        return !routeSearch || (r.origin?.toLowerCase() || '').includes(searchLower) || (r.destination?.toLowerCase() || '').includes(searchLower);
-    });
-
-    const selectRoute = (route: any) => {
-        updateData({ pickup: route.origin, dropoff: route.destination, routeId: route.id });
-        setShowRouteDropdown(false);
-        setRouteSearch('');
-        // Auto-scroll to vehicle section
-        setActiveSection('vehicle');
-        setTimeout(() => {
-            vehicleSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
+    const selectRoute = (index: number, route: any) => {
+        updateLeg(index, { pickup: route.origin, dropoff: route.destination, routeId: route.id });
+        setActiveDropdownIndex(null);
+        setRouteSearches(prev => ({ ...prev, [index]: '' }));
     };
 
     const selectVehicle = (vehicleId: string) => {
@@ -101,17 +114,52 @@ export default function BookingForm() {
         }, 100);
     };
 
-    const currentLabel = data.pickup && data.dropoff
-        ? `${data.pickup} → ${data.dropoff}`
-        : 'Search for a route (e.g., Makkah to Madinah)...';
+    const getLegPrice = (leg: any, vehicleId: string) => {
+        if (!leg.routeId || !vehicleId) return 0;
+        const priceCalc = calculatePrice(leg.routeId, vehicleId);
+        const base = priceCalc ? priceCalc.price : 0;
+        const selectedRoute = routes.find(r => r.id === leg.routeId);
+        const isHourly = selectedRoute?.name?.toLowerCase().includes('hourly') || selectedRoute?.origin?.toLowerCase().includes('hourly');
+        return isHourly && leg.hours ? base * leg.hours : base;
+    };
+
+    const getLegPriceUSD = (leg: any, vehicleId: string) => {
+        if (!leg.routeId || !vehicleId) return 0;
+        const priceCalc = calculatePrice(leg.routeId, vehicleId);
+        const base = priceCalc ? priceCalc.priceUSD : 0;
+        const selectedRoute = routes.find(r => r.id === leg.routeId);
+        const isHourly = selectedRoute?.name?.toLowerCase().includes('hourly') || selectedRoute?.origin?.toLowerCase().includes('hourly');
+        return isHourly && leg.hours ? (base || 0) * leg.hours : (base || 0);
+    };
+
+    const getTotalPrice = (vehicleId: string) => {
+        let totalSAR = 0;
+        let totalUSD = 0;
+        data.legs.forEach(leg => {
+            totalSAR += getLegPrice(leg, vehicleId);
+            totalUSD += getLegPriceUSD(leg, vehicleId) || 0;
+        });
+        
+        if (data.legs.length >= 3 && totalSAR > 0) {
+            totalSAR = Math.round(totalSAR * 0.95);
+            totalUSD = Math.round(totalUSD * 0.95);
+        }
+        
+        return { price: totalSAR, priceUSD: totalUSD };
+    };
 
     const handleSubmit = async () => {
         setGeneralError(null);
         const newErrors: Record<string, string> = {};
-        if (!data.routeId) newErrors.route = 'Please select a route';
+        
+        let allLegsValid = true;
+        data.legs.forEach((leg, index) => {
+            if (!leg.routeId) { newErrors[`leg_${index}_route`] = 'Please select a route'; allLegsValid = false; }
+            if (!leg.date) { newErrors[`leg_${index}_date`] = 'Required'; allLegsValid = false; }
+            if (!leg.time) { newErrors[`leg_${index}_time`] = 'Required'; allLegsValid = false; }
+        });
+
         if (!data.selectedVehicleId) newErrors.vehicle = 'Please select a vehicle';
-        if (!data.date) newErrors.date = 'Required';
-        if (!data.time) newErrors.time = 'Required';
         if (!data.name) newErrors.name = 'Required';
         if (!data.phone) newErrors.phone = 'Required';
         if (!data.email) newErrors.email = 'Required';
@@ -125,31 +173,30 @@ export default function BookingForm() {
 
         setIsSubmitting(true);
         try {
-            const priceCalc = calculatePrice(data.routeId, data.selectedVehicleId);
+            const priceCalc = getTotalPrice(data.selectedVehicleId);
             const sarPrice = priceCalc.price;
             const explicitUSD = priceCalc.priceUSD;
             const finalDisplayPrice = formatPrice(sarPrice, explicitUSD);
             
             const selectedVehicleInfo = vehicles.find(v => v.id === data.selectedVehicleId);
-            const selectedRouteInfo = routes.find(r => r.id === data.routeId);
 
             const bookingPayload = {
                 name: data.name,
                 email: data.email,
                 phone: data.phone,
-                flightNumber: data.flightNumber,
-                pickup: data.pickup,
-                dropoff: data.dropoff,
-                date: data.date,
-                time: data.time,
-                routeId: data.routeId,
+                legs: data.legs,
+                pickup: data.legs[0].pickup,
+                dropoff: data.legs[data.legs.length - 1].dropoff,
+                date: data.legs[0].date,
+                time: data.legs[0].time,
+                routeId: data.legs[0].routeId,
                 vehicleId: data.selectedVehicleId,
                 selectedVehicles: [{ vehicleId: data.selectedVehicleId, quantity: 1 }],
                 vehicleCount: 1,
                 passengers: data.passengers,
                 luggage: 0,
                 notes: data.notes || (data.childSeats ? 'Child seats requested' : undefined),
-                price: sarPrice != null ? String(sarPrice) : undefined,  // must be string per schema
+                price: sarPrice != null ? String(sarPrice) : undefined,
                 currency: currency,
                 priceInSelectedCurrency: finalDisplayPrice.amount,
                 priceInSAR: sarPrice,
@@ -163,25 +210,24 @@ export default function BookingForm() {
 
             const result = await response.json();
             if (response.ok && result.success) {
-                // Build receipt data for both modal and printable receipt
                 const humanReadableId = result.bookingId || result.bookingRef || 'BKG-' + Math.floor(Math.random() * 10000);
                 const receipt = {
                     id: humanReadableId,
                     name: data.name,
                     email: data.email,
                     phone: data.phone,
-                    pickupLocation: data.pickup,
-                    dropoffLocation: data.dropoff,
-                    date: data.date,
-                    time: data.time,
-                    routeName: `${data.pickup} to ${data.dropoff}`,
+                    pickupLocation: data.legs[0].pickup,
+                    dropoffLocation: data.legs[data.legs.length - 1].dropoff,
+                    date: data.legs[0].date,
+                    time: data.legs[0].time,
+                    routeName: data.legs.length > 1 ? `Multi-Route Itinerary (${data.legs.length} Transfers)` : `${data.legs[0].pickup} to ${data.legs[0].dropoff}`,
                     vehicleName: selectedVehicleInfo?.name || 'Standard Vehicle',
                     passengers: data.passengers,
                     currency: currency,
                     totalAmount: finalDisplayPrice.amount
                 };
                 setReceiptData(receipt);
-                setShowSuccessModal(true); // Show modal overlay — not page replacement
+                setShowSuccessModal(true);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 if (result.errors) {
@@ -206,13 +252,11 @@ export default function BookingForm() {
         }
     };
 
-    // Selected vehicle object for summary
     const selectedVehicle = vehicles.find(v => v.id === data.selectedVehicleId);
-    let summaryPriceCalc = null;
     let summaryDisplayPrice = { amount: 0, formatted: '0' };
     
-    if (selectedVehicle && data.routeId) {
-        summaryPriceCalc = calculatePrice(data.routeId, data.selectedVehicleId);
+    if (selectedVehicle && data.legs.every(leg => leg.routeId)) {
+        const summaryPriceCalc = getTotalPrice(data.selectedVehicleId);
         summaryDisplayPrice = formatPrice(summaryPriceCalc.price, summaryPriceCalc.priceUSD);
     }
 
@@ -239,72 +283,170 @@ export default function BookingForm() {
             <div className="space-y-16">
                 
                 {/* 1. ROUTE SELECTION */}
-                <section className={`transition-opacity duration-500 ${activeSection !== 'route' && data.routeId ? 'opacity-60 hover:opacity-100' : 'opacity-100'}`}>
+                <section className={`transition-opacity duration-500 ${activeSection !== 'route' && data.legs[0].routeId ? 'opacity-60 hover:opacity-100' : 'opacity-100'}`}>
                     <div className="flex items-center gap-3 mb-6">
                         <div className="w-8 h-8 rounded-full bg-gold-primary text-black flex items-center justify-center font-bold">1</div>
-                        <h2 className="text-xl md:text-2xl font-bold text-white">Where are you going?</h2>
+                        <h2 className="text-xl md:text-2xl font-bold text-white">Build Your Itinerary</h2>
                     </div>
                     
-                    <div className="relative pl-4 md:pl-11" ref={dropdownRef}>
-                        <div className="relative">
-                            <MapPin className="absolute left-0 top-4 text-gold-primary" size={24} />
-                            <button
-                                type="button"
-                                onClick={() => setShowRouteDropdown((v) => !v)}
-                                className={`w-full flex items-center justify-between pl-10 pr-4 py-4 border-b-2 bg-transparent transition-colors text-left outline-none ${errors.route ? 'border-red-500' : 'border-white/20 hover:border-gold-primary focus:border-gold-primary'}`}
-                            >
-                                <span className={`text-lg font-medium truncate ${data.pickup ? 'text-white' : 'text-gray-400'}`}>
-                                    {currentLabel}
-                                </span>
-                                <ChevronDown size={20} className={`text-gray-400 transition-transform ${showRouteDropdown ? 'rotate-180' : ''}`} />
-                            </button>
-                            {errors.route && <p className="text-red-500 text-xs mt-1 absolute">{errors.route}</p>}
-                        </div>
+                    <div className="pl-0 md:pl-11 space-y-8" ref={dropdownRef}>
+                        {data.legs.map((leg, index) => {
+                            const searchStr = routeSearches[index] || '';
+                            const filteredRoutes = routes.filter((r) => {
+                                const searchLower = searchStr.toLowerCase();
+                                return !searchStr || (r.origin?.toLowerCase() || '').includes(searchLower) || (r.destination?.toLowerCase() || '').includes(searchLower);
+                            });
+                            
+                            const selectedRoute = routes.find(r => r.id === leg.routeId);
+                            const isHourly = selectedRoute?.name?.toLowerCase().includes('hourly') || selectedRoute?.origin?.toLowerCase().includes('hourly');
 
-                        <AnimatePresence>
-                            {showRouteDropdown && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -5 }}
-                                    className="absolute top-full left-4 md:left-11 right-0 mt-2 z-50 bg-[#1a1a1a] border border-white/10 rounded-xl shadow-2xl overflow-hidden"
-                                >
-                                    <div className="p-4 border-b border-white/10 relative">
-                                        <Search size={18} className="absolute left-7 top-1/2 -translate-y-1/2 text-gray-400" />
-                                        <input
-                                            autoFocus type="text" value={routeSearch} onChange={(e) => setRouteSearch(e.target.value)}
-                                            placeholder="Search city or airport..."
-                                            className="w-full pl-10 pr-4 py-2 bg-transparent border-b border-white/10 rounded-none text-base text-white placeholder-gray-500 outline-none focus:border-gold-primary transition-colors"
-                                        />
-                                    </div>
-                                    <div className="max-h-64 overflow-y-auto custom-scrollbar">
-                                        {filteredRoutes.length > 0 ? filteredRoutes.map((route) => (
-                                            <button
-                                                key={route.id} type="button" onClick={() => selectRoute(route)}
-                                                className="w-full px-6 py-4 text-left hover:bg-gold-primary/10 text-gray-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex flex-col"
-                                            >
-                                                <span className="font-semibold text-lg">{route.origin} <span className="text-gold-primary mx-2">→</span> {route.destination}</span>
-                                                <span className="text-xs text-gray-500 mt-1 uppercase tracking-wider">{route.category || 'Intercity'}</span>
+                            const currentLabel = leg.pickup && leg.dropoff
+                                ? `${leg.pickup} → ${leg.dropoff}`
+                                : 'Search for a route (e.g., Makkah to Madinah)...';
+
+                            return (
+                                <div key={leg.id} className="bg-[#111] border border-white/10 rounded-2xl p-6 relative">
+                                    <div className="flex justify-between items-center mb-4">
+                                        <h3 className="text-gold-primary font-bold">Transfer {index + 1}</h3>
+                                        {data.legs.length > 1 && (
+                                            <button onClick={() => removeLeg(index)} className="text-gray-500 hover:text-red-500 transition-colors">
+                                                <Trash2 size={18} />
                                             </button>
-                                        )) : (
-                                            <div className="p-6 text-center text-gray-500">No routes found matching your search.</div>
                                         )}
                                     </div>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        {/* Route Dropdown */}
+                                        <div className="relative md:col-span-2">
+                                            <MapPin className="absolute left-0 top-4 text-gold-primary" size={24} />
+                                            <button
+                                                type="button"
+                                                onClick={() => setActiveDropdownIndex(activeDropdownIndex === index ? null : index)}
+                                                className={`w-full flex items-center justify-between pl-10 pr-4 py-4 border-b-2 bg-transparent transition-colors text-left outline-none ${errors[`leg_${index}_route`] ? 'border-red-500' : 'border-white/20 hover:border-gold-primary focus:border-gold-primary'}`}
+                                            >
+                                                <span className={`text-lg font-medium truncate ${leg.pickup ? 'text-white' : 'text-gray-400'}`}>
+                                                    {currentLabel}
+                                                </span>
+                                                <ChevronDown size={20} className={`text-gray-400 transition-transform ${activeDropdownIndex === index ? 'rotate-180' : ''}`} />
+                                            </button>
+                                            {errors[`leg_${index}_route`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_route`]}</p>}
+                                            
+                                            <AnimatePresence>
+                                                {activeDropdownIndex === index && (
+                                                    <motion.div
+                                                        initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -5 }}
+                                                        className="absolute top-full left-0 right-0 mt-2 z-50 bg-[#1a1a1a] border border-white/10 rounded-xl shadow-2xl overflow-hidden"
+                                                    >
+                                                        <div className="p-4 border-b border-white/10 relative">
+                                                            <Search size={18} className="absolute left-7 top-1/2 -translate-y-1/2 text-gray-400" />
+                                                            <input
+                                                                autoFocus type="text" value={searchStr} onChange={(e) => setRouteSearches(prev => ({ ...prev, [index]: e.target.value }))}
+                                                                placeholder="Search city or airport..."
+                                                                className="w-full pl-10 pr-4 py-2 bg-transparent border-b border-white/10 rounded-none text-base text-white placeholder-gray-500 outline-none focus:border-gold-primary transition-colors"
+                                                            />
+                                                        </div>
+                                                        <div className="max-h-64 overflow-y-auto custom-scrollbar">
+                                                            {filteredRoutes.length > 0 ? filteredRoutes.map((route) => (
+                                                                <button
+                                                                    key={route.id} type="button" onClick={() => selectRoute(index, route)}
+                                                                    className="w-full px-6 py-4 text-left hover:bg-gold-primary/10 text-gray-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex flex-col"
+                                                                >
+                                                                    <span className="font-semibold text-lg">{route.origin} <span className="text-gold-primary mx-2">→</span> {route.destination}</span>
+                                                                    <span className="text-xs text-gray-500 mt-1 uppercase tracking-wider">{route.category || 'Intercity'}</span>
+                                                                </button>
+                                                            )) : (
+                                                                <div className="p-6 text-center text-gray-500">No routes found matching your search.</div>
+                                                            )}
+                                                        </div>
+                                                    </motion.div>
+                                                )}
+                                            </AnimatePresence>
+                                        </div>
+
+                                        {/* Date */}
+                                        <div className="relative">
+                                            <Calendar className="absolute left-0 top-4 text-gold-primary" size={20} />
+                                            <input
+                                                type="date"
+                                                value={leg.date}
+                                                min={new Date().toISOString().split('T')[0]}
+                                                onChange={(e) => updateLeg(index, { date: e.target.value })}
+                                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors 
+                                                    ${errors[`leg_${index}_date`] ? 'border-red-500' : 'border-white/20 focus:border-gold-primary'}
+                                                    [color-scheme:dark]`}
+                                            />
+                                            {errors[`leg_${index}_date`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_date`]}</p>}
+                                        </div>
+
+                                        {/* Time */}
+                                        <div className="relative">
+                                            <Clock className="absolute left-0 top-4 text-gold-primary" size={20} />
+                                            <input
+                                                type="time"
+                                                value={leg.time}
+                                                onChange={(e) => updateLeg(index, { time: e.target.value })}
+                                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors 
+                                                    ${errors[`leg_${index}_time`] ? 'border-red-500' : 'border-white/20 focus:border-gold-primary'}
+                                                    [color-scheme:dark]`}
+                                            />
+                                            {errors[`leg_${index}_time`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_time`]}</p>}
+                                        </div>
+
+                                        {/* Flight Number */}
+                                        {leg.pickup?.toLowerCase().includes('airport') && (
+                                            <div className="relative md:col-span-2">
+                                                <Plane className="absolute left-0 top-4 text-gold-primary" size={20} />
+                                                <input
+                                                    type="text"
+                                                    placeholder="Flight Number (Optional)"
+                                                    value={leg.flightNumber}
+                                                    onChange={(e) => updateLeg(index, { flightNumber: e.target.value })}
+                                                    className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 border-white/20 focus:border-gold-primary text-white outline-none transition-colors placeholder-gray-600"
+                                                />
+                                            </div>
+                                        )}
+
+                                        {/* Hours (if Hourly route) */}
+                                        {isHourly && (
+                                            <div className="relative md:col-span-2">
+                                                <Clock className="absolute left-0 top-4 text-gold-primary" size={20} />
+                                                <input
+                                                    type="number"
+                                                    min="1"
+                                                    max="24"
+                                                    placeholder="Number of Hours"
+                                                    value={leg.hours || ''}
+                                                    onChange={(e) => updateLeg(index, { hours: parseInt(e.target.value) || undefined })}
+                                                    className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 border-white/20 focus:border-gold-primary text-white outline-none transition-colors placeholder-gray-600"
+                                                />
+                                                <p className="text-gray-400 text-xs mt-1 absolute pl-8">Enter number of hours (e.g., 3)</p>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
+                            );
+                        })}
+
+                        <button 
+                            onClick={() => { addLeg(); setActiveSection('route'); }}
+                            className="w-full py-4 border-2 border-dashed border-white/20 hover:border-gold-primary rounded-xl text-gold-primary font-medium flex justify-center items-center gap-2 transition-colors"
+                        >
+                            <Plus size={20} /> Add Another Transfer
+                        </button>
                     </div>
                 </section>
 
                 {/* 2. VEHICLE SELECTION */}
-                <section ref={vehicleSectionRef} className={`transition-all duration-500 ${!data.routeId ? 'opacity-30 pointer-events-none' : activeSection !== 'vehicle' && data.selectedVehicleId ? 'opacity-60 hover:opacity-100' : 'opacity-100'}`}>
+                <section ref={vehicleSectionRef} className={`transition-all duration-500 ${!data.legs.every(l => l.routeId) ? 'opacity-30 pointer-events-none' : activeSection !== 'vehicle' && data.selectedVehicleId ? 'opacity-60 hover:opacity-100' : 'opacity-100'}`}>
                     <div className="flex items-center gap-3 mb-6">
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${data.routeId ? 'bg-gold-primary text-black' : 'bg-white/10 text-gray-500'}`}>2</div>
-                        <h2 className={`text-xl md:text-2xl font-bold ${data.routeId ? 'text-white' : 'text-gray-500'}`}>Select your vehicle</h2>
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${data.legs.every(l => l.routeId) ? 'bg-gold-primary text-black' : 'bg-white/10 text-gray-500'}`}>2</div>
+                        <h2 className={`text-xl md:text-2xl font-bold ${data.legs.every(l => l.routeId) ? 'text-white' : 'text-gray-500'}`}>Select your vehicle</h2>
                     </div>
 
                     <div className="pl-0 md:pl-11 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
                         {vehicles.map((vehicle) => {
                             const isSelected = data.selectedVehicleId === vehicle.id;
-                            const priceCalc = data.routeId ? calculatePrice(data.routeId, vehicle.id) : null;
+                            const priceCalc = data.legs.every(l => l.routeId) ? getTotalPrice(vehicle.id) : null;
                             const dispPrice = priceCalc ? formatPrice(priceCalc.price, priceCalc.priceUSD) : null;
 
                             return (
@@ -315,7 +457,6 @@ export default function BookingForm() {
                                         ${isSelected ? 'bg-gold-primary/5 border-gold-primary shadow-[0_0_30px_rgba(239,191,91,0.2)] scale-[1.02]' : 'bg-[#111] border-white/5 hover:border-gold-primary/50 hover:bg-[#151515]'}
                                     `}
                                 >
-                                    {/* Enormous Mobile Image */}
                                     <div className="relative w-full h-56 sm:h-48 md:h-40 mb-6 rounded-xl overflow-hidden bg-gradient-to-b from-white/5 to-transparent group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
                                         <Image
                                             src={`/images/fleet/${vehicle.name.toLowerCase().includes('gmc') ? 'gmc-yukon-2025.webp' : vehicle.name.toLowerCase().includes('hiace') ? 'toyota-hiace-2025.png' : vehicle.name.toLowerCase().includes('camry') ? 'camry-2025.png' : vehicle.name.toLowerCase().includes('staria') ? 'hyundai-staria-2025.png' : vehicle.name.toLowerCase().includes('starex') || vehicle.name.toLowerCase().includes('h1') ? 'hyundai-h1.png' : vehicle.name.toLowerCase().includes('coaster') ? 'toyota-coaster-2025.png' : 'camry-2025.png'}`}
@@ -362,38 +503,10 @@ export default function BookingForm() {
                 <section ref={detailsSectionRef} className={`transition-all duration-500 ${!data.selectedVehicleId ? 'opacity-30 pointer-events-none' : 'opacity-100'}`}>
                     <div className="flex items-center gap-3 mb-6">
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${data.selectedVehicleId ? 'bg-gold-primary text-black' : 'bg-white/10 text-gray-500'}`}>3</div>
-                        <h2 className={`text-xl md:text-2xl font-bold ${data.selectedVehicleId ? 'text-white' : 'text-gray-500'}`}>Trip Details</h2>
+                        <h2 className={`text-xl md:text-2xl font-bold ${data.selectedVehicleId ? 'text-white' : 'text-gray-500'}`}>Guest Details</h2>
                     </div>
 
                     <div className="pl-0 md:pl-11 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
-                        {/* Date & Time */}
-                        <div className="relative">
-                            <Calendar className="absolute left-0 top-4 text-gold-primary" size={20} />
-                            <input
-                                type="date"
-                                value={data.date}
-                                min={new Date().toISOString().split('T')[0]}
-                                onChange={(e) => updateData({ date: e.target.value })}
-                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors 
-                                    ${errors.date ? 'border-red-500' : 'border-white/20 focus:border-gold-primary'}
-                                    [color-scheme:dark]`}
-                            />
-                            {errors.date && <p className="text-red-500 text-xs mt-1 absolute">{errors.date}</p>}
-                        </div>
-                        
-                        <div className="relative">
-                            <Clock className="absolute left-0 top-4 text-gold-primary" size={20} />
-                            <input
-                                type="time"
-                                value={data.time}
-                                onChange={(e) => updateData({ time: e.target.value })}
-                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors 
-                                    ${errors.time ? 'border-red-500' : 'border-white/20 focus:border-gold-primary'}
-                                    [color-scheme:dark]`}
-                            />
-                            {errors.time && <p className="text-red-500 text-xs mt-1 absolute">{errors.time}</p>}
-                        </div>
-
                         {/* Passengers */}
                         <div className="relative md:col-span-2 lg:col-span-1">
                             <Users className="absolute left-0 top-4 text-gold-primary" size={20} />
@@ -441,20 +554,6 @@ export default function BookingForm() {
                                 </button>
                             </div>
                         </div>
-
-                        {/* Flight Number */}
-                        {data.pickup?.toLowerCase().includes('airport') && (
-                            <div className="relative md:col-span-2 lg:col-span-1">
-                                <Plane className="absolute left-0 top-4 text-gold-primary" size={20} />
-                                <input
-                                    type="text"
-                                    placeholder="Flight Number (Optional)"
-                                    value={data.flightNumber}
-                                    onChange={(e) => updateData({ flightNumber: e.target.value })}
-                                    className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 border-white/20 focus:border-gold-primary text-white outline-none transition-colors placeholder-gray-600"
-                                />
-                            </div>
-                        )}
 
                         <div className="md:col-span-2 mt-8 mb-4">
                             <h3 className="text-lg font-bold text-white mb-2">Contact Information</h3>
@@ -574,4 +673,3 @@ export default function BookingForm() {
         </div>
     );
 }
-

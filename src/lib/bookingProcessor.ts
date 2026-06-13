@@ -39,12 +39,45 @@ export async function processBookingAction(bookingId: string): Promise<ProcessBo
 
         // 3. Prepare Email Data Object
         const shortId = bookingId.slice(-8).toUpperCase();
+        
+        const legs = booking.legs && booking.legs.length > 0 ? booking.legs : [{
+            pickup: booking.pickup,
+            dropoff: booking.dropoff,
+            date: booking.date,
+            time: booking.time,
+        }];
+
+        let legsHtml = '';
+        let legsHtmlAdmin = '';
+        const vehicleName = booking.vehicleName || booking.vehicle || 'Standard Vehicle';
+
+        legs.forEach((leg: any, index: number) => {
+            const hoursText = leg.hours ? ` (${leg.hours} Hours)` : '';
+            legsHtml += `
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #ddd;">${index + 1}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">${leg.pickup || 'Unknown'} <span style="color: #D4AF37;">&rarr;</span> ${leg.dropoff || 'Unknown'}${hoursText}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">${leg.date || ''} <span style="color: #D4AF37;">${leg.time || ''}</span></td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">${vehicleName}</td>
+                </tr>
+            `;
+            
+            legsHtmlAdmin += `
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ddd;">${index + 1}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">${leg.pickup || 'Unknown'} &rarr; ${leg.dropoff || 'Unknown'}${hoursText}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">${leg.date || ''} at ${leg.time || ''}</td>
+                    <td style="padding: 8px; border: 1px solid #ddd;">${vehicleName}</td>
+                </tr>
+            `;
+        });
+
         const emailData = {
             name: booking.name,
             email: booking.email,
             status: booking.status || 'pending',
             id: shortId,
-            vehicle: booking.vehicle || 'Custom Booking',
+            vehicle: vehicleName,
             pickup: booking.pickup,
             dropoff: booking.dropoff,
             date: booking.date,
@@ -59,6 +92,8 @@ export async function processBookingAction(bookingId: string): Promise<ProcessBo
             flightNumber: booking.flightNumber,
             arrivalDate: booking.arrivalDate,
             phone: booking.phone,
+            legs_html: legsHtml,
+            legs_html_admin: legsHtmlAdmin,
             pdfBuffer
         };
 
