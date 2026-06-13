@@ -52,6 +52,18 @@ export interface IBooking extends Document {
     flightNumber?: string;
     arrivalDate?: string;
 
+    legs?: {
+        id?: string;
+        routeId?: string;
+        pickup?: string;
+        dropoff?: string;
+        date?: string;
+        time?: string;
+        flightNumber?: string;
+        hours?: number;
+        price?: number;
+    }[];
+
     rating?: number,
     review?: string,
     reviewEmailSent?: boolean,
@@ -277,6 +289,18 @@ const BookingSchema = new Schema<IBooking>({
     country: { type: String },
     flightNumber: { type: String },
     arrivalDate: { type: String },
+
+    legs: [{
+        id: { type: String },
+        routeId: { type: String },
+        pickup: { type: String },
+        dropoff: { type: String },
+        date: { type: String },
+        time: { type: String },
+        flightNumber: { type: String },
+        hours: { type: Number },
+        price: { type: Number }
+    }],
 
 
     // Rating & Review
