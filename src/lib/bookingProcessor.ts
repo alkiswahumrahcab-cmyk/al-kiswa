@@ -49,7 +49,7 @@ export async function processBookingAction(bookingId: string): Promise<ProcessBo
 
         let legsHtml = '';
         let legsHtmlAdmin = '';
-        const vehicleName = booking.vehicleName || booking.vehicle || 'Standard Vehicle';
+        const vehicleName = (booking as any).vehicleName || booking.vehicle || 'Standard Vehicle';
 
         legs.forEach((leg: any, index: number) => {
             const hoursText = leg.hours ? ` (${leg.hours} Hours)` : '';
