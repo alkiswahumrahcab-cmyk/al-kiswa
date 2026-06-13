@@ -46,8 +46,10 @@ export default function BookingsPage() {
             }
             // Priority 2: Booking Date + Time
             try {
-                const dateA = new Date(`${a.date} ${a.time}`);
-                const dateB = new Date(`${b.date} ${b.time}`);
+                const dateAStr = a.date || '';
+                const dateBStr = b.date || '';
+                const dateA = new Date(`${dateAStr} ${a.time || ''}`);
+                const dateB = new Date(`${dateBStr} ${b.time || ''}`);
                 if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
                     return dateB.getTime() - dateA.getTime();
                 }
@@ -130,11 +132,12 @@ export default function BookingsPage() {
 
         // Date Range Filter
         let matchesDate = true;
-        if (startDate) {
-            matchesDate = matchesDate && new Date(booking.date) >= new Date(startDate);
+        const bookingDateStr = booking.date || '';
+        if (startDate && bookingDateStr) {
+            matchesDate = matchesDate && new Date(bookingDateStr) >= new Date(startDate);
         }
-        if (endDate) {
-            matchesDate = matchesDate && new Date(booking.date) <= new Date(endDate);
+        if (endDate && bookingDateStr) {
+            matchesDate = matchesDate && new Date(bookingDateStr) <= new Date(endDate);
         }
 
         // Vehicle Filter
@@ -156,7 +159,7 @@ export default function BookingsPage() {
         try {
             // Combine date and time string to create a Date object
             // Assuming format is YYYY-MM-DD and HH:mm
-            const startDateTime = new Date(`${booking.date}T${booking.time}`);
+            const startDateTime = new Date(`${booking.date || ''}T${booking.time || '00:00'}`);
 
             // Default duration 3 hours if not specified, or calculate based on service
             const endDateTime = new Date(startDateTime.getTime() + (3 * 60 * 60 * 1000));

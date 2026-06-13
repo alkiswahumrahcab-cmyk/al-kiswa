@@ -149,7 +149,7 @@ export async function POST(request: Request) {
                     }
                     if (vehiclesUnavailable) break;
                     
-                    const isHourly = route?.name?.toLowerCase().includes('hourly') || (route as any)?.origin?.toLowerCase().includes('hourly');
+                    const isHourly = (route as any)?.name?.toLowerCase().includes('hourly') || (route as any)?.origin?.toLowerCase().includes('hourly');
                     if (isHourly && leg.hours) {
                         legPrice = legPrice * leg.hours;
                     }
@@ -174,7 +174,7 @@ export async function POST(request: Request) {
                         const multiLegDiscount = price * 0.05;
                         price = Math.round(price - multiLegDiscount);
                         discountApplied = (discountApplied || 0) + multiLegDiscount;
-                        discountType = discountType ? 'mixed' : 'percentage';
+                        discountType = (discountType ? 'mixed' : 'percentage') as any;
                         console.log(`[Booking ${requestId}] Applied 5% multi-leg discount for 3+ rides.`);
                     }
 
