@@ -106,13 +106,15 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
     const currency = booking.currency || 'SAR';
     const isUSD = currency === 'USD';
     const symbol = isUSD ? '$' : 'SAR';
+    const exchangeRate = 3.75;
+    const isPending = booking.price === 'Pending Quote';
 
     const legs = booking.legs && booking.legs.length > 0 ? booking.legs : [{
         pickup: booking.pickup,
         dropoff: booking.dropoff,
         date: booking.date,
         time: booking.time,
-        price: booking.priceInSAR || booking.price
+        price: booking.priceInSAR || booking.finalPrice
     }];
 
     const vehicleName = booking.vehicleName || booking.vehicle || 'Standard Vehicle';
@@ -120,15 +122,19 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
     legs.forEach((leg: any, index: number) => {
         const hoursText = leg.hours ? ` (${leg.hours} Hours)` : '';
         const desc = `${leg.pickup || 'Unknown'} to ${leg.dropoff || 'Unknown'}${hoursText}`;
-        const amount = leg.price || 0;
-        totalSAR += Number(amount);
+        const amountSAR = Number(leg.price || 0);
+        totalSAR += amountSAR;
+        
+        let displayAmount: string = isUSD ? Math.round(amountSAR / exchangeRate).toString() : amountSAR.toString();
+        if (isPending) displayAmount = 'TBD';
+
         tableData.push([
             (index + 1).toString(),
             desc,
             `${leg.date || ''} ${leg.time || ''}`,
             vehicleName,
             '1',
-            `${amount}`
+            displayAmount
         ]);
     });
 
@@ -147,9 +153,10 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
     const finalY = (doc as any).lastAutoTable.finalY + 10;
 
     // Totals Box
-    // Apply discount if any
-    const finalTotal = booking.priceInSAR || booking.price || totalSAR;
-    
+    const finalTotalSAR = Number(booking.finalPrice || booking.priceInSAR || totalSAR);
+    const displaySubtotal = isPending ? 'TBD' : `${isUSD ? symbol : ''}${isUSD ? Math.round(totalSAR / exchangeRate) : totalSAR} ${!isUSD ? symbol : ''}`.trim();
+    const displayFinalTotal = isPending ? 'Pending Quote' : `${isUSD ? symbol : ''}${isUSD ? Math.round(finalTotalSAR / exchangeRate) : finalTotalSAR} ${!isUSD ? symbol : ''}`.trim();
+
     doc.setFillColor(245, 245, 245);
     doc.rect(130, finalY, 66, 24, 'F');
     doc.setDrawColor(200, 200, 200);
@@ -157,19 +164,20 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
 
     setFontEn(10, 'bold');
     doc.text('Subtotal:', 135, finalY + 8);
-    doc.text(`${totalSAR} ${symbol}`, 190, finalY + 8, { align: 'right' });
+    doc.text(displaySubtotal, 190, finalY + 8, { align: 'right' });
     
-    const discount = Math.max(0, totalSAR - Number(finalTotal));
-    if (discount > 0) {
+    const discountSAR = Math.max(0, totalSAR - finalTotalSAR);
+    if (!isPending && discountSAR > 0) {
+        const displayDiscount = isUSD ? Math.round(discountSAR / exchangeRate) : discountSAR;
         doc.text('Discount:', 135, finalY + 15);
-        doc.text(`-${discount} ${symbol}`, 190, finalY + 15, { align: 'right' });
+        doc.text(`-${isUSD ? symbol : ''}${displayDiscount} ${!isUSD ? symbol : ''}`.trim(), 190, finalY + 15, { align: 'right' });
     }
 
     doc.setFillColor(201, 168, 106); // Gold
     doc.rect(130, finalY + 18, 66, 8, 'F');
     doc.setTextColor(255, 255, 255);
     doc.text('Total:', 135, finalY + 24);
-    doc.text(`${finalTotal} ${symbol}`, 190, finalY + 24, { align: 'right' });
+    doc.text(displayFinalTotal, 190, finalY + 24, { align: 'right' });
 
     // Terms and Conditions
     doc.setTextColor(blackColor);
