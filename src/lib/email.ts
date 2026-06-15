@@ -99,6 +99,8 @@ interface BookingData {
     arrivalDate?: string;
     phone?: string;
     pdfBuffer?: Buffer;
+    legs_html?: string;
+    legs_html_admin?: string;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -158,6 +160,8 @@ const prepareBookingVariables = (booking: BookingData, settings?: any) => {
             ? `<tr><td style="padding: 10px 0; color: #666;" colspan="2"><strong>Notes:</strong><br/>${booking.notes}</td></tr>`
             : '',
         whatsapp_link: `https://wa.me/${waNum}`,
+        legs_html: booking.legs_html || '',
+        legs_html_admin: booking.legs_html_admin || '',
     };
 };
 

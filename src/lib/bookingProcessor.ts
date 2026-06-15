@@ -55,19 +55,19 @@ export async function processBookingAction(bookingId: string): Promise<ProcessBo
             const hoursText = leg.hours ? ` (${leg.hours} Hours)` : '';
             legsHtml += `
                 <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd;">${index + 1}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">${leg.pickup || 'Unknown'} <span style="color: #D4AF37;">&rarr;</span> ${leg.dropoff || 'Unknown'}${hoursText}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">${leg.date || ''} <span style="color: #D4AF37;">${leg.time || ''}</span></td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">${vehicleName}</td>
+                    <td style="padding: 12px 15px; border-bottom: 1px solid #f0f0f0; color: #666;">${index + 1}</td>
+                    <td style="padding: 12px 15px; border-bottom: 1px solid #f0f0f0; font-weight: 500; color: #1a1a1a;">${leg.pickup || 'Unknown'} <span style="color: #D4AF37; margin: 0 5px;">&rarr;</span> ${leg.dropoff || 'Unknown'}${hoursText}</td>
+                    <td style="padding: 12px 15px; border-bottom: 1px solid #f0f0f0; color: #444;">${leg.date || ''} <br><span style="color: #D4AF37; font-size: 12px;">${leg.time || ''}</span></td>
+                    <td style="padding: 12px 15px; border-bottom: 1px solid #f0f0f0; color: #444;">${vehicleName}</td>
                 </tr>
             `;
             
             legsHtmlAdmin += `
                 <tr>
-                    <td style="padding: 8px; border: 1px solid #ddd;">${index + 1}</td>
-                    <td style="padding: 8px; border: 1px solid #ddd;">${leg.pickup || 'Unknown'} &rarr; ${leg.dropoff || 'Unknown'}${hoursText}</td>
-                    <td style="padding: 8px; border: 1px solid #ddd;">${leg.date || ''} at ${leg.time || ''}</td>
-                    <td style="padding: 8px; border: 1px solid #ddd;">${vehicleName}</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; color: #666;">${index + 1}</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: 500;">${leg.pickup || 'Unknown'} &rarr; ${leg.dropoff || 'Unknown'}${hoursText}</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; color: #555;">${leg.date || ''}<br><span style="font-size: 11px; color: #888;">${leg.time || ''}</span></td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; color: #555;">${vehicleName}</td>
                 </tr>
             `;
         });
