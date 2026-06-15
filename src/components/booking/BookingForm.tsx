@@ -526,6 +526,39 @@ export default function BookingForm() {
                                         <span className="flex items-center gap-1"><Briefcase size={14} /> {vehicle.luggage}</span>
                                     </div>
                                     
+                                    {dispPrice && Number(dispPrice.amount) > 0 && data.legs.length > 1 && (
+                                        <div className="mt-4 pt-3 border-t border-white/10 space-y-2">
+                                            <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Price Breakdown</p>
+                                            {data.legs.map((leg, idx) => {
+                                                const legSAR = getLegPrice(leg, vehicle.id);
+                                                const legUSD = getLegPriceUSD(leg, vehicle.id) || 0;
+                                                const legDisp = formatPrice(legSAR, legUSD);
+                                                
+                                                let routeName = `Route ${idx + 1}`;
+                                                if (leg.pickup && leg.dropoff) {
+                                                    const p = leg.pickup.split(',')[0].substring(0, 15);
+                                                    const d = leg.dropoff.split(',')[0].substring(0, 15);
+                                                    routeName = `${p} → ${d}`;
+                                                }
+
+                                                return (
+                                                    <div key={idx} className="flex justify-between items-center text-xs">
+                                                        <span className="text-gray-400 truncate pr-2 max-w-[75%]" title={leg.pickup && leg.dropoff ? `${leg.pickup} → ${leg.dropoff}` : routeName}>{routeName}</span>
+                                                        <span className="text-gray-300 font-medium whitespace-nowrap">
+                                                            {currency === 'USD' ? '$' : ''}{legDisp.amount} {currency === 'SAR' ? 'SAR' : ''}
+                                                        </span>
+                                                    </div>
+                                                );
+                                            })}
+                                            {data.legs.length >= 3 && (
+                                                <div className="flex justify-between items-center text-xs text-gold-primary mt-1 pt-1 border-t border-gold-primary/20">
+                                                    <span>Multi-Route Discount</span>
+                                                    <span>-5%</span>
+                                                </div>
+                                            )}
+                                        </div>
+                                    )}
+                                    
                                     {dispPrice && Number(dispPrice.amount) > 0 && (
                                         <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
                                             <span className="text-sm font-medium text-gray-300">Quantity</span>
