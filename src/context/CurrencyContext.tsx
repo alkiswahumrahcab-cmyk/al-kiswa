@@ -48,7 +48,7 @@ export function CurrencyProvider({ children }: { children: React.ReactNode }) {
                 formatted: `${priceInSar} SAR`
             };
         } else {
-            const amountInUsd = explicitPriceUSD !== undefined ? explicitPriceUSD : Math.round(priceInSar / exchangeRate);
+            const amountInUsd = (explicitPriceUSD !== undefined && explicitPriceUSD > 0) ? explicitPriceUSD : Math.round(priceInSar / exchangeRate);
             return {
                 amount: amountInUsd,
                 formatted: `$${amountInUsd}`

@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     MapPin, Calendar, Clock, ChevronDown,
-    Search, User, Mail, Phone, Plane, Users, Briefcase, Baby, Loader2, Plus, Trash2
+    Search, User, Mail, Phone, Plane, Users, Briefcase, Baby, Loader2, Plus, Trash2, Minus
 } from 'lucide-react';
 import { usePricing } from '@/context/PricingContext';
 import { useCurrency } from '@/context/CurrencyContext';
@@ -24,7 +24,7 @@ export default function BookingForm() {
     const [data, setData] = useState({
         serviceType: 'Intercity',
         legs: [{ id: Date.now().toString(), routeId: '', pickup: '', dropoff: '', date: '', time: '', flightNumber: '', hours: undefined as number | undefined }],
-        selectedVehicleId: '',
+        selectedVehicles: [] as { vehicleId: string, quantity: number }[],
         passengers: 1,
         childSeats: false,
         name: '',
@@ -106,12 +106,29 @@ export default function BookingForm() {
         setRouteSearches(prev => ({ ...prev, [index]: '' }));
     };
 
-    const selectVehicle = (vehicleId: string) => {
-        updateData({ selectedVehicleId: vehicleId });
-        setActiveSection('details');
-        setTimeout(() => {
-            detailsSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
+    const updateVehicleQuantity = (vehicleId: string, quantity: number) => {
+        const current = data.selectedVehicles || [];
+        const existing = current.find(v => v.vehicleId === vehicleId);
+        let newVehicles;
+        if (existing) {
+            if (quantity <= 0) {
+                newVehicles = current.filter(v => v.vehicleId !== vehicleId);
+            } else {
+                newVehicles = current.map(v => v.vehicleId === vehicleId ? { ...v, quantity } : v);
+            }
+        } else if (quantity > 0) {
+            newVehicles = [...current, { vehicleId, quantity }];
+        } else {
+            newVehicles = current;
+        }
+        updateData({ selectedVehicles: newVehicles });
+        
+        if (newVehicles.length > 0 && activeSection !== 'details') {
+            setActiveSection('details');
+            setTimeout(() => {
+                detailsSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
     };
 
     const getLegPrice = (leg: any, vehicleId: string) => {
@@ -132,12 +149,16 @@ export default function BookingForm() {
         return isHourly && leg.hours ? (base || 0) * leg.hours : (base || 0);
     };
 
-    const getTotalPrice = (vehicleId: string) => {
+    const getTotalPrice = () => {
         let totalSAR = 0;
         let totalUSD = 0;
-        data.legs.forEach(leg => {
-            totalSAR += getLegPrice(leg, vehicleId);
-            totalUSD += getLegPriceUSD(leg, vehicleId) || 0;
+        if (!data.selectedVehicles) return { price: 0, priceUSD: 0 };
+        
+        data.selectedVehicles.forEach(sv => {
+            data.legs.forEach(leg => {
+                totalSAR += getLegPrice(leg, sv.vehicleId) * sv.quantity;
+                totalUSD += (getLegPriceUSD(leg, sv.vehicleId) || 0) * sv.quantity;
+            });
         });
         
         if (data.legs.length >= 3 && totalSAR > 0) {
@@ -159,7 +180,7 @@ export default function BookingForm() {
             if (!leg.time) { newErrors[`leg_${index}_time`] = 'Required'; allLegsValid = false; }
         });
 
-        if (!data.selectedVehicleId) newErrors.vehicle = 'Please select a vehicle';
+        if (!data.selectedVehicles || data.selectedVehicles.length === 0) newErrors.vehicle = 'Please select at least one vehicle';
         if (!data.name) newErrors.name = 'Required';
         if (!data.phone) newErrors.phone = 'Required';
         if (!data.email) newErrors.email = 'Required';
@@ -173,12 +194,12 @@ export default function BookingForm() {
 
         setIsSubmitting(true);
         try {
-            const priceCalc = getTotalPrice(data.selectedVehicleId);
+            const priceCalc = getTotalPrice();
             const sarPrice = priceCalc.price;
             const explicitUSD = priceCalc.priceUSD;
             const finalDisplayPrice = formatPrice(sarPrice, explicitUSD);
             
-            const selectedVehicleInfo = vehicles.find(v => v.id === data.selectedVehicleId);
+            const selectedVehicleInfo = data.selectedVehicles.length > 0 ? vehicles.find(v => v.id === data.selectedVehicles[0].vehicleId) : null;
 
             const bookingPayload = {
                 name: data.name,
@@ -190,9 +211,9 @@ export default function BookingForm() {
                 date: data.legs[0].date,
                 time: data.legs[0].time,
                 routeId: data.legs[0].routeId,
-                vehicleId: data.selectedVehicleId,
-                selectedVehicles: [{ vehicleId: data.selectedVehicleId, quantity: 1 }],
-                vehicleCount: 1,
+                vehicleId: data.selectedVehicles.length > 0 ? data.selectedVehicles[0].vehicleId : '',
+                selectedVehicles: data.selectedVehicles,
+                vehicleCount: data.selectedVehicles.reduce((sum, v) => sum + v.quantity, 0),
                 passengers: data.passengers,
                 luggage: 0,
                 notes: data.notes || (data.childSeats ? 'Child seats requested' : undefined),
@@ -221,7 +242,7 @@ export default function BookingForm() {
                     date: data.legs[0].date,
                     time: data.legs[0].time,
                     routeName: data.legs.length > 1 ? `Multi-Route Itinerary (${data.legs.length} Transfers)` : `${data.legs[0].pickup} to ${data.legs[0].dropoff}`,
-                    vehicleName: selectedVehicleInfo?.name || 'Standard Vehicle',
+                    vehicleName: data.selectedVehicles.map(sv => { const v = vehicles.find(v => v.id === sv.vehicleId); return v ? `${sv.quantity}x ${v.name}` : ''; }).join(', ') || 'Standard Vehicle',
                     passengers: data.passengers,
                     currency: currency,
                     totalAmount: finalDisplayPrice.amount
@@ -252,11 +273,13 @@ export default function BookingForm() {
         }
     };
 
-    const selectedVehicle = vehicles.find(v => v.id === data.selectedVehicleId);
+    const selectedVehicleCount = data.selectedVehicles?.reduce((sum, v) => sum + v.quantity, 0) || 0;
+    const vehicleSummary = data.selectedVehicles?.map(sv => { const v = vehicles.find(v => v.id === sv.vehicleId); return v ? `${sv.quantity}x ${v.name}` : ''; }).join(', ');
+    
     let summaryDisplayPrice = { amount: 0, formatted: '0' };
     
-    if (selectedVehicle && data.legs.every(leg => leg.routeId)) {
-        const summaryPriceCalc = getTotalPrice(data.selectedVehicleId);
+    if (selectedVehicleCount > 0 && data.legs.every(leg => leg.routeId)) {
+        const summaryPriceCalc = getTotalPrice();
         summaryDisplayPrice = formatPrice(summaryPriceCalc.price, summaryPriceCalc.priceUSD);
     }
 
@@ -437,7 +460,7 @@ export default function BookingForm() {
                 </section>
 
                 {/* 2. VEHICLE SELECTION */}
-                <section ref={vehicleSectionRef} className={`transition-all duration-500 ${!data.legs.every(l => l.routeId) ? 'opacity-30 pointer-events-none' : activeSection !== 'vehicle' && data.selectedVehicleId ? 'opacity-60 hover:opacity-100' : 'opacity-100'}`}>
+                <section ref={vehicleSectionRef} className={`transition-all duration-500 ${!data.legs.every(l => l.routeId) ? 'opacity-30 pointer-events-none' : activeSection !== 'vehicle' && (data.selectedVehicles && data.selectedVehicles.length > 0) ? 'opacity-60 hover:opacity-100' : 'opacity-100'}`}>
                     <div className="flex items-center gap-3 mb-6">
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${data.legs.every(l => l.routeId) ? 'bg-gold-primary text-black' : 'bg-white/10 text-gray-500'}`}>2</div>
                         <h2 className={`text-xl md:text-2xl font-bold ${data.legs.every(l => l.routeId) ? 'text-white' : 'text-gray-500'}`}>Select your vehicle</h2>
@@ -445,14 +468,24 @@ export default function BookingForm() {
 
                     <div className="pl-0 md:pl-11 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
                         {vehicles.map((vehicle) => {
-                            const isSelected = data.selectedVehicleId === vehicle.id;
-                            const priceCalc = data.legs.every(l => l.routeId) ? getTotalPrice(vehicle.id) : null;
+                            const selectedCount = data.selectedVehicles?.find(v => v.vehicleId === vehicle.id)?.quantity || 0;
+                            const isSelected = selectedCount > 0;
+                            
+                            let priceCalc = null;
+                            if (data.legs.every(l => l.routeId)) {
+                                let totalSAR = 0; let totalUSD = 0;
+                                data.legs.forEach(leg => {
+                                    totalSAR += getLegPrice(leg, vehicle.id);
+                                    totalUSD += getLegPriceUSD(leg, vehicle.id) || 0;
+                                });
+                                priceCalc = { price: totalSAR, priceUSD: totalUSD };
+                            }
                             const dispPrice = priceCalc ? formatPrice(priceCalc.price, priceCalc.priceUSD) : null;
 
                             return (
                                 <div
                                     key={vehicle.id}
-                                    onClick={() => selectVehicle(vehicle.id)}
+                                    onClick={() => updateVehicleQuantity(vehicle.id, selectedCount === 0 ? 1 : selectedCount)}
                                     className={`relative cursor-pointer rounded-2xl p-5 md:p-6 transition-all duration-300 border-2 overflow-hidden group
                                         ${isSelected ? 'bg-gold-primary/5 border-gold-primary shadow-[0_0_30px_rgba(239,191,91,0.2)] scale-[1.02]' : 'bg-[#111] border-white/5 hover:border-gold-primary/50 hover:bg-[#151515]'}
                                     `}
@@ -492,6 +525,28 @@ export default function BookingForm() {
                                         <span className="flex items-center gap-1"><Users size={14} /> {vehicle.capacity}</span>
                                         <span className="flex items-center gap-1"><Briefcase size={14} /> {vehicle.luggage}</span>
                                     </div>
+                                    
+                                    {dispPrice && Number(dispPrice.amount) > 0 && (
+                                        <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
+                                            <span className="text-sm font-medium text-gray-300">Quantity</span>
+                                            <div className="flex items-center gap-3 bg-white/5 rounded-lg p-1 border border-white/10">
+                                                <button 
+                                                    onClick={(e) => { e.stopPropagation(); updateVehicleQuantity(vehicle.id, selectedCount - 1); }}
+                                                    className={`w-8 h-8 rounded flex items-center justify-center transition-colors ${selectedCount > 0 ? 'bg-white/10 hover:bg-white/20 text-white' : 'text-gray-600 cursor-not-allowed'}`}
+                                                    disabled={selectedCount === 0}
+                                                >
+                                                    <Minus size={16} />
+                                                </button>
+                                                <span className="w-4 text-center font-bold text-white">{selectedCount}</span>
+                                                <button 
+                                                    onClick={(e) => { e.stopPropagation(); updateVehicleQuantity(vehicle.id, selectedCount + 1); }}
+                                                    className="w-8 h-8 rounded bg-gold-primary/20 hover:bg-gold-primary/40 text-gold-primary flex items-center justify-center transition-colors"
+                                                >
+                                                    <Plus size={16} />
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             );
                         })}
@@ -500,10 +555,10 @@ export default function BookingForm() {
                 </section>
 
                 {/* 3. TRIP DETAILS */}
-                <section ref={detailsSectionRef} className={`transition-all duration-500 ${!data.selectedVehicleId ? 'opacity-30 pointer-events-none' : 'opacity-100'}`}>
+                <section ref={detailsSectionRef} className={`transition-all duration-500 ${(!data.selectedVehicles || data.selectedVehicles.length === 0) ? 'opacity-30 pointer-events-none' : 'opacity-100'}`}>
                     <div className="flex items-center gap-3 mb-6">
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${data.selectedVehicleId ? 'bg-gold-primary text-black' : 'bg-white/10 text-gray-500'}`}>3</div>
-                        <h2 className={`text-xl md:text-2xl font-bold ${data.selectedVehicleId ? 'text-white' : 'text-gray-500'}`}>Guest Details</h2>
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${(data.selectedVehicles && data.selectedVehicles.length > 0) ? 'bg-gold-primary text-black' : 'bg-white/10 text-gray-500'}`}>3</div>
+                        <h2 className={`text-xl md:text-2xl font-bold ${(data.selectedVehicles && data.selectedVehicles.length > 0) ? 'text-white' : 'text-gray-500'}`}>Guest Details</h2>
                     </div>
 
                     <div className="pl-0 md:pl-11 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
@@ -640,8 +695,8 @@ export default function BookingForm() {
 
             {/* Mobile Sticky Summary */}
             <MobileStickySummary 
-                isVisible={!!data.selectedVehicleId && activeSection === 'details'}
-                vehicleName={selectedVehicle?.name || null}
+                isVisible={selectedVehicleCount > 0 && activeSection === 'details'}
+                vehicleName={vehicleSummary || null}
                 totalAmount={summaryDisplayPrice.amount}
                 currency={currency}
                 onConfirm={handleSubmit}
