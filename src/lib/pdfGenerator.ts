@@ -224,9 +224,10 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
         "  actual arrival time.",
         "• We monitor all flight arrivals, so your driver will be there when you land.",
         "• Hotel Pickup: Maximum 20 minutes wait time from the scheduled pickup time.",
-        "• Our driver will meet you at the Airport Arrivals holding a Name Sign.",
+        "• Our driver will wait for you in the parking area, as Saudi airport security",
+        "  does not allow drivers with name signs to enter the arrivals hall.",
         "• If you encounter any issues finding the driver, please contact us immediately.",
-        "• We do not provide child car seats. You must bring your own.",
+        "• We will provide a child car seat upon request.",
         "• Consuming food or beverages inside the vehicle is strictly prohibited to maintain cleanliness.",
         "• Smoking is absolutely not allowed in the vehicle.",
         "• Any damages caused to the vehicle by the passenger will incur repair or cleaning charges."
