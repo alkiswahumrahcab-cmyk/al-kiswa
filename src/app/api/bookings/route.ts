@@ -273,7 +273,7 @@ export async function POST(request: Request) {
         console.log(`[Booking ${requestId}] ✅ Returning success response`);
         console.log(`==========================================================\n`);
 
-        const shortId = bookingId.slice(-8).toUpperCase();
+        const shortId = `AK-${bookingId.slice(-8).toUpperCase()}`;
 
         return NextResponse.json({
             success: true,

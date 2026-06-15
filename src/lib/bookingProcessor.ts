@@ -38,7 +38,7 @@ export async function processBookingAction(bookingId: string): Promise<ProcessBo
         }
 
         // 3. Prepare Email Data Object
-        const shortId = bookingId.slice(-8).toUpperCase();
+        const shortId = `AK-${bookingId.slice(-8).toUpperCase()}`;
         
         const legs = booking.legs && booking.legs.length > 0 ? booking.legs : [{
             pickup: booking.pickup,
