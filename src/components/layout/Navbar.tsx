@@ -103,13 +103,14 @@ export default function Navbar() {
     ];
 
     return (
-        <nav
-            className={`fixed left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled
-                ? 'bg-primary-black/90 backdrop-blur-xl border-b border-white/5 py-3 shadow-2xl top-0'
-                : 'bg-transparent py-4 top-0 lg:top-4'
-                }`}
-        >
-            <div className="container mx-auto px-4 flex items-center justify-between">
+        <>
+            <nav
+                className={`fixed left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled
+                    ? 'bg-primary-black/90 backdrop-blur-xl border-b border-white/5 py-3 shadow-2xl top-0'
+                    : 'bg-transparent py-4 top-0 lg:top-4'
+                    }`}
+            >
+                <div className="container mx-auto px-4 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-3 group relative z-50">
                     <div className="relative flex items-center">
                         <div className={`relative transition-all duration-500 ${scrolled ? 'w-10 h-10' : 'w-13 h-13'} bg-white rounded-full flex items-center justify-center border-2 border-gold-primary shadow-[0_0_15px_rgba(239,191,91,0.3)] group-hover:shadow-[0_0_25px_rgba(239,191,91,0.5)] overflow-hidden lg:mr-1`}>
@@ -214,12 +215,13 @@ export default function Navbar() {
                     {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
             </div>
+        </nav>
 
-            {/* Immersive Mobile Navigation */}
-            <div
-                className={`fixed inset-0 bg-black/60 backdrop-blur-2xl z-[60] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] xl:hidden flex flex-col ${isMenuOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-8 pointer-events-none invisible'
-                    }`}
-            >
+        {/* Immersive Mobile Navigation */}
+        <div
+            className={`fixed inset-0 bg-black/60 backdrop-blur-2xl z-[60] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] xl:hidden flex flex-col ${isMenuOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-8 pointer-events-none invisible'
+                }`}
+        >
                 <div className="flex items-center justify-between p-6 border-b border-white/5">
                     <span className="text-xl font-sans font-bold text-white tracking-widest uppercase flex items-center gap-3">
                         <div className="w-10 h-10 relative rounded-full bg-white flex items-center justify-center p-1.5 border-2 border-gold-primary shadow-[0_0_15px_rgba(239,191,91,0.3)]">
@@ -322,6 +324,7 @@ export default function Navbar() {
                     </Link>
                 </div>
             </div>
-        </nav>
+        </div>
+        </>
     );
 }
