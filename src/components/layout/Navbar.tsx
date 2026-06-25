@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, Mail, Instagram, Facebook } from 'lucide-react';
 import { useMenu } from '@/context/MenuContext';
 
 export default function Navbar() {
@@ -13,6 +13,11 @@ export default function Navbar() {
     const { isMenuOpen, setIsMenuOpen, toggleMenu } = useMenu();
     const [scrolled, setScrolled] = useState(false);
     const [mounted, setMounted] = useState(false);
+    const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
+
+    const toggleAccordion = (label: string) => {
+        setExpandedMenu(expandedMenu === label ? null : label);
+    };
 
     useEffect(() => {
         setMounted(true);
@@ -211,62 +216,95 @@ export default function Navbar() {
                 </button>
             </div>
 
-            {/* Mobile Sidebar & Backdrop */}
+            {/* Immersive Mobile Navigation */}
             <div
-                className={`fixed inset-0 bg-black/80 backdrop-blur-sm z-40 transition-opacity duration-300 xl:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-                    }`}
-                onClick={() => setIsMenuOpen(false)}
-            />
-
-            <div
-                className={`fixed top-0 right-0 h-[100dvh] w-[85%] max-w-sm bg-primary-black shadow-2xl z-40 transform transition-transform duration-300 xl:hidden border-l border-white/10 flex flex-col ${isMenuOpen ? 'translate-x-0 visible' : 'translate-x-full invisible pointer-events-none'
+                className={`fixed inset-0 bg-black/95 backdrop-blur-3xl z-40 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] xl:hidden flex flex-col ${isMenuOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-8 pointer-events-none invisible'
                     }`}
             >
-                <div className="flex items-center justify-between p-6 border-b border-white/10 bg-black/20">
-                    <span className="text-xl font-sans font-bold text-white tracking-wide">Menu</span>
+                <div className="flex items-center justify-between p-6 border-b border-white/5">
+                    <span className="text-xl font-sans font-bold text-white tracking-widest uppercase flex items-center gap-3">
+                        <div className="w-10 h-10 relative rounded-full bg-white flex items-center justify-center p-1.5 border-2 border-gold-primary shadow-[0_0_15px_rgba(239,191,91,0.3)]">
+                             <Image src="/logo.webp" alt="Al Kiswah" fill sizes="40px" className="object-contain p-1" />
+                        </div>
+                        Al Kiswah
+                    </span>
+                    <button
+                        className="p-2 text-gray-400 hover:text-white hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-white/10"
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                        <X size={28} strokeWidth={1.5} />
+                    </button>
                 </div>
 
-                <div className="flex-1 overflow-y-auto py-6 px-4 flex flex-col gap-2">
-                    {links.map((link) => (
-                        <div key={link.href} className="flex flex-col">
-                            <Link
-                                href={link.href}
-                                className={`p-4 rounded-xl text-base font-medium transition-all duration-200 flex items-center justify-between group ${pathname === link.href
-                                    ? 'bg-gold-primary text-black font-bold'
-                                    : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                                    }`}
-                                onClick={() => !link.children && setIsMenuOpen(false)}
-                            >
-                                {link.label}
-                            </Link>
+                <div className="flex-1 overflow-y-auto py-8 px-6 flex flex-col gap-6">
+                    {links.map((link, index) => (
+                        <div key={link.href} className="flex flex-col border-b border-white/5 pb-6 last:border-0" style={{ transitionDelay: `${index * 50}ms` }}>
+                            {link.children ? (
+                                <button
+                                    onClick={() => toggleAccordion(link.label)}
+                                    className="flex items-center justify-between text-2xl font-bold text-gray-200 hover:text-gold-primary transition-colors group text-left"
+                                >
+                                    <span>{link.label}</span>
+                                    <ChevronDown 
+                                        size={24} 
+                                        className={`transition-transform duration-400 text-gold-primary ${expandedMenu === link.label ? 'rotate-180' : ''}`} 
+                                    />
+                                </button>
+                            ) : (
+                                <Link
+                                    href={link.href}
+                                    className={`text-2xl font-bold transition-all duration-300 ${pathname === link.href ? 'text-gold-primary' : 'text-gray-200 hover:text-white'}`}
+                                    onClick={() => setIsMenuOpen(false)}
+                                >
+                                    {link.label}
+                                </Link>
+                            )}
+
                             {link.children && (
-                                <div className="pl-4 flex flex-col gap-1 mt-1 border-l border-white/10 ml-4">
-                                    {link.children.map((child) => (
-                                        <Link
-                                            key={child.href}
-                                            href={child.href}
-                                            className="p-3 rounded-lg text-sm font-medium text-gray-400 hover:text-gold-primary hover:bg-white/5 transition-colors"
-                                            onClick={() => setIsMenuOpen(false)}
-                                        >
-                                            {child.label}
-                                        </Link>
-                                    ))}
+                                <div 
+                                    className={`grid transition-all duration-500 ease-in-out ${expandedMenu === link.label ? 'grid-rows-[1fr] opacity-100 mt-6' : 'grid-rows-[0fr] opacity-0 mt-0'}`}
+                                >
+                                    <div className="overflow-hidden flex flex-col gap-4 pl-4 border-l-2 border-gold-primary/30">
+                                        {link.children.map((child) => (
+                                            <Link
+                                                key={child.href}
+                                                href={child.href}
+                                                className="text-base text-gray-400 hover:text-gold-primary transition-colors py-1 flex flex-col"
+                                                onClick={() => setIsMenuOpen(false)}
+                                            >
+                                                <span className="font-medium">{child.label}</span>
+                                                {child.description && (
+                                                    <span className="text-xs text-gray-600 mt-0.5">{child.description}</span>
+                                                )}
+                                            </Link>
+                                        ))}
+                                    </div>
                                 </div>
                             )}
                         </div>
                     ))}
                 </div>
-                <div className="p-6 border-t border-white/10 mt-auto space-y-4 bg-black/20">
+
+                <div className="p-6 bg-gradient-to-t from-black via-black/90 to-transparent mt-auto pt-12 pb-8 flex flex-col gap-6 border-t border-white/5">
+                    <div className="flex items-center justify-between text-gray-400 px-2">
+                        <a href="tel:+966548707332" className="flex items-center gap-2 hover:text-gold-primary transition-colors">
+                            <Phone size={18} />
+                            <span className="text-sm">+966 54 870 7332</span>
+                        </a>
+                        <div className="flex items-center gap-4">
+                            <a href="#" className="hover:text-gold-primary transition-colors"><Instagram size={20} /></a>
+                            <a href="#" className="hover:text-gold-primary transition-colors"><Facebook size={20} /></a>
+                        </div>
+                    </div>
+                    
                     <Link
                         href="/booking"
-                        className="w-full block text-center bg-gold-primary text-black py-4 rounded-xl text-sm font-bold uppercase tracking-widest hover:brightness-110 transition-all"
+                        className="w-full relative overflow-hidden group bg-gold-primary text-black py-4 rounded-xl text-center font-bold uppercase tracking-widest shadow-[0_0_30px_rgba(239,191,91,0.2)] hover:shadow-[0_0_40px_rgba(239,191,91,0.4)] transition-all duration-300"
                         onClick={() => setIsMenuOpen(false)}
                     >
-                        Book Now
+                        <span className="relative z-10">Book Now</span>
+                        <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-in-out"></div>
                     </Link>
-                    <div className="flex justify-center">
-                        {/* Theme Toggle Removed - Enforced Dark Mode */}
-                    </div>
                 </div>
             </div>
         </nav>
