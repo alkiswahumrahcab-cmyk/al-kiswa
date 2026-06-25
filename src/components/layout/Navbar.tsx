@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
-import { Menu, X, ChevronDown, Phone, Mail, Instagram, Facebook } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, Mail, Instagram, Facebook, MessageCircle } from 'lucide-react';
 import { useMenu } from '@/context/MenuContext';
 
 export default function Navbar() {
@@ -217,7 +217,7 @@ export default function Navbar() {
 
             {/* Immersive Mobile Navigation */}
             <div
-                className={`fixed inset-0 bg-black/95 backdrop-blur-3xl z-40 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] xl:hidden flex flex-col ${isMenuOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-8 pointer-events-none invisible'
+                className={`fixed inset-0 bg-black/60 backdrop-blur-2xl z-[60] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] xl:hidden flex flex-col ${isMenuOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-8 pointer-events-none invisible'
                     }`}
             >
                 <div className="flex items-center justify-between p-6 border-b border-white/5">
@@ -284,15 +284,23 @@ export default function Navbar() {
                     ))}
                 </div>
 
-                <div className="p-6 bg-gradient-to-t from-black via-black/90 to-transparent mt-auto pt-12 pb-8 flex flex-col gap-6 border-t border-white/5">
-                    <div className="flex items-center justify-between text-gray-400 px-2">
-                        <a href="tel:+966548707332" className="flex items-center gap-2 hover:text-gold-primary transition-colors">
-                            <Phone size={18} />
-                            <span className="text-sm">+966 54 870 7332</span>
+                <div className="p-6 bg-gradient-to-t from-black via-black/80 to-transparent mt-auto pt-12 pb-8 flex flex-col gap-6 border-t border-white/5">
+                    <div className="flex items-center justify-between text-gray-300 px-2">
+                        <a href="tel:+966548707332" className="flex items-center gap-3 hover:text-gold-primary transition-colors font-medium group/phone">
+                            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover/phone:bg-gold-primary group-hover/phone:text-black group-hover/phone:border-gold-primary transition-all duration-300">
+                                <Phone size={18} />
+                            </div>
                         </a>
-                        <div className="flex items-center gap-4">
-                            <a href="#" className="hover:text-gold-primary transition-colors"><Instagram size={20} /></a>
-                            <a href="#" className="hover:text-gold-primary transition-colors"><Facebook size={20} /></a>
+                        <div className="flex items-center gap-3">
+                            <a href="https://wa.me/966548707332" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all duration-300 group/social">
+                                <MessageCircle size={18} className="group-hover/social:scale-110 transition-transform" />
+                            </a>
+                            <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] hover:text-white hover:border-transparent transition-all duration-300 group/social">
+                                <Instagram size={18} className="group-hover/social:scale-110 transition-transform" />
+                            </a>
+                            <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] transition-all duration-300 group/social">
+                                <Facebook size={18} className="group-hover/social:scale-110 transition-transform" />
+                            </a>
                         </div>
                     </div>
                     
