@@ -15,6 +15,8 @@ interface Review {
     avatar?: string;
 }
 
+import { curatedTestimonials } from '@/data/testimonials';
+
 export default function ReviewsSection() {
     const [reviews, setReviews] = useState<Review[]>([]);
     const [loading, setLoading] = useState(true);
@@ -23,15 +25,36 @@ export default function ReviewsSection() {
         const fetchReviews = async () => {
             try {
                 const res = await fetch('/api/reviews');
+                if (!res.ok) throw new Error('API returned an error');
                 const data = await res.json();
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                const formattedData = data.map((review: any) => ({
-                    ...review,
-                    id: review._id || review.id
-                }));
-                setReviews(formattedData);
+                
+                if (data && data.length > 0) {
+                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                    const formattedData = data.map((review: any) => ({
+                        ...review,
+                        id: review._id || review.id
+                    }));
+                    setReviews(formattedData);
+                } else {
+                    const fallbackData = curatedTestimonials.map(t => ({
+                        id: t.id,
+                        author: t.name,
+                        rating: t.rating,
+                        comment: t.story,
+                        date: t.date,
+                    }));
+                    setReviews(fallbackData);
+                }
             } catch (error) {
                 console.error('Failed to load reviews:', error);
+                const fallbackData = curatedTestimonials.map(t => ({
+                    id: t.id,
+                    author: t.name,
+                    rating: t.rating,
+                    comment: t.story,
+                    date: t.date,
+                }));
+                setReviews(fallbackData);
             } finally {
                 setLoading(false);
             }

@@ -5,10 +5,7 @@ import Link from "next/link";
 import { COMPANY_STATS, SOCIAL_PROOF_MESSAGES } from "@/lib/stats";
 import GlassCard from "@/components/ui/GlassCard";
 
-// Easing function for smooth animation
-function easeOutQuad(t: number): number {
-  return t * (2 - t);
-}
+import { animate, useInView } from "framer-motion";
 
 interface CounterProps {
   target: number;
@@ -19,49 +16,28 @@ interface CounterProps {
 
 function AnimatedCounter({ target, duration = 2000, suffix = "", decimals = 0 }: CounterProps) {
   const [count, setCount] = useState(0);
-  const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   useEffect(() => {
     // Guard 1: Prevent SSR hydration mismatch
     if (typeof window === "undefined") return;
 
-    // Guard 2: IntersectionObserver — only animate when visible in viewport
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          observer.disconnect();
-
-          // Guard 3: requestAnimationFrame for smooth, reliable animation
-          const startTime = performance.now();
-
-          const animate = (currentTime: number) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const easedProgress = easeOutQuad(progress);
-            const currentValue = easedProgress * target;
-
-            setCount(parseFloat(currentValue.toFixed(decimals)));
-
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            } else {
-              // Guard 4: Always set exact final value to prevent rounding errors
-              setCount(target);
-            }
-          };
-
-          requestAnimationFrame(animate);
+    if (isInView) {
+      const controls = animate(0, target, {
+        duration: duration / 1000,
+        ease: "easeOut",
+        onUpdate(value) {
+          setCount(parseFloat(value.toFixed(decimals)));
+        },
+        onComplete() {
+          // Guard 4: Always set exact final value to prevent rounding errors
+          setCount(target);
         }
-      },
-      { threshold: 0.3 } // Trigger when 30% of element is visible
-    );
-
-    if (ref.current) observer.observe(ref.current);
-
-    return () => observer.disconnect();
-  }, [target, duration, decimals, hasAnimated]);
+      });
+      return () => controls.stop();
+    }
+  }, [isInView, target, duration, decimals]);
 
   return (
     <span ref={ref} className="counter-animated" data-fallback={`${decimals > 0 ? target.toFixed(decimals) : target.toLocaleString()}${suffix}`}>

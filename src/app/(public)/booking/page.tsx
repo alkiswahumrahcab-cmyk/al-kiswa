@@ -87,6 +87,17 @@ export default function BookingPage() {
                     ))}
                 </div>
 
+                {/* Booking Page Pixel Event */}
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            if (typeof fbq === 'function') {
+                                fbq('track', 'InitiateCheckout');
+                            }
+                        `
+                    }}
+                />
+
             </div>
         </main>
     );
