@@ -51,7 +51,7 @@ const jsonLd = {
                 { "@type": "Question", "name": "How long is the Makkah Ziyarat tour?", "acceptedAnswer": { "@type": "Answer", "text": "The standard tour covering 6 main sites takes 3–4 hours. Extended tours covering all 15 sites take 5–6 hours." } },
                 { "@type": "Question", "name": "Can we climb Cave Hira?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, but climbing takes 1–2 hours of hiking up Jabal Al-Nour. If you wish to climb, inform us when booking so we adjust the schedule. Elderly passengers can view from the base." } },
                 { "@type": "Question", "name": "Is hotel pickup included?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we pick you up from any hotel in Makkah and drop you back after the tour. No extra charges." } },
-                { "@type": "Question", "name": "What vehicles are available?", "acceptedAnswer": { "@type": "Answer", "text": "Toyota Camry (4 pax, SAR 200), Hyundai H1/Staria (7 pax, SAR 250), Toyota Hiace (10 pax, SAR 300), GMC Yukon (7 pax, SAR 400), Toyota Coaster (21 pax, SAR 500)." } },
+                { "@type": "Question", "name": "What vehicles are available?", "acceptedAnswer": { "@type": "Answer", "text": "Toyota Camry (4 pax, SAR 200), Hyundai H1/Staria (7 pax, SAR 250), Toyota Hiace (10 pax, SAR 300), GMC Yukon (7 pax, SAR 400), Toyota Coaster (19 pax, SAR 500)." } },
                 { "@type": "Question", "name": "Can we customize the itinerary?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Every tour is private. Choose which sites to visit, how long to stay, and the order. Discuss your preferences on WhatsApp before booking." } },
                 { "@type": "Question", "name": "Is Makkah Ziyarat suitable for elderly?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most sites are accessible from the vehicle or at ground level. Jabal Al-Nour and Thawr require climbing but can be viewed from the base. Air-conditioned vehicles throughout." } },
             ],
@@ -71,7 +71,7 @@ const makkahFAQs = [
     { question: "How long is the Makkah Ziyarat tour?", answer: "The standard tour covering 6 main sites takes 3–4 hours. Extended tours covering all 15 sites take 5–6 hours. We recommend starting after Fajr to avoid heat." },
     { question: "Can we climb Cave Hira on Jabal Al-Nour?", answer: "Yes, but climbing takes 1–2 hours of hiking. If you wish to climb, inform us when booking so we adjust the schedule. Elderly passengers can view from the base and pray." },
     { question: "Is hotel pickup included in the price?", answer: "Yes, we pick you up from any hotel in Makkah and drop you back after the tour. No extra charges for pickup/drop-off." },
-    { question: "What vehicles are available for Makkah Ziyarat?", answer: "Toyota Camry (4 pax, SAR 200), Hyundai H1/Staria (7 pax, SAR 250), Toyota Hiace (10 pax, SAR 300), GMC Yukon (7 pax, SAR 400), and Toyota Coaster (21 pax, SAR 500)." },
+    { question: "What vehicles are available for Makkah Ziyarat?", answer: "Toyota Camry (4 pax, SAR 200), Hyundai H1/Staria (7 pax, SAR 250), Toyota Hiace (10 pax, SAR 300), GMC Yukon (7 pax, SAR 400), and Toyota Coaster (19 pax, SAR 500)." },
     { question: "Can we customize which sites we visit?", answer: "Absolutely. Every tour is private. Choose which of the 15 sites to visit, how long to stay at each, and the order of stops." },
     { question: "Is Makkah Ziyarat suitable for elderly or children?", answer: "Yes. Most sites are accessible from the vehicle or at ground level. Jabal Al-Nour and Thawr require climbing but can be viewed from base. Child seats available free." },
 ];
@@ -108,7 +108,7 @@ export default async function ZiarahMakkahPage() {
                                 { vehicle: "Hyundai Staria", capacity: "7 pax", price: "SAR 250" },
                                 { vehicle: "Toyota Hiace", capacity: "10 pax", price: "SAR 300" },
                                 { vehicle: "GMC Yukon", capacity: "7 pax", price: "SAR 400" },
-                                { vehicle: "Toyota Coaster", capacity: "21 pax", price: "SAR 500" },
+                                { vehicle: "Toyota Coaster", capacity: "19 pax", price: "SAR 500" },
                             ].map((v, i) => (
                                 <div key={i} className="bg-black/50 border border-white/10 rounded-xl p-4 hover:border-[#D4AF37]/30 transition-all">
                                     <div className="text-[#D4AF37] font-bold text-lg">{v.price}</div>

@@ -51,7 +51,7 @@ const jsonLd = {
                 { "@type": "Question", "name": "How long is the Madinah Ziyarat tour?", "acceptedAnswer": { "@type": "Answer", "text": "The standard tour covering 6 main sites takes 3–4 hours. Extended tours covering all 14 sites plus the Date Market take 5–6 hours." } },
                 { "@type": "Question", "name": "Is Masjid Quba included?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Masjid Quba is always our first stop. We allow ample time for Wudhu and 2 Rakaats prayer — the Prophet (SAW) said this equals an Umrah reward." } },
                 { "@type": "Question", "name": "Can we visit Badr battlefield?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Badr is 150 km from Madinah and can be added as an optional extended trip. This adds approximately 3–4 hours to the tour." } },
-                { "@type": "Question", "name": "What vehicles are available?", "acceptedAnswer": { "@type": "Answer", "text": "Toyota Camry (4 pax, SAR 200), Hyundai H1/Staria (7 pax, SAR 200), Toyota Hiace (10 pax, SAR 250), GMC Yukon (7 pax, SAR 400), Toyota Coaster (21 pax, SAR 500)." } },
+                { "@type": "Question", "name": "What vehicles are available?", "acceptedAnswer": { "@type": "Answer", "text": "Toyota Camry (4 pax, SAR 200), Hyundai H1/Staria (7 pax, SAR 200), Toyota Hiace (10 pax, SAR 250), GMC Yukon (7 pax, SAR 400), Toyota Coaster (19 pax, SAR 500)." } },
                 { "@type": "Question", "name": "Is the tour suitable for elderly?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. All sites are at ground level except Mount Uhud (optional climb). We drop elderly passengers at the closest accessible point. Air-conditioned throughout." } },
                 { "@type": "Question", "name": "When is Jannat Al-Baqi open?", "acceptedAnswer": { "@type": "Answer", "text": "Jannat Al-Baqi cemetery gates are typically opened after Fajr and after Asr prayers. We schedule the tour to coincide with these times." } },
             ],
@@ -71,7 +71,7 @@ const madinahFAQs = [
     { question: "How long is the Madinah Ziyarat tour?", answer: "The standard tour covering Masjid Quba, Mount Uhud, Qiblatayn, Seven Mosques, and Jannat Al-Baqi takes 3–4 hours. Extended tours covering all 14 sites including the Date Market take 5–6 hours." },
     { question: "Is Masjid Quba included?", answer: "Yes. Masjid Quba is always our first stop. We allow ample time for Wudhu and 2 Rakaats prayer — the Prophet (SAW) said this equals an Umrah reward." },
     { question: "Can we visit Badr battlefield?", answer: "Yes. Badr is approximately 150 km from Madinah and can be added as an optional extended trip. This adds 3–4 hours and is charged separately. A deeply moving experience for history enthusiasts." },
-    { question: "What vehicles are available for Madinah Ziyarat?", answer: "Toyota Camry (4 pax, SAR 200), Hyundai H1/Staria (7 pax, SAR 200), Toyota Hiace (10 pax, SAR 250), GMC Yukon (7 pax, SAR 400), and Toyota Coaster (21 pax, SAR 500)." },
+    { question: "What vehicles are available for Madinah Ziyarat?", answer: "Toyota Camry (4 pax, SAR 200), Hyundai H1/Staria (7 pax, SAR 200), Toyota Hiace (10 pax, SAR 250), GMC Yukon (7 pax, SAR 400), and Toyota Coaster (19 pax, SAR 500)." },
     { question: "Is the tour suitable for elderly or families?", answer: "Absolutely. All sites are at ground level except Mount Uhud which has an optional climb. We drop elderly passengers at the closest accessible point. Child seats are available free of charge." },
     { question: "When is Jannat Al-Baqi cemetery open?", answer: "Jannat Al-Baqi gates are typically opened after Fajr and after Asr prayers. We schedule the tour to coincide with these opening times so you can visit and make Dua." },
 ];
@@ -108,7 +108,7 @@ export default async function ZiarahMadinahPage() {
                                 { vehicle: "Hyundai Staria", capacity: "7 pax", price: "SAR 200" },
                                 { vehicle: "Toyota Hiace", capacity: "10 pax", price: "SAR 250" },
                                 { vehicle: "GMC Yukon", capacity: "7 pax", price: "SAR 400" },
-                                { vehicle: "Toyota Coaster", capacity: "21 pax", price: "SAR 500" },
+                                { vehicle: "Toyota Coaster", capacity: "19 pax", price: "SAR 500" },
                             ].map((v, i) => (
                                 <div key={i} className="bg-black/50 border border-white/10 rounded-xl p-4 hover:border-[#D4AF37]/30 transition-all">
                                     <div className="text-[#D4AF37] font-bold text-lg">{v.price}</div>

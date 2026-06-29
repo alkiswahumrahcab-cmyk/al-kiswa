@@ -17,10 +17,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
     return {
         title: vehicleData ? `${vehicleData.name} Bus Rental Makkah | Group Umrah Transport` : "Toyota Coaster Bus Rental Makkah | Group Umrah Transport",
-        description: vehicleData ? `Book ${vehicleData.name} ${vehicleData.passengers}-seater bus for Umrah groups. Comfortable transport from Jeddah Airport to Makkah & Madinah. Base Route: ${vehicleData.basePrice} SAR.` : "Book Toyota Coaster 22-seater bus for Umrah groups. Comfortable transport from Jeddah Airport to Makkah & Madinah. Large luggage capacity.",
+        description: vehicleData ? `Book ${vehicleData.name} ${vehicleData.passengers}-seater bus for Umrah groups. Comfortable transport from Jeddah Airport to Makkah & Madinah. Base Route: ${vehicleData.basePrice} SAR.` : "Book Toyota Coaster 19-seater bus for Umrah groups. Comfortable transport from Jeddah Airport to Makkah & Madinah. Large luggage capacity.",
         keywords: [
             "Toyota Coaster Rental Makkah",
-            "22 Seater Bus Makkah",
+            "19 seater Bus Makkah",
             "Group Umrah Bus",
             "Makkah Madinah Bus Transport",
             "Toyota Coaster Price",
@@ -34,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
   },
         openGraph: {
             title: vehicleData ? `${vehicleData.name} Bus Rental Makkah | Group Umrah Transport` : "Toyota Coaster Bus Rental Makkah | Group Umrah Transport",
-            description: vehicleData ? `Rent a ${vehicleData.passengers}-Seater ${vehicleData.name} for your Umrah group. Spacious, air-conditioned, and reliable transport.` : "Rent a 22-Seater Toyota Coaster for your Umrah group. Spacious, air-conditioned, and reliable transport between Jeddah, Makkah, and Madinah.",
+            description: vehicleData ? `Rent a ${vehicleData.passengers}-Seater ${vehicleData.name} for your Umrah group. Spacious, air-conditioned, and reliable transport.` : "Rent a 19-seater Toyota Coaster for your Umrah group. Spacious, air-conditioned, and reliable transport between Jeddah, Makkah, and Madinah.",
             url: 'https://alkiswahumrahtransport.com/fleet/toyota-coaster',
             siteName: 'Al Kiswah Umrah Transport',
             images: [
@@ -42,7 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
                     url: 'https://alkiswahumrahtransport.com/images/fleet/toyota-coaster-2025.webp',
                     width: 1200,
                     height: 630,
-                    alt: vehicleData?.name || 'Toyota Coaster 22-Seater Bus',
+                    alt: vehicleData?.name || 'Toyota Coaster 19-seater Bus',
                 },
             ],
             type: 'website',
@@ -53,9 +53,9 @@ export async function generateMetadata(): Promise<Metadata> {
 const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": vehicleData ? `${vehicleData.name} ${vehicleData.passengers}-Seater Bus Rental` : "Toyota Coaster 22-Seater Bus Rental",
+    "name": vehicleData ? `${vehicleData.name} ${vehicleData.passengers}-Seater Bus Rental` : "Toyota Coaster 19-seater Bus Rental",
     "image": "https://alkiswahumrahtransport.com/images/fleet/toyota-coaster-2025.webp",
-    "description": vehicleData ? `Rent ${vehicleData.name} bus in Makkah. Premium ${vehicleData.passengers}-seater transport for Umrah groups. Spacious, comfortable, and reliable.` : "Rent Toyota Coaster bus in Makkah. Premium 22-seater transport for Umrah groups. Spacious, comfortable, and reliable.",
+    "description": vehicleData ? `Rent ${vehicleData.name} bus in Makkah. Premium ${vehicleData.passengers}-seater transport for Umrah groups. Spacious, comfortable, and reliable.` : "Rent Toyota Coaster bus in Makkah. Premium 19-seater transport for Umrah groups. Spacious, comfortable, and reliable.",
     "brand": { "@type": "Brand", "name": "Toyota" },
     "offers": {
         "@type": "Offer",
@@ -92,7 +92,7 @@ const generateJsonLd = (vehicleData: any) => ({
 const coasterFAQs = [
     {
         question: "How many passengers can the Coaster comfortably fit?",
-        answer: "The Toyota Coaster comfortably seats 22 passengers with ample legroom. It is designed for medium-sized groups."
+        answer: "The Toyota Coaster comfortably seats 19 passengers with ample legroom. It is designed for medium-sized groups."
     },
     {
         question: "Is there enough luggage space for 20+ people?",
@@ -136,7 +136,7 @@ export default async function ToyotaCoasterPage() {
                 vehicleImage={coasterImage}
                 vehicleType="coaster"
                 title="Toyota Coaster Rates | Jeddah, Makkah, Madinah"
-                subtitle="Comfortable seating for up to 22 passengers. Ideal for organized group travel."
+                subtitle="Comfortable seating for up to 19 passengers. Ideal for organized group travel."
             />
 
             {/* Vehicle Highlights */}
@@ -159,14 +159,14 @@ export default async function ToyotaCoasterPage() {
                                 Why Choose Toyota Coaster?
                             </h2>
                             <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                                Experience seamless group travel with the Toyota Coaster. Designed for comfort and durability, it offers a smooth ride for up to 22 passengers.
+                                Experience seamless group travel with the Toyota Coaster. Designed for comfort and durability, it offers a smooth ride for up to 19 passengers.
                                 Whether you are traveling from <Link href="/ar/services/jeddah-airport-transfer" className="text-emerald-600 font-medium hover:underline">Jeddah Airport</Link> or visiting Ziyarat sites, the Coaster ensures everyone travels together in comfort.
                             </p>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
-                                        <Users className="text-emerald-500" size={20} /> 22 Passengers
+                                        <Users className="text-emerald-500" size={20} /> 19 passengers
                                     </div>
                                     <p className="text-sm text-slate-500">Ideal for 3-5 families</p>
                                 </div>
@@ -217,7 +217,7 @@ export default async function ToyotaCoasterPage() {
                         </div>
                         <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
                             <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Seating</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">22 Seats</p>
+                            <p className="font-bold text-xl text-slate-900 dark:text-white">19 Seats</p>
                             <p className="text-sm text-slate-400">High-back fabric seats</p>
                         </div>
                         <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">

@@ -540,7 +540,7 @@
                     "باص كوستر ايجار"
                 ]
             },
-            "capacity": "21 Seater",
+            "capacity": "19 Seater",
             "multiplier": 2.5,
             "features": [
                 "Microphone System",
@@ -548,7 +548,7 @@
                 "Reclining Seats",
                 "Large Windows"
             ],
-            "luggage": "15 Large Suitcases"
+            "luggage": "19 Large Suitcases"
         }
     ]
 }

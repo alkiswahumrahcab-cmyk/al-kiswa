@@ -17,12 +17,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
     return {
         title: vehicleData ? vehicleData.name + " Group Umrah Transport | Al Kiswah" : "Toyota Coaster Group Transport | Al Kiswah",
-        description: vehicleData ? `Book ${vehicleData.name} in Makkah. ${vehicleData.passengers}-seater bus for large group Umrah transport. Licensed and fixed rates.` : "Book Toyota Coaster in Makkah. 22-seater bus for large group Umrah transport. Licensed service for 5,000+ pilgrims.",
+        description: vehicleData ? `Book ${vehicleData.name} in Makkah. ${vehicleData.passengers}-seater bus for large group Umrah transport. Licensed and fixed rates.` : "Book Toyota Coaster in Makkah. 19-seater bus for large group Umrah transport. Licensed service for 5,000+ pilgrims.",
         keywords: [
             "toyota coaster umrah transport",
             "large group bus makkah",
             "coaster umrah transfer",
-            "22 seater bus jeddah",
+            "19 seater bus jeddah",
             "باص كوستر مكة",
             "نقل جماعي للعمرة"
         ],
@@ -33,9 +33,9 @@ export async function generateMetadata(): Promise<Metadata> {
 const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": vehicleData ? `${vehicleData.name} ${vehicleData.passengers}-Seater Bus Transport` : "Toyota Coaster 22-Seater Bus Transport",
+    "name": vehicleData ? `${vehicleData.name} ${vehicleData.passengers}-Seater Bus Transport` : "Toyota Coaster 19-seater Bus Transport",
     "image": "https://alkiswahumrahtransport.com/images/fleet/toyota-coaster-2025.webp",
-    "description": vehicleData ? `Book ${vehicleData.name} bus in Makkah. Premium ${vehicleData.passengers}-seater transport for Umrah groups. Spacious, comfortable, and reliable.` : "Book Toyota Coaster bus in Makkah. Premium 22-seater transport for Umrah groups. Spacious, comfortable, and reliable.",
+    "description": vehicleData ? `Book ${vehicleData.name} bus in Makkah. Premium ${vehicleData.passengers}-seater transport for Umrah groups. Spacious, comfortable, and reliable.` : "Book Toyota Coaster bus in Makkah. Premium 19-seater transport for Umrah groups. Spacious, comfortable, and reliable.",
     "brand": { "@type": "Brand", "name": "Toyota" },
     "offers": {
         "@type": "Offer",
@@ -72,7 +72,7 @@ const generateJsonLd = (vehicleData: any) => ({
 const coasterFAQs = [
     {
         question: "How many passengers can the Coaster comfortably fit?",
-        answer: "The Toyota Coaster comfortably seats 22 passengers with ample legroom. It is designed for medium-sized groups."
+        answer: "The Toyota Coaster comfortably seats 19 passengers with ample legroom. It is designed for medium-sized groups."
     },
     {
         question: "Is there enough luggage space for 20+ people?",
@@ -116,7 +116,7 @@ export default async function ToyotaCoasterPage() {
                 vehicleImage={coasterImage}
                 vehicleType="coaster"
                 title="Toyota Coaster Rates | Jeddah, Makkah, Madinah"
-                subtitle="Comfortable seating for up to 22 passengers. Ideal for organized group travel."
+                subtitle="Comfortable seating for up to 19 passengers. Ideal for organized group travel."
             />
 
             {/* Vehicle Highlights */}
@@ -139,14 +139,14 @@ export default async function ToyotaCoasterPage() {
                                 Why Choose Toyota Coaster?
                             </h2>
                             <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                                Experience seamless group travel with the Toyota Coaster. Designed for comfort and durability, it offers a smooth ride for up to 22 passengers.
+                                Experience seamless group travel with the Toyota Coaster. Designed for comfort and durability, it offers a smooth ride for up to 19 passengers.
                                 Whether you are traveling from <Link href="/services/jeddah-airport-transfer" className="text-emerald-600 font-medium hover:underline">Jeddah Airport</Link> or visiting Ziyarat sites, the Coaster ensures everyone travels together in comfort.
                             </p>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
-                                        <Users className="text-emerald-500" size={20} /> 22 Passengers
+                                        <Users className="text-emerald-500" size={20} /> 19 passengers
                                     </div>
                                     <p className="text-sm text-slate-500">Ideal for 3-5 families</p>
                                 </div>
@@ -197,7 +197,7 @@ export default async function ToyotaCoasterPage() {
                         </div>
                         <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
                             <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Seating</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">22 Seats</p>
+                            <p className="font-bold text-xl text-slate-900 dark:text-white">19 Seats</p>
                             <p className="text-sm text-slate-400">High-back fabric seats</p>
                         </div>
                         <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
