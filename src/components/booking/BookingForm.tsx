@@ -180,7 +180,22 @@ export default function BookingForm() {
             if (!leg.time) { newErrors[`leg_${index}_time`] = 'Required'; allLegsValid = false; }
         });
 
-        if (!data.selectedVehicles || data.selectedVehicles.length === 0) newErrors.vehicle = 'Please select at least one vehicle';
+        if (!data.selectedVehicles || data.selectedVehicles.length === 0) {
+            newErrors.vehicle = 'Please select at least one vehicle';
+        } else {
+            let totalCapacity = 0;
+            data.selectedVehicles.forEach(v => {
+                const vInfo = vehicles.find(vi => vi.id === v.vehicleId);
+                if(vInfo) {
+                    const capacityMatch = vInfo.capacity.match(/\d+/);
+                    const capacityNum = capacityMatch ? parseInt(capacityMatch[0]) : 0;
+                    totalCapacity += capacityNum * v.quantity;
+                }
+            });
+            if (data.passengers > totalCapacity) {
+                newErrors.vehicle = `You have ${data.passengers} passengers, but selected vehicles only seat ${totalCapacity}. Please add more vehicles.`;
+            }
+        }
         if (!data.name) newErrors.name = 'Required';
         if (!data.phone) newErrors.phone = 'Required';
         if (!data.email) newErrors.email = 'Required';
