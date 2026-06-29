@@ -23,10 +23,12 @@ export default function GlobalClientComponents({ contactSettings }: GlobalClient
         return null;
     }
 
+    const isBookingPage = pathname === '/booking';
+
     return (
         <>
             <ScrollToTop />
-            <WhatsAppVoiceButton phoneNumber={contactSettings?.phone} />
+            {!isBookingPage && <WhatsAppVoiceButton phoneNumber={contactSettings?.phone} />}
             <CookieConsent />
         </>
     );

@@ -360,10 +360,10 @@ export default function BookingForm() {
                                                         initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -5 }}
                                                         className="absolute top-full left-0 right-0 mt-2 z-50 bg-[#1a1a1a] border border-white/10 rounded-xl shadow-2xl overflow-hidden"
                                                     >
-                                                        <div className="p-4 border-b border-white/10 relative">
+                                                        <div className="hidden md:block p-4 border-b border-white/10 relative">
                                                             <Search size={18} className="absolute left-7 top-1/2 -translate-y-1/2 text-gray-400" />
                                                             <input
-                                                                autoFocus type="text" value={searchStr} onChange={(e) => setRouteSearches(prev => ({ ...prev, [index]: e.target.value }))}
+                                                                type="text" value={searchStr} onChange={(e) => setRouteSearches(prev => ({ ...prev, [index]: e.target.value }))}
                                                                 placeholder="Search city or airport..."
                                                                 className="w-full pl-10 pr-4 py-2 bg-transparent border-b border-white/10 rounded-none text-base text-white placeholder-gray-500 outline-none focus:border-gold-primary transition-colors"
                                                             />

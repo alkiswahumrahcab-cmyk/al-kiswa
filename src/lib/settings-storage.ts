@@ -19,9 +19,9 @@ const DEFAULT_SETTINGS: Settings = {
         phone2: '',
         address: 'Makkah, Saudi Arabia',
         social: {
-            facebook: '',
+            facebook: 'https://www.facebook.com/profile.php?id=61586674295032',
             twitter: '',
-            instagram: '',
+            instagram: 'https://www.instagram.com/exploresaudia12',
             tiktok: 'https://www.tiktok.com/@alkiswah_cab?_r=1&_t=ZS-97UXEVIhQeL',
             linkedin: 'https://www.linkedin.com/in/al-kiswah-umrah-cab/',
             googleBusiness: 'https://share.google/ARbbVaAackyOs8N7G',
