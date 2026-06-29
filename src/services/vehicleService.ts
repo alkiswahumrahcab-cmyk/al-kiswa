@@ -25,6 +25,14 @@ const sanitizeVehicle = (v: any) => {
             luggage: v.luggage || '10 Bags' // Ensure luggage is also consistent
         };
     }
+    if (nameLower.includes('coaster')) {
+        return {
+            ...v,
+            passengers: 19,
+            capacity: '19/19 Seater',
+            luggage: v.luggage || '15 Bags'
+        };
+    }
     return v;
 };
 

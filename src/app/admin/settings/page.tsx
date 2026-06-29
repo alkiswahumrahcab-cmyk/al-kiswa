@@ -14,7 +14,7 @@ import EmailTemplateManager from '@/components/admin/settings/EmailTemplateManag
 import { Settings } from '@/lib/validations';
 import { DEFAULT_BOOKING_CONFIRMATION_TEMPLATE, DEFAULT_ADMIN_NOTIFICATION_TEMPLATE } from '@/lib/email-templates';
 
-type Tab = 'general' | 'contact' | 'social' | 'seo' | 'scripts' | 'security' | 'discount' | 'emails' | 'database' | 'currency';
+type Tab = 'general' | 'contact' | 'social' | 'seo' | 'scripts' | 'security' | 'discount' | 'emails' | 'database' | 'currency' | 'fees';
 
 export default function SettingsPage() {
     const [activeTab, setActiveTab] = useState<Tab>('general');
@@ -65,6 +65,10 @@ export default function SettingsPage() {
             bookingConfirmation: '',
             adminNotification: '',
         },
+        fees: {
+            enableHajjTerminalFee: true,
+            hajjTerminalFeeAmount: 90,
+        },
         exchange_rate: '3.75'
     });
 
@@ -108,11 +112,17 @@ export default function SettingsPage() {
                 adminNotification: data.email_template_admin_notification || DEFAULT_ADMIN_NOTIFICATION_TEMPLATE,
             };
 
+            const feesSettings = {
+                enableHajjTerminalFee: data.fees_enable_hajj_terminal !== 'false', // default true
+                hajjTerminalFeeAmount: Number(data.fees_hajj_terminal_amount) || 90,
+            };
+
             setSettings(prev => ({
                 ...prev,
                 ...data,
                 discount: discountSettings,
-                emailTemplates: emailTemplates
+                emailTemplates: emailTemplates,
+                fees: feesSettings
             }));
         } catch (error) {
             console.error('Failed to fetch settings:', error);
@@ -259,6 +269,7 @@ export default function SettingsPage() {
         { id: 'scripts', label: 'Scripts', icon: Code, description: 'Custom tracking scripts' },
         { id: 'discount', label: 'Discounts', icon: Percent, description: 'Promotions & offers' },
         { id: 'currency', label: 'Pricing & Currency', icon: Banknote, description: 'Manage exchange rate' },
+        { id: 'fees', label: 'Fees & Surcharges', icon: Percent, description: 'Terminal fees' },
         { id: 'emails', label: 'Email Templates', icon: Mail, description: 'Customize emails' },
         { id: 'database', label: 'Maintenance', icon: DatabaseBackup, description: 'Data retention & cleanup' },
         { id: 'security', label: 'Security', icon: ShieldCheck, description: 'Password & access' },
@@ -639,6 +650,70 @@ export default function SettingsPage() {
                                 </div>
                             )}
 
+                            {activeTab === 'fees' && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="space-y-6"
+                                >
+                                    <div className={styles.glassCard}>
+                                        <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
+                                            <Percent className="text-emerald-500" />
+                                            Additional Fees & Surcharges
+                                        </h2>
+                                        
+                                        <div className="space-y-6">
+                                        {/* Hajj Terminal Fee */}
+                                        <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-700">
+                                            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+                                                <div>
+                                                    <div className="flex items-center gap-3 mb-1">
+                                                        <div className="p-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-lg">
+                                                            <MapPin size={20} />
+                                                        </div>
+                                                        <h3 className="text-lg font-bold">Jeddah Airport Hajj Terminal Parking Fee</h3>
+                                                    </div>
+                                                    <p className="text-sm text-slate-500 dark:text-slate-400">Apply a mandatory parking fee when customers select Hajj Terminal for Jeddah Airport pickups.</p>
+                                                </div>
+                                                <label className="relative inline-flex items-center cursor-pointer">
+                                                    <input
+                                                        type="checkbox"
+                                                        className="sr-only peer"
+                                                        checked={settings.fees.enableHajjTerminalFee}
+                                                        onChange={(e) => setSettings(s => ({ ...s, fees: { ...s.fees, enableHajjTerminalFee: e.target.checked } }))}
+                                                    />
+                                                        <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-emerald-500"></div>
+                                                    </label>
+                                                </div>
+
+                                                <div className="relative">
+                                                    <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
+                                                        Parking Fee Amount (SAR)
+                                                    </label>
+                                                    <input
+                                                        type="number"
+                                                        value={settings.fees.hajjTerminalFeeAmount}
+                                                        onChange={(e) => setSettings(s => ({ ...s, fees: { ...s.fees, hajjTerminalFeeAmount: Number(e.target.value) } }))}
+                                                        className={styles.input}
+                                                        disabled={!settings.fees.enableHajjTerminalFee}
+                                                        min="0"
+                                                    />
+                                                </div>
+                                                <div className="mt-4 flex justify-end">
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => handleSectionSave('fees', settings.fees)}
+                                                        className="px-4 py-2 bg-slate-900 dark:bg-slate-700 text-white rounded-lg hover:bg-slate-800 dark:hover:bg-slate-600 transition-colors flex items-center gap-2 text-sm font-medium"
+                                                    >
+                                                        <Save size={16} /> Save Fee Settings
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            )}
+
                             {activeTab === 'emails' && (
                                 <EmailTemplateManager
                                     settings={settings as unknown as Settings}
@@ -686,8 +761,6 @@ export default function SettingsPage() {
                                                     </div>
                                                     <button
                                                         onClick={async () => {
-
-
                                                             if (!confirm(`Are you SURE you want to delete all completed/cancelled bookings older than ${retentionMonths} months? This is irreversible.`)) return;
 
                                                             setLoading(true);

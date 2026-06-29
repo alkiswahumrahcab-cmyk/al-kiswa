@@ -167,6 +167,16 @@ export async function POST(request: Request) {
 
                 bookingData.legs = legs;
 
+                if (bookingData.airportTerminal === 'Hajj Terminal') {
+                    const enableHajjTerminalFee = rawSettingsMap['fees_enable_hajj_terminal'] !== 'false';
+                    if (enableHajjTerminalFee) {
+                        const parkingFee = Number(rawSettingsMap['fees_hajj_terminal_amount']) || 90;
+                        bookingData.parkingFee = parkingFee;
+                        totalBasePrice += parkingFee;
+                        console.log(`[Booking ${requestId}] Added Hajj Terminal Parking Fee: ${parkingFee} SAR`);
+                    }
+                }
+
                 if (totalBasePrice > 0) {
                     let { price, originalPrice, discountApplied, discountType } = calculateFinalPrice(totalBasePrice, settings.discount);
                     

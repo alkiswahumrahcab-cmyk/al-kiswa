@@ -58,6 +58,16 @@ export async function POST(request: Request) {
             auditDetails = 'Updated email templates';
         }
 
+        // Handle Fees Object Flattening
+        if (body.fees) {
+            updates['fees_enable_hajj_terminal'] = String(body.fees.enableHajjTerminalFee);
+            updates['fees_hajj_terminal_amount'] = String(body.fees.hajjTerminalFeeAmount);
+
+            delete body.fees;
+            auditAction = 'UPDATE_FEES';
+            auditDetails = 'Updated parking fee settings';
+        }
+
         // Merge remaining body items
         Object.entries(body).forEach(([key, value]) => {
             updates[key] = String(value);

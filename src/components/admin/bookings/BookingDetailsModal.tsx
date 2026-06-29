@@ -84,6 +84,12 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
                                     <p className="text-slate-900 dark:text-white font-medium">{booking.dropoff}</p>
                                 </div>
                             </div>
+                            {booking.airportTerminal && (
+                                <div className="pt-2">
+                                    <label className="text-xs text-slate-500 font-medium mb-1 block">Airport Terminal</label>
+                                    <p className="text-amber-600 dark:text-amber-500 font-bold">{booking.airportTerminal}</p>
+                                </div>
+                            )}
                             <div className="border-t border-slate-200 dark:border-slate-700 pt-4 flex gap-6">
                                 <div>
                                     <label className="text-xs text-slate-500 font-medium mb-1 block">Date</label>
@@ -157,11 +163,23 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
                         <h3 className="text-sm font-bold text-emerald-600 dark:text-emerald-500 uppercase tracking-wider mb-4 flex items-center gap-2">
                             <span className="text-lg">💰</span> Payment Information
                         </h3>
-                        <div className="bg-emerald-50 dark:bg-emerald-900/10 rounded-xl p-5 border border-emerald-200 dark:border-emerald-900/30">
-                            <div className="flex justify-between items-center">
-                                <span className="text-sm font-medium text-emerald-800 dark:text-emerald-400">Total Price</span>
-                                <span className="text-xl font-bold text-emerald-900 dark:text-emerald-300">
-                                    {booking.price || (booking.finalPrice ? `${booking.finalPrice} SAR` : 'N/A')}
+                        <div className="bg-emerald-50 dark:bg-emerald-900/10 rounded-xl p-5 border border-emerald-200 dark:border-emerald-900/30 space-y-3">
+                            <div className="flex justify-between items-center text-sm">
+                                <span className="font-medium text-emerald-800 dark:text-emerald-400">Base Fare</span>
+                                <span className="font-bold text-emerald-900 dark:text-emerald-300">
+                                    {booking.price ? booking.price : (booking.finalPrice ? `${booking.finalPrice - (booking.parkingFee || 0)} SAR` : 'N/A')}
+                                </span>
+                            </div>
+                            {booking.parkingFee ? (
+                                <div className="flex justify-between items-center text-sm">
+                                    <span className="font-medium text-amber-700 dark:text-amber-500">{booking.airportTerminal} Parking Fee</span>
+                                    <span className="font-bold text-amber-700 dark:text-amber-500">+{booking.parkingFee} SAR</span>
+                                </div>
+                            ) : null}
+                            <div className="pt-3 border-t border-emerald-200/50 dark:border-emerald-800/50 flex justify-between items-center">
+                                <span className="text-sm font-bold text-emerald-800 dark:text-emerald-400">Total Price</span>
+                                <span className="text-xl font-black text-emerald-900 dark:text-emerald-300">
+                                    {booking.price ? booking.price : (booking.finalPrice ? `${booking.finalPrice} SAR` : 'N/A')}
                                 </span>
                             </div>
                         </div>

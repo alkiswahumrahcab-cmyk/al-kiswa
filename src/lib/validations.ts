@@ -48,6 +48,8 @@ export const BookingSchema = z.object({
     currency: z.string().optional(),
     priceInSelectedCurrency: z.number().optional(),
     priceInSAR: z.number().optional(),
+    airportTerminal: z.string().optional(),
+    parkingFee: z.number().optional(),
 });
 
 
@@ -137,6 +139,10 @@ export const SettingsSchema = z.object({
     }).optional(),
     pricing: z.object({
         globalPercentageAdjustment: z.number().optional().default(0),
+    }).optional(),
+    fees: z.object({
+        enableHajjTerminalFee: z.boolean().default(true),
+        hajjTerminalFeeAmount: z.number().min(0).default(90),
     }).optional(),
 });
 

@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { usePricing } from '@/context/PricingContext';
 import { useCurrency } from '@/context/CurrencyContext';
+import { useSettings } from '@/context/SettingsContext';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import MobileStickySummary from './MobileStickySummary';
@@ -23,15 +24,27 @@ export default function BookingForm() {
 
     const [data, setData] = useState({
         serviceType: 'Intercity',
-        legs: [{ id: Date.now().toString(), routeId: '', pickup: '', dropoff: '', date: '', time: '', flightNumber: '', hours: undefined as number | undefined }],
+        legs: [{ id: 'initial-leg-1', routeId: '', pickup: '', dropoff: '', date: '', time: '', flightNumber: '', hours: undefined as number | undefined }],
         selectedVehicles: [] as { vehicleId: string, quantity: number }[],
         passengers: 1,
         childSeats: false,
         name: '',
         email: '',
         phone: '',
-        notes: ''
+        notes: '',
+        airportTerminal: '',
     });
+
+    const { settings } = useSettings();
+
+    const isJeddahAirportRoute = data.legs.some(leg => {
+        const r = routes.find(rt => rt.id === leg.routeId);
+        return r && r.name.toLowerCase().includes('jeddah airport');
+    });
+
+    const parkingFee = (isJeddahAirportRoute && data.airportTerminal === 'Hajj Terminal' && settings?.fees?.enableHajjTerminalFee !== false) 
+        ? (settings?.fees?.hajjTerminalFeeAmount || 90) 
+        : 0;
 
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [generalError, setGeneralError] = useState<string | null>(null);
@@ -63,7 +76,7 @@ export default function BookingForm() {
     const addLeg = () => {
         setData(prev => ({
             ...prev,
-            legs: [...prev.legs, { id: Date.now().toString(), routeId: '', pickup: '', dropoff: '', date: '', time: '', flightNumber: '', hours: undefined }]
+            legs: [...prev.legs, { id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(7), routeId: '', pickup: '', dropoff: '', date: '', time: '', flightNumber: '', hours: undefined }]
         }));
     };
 
@@ -166,6 +179,11 @@ export default function BookingForm() {
             totalUSD = Math.round(totalUSD * 0.95);
         }
         
+        if (totalSAR > 0 && parkingFee > 0) {
+            totalSAR += parkingFee;
+            totalUSD += Math.round(parkingFee / 3.75);
+        }
+        
         return { price: totalSAR, priceUSD: totalUSD };
     };
 
@@ -178,6 +196,7 @@ export default function BookingForm() {
             if (!leg.routeId) { newErrors[`leg_${index}_route`] = 'Please select a route'; allLegsValid = false; }
             if (!leg.date) { newErrors[`leg_${index}_date`] = 'Required'; allLegsValid = false; }
             if (!leg.time) { newErrors[`leg_${index}_time`] = 'Required'; allLegsValid = false; }
+            if (leg.pickup?.toLowerCase().includes('airport') && !leg.flightNumber?.trim()) { newErrors[`leg_${index}_flight`] = 'Flight number is required for airport pickups'; allLegsValid = false; }
         });
 
         if (!data.selectedVehicles || data.selectedVehicles.length === 0) {
@@ -195,6 +214,10 @@ export default function BookingForm() {
             if (data.passengers > totalCapacity) {
                 newErrors.vehicle = `You have ${data.passengers} passengers, but selected vehicles only seat ${totalCapacity}. Please add more vehicles.`;
             }
+        }
+        
+        if (isJeddahAirportRoute && !data.airportTerminal) {
+            newErrors.airportTerminal = 'Terminal selection is required for Jeddah Airport pickups.';
         }
         if (!data.name) newErrors.name = 'Required';
         if (!data.phone) newErrors.phone = 'Required';
@@ -236,6 +259,8 @@ export default function BookingForm() {
                 currency: currency,
                 priceInSelectedCurrency: finalDisplayPrice.amount,
                 priceInSAR: sarPrice,
+                airportTerminal: isJeddahAirportRoute ? data.airportTerminal : undefined,
+                parkingFee: (isJeddahAirportRoute && parkingFee > 0) ? parkingFee : undefined,
             };
 
             const response = await fetch('/api/bookings', {
@@ -260,7 +285,10 @@ export default function BookingForm() {
                     vehicleName: data.selectedVehicles.map(sv => { const v = vehicles.find(v => v.id === sv.vehicleId); return v ? `${sv.quantity}x ${v.name}` : ''; }).join(', ') || 'Standard Vehicle',
                     passengers: data.passengers,
                     currency: currency,
-                    totalAmount: finalDisplayPrice.amount
+                    totalAmount: finalDisplayPrice.amount,
+                    airportTerminal: isJeddahAirportRoute ? data.airportTerminal : undefined,
+                    parkingFee: (isJeddahAirportRoute && parkingFee > 0) ? parkingFee : undefined,
+                    flightNumbers: data.legs.filter(l => l.flightNumber).map(l => l.flightNumber).join(', ')
                 };
                 setReceiptData(receipt);
                 setShowSuccessModal(true);
@@ -303,7 +331,7 @@ export default function BookingForm() {
     }
 
     return (
-        <div className="w-full max-w-4xl mx-auto px-4 pt-28 md:pt-32 pb-32 relative">
+        <div className="w-full max-w-4xl mx-auto px-4 pt-0 pb-16 relative">
             
             <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
                 <div>
@@ -343,7 +371,7 @@ export default function BookingForm() {
                                 : 'Search for a route (e.g., Makkah to Madinah)...';
 
                             return (
-                                <div key={leg.id} className="bg-[#111] border border-white/10 rounded-2xl p-6 relative">
+                                <div key={`leg-index-${index}`} className="bg-[#111] border border-white/10 rounded-2xl p-6 relative">
                                     <div className="flex justify-between items-center mb-4">
                                         <h3 className="text-gold-primary font-bold">Transfer {index + 1}</h3>
                                         {data.legs.length > 1 && (
@@ -403,13 +431,16 @@ export default function BookingForm() {
 
                                         {/* Date */}
                                         <div className="relative">
-                                            <Calendar className="absolute left-0 top-4 text-gold-primary" size={20} />
+                                            <p className="text-gray-400 text-xs mb-1 pl-1">
+                                                {leg.pickup?.toLowerCase().includes('airport') ? 'Landing Date' : 'Pickup Date'}
+                                            </p>
+                                            <Calendar className="absolute left-0 top-8 text-gold-primary" size={20} />
                                             <input
                                                 type="date"
                                                 value={leg.date}
                                                 min={new Date().toISOString().split('T')[0]}
                                                 onChange={(e) => updateLeg(index, { date: e.target.value })}
-                                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors 
+                                                className={`w-full pl-8 pr-4 py-3 bg-transparent border-b-2 text-white outline-none transition-colors 
                                                     ${errors[`leg_${index}_date`] ? 'border-red-500' : 'border-white/20 focus:border-gold-primary'}
                                                     [color-scheme:dark]`}
                                             />
@@ -418,12 +449,15 @@ export default function BookingForm() {
 
                                         {/* Time */}
                                         <div className="relative">
-                                            <Clock className="absolute left-0 top-4 text-gold-primary" size={20} />
+                                            <p className="text-gray-400 text-xs mb-1 pl-1">
+                                                {leg.pickup?.toLowerCase().includes('airport') ? 'Landing Time (Local)' : 'Pickup Time'}
+                                            </p>
+                                            <Clock className="absolute left-0 top-8 text-gold-primary" size={20} />
                                             <input
                                                 type="time"
                                                 value={leg.time}
                                                 onChange={(e) => updateLeg(index, { time: e.target.value })}
-                                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors 
+                                                className={`w-full pl-8 pr-4 py-3 bg-transparent border-b-2 text-white outline-none transition-colors 
                                                     ${errors[`leg_${index}_time`] ? 'border-red-500' : 'border-white/20 focus:border-gold-primary'}
                                                     [color-scheme:dark]`}
                                             />
@@ -436,11 +470,51 @@ export default function BookingForm() {
                                                 <Plane className="absolute left-0 top-4 text-gold-primary" size={20} />
                                                 <input
                                                     type="text"
-                                                    placeholder="Flight Number (Optional)"
+                                                    placeholder="Flight Number (Required)"
                                                     value={leg.flightNumber}
                                                     onChange={(e) => updateLeg(index, { flightNumber: e.target.value })}
-                                                    className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 border-white/20 focus:border-gold-primary text-white outline-none transition-colors placeholder-gray-600"
+                                                    className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 outline-none transition-colors placeholder-gray-600 
+                                                        ${errors[`leg_${index}_flight`] ? 'border-red-500' : 'border-white/20 focus:border-gold-primary'}`}
                                                 />
+                                                {errors[`leg_${index}_flight`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_flight`]}</p>}
+                                            </div>
+                                        )}
+
+                                        {/* Terminal Selection (moved inside leg card) */}
+                                        {leg.pickup?.toLowerCase().includes('jeddah airport') && (
+                                            <div className="relative md:col-span-2">
+                                                <div className="relative mt-2">
+                                                    <Plane className="absolute left-0 top-4 text-gold-primary" size={20} />
+                                                    <select
+                                                        value={data.airportTerminal}
+                                                        onChange={(e) => {
+                                                            setData({ ...data, airportTerminal: e.target.value });
+                                                            if (errors.airportTerminal) setErrors(err => ({ ...err, airportTerminal: '' }));
+                                                        }}
+                                                        className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 border-white/20 focus:border-gold-primary text-white outline-none appearance-none cursor-pointer"
+                                                    >
+                                                        <option value="" className="text-gray-900">Select Arrival Terminal</option>
+                                                        <option value="Terminal 1" className="text-gray-900">Terminal 1</option>
+                                                        <option value="Hajj Terminal" className="text-gray-900">Hajj Terminal</option>
+                                                        <option value="North Terminal" className="text-gray-900">North Terminal</option>
+                                                    </select>
+                                                    <ChevronDown className="absolute right-0 top-4 text-gray-400 pointer-events-none" size={20} />
+                                                </div>
+                                                {errors.airportTerminal && <p className="text-red-500 text-sm mt-1">{errors.airportTerminal}</p>}
+                                                
+                                                {data.airportTerminal === 'Hajj Terminal' && parkingFee > 0 && (
+                                                    <div className="bg-amber-500/10 border border-amber-500/30 p-4 rounded-xl mt-4">
+                                                        <p className="text-amber-500 text-sm font-medium flex items-center gap-2">
+                                                            <span className="text-xl">⚠️</span> Note: Hajj Terminal requires a mandatory {parkingFee} SAR parking fee (added to total).
+                                                        </p>
+                                                    </div>
+                                                )}
+                                                
+                                                <div className="bg-blue-500/10 border border-blue-500/30 p-4 rounded-xl mt-4">
+                                                    <p className="text-blue-400 text-sm font-medium">
+                                                        ℹ️ Note: 90 minutes waiting time is free after your flight lands. Additional waiting will be charged at 30 SAR per hour (payable directly to the driver).
+                                                    </p>
+                                                </div>
                                             </div>
                                         )}
 
@@ -471,6 +545,7 @@ export default function BookingForm() {
                         >
                             <Plus size={20} /> Add Another Transfer
                         </button>
+
                     </div>
                 </section>
 

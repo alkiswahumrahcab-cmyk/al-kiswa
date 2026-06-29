@@ -50,7 +50,11 @@ const DEFAULT_SETTINGS: Settings = {
     },
     pricing: {
         globalPercentageAdjustment: 0,
-    }
+    },
+    fees: {
+        enableHajjTerminalFee: true,
+        hajjTerminalFeeAmount: 90,
+    },
 };
 
 export const getSettings = async (): Promise<Settings> => {
@@ -110,6 +114,10 @@ export const getSettings = async (): Promise<Settings> => {
             },
             pricing: {
                 globalPercentageAdjustment: Number(settingsMap['pricing_global_percentage_adjustment']) || DEFAULT_SETTINGS.pricing?.globalPercentageAdjustment || 0,
+            },
+            fees: {
+                enableHajjTerminalFee: settingsMap['fees_enable_hajj_terminal'] !== 'false',
+                hajjTerminalFeeAmount: Number(settingsMap['fees_hajj_terminal_amount']) || DEFAULT_SETTINGS.fees?.hajjTerminalFeeAmount || 90,
             }
         };
 

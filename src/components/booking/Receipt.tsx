@@ -21,6 +21,9 @@ interface ReceiptProps {
         currency: string;
         totalAmount: number;
         status?: string;
+        airportTerminal?: string;
+        parkingFee?: number;
+        flightNumbers?: string;
     };
     onClose?: () => void;
 }
@@ -94,6 +97,18 @@ export default function Receipt({ bookingData, onClose }: ReceiptProps) {
                                 <p className="text-xs text-gray-500 font-medium">Route / Service</p>
                                 <p className="text-sm font-semibold text-gray-900">{bookingData.routeName}</p>
                             </div>
+                            {bookingData.airportTerminal && (
+                                <div>
+                                    <p className="text-xs text-gray-500 font-medium">Terminal</p>
+                                    <p className="text-sm font-bold text-amber-600">{bookingData.airportTerminal}</p>
+                                </div>
+                            )}
+                            {bookingData.flightNumbers && (
+                                <div>
+                                    <p className="text-xs text-gray-500 font-medium">Flight Number(s)</p>
+                                    <p className="text-sm font-semibold text-gray-900">{bookingData.flightNumbers}</p>
+                                </div>
+                            )}
                             <div>
                                 <p className="text-xs text-gray-500 font-medium">Vehicle</p>
                                 <p className="text-sm font-semibold text-gray-900">{bookingData.vehicleName}</p>
@@ -128,24 +143,48 @@ export default function Receipt({ bookingData, onClose }: ReceiptProps) {
                     </div>
                 </div>
 
-                {/* Total */}
-                <div className="bg-primary-black text-white rounded-xl p-6 flex items-center justify-between">
-                    <div>
-                        <p className="text-sm text-gray-400 font-medium uppercase tracking-widest mb-1">Total Amount</p>
-                        <p className="text-xs text-gray-500">Includes all taxes and fees</p>
-                    </div>
-                    <div className="text-right">
-                        <p className="text-3xl font-bold text-gold-primary">
-                            {bookingData.currency === 'USD' ? '$' : ''}{bookingData.totalAmount}
-                            {bookingData.currency === 'SAR' ? ' SAR' : ''}
-                        </p>
+                {/* Price Breakdown */}
+                <div className="bg-gray-50 rounded-xl p-6 mb-8 border border-gray-100">
+                    <h3 className="text-sm text-gray-500 uppercase tracking-wider font-bold mb-4">Payment Summary</h3>
+                    
+                    <div className="space-y-3">
+                        <div className="flex justify-between items-center text-gray-600 text-sm">
+                            <span>Base Fare</span>
+                            <span>{bookingData.totalAmount - (bookingData.parkingFee || 0)} {bookingData.currency}</span>
+                        </div>
+                        
+                        {bookingData.parkingFee ? (
+                            <div className="flex justify-between items-center text-amber-700 text-sm font-medium">
+                                <span>{bookingData.airportTerminal} Parking Fee</span>
+                                <span>+{bookingData.parkingFee} {bookingData.currency}</span>
+                            </div>
+                        ) : null}
+
+                        <div className="pt-3 border-t border-gray-200"></div>
+
+                        <div className="flex justify-between items-center">
+                            <span className="text-lg font-bold text-gray-900">Total Paid</span>
+                            <span className="text-2xl font-black text-gold-primary">
+                                {bookingData.totalAmount} {bookingData.currency}
+                            </span>
+                        </div>
                     </div>
                 </div>
 
                 {/* Footer Notes */}
-                <div className="mt-8 text-center text-xs text-gray-400">
-                    <p>Thank you for choosing Al Kiswah Umrah Transport.</p>
-                    <p>For support, contact us via WhatsApp at +966 54 870 7332</p>
+                <div className="text-center space-y-3">
+                    {bookingData.flightNumbers && (
+                        <p className="text-sm text-blue-600 bg-blue-50 py-2 px-3 rounded text-left border border-blue-100 mb-4">
+                            <strong>Note:</strong> 90 minutes waiting time is free after your flight lands. Additional waiting will be charged at 30 SAR per hour, payable directly to the driver.
+                        </p>
+                    )}
+                    <p className="text-xs text-gray-500">
+                        {bookingData.parkingFee ? 
+                            `Note: Total includes a mandatory parking fee for ${bookingData.airportTerminal || 'airport'}.` :
+                            "Please keep this receipt for your records. Show this to your driver upon arrival."
+                        }
+                    </p>
+                    <p className="text-xs text-gray-400">Thank you for choosing Al Kiswah Umrah Transport. For support, contact us via WhatsApp at +966 54 870 7332</p>
                 </div>
             </div>
 

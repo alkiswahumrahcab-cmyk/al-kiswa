@@ -36,14 +36,29 @@ export default function BookingPage() {
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-primary/10 rounded-full blur-[120px] pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold-secondary/5 rounded-full blur-[120px] pointer-events-none" />
 
-            <div className="container relative z-20 pt-32 md:pt-36 lg:pt-40 pb-20 px-4 max-w-5xl mx-auto">
+            <div className="container relative z-20 pt-24 md:pt-28 pb-10 px-4 max-w-5xl mx-auto">
 
-                {/* Page Header — visible H1 for SEO */}
-                <div className="text-center mb-8">
-                    <h1 className="text-3xl md:text-4xl font-bold text-white font-sans mb-2">
-                        Book Your Private <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37]">Umrah Taxi</span>
-                    </h1>
-                    <p className="text-gray-400 font-light text-lg">Instant confirmation &bull; No prepayment required &bull; Available 24/7</p>
+                {/* Booking Form */}
+                <Suspense fallback={
+                    <div className="max-w-4xl mx-auto h-[600px] w-full animate-pulse bg-white/5 rounded-[2rem] border border-white/10 flex items-center justify-center">
+                        <div className="text-gold-primary/50 text-sm font-medium tracking-widest uppercase">Loading Booking Engine...</div>
+                    </div>
+                }>
+                    <BookingForm />
+                </Suspense>
+
+                {/* Pay on Arrival Guarantee Bar */}
+                <div className="mt-6 mb-8 p-5 rounded-2xl bg-emerald-950/40 border border-emerald-500/20 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
+                    {[
+                        { icon: <CheckCircle2 size={18} className="text-emerald-400 shrink-0" />, text: 'Pay cash on arrival — zero prepayment' },
+                        { icon: <CheckCircle2 size={18} className="text-emerald-400 shrink-0" />, text: 'Free cancellation up to 24 hrs before' },
+                        { icon: <CheckCircle2 size={18} className="text-emerald-400 shrink-0" />, text: 'Fixed price — no surge, no surprises' },
+                    ].map((item, i) => (
+                        <div key={i} className="flex items-center gap-2 text-sm text-emerald-300 font-medium">
+                            {item.icon}
+                            <span>{item.text}</span>
+                        </div>
+                    ))}
                 </div>
 
                 {/* Trust Strip — 4 badges */}
@@ -60,29 +75,6 @@ export default function BookingPage() {
                                 <p className="text-white font-bold text-sm leading-tight">{item.title}</p>
                                 <p className="text-gray-500 text-xs">{item.sub}</p>
                             </div>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Booking Form */}
-                <Suspense fallback={
-                    <div className="max-w-4xl mx-auto h-[600px] w-full animate-pulse bg-white/5 rounded-[2rem] border border-white/10 flex items-center justify-center">
-                        <div className="text-gold-primary/50 text-sm font-medium tracking-widest uppercase">Loading Booking Engine...</div>
-                    </div>
-                }>
-                    <BookingForm />
-                </Suspense>
-
-                {/* Pay on Arrival Guarantee Bar */}
-                <div className="mt-6 p-5 rounded-2xl bg-emerald-950/40 border border-emerald-500/20 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-                    {[
-                        { icon: <CheckCircle2 size={18} className="text-emerald-400 shrink-0" />, text: 'Pay cash on arrival — zero prepayment' },
-                        { icon: <CheckCircle2 size={18} className="text-emerald-400 shrink-0" />, text: 'Free cancellation up to 24 hrs before' },
-                        { icon: <CheckCircle2 size={18} className="text-emerald-400 shrink-0" />, text: 'Fixed price — no surge, no surprises' },
-                    ].map((item, i) => (
-                        <div key={i} className="flex items-center gap-2 text-sm text-emerald-300 font-medium">
-                            {item.icon}
-                            <span>{item.text}</span>
                         </div>
                     ))}
                 </div>
