@@ -152,6 +152,21 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
                         </section>
                     </div>
 
+                    {/* Payment Info */}
+                    <section>
+                        <h3 className="text-sm font-bold text-emerald-600 dark:text-emerald-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+                            <span className="text-lg">💰</span> Payment Information
+                        </h3>
+                        <div className="bg-emerald-50 dark:bg-emerald-900/10 rounded-xl p-5 border border-emerald-200 dark:border-emerald-900/30">
+                            <div className="flex justify-between items-center">
+                                <span className="text-sm font-medium text-emerald-800 dark:text-emerald-400">Total Price</span>
+                                <span className="text-xl font-bold text-emerald-900 dark:text-emerald-300">
+                                    {booking.price || (booking.finalPrice ? `${booking.finalPrice} SAR` : 'N/A')}
+                                </span>
+                            </div>
+                        </div>
+                    </section>
+
                     {/* Rating & Review */}
                     {booking.rating && (
                         <section className="bg-yellow-50 dark:bg-yellow-900/10 p-5 rounded-xl border border-yellow-200 dark:border-yellow-900/30">

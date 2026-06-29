@@ -392,6 +392,7 @@ export default function BookingsPage() {
                                     <th>ID & Customer</th>
                                     <th>Journey Details</th>
                                     <th>Vehicle</th>
+                                    <th>Price</th>
                                     <th>Status</th>
                                     <th className="text-right">Actions</th>
                                 </tr>
@@ -400,7 +401,7 @@ export default function BookingsPage() {
                                 <AnimatePresence mode='popLayout'>
                                     {filteredBookings.length === 0 ? (
                                         <tr>
-                                            <td colSpan={5} className="text-center py-12 text-muted-foreground">
+                                            <td colSpan={6} className="text-center py-12 text-muted-foreground">
                                                 <div className="flex flex-col items-center justify-center">
                                                     <Calendar size={48} className="mb-4 opacity-20" />
                                                     <p>No bookings found matching your criteria</p>
@@ -485,7 +486,11 @@ export default function BookingsPage() {
                                                         )}
                                                     </div>
                                                 </td>
-
+                                                <td>
+                                                    <div className="font-bold text-slate-900 dark:text-white whitespace-nowrap">
+                                                        {booking.price || (booking.finalPrice ? `${booking.finalPrice} SAR` : 'N/A')}
+                                                    </div>
+                                                </td>
                                                 <td>
                                                     <span className={`px-2.5 py-1 rounded-full text-xs font-semibold border ${getStatusBadge(booking.status)}`}>
                                                         {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
