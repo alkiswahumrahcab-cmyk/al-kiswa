@@ -179,7 +179,9 @@ export default async function RootLayout({
           }}
         />
         {/* Meta Pixel Code Start */}
-        <script
+        <Script
+          id="fb-pixel"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
 !function(f,b,e,v,n,t,s)
@@ -207,7 +209,9 @@ fbq('track', 'PageView');
         {/* Meta Pixel Code End */}
 
         {/* TikTok Pixel Code Start */}
-        <script
+        <Script
+          id="tiktok-pixel"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
 !function (w, d, t) {

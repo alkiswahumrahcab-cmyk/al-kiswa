@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CheckCircle, XCircle, Download, Printer, PlusCircle } from 'lucide-react';
 import { Metadata } from 'next';
+import FacebookPurchaseEvent from '@/components/analytics/FacebookPurchaseEvent';
 
 export const metadata: Metadata = {
     title: 'Receipt Verification | Al Kiswah Umrah Cab',
@@ -56,6 +57,10 @@ export default async function ReceiptVerificationPage(props: { params: Promise<{
 
                 {isVerified && booking && (
                     <>
+                        <FacebookPurchaseEvent 
+                            value={booking.totalAmount || booking.price || 0} 
+                            currency={booking.currency || 'SAR'} 
+                        />
                         {/* Booking Summary Section */}
                         <div className="bg-[#111111] border border-white/10 rounded-2xl overflow-hidden shadow-xl mb-8">
                             <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
