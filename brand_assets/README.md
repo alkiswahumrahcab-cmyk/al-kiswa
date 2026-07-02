@@ -1,17 +1,17 @@
 # Al Kiswah Umrah Transport - Brand Assets
 
-## Vector Files
-- `logo.svg`, `icon.svg`, etc. are copies of the exact file you provided.
+## Identity
+- **Primary Gold**: `#D4AF37`
+- **Luxury Black**: `#111111`
+- **White**: `#FFFFFF`
 
-## App & Web Icons
-- `apple-touch-icon.png` (180x180) - iOS Home Screen
-- `android-chrome-192.png` - Android/PWA
-- `android-chrome-512.png` - Android/PWA
-- `mstile-150.png` - Windows 10/11 Start Menu
+## Deliverables
+- `logo.svg` / `logo-dark.svg` / `logo-light.svg`: Master vector full logos with text.
+- `icon.svg` / `icon-dark.svg` / `icon-light.svg`: Master vector symbols.
+- `favicon.svg` & `favicon.ico`: Optimized for small tabs (16x16 to 48x48).
+- `apple-touch-icon.png`: iOS home screen icon (180x180).
+- `android-chrome-192x192.png` & `android-chrome-512x512.png`: PWA Android icons.
+- `mstile-150x150.png`: Windows tile icon.
+- `site.webmanifest`: PWA Manifest file.
 
-## Favicons
-- `favicon-16.png`, `favicon-32.png`, `favicon-48.png`
-- `favicon.ico` (Generated via command line)
-
-## Manifest
-- `site.webmanifest` - Production-ready PWA manifest.
+Designed mathematically with perfect vector paths, optimized geometry, and stroke alignments for premium quality scaling from 16px up to 1024px.
