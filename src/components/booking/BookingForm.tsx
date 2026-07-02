@@ -107,8 +107,13 @@ export default function BookingForm() {
 
     useEffect(() => {
         const handler = (e: MouseEvent) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+            const target = e.target as Element;
+            const isClickInsideDropdown = dropdownRef.current?.contains(target);
+            const isClickInsidePortal = target.closest('#mobile-drawer-portal') !== null;
+            
+            if (!isClickInsideDropdown && !isClickInsidePortal) {
                 setActiveDropdownIndex(null);
+                setActiveTerminalDropdown(null);
             }
         };
         document.addEventListener('mousedown', handler);

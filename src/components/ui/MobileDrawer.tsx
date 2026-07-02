@@ -37,13 +37,14 @@ export default function MobileDrawer({ isOpen, onClose, title, children }: Mobil
   if (!mounted) return null;
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {isOpen && (
         isMobile ? (
           createPortal(
-            <div className="fixed inset-0 z-[9999] flex flex-col justify-end pointer-events-auto">
+            <div id="mobile-drawer-portal" className="fixed inset-0 z-[9999] flex flex-col justify-end pointer-events-auto">
               {/* Backdrop overlay */}
               <motion.div 
+                key="backdrop"
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
                 exit={{ opacity: 0 }}
@@ -53,6 +54,7 @@ export default function MobileDrawer({ isOpen, onClose, title, children }: Mobil
               
               {/* Drawer Content */}
               <motion.div 
+                key="drawer"
                 initial={{ y: '100%' }} 
                 animate={{ y: 0 }} 
                 exit={{ y: '100%' }}
@@ -78,6 +80,7 @@ export default function MobileDrawer({ isOpen, onClose, title, children }: Mobil
           )
         ) : (
           <motion.div
+            key="desktop-dropdown"
             initial={{ opacity: 0, y: -5 }} 
             animate={{ opacity: 1, y: 0 }} 
             exit={{ opacity: 0, y: -5 }}
