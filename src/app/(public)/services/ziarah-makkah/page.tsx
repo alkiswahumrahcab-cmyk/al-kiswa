@@ -42,7 +42,7 @@ const jsonLd = {
             "description": "Private tour of Makkah's most significant sacred landmarks including Jabal Al-Nour, Jabal Thawr, Arafat, Mina, Muzdalifah, and 10 additional sites.",
             "touristType": "Umrah Pilgrim",
             "itinerary": { "@type": "ItemList", "numberOfItems": 15, "itemListElement": makkahSites.map((s, i) => ({ "@type": "ListItem", "position": i + 1, "name": s.name, "description": s.significance })) },
-            "provider": { "@type": "LocalBusiness", "@id": `${siteUrl}/#business`, "name": "Al Kiswah Umrah Transport", "telephone": "+966-576-088-555" },
+            "provider": { "@type": "LocalBusiness", "@id": `${siteUrl}/#business`, "name": "Al Kiswah Umrah Transport", "telephone": "+966548707332" },
             "offers": { "@type": "Offer", "priceCurrency": "SAR", "price": "200", "availability": "https://schema.org/InStock" },
         },
         {

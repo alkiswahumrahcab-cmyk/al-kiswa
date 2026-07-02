@@ -135,7 +135,7 @@ export default async function ToyotaCamryPage() {
                         <a href={whatsappLink} className="bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 flex items-center gap-2">
                             WhatsApp
                         </a>
-                        <a href="tel:+966500000000" className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center gap-2">
+                        <a href="tel:+966548707332" className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center gap-2">
                             <Phone size={20} /> Call Us
                         </a>
                     </div>

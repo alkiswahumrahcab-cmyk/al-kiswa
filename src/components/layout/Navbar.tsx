@@ -113,24 +113,14 @@ export default function Navbar() {
                 <div className="container mx-auto px-4 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-3 group relative z-50">
                     <div className="relative flex items-center">
-                        <div className={`relative transition-all duration-500 ${scrolled ? 'w-10 h-10' : 'w-13 h-13'} bg-white rounded-full flex items-center justify-center border-2 border-gold-primary shadow-[0_0_15px_rgba(239,191,91,0.3)] group-hover:shadow-[0_0_25px_rgba(239,191,91,0.5)] overflow-hidden lg:mr-1`}>
-                            <div className={`relative ${scrolled ? 'w-9 h-9' : 'w-12 h-12'} transition-all duration-500`}>
-                                <Image
-                                    src="/logo.webp"
-                                    alt="Al Kiswah"
-                                    fill
-                                    sizes="(max-width: 768px) 48px, 64px"
-                                    className="object-contain"
-                                    priority
-                                />
+                        <div className={`flex flex-col transition-all duration-500`}>
+                            <div className="flex items-center gap-3">
+                                <span className={`font-sans font-bold text-white tracking-wide leading-none transition-all duration-300 ${scrolled ? 'text-xl' : 'text-2xl'}`}>
+                                    Al Kiswah
+                                </span>
                             </div>
-                        </div>
-                        <div className={`flex flex-col ml-3 transition-all duration-500`}>
-                            <span className={`font-sans font-bold text-white leading-none transition-all duration-300 ${scrolled ? 'text-lg' : 'text-xl'}`}>
-                                Al Kiswah
-                            </span>
-                            <span className="text-[0.65rem] font-bold text-gold-primary tracking-[0.2em] uppercase leading-none mt-1">
-                                Transport
+                            <span className="text-[0.65rem] font-bold text-gold-primary tracking-[0.2em] uppercase leading-none mt-1.5">
+                                Umrah Transport
                             </span>
                         </div>
                     </div>
@@ -223,12 +213,16 @@ export default function Navbar() {
                 }`}
         >
                 <div className="flex items-center justify-between p-6 border-b border-white/5">
-                    <span className="text-xl font-sans font-bold text-white tracking-widest uppercase flex items-center gap-3">
-                        <div className="w-10 h-10 relative rounded-full bg-white flex items-center justify-center p-1.5 border-2 border-gold-primary shadow-[0_0_15px_rgba(239,191,91,0.3)]">
-                             <Image src="/logo.webp" alt="Al Kiswah" fill sizes="40px" className="object-contain p-1" />
+                    <div className="flex flex-col gap-1">
+                        <div className="flex items-center gap-3">
+                            <span className="text-xl font-sans font-bold text-white tracking-widest uppercase">
+                                Al Kiswah
+                            </span>
                         </div>
-                        Al Kiswah
-                    </span>
+                        <span className="text-[0.65rem] font-bold text-gold-primary tracking-[0.2em] uppercase">
+                            Umrah Transport
+                        </span>
+                    </div>
                     <button
                         className="p-2 text-gray-400 hover:text-white hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-white/10"
                         onClick={() => setIsMenuOpen(false)}

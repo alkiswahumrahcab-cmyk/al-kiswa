@@ -44,7 +44,7 @@ export default function Receipt({ bookingData, onClose }: ReceiptProps) {
                 <div className="flex items-center gap-4">
                     <div className="relative w-16 h-16 bg-white rounded-xl p-2 border border-gold-primary/30">
                         <Image 
-                            src="/logo.webp" 
+                            src="/logo-dark.svg" 
                             alt="Al Kiswah" 
                             fill 
                             sizes="64px" 

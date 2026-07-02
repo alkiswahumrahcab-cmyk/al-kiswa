@@ -130,7 +130,7 @@ const formatPriceRow = (booking: BookingData) => {
 };
 
 const prepareBookingVariables = (booking: BookingData, settings?: any) => {
-    const waNum = settings?.contact?.whatsapp?.replace(/\D/g, '') || '966548707332';
+    const waNum = '966548707332'; // Hardcoded WhatsApp number: +966 54 870 7332
     return {
         name: booking.name,
         email: booking.email || 'N/A',

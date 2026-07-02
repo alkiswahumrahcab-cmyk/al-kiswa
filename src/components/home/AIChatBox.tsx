@@ -256,7 +256,7 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
                 {isOpen ? <X size={28} /> : (
                     <div className="relative w-full h-full p-2">
                         <Image
-                            src="/logo.webp"
+                            src="/icon.svg"
                             alt="Al Kiswah Logo"
                             fill
                             sizes="32px"

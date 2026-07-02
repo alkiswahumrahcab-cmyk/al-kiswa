@@ -18,7 +18,7 @@ export default function Footer() {
         "@type": "TransportationCompany",
         "name": "Al Kiswah Umrah Transport",
         "url": "https://kiswahumrahcab.com",
-        "logo": "https://kiswahumrahcab.com/logo.webp",
+        "logo": "https://kiswahumrahcab.com/logo.svg",
         "image": "https://kiswahumrahcab.com/images/blog-hero-professional.png",
         "description": "Licensed Umrah transport service in Saudi Arabia offering private taxi transfers between Jeddah Airport, Makkah, and Madinah for pilgrims from the Gulf and Europe.",
         "telephone": whatsappNumber,
@@ -84,14 +84,19 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                     {/* Column 1 - Brand Block */}
                     <div className="space-y-6">
-                        <Link href="/" className="inline-block relative w-[140px] h-[50px]">
-                            <Image
-                                src="/logo.webp"
-                                alt="Al Kiswah Umrah Transport Logo"
-                                fill
-                                sizes="140px"
-                                className="object-contain object-left"
-                            />
+                        <Link href="/" className="inline-block relative group">
+                            <div className="flex flex-col gap-1 mb-2">
+                                <div className="flex items-center gap-3">
+                                    <span className="text-2xl font-sans font-bold text-white tracking-wide uppercase transition-colors group-hover:text-gold-primary">
+                                        Al Kiswah
+                                    </span>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <span className="text-[0.7rem] font-bold text-gold-primary tracking-[0.2em] uppercase">
+                                        Umrah Transport
+                                    </span>
+                                </div>
+                            </div>
                         </Link>
                         <div className="space-y-2">
                             <p className="text-gray-300 text-sm leading-relaxed">

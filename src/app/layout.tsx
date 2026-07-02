@@ -91,11 +91,22 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     icons: {
       icon: [
-        { url: '/favicon.png?v=2', sizes: '32x32' },
+        { url: '/favicon.ico', sizes: 'any' },
+        { url: '/favicon.svg', type: 'image/svg+xml' },
+        { url: '/favicon-16.png', sizes: '16x16', type: 'image/png' },
+        { url: '/favicon-32.png', sizes: '32x32', type: 'image/png' },
       ],
-      shortcut: '/favicon.png?v=2',
-      apple: '/apple-touch-icon.png?v=2',
+      shortcut: '/favicon.ico',
+      apple: '/apple-touch-icon.png',
+      other: [
+        {
+          rel: 'mask-icon',
+          url: '/favicon.svg',
+          color: '#D4AF37'
+        }
+      ]
     },
+    manifest: '/site.webmanifest',
     verification: {
       google: 'inByUir4mwvGJCnd8ZM3EmfalkjtJSAgvU91',
     },
@@ -179,7 +190,7 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1940656213311776');
+fbq('init', '1020846813862206');
 fbq('track', 'PageView');
             `
           }}
@@ -189,7 +200,7 @@ fbq('track', 'PageView');
             height="1"
             width="1"
             style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1940656213311776&ev=PageView&noscript=1"
+            src="https://www.facebook.com/tr?id=1020846813862206&ev=PageView&noscript=1"
             alt=""
           />
         </noscript>

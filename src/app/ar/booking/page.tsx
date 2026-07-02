@@ -67,6 +67,18 @@ export default function ArabicBookingPage() {
                     <BookingWizard />
                 </Suspense>
             </div>
+
+            {/* Booking Page Pixel Event */}
+            <script
+                dangerouslySetInnerHTML={{
+                    __html: `
+                        if (typeof fbq === 'function') {
+                            fbq('track', 'InitiateCheckout');
+                        }
+                    `
+                }}
+            />
+
         </main>
     );
 }

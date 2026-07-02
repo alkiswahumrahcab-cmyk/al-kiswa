@@ -63,7 +63,7 @@ const jsonLd = {
             "description": "Fully private chauffeured Ziyarat tours of 43+ Islamic historical and tourist sites across Makkah, Madinah, Jeddah, and Taif.",
             "url": pageUrl, "image": `${siteUrl}/images/routes/makkah-ziyarat-hero.webp`,
             "serviceType": "Ziyarat Tour", "category": "Islamic Historical Tours",
-            "provider": { "@type": "LocalBusiness", "@id": `${siteUrl}/#business`, "name": "Al Kiswah Umrah Transport", "telephone": "+966-576-088-555", "url": siteUrl },
+            "provider": { "@type": "LocalBusiness", "@id": `${siteUrl}/#business`, "name": "Al Kiswah Umrah Transport", "telephone": "+966548707332", "url": siteUrl },
             "areaServed": [{ "@type": "City", "name": "Makkah" }, { "@type": "City", "name": "Madinah" }, { "@type": "City", "name": "Jeddah" }, { "@type": "City", "name": "Taif" }],
             "hasOfferCatalog": { "@type": "OfferCatalog", "name": "Ziyarat Tour Packages", "itemListElement": [
                 { "@type": "Offer", "name": "Makkah Ziyarat Tour — Sedan", "priceCurrency": "SAR", "price": "200", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Service", "name": "Makkah Ziyarat Tour" } },

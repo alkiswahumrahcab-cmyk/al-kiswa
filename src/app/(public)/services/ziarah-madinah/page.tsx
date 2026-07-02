@@ -42,7 +42,7 @@ const jsonLd = {
             "description": "Private tour of Madinah's most significant sacred landmarks including Masjid Quba, Mount Uhud, Seven Mosques, Jannat Al-Baqi, and companion mosques.",
             "touristType": "Umrah Pilgrim",
             "itinerary": { "@type": "ItemList", "numberOfItems": 14, "itemListElement": madinahSites.map((s, i) => ({ "@type": "ListItem", "position": i + 1, "name": s.name, "description": s.significance })) },
-            "provider": { "@type": "LocalBusiness", "@id": `${siteUrl}/#business`, "name": "Al Kiswah Umrah Transport", "telephone": "+966-576-088-555" },
+            "provider": { "@type": "LocalBusiness", "@id": `${siteUrl}/#business`, "name": "Al Kiswah Umrah Transport", "telephone": "+966548707332" },
             "offers": { "@type": "Offer", "priceCurrency": "SAR", "price": "200", "availability": "https://schema.org/InStock" },
         },
         {
