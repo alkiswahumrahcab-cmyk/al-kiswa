@@ -12,6 +12,7 @@ import { useSettings } from '@/context/SettingsContext';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import MobileStickySummary from './MobileStickySummary';
+import MobileDrawer from '@/components/ui/MobileDrawer';
 import Receipt from './Receipt';
 import BookingSuccessModal from './BookingSuccessModal';
 import CurrencyToggle from '../CurrencyToggle';
@@ -59,6 +60,7 @@ export default function BookingForm() {
 
     // Dropdowns for multiple legs
     const [activeDropdownIndex, setActiveDropdownIndex] = useState<number | null>(null);
+    const [activeTerminalDropdown, setActiveTerminalDropdown] = useState<number | null>(null);
     const [routeSearches, setRouteSearches] = useState<Record<number, string>>({});
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -397,36 +399,33 @@ export default function BookingForm() {
                                             </button>
                                             {errors[`leg_${index}_route`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_route`]}</p>}
                                             
-                                            <AnimatePresence>
-                                                {activeDropdownIndex === index && (
-                                                    <motion.div
-                                                        initial={{ opacity: 0, y: -5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -5 }}
-                                                        className="absolute top-full left-0 right-0 mt-2 z-50 bg-[#1a1a1a] border border-white/10 rounded-xl shadow-2xl overflow-hidden"
-                                                    >
-                                                        <div className="hidden md:block p-4 border-b border-white/10 relative">
-                                                            <Search size={18} className="absolute left-7 top-1/2 -translate-y-1/2 text-gray-400" />
-                                                            <input
-                                                                type="text" value={searchStr} onChange={(e) => setRouteSearches(prev => ({ ...prev, [index]: e.target.value }))}
-                                                                placeholder="Search city or airport..."
-                                                                className="w-full pl-10 pr-4 py-2 bg-transparent border-b border-white/10 rounded-none text-base text-white placeholder-gray-500 outline-none focus:border-gold-primary transition-colors"
-                                                            />
-                                                        </div>
-                                                        <div className="max-h-64 overflow-y-auto custom-scrollbar">
-                                                            {filteredRoutes.length > 0 ? filteredRoutes.map((route) => (
-                                                                <button
-                                                                    key={route.id} type="button" onClick={() => selectRoute(index, route)}
-                                                                    className="w-full px-6 py-4 text-left hover:bg-gold-primary/10 text-gray-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex flex-col"
-                                                                >
-                                                                    <span className="font-semibold text-lg">{route.origin} <span className="text-gold-primary mx-2">→</span> {route.destination}</span>
-                                                                    <span className="text-xs text-gray-500 mt-1 uppercase tracking-wider">{route.category || 'Intercity'}</span>
-                                                                </button>
-                                                            )) : (
-                                                                <div className="p-6 text-center text-gray-500">No routes found matching your search.</div>
-                                                            )}
-                                                        </div>
-                                                    </motion.div>
-                                                )}
-                                            </AnimatePresence>
+                                            <MobileDrawer 
+                                                isOpen={activeDropdownIndex === index} 
+                                                onClose={() => setActiveDropdownIndex(null)}
+                                                title="Select Route"
+                                            >
+                                                <div className="p-4 border-b border-white/10 relative sticky top-0 bg-[#1a1a1a] z-10">
+                                                    <Search size={18} className="absolute left-7 top-1/2 -translate-y-1/2 text-gray-400" />
+                                                    <input
+                                                        type="text" value={searchStr} onChange={(e) => setRouteSearches(prev => ({ ...prev, [index]: e.target.value }))}
+                                                        placeholder="Search city or airport..."
+                                                        className="w-full pl-10 pr-4 py-2 bg-transparent border-b border-white/10 rounded-none text-base text-white placeholder-gray-500 outline-none focus:border-gold-primary transition-colors"
+                                                    />
+                                                </div>
+                                                <div className="max-h-64 overflow-y-auto custom-scrollbar">
+                                                    {filteredRoutes.length > 0 ? filteredRoutes.map((route) => (
+                                                        <button
+                                                            key={route.id} type="button" onClick={() => selectRoute(index, route)}
+                                                            className="w-full px-6 py-4 text-left hover:bg-gold-primary/10 text-gray-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex flex-col"
+                                                        >
+                                                            <span className="font-semibold text-lg">{route.origin} <span className="text-gold-primary mx-2">→</span> {route.destination}</span>
+                                                            <span className="text-xs text-gray-500 mt-1 uppercase tracking-wider">{route.category || 'Intercity'}</span>
+                                                        </button>
+                                                    )) : (
+                                                        <div className="p-6 text-center text-gray-500">No routes found matching your search.</div>
+                                                    )}
+                                                </div>
+                                            </MobileDrawer>
                                         </div>
 
                                         {/* Date */}
@@ -485,20 +484,40 @@ export default function BookingForm() {
                                             <div className="relative md:col-span-2">
                                                 <div className="relative mt-2">
                                                     <Plane className="absolute left-0 top-4 text-gold-primary" size={20} />
-                                                    <select
-                                                        value={data.airportTerminal}
-                                                        onChange={(e) => {
-                                                            setData({ ...data, airportTerminal: e.target.value });
-                                                            if (errors.airportTerminal) setErrors(err => ({ ...err, airportTerminal: '' }));
-                                                        }}
-                                                        className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 border-white/20 focus:border-gold-primary text-white outline-none appearance-none cursor-pointer"
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => setActiveTerminalDropdown(activeTerminalDropdown === index ? null : index)}
+                                                        className={`w-full flex items-center justify-between pl-8 pr-4 py-4 border-b-2 bg-transparent transition-colors text-left outline-none ${errors.airportTerminal ? 'border-red-500' : 'border-white/20 hover:border-gold-primary focus:border-gold-primary'}`}
                                                     >
-                                                        <option value="" className="text-gray-900">Select Arrival Terminal</option>
-                                                        <option value="Terminal 1" className="text-gray-900">Terminal 1</option>
-                                                        <option value="Hajj Terminal" className="text-gray-900">Hajj Terminal</option>
-                                                        <option value="North Terminal" className="text-gray-900">North Terminal</option>
-                                                    </select>
-                                                    <ChevronDown className="absolute right-0 top-4 text-gray-400 pointer-events-none" size={20} />
+                                                        <span className={`text-base truncate ${data.airportTerminal ? 'text-white' : 'text-gray-400'}`}>
+                                                            {data.airportTerminal || 'Select Arrival Terminal'}
+                                                        </span>
+                                                        <ChevronDown size={20} className={`text-gray-400 transition-transform ${activeTerminalDropdown === index ? 'rotate-180' : ''}`} />
+                                                    </button>
+                                                    
+                                                    <MobileDrawer 
+                                                        isOpen={activeTerminalDropdown === index} 
+                                                        onClose={() => setActiveTerminalDropdown(null)}
+                                                        title="Select Arrival Terminal"
+                                                    >
+                                                        <div className="flex flex-col">
+                                                            {['Terminal 1', 'Hajj Terminal', 'North Terminal'].map(terminal => (
+                                                                <button
+                                                                    key={terminal}
+                                                                    type="button"
+                                                                    onClick={() => {
+                                                                        setData({ ...data, airportTerminal: terminal });
+                                                                        if (errors.airportTerminal) setErrors(err => ({ ...err, airportTerminal: '' }));
+                                                                        setActiveTerminalDropdown(null);
+                                                                    }}
+                                                                    className="w-full px-6 py-4 text-left hover:bg-gold-primary/10 text-gray-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex items-center justify-between"
+                                                                >
+                                                                    <span className="font-medium text-lg">{terminal}</span>
+                                                                    {data.airportTerminal === terminal && <div className="w-2 h-2 rounded-full bg-gold-primary" />}
+                                                                </button>
+                                                            ))}
+                                                        </div>
+                                                    </MobileDrawer>
                                                 </div>
                                                 {errors.airportTerminal && <p className="text-red-500 text-sm mt-1">{errors.airportTerminal}</p>}
                                                 
