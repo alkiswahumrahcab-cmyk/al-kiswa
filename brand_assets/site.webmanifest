@@ -11,15 +11,9 @@
       "src": "/brand_assets/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
-    },
-    {
-      "src": "/brand_assets/apple-touch-icon.png",
-      "sizes": "180x180",
-      "type": "image/png",
-      "purpose": "apple touch icon"
     }
   ],
-  "theme_color": "#D4AF37",
+  "theme_color": "#111111",
   "background_color": "#111111",
   "display": "standalone"
 }
