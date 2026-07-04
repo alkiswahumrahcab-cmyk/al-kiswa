@@ -11,6 +11,7 @@ import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import Interior360Viewer from '@/components/fleet/Interior360Viewer';
 import { vehicleService } from '@/services/vehicleService';
 import Image from 'next/image';
+import TrackEvent from '@/components/analytics/TrackEvent';
 
 const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
@@ -144,6 +145,7 @@ export default async function GmcYukonPage() {
 
     return (
         <main className="overflow-x-hidden bg-slate-50 dark:bg-slate-950">
+            <TrackEvent event="ViewContent" params={{ content_name: 'GMC Yukon XL' }} />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

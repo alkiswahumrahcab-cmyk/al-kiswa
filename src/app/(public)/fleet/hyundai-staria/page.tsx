@@ -9,6 +9,7 @@ import { vehicleService } from '@/services/vehicleService';
 import StariaAnimations from './StariaAnimations'; // We will create this client component
 import StariaGallery from './StariaGallery';
 import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
+import TrackEvent from '@/components/analytics/TrackEvent';
 
 const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
@@ -135,6 +136,7 @@ export default async function HyundaiStariaPage() {
 
     return (
         <main className="overflow-x-hidden bg-charcoal dark:bg-deep-black font-sans">
+            <TrackEvent event="ViewContent" params={{ content_name: 'Hyundai Staria' }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             
             {/* 1. Hero Section (Cinematic Intro) */}

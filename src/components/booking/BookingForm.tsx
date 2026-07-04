@@ -145,6 +145,9 @@ export default function BookingForm() {
         
         if (newVehicles.length > 0 && activeSection !== 'details') {
             setActiveSection('details');
+            if (typeof window !== 'undefined' && (window as any).fbq) {
+                (window as any).fbq('track', 'InitiateCheckout');
+            }
             setTimeout(() => {
                 detailsSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 100);
@@ -246,6 +249,8 @@ export default function BookingForm() {
             
             const selectedVehicleInfo = data.selectedVehicles.length > 0 ? vehicles.find(v => v.id === data.selectedVehicles[0].vehicleId) : null;
 
+            const eventId = typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2);
+
             const bookingPayload = {
                 name: data.name,
                 email: data.email,
@@ -268,6 +273,7 @@ export default function BookingForm() {
                 priceInSAR: sarPrice,
                 airportTerminal: isJeddahAirportRoute ? data.airportTerminal : undefined,
                 parkingFee: (isJeddahAirportRoute && parkingFee > 0) ? parkingFee : undefined,
+                eventId: eventId,
             };
 
             const response = await fetch('/api/bookings', {
@@ -278,6 +284,14 @@ export default function BookingForm() {
 
             const result = await response.json();
             if (response.ok && result.success) {
+                if (typeof window !== 'undefined' && (window as any).fbq) {
+                    (window as any).fbq('track', 'Purchase', {
+                        value: Number(sarPrice) || 0,
+                        currency: 'SAR',
+                        content_name: data.selectedVehicles.map(sv => { const v = vehicles.find(v => v.id === sv.vehicleId); return v ? `${sv.quantity}x ${v.name}` : ''; }).join(', ') || 'Standard Vehicle'
+                    }, { eventID: eventId });
+                }
+
                 const humanReadableId = result.bookingId || result.bookingRef || 'BKG-' + Math.floor(Math.random() * 10000);
                 const receipt = {
                     id: humanReadableId,

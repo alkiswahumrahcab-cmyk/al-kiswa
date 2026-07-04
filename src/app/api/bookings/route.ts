@@ -9,6 +9,7 @@ import { vehicleService } from '@/services/vehicleService';
 import { calculateFinalPrice } from '@/lib/pricing';
 import { rateLimit } from '@/lib/rate-limit';
 import { processBookingAction } from '@/lib/bookingProcessor';
+import crypto from 'crypto';
 
 const RATE_LIMIT_INTERVAL = 10 * 60 * 1000; // 10 minutes
 const RATE_LIMIT_MAX_REQUESTS = 3; // 3 bookings per 10 minutes per IP
@@ -277,6 +278,65 @@ export async function POST(request: Request) {
             }
         } catch (jobErr: any) {
             console.error(`[Booking ${requestId}] ❌ Failed to execute post-booking tasks:`, jobErr.message || jobErr);
+        }
+
+        // ── 6.5 Meta Conversions API (CAPI) ──────────────────────────────
+        const metaApiToken = process.env.META_API_ACCESS_TOKEN;
+        const pixelId = '1020846813862206';
+        if (metaApiToken && bookingData.eventId && priceDetails.finalPrice) {
+            try {
+                const hashData = (data: string) => {
+                    if (!data) return undefined;
+                    // Phone number basic normalization (keep only digits and +)
+                    const normalized = data.trim().toLowerCase().replace(/[^\d+]/g, '');
+                    return crypto.createHash('sha256').update(normalized).digest('hex');
+                };
+                
+                const hashEmail = (data: string) => {
+                    if (!data) return undefined;
+                    return crypto.createHash('sha256').update(data.trim().toLowerCase()).digest('hex');
+                };
+
+                const hashedEmail = hashEmail(bookingData.email);
+                const hashedPhone = hashData(bookingData.phone);
+
+                const capiPayload = {
+                    data: [
+                        {
+                            event_name: 'Purchase',
+                            event_time: Math.floor(Date.now() / 1000),
+                            action_source: 'website',
+                            event_id: bookingData.eventId,
+                            user_data: {
+                                em: [hashedEmail],
+                                ph: [hashedPhone],
+                                client_ip_address: ip,
+                                client_user_agent: request.headers.get('user-agent'),
+                            },
+                            custom_data: {
+                                value: priceDetails.finalPrice,
+                                currency: 'SAR',
+                                content_name: bookingData.vehicle || 'Standard Vehicle'
+                            }
+                        }
+                    ]
+                };
+
+                const capiResponse = await fetch(`https://graph.facebook.com/v19.0/${pixelId}/events?access_token=${metaApiToken}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(capiPayload)
+                });
+                
+                const capiResult = await capiResponse.json();
+                if (!capiResponse.ok) {
+                    console.error(`[Booking ${requestId}] ❌ Meta CAPI Error:`, capiResult);
+                } else {
+                    console.log(`[Booking ${requestId}] ✅ Meta CAPI Purchase event sent successfully.`);
+                }
+            } catch (capiErr) {
+                console.error(`[Booking ${requestId}] ❌ Failed to send Meta CAPI event:`, capiErr);
+            }
         }
 
         // ── 7. Return success ─────────────────────────────────────────────
