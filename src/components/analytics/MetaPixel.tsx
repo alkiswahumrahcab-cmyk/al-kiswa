@@ -1,12 +1,12 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
 
 export const FB_PIXEL_ID = '1020846813862206';
 
-export default function MetaPixel() {
+function MetaPixelEvents() {
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
@@ -17,8 +17,16 @@ export default function MetaPixel() {
         }
     }, [pathname, searchParams]);
 
+    return null;
+}
+
+export default function MetaPixel() {
     return (
-        <Script
+        <>
+            <Suspense fallback={null}>
+                <MetaPixelEvents />
+            </Suspense>
+            <Script
             id="fb-pixel"
             strategy="afterInteractive"
             dangerouslySetInnerHTML={{
@@ -35,5 +43,6 @@ fbq('init', '${FB_PIXEL_ID}');
                 `,
             }}
         />
+        </>
     );
 }
