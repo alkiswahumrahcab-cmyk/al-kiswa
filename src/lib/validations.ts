@@ -50,6 +50,7 @@ export const BookingSchema = z.object({
     priceInSAR: z.number().optional(),
     airportTerminal: z.string().optional(),
     parkingFee: z.number().optional(),
+    eventId: z.string().optional(),
 });
 
 
