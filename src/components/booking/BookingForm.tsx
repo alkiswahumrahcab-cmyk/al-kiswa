@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     MapPin, Calendar, Clock, ChevronDown,
-    Search, User, Mail, Phone, Plane, Users, Briefcase, Baby, Loader2, Plus, Trash2, Minus
+    Search, User, Mail, Phone, Plane, Users, Briefcase, Baby, Loader2, Plus, Trash2, Minus, MessageCircle
 } from 'lucide-react';
 import { usePricing } from '@/context/PricingContext';
 import { useCurrency } from '@/context/CurrencyContext';
@@ -52,6 +52,21 @@ export default function BookingForm() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [receiptData, setReceiptData] = useState<any>(null);
     const [showSuccessModal, setShowSuccessModal] = useState(false);
+    
+    // WhatsApp Fallback state
+    const [showWhatsAppFallback, setShowWhatsAppFallback] = useState(false);
+
+    useEffect(() => {
+        let timeout: NodeJS.Timeout;
+        if (isLoading) {
+            timeout = setTimeout(() => {
+                setShowWhatsAppFallback(true);
+            }, 8000);
+        } else {
+            setShowWhatsAppFallback(false);
+        }
+        return () => clearTimeout(timeout);
+    }, [isLoading]);
 
     // Flow State
     const [activeSection, setActiveSection] = useState<'route' | 'vehicle' | 'details'>('route');
@@ -347,10 +362,6 @@ export default function BookingForm() {
         summaryDisplayPrice = formatPrice(summaryPriceCalc.price, summaryPriceCalc.priceUSD);
     }
 
-    if (isLoading) {
-        return <div className="p-10 text-center text-white">Loading booking engine...</div>;
-    }
-
     return (
         <div className="w-full max-w-4xl mx-auto px-4 pt-0 pb-16 relative">
             
@@ -366,6 +377,37 @@ export default function BookingForm() {
             </div>
 
             <NusukBookingAlert />
+
+            {/* WhatsApp Fallback Banner */}
+            <AnimatePresence>
+                {showWhatsAppFallback && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-emerald-900/40 to-green-900/40 border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-[0_0_30px_rgba(16,185,129,0.1)]"
+                    >
+                        <div className="flex items-center gap-4">
+                            <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
+                                <MessageCircle size={24} className="text-emerald-400" />
+                            </div>
+                            <div>
+                                <h3 className="text-white font-bold text-lg">Experiencing connection issues?</h3>
+                                <p className="text-emerald-200 text-sm">Our live pricing engine is taking longer than expected to load. You can easily book your trip via WhatsApp right now.</p>
+                            </div>
+                        </div>
+                        <a 
+                            href={`https://wa.me/966548707332?text=Hello%2C%20I%20would%20like%20to%20book%20a%20taxi%20transfer.%20My%20connection%20is%20slow.`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="whitespace-nowrap px-6 py-3 bg-[#25D366] hover:bg-[#1ebd5c] text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-[#25D366]/20 flex items-center gap-2"
+                        >
+                            <MessageCircle size={20} />
+                            Book via WhatsApp
+                        </a>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             <div className="space-y-16">
                 
@@ -638,7 +680,7 @@ export default function BookingForm() {
                                                 {Number(dispPrice.amount) > 0 ? (
                                                     <>
                                                         <span className="text-sm text-gray-400">Total</span>
-                                                        <p className="text-lg font-bold text-white">
+                                                        <p className={`text-lg font-bold text-white ${isLoading ? 'animate-pulse text-gold-primary/70' : ''}`}>
                                                             {currency === 'USD' ? '$' : ''}{dispPrice.amount}
                                                             {currency === 'SAR' ? ' SAR' : ''}
                                                         </p>

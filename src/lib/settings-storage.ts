@@ -57,7 +57,8 @@ const DEFAULT_SETTINGS: Settings = {
     },
 };
 
-export const getSettings = async (): Promise<Settings> => {
+export const getSettings = unstable_cache(
+    async (): Promise<Settings> => {
     try {
         await dbConnect();
         const settingsDocs = await SettingsModel.find({}).lean();
@@ -127,7 +128,10 @@ export const getSettings = async (): Promise<Settings> => {
         console.error('Failed to fetch settings:', error);
         return DEFAULT_SETTINGS;
     }
-};
+},
+['global-settings'],
+{ tags: ['settings'] }
+);
 
 export async function saveSettings(newSettings: Settings): Promise<void> {
     await dbConnect();

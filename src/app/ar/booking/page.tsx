@@ -1,5 +1,14 @@
 import React, { Suspense } from 'react';
-import BookingWizard from '@/components/booking/BookingWizard';
+import dynamic from 'next/dynamic';
+
+const BookingWizard = dynamic(() => import('@/components/booking/BookingWizard'), {
+    ssr: true,
+    loading: () => (
+        <div className="max-w-4xl mx-auto h-[600px] w-full animate-pulse bg-white/5 rounded-[2rem] border border-white/10 flex items-center justify-center">
+            <div className="text-gold-primary/50 text-sm font-medium tracking-widest">جاري التحميل...</div>
+        </div>
+    )
+});
 import { generateMetadataAlternates } from '@/lib/hreflang';
 import type { Metadata } from 'next';
 
@@ -59,13 +68,7 @@ export default function ArabicBookingPage() {
             </div>
 
             <div className="container relative z-20 pb-20 px-4">
-                <Suspense fallback={
-                    <div className="max-w-4xl mx-auto h-[600px] w-full animate-pulse bg-white/5 rounded-[2rem] border border-white/10 flex items-center justify-center">
-                        <div className="text-gold-primary/50 text-sm font-medium tracking-widest">جاري التحميل...</div>
-                    </div>
-                }>
-                    <BookingWizard />
-                </Suspense>
+                <BookingWizard />
             </div>
 
             {/* Booking Page Pixel Event */}

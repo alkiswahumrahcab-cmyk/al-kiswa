@@ -7,13 +7,11 @@ import { MenuProvider } from "@/context/MenuContext";
 import { PricingProvider } from '@/context/PricingContext';
 import { SettingsProvider } from '@/context/SettingsContext';
 import { CurrencyProvider } from '@/context/CurrencyContext';
-import Preloader from "@/components/common/Preloader";
 import NextTopLoader from 'nextjs-toploader';
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MetaPixel from "@/components/analytics/MetaPixel";
 import { getSettings } from "@/lib/settings-storage";
 
-import ScrollToTop from "@/components/common/ScrollToTop";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import HtmlLangUpdater from "@/components/seo/HtmlLangUpdater";
 import "./globals.css";

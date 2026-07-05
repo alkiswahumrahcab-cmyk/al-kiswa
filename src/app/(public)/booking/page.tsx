@@ -1,5 +1,11 @@
 import React, { Suspense } from 'react';
-import BookingForm from '@/components/booking/BookingForm';
+import dynamic from 'next/dynamic';
+import BookingFormSkeleton from '@/components/booking/BookingFormSkeleton';
+
+const BookingForm = dynamic(() => import('@/components/booking/BookingForm'), {
+    ssr: true,
+    loading: () => <BookingFormSkeleton />
+});
 import { Star, Shield, CreditCard, MessageCircle, CheckCircle2 } from 'lucide-react';
 
 export async function generateMetadata() {
@@ -39,13 +45,7 @@ export default function BookingPage() {
             <div className="container relative z-20 pt-24 md:pt-28 pb-10 px-4 max-w-5xl mx-auto">
 
                 {/* Booking Form */}
-                <Suspense fallback={
-                    <div className="max-w-4xl mx-auto h-[600px] w-full animate-pulse bg-white/5 rounded-[2rem] border border-white/10 flex items-center justify-center">
-                        <div className="text-gold-primary/50 text-sm font-medium tracking-widest uppercase">Loading Booking Engine...</div>
-                    </div>
-                }>
-                    <BookingForm />
-                </Suspense>
+                <BookingForm />
 
                 {/* Pay on Arrival Guarantee Bar */}
                 <div className="mt-6 mb-8 p-5 rounded-2xl bg-emerald-950/40 border border-emerald-500/20 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
@@ -69,8 +69,8 @@ export default function BookingPage() {
                         { icon: <CreditCard size={18} className="text-[#D4AF37]" />, title: 'Pay on Arrival', sub: 'Cash — no card needed' },
                         { icon: <MessageCircle size={18} className="text-[#D4AF37]" />, title: 'WhatsApp Support', sub: '24/7 instant replies' },
                     ].map((item, i) => (
-                        <div key={i} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 hover:border-[#D4AF37]/30 transition-colors">
-                            <div className="bg-[#D4AF37]/10 p-2 rounded-lg shrink-0">{item.icon}</div>
+                        <div key={i} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-xl p-3 min-h-[76px] hover:border-[#D4AF37]/30 transition-colors">
+                            <div className="bg-[#D4AF37]/10 rounded-lg shrink-0 w-[34px] h-[34px] flex items-center justify-center">{item.icon}</div>
                             <div>
                                 <p className="text-white font-bold text-sm leading-tight">{item.title}</p>
                                 <p className="text-gray-500 text-xs">{item.sub}</p>
