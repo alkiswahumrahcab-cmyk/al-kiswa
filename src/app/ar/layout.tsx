@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/FooterV2";
+import FooterAR from "@/components/layout/FooterAR";
 import GlobalClientComponents from "@/components/common/GlobalClientComponents";
 import ClientLayoutWrapper from "@/components/layout/ClientLayoutWrapper";
 import { getSettings } from "@/lib/settings-storage";
@@ -44,7 +44,7 @@ export default async function ArabicLayout({
 
       {/* Footer + WhatsApp button */}
       <ClientLayoutWrapper>
-        <Footer />
+        <FooterAR />
         <GlobalClientComponents contactSettings={settings.contact} />
       </ClientLayoutWrapper>
     </div>

@@ -26,12 +26,12 @@ const LatestArticles = dynamic(() => import('@/components/home/LatestArticles'))
 const SEOContentSectionFixed = dynamic(() => import('@/components/home/SEOContentSectionV3'));
 const TransportServices = dynamic(() => import('@/components/home/TransportServices'));
 const BookingGuide = dynamic(() => import('@/components/home/BookingGuide'));
-const ServiceDirectory = dynamic(() => import('@/components/home/ServiceDirectory'));
 const MeetOurDrivers = dynamic(() => import('@/components/home/MeetOurDrivers'));
 const ImpactStats = dynamic(() => import('@/components/about/ImpactStats'));
 const FAQSection = dynamic(() => import('@/components/blog/FAQSection'));
+import { arFaqs } from '@/data/faqs';
 import { JsonLdScript } from "@/components/seo/JsonLd";
-import { generateServiceSchema } from "@/components/seo/schema-generator";
+import { generateServiceSchema, generateFAQSchema } from "@/components/seo/schema-generator";
 
 export async function generateMetadata() {
   return {
@@ -79,6 +79,7 @@ export default async function ArabicHomePage() {
         "خدمة نقل فاخرة وموثوقة للمعتمرين بين جدة ومكة المكرمة والمدينة المنورة.",
         heroImage
       )} />
+      <JsonLdScript schema={generateFAQSchema(arFaqs)} />
 
       {/* Hero Section - Arabic */}
       <Hero
@@ -124,13 +125,13 @@ export default async function ArabicHomePage() {
       <HomeFleetCarousel />
 
       {/* Meet Our Drivers */}
-      <MeetOurDrivers />
+      <MeetOurDrivers lang="ar" />
 
       {/* Real Fleet Showcase */}
       <RealFleetShowcase />
 
       {/* Impact Stats */}
-      <ImpactStats />
+      <ImpactStats lang="ar" />
 
       {/* Gallery Section */}
       <GallerySection />
@@ -142,18 +143,15 @@ export default async function ArabicHomePage() {
       <SEOContentSectionFixed />
 
       {/* Latest Articles Section */}
-      <LatestArticles />
+      <LatestArticles lang="ar" />
 
       {/* FAQ Section */}
-      <FAQSection />
+      <FAQSection lang="ar" />
 
       {/* Safety Promise Section */}
       <FadeIn>
-        <SafetyPromise />
+        <SafetyPromise lang="ar" />
       </FadeIn>
-
-      {/* SEO Service Directory */}
-      <ServiceDirectory />
 
       {/* Hotels and Districts Covered */}
       <HotelsAndDistricts />

@@ -82,7 +82,7 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                             <div className="flex flex-col items-center text-center">
                                 {/* Simplified Icon Container - No Rotation */}
                                 <div className="relative mb-6">
-                                    <div className="w-24 h-24 bg-white/5 backdrop-blur-md rounded-2xl shadow-lg border border-white/10 flex items-center justify-center relative z-10 group-hover:bg-white/10 transition-colors">
+                                    <div className="glass-panel w-24 h-24 flex items-center justify-center relative z-10 group-hover:bg-white/10 transition-colors">
                                         <step.icon size={36} className="text-gold-primary" />
                                     </div>
 
@@ -116,7 +116,7 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                 >
                     <Link
                         href={lang === 'ar' ? '/ar/booking' : '/booking'}
-                        className="inline-flex items-center gap-3 bg-gradient-to-r from-gold-primary to-gold-dark text-black px-12 py-6 rounded-2xl font-bold text-lg shadow-[0_0_30px_rgba(212,175,55,0.3)] hover:shadow-[0_0_50px_rgba(212,175,55,0.5)] hover:-translate-y-1 transition-all group relative overflow-hidden"
+                        className="btn-gold inline-flex items-center gap-3 px-12 py-6 text-lg group relative overflow-hidden"
                     >
                         <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                         {lang === 'ar' ? 'احجز رحلتك الآن' : 'Book Your Ride Now'}

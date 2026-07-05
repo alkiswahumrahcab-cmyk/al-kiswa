@@ -82,7 +82,7 @@ export default function Features({ lang = 'en' }: Props) {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {t.features.map((feature, index) => (
-                        <div key={index} className="text-center group relative h-full bg-white/5 backdrop-blur-md rounded-3xl p-8 hover:-translate-y-2 transition-all duration-500 hover:shadow-2xl hover:shadow-gold-primary/10 border border-white/5 hover:border-gold-primary/30">
+                        <div key={index} className="glass-card text-center group h-full p-8 flex flex-col items-center justify-start">
                             <div className="mb-8 inline-flex items-center justify-center w-20 h-20 rounded-full bg-gold-primary/10 text-gold-primary group-hover:scale-110 group-hover:bg-gold-primary group-hover:text-black transition-all duration-500 shadow-xl shadow-gold-primary/5">
                                 <feature.icon size={36} />
                             </div>

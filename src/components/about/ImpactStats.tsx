@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { COMPANY_STATS, SOCIAL_PROOF_MESSAGES } from "@/lib/stats";
+import { COMPANY_STATS, SOCIAL_PROOF_MESSAGES, SOCIAL_PROOF_MESSAGES_AR } from "@/lib/stats";
 import GlassCard from "@/components/ui/GlassCard";
 
 import { animate, useInView } from "framer-motion";
@@ -20,7 +20,6 @@ function AnimatedCounter({ target, duration = 2000, suffix = "", decimals = 0 }:
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   useEffect(() => {
-    // Guard 1: Prevent SSR hydration mismatch
     if (typeof window === "undefined") return;
 
     if (isInView) {
@@ -31,7 +30,6 @@ function AnimatedCounter({ target, duration = 2000, suffix = "", decimals = 0 }:
           setCount(parseFloat(value.toFixed(decimals)));
         },
         onComplete() {
-          // Guard 4: Always set exact final value to prevent rounding errors
           setCount(target);
         }
       });
@@ -46,21 +44,22 @@ function AnimatedCounter({ target, duration = 2000, suffix = "", decimals = 0 }:
   );
 }
 
-function SocialProofTicker() {
+function SocialProofTicker({ lang = 'en' }: { lang?: 'ar' | 'en' }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(true);
+  const messages = lang === 'ar' ? SOCIAL_PROOF_MESSAGES_AR : SOCIAL_PROOF_MESSAGES;
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFade(false); // trigger fade out
+      setFade(false);
       setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % SOCIAL_PROOF_MESSAGES.length);
-        setFade(true); // trigger fade in
-      }, 500); // 500ms fade transition
-    }, 4000); // changes every 4 seconds
+        setCurrentIndex((prev) => (prev + 1) % messages.length);
+        setFade(true);
+      }, 500);
+    }, 4000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [messages.length]);
 
   return (
     <div className="mt-12 flex justify-center items-center">
@@ -73,15 +72,20 @@ function SocialProofTicker() {
           className={`text-green-500/80 text-xs transition-opacity duration-500 ease-in-out ${
             fade ? "opacity-100" : "opacity-0"
           }`}
+          dir={lang === 'ar' ? 'rtl' : 'ltr'}
         >
-          {SOCIAL_PROOF_MESSAGES[currentIndex]}
+          {messages[currentIndex]}
         </p>
       </div>
     </div>
   );
 }
 
-export default function ImpactStats() {
+interface Props {
+  lang?: 'ar' | 'en';
+}
+
+export default function ImpactStats({ lang = 'en' }: Props) {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -93,11 +97,8 @@ export default function ImpactStats() {
       aria-label="Company statistics and trust signals"
       className="py-20 md:py-24 relative overflow-hidden bg-neutral-900/30 border-y border-white/5 backdrop-blur-sm"
     >
-      {/* Background elements */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
-
-      {/* Canonical aggregateRating schema is in the page-level JSON-LD only — not here */}
 
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
@@ -107,7 +108,6 @@ export default function ImpactStats() {
               delay={index * 0.1}
               className="flex flex-col items-center justify-center text-center p-8 group hover:border-gold-primary/50 transition-all duration-500 bg-black/60 border-white/10 hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] h-full"
             >
-              {/* Icon */}
               <div 
                 className="mb-6 text-2xl md:text-3xl text-gold-primary p-4 bg-gold-primary/10 rounded-full group-hover:scale-110 transition-transform duration-300 border border-gold-primary/20 group-hover:bg-gold-primary group-hover:text-black" 
                 aria-hidden="true"
@@ -115,64 +115,71 @@ export default function ImpactStats() {
                 {stat.icon}
               </div>
 
-              {/* Animated number — fallback to real number if JS fails */}
               <div 
                 className="text-4xl md:text-5xl font-bold text-white mb-2 font-sans tracking-tight"
                 role="img"
-                aria-label={`${stat.value}${stat.suffix} ${stat.label}`}
+                aria-label={`${stat.value}${stat.suffix} ${lang === 'ar' ? stat.labelAr : stat.label}`}
               >
                 {isMounted ? (
                   <AnimatedCounter
                     target={stat.value}
                     suffix={stat.suffix}
-                    decimals={"decimals" in stat ? stat.decimals : 0}
+                    decimals={stat.decimals !== undefined ? stat.decimals : 0}
                     duration={2200}
                   />
                 ) : (
-                  // SEO fallback: real number visible to crawlers & non-JS users
-                  <span className="counter-animated" data-fallback={`${"decimals" in stat ? stat.value.toFixed(stat.decimals!) : stat.value.toLocaleString()}${stat.suffix}`}>
-                    {"decimals" in stat ? stat.value.toFixed(stat.decimals!) : stat.value.toLocaleString()}{stat.suffix}
+                  <span className="counter-animated" data-fallback={`${stat.decimals !== undefined ? stat.value.toFixed(stat.decimals!) : stat.value.toLocaleString()}${stat.suffix}`}>
+                    {stat.decimals !== undefined ? stat.value.toFixed(stat.decimals!) : stat.value.toLocaleString()}{stat.suffix}
                   </span>
                 )}
               </div>
 
-              {/* English label */}
-              <p className="text-gray-300 text-sm font-medium uppercase tracking-[0.1em] mb-1">
-                {stat.label}
-              </p>
+              {lang === 'ar' ? (
+                <>
+                  <p className="text-gray-300 text-sm font-medium uppercase tracking-[0.1em] mb-1" style={{ fontFamily: 'var(--font-tajawal)' }}>
+                    {stat.labelAr}
+                  </p>
+                  <p className="text-gray-500 text-xs mb-3 font-sans uppercase tracking-widest">
+                    {stat.label}
+                  </p>
+                  <p className="text-gray-400 text-xs mb-4 opacity-0 h-0 overflow-hidden group-hover:h-auto group-hover:opacity-100 transition-all duration-300" style={{ fontFamily: 'var(--font-tajawal)' }}>
+                    {stat.descriptionAr || stat.description}
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="text-gray-300 text-sm font-medium uppercase tracking-[0.1em] mb-1">
+                    {stat.label}
+                  </p>
+                  <p
+                    className="text-gray-500 text-xs mb-3"
+                    dir="rtl"
+                    lang="ar"
+                    style={{ fontFamily: 'var(--font-tajawal)' }}
+                  >
+                    {stat.labelAr}
+                  </p>
+                  <p className="text-gray-400 text-xs mb-4 opacity-0 h-0 overflow-hidden group-hover:h-auto group-hover:opacity-100 transition-all duration-300">
+                    {stat.description}
+                  </p>
+                </>
+              )}
 
-              {/* Arabic label */}
-              <p
-                className="text-gray-500 text-xs mb-3"
-                dir="rtl"
-                lang="ar"
-                style={{ fontFamily: 'var(--font-tajawal)' }}
-              >
-                {stat.labelAr}
-              </p>
-
-              {/* Tooltip description on hover */}
-              <p className="text-gray-400 text-xs mb-4 opacity-0 h-0 overflow-hidden group-hover:h-auto group-hover:opacity-100 transition-all duration-300">
-                {stat.description}
-              </p>
-
-              {/* Micro-CTA Data Injection */}
               <Link
-                href={stat.link}
+                href={lang === 'ar' && stat.link.startsWith('/') ? `/ar${stat.link}` : stat.link}
                 className="mt-auto text-xs text-gold-primary/80 hover:text-gold-primary border-b border-gold-primary/30 hover:border-gold-primary transition-colors pb-0.5"
+                style={lang === 'ar' ? { fontFamily: 'var(--font-tajawal)' } : {}}
               >
-                {stat.ctaText}
+                {lang === 'ar' && stat.ctaTextAr ? stat.ctaTextAr : stat.ctaText}
               </Link>
             </GlassCard>
           ))}
         </div>
 
-        {/* Social proof ticker */}
-        <SocialProofTicker />
+        <SocialProofTicker lang={lang} />
 
-        {/* Trust reinforcement line below counters */}
         <p className="text-center text-gray-500 text-sm mt-8 italic" style={{ fontFamily: 'var(--font-tajawal)' }}>
-          Figures reflect verified bookings and reviews since 2014 · أرقام موثقة منذ 2014
+          {lang === 'ar' ? 'أرقام موثقة منذ 2014 · Figures reflect verified bookings and reviews since 2014' : 'Figures reflect verified bookings and reviews since 2014 · أرقام موثقة منذ 2014'}
         </p>
       </div>
     </section>

@@ -239,7 +239,7 @@ const QuickBookingForm = ({
 
     return (
         <motion.div
-            className={`bg-primary-black/80 backdrop-blur-xl border border-white/10 rounded-3xl p-6 lg:p-8 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)] relative overflow-hidden ${className}`}
+            className={`glass-panel p-6 lg:p-8 relative overflow-hidden ${className}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
@@ -284,7 +284,7 @@ const QuickBookingForm = ({
                         </div>
                         <button
                             onClick={() => setIsSubmitted(false)}
-                            className="bg-gold-primary text-black py-3 px-8 rounded-xl font-bold uppercase tracking-wider text-sm shadow-xl hover:bg-white hover:scale-105 transition-all"
+                            className="btn-gold py-3 px-8 text-sm uppercase tracking-wider"
                         >
                             Book Another Trip
                         </button>
@@ -565,11 +565,10 @@ const QuickBookingForm = ({
                             </motion.div>
                         )}
 
-                        {/* Submit Button */}
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full bg-gold-primary text-black py-4 rounded-xl font-bold uppercase tracking-widest hover:bg-white hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-gold-primary/20 flex items-center justify-center gap-3 group disabled:opacity-70 disabled:cursor-not-allowed"
+                            className="btn-gold w-full py-4 uppercase tracking-widest flex items-center justify-center gap-3 group disabled:opacity-70 disabled:cursor-not-allowed"
                         >
                             {isSubmitting ? 'Processing...' : 'Reserve Now'}
                             {!isSubmitting && <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />}

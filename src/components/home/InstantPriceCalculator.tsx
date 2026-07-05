@@ -96,7 +96,7 @@ export default function InstantPriceCalculator() {
 
                             {/* Right Panel: Pricing & Action */}
                             <div className="lg:col-span-5">
-                                <div className="bg-white/5 backdrop-blur-md border border-white/5 rounded-2xl p-6 sticky top-24 shadow-2xl">
+                                <div className="glass-panel p-6 sticky top-24">
                                     <div className="mb-6 text-center">
                                         <span className="text-gray-500 text-xs font-medium uppercase tracking-widest block mb-1">Total Estimate</span>
                                         <div className="flex items-center justify-center gap-1.5 text-white">
@@ -124,7 +124,7 @@ export default function InstantPriceCalculator() {
 
                                     <Link
                                         href={`/booking?route=${selectedRoute}&vehicle=${selectedVehicle}`}
-                                        className="w-full flex items-center justify-center bg-gold-primary/90 hover:bg-gold-primary text-black py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider transition-all duration-200 shadow-lg shadow-gold-primary/10 hover:shadow-gold-primary/20"
+                                        className="btn-gold w-full text-sm uppercase tracking-wider mt-4"
                                     >
                                         Book Now
                                     </Link>

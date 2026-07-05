@@ -110,7 +110,7 @@ export default function PassengerCare({ lang = 'en' }: Props) {
                                     className="object-cover"
                                 />
                                 <div className="absolute inset-0 bg-black/20" />
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-zinc-900/90 backdrop-blur rounded-full border border-gold-primary/30 flex items-center justify-center text-gold-primary shadow-2xl lg:hidden">
+                                <div className="glass-panel absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 !rounded-full flex items-center justify-center text-gold-primary lg:hidden">
                                     {option.icon}
                                 </div>
                             </div>
@@ -118,7 +118,7 @@ export default function PassengerCare({ lang = 'en' }: Props) {
                             {/* Content - Conditional Order */}
                             <div className={`bg-zinc-900 flex items-center p-8 lg:p-16 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                                 <FadeIn className="w-full">
-                                    <div className="hidden lg:flex w-16 h-16 bg-zinc-950 rounded-2xl border border-gold-primary/20 items-center justify-center text-gold-primary mb-6 shadow-lg">
+                                    <div className="glass-panel hidden lg:flex w-16 h-16 items-center justify-center text-gold-primary mb-6">
                                         {option.icon}
                                     </div>
 

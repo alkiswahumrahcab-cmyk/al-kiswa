@@ -240,7 +240,7 @@ export default function HomeFleetCarousel() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.2 }}
-                                    className="relative z-30 mt-[-40px] md:mt-[-80px] bg-white/5 backdrop-blur-xl border border-white/10 px-8 py-6 rounded-3xl flex flex-col md:flex-row items-center gap-6 max-w-2xl mx-auto shadow-2xl"
+                                    className="glass-panel relative z-30 mt-[-40px] md:mt-[-80px] px-8 py-6 flex flex-col md:flex-row items-center gap-6 max-w-2xl mx-auto"
                                 >
                                     <div className="text-center md:text-left">
                                         <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
@@ -263,12 +263,12 @@ export default function HomeFleetCarousel() {
 
                                     <div className="flex gap-3">
                                         <Link href={`/fleet/${currentVehicle.slug}`} passHref>
-                                            <button className="px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 text-white text-xs font-bold border border-white/10 transition-colors uppercase tracking-wide">
+                                            <button className="glass-button text-xs font-bold uppercase tracking-wide px-6 py-3">
                                                 Details
                                             </button>
                                         </Link>
                                         <Link href="/booking" passHref>
-                                            <button className="px-6 py-3 rounded-xl bg-gold-primary hover:bg-gold-light text-black text-xs font-bold shadow-[0_0_20px_rgba(212,175,55,0.3)] transition-all hover:scale-105 uppercase tracking-wide">
+                                            <button className="btn-gold text-xs font-bold uppercase tracking-wide px-6 py-3">
                                                 Book Now
                                             </button>
                                         </Link>

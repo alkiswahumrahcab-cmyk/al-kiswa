@@ -15,6 +15,7 @@ import { getSettings } from "@/lib/settings-storage";
 
 import ScrollToTop from "@/components/common/ScrollToTop";
 import { JsonLdScript } from "@/components/seo/JsonLd";
+import HtmlLangUpdater from "@/components/seo/HtmlLangUpdater";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -229,6 +230,9 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                       shadow="0 0 15px #D4AF37,0 0 5px #D4AF37"
                     />
                   </Suspense>
+
+                  {/* Client-side language updater for SEO */}
+                  <HtmlLangUpdater />
 
                   {/* Main Content Area - Layouts downstream will inject Nav/Footer */}
                   {children}

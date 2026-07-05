@@ -20,10 +20,10 @@ export default function GlassButton({
     ...props
 }: GlassButtonProps) {
     const variants = {
-        primary: "bg-gold-primary text-black hover:bg-white hover:text-black border-transparent shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]",
-        secondary: "bg-white/10 text-white hover:bg-gold-primary hover:text-black border-white/10 hover:border-gold-primary backdrop-blur-md",
-        outline: "bg-transparent border-gold-primary/30 hover:border-gold-primary hover:bg-gold-primary/10 text-gold-primary",
-        gold: "bg-gradient-to-r from-gold-primary to-gold-metallic text-black hover:brightness-110 border-0 shadow-lg shadow-gold-primary/20",
+        primary: "btn-gold",
+        secondary: "glass-button",
+        outline: "btn-outline border-white/20 text-white hover:border-gold-primary/50",
+        gold: "btn-gold",
     };
 
     const sizes = {
