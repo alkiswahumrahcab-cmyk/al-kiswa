@@ -434,7 +434,7 @@ export default function BookingForm() {
                                 : 'Search for a route (e.g., Makkah to Madinah)...';
 
                             return (
-                                <div key={`leg-index-${index}`} className="bg-[#1A1A1A]/80 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-8 relative shadow-2xl">
+                                <div key={`leg-index-${index}`} className="relative mb-8">
                                     <div className="flex justify-between items-center mb-4">
                                         <h3 className="text-gold-primary font-bold">Transfer {index + 1}</h3>
                                         {data.legs.length > 1 && (
@@ -447,16 +447,16 @@ export default function BookingForm() {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         {/* Route Dropdown */}
                                         <div className="relative md:col-span-2 group">
-                                            <MapPin className="absolute left-4 top-[1.15rem] text-gold-primary/70 group-hover:text-gold-primary transition-colors z-10" size={20} />
+                                            <MapPin className="absolute left-0 top-4 text-gold-primary transition-colors z-10" size={20} />
                                             <button
                                                 type="button"
                                                 onClick={() => setActiveDropdownIndex(activeDropdownIndex === index ? null : index)}
-                                                className={`w-full flex items-center justify-between pl-12 pr-4 py-4 rounded-xl bg-white/5 border transition-all duration-300 text-left outline-none ${errors[`leg_${index}_route`] ? 'border-red-500/50 bg-red-500/5' : 'border-white/10 hover:border-gold-primary/50 hover:bg-white/10 focus:border-gold-primary/50'}`}
+                                                className={`w-full flex items-center justify-between pl-8 pr-4 py-4 bg-transparent border-b-2 text-left outline-none transition-colors ${errors[`leg_${index}_route`] ? 'border-red-500' : 'border-white/20 hover:border-gold-primary focus:border-gold-primary'}`}
                                             >
-                                                <span className={`text-base font-medium truncate ${leg.pickup ? 'text-white' : 'text-gray-400'}`}>
+                                                <span className={`text-base font-medium truncate ${leg.pickup ? 'text-white' : 'text-gray-600'}`}>
                                                     {currentLabel}
                                                 </span>
-                                                <ChevronDown size={18} className={`text-gray-400 transition-transform duration-300 ${activeDropdownIndex === index ? 'rotate-180' : ''}`} />
+                                                <ChevronDown size={20} className={`text-gray-400 transition-transform ${activeDropdownIndex === index ? 'rotate-180' : ''}`} />
                                             </button>
                                             {errors[`leg_${index}_route`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_route`]}</p>}
                                             
@@ -491,54 +491,50 @@ export default function BookingForm() {
 
                                         {/* Date */}
                                         <div className="relative">
-                                            <p className="text-gray-400 text-[11px] mb-2 pl-1 font-semibold tracking-wider uppercase">
-                                                {leg.pickup?.toLowerCase().includes('airport') ? 'Landing Date' : 'Pickup Date'}
-                                            </p>
-                                            <div className="relative group">
-                                                <Calendar className="absolute left-4 top-1/2 -translate-y-1/2 text-gold-primary/70 group-hover:text-gold-primary transition-colors z-10" size={18} />
-                                                <input
-                                                    type="date"
-                                                    value={leg.date}
-                                                    min={new Date().toISOString().split('T')[0]}
-                                                    onChange={(e) => updateLeg(index, { date: e.target.value })}
-                                                    className={`w-full pl-11 pr-4 py-3.5 rounded-xl bg-white/5 border transition-all duration-300 text-white outline-none cursor-pointer
-                                                        ${errors[`leg_${index}_date`] ? 'border-red-500/50 bg-red-500/5' : 'border-white/10 hover:border-gold-primary/50 hover:bg-white/10 focus:border-gold-primary/50'}
-                                                        [color-scheme:dark]`}
-                                                />
-                                            </div>
+                                            <Calendar className="absolute left-0 top-4 text-gold-primary transition-colors z-10" size={20} />
+                                            <input
+                                                type={leg.date ? "date" : "text"}
+                                                placeholder={leg.pickup?.toLowerCase().includes('airport') ? 'Landing Date *' : 'Pickup Date *'}
+                                                onFocus={(e) => e.target.type = 'date'}
+                                                onBlur={(e) => { if (!e.target.value) e.target.type = 'text'; }}
+                                                value={leg.date}
+                                                min={new Date().toISOString().split('T')[0]}
+                                                onChange={(e) => updateLeg(index, { date: e.target.value })}
+                                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none cursor-pointer transition-colors placeholder-gray-600
+                                                    ${errors[`leg_${index}_date`] ? 'border-red-500' : 'border-white/20 hover:border-gold-primary focus:border-gold-primary'}
+                                                    [color-scheme:dark]`}
+                                            />
                                             {errors[`leg_${index}_date`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_date`]}</p>}
                                         </div>
 
                                         {/* Time */}
                                         <div className="relative">
-                                            <p className="text-gray-400 text-[11px] mb-2 pl-1 font-semibold tracking-wider uppercase">
-                                                {leg.pickup?.toLowerCase().includes('airport') ? 'Landing Time (Local)' : 'Pickup Time'}
-                                            </p>
-                                            <div className="relative group">
-                                                <Clock className="absolute left-4 top-1/2 -translate-y-1/2 text-gold-primary/70 group-hover:text-gold-primary transition-colors z-10" size={18} />
-                                                <input
-                                                    type="time"
-                                                    value={leg.time}
-                                                    onChange={(e) => updateLeg(index, { time: e.target.value })}
-                                                    className={`w-full pl-11 pr-4 py-3.5 rounded-xl bg-white/5 border transition-all duration-300 text-white outline-none cursor-pointer
-                                                        ${errors[`leg_${index}_time`] ? 'border-red-500/50 bg-red-500/5' : 'border-white/10 hover:border-gold-primary/50 hover:bg-white/10 focus:border-gold-primary/50'}
-                                                        [color-scheme:dark]`}
-                                                />
-                                            </div>
+                                            <Clock className="absolute left-0 top-4 text-gold-primary transition-colors z-10" size={20} />
+                                            <input
+                                                type={leg.time ? "time" : "text"}
+                                                placeholder={leg.pickup?.toLowerCase().includes('airport') ? 'Landing Time (Local) *' : 'Pickup Time *'}
+                                                onFocus={(e) => e.target.type = 'time'}
+                                                onBlur={(e) => { if (!e.target.value) e.target.type = 'text'; }}
+                                                value={leg.time}
+                                                onChange={(e) => updateLeg(index, { time: e.target.value })}
+                                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none cursor-pointer transition-colors placeholder-gray-600
+                                                    ${errors[`leg_${index}_time`] ? 'border-red-500' : 'border-white/20 hover:border-gold-primary focus:border-gold-primary'}
+                                                    [color-scheme:dark]`}
+                                            />
                                             {errors[`leg_${index}_time`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_time`]}</p>}
                                         </div>
 
                                         {/* Flight Number */}
                                         {leg.pickup?.toLowerCase().includes('airport') && (
                                             <div className="relative md:col-span-2 group mt-2">
-                                                <Plane className="absolute left-4 top-1/2 -translate-y-1/2 text-gold-primary/70 group-hover:text-gold-primary transition-colors z-10" size={18} />
+                                                <Plane className="absolute left-0 top-4 text-gold-primary transition-colors z-10" size={20} />
                                                 <input
                                                     type="text"
                                                     placeholder="Flight Number (Required)"
                                                     value={leg.flightNumber}
                                                     onChange={(e) => updateLeg(index, { flightNumber: e.target.value })}
-                                                    className={`w-full pl-11 pr-4 py-4 rounded-xl bg-white/5 border transition-all duration-300 text-white outline-none placeholder-gray-500
-                                                        ${errors[`leg_${index}_flightNumber`] ? 'border-red-500/50 bg-red-500/5' : 'border-white/10 hover:border-gold-primary/50 hover:bg-white/10 focus:border-gold-primary/50'}`}
+                                                    className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors placeholder-gray-600
+                                                        ${errors[`leg_${index}_flightNumber`] ? 'border-red-500' : 'border-white/20 hover:border-gold-primary focus:border-gold-primary'}`}
                                                 />
                                                 {errors[`leg_${index}_flight`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_flight`]}</p>}
                                             </div>
