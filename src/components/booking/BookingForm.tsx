@@ -7,6 +7,8 @@ import {
     Search, User, Mail, Phone, Plane, Users, Briefcase, Baby, Loader2, Plus, Trash2, Minus, MessageCircle
 } from 'lucide-react';
 import { usePricing } from '@/context/PricingContext';
+import { BADR_DETOUR_SURCHARGE_SAR, DEFAULT_BADR_SURCHARGE_SAR, WADI_JINN_SURCHARGE_SAR, DEFAULT_WADI_JINN_SURCHARGE_SAR } from '@/lib/pricing';
+import { ZIYARAH_TOURS, ZIYARAH_PICKUP_NOTE } from '@/lib/ziyarah-config';
 import { useCurrency } from '@/context/CurrencyContext';
 import { useSettings } from '@/context/SettingsContext';
 import { useRouter } from 'next/navigation';
@@ -17,6 +19,7 @@ import Receipt from './Receipt';
 import BookingSuccessModal from './BookingSuccessModal';
 import CurrencyToggle from '../CurrencyToggle';
 import NusukBookingAlert from '@/components/trust/NusukBookingAlert';
+import { VISA_TYPES, getSortedCountries } from '@/data/countries';
 
 export default function BookingForm() {
     const { routes, vehicles, isLoading, calculatePrice } = usePricing();
@@ -25,16 +28,21 @@ export default function BookingForm() {
 
     const [data, setData] = useState({
         serviceType: 'Intercity',
-        legs: [{ id: 'initial-leg-1', routeId: '', pickup: '', dropoff: '', date: '', time: '', flightNumber: '', hours: undefined as number | undefined }],
+        legs: [{ id: 'initial-leg-1', routeId: '', pickup: '', dropoff: '', date: '', time: '', flightNumber: '', hours: undefined as number | undefined, routeVariant: 'direct' as 'direct' | 'via_badr', includeWadiJinn: false as boolean | undefined }],
         selectedVehicles: [] as { vehicleId: string, quantity: number }[],
         passengers: 1,
         childSeats: false,
         name: '',
         email: '',
         phone: '',
+        visaType: '',
+        visaOther: '',
+        nationality: '',
         notes: '',
         airportTerminal: '',
     });
+
+    const countriesList = getSortedCountries();
 
     const { settings } = useSettings();
 
@@ -93,7 +101,7 @@ export default function BookingForm() {
     const addLeg = () => {
         setData(prev => ({
             ...prev,
-            legs: [...prev.legs, { id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(7), routeId: '', pickup: '', dropoff: '', date: '', time: '', flightNumber: '', hours: undefined }]
+            legs: [...prev.legs, { id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(7), routeId: '', pickup: '', dropoff: '', date: '', time: '', flightNumber: '', hours: undefined, routeVariant: 'direct' as 'direct' | 'via_badr', includeWadiJinn: false as boolean | undefined }]
         }));
     };
 
@@ -172,8 +180,23 @@ export default function BookingForm() {
     const getLegPrice = (leg: any, vehicleId: string) => {
         if (!leg.routeId || !vehicleId) return 0;
         const priceCalc = calculatePrice(leg.routeId, vehicleId);
-        const base = priceCalc ? priceCalc.price : 0;
+        let base = priceCalc ? priceCalc.price : 0;
         const selectedRoute = routes.find(r => r.id === leg.routeId);
+        
+        // Add Badr Surcharge if applicable
+        const isMadinahToMakkahRoute = selectedRoute?.id === '692db09934f15bc89b45a600' || selectedRoute?.name?.toLowerCase() === 'madinah hotel to makkah hotel' || selectedRoute?.name?.toLowerCase() === 'madinah hotel → makkah hotel' || (selectedRoute?.origin?.toLowerCase() === 'madinah hotel' && selectedRoute?.destination?.toLowerCase() === 'makkah hotel');
+        if (leg.routeVariant === 'via_badr' && isMadinahToMakkahRoute) {
+            const surcharge = BADR_DETOUR_SURCHARGE_SAR[vehicleId] || DEFAULT_BADR_SURCHARGE_SAR;
+            base += surcharge;
+        }
+
+        // Add Wadi Jinn Surcharge if applicable
+        const isMadinahZiyarat = selectedRoute?.id === '6949b367a41f6410e88ed72e' || selectedRoute?.name?.toLowerCase().includes('madinah ziyarat');
+        if (leg.includeWadiJinn && isMadinahZiyarat) {
+            const wadiSurcharge = WADI_JINN_SURCHARGE_SAR[vehicleId] || DEFAULT_WADI_JINN_SURCHARGE_SAR;
+            base += wadiSurcharge;
+        }
+
         const isHourly = selectedRoute?.name?.toLowerCase().includes('hourly') || selectedRoute?.origin?.toLowerCase().includes('hourly');
         return isHourly && leg.hours ? base * leg.hours : base;
     };
@@ -181,10 +204,32 @@ export default function BookingForm() {
     const getLegPriceUSD = (leg: any, vehicleId: string) => {
         if (!leg.routeId || !vehicleId) return 0;
         const priceCalc = calculatePrice(leg.routeId, vehicleId);
-        const base = priceCalc ? priceCalc.priceUSD : 0;
+        
+        // If there's no explicit USD base price, we return 0.
+        // This ensures `formatPrice` safely falls back to dividing the total SAR price (including surcharges) by 3.75.
+        if (!priceCalc || typeof priceCalc.priceUSD !== 'number' || priceCalc.priceUSD === 0) {
+            return 0;
+        }
+
+        let base = priceCalc.priceUSD;
         const selectedRoute = routes.find(r => r.id === leg.routeId);
+        
+        // Add Badr Surcharge if applicable (converted to USD)
+        const isMadinahToMakkahRoute = selectedRoute?.id === '692db09934f15bc89b45a600' || selectedRoute?.name?.toLowerCase() === 'madinah hotel to makkah hotel' || selectedRoute?.name?.toLowerCase() === 'madinah hotel → makkah hotel' || (selectedRoute?.origin?.toLowerCase() === 'madinah hotel' && selectedRoute?.destination?.toLowerCase() === 'makkah hotel');
+        if (leg.routeVariant === 'via_badr' && isMadinahToMakkahRoute) {
+            const surchargeSAR = BADR_DETOUR_SURCHARGE_SAR[vehicleId] || DEFAULT_BADR_SURCHARGE_SAR;
+            base += Math.round(surchargeSAR / 3.75);
+        }
+
+        // Add Wadi Jinn Surcharge if applicable (converted to USD)
+        const isMadinahZiyarat = selectedRoute?.id === '6949b367a41f6410e88ed72e' || selectedRoute?.name?.toLowerCase().includes('madinah ziyarat');
+        if (leg.includeWadiJinn && isMadinahZiyarat) {
+            const wadiSurchargeSAR = WADI_JINN_SURCHARGE_SAR[vehicleId] || DEFAULT_WADI_JINN_SURCHARGE_SAR;
+            base += Math.round(wadiSurchargeSAR / 3.75);
+        }
+
         const isHourly = selectedRoute?.name?.toLowerCase().includes('hourly') || selectedRoute?.origin?.toLowerCase().includes('hourly');
-        return isHourly && leg.hours ? (base || 0) * leg.hours : (base || 0);
+        return isHourly && leg.hours ? base * leg.hours : base;
     };
 
     const getTotalPrice = () => {
@@ -248,10 +293,26 @@ export default function BookingForm() {
         if (!data.phone) newErrors.phone = 'Required';
         if (!data.email) newErrors.email = 'Required';
 
+        // Validate new fields if we want them required
+        if (!data.visaType) newErrors.visaType = 'Please select a visa type';
+        if (data.visaType === 'other' && !data.visaOther) newErrors.visaOther = 'Please specify your visa type';
+        if (!data.nationality) newErrors.nationality = 'Please select your nationality';
+
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             setGeneralError('Please fix the errors highlighted above before confirming your booking.');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Wait for React to render the error messages, then scroll to the first one
+            setTimeout(() => {
+                const firstError = document.querySelector('p.text-red-500, .border-red-500');
+                if (firstError) {
+                    // Scroll so the error is roughly in the middle of the viewport
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }, 100);
+            
             return;
         }
 
@@ -266,11 +327,31 @@ export default function BookingForm() {
 
             const eventId = typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(2);
 
+            const payloadLegs = data.legs.map(leg => {
+                const selectedRoute = routes.find(r => r.id === leg.routeId);
+                const isMadinahToMakkah = selectedRoute?.id === '692db09934f15bc89b45a600' || selectedRoute?.name?.toLowerCase() === 'madinah hotel to makkah hotel' || selectedRoute?.name?.toLowerCase() === 'madinah hotel → makkah hotel' || (selectedRoute?.origin?.toLowerCase() === 'madinah hotel' && selectedRoute?.destination?.toLowerCase() === 'makkah hotel');
+                const isMadinahZiyarat = selectedRoute?.id === '6949b367a41f6410e88ed72e' || selectedRoute?.name?.toLowerCase().includes('madinah ziyarat');
+                const vehicleId = data.selectedVehicles.length > 0 ? data.selectedVehicles[0].vehicleId : '';
+                return {
+                    ...leg,
+                    badrSurchargeSAR: (isMadinahToMakkah && leg.routeVariant === 'via_badr') 
+                        ? (BADR_DETOUR_SURCHARGE_SAR[vehicleId] || DEFAULT_BADR_SURCHARGE_SAR) 
+                        : 0,
+                    includeWadiJinn: leg.includeWadiJinn || false,
+                    wadiJinnSurchargeSAR: (isMadinahZiyarat && leg.includeWadiJinn) 
+                        ? (WADI_JINN_SURCHARGE_SAR[vehicleId] || DEFAULT_WADI_JINN_SURCHARGE_SAR) 
+                        : 0
+                };
+            });
+
             const bookingPayload = {
                 name: data.name,
                 email: data.email,
                 phone: data.phone,
-                legs: data.legs,
+                visaType: data.visaType,
+                visaOther: data.visaOther,
+                nationality: data.nationality,
+                legs: payloadLegs,
                 pickup: data.legs[0].pickup,
                 dropoff: data.legs[data.legs.length - 1].dropoff,
                 date: data.legs[0].date,
@@ -362,18 +443,45 @@ export default function BookingForm() {
         summaryDisplayPrice = formatPrice(summaryPriceCalc.price, summaryPriceCalc.priceUSD);
     }
 
+    if (showSuccessModal && receiptData) {
+        return (
+            <BookingSuccessModal
+                isOpen={showSuccessModal}
+                bookingData={{
+                    bookingId: receiptData.id,
+                    name: receiptData.name,
+                    email: receiptData.email,
+                    phone: receiptData.phone,
+                    pickup: receiptData.pickupLocation,
+                    dropoff: receiptData.dropoffLocation,
+                    date: receiptData.date,
+                    time: receiptData.time,
+                    vehicleName: receiptData.vehicleName,
+                    passengers: receiptData.passengers,
+                    currency: receiptData.currency,
+                    totalAmount: receiptData.totalAmount
+                }}
+                onClose={() => {
+                    setShowSuccessModal(false);
+                    window.location.reload();
+                }}
+                whatsappNumber="966548707332"
+            />
+        );
+    }
+
     return (
         <div className="w-full max-w-4xl mx-auto px-4 pt-0 pb-16 relative">
             
-            <div className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
-                <div>
-                    <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Book Your Transfer</h1>
-                    <p className="text-gray-400 text-base md:text-lg">Experience premium travel across Saudi Arabia.</p>
-                </div>
-                <div className="flex items-center gap-3 bg-white/5 p-1.5 rounded-full border border-white/10 self-start md:self-auto backdrop-blur-sm">
-                    <span className="text-xs font-medium text-gray-400 pl-4 uppercase tracking-wider">Currency</span>
-                    <CurrencyToggle />
-                </div>
+            {/* Currency Toggle placed at the absolute top right */}
+            <div className="absolute top-2 right-4 md:top-[-20px] md:right-4 flex items-center gap-3 bg-primary-black/90 p-1.5 rounded-full border border-gold-primary/30 backdrop-blur-md z-30 shadow-xl">
+                <span className="text-xs font-medium text-[#C9D4E0] pl-4 uppercase tracking-wider">Currency</span>
+                <CurrencyToggle />
+            </div>
+
+            <div className="mb-10 pt-16 md:pt-0">
+                <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Book Your Transfer</h1>
+                <p className="text-[#C9D4E0] text-base md:text-lg">Experience premium travel across Saudi Arabia.</p>
             </div>
 
             <NusukBookingAlert />
@@ -428,6 +536,17 @@ export default function BookingForm() {
                             
                             const selectedRoute = routes.find(r => r.id === leg.routeId);
                             const isHourly = selectedRoute?.name?.toLowerCase().includes('hourly') || selectedRoute?.origin?.toLowerCase().includes('hourly');
+                            
+                            const getZiyarahTour = (route: any) => {
+                                if (!route) return null;
+                                const name = route.name?.toLowerCase() || '';
+                                if (name.includes('makkah ziyarat')) return ZIYARAH_TOURS.makkah;
+                                if (name.includes('madinah ziyarat')) return ZIYARAH_TOURS.madinah;
+                                if (name.includes('badr ziyarat')) return ZIYARAH_TOURS.badr;
+                                if (name.includes('taif ziyarat')) return ZIYARAH_TOURS.taif;
+                                return null;
+                            };
+                            const ziyarahTour = getZiyarahTour(selectedRoute);
 
                             const currentLabel = leg.pickup && leg.dropoff
                                 ? `${leg.pickup} → ${leg.dropoff}`
@@ -465,7 +584,7 @@ export default function BookingForm() {
                                                 onClose={() => setActiveDropdownIndex(null)}
                                                 title="Select Route"
                                             >
-                                                <div className="p-4 border-b border-white/10 relative sticky top-0 bg-[#1a1a1a] z-10">
+                                                <div className="p-4 border-b border-white/10 relative sticky top-0 bg-primary-black z-10">
                                                     <Search size={18} className="absolute left-7 top-1/2 -translate-y-1/2 text-gray-400" />
                                                     <input
                                                         type="text" value={searchStr} onChange={(e) => setRouteSearches(prev => ({ ...prev, [index]: e.target.value }))}
@@ -489,6 +608,175 @@ export default function BookingForm() {
                                             </MobileDrawer>
                                         </div>
 
+                                        {/* Ziyarah Tour Included Places Panel */}
+                                        {ziyarahTour && (
+                                            <div className="md:col-span-2 mt-4 bg-[#111] border border-white/10 rounded-2xl overflow-hidden shadow-lg mb-2">
+                                                <div className="p-4 md:p-5 border-b border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-3 bg-[#151515]">
+                                                    <div>
+                                                        <h4 className="text-white font-bold font-cormorant text-xl md:text-2xl tracking-wide">{ziyarahTour.displayName}</h4>
+                                                        <p className="text-gray-400 text-xs mt-1 font-montserrat">Guided ziyarah by private vehicle — your driver waits at each stop.</p>
+                                                    </div>
+                                                    <div className="flex items-center gap-1.5 bg-gold-primary/10 text-gold-primary border border-gold-primary/30 px-3 py-1.5 rounded-full font-semibold text-sm shrink-0">
+                                                        <Clock size={14} />
+                                                        <span>{ziyarahTour.durationHours} hours total</span>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div className="bg-[#111] p-3 flex items-center gap-3 border-b border-white/5">
+                                                    <div className="w-7 h-7 rounded-full bg-gold-primary/20 flex items-center justify-center shrink-0">
+                                                        <MapPin size={14} className="text-gold-primary" />
+                                                    </div>
+                                                    <p className="text-gray-300 text-xs font-medium">{ZIYARAH_PICKUP_NOTE}</p>
+                                                </div>
+
+                                                <div className="p-4 md:p-5 bg-[#111]">
+                                                    <h5 className="text-gold-primary text-xs uppercase tracking-widest font-bold mb-3 font-montserrat">Included Stops</h5>
+                                                    <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+                                                        {ziyarahTour.stops.map((stop: any, stopIdx: number) => (
+                                                            <div key={stopIdx} className="bg-white/5 border border-white/5 rounded-xl p-3 flex items-start gap-2.5 hover:bg-white/10 hover:border-gold-primary/30 transition-colors">
+                                                                <div className="w-5 h-5 rounded-full bg-gold-primary text-black flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
+                                                                    {stopIdx + 1}
+                                                                </div>
+                                                                <div>
+                                                                    <p className="text-white text-sm font-medium font-montserrat leading-tight">{stop.name}</p>
+                                                                    {stop.note && (
+                                                                        <p className="text-gray-400 text-[11px] mt-1 leading-snug">{stop.note}</p>
+                                                                    )}
+                                                                </div>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                    <p className="text-gray-500 text-[11px] text-center mt-4 italic">
+                                                        Total trip duration: {ziyarahTour.durationHours} hours. Timings are approximate and may vary with traffic and crowd levels.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {/* Badr Detour Selector */}
+                                        {(selectedRoute?.id === '692db09934f15bc89b45a600' || selectedRoute?.name?.toLowerCase() === 'madinah hotel to makkah hotel' || selectedRoute?.name?.toLowerCase() === 'madinah hotel → makkah hotel' || (selectedRoute?.origin?.toLowerCase() === 'madinah hotel' && selectedRoute?.destination?.toLowerCase() === 'makkah hotel')) && (
+                                            <div className="md:col-span-2 mt-2 bg-[#04162B]/50 border border-gold-primary/30 rounded-xl p-4">
+                                                <h4 className="text-white font-bold mb-3 font-cormorant text-xl">Route Variant</h4>
+                                                <div className="space-y-4">
+                                                    <label className="flex items-start gap-3 cursor-pointer group">
+                                                        <div className="relative flex items-center justify-center mt-1">
+                                                            <input 
+                                                                type="radio" 
+                                                                name={`routeVariant_${index}`}
+                                                                value="direct"
+                                                                checked={leg.routeVariant === 'direct' || !leg.routeVariant}
+                                                                onChange={() => updateLeg(index, { routeVariant: 'direct' })}
+                                                                className="peer sr-only"
+                                                            />
+                                                            <div className="w-5 h-5 rounded-full border-2 border-gray-400 peer-checked:border-gold-primary transition-colors"></div>
+                                                            <div className="absolute w-2.5 h-2.5 rounded-full bg-gold-primary scale-0 peer-checked:scale-100 transition-transform"></div>
+                                                        </div>
+                                                        <div>
+                                                            <p className="text-white font-medium">Direct Route</p>
+                                                            <p className="text-gray-400 text-sm">No extra charge</p>
+                                                        </div>
+                                                    </label>
+                                                    <label className="flex items-start gap-3 cursor-pointer group">
+                                                        <div className="relative flex items-center justify-center mt-1">
+                                                            <input 
+                                                                type="radio" 
+                                                                name={`routeVariant_${index}`}
+                                                                value="via_badr"
+                                                                checked={leg.routeVariant === 'via_badr'}
+                                                                onChange={() => updateLeg(index, { routeVariant: 'via_badr' })}
+                                                                className="peer sr-only"
+                                                            />
+                                                            <div className="w-5 h-5 rounded-full border-2 border-gray-400 peer-checked:border-gold-primary transition-colors"></div>
+                                                            <div className="absolute w-2.5 h-2.5 rounded-full bg-gold-primary scale-0 peer-checked:scale-100 transition-transform"></div>
+                                                        </div>
+                                                        <div className="flex-1">
+                                                            <p className="text-white font-medium">Via Badr Detour</p>
+                                                            <p className="text-gray-400 text-sm mb-1">Includes Jabal al-Malaika / Battle of Badr ziyarat.</p>
+                                                            {(() => {
+                                                                const activeVehicle = data.selectedVehicles.length > 0 ? data.selectedVehicles[0].vehicleId : null;
+                                                                if (activeVehicle) {
+                                                                    const surchargeSAR = BADR_DETOUR_SURCHARGE_SAR[activeVehicle] || DEFAULT_BADR_SURCHARGE_SAR;
+                                                                    const disp = formatPrice(surchargeSAR, Math.round(surchargeSAR / 3.75));
+                                                                    return <p className="text-gold-primary text-sm font-semibold">+{currency === 'USD' ? '$' : ''}{disp.amount} {currency === 'SAR' ? 'SAR' : ''}</p>;
+                                                                }
+                                                                return <p className="text-gold-primary text-sm font-semibold">+SAR 150–200 depending on vehicle</p>;
+                                                            })()}
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {/* Badr Detour Line Item Breakdown */}
+                                        {leg.routeVariant === 'via_badr' && (selectedRoute?.id === '692db09934f15bc89b45a600' || selectedRoute?.name?.toLowerCase() === 'madinah hotel to makkah hotel' || selectedRoute?.name?.toLowerCase() === 'madinah hotel → makkah hotel' || (selectedRoute?.origin?.toLowerCase() === 'madinah hotel' && selectedRoute?.destination?.toLowerCase() === 'makkah hotel')) && (
+                                            <div className="md:col-span-2 mt-1 mb-2 px-4 py-3 bg-transparent border border-white/10 rounded-lg flex justify-between items-center text-sm">
+                                                <span className="text-gray-300">Badr detour — Jabal al-Malaika ziyarat</span>
+                                                <span className="text-gold-primary font-bold">
+                                                    {(() => {
+                                                        const activeVehicle = data.selectedVehicles.length > 0 ? data.selectedVehicles[0].vehicleId : null;
+                                                        if (activeVehicle) {
+                                                            const surchargeSAR = BADR_DETOUR_SURCHARGE_SAR[activeVehicle] || DEFAULT_BADR_SURCHARGE_SAR;
+                                                            const disp = formatPrice(surchargeSAR, Math.round(surchargeSAR / 3.75));
+                                                            return `+${currency === 'USD' ? '$' : ''}${disp.amount} ${currency === 'SAR' ? 'SAR' : ''}`;
+                                                        }
+                                                        return '...';
+                                                    })()}
+                                                </span>
+                                            </div>
+                                        )}
+
+                                        {/* Wadi Jinn Add-on Selector */}
+                                        {(selectedRoute?.id === '6949b367a41f6410e88ed72e' || selectedRoute?.name?.toLowerCase().includes('madinah ziyarat')) && (
+                                            <div className="md:col-span-2 mt-2 bg-[#04162B]/50 border border-gold-primary/30 rounded-xl p-4">
+                                                <div className="flex items-start justify-between gap-4">
+                                                    <div>
+                                                        <h4 className="text-white font-bold mb-1 font-cormorant text-xl">Include Wadi Jinn</h4>
+                                                        <p className="text-gray-400 text-sm mb-2">Valley of the Jinn — extended ziyarat stop</p>
+                                                        {(() => {
+                                                            const activeVehicle = data.selectedVehicles.length > 0 ? data.selectedVehicles[0].vehicleId : null;
+                                                            if (activeVehicle) {
+                                                                const surchargeSAR = WADI_JINN_SURCHARGE_SAR[activeVehicle] || DEFAULT_WADI_JINN_SURCHARGE_SAR;
+                                                                const disp = formatPrice(surchargeSAR, Math.round(surchargeSAR / 3.75));
+                                                                return <p className="text-gold-primary text-sm font-semibold">+{currency === 'USD' ? '$' : ''}{disp.amount} {currency === 'SAR' ? 'SAR' : ''}</p>;
+                                                            }
+                                                            return <p className="text-gold-primary text-sm font-semibold">+SAR 100–250 depending on vehicle</p>;
+                                                        })()}
+                                                    </div>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => updateLeg(index, { includeWadiJinn: !leg.includeWadiJinn })}
+                                                        className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gold-primary focus:ring-offset-2 focus:ring-offset-[#04162B] ${leg.includeWadiJinn ? 'bg-gold-primary' : 'bg-gray-600'}`}
+                                                        role="switch"
+                                                        aria-checked={leg.includeWadiJinn}
+                                                    >
+                                                        <span className="sr-only">Include Wadi Jinn</span>
+                                                        <span
+                                                            aria-hidden="true"
+                                                            className={`pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${leg.includeWadiJinn ? 'translate-x-5' : 'translate-x-0'}`}
+                                                        />
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {/* Wadi Jinn Detour Line Item Breakdown */}
+                                        {leg.includeWadiJinn && (selectedRoute?.id === '6949b367a41f6410e88ed72e' || selectedRoute?.name?.toLowerCase().includes('madinah ziyarat')) && (
+                                            <div className="md:col-span-2 mt-1 mb-2 px-4 py-3 bg-transparent border border-white/10 rounded-lg flex justify-between items-center text-sm">
+                                                <span className="text-gray-300">Wadi Jinn — Valley of the Jinn ziyarat</span>
+                                                <span className="text-gold-primary font-bold">
+                                                    {(() => {
+                                                        const activeVehicle = data.selectedVehicles.length > 0 ? data.selectedVehicles[0].vehicleId : null;
+                                                        if (activeVehicle) {
+                                                            const surchargeSAR = WADI_JINN_SURCHARGE_SAR[activeVehicle] || DEFAULT_WADI_JINN_SURCHARGE_SAR;
+                                                            const disp = formatPrice(surchargeSAR, Math.round(surchargeSAR / 3.75));
+                                                            return `+${currency === 'USD' ? '$' : ''}${disp.amount} ${currency === 'SAR' ? 'SAR' : ''}`;
+                                                        }
+                                                        return '...';
+                                                    })()}
+                                                </span>
+                                            </div>
+                                        )}
+
                                         {/* Date */}
                                         <div className="relative">
                                             <Calendar className="absolute left-0 top-4 text-gold-primary transition-colors z-10" size={20} />
@@ -497,6 +785,14 @@ export default function BookingForm() {
                                                 placeholder={leg.pickup?.toLowerCase().includes('airport') ? 'Landing Date *' : 'Pickup Date *'}
                                                 onFocus={(e) => e.target.type = 'date'}
                                                 onBlur={(e) => { if (!e.target.value) e.target.type = 'text'; }}
+                                                onClick={(e) => {
+                                                    e.currentTarget.type = 'date';
+                                                    try {
+                                                        if ('showPicker' in HTMLInputElement.prototype) {
+                                                            e.currentTarget.showPicker();
+                                                        }
+                                                    } catch (err) {}
+                                                }}
                                                 value={leg.date}
                                                 min={new Date().toISOString().split('T')[0]}
                                                 onChange={(e) => updateLeg(index, { date: e.target.value })}
@@ -515,6 +811,14 @@ export default function BookingForm() {
                                                 placeholder={leg.pickup?.toLowerCase().includes('airport') ? 'Landing Time (Local) *' : 'Pickup Time *'}
                                                 onFocus={(e) => e.target.type = 'time'}
                                                 onBlur={(e) => { if (!e.target.value) e.target.type = 'text'; }}
+                                                onClick={(e) => {
+                                                    e.currentTarget.type = 'time';
+                                                    try {
+                                                        if ('showPicker' in HTMLInputElement.prototype) {
+                                                            e.currentTarget.showPicker();
+                                                        }
+                                                    } catch (err) {}
+                                                }}
                                                 value={leg.time}
                                                 onChange={(e) => updateLeg(index, { time: e.target.value })}
                                                 className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none cursor-pointer transition-colors placeholder-gray-600
@@ -856,6 +1160,63 @@ export default function BookingForm() {
                             {errors.email && <p className="text-red-500 text-xs mt-1 absolute">{errors.email}</p>}
                             <p className="text-gray-400 text-xs mt-2 pl-8">We will send a confirmation mail to this email address.</p>
                         </div>
+
+                        {/* Visa Type */}
+                        <div className="md:col-span-2 mt-4 relative">
+                            <Briefcase className="absolute left-0 top-4 text-gold-primary" size={20} />
+                            <div className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors border-white/20">
+                                <span className="text-gray-400 block mb-3">Visa Type *</span>
+                                <div className="flex flex-wrap gap-4">
+                                    {VISA_TYPES.map(vt => (
+                                        <label key={vt.value} className="flex items-center gap-2 cursor-pointer">
+                                            <input 
+                                                type="radio" 
+                                                name="visaType" 
+                                                value={vt.value}
+                                                checked={data.visaType === vt.value}
+                                                onChange={(e) => {
+                                                    updateData({ visaType: e.target.value });
+                                                    if (e.target.value !== 'other') updateData({ visaOther: '' });
+                                                }}
+                                                className="accent-gold-primary w-4 h-4"
+                                            />
+                                            <span className="text-white text-sm">{vt.label}</span>
+                                        </label>
+                                    ))}
+                                </div>
+                                {data.visaType === 'other' && (
+                                    <input
+                                        type="text"
+                                        placeholder="Please specify *"
+                                        value={data.visaOther}
+                                        onChange={(e) => updateData({ visaOther: e.target.value })}
+                                        className={`w-full mt-3 pl-4 pr-4 py-2 bg-white/5 border rounded-lg text-white outline-none transition-colors placeholder-gray-500 ${errors.visaOther ? 'border-red-500' : 'border-white/20 focus:border-gold-primary'}`}
+                                    />
+                                )}
+                            </div>
+                            <p className="text-gray-400 text-xs mt-2 pl-8">Helps our team prepare the right route and documents for your trip.</p>
+                            {errors.visaType && <p className="text-red-500 text-xs mt-1 absolute pl-8">{errors.visaType}</p>}
+                        </div>
+
+                        {/* Nationality */}
+                        <div className="relative md:col-span-2">
+                            <MapPin className="absolute left-0 top-4 text-gold-primary" size={20} />
+                            <select
+                                value={data.nationality}
+                                onChange={(e) => updateData({ nationality: e.target.value })}
+                                className={`w-full pl-8 pr-4 py-4 bg-[#0F172A] border-b-2 text-white outline-none transition-colors appearance-none cursor-pointer
+                                    ${errors.nationality ? 'border-red-500' : 'border-white/20 focus:border-gold-primary'}`}
+                            >
+                                <option value="" disabled>Select your nationality *</option>
+                                {countriesList.map((country, idx) => (
+                                    <option key={idx} value={country.name} disabled={country.disabled}>
+                                        {country.name}
+                                    </option>
+                                ))}
+                            </select>
+                            <ChevronDown className="absolute right-4 top-4 text-gray-500 pointer-events-none" size={20} />
+                            {errors.nationality && <p className="text-red-500 text-xs mt-1 absolute pl-8">{errors.nationality}</p>}
+                        </div>
                     </div>
 
                     <AnimatePresence>
@@ -906,28 +1267,6 @@ export default function BookingForm() {
                 isSubmitting={isSubmitting}
             />
 
-            {/* Booking Success Modal */}
-            {receiptData && (
-                <BookingSuccessModal
-                    isOpen={showSuccessModal}
-                    bookingData={{
-                        bookingId: receiptData.id,
-                        name: receiptData.name,
-                        email: receiptData.email,
-                        phone: receiptData.phone,
-                        pickup: receiptData.pickupLocation,
-                        dropoff: receiptData.dropoffLocation,
-                        date: receiptData.date,
-                        time: receiptData.time,
-                        vehicleName: receiptData.vehicleName,
-                        passengers: receiptData.passengers,
-                        currency: receiptData.currency,
-                        totalAmount: receiptData.totalAmount,
-                    }}
-                    whatsappNumber="966548707332"
-                    onClose={() => router.push('/')}
-                />
-            )}
         </div>
     );
 }

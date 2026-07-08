@@ -127,6 +127,20 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
                                         <Phone size={16} />
                                         <a href={`tel:${booking.phone}`} className="hover:text-amber-600 hover:underline">{booking.phone}</a>
                                     </div>
+                                    {booking.nationality && (
+                                        <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 mt-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+                                            <span className="font-semibold w-24">Nationality:</span>
+                                            <span>{booking.nationality}</span>
+                                        </div>
+                                    )}
+                                    {booking.visaType && (
+                                        <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+                                            <span className="font-semibold w-24">Visa Type:</span>
+                                            <span className={`px-2 py-0.5 rounded text-xs font-semibold ${booking.visaType === 'umrah' ? 'bg-[#C8891F]/10 text-[#C8891F]' : booking.visaType === 'visit' ? 'bg-[#012A5B]/10 text-[#012A5B]' : 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300'}`}>
+                                                {booking.visaType === 'umrah' ? 'Umrah' : booking.visaType === 'visit' ? 'Visit' : booking.visaOther || 'Other'}
+                                            </span>
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         </section>

@@ -5,6 +5,11 @@ export const BookingSchema = z.object({
     email: z.string().email('Invalid email address'),
     phone: z.string().min(10, 'Phone number must be at least 10 characters'),
     
+    // Visa and Nationality
+    visaType: z.string().optional(),
+    visaOther: z.string().optional(),
+    nationality: z.string().optional(),
+
     // Legacy single-route fields (optional now)
     pickup: z.string().optional(),
     dropoff: z.string().optional(),
@@ -22,7 +27,11 @@ export const BookingSchema = z.object({
         routeId: z.string().optional(),
         flightNumber: z.string().optional(),
         hours: z.number().optional(),
-        price: z.number().optional()
+        price: z.number().optional(),
+        routeVariant: z.enum(['direct', 'via_badr']).optional(),
+        badrSurchargeSAR: z.number().optional(),
+        includeWadiJinn: z.boolean().optional(),
+        wadiJinnSurchargeSAR: z.number().optional()
     })).optional(),
 
     vehicle: z.string().optional(), 

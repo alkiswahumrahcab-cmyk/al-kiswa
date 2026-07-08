@@ -26,6 +26,9 @@ export interface IBooking extends Document {
     name: string;
     email: string;
     phone: string;
+    visaType?: string;
+    visaOther?: string;
+    nationality?: string;
     pickup: string;
     dropoff: string;
     date: string;
@@ -257,9 +260,13 @@ const VehicleSchema = new Schema<IVehicle>({
 }, { timestamps: true });
 
 const BookingSchema = new Schema<IBooking>({
+    id: { type: String },
     name: { type: String, required: true },
     email: { type: String, required: true },
     phone: { type: String, required: true },
+    visaType: { type: String },
+    visaOther: { type: String },
+    nationality: { type: String },
     pickup: { type: String, required: true },
     dropoff: { type: String, required: true },
     date: { type: String, required: true },

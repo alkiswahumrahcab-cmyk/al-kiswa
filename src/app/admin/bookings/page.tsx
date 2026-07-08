@@ -391,6 +391,8 @@ export default function BookingsPage() {
                                 <tr>
                                     <th>ID & Customer</th>
                                     <th>Journey Details</th>
+                                    <th>Visa</th>
+                                    <th>Nationality</th>
                                     <th>Vehicle</th>
                                     <th>Price</th>
                                     <th>Status</th>
@@ -447,6 +449,20 @@ export default function BookingsPage() {
                                                             <Calendar size={12} />
                                                             <span>{booking.date} at {booking.time}</span>
                                                         </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div className="flex flex-col gap-1">
+                                                        {booking.visaType && (
+                                                            <span className={`px-2 py-0.5 rounded text-xs font-semibold w-max ${booking.visaType === 'umrah' ? 'bg-[#C8891F]/10 text-[#C8891F] border border-[#C8891F]/30' : booking.visaType === 'visit' ? 'bg-[#012A5B]/10 text-[#012A5B] border border-[#012A5B]/30' : 'bg-slate-100 text-slate-600 border border-slate-200'}`}>
+                                                                {booking.visaType === 'umrah' ? 'Umrah' : booking.visaType === 'visit' ? 'Visit' : booking.visaOther || 'Other'}
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div className="text-sm font-medium whitespace-nowrap">
+                                                        {booking.nationality || '—'}
                                                     </div>
                                                 </td>
                                                 <td>

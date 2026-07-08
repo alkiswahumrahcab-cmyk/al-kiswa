@@ -56,7 +56,7 @@ export default function MobileDrawer({ isOpen, onClose, title, children }: Mobil
               animate={{ y: 0 }} 
               exit={{ y: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="relative bg-[#1a1a1a]/90 backdrop-blur-2xl w-full rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.5)] border-t border-white/10 overflow-hidden flex flex-col max-h-[90vh]"
+              className="relative bg-primary-black/95 backdrop-blur-2xl w-full rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.5)] border-t border-white/10 overflow-hidden flex flex-col max-h-[90vh]"
             >
               <div className="p-4 border-b border-white/10 flex flex-col items-center sticky top-0 z-10">
                 <div className="w-12 h-1.5 bg-gray-600/50 rounded-full mb-3" />
@@ -85,7 +85,7 @@ export default function MobileDrawer({ isOpen, onClose, title, children }: Mobil
           initial={{ opacity: 0, y: -5 }} 
           animate={{ opacity: 1, y: 0 }} 
           exit={{ opacity: 0, y: -5 }}
-          className="absolute left-0 right-0 z-50 bg-[#1a1a1a]/90 backdrop-blur-2xl border border-white/10 rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.5)] overflow-hidden mt-2"
+          className="absolute left-0 right-0 z-50 bg-primary-black/95 backdrop-blur-2xl border border-white/10 rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.5)] overflow-hidden mt-2"
           style={{ top: '100%' }}
         >
           {children}

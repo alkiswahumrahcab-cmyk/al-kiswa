@@ -394,6 +394,54 @@
                 "staria": 180,
                 "coaster": 350
             }
+        },
+        {
+            "id": "badr-ziyarat-id",
+            "name": "Badr Ziyarat",
+            "slug": "badr-ziyarat-taxi",
+            "seo": {
+                "title": "Badr Ziyarat Taxi Service | Visit Battle of Badr",
+                "description": "Book Badr Ziyarat taxi to visit the historical sites of the Battle of Badr.",
+                "keywords": [
+                    "Badr Ziyarat taxi",
+                    "Battle of Badr tour"
+                ]
+            },
+            "distance": "150 km",
+            "time": "4 hrs",
+            "baseRate": 300,
+            "customRates": {
+                "camry": 300,
+                "hiace": 400,
+                "gmc": 600,
+                "starex": 400,
+                "staria": 400,
+                "coaster": 800
+            }
+        },
+        {
+            "id": "taif-ziyarat-id",
+            "name": "Taif Ziyarat",
+            "slug": "taif-ziyarat-taxi",
+            "seo": {
+                "title": "Taif Ziyarat Taxi Service | Visit Historical Taif",
+                "description": "Book Taif Ziyarat taxi to visit historical sites in Taif.",
+                "keywords": [
+                    "Taif Ziyarat taxi",
+                    "Taif tour"
+                ]
+            },
+            "distance": "120 km",
+            "time": "6 hrs",
+            "baseRate": 400,
+            "customRates": {
+                "camry": 400,
+                "hiace": 500,
+                "gmc": 700,
+                "starex": 500,
+                "staria": 500,
+                "coaster": 1000
+            }
         }
     ],
     "vehicles": [

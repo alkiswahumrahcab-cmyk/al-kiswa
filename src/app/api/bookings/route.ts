@@ -155,6 +155,16 @@ export async function POST(request: Request) {
                         legPrice = legPrice * leg.hours;
                     }
 
+                    // Add Badr Detour surcharge if selected
+                    if (leg.badrSurchargeSAR) {
+                        legPrice += Number(leg.badrSurchargeSAR);
+                    }
+
+                    // Add Wadi Jinn surcharge if selected
+                    if (leg.wadiJinnSurchargeSAR) {
+                        legPrice += Number(leg.wadiJinnSurchargeSAR);
+                    }
+
                     leg.price = legPrice;
                     totalBasePrice += legPrice;
                 }

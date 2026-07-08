@@ -123,7 +123,9 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
     legs.forEach((leg: any, index: number) => {
         const hoursText = leg.hours ? ` (${leg.hours} Hours)` : '';
         const desc = `${leg.pickup || 'Unknown'} to ${leg.dropoff || 'Unknown'}${hoursText}`;
-        const amountSAR = Number(leg.price || 0);
+        const badrAmountToDeduct = leg.badrSurchargeSAR ? Number(leg.badrSurchargeSAR) : 0;
+        const wadiAmountToDeduct = leg.wadiJinnSurchargeSAR ? Number(leg.wadiJinnSurchargeSAR) : 0;
+        const amountSAR = Number(leg.price || 0) - badrAmountToDeduct - wadiAmountToDeduct;
         totalSAR += amountSAR;
         
         let displayAmount: string = isUSD ? Math.round(amountSAR / exchangeRate).toString() : amountSAR.toString();
@@ -137,6 +139,38 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
             '1',
             displayAmount
         ]);
+
+        if (leg.routeVariant === 'via_badr' && leg.badrSurchargeSAR) {
+            const badrAmountSAR = Number(leg.badrSurchargeSAR);
+            totalSAR += badrAmountSAR;
+            let displayBadrAmount: string = isUSD ? Math.round(badrAmountSAR / exchangeRate).toString() : badrAmountSAR.toString();
+            if (isPending) displayBadrAmount = 'TBD';
+            
+            tableData.push([
+                '',
+                '  ↳ Via Badr detour (Jabal al-Malaika)',
+                '',
+                '',
+                '1',
+                displayBadrAmount
+            ]);
+        }
+
+        if (leg.includeWadiJinn && leg.wadiJinnSurchargeSAR) {
+            const wadiAmountSAR = Number(leg.wadiJinnSurchargeSAR);
+            totalSAR += wadiAmountSAR;
+            let displayWadiAmount: string = isUSD ? Math.round(wadiAmountSAR / exchangeRate).toString() : wadiAmountSAR.toString();
+            if (isPending) displayWadiAmount = 'TBD';
+            
+            tableData.push([
+                '',
+                '  ↳ Wadi Jinn (Valley of the Jinn) detour',
+                '',
+                '',
+                '1',
+                displayWadiAmount
+            ]);
+        }
     });
 
     autoTable(doc, {
