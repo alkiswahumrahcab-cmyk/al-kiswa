@@ -1209,8 +1209,8 @@ export default function BookingForm() {
                             >
                                 <option value="" disabled>Select your nationality *</option>
                                 {countriesList.map((country, idx) => (
-                                    <option key={idx} value={country.name} disabled={country.disabled}>
-                                        {country.name}
+                                    <option key={idx} value={country?.name} disabled={country?.disabled}>
+                                        {country?.name}
                                     </option>
                                 ))}
                             </select>

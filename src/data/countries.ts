@@ -277,9 +277,9 @@ export const COUNTRIES = [
 ];
 
 // Helper to get formatted countries array
-export function getSortedCountries() {
-  const topCountries = TOP_NATIONALITIES.map(code => COUNTRIES.find(c => c.code === code)).filter(Boolean);
-  const topCodes = topCountries.map(c => c?.code);
+export function getSortedCountries(): { code: string, name: string, disabled?: boolean }[] {
+  const topCountries = TOP_NATIONALITIES.map(code => COUNTRIES.find(c => c.code === code)).filter((c): c is typeof COUNTRIES[0] => Boolean(c));
+  const topCodes = topCountries.map(c => c.code);
   const remainingCountries = COUNTRIES.filter(c => !topCodes.includes(c.code)).sort((a, b) => a.name.localeCompare(b.name));
   
   return [
