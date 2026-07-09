@@ -93,7 +93,7 @@ export default function BookingSuccessModal({
     if (!mounted || !isOpen) return null;
 
     return (
-        <div className="w-full max-w-3xl mx-auto py-4 md:py-8">
+        <div className="w-full max-w-2xl mx-auto py-4 md:py-8">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -101,7 +101,7 @@ export default function BookingSuccessModal({
                 className="relative w-full mx-auto"
             >
                 <div className="flex-1 flex flex-col w-full">
-                    <div id="printable-receipt-area" ref={receiptRef} className="bg-white/5 border border-white/10 px-6 md:px-10 pt-12 pb-8 relative rounded-[2rem] backdrop-blur-md shadow-2xl">
+                    <div id="printable-receipt-area" ref={receiptRef} className="pt-12 pb-8 relative">
                                     {/* Watermark Logo */}
                                     <div className="absolute inset-0 flex items-center justify-center opacity-[0.02] pointer-events-none">
                                         <Image src="/images/logo.png" alt="Watermark" width={300} height={300} />

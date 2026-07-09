@@ -20,6 +20,7 @@ import BookingSuccessModal from './BookingSuccessModal';
 import CurrencyToggle from '../CurrencyToggle';
 import NusukBookingAlert from '@/components/trust/NusukBookingAlert';
 import { VISA_TYPES, getSortedCountries } from '@/data/countries';
+import NationalitySelector from './NationalitySelector';
 
 export default function BookingForm() {
     const { routes, vehicles, isLoading, calculatePrice } = usePricing();
@@ -474,7 +475,7 @@ export default function BookingForm() {
         <div className="w-full max-w-4xl mx-auto px-4 pt-0 pb-16 relative">
             
             {/* Currency Toggle placed at the absolute top right */}
-            <div className="absolute top-2 right-4 md:top-[-20px] md:right-4 flex items-center gap-3 bg-primary-black/90 p-1.5 rounded-full border border-gold-primary/30 backdrop-blur-md z-30 shadow-xl">
+            <div className="absolute top-2 right-4 md:top-[-20px] md:right-4 flex items-center gap-3 bg-[#0B0F19]/90 p-1.5 rounded-full border border-gold-primary/30 backdrop-blur-md z-30 shadow-xl">
                 <span className="text-xs font-medium text-[#C9D4E0] pl-4 uppercase tracking-wider">Currency</span>
                 <CurrencyToggle />
             </div>
@@ -584,7 +585,7 @@ export default function BookingForm() {
                                                 onClose={() => setActiveDropdownIndex(null)}
                                                 title="Select Route"
                                             >
-                                                <div className="p-4 border-b border-white/10 relative sticky top-0 bg-primary-black z-10">
+                                                <div className="p-4 border-b border-white/10 relative sticky top-0 bg-[#0B0F19] z-10">
                                                     <Search size={18} className="absolute left-7 top-1/2 -translate-y-1/2 text-gray-400" />
                                                     <input
                                                         type="text" value={searchStr} onChange={(e) => setRouteSearches(prev => ({ ...prev, [index]: e.target.value }))}
@@ -1199,24 +1200,11 @@ export default function BookingForm() {
                         </div>
 
                         {/* Nationality */}
-                        <div className="relative md:col-span-2">
-                            <MapPin className="absolute left-0 top-4 text-gold-primary" size={20} />
-                            <select
-                                value={data.nationality}
-                                onChange={(e) => updateData({ nationality: e.target.value })}
-                                className={`w-full pl-8 pr-4 py-4 bg-[#0F172A] border-b-2 text-white outline-none transition-colors appearance-none cursor-pointer
-                                    ${errors.nationality ? 'border-red-500' : 'border-white/20 focus:border-gold-primary'}`}
-                            >
-                                <option value="" disabled>Select your nationality *</option>
-                                {countriesList.map((country, idx) => (
-                                    <option key={idx} value={country?.name} disabled={country?.disabled}>
-                                        {country?.name}
-                                    </option>
-                                ))}
-                            </select>
-                            <ChevronDown className="absolute right-4 top-4 text-gray-500 pointer-events-none" size={20} />
-                            {errors.nationality && <p className="text-red-500 text-xs mt-1 absolute pl-8">{errors.nationality}</p>}
-                        </div>
+                        <NationalitySelector 
+                            value={data.nationality} 
+                            onChange={(val) => updateData({ nationality: val })} 
+                            error={errors.nationality} 
+                        />
                     </div>
 
                     <AnimatePresence>
