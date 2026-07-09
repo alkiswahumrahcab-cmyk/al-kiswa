@@ -8,7 +8,7 @@ import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
-import Interior360Viewer from '@/components/fleet/Interior360Viewer';
+import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
 import { vehicleService } from '@/services/vehicleService';
 import Image from 'next/image';
 import TrackEvent from '@/components/analytics/TrackEvent';

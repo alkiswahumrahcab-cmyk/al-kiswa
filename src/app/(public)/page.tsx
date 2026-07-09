@@ -5,7 +5,6 @@ import FadeIn from '@/components/common/FadeIn';
 import Hero from '@/components/common/Hero';
 import { ArrowRight, Clock, ShieldCheck, Star } from 'lucide-react';
 import { getSectionContent, getSectionImage, getCustomField } from '@/lib/content-service';
-import AnimatedBackground from '@/components/ui/AnimatedBackground';
 import { generateMetadataAlternates } from '@/lib/hreflang';
 
 // Lazy load heavy components

@@ -8,7 +8,7 @@ import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
-import Interior360Viewer from '@/components/fleet/Interior360Viewer';
+import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
 
 import { vehicleService } from '@/services/vehicleService';
 export async function generateMetadata(): Promise<Metadata> {
