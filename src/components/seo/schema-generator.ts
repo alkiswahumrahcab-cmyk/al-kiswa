@@ -73,6 +73,19 @@ export const generateLocalBusinessSchema = () => ({
                 }
             ],
             paymentAccepted: 'Cash, Credit Card, Online Payment',
+            // TODO: Add Nusuk/Ministry of Hajj licence credential once the official number is confirmed.
+            // Example structure (do NOT enable until number is verified):
+            // hasCredential: {
+            //   '@type': 'EducationalOccupationalCredential',
+            //   name: 'Nusuk Platform Registered Transport Provider',
+            //   credentialCategory: 'licence',
+            //   recognizedBy: {
+            //     '@type': 'Organization',
+            //     name: 'Ministry of Hajj and Umrah, Saudi Arabia',
+            //     url: 'https://www.haj.gov.sa/',
+            //   },
+            //   // identifier: 'NUSUK-XXXXXX', // ← insert licence number here
+            // },
             // Single, canonical aggregateRating — the ONLY aggregateRating on any page
             aggregateRating: {
                 '@type': 'AggregateRating',

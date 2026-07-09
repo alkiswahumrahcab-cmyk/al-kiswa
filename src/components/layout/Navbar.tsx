@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 
 import { Menu, X, ChevronDown, Phone, Mail, Instagram, Facebook, MessageCircle, Linkedin } from 'lucide-react';
 import { useMenu } from '@/context/MenuContext';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -187,6 +188,7 @@ export default function Navbar() {
                 </div>
 
                 <div className="hidden xl:flex items-center gap-4">
+                    <LanguageSwitcher />
                     <Link
                         href="/booking"
                         className="bg-gradient-to-r from-gold-primary to-gold-dark text-black px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:scale-105 transition-transform shadow-[0_0_20px_rgba(239,191,91,0.3)] flex items-center justify-center"
@@ -307,7 +309,12 @@ export default function Navbar() {
                             </a>
                         </div>
                     </div>
-                    
+
+                    {/* Language switcher — visible in mobile menu */}
+                    <div className="flex items-center justify-center">
+                        <LanguageSwitcher />
+                    </div>
+
                     <Link
                         href="/booking"
                         className="w-full relative overflow-hidden group bg-gold-primary text-black py-4 rounded-xl text-center font-bold uppercase tracking-widest shadow-[0_0_30px_rgba(239,191,91,0.2)] hover:shadow-[0_0_40px_rgba(239,191,91,0.4)] transition-all duration-300"
