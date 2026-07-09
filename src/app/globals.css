@@ -4,71 +4,85 @@
 
 @layer base {
   :root {
-    /* === ROYAL BLACK & GOLD LUXURY THEME === */
+    /* === BRAND TOKENS === */
+    --gold:       38 75% 55%;   /* #E2A336 — canonical brand gold */
+    --gold-light: 38 70% 70%;   /* #E8C17D */
+    --gold-dark:  38 72% 38%;   /* #A7731B */
+    --charcoal:   48 18%  7%;   /* #15140F */
+    --ivory:      48 40% 98%;   /* #FDFCF8 */
 
-    /* Primary Colors (Dark Luxury) */
-    --primary-black: 222 47% 11%;
-    /* #0F172A - Rich Slate Black */
-    --deep-black: 240 10% 4%;
-    /* #09090b - Almost Pure Black */
-    --charcoal: 210 20% 98%;
-    /* #F8F9FA - Off White (remapped for light mode backgrounds if needed) */
+    /* === NEUTRAL RAMP (warm) === */
+    --n-50:  45 33% 97%;
+    --n-100: 44 28% 92%;
+    --n-200: 43 24% 82%;
+    --n-300: 42 18% 72%;
+    --n-400: 41 12% 58%;
+    --n-500: 40 11% 44%;
+    --n-600: 42 10% 33%;
+    --n-700: 43 12% 23%;
+    --n-800: 45 14% 15%;
+    --n-900: 48 18%  7%;
 
-    /* Gold Accents (Premium Champagne) */
-    --gold-primary: 38 80% 65%;
-    /* #EFBF5B - Creamy Premium Gold */
-    --gold-light: 42 90% 90%;
-    /* #FDF3D8 - Very pale gold */
-    --gold-dark: 38 75% 50%;
-    /* #B88014 - Deep Metallic */
-    --gold-metallic: 38 75% 55%;
-    /* #DFA630 - Metallic Core */
+    /* === STATUS === */
+    --success:  142 71% 45%;
+    --warning:   38 92% 50%;
+    --whatsapp: 142 70% 49%;   /* #25D366 — never change */
 
-    /* Generic Names mapped to Theme */
-    --emerald-primary: var(--primary-black);
-    --soft-mint: 210 40% 96%;
-
-    /* Base Colors - Defaulting to Light Mode for cleanliness, but components will be dark */
-    /* Base Colors - Enforced Dark Mode (Royal Black Core) */
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
-
-    --card: 222 47% 11%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222 47% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 43 74% 49%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 43 74% 49%;
-
-    /* Radius */
+    /* === LIGHT PALETTE (design-system reference; not activated with forcedTheme=dark) === */
+    --background:          48 40% 98%;
+    --foreground:          48 18%  7%;
+    --card:                 0  0% 100%;
+    --card-foreground:     48 18%  7%;
+    --popover:              0  0% 100%;
+    --popover-foreground:  48 18%  7%;
+    --muted:               45 30% 94%;
+    --muted-foreground:    42 11% 38%;
+    --border:              44 26% 88%;
+    --input:               44 26% 88%;
+    --primary:             38 72% 38%;
+    --primary-foreground:  48 40% 98%;
+    --secondary:           45 30% 94%;
+    --secondary-foreground:48 18%  7%;
+    --accent:              38 72% 38%;
+    --accent-foreground:   48 40% 98%;
+    --destructive:          0 72% 45%;
+    --destructive-foreground: 48 40% 98%;
+    --ring:                38 75% 55%;
     --radius: 0.5rem;
 
-    /* Transparency */
-    --glass-bg: rgba(15, 23, 42, 0.60);
-    /* Darker glass for default */
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-blur: 12px;
+    /* === GLASS TOKENS (light) === */
+    --glass-bg:     48 40% 98%;
+    --glass-border: 38 72% 38%;
+    --gold-glow:    38 75% 55%;
+    --glass-blur:   12px;
   }
 
-  /* Removed .dark block as it is now the default */
+  .dark {
+    --background:          48 18%  7%;
+    --foreground:          46 30% 94%;
+    --card:                45 17% 10%;
+    --card-foreground:     46 30% 94%;
+    --popover:             45 17% 10%;
+    --popover-foreground:  46 30% 94%;
+    --muted:               44 12% 15%;
+    --muted-foreground:    42 10% 62%;
+    --border:              44 14% 16%;
+    --input:               44 14% 16%;
+    --primary:             38 75% 55%;
+    --primary-foreground:  48 18%  7%;
+    --secondary:           44 12% 15%;
+    --secondary-foreground:46 30% 94%;
+    --accent:              38 75% 55%;
+    --accent-foreground:   48 18%  7%;
+    --destructive:          0 72% 51%;
+    --destructive-foreground: 46 30% 94%;
+    --ring:                38 75% 55%;
+
+    /* === GLASS TOKENS (dark) === */
+    --glass-bg:     45 17%  8%;
+    --glass-border: 38 75% 55%;
+    --gold-glow:    38 75% 55%;
+  }
 }
 
 @layer base {
@@ -78,11 +92,11 @@
 
   body {
     @apply text-foreground;
-    background-color: #070709;
-    background-image: 
-      radial-gradient(circle at 15% 50%, rgba(239, 191, 91, 0.08), transparent 40%),
-      radial-gradient(circle at 85% 30%, rgba(239, 191, 91, 0.12), transparent 40%),
-      radial-gradient(circle at 50% 100%, rgba(239, 191, 91, 0.05), transparent 50%);
+    background-color: hsl(var(--background));
+    background-image:
+      radial-gradient(circle at 15% 50%, hsl(var(--gold-glow) / 0.06), transparent 40%),
+      radial-gradient(circle at 85% 30%, hsl(var(--gold-glow) / 0.10), transparent 40%),
+      radial-gradient(circle at 50% 100%, hsl(var(--gold-glow) / 0.04), transparent 50%);
     background-attachment: fixed;
     font-weight: 400;
   }
@@ -99,31 +113,31 @@
 
 @layer components {
 
-  /* === PREMIUM GLASSMORPHISM SURFACES (AMPLIFIED) === */
+  /* === PREMIUM GLASSMORPHISM SURFACES === */
   .glass-panel {
-    @apply bg-[#0f1115]/60 backdrop-blur-[40px] border border-gold-primary/30 rounded-2xl shadow-[0_8px_32px_rgba(239,191,91,0.1)] transition-all duration-500 relative overflow-hidden;
+    @apply bg-[hsl(var(--glass-bg)/0.6)] backdrop-blur-[40px] border border-[hsl(var(--glass-border)/0.3)] rounded-2xl shadow-[0_8px_32px_hsl(var(--gold-glow)/0.1)] transition-all duration-500 relative overflow-hidden;
   }
-  
+
   .glass-panel::before {
     content: '';
     @apply absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none;
   }
-  
+
   .glass-panel:hover {
-    @apply bg-[#14171c]/70 border-gold-primary/50 shadow-[0_16px_64px_rgba(239,191,91,0.25)] transform -translate-y-1;
+    @apply bg-[hsl(var(--glass-bg)/0.7)] border-[hsl(var(--glass-border)/0.5)] shadow-[0_16px_64px_hsl(var(--gold-glow)/0.25)] transform -translate-y-1;
   }
 
   .glass-card {
-    @apply bg-[#13151a]/50 backdrop-blur-[30px] border border-white/20 rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.4)] transition-all duration-500 relative overflow-hidden;
+    @apply bg-[hsl(var(--glass-bg)/0.5)] backdrop-blur-[30px] border border-[hsl(var(--glass-border)/0.2)] rounded-xl shadow-[0_4px_24px_hsl(var(--charcoal)/0.4)] transition-all duration-500 relative overflow-hidden;
   }
-  
+
   .glass-card::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-br from-gold-primary/10 via-transparent to-transparent opacity-50 transition-opacity duration-500 pointer-events-none;
+    @apply absolute inset-0 bg-gradient-to-br from-[hsl(var(--gold)/0.1)] via-transparent to-transparent opacity-50 transition-opacity duration-500 pointer-events-none;
   }
 
   .glass-card:hover {
-    @apply bg-[#1a1d24]/60 border-gold-primary/40 shadow-[0_12px_40px_rgba(239,191,91,0.2)] transform -translate-y-2;
+    @apply bg-[hsl(var(--glass-bg)/0.6)] border-[hsl(var(--glass-border)/0.4)] shadow-[0_12px_40px_hsl(var(--gold-glow)/0.2)] transform -translate-y-2;
   }
 
   .glass-card:hover::before {
@@ -141,14 +155,14 @@
   }
 
   .btn-gold {
-    @apply relative overflow-hidden bg-gradient-to-r from-gold-primary to-gold-dark text-black font-bold py-3 px-6 rounded-lg shadow-[0_0_20px_rgba(239,191,91,0.3)] hover:shadow-[0_0_40px_rgba(239,191,91,0.5)] transition-all duration-300 text-center inline-flex items-center justify-center;
+    @apply relative overflow-hidden bg-gradient-to-r from-gold to-gold-dark text-black font-bold py-3 px-6 rounded-lg shadow-[0_0_20px_hsl(var(--gold-glow)/0.3)] hover:shadow-[0_0_40px_hsl(var(--gold-glow)/0.5)] transition-all duration-300 text-center inline-flex items-center justify-center;
   }
-  
+
   .btn-gold::after {
     content: '';
     @apply absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full transition-transform duration-700 ease-in-out;
   }
-  
+
   .btn-gold:hover::after {
     @apply translate-x-full;
   }
@@ -156,22 +170,23 @@
   .btn-outline {
     @apply glass-button text-center inline-flex items-center justify-center;
   }
-  
+
   .glass-button {
     @apply relative overflow-hidden bg-white/5 backdrop-blur-md border border-white/20 rounded-lg font-medium text-white shadow-[0_4px_16px_rgba(0,0,0,0.2)] transition-all duration-300 hover:bg-white/10 hover:border-white/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)] py-3 px-6;
   }
 
   .glass-button-gold {
-    @apply relative overflow-hidden bg-gold-primary/10 backdrop-blur-md border border-gold-primary/30 rounded-lg font-medium text-gold-light shadow-[0_4px_20px_rgba(239,191,91,0.1)] transition-all duration-300 hover:bg-gold-primary/20 hover:border-gold-primary/50 hover:shadow-[0_8px_32px_rgba(239,191,91,0.25)] hover:text-white py-3 px-6;
+    @apply relative overflow-hidden bg-[hsl(var(--gold)/0.1)] backdrop-blur-md border border-[hsl(var(--gold)/0.3)] rounded-lg font-medium text-gold-light shadow-[0_4px_20px_hsl(var(--gold-glow)/0.1)] transition-all duration-300 hover:bg-[hsl(var(--gold)/0.2)] hover:border-[hsl(var(--gold)/0.5)] hover:shadow-[0_8px_32px_hsl(var(--gold-glow)/0.25)] hover:text-white py-3 px-6;
   }
 
   /* === PREMIUM INPUTS === */
   .input-field, .glass-input {
-    @apply w-full px-4 py-3 rounded-lg border border-white/10 bg-black/40 backdrop-blur-md text-white placeholder-gray-400 focus:bg-black/60 focus:border-gold-primary focus:ring-1 focus:ring-gold-primary transition-all duration-200 outline-none shadow-inner;
+    @apply w-full px-4 py-3 rounded-lg border border-white/10 bg-black/40 backdrop-blur-md text-white placeholder-gray-400 focus:bg-black/60 focus:border-gold focus:ring-1 focus:ring-gold transition-all duration-200 outline-none shadow-inner;
   }
 
   /* === TEXT GRADIENTS === */
-  .text-gold {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-gold-primary via-gold-light to-gold-primary drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)];
+  /* NOTE: renamed from .text-gold to avoid conflict with Tailwind's text-gold utility */
+  .text-gold-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-gold via-gold-light to-gold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)];
   }
 }
