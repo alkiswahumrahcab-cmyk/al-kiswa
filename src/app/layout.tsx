@@ -178,8 +178,25 @@ export default async function RootLayout({
             })
           }}
         />
-        <MetaPixel />
+        {/* Google Ads Tag */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18307184724"
+        />
+        <Script
+          id="google-ads"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-18307184724');
+            `
+          }}
+        />
 
+        <MetaPixel />
         {/* TikTok Pixel Code Start */}
         <Script
           id="tiktok-pixel"
