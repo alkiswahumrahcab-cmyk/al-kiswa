@@ -136,6 +136,18 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18307184724"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-18307184724');
+            `
+          }}
+        />
         <noscript>
           <style dangerouslySetInnerHTML={{ __html: `
             .counter-animated::before {
@@ -176,23 +188,6 @@ export default async function RootLayout({
                 "https://wa.me/966548707332"
               ]
             })
-          }}
-        />
-        {/* Google Ads Tag */}
-        <Script
-          strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=AW-18307184724"
-        />
-        <Script
-          id="google-ads"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'AW-18307184724');
-            `
           }}
         />
 
