@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
 import Script from "next/script";
-import { Montserrat, Tajawal } from "next/font/google"; // Elegant & Light + Arabic
+import { Montserrat, Tajawal, Cormorant_Garamond } from "next/font/google"; // Elegant & Light + Arabic + Display serif
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { MenuProvider } from "@/context/MenuContext";
 import { PricingProvider } from '@/context/PricingContext';
@@ -30,10 +30,17 @@ const tajawal = Tajawal({
   display: 'swap',
 });
 
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  display: "swap",
+});
+
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#D4AF37',
+  themeColor: '#E2A336',
 };
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -102,7 +109,7 @@ export async function generateMetadata(): Promise<Metadata> {
         {
           rel: 'mask-icon',
           url: '/favicon.svg',
-          color: '#D4AF37'
+          color: '#E2A336'
         }
       ]
     },
@@ -211,7 +218,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         />
         {/* TikTok Pixel Code End */}
       </head>
-      <body className={`${montserrat.variable} ${tajawal.variable}`}>
+      <body className={`${montserrat.variable} ${tajawal.variable} ${cormorant.variable}`}>
         {settings.general.googleAnalyticsId && (
           <GoogleAnalytics gaId={settings.general.googleAnalyticsId} />
         )}
