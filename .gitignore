@@ -54,3 +54,9 @@ files_list.txt
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Scratch / one-off root scripts — run locally only, never commit
+scratch*
+nav_history.txt
+blog_html.txt
+*.log
