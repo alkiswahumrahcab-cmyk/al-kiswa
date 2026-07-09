@@ -82,7 +82,6 @@
     "typescript": "^5"
   },
   "description": "This is the new repository for the Al Kiswah Umrah Transport project.",
-  "main": "fix-ar-links.js",
   "keywords": [],
   "author": "",
   "license": "ISC"
