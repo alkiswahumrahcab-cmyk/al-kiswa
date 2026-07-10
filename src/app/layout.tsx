@@ -236,7 +236,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                 <PricingProvider>
                   <Suspense fallback={null}>
                     <NextTopLoader
-                      color="#D4AF37"
+                      color="#E2A336"
                       initialPosition={0.08}
                       crawlSpeed={200}
                       height={4}
@@ -244,7 +244,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                       showSpinner={false}
                       easing="ease"
                       speed={200}
-                      shadow="0 0 15px #D4AF37,0 0 5px #D4AF37"
+                      shadow="0 0 15px #E2A336,0 0 5px #E2A336"
                     />
                   </Suspense>
 
