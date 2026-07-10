@@ -25,7 +25,7 @@ export default function BlogHero() {
                         </h1>
                     </FadeIn>
                     <FadeIn delay={0.2} direction="up">
-                        <p className="text-lg md:text-2xl text-gray-300 leading-relaxed font-light max-w-2xl mx-auto">
+                        <p className="text-lg md:text-2xl text-n-300 leading-relaxed font-light max-w-2xl mx-auto">
                             Expert guides, travel tips, and spiritual resources for a <span className="text-gold font-medium">blessed Umrah journey</span>.
                         </p>
                     </FadeIn>

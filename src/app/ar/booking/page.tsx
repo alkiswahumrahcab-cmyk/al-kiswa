@@ -62,7 +62,7 @@ export default function ArabicBookingPage() {
                 <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 font-sans">
                     احجز <span className="text-gold">رحلتك</span> الآن
                 </h2>
-                <p className="text-slate-400 text-base max-w-xl mx-auto">
+                <p className="text-n-400 text-base max-w-xl mx-auto">
                     نقل خاص وموثوق من مطار جدة إلى مكة المكرمة والمدينة المنورة. أسعار شفافة بدون مفاجآت.
                 </p>
             </div>

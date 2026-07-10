@@ -98,7 +98,7 @@ export default function MeetOurDrivers({ lang = 'en' }: Props) {
                         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-serif">
                             {content.title}
                         </h2>
-                        <p className="text-gray-400 text-lg font-light leading-relaxed" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
+                        <p className="text-n-400 text-lg font-light leading-relaxed" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
                             {content.subtitle}
                         </p>
                     </div>
@@ -128,7 +128,7 @@ export default function MeetOurDrivers({ lang = 'en' }: Props) {
                                     <p className="text-gold/80 mb-6" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>{driver.role}</p>
 
                                     <div className="space-y-3">
-                                        <div className="flex items-center gap-3 text-gray-400 text-sm">
+                                        <div className="flex items-center gap-3 text-n-400 text-sm">
                                             <div className="bg-white/5 p-2 rounded-lg shrink-0">
                                                 <ShieldCheck size={16} className="text-gold" />
                                             </div>
@@ -136,7 +136,7 @@ export default function MeetOurDrivers({ lang = 'en' }: Props) {
                                                 {isAr ? `${driver.experience} ${content.expLabel}` : `${driver.experience} ${content.expLabel}`}
                                             </span>
                                         </div>
-                                        <div className="flex items-center gap-3 text-gray-400 text-sm">
+                                        <div className="flex items-center gap-3 text-n-400 text-sm">
                                             <div className="bg-white/5 p-2 rounded-lg shrink-0">
                                                 <Languages size={16} className="text-gold" />
                                             </div>

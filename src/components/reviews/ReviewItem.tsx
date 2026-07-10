@@ -37,7 +37,7 @@ export default function ReviewItem({ review }: ReviewProps) {
                             <Star
                                 key={i}
                                 size={16}
-                                className={`${i < review.rating ? 'fill-gold text-gold' : 'text-gray-700'} transition-colors duration-300`}
+                                className={`${i < review.rating ? 'fill-gold text-gold' : 'text-n-700'} transition-colors duration-300`}
                             />
                         ))}
                     </div>
@@ -51,7 +51,7 @@ export default function ReviewItem({ review }: ReviewProps) {
 
                 {/* Review Content */}
                 <blockquote className="flex-grow mb-8">
-                    <p className="text-gray-300 group-hover:text-white transition-colors duration-300 leading-relaxed font-sans text-base lg:text-lg font-light">
+                    <p className="text-n-300 group-hover:text-white transition-colors duration-300 leading-relaxed font-sans text-base lg:text-lg font-light">
                         &quot;{review.comment}&quot;
                     </p>
                 </blockquote>
@@ -72,7 +72,7 @@ export default function ReviewItem({ review }: ReviewProps) {
                         <div className="font-bold text-white text-base font-sans tracking-wide group-hover:text-gold transition-colors">
                             {review.author}
                         </div>
-                        <div className="flex items-center gap-2 text-xs text-gray-500 font-medium mt-0.5">
+                        <div className="flex items-center gap-2 text-xs text-n-500 font-medium mt-0.5">
                             <span className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />

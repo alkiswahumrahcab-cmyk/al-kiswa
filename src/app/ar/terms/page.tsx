@@ -6,7 +6,7 @@ import Breadcrumbs from '@/components/common/Breadcrumbs';
 
 export default function TermsPage() {
     return (
-        <div className="bg-charcoal min-h-screen pb-20 relative text-gray-200">
+        <div className="bg-charcoal min-h-screen pb-20 relative text-n-200">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <Hero
@@ -21,10 +21,10 @@ export default function TermsPage() {
                     <div className="bg-neutral-900/90 rounded-3xl shadow-xl p-8 md:p-12 max-w-4xl mx-auto border border-white/10 backdrop-blur-md">
                         <div className="mb-8 pb-8 border-b border-white/10">
                             <h1 className="text-3xl font-bold font-sans text-white mb-2">Terms and Conditions</h1>
-                            <p className="text-gray-400 text-sm">Last Updated: November 2025</p>
+                            <p className="text-n-400 text-sm">Last Updated: November 2025</p>
                         </div>
 
-                        <div className="space-y-8 text-gray-300 leading-relaxed font-light">
+                        <div className="space-y-8 text-n-300 leading-relaxed font-light">
                             <section>
                                 <h2 className="text-xl font-bold text-white mb-4 font-sans">1. Introduction</h2>
                                 <p>

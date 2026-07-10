@@ -43,7 +43,7 @@ export default function AboutHero() {
                         Serving Pilgrims with <br className="hidden md:block" />
                         <span className="text-gold">Sincerity & Excellence</span>
                     </h1>
-                    <p className="text-xl md:text-2xl text-gray-200 font-light max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
+                    <p className="text-xl md:text-2xl text-n-200 font-light max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
                         Your journey of faith deserves comfort, safety, and care.
                     </p>
                 </FadeIn>

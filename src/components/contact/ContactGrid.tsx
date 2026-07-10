@@ -96,8 +96,8 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
                                         <span className="text-[10px] uppercase tracking-wider bg-gold/20 text-gold px-2 py-0.5 rounded-full">Primary</span>
                                     )}
                                 </h3>
-                                <p className="font-medium text-gray-200 mb-1">{card.value}</p>
-                                <p className="text-sm text-gray-500 mb-3">{card.sub}</p>
+                                <p className="font-medium text-n-200 mb-1">{card.value}</p>
+                                <p className="text-sm text-n-500 mb-3">{card.sub}</p>
                                 <a
                                     href={card.action}
                                     target={card.action.startsWith('http') ? "_blank" : "_self"}

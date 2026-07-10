@@ -21,7 +21,7 @@ export default function LanguageSwitcher() {
       aria-label="Select language"
     >
       {/* Globe icon */}
-      <span className="pl-2 text-gray-400">
+      <span className="pl-2 text-n-400">
         <Globe size={12} />
       </span>
 
@@ -35,7 +35,7 @@ export default function LanguageSwitcher() {
         className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
           !isArabic
             ? "bg-gold text-black shadow-md"
-            : "text-gray-400 hover:text-white"
+            : "text-n-400 hover:text-white"
         }`}
       >
         <span>EN</span>
@@ -51,7 +51,7 @@ export default function LanguageSwitcher() {
         className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
           isArabic
             ? "bg-gold text-black shadow-md"
-            : "text-gray-400 hover:text-white"
+            : "text-n-400 hover:text-white"
         }`}
         style={{ fontFamily: "var(--font-arabic, inherit)" }}
       >

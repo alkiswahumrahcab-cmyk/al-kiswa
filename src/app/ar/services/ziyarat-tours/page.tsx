@@ -113,7 +113,7 @@ export default async function ZiyaratToursPage() {
                                 <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white border-l-4 border-gold pl-4">
                                     Makkah Ziyarat Sites
                                 </h2>
-                                <p className="text-gray-300 mb-6 leading-relaxed font-light text-lg">
+                                <p className="text-n-300 mb-6 leading-relaxed font-light text-lg">
                                     Discover the places where Revelation began. Our Makkah tour covers the most significant landmarks outside the Haram.
                                 </p>
                                 <ul className="space-y-4">
@@ -129,7 +129,7 @@ export default async function ZiyaratToursPage() {
                                             </div>
                                             <div>
                                                 <h4 className="font-bold text-white text-lg">{site.name}</h4>
-                                                <p className="text-sm text-gray-400 font-light">{site.desc}</p>
+                                                <p className="text-sm text-n-400 font-light">{site.desc}</p>
                                             </div>
                                         </li>
                                     ))}
@@ -160,7 +160,7 @@ export default async function ZiyaratToursPage() {
                                 <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white border-l-4 border-gold pl-4">
                                     Madinah Ziyarat Sites
                                 </h2>
-                                <p className="text-gray-300 mb-6 leading-relaxed font-light text-lg">
+                                <p className="text-n-300 mb-6 leading-relaxed font-light text-lg">
                                     Feel the peace of the City of the Prophet. Visit the first mosque of Islam and the sites of early battles.
                                 </p>
                                 <ul className="space-y-4">
@@ -176,7 +176,7 @@ export default async function ZiyaratToursPage() {
                                             </div>
                                             <div>
                                                 <h4 className="font-bold text-white text-lg">{site.name}</h4>
-                                                <p className="text-sm text-gray-400 font-light">{site.desc}</p>
+                                                <p className="text-sm text-n-400 font-light">{site.desc}</p>
                                             </div>
                                         </li>
                                     ))}
@@ -209,28 +209,28 @@ export default async function ZiyaratToursPage() {
                                     <Clock size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">No Hasted Visits</h3>
-                                <p className="text-sm text-gray-400 leading-relaxed font-light">Unlike group buses, we wait for you. Travel in our private <Link href="/ar/fleet/gmc-yukon-at4" className="text-gold hover:text-white hover:underline decoration-gold/50">GMC Yukon</Link> or <Link href="/ar/fleet/hyundai-staria" className="text-gold hover:text-white hover:underline decoration-gold/50">Hyundai Staria</Link> and take your time to pray.</p>
+                                <p className="text-sm text-n-400 leading-relaxed font-light">Unlike group buses, we wait for you. Travel in our private <Link href="/ar/fleet/gmc-yukon-at4" className="text-gold hover:text-white hover:underline decoration-gold/50">GMC Yukon</Link> or <Link href="/ar/fleet/hyundai-staria" className="text-gold hover:text-white hover:underline decoration-gold/50">Hyundai Staria</Link> and take your time to pray.</p>
                             </div>
                             <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-gold/30 transition-all hover:bg-white/10 group">
                                 <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                     <BookOpen size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">Historical Context</h3>
-                                <p className="text-sm text-gray-400 leading-relaxed font-light">Our drivers share the history and significance of the locations you visit.</p>
+                                <p className="text-sm text-n-400 leading-relaxed font-light">Our drivers share the history and significance of the locations you visit.</p>
                             </div>
                             <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-gold/30 transition-all hover:bg-white/10 group">
                                 <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                     <Camera size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">Photo Opportunities</h3>
-                                <p className="text-sm text-gray-400 leading-relaxed font-light">Flexibility to stop for photos at scenic points like the mountains surrounding Makkah.</p>
+                                <p className="text-sm text-n-400 leading-relaxed font-light">Flexibility to stop for photos at scenic points like the mountains surrounding Makkah.</p>
                             </div>
                         </div>
                         <div className="mt-16">
                             <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105">
                                 Book Your Private Ziyarat Tour <ArrowRight size={20} className="ml-2" />
                             </Link>
-                            <p className="mt-8 text-sm text-gray-500 font-light">
+                            <p className="mt-8 text-sm text-n-500 font-light">
                                 Need to travel between cities? We also offer <Link href="/ar/services/makkah-madinah-taxi" className="text-gold hover:text-white transition-colors hover:underline decoration-gold/50">Makkah to Madinah Taxi</Link> services.
                             </p>
                         </div>

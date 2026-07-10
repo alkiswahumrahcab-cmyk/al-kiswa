@@ -45,11 +45,11 @@ export default function FAQSection({ lang = 'en' }: Props) {
                                     className={`w-full flex items-center justify-between p-6 ${lang === 'ar' ? 'text-right' : 'text-left'}`}
                                     onClick={() => toggleAccordion(index)}
                                 >
-                                    <span className={`font-semibold text-lg transition-colors font-sans ${activeAccordion === index ? 'text-white' : 'text-gray-300 hover:text-gold'
+                                    <span className={`font-semibold text-lg transition-colors font-sans ${activeAccordion === index ? 'text-white' : 'text-n-300 hover:text-gold'
                                         }`} style={lang === 'ar' ? { fontFamily: 'var(--font-tajawal)' } : {}}>
                                         {faq.question}
                                     </span>
-                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${lang === 'ar' ? 'mr-4' : ''} ${activeAccordion === index ? 'bg-gold text-black rotate-180' : 'bg-white/5 text-gray-500'}`}>
+                                    <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${lang === 'ar' ? 'mr-4' : ''} ${activeAccordion === index ? 'bg-gold text-black rotate-180' : 'bg-white/5 text-n-500'}`}>
                                         <ChevronDown size={20} />
                                     </div>
                                 </button>
@@ -57,7 +57,7 @@ export default function FAQSection({ lang = 'en' }: Props) {
                                     className={`transition-all duration-300 ease-in-out overflow-hidden ${activeAccordion === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                                         }`}
                                 >
-                                    <div className="px-6 pb-6 text-gray-400 leading-relaxed font-light border-t border-white/5" style={lang === 'ar' ? { fontFamily: 'var(--font-tajawal)' } : {}}>
+                                    <div className="px-6 pb-6 text-n-400 leading-relaxed font-light border-t border-white/5" style={lang === 'ar' ? { fontFamily: 'var(--font-tajawal)' } : {}}>
                                         {faq.answer}
                                     </div>
                                 </div>

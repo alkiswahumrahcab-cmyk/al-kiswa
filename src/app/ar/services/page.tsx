@@ -165,14 +165,14 @@ export default function ServicesPage() {
                                                 <div className="h-1.5 w-24 bg-gold rounded-full shadow-[0_0_15px_hsl(var(--gold-glow) / 0.4)]" />
                                             </div>
 
-                                            <p className="text-gray-400 text-lg leading-relaxed mb-8 font-light">
+                                            <p className="text-n-400 text-lg leading-relaxed mb-8 font-light">
                                                 {service.description}
                                             </p>
 
                                             {/* Benefits List */}
                                             <ul className="mb-10 space-y-4">
                                                 {service.features.map((feat, i) => (
-                                                    <li key={i} className="flex items-center gap-4 text-gray-300 font-medium text-lg">
+                                                    <li key={i} className="flex items-center gap-4 text-n-300 font-medium text-lg">
                                                         <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gold/10 text-gold flex items-center justify-center border border-gold/20">
                                                             <Check size={16} strokeWidth={3} />
                                                         </span>
@@ -220,7 +220,7 @@ export default function ServicesPage() {
                                         </div>
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-4 group-hover:text-gold transition-colors">{step.title}</h3>
-                                    <p className="text-gray-400 leading-relaxed max-w-xs">{step.description}</p>
+                                    <p className="text-n-400 leading-relaxed max-w-xs">{step.description}</p>
                                 </div>
                             </FadeIn>
                         ))}

@@ -27,22 +27,22 @@ export default function CheckoutFooter({ contactSettings }: CheckoutFooterProps)
                 </div>
 
                 {/* Policy Triggers */}
-                <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 mb-6 text-xs text-gray-400 font-medium">
+                <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 mb-6 text-xs text-n-400 font-medium">
                     <button onClick={() => setActivePolicy('cancellation')} className="hover:text-gold transition-colors">
                         Cancellation Policy
                     </button>
-                    <span className="text-gray-700 hidden sm:inline">•</span>
+                    <span className="text-n-700 hidden sm:inline">•</span>
                     <button onClick={() => setActivePolicy('privacy')} className="hover:text-gold transition-colors">
                         Privacy Policy
                     </button>
-                    <span className="text-gray-700 hidden sm:inline">•</span>
+                    <span className="text-n-700 hidden sm:inline">•</span>
                     <button onClick={() => setActivePolicy('guide')} className="hover:text-gold transition-colors">
                         Booking Guide
                     </button>
                 </div>
 
                 {/* Copyright */}
-                <div className="text-[11px] text-gray-600">
+                <div className="text-[11px] text-n-600">
                     &copy; {new Date().getFullYear()} Al Kiswah Umrah Transport. All rights reserved.
                 </div>
             </div>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -73,7 +73,7 @@ export default function InteractiveMapSection({ routes }: InteractiveMapSectionP
                         {activeRoute ? (
                             <FloatingRoutePanel route={activeRoute} />
                         ) : (
-                            <div className="h-full flex items-center justify-center text-gray-500 text-sm text-center px-4 font-light">
+                            <div className="h-full flex items-center justify-center text-n-500 text-sm text-center px-4 font-light">
                                 Select a route to view details
                             </div>
                         )}

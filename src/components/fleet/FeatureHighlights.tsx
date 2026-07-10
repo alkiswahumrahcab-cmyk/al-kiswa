@@ -23,7 +23,7 @@ export default function FeatureHighlights() {
                                 <feature.icon size={32} />
                             </div>
                             <h3 className="font-bold font-sans text-xl mb-3 text-white group-hover:text-gold transition-colors">{feature.title}</h3>
-                            <p className="text-gray-400 text-sm leading-relaxed font-light">{feature.desc}</p>
+                            <p className="text-n-400 text-sm leading-relaxed font-light">{feature.desc}</p>
                         </GlassCard>
                     ))}
                 </div>

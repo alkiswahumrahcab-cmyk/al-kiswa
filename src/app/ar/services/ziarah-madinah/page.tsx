@@ -114,7 +114,7 @@ export default async function ZiarahMadinahPage() {
                                 <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white border-r-4 border-gold pr-4">
                                     المعالم المنورة
                                 </h2>
-                                <p className="text-gray-300 mb-8 leading-relaxed font-light text-lg">
+                                <p className="text-n-300 mb-8 leading-relaxed font-light text-lg">
                                     المدينة المنورة مليئة بالتاريخ في كل زاوية. سيأخذك سائقونا إلى أكثر المواقع روحانية.
                                 </p>
                                 <ul className="space-y-6">
@@ -151,7 +151,7 @@ export default async function ZiarahMadinahPage() {
                                             </div>
                                             <div>
                                                 <h3 className="font-bold text-white text-xl mb-2">{site.name}</h3>
-                                                <p className="text-gray-400 font-light leading-relaxed">{site.desc}</p>
+                                                <p className="text-n-400 font-light leading-relaxed">{site.desc}</p>
                                             </div>
                                         </li>
                                     ))}
@@ -189,21 +189,21 @@ export default async function ZiarahMadinahPage() {
                                     <Clock size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">وقت كافٍ للدعاء</h3>
-                                <p className="text-sm text-gray-400 leading-relaxed font-light">نضمن لك وقتاً كافياً في جبل أحد ومسجد قباء للدعاء والصلاة دون استعجال.</p>
+                                <p className="text-sm text-n-400 leading-relaxed font-light">نضمن لك وقتاً كافياً في جبل أحد ومسجد قباء للدعاء والصلاة دون استعجال.</p>
                             </div>
                             <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold/30 transition-all group">
                                 <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                     <Heart size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">سائقون مطلعون</h3>
-                                <p className="text-sm text-gray-400 leading-relaxed font-light">يعرف سائقونا تاريخ وآداب زيارة هذه الأماكن المقدسة.</p>
+                                <p className="text-sm text-n-400 leading-relaxed font-light">يعرف سائقونا تاريخ وآداب زيارة هذه الأماكن المقدسة.</p>
                             </div>
                             <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold/30 transition-all group">
                                 <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                     <ArrowLeft size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">من الباب للباب</h3>
-                                <p className="text-sm text-gray-400 leading-relaxed font-light">نقوم باصطحابك من فندقك في المنطقة المركزية ونعيدك إلى بابه مرة أخرى.</p>
+                                <p className="text-sm text-n-400 leading-relaxed font-light">نقوم باصطحابك من فندقك في المنطقة المركزية ونعيدك إلى بابه مرة أخرى.</p>
                             </div>
                         </div>
                         <div className="mt-16">

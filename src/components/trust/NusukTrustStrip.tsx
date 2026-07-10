@@ -37,7 +37,7 @@ const NusukTrustStrip = () => {
             <div className="container mx-auto px-4 relative z-10">
                 <div className="max-w-3xl mx-auto text-center mb-12">
                     <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Government Verified Transport</h2>
-                    <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+                    <p className="text-n-400 text-sm md:text-base leading-relaxed">
                         All Al Kiswah Umrah Cab vehicles are officially registered on the Nusuk platform — the Ministry of Hajj & Umrah's government-verified system for licensed pilgrim transport in Saudi Arabia.
                     </p>
                 </div>
@@ -50,7 +50,7 @@ const NusukTrustStrip = () => {
                                     {feature.icon}
                                 </div>
                                 <h3 className="text-white font-bold text-lg mb-3">{feature.title}</h3>
-                                <p className="text-gray-400 text-sm leading-relaxed flex-grow">
+                                <p className="text-n-400 text-sm leading-relaxed flex-grow">
                                     {feature.description}
                                 </p>
                             </div>

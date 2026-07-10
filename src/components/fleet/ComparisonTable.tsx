@@ -44,9 +44,9 @@ export default function ComparisonTable() {
                                                 {row.name}
                                             </Link>
                                         </td>
-                                        <td className="p-5 text-gray-300 text-center">{row.seats}</td>
-                                        <td className="p-5 text-gray-300 text-center">{row.luggage}</td>
-                                        <td className="p-5 text-gray-300">{row.bestFor}</td>
+                                        <td className="p-5 text-n-300 text-center">{row.seats}</td>
+                                        <td className="p-5 text-n-300 text-center">{row.luggage}</td>
+                                        <td className="p-5 text-n-300">{row.bestFor}</td>
                                         <td className="p-5 font-bold text-gold text-right">{row.price}</td>
                                     </tr>
                                 ))}

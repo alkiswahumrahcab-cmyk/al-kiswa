@@ -114,7 +114,7 @@ export default async function ZiarahMakkahPage() {
                                 <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white border-r-4 border-gold pr-4">
                                     المواقع المقدسة التي نزورها
                                 </h2>
-                                <p className="text-gray-300 mb-8 leading-relaxed font-light text-lg">
+                                <p className="text-n-300 mb-8 leading-relaxed font-light text-lg">
                                     تم تصميم جولاتنا الخاصة لمنحك الوقت للتأمل. نحن لا نستعجلك. قم بزيارة هذه المواقع المباركة بالسرعة التي تناسبك.
                                 </p>
                                 <ul className="space-y-6">
@@ -151,7 +151,7 @@ export default async function ZiarahMakkahPage() {
                                             </div>
                                             <div>
                                                 <h3 className="font-bold text-white text-xl mb-2">{site.name}</h3>
-                                                <p className="text-gray-400 font-light leading-relaxed">{site.desc}</p>
+                                                <p className="text-n-400 font-light leading-relaxed">{site.desc}</p>
                                             </div>
                                         </li>
                                     ))}
@@ -189,21 +189,21 @@ export default async function ZiarahMakkahPage() {
                                     <Clock size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">توقيت مرن</h3>
-                                <p className="text-sm text-gray-400 leading-relaxed font-light">ابدأ جولتك متى شئت. نوصي بالصباح الباكر (بعد الفجر) لتجنب الحرارة والزحام.</p>
+                                <p className="text-sm text-n-400 leading-relaxed font-light">ابدأ جولتك متى شئت. نوصي بالصباح الباكر (بعد الفجر) لتجنب الحرارة والزحام.</p>
                             </div>
                             <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold/30 transition-all group">
                                 <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                     <Camera size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">توقف للتصوير</h3>
-                                <p className="text-sm text-gray-400 leading-relaxed font-light">خذ وقتك لالتقاط الذكريات في جبل النور وعرفات دون أي ضغط.</p>
+                                <p className="text-sm text-n-400 leading-relaxed font-light">خذ وقتك لالتقاط الذكريات في جبل النور وعرفات دون أي ضغط.</p>
                             </div>
                             <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold/30 transition-all group">
                                 <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                     <ArrowLeft size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">سيارات فاخرة</h3>
-                                <p className="text-sm text-gray-400 leading-relaxed font-light">سافر براحة مكيفة مع أسطولنا الحديث من جي إم سي يوكون أو هيونداي ستاريا.</p>
+                                <p className="text-sm text-n-400 leading-relaxed font-light">سافر براحة مكيفة مع أسطولنا الحديث من جي إم سي يوكون أو هيونداي ستاريا.</p>
                             </div>
                         </div>
                         <div className="mt-16">

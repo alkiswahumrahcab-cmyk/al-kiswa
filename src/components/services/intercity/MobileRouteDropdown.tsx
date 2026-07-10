@@ -29,7 +29,7 @@ export default function MobileRouteDropdown({ routes, activeRouteId, onSelectRou
                 <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-gold">
                     <MapPin size={18} />
                 </div>
-                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-n-500">
                     <ChevronDown size={18} />
                 </div>
             </div>

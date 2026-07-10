@@ -558,7 +558,7 @@ export default function BookingForm() {
                                     <div className="flex justify-between items-center mb-4">
                                         <h3 className="text-gold font-bold">Transfer {index + 1}</h3>
                                         {data.legs.length > 1 && (
-                                            <button onClick={() => removeLeg(index)} className="text-gray-500 hover:text-red-500 transition-colors">
+                                            <button onClick={() => removeLeg(index)} className="text-n-500 hover:text-red-500 transition-colors">
                                                 <Trash2 size={18} />
                                             </button>
                                         )}
@@ -573,10 +573,10 @@ export default function BookingForm() {
                                                 onClick={() => setActiveDropdownIndex(activeDropdownIndex === index ? null : index)}
                                                 className={`w-full flex items-center justify-between pl-8 pr-4 py-4 bg-transparent border-b-2 text-left outline-none transition-colors ${errors[`leg_${index}_route`] ? 'border-red-500' : 'border-white/20 hover:border-gold focus:border-gold'}`}
                                             >
-                                                <span className={`text-base font-medium truncate ${leg.pickup ? 'text-white' : 'text-gray-600'}`}>
+                                                <span className={`text-base font-medium truncate ${leg.pickup ? 'text-white' : 'text-n-600'}`}>
                                                     {currentLabel}
                                                 </span>
-                                                <ChevronDown size={20} className={`text-gray-400 transition-transform ${activeDropdownIndex === index ? 'rotate-180' : ''}`} />
+                                                <ChevronDown size={20} className={`text-n-400 transition-transform ${activeDropdownIndex === index ? 'rotate-180' : ''}`} />
                                             </button>
                                             {errors[`leg_${index}_route`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_route`]}</p>}
                                             
@@ -586,7 +586,7 @@ export default function BookingForm() {
                                                 title="Select Route"
                                             >
                                                 <div className="p-4 border-b border-white/10 relative sticky top-0 bg-[#0B0F19] z-10">
-                                                    <Search size={18} className="absolute left-7 top-1/2 -translate-y-1/2 text-gray-400" />
+                                                    <Search size={18} className="absolute left-7 top-1/2 -translate-y-1/2 text-n-400" />
                                                     <input
                                                         type="text" value={searchStr} onChange={(e) => setRouteSearches(prev => ({ ...prev, [index]: e.target.value }))}
                                                         placeholder="Search city or airport..."
@@ -597,13 +597,13 @@ export default function BookingForm() {
                                                     {filteredRoutes.length > 0 ? filteredRoutes.map((route) => (
                                                         <button
                                                             key={route.id} type="button" onClick={() => selectRoute(index, route)}
-                                                            className="w-full px-6 py-4 text-left hover:bg-gold/10 text-gray-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex flex-col"
+                                                            className="w-full px-6 py-4 text-left hover:bg-gold/10 text-n-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex flex-col"
                                                         >
                                                             <span className="font-semibold text-lg">{route.origin} <span className="text-gold mx-2">→</span> {route.destination}</span>
-                                                            <span className="text-xs text-gray-500 mt-1 uppercase tracking-wider">{route.category || 'Intercity'}</span>
+                                                            <span className="text-xs text-n-500 mt-1 uppercase tracking-wider">{route.category || 'Intercity'}</span>
                                                         </button>
                                                     )) : (
-                                                        <div className="p-6 text-center text-gray-500">No routes found matching your search.</div>
+                                                        <div className="p-6 text-center text-n-500">No routes found matching your search.</div>
                                                     )}
                                                 </div>
                                             </MobileDrawer>
@@ -615,7 +615,7 @@ export default function BookingForm() {
                                                 <div className="p-4 md:p-5 border-b border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-3 bg-[#151515]">
                                                     <div>
                                                         <h4 className="text-white font-bold font-cormorant text-xl md:text-2xl tracking-wide">{ziyarahTour.displayName}</h4>
-                                                        <p className="text-gray-400 text-xs mt-1 font-montserrat">Guided ziyarah by private vehicle — your driver waits at each stop.</p>
+                                                        <p className="text-n-400 text-xs mt-1 font-montserrat">Guided ziyarah by private vehicle — your driver waits at each stop.</p>
                                                     </div>
                                                     <div className="flex items-center gap-1.5 bg-gold/10 text-gold border border-gold/30 px-3 py-1.5 rounded-full font-semibold text-sm shrink-0">
                                                         <Clock size={14} />
@@ -627,7 +627,7 @@ export default function BookingForm() {
                                                     <div className="w-7 h-7 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
                                                         <MapPin size={14} className="text-gold" />
                                                     </div>
-                                                    <p className="text-gray-300 text-xs font-medium">{ZIYARAH_PICKUP_NOTE}</p>
+                                                    <p className="text-n-300 text-xs font-medium">{ZIYARAH_PICKUP_NOTE}</p>
                                                 </div>
 
                                                 <div className="p-4 md:p-5 bg-[#111]">
@@ -641,13 +641,13 @@ export default function BookingForm() {
                                                                 <div>
                                                                     <p className="text-white text-sm font-medium font-montserrat leading-tight">{stop.name}</p>
                                                                     {stop.note && (
-                                                                        <p className="text-gray-400 text-[11px] mt-1 leading-snug">{stop.note}</p>
+                                                                        <p className="text-n-400 text-[11px] mt-1 leading-snug">{stop.note}</p>
                                                                     )}
                                                                 </div>
                                                             </div>
                                                         ))}
                                                     </div>
-                                                    <p className="text-gray-500 text-[11px] text-center mt-4 italic">
+                                                    <p className="text-n-500 text-[11px] text-center mt-4 italic">
                                                         Total trip duration: {ziyarahTour.durationHours} hours. Timings are approximate and may vary with traffic and crowd levels.
                                                     </p>
                                                 </div>
@@ -669,12 +669,12 @@ export default function BookingForm() {
                                                                 onChange={() => updateLeg(index, { routeVariant: 'direct' })}
                                                                 className="peer sr-only"
                                                             />
-                                                            <div className="w-5 h-5 rounded-full border-2 border-gray-400 peer-checked:border-gold transition-colors"></div>
+                                                            <div className="w-5 h-5 rounded-full border-2 border-n-400 peer-checked:border-gold transition-colors"></div>
                                                             <div className="absolute w-2.5 h-2.5 rounded-full bg-gold scale-0 peer-checked:scale-100 transition-transform"></div>
                                                         </div>
                                                         <div>
                                                             <p className="text-white font-medium">Direct Route</p>
-                                                            <p className="text-gray-400 text-sm">No extra charge</p>
+                                                            <p className="text-n-400 text-sm">No extra charge</p>
                                                         </div>
                                                     </label>
                                                     <label className="flex items-start gap-3 cursor-pointer group">
@@ -687,12 +687,12 @@ export default function BookingForm() {
                                                                 onChange={() => updateLeg(index, { routeVariant: 'via_badr' })}
                                                                 className="peer sr-only"
                                                             />
-                                                            <div className="w-5 h-5 rounded-full border-2 border-gray-400 peer-checked:border-gold transition-colors"></div>
+                                                            <div className="w-5 h-5 rounded-full border-2 border-n-400 peer-checked:border-gold transition-colors"></div>
                                                             <div className="absolute w-2.5 h-2.5 rounded-full bg-gold scale-0 peer-checked:scale-100 transition-transform"></div>
                                                         </div>
                                                         <div className="flex-1">
                                                             <p className="text-white font-medium">Via Badr Detour</p>
-                                                            <p className="text-gray-400 text-sm mb-1">Includes Jabal al-Malaika / Battle of Badr ziyarat.</p>
+                                                            <p className="text-n-400 text-sm mb-1">Includes Jabal al-Malaika / Battle of Badr ziyarat.</p>
                                                             {(() => {
                                                                 const activeVehicle = data.selectedVehicles.length > 0 ? data.selectedVehicles[0].vehicleId : null;
                                                                 if (activeVehicle) {
@@ -711,7 +711,7 @@ export default function BookingForm() {
                                         {/* Badr Detour Line Item Breakdown */}
                                         {leg.routeVariant === 'via_badr' && (selectedRoute?.id === '692db09934f15bc89b45a600' || selectedRoute?.name?.toLowerCase() === 'madinah hotel to makkah hotel' || selectedRoute?.name?.toLowerCase() === 'madinah hotel → makkah hotel' || (selectedRoute?.origin?.toLowerCase() === 'madinah hotel' && selectedRoute?.destination?.toLowerCase() === 'makkah hotel')) && (
                                             <div className="md:col-span-2 mt-1 mb-2 px-4 py-3 bg-transparent border border-white/10 rounded-lg flex justify-between items-center text-sm">
-                                                <span className="text-gray-300">Badr detour — Jabal al-Malaika ziyarat</span>
+                                                <span className="text-n-300">Badr detour — Jabal al-Malaika ziyarat</span>
                                                 <span className="text-gold font-bold">
                                                     {(() => {
                                                         const activeVehicle = data.selectedVehicles.length > 0 ? data.selectedVehicles[0].vehicleId : null;
@@ -732,7 +732,7 @@ export default function BookingForm() {
                                                 <div className="flex items-start justify-between gap-4">
                                                     <div>
                                                         <h4 className="text-white font-bold mb-1 font-cormorant text-xl">Include Wadi Jinn</h4>
-                                                        <p className="text-gray-400 text-sm mb-2">Valley of the Jinn — extended ziyarat stop</p>
+                                                        <p className="text-n-400 text-sm mb-2">Valley of the Jinn — extended ziyarat stop</p>
                                                         {(() => {
                                                             const activeVehicle = data.selectedVehicles.length > 0 ? data.selectedVehicles[0].vehicleId : null;
                                                             if (activeVehicle) {
@@ -746,7 +746,7 @@ export default function BookingForm() {
                                                     <button
                                                         type="button"
                                                         onClick={() => updateLeg(index, { includeWadiJinn: !leg.includeWadiJinn })}
-                                                        className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-[#04162B] ${leg.includeWadiJinn ? 'bg-gold' : 'bg-gray-600'}`}
+                                                        className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-[#04162B] ${leg.includeWadiJinn ? 'bg-gold' : 'bg-n-600'}`}
                                                         role="switch"
                                                         aria-checked={leg.includeWadiJinn}
                                                     >
@@ -763,7 +763,7 @@ export default function BookingForm() {
                                         {/* Wadi Jinn Detour Line Item Breakdown */}
                                         {leg.includeWadiJinn && (selectedRoute?.id === '6949b367a41f6410e88ed72e' || selectedRoute?.name?.toLowerCase().includes('madinah ziyarat')) && (
                                             <div className="md:col-span-2 mt-1 mb-2 px-4 py-3 bg-transparent border border-white/10 rounded-lg flex justify-between items-center text-sm">
-                                                <span className="text-gray-300">Wadi Jinn — Valley of the Jinn ziyarat</span>
+                                                <span className="text-n-300">Wadi Jinn — Valley of the Jinn ziyarat</span>
                                                 <span className="text-gold font-bold">
                                                     {(() => {
                                                         const activeVehicle = data.selectedVehicles.length > 0 ? data.selectedVehicles[0].vehicleId : null;
@@ -855,10 +855,10 @@ export default function BookingForm() {
                                                         onClick={() => setActiveTerminalDropdown(activeTerminalDropdown === index ? null : index)}
                                                         className={`w-full flex items-center justify-between pl-8 pr-4 py-4 border-b-2 bg-transparent transition-colors text-left outline-none ${errors.airportTerminal ? 'border-red-500' : 'border-white/20 hover:border-gold focus:border-gold'}`}
                                                     >
-                                                        <span className={`text-base truncate ${data.airportTerminal ? 'text-white' : 'text-gray-400'}`}>
+                                                        <span className={`text-base truncate ${data.airportTerminal ? 'text-white' : 'text-n-400'}`}>
                                                             {data.airportTerminal || 'Select Arrival Terminal'}
                                                         </span>
-                                                        <ChevronDown size={20} className={`text-gray-400 transition-transform ${activeTerminalDropdown === index ? 'rotate-180' : ''}`} />
+                                                        <ChevronDown size={20} className={`text-n-400 transition-transform ${activeTerminalDropdown === index ? 'rotate-180' : ''}`} />
                                                     </button>
                                                     
                                                     <MobileDrawer 
@@ -876,7 +876,7 @@ export default function BookingForm() {
                                                                         if (errors.airportTerminal) setErrors(err => ({ ...err, airportTerminal: '' }));
                                                                         setActiveTerminalDropdown(null);
                                                                     }}
-                                                                    className="w-full px-6 py-4 text-left hover:bg-gold/10 text-gray-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex items-center justify-between"
+                                                                    className="w-full px-6 py-4 text-left hover:bg-gold/10 text-n-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex items-center justify-between"
                                                                 >
                                                                     <span className="font-medium text-lg">{terminal}</span>
                                                                     {data.airportTerminal === terminal && <div className="w-2 h-2 rounded-full bg-gold" />}
@@ -916,7 +916,7 @@ export default function BookingForm() {
                                                     onChange={(e) => updateLeg(index, { hours: parseInt(e.target.value) || undefined })}
                                                     className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 border-white/20 focus:border-gold text-white outline-none transition-colors placeholder-gray-600"
                                                 />
-                                                <p className="text-gray-400 text-xs mt-1 absolute pl-8">Enter number of hours (e.g., 3)</p>
+                                                <p className="text-n-400 text-xs mt-1 absolute pl-8">Enter number of hours (e.g., 3)</p>
                                             </div>
                                         )}
                                     </div>
@@ -937,8 +937,8 @@ export default function BookingForm() {
                 {/* 2. VEHICLE SELECTION */}
                 <section ref={vehicleSectionRef} className={`transition-all duration-500 ${!data.legs.every(l => l.routeId) ? 'opacity-30 pointer-events-none' : activeSection !== 'vehicle' && (data.selectedVehicles && data.selectedVehicles.length > 0) ? 'opacity-60 hover:opacity-100' : 'opacity-100'}`}>
                     <div className="flex items-center gap-3 mb-6">
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${data.legs.every(l => l.routeId) ? 'bg-gold text-black' : 'bg-white/10 text-gray-500'}`}>2</div>
-                        <h2 className={`text-xl md:text-2xl font-bold ${data.legs.every(l => l.routeId) ? 'text-white' : 'text-gray-500'}`}>Select your vehicle</h2>
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${data.legs.every(l => l.routeId) ? 'bg-gold text-black' : 'bg-white/10 text-n-500'}`}>2</div>
+                        <h2 className={`text-xl md:text-2xl font-bold ${data.legs.every(l => l.routeId) ? 'text-white' : 'text-n-500'}`}>Select your vehicle</h2>
                     </div>
 
                     <div className="pl-0 md:pl-11 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
@@ -980,7 +980,7 @@ export default function BookingForm() {
                                             <div className="text-right">
                                                 {Number(dispPrice.amount) > 0 ? (
                                                     <>
-                                                        <span className="text-sm text-gray-400">Total</span>
+                                                        <span className="text-sm text-n-400">Total</span>
                                                         <p className={`text-lg font-bold text-white ${isLoading ? 'animate-pulse text-gold/70' : ''}`}>
                                                             {currency === 'USD' ? '$' : ''}{dispPrice.amount}
                                                             {currency === 'SAR' ? ' SAR' : ''}
@@ -988,7 +988,7 @@ export default function BookingForm() {
                                                     </>
                                                 ) : (
                                                     <>
-                                                        <span className="text-sm text-gray-400">Status</span>
+                                                        <span className="text-sm text-n-400">Status</span>
                                                         <p className="text-sm font-bold text-red-400 uppercase tracking-wider mt-1">Not Available</p>
                                                     </>
                                                 )}
@@ -996,14 +996,14 @@ export default function BookingForm() {
                                         )}
                                     </div>
                                     
-                                    <div className="flex flex-wrap gap-3 text-xs text-gray-400">
+                                    <div className="flex flex-wrap gap-3 text-xs text-n-400">
                                         <span className="flex items-center gap-1"><Users size={14} /> {vehicle.capacity}</span>
                                         <span className="flex items-center gap-1"><Briefcase size={14} /> {vehicle.luggage}</span>
                                     </div>
                                     
                                     {dispPrice && Number(dispPrice.amount) > 0 && data.legs.length > 1 && (
                                         <div className="mt-4 pt-3 border-t border-white/10 space-y-2">
-                                            <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Price Breakdown</p>
+                                            <p className="text-xs text-n-500 uppercase tracking-wider mb-1">Price Breakdown</p>
                                             {data.legs.map((leg, idx) => {
                                                 const legSAR = getLegPrice(leg, vehicle.id);
                                                 const legUSD = getLegPriceUSD(leg, vehicle.id) || 0;
@@ -1018,8 +1018,8 @@ export default function BookingForm() {
 
                                                 return (
                                                     <div key={idx} className="flex justify-between items-center text-xs">
-                                                        <span className="text-gray-400 truncate pr-2 max-w-[75%]" title={leg.pickup && leg.dropoff ? `${leg.pickup} → ${leg.dropoff}` : routeName}>{routeName}</span>
-                                                        <span className="text-gray-300 font-medium whitespace-nowrap">
+                                                        <span className="text-n-400 truncate pr-2 max-w-[75%]" title={leg.pickup && leg.dropoff ? `${leg.pickup} → ${leg.dropoff}` : routeName}>{routeName}</span>
+                                                        <span className="text-n-300 font-medium whitespace-nowrap">
                                                             {currency === 'USD' ? '$' : ''}{legDisp.amount} {currency === 'SAR' ? 'SAR' : ''}
                                                         </span>
                                                     </div>
@@ -1036,11 +1036,11 @@ export default function BookingForm() {
                                     
                                     {dispPrice && Number(dispPrice.amount) > 0 && (
                                         <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
-                                            <span className="text-sm font-medium text-gray-300">Quantity</span>
+                                            <span className="text-sm font-medium text-n-300">Quantity</span>
                                             <div className="flex items-center gap-3 bg-white/5 rounded-lg p-1 border border-white/10">
                                                 <button 
                                                     onClick={(e) => { e.stopPropagation(); updateVehicleQuantity(vehicle.id, selectedCount - 1); }}
-                                                    className={`w-8 h-8 rounded flex items-center justify-center transition-colors ${selectedCount > 0 ? 'bg-white/10 hover:bg-white/20 text-white' : 'text-gray-600 cursor-not-allowed'}`}
+                                                    className={`w-8 h-8 rounded flex items-center justify-center transition-colors ${selectedCount > 0 ? 'bg-white/10 hover:bg-white/20 text-white' : 'text-n-600 cursor-not-allowed'}`}
                                                     disabled={selectedCount === 0}
                                                 >
                                                     <Minus size={16} />
@@ -1065,8 +1065,8 @@ export default function BookingForm() {
                 {/* 3. TRIP DETAILS */}
                 <section ref={detailsSectionRef} className={`transition-all duration-500 ${(!data.selectedVehicles || data.selectedVehicles.length === 0) ? 'opacity-30 pointer-events-none' : 'opacity-100'}`}>
                     <div className="flex items-center gap-3 mb-6">
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${(data.selectedVehicles && data.selectedVehicles.length > 0) ? 'bg-gold text-black' : 'bg-white/10 text-gray-500'}`}>3</div>
-                        <h2 className={`text-xl md:text-2xl font-bold ${(data.selectedVehicles && data.selectedVehicles.length > 0) ? 'text-white' : 'text-gray-500'}`}>Guest Details</h2>
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${(data.selectedVehicles && data.selectedVehicles.length > 0) ? 'bg-gold text-black' : 'bg-white/10 text-n-500'}`}>3</div>
+                        <h2 className={`text-xl md:text-2xl font-bold ${(data.selectedVehicles && data.selectedVehicles.length > 0) ? 'text-white' : 'text-n-500'}`}>Guest Details</h2>
                     </div>
 
                     <div className="pl-0 md:pl-11 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
@@ -1074,7 +1074,7 @@ export default function BookingForm() {
                         <div className="relative md:col-span-2 lg:col-span-1">
                             <Users className="absolute left-0 top-4 text-gold" size={20} />
                             <div className="flex items-center justify-between w-full pl-8 pr-4 py-3 bg-transparent border-b-2 border-white/20">
-                                <span className="text-gray-400">Number of Passengers</span>
+                                <span className="text-n-400">Number of Passengers</span>
                                 <div className="flex items-center gap-4">
                                     <button 
                                         type="button" 
@@ -1099,7 +1099,7 @@ export default function BookingForm() {
                         <div className="relative md:col-span-2 lg:col-span-1">
                             <Baby className="absolute left-0 top-4 text-gold" size={20} />
                             <div className="flex items-center justify-between w-full pl-8 pr-4 py-3 bg-transparent border-b-2 border-white/20">
-                                <span className="text-gray-400">Child Seat Required?</span>
+                                <span className="text-n-400">Child Seat Required?</span>
                                 <button
                                     type="button"
                                     onClick={() => updateData({ childSeats: !data.childSeats })}
@@ -1159,14 +1159,14 @@ export default function BookingForm() {
                                     ${errors.email ? 'border-red-500' : 'border-white/20 focus:border-gold'}`}
                             />
                             {errors.email && <p className="text-red-500 text-xs mt-1 absolute">{errors.email}</p>}
-                            <p className="text-gray-400 text-xs mt-2 pl-8">We will send a confirmation mail to this email address.</p>
+                            <p className="text-n-400 text-xs mt-2 pl-8">We will send a confirmation mail to this email address.</p>
                         </div>
 
                         {/* Visa Type */}
                         <div className="md:col-span-2 mt-4 relative">
                             <Briefcase className="absolute left-0 top-4 text-gold" size={20} />
                             <div className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors border-white/20">
-                                <span className="text-gray-400 block mb-3">Visa Type *</span>
+                                <span className="text-n-400 block mb-3">Visa Type *</span>
                                 <div className="flex flex-wrap gap-4">
                                     {VISA_TYPES.map(vt => (
                                         <label key={vt.value} className="flex items-center gap-2 cursor-pointer">
@@ -1195,7 +1195,7 @@ export default function BookingForm() {
                                     />
                                 )}
                             </div>
-                            <p className="text-gray-400 text-xs mt-2 pl-8">Helps our team prepare the right route and documents for your trip.</p>
+                            <p className="text-n-400 text-xs mt-2 pl-8">Helps our team prepare the right route and documents for your trip.</p>
                             {errors.visaType && <p className="text-red-500 text-xs mt-1 absolute pl-8">{errors.visaType}</p>}
                         </div>
 

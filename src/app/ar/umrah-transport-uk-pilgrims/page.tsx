@@ -43,7 +43,7 @@ export default function UKPilgrimsArabicPage() {
             مواصلات العمرة<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-amber-400">للحجاج من بريطانيا</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-n-300 max-w-2xl mx-auto leading-relaxed">
             من مطار جدة إلى الحرم — نقل خاص، موثوق ومريح. في خدمة الحجاج من لندن، برمنغهام، مانشستر وعموم بريطانيا.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
@@ -60,7 +60,7 @@ export default function UKPilgrimsArabicPage() {
           {features.map((f, i) => (
             <div key={i} className="flex items-center gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
               <CheckCircle className="text-gold shrink-0" size={20} />
-              <span className="text-gray-200">{f}</span>
+              <span className="text-n-200">{f}</span>
             </div>
           ))}
         </div>
@@ -77,7 +77,7 @@ export default function UKPilgrimsArabicPage() {
               <div key={i} className="flex items-center justify-between p-4 bg-black/30 rounded-xl border border-white/5">
                 <div className="flex items-center gap-2 text-sm">
                   <MapPin size={14} className="text-gold" />
-                  <span className="text-gray-300">{route.from} ← {route.to}</span>
+                  <span className="text-n-300">{route.from} ← {route.to}</span>
                 </div>
                 <span className="text-gold font-bold text-sm" dir="ltr">{route.price}</span>
               </div>
@@ -87,7 +87,7 @@ export default function UKPilgrimsArabicPage() {
 
         <div className="text-center bg-gradient-to-r from-gold/10 to-amber-500/10 rounded-2xl border border-gold/30 p-10">
           <h2 className="text-2xl font-bold mb-3">هل أنت مستعد لحجز نقلك؟</h2>
-          <p className="text-gray-400 mb-6">تواصل معنا عبر واتساب — وسنرد عليك باللغتين الإنجليزية أو العربية.</p>
+          <p className="text-n-400 mb-6">تواصل معنا عبر واتساب — وسنرد عليك باللغتين الإنجليزية أو العربية.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/ar/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform text-lg">
               احجز رحلتك

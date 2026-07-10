@@ -51,7 +51,7 @@ export default function InstantPriceCalculator() {
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white mb-6">
                             Plan Your <span className="text-gold">Royal Journey</span>
                         </h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light leading-relaxed">
+                        <p className="text-n-400 max-w-2xl mx-auto text-lg font-light leading-relaxed">
                             Get an instant quote for your spiritual journey. Transparent pricing, premium vehicles.
                         </p>
                     </div>
@@ -98,7 +98,7 @@ export default function InstantPriceCalculator() {
                             <div className="lg:col-span-5">
                                 <div className="glass-panel p-6 sticky top-24">
                                     <div className="mb-6 text-center">
-                                        <span className="text-gray-500 text-xs font-medium uppercase tracking-widest block mb-1">Total Estimate</span>
+                                        <span className="text-n-500 text-xs font-medium uppercase tracking-widest block mb-1">Total Estimate</span>
                                         <div className="flex items-center justify-center gap-1.5 text-white">
                                             <span className="text-lg text-gold font-medium">SAR</span>
                                             <span className="text-5xl font-bold tracking-tight">
@@ -109,15 +109,15 @@ export default function InstantPriceCalculator() {
 
                                     <div className="space-y-3 mb-6">
                                         <div className="flex justify-between text-sm py-2 border-b border-white/5">
-                                            <span className="text-gray-500">Distance</span>
-                                            <span className="text-gray-300 font-medium">{currentRoute?.distance || '-'}</span>
+                                            <span className="text-n-500">Distance</span>
+                                            <span className="text-n-300 font-medium">{currentRoute?.distance || '-'}</span>
                                         </div>
                                         <div className="flex justify-between text-sm py-2 border-b border-white/5">
-                                            <span className="text-gray-500">Duration</span>
-                                            <span className="text-gray-300 font-medium">{currentRoute?.time || '-'}</span>
+                                            <span className="text-n-500">Duration</span>
+                                            <span className="text-n-300 font-medium">{currentRoute?.time || '-'}</span>
                                         </div>
                                         <div className="flex justify-between text-sm py-2 border-b border-white/5">
-                                            <span className="text-gray-500">Vehicle</span>
+                                            <span className="text-n-500">Vehicle</span>
                                             <span className="text-gold font-medium">{currentVehicle?.name || '-'}</span>
                                         </div>
                                     </div>
@@ -128,7 +128,7 @@ export default function InstantPriceCalculator() {
                                     >
                                         Book Now
                                     </Link>
-                                    <p className="text-center text-gray-600 text-[10px] mt-3 mb-4">
+                                    <p className="text-center text-n-600 text-[10px] mt-3 mb-4">
                                         All taxes included. No hidden fees.
                                     </p>
                                     <SeasonalPricingNote />

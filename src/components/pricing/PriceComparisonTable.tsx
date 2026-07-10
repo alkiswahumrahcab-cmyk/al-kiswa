@@ -93,7 +93,7 @@ export default function PriceComparisonTable() {
                             We Supply Kiwi Taxi.{' '}
                             <span className="text-gold">Book From Us Directly.</span>
                         </h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+                        <p className="text-n-400 max-w-2xl mx-auto text-lg">
                             Al Kiswah provides the actual transport for platforms like Kiwi Taxi and Booking.com.
                             Those platforms add <strong className="text-red-400">20–30% commission</strong> before showing customers.
                             Book direct — pay the operator price.
@@ -106,14 +106,14 @@ export default function PriceComparisonTable() {
                             <Check size={20} className="text-gold shrink-0" />
                             <div>
                                 <p className="text-gold font-bold text-sm">Al Kiswah Direct Price (USD)</p>
-                                <p className="text-gray-400 text-xs">Book at alkiswahumrahtransport.com</p>
+                                <p className="text-n-400 text-xs">Book at alkiswahumrahtransport.com</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-3 bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">
                             <X size={20} className="text-red-400 shrink-0" />
                             <div>
                                 <p className="text-red-400 font-bold text-sm">Kiwi / Platform Price (USD)</p>
-                                <p className="text-gray-400 text-xs">Same car, more expensive</p>
+                                <p className="text-n-400 text-xs">Same car, more expensive</p>
                             </div>
                         </div>
                     </div>
@@ -150,10 +150,10 @@ export default function PriceComparisonTable() {
                                             <div>
                                                 <h3 className="text-white font-bold flex items-center gap-2">
                                                     {route.origin}
-                                                    <ArrowRight size={14} className="text-gray-500" />
+                                                    <ArrowRight size={14} className="text-n-500" />
                                                     {route.destination}
                                                 </h3>
-                                                <p className="text-gray-500 text-sm">{route.distance}</p>
+                                                <p className="text-n-500 text-sm">{route.distance}</p>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-6 shrink-0">
@@ -161,7 +161,7 @@ export default function PriceComparisonTable() {
                                                 <span className="text-gold font-black">
                                                     from ${lowestOurs}
                                                 </span>
-                                                <span className="text-gray-600 line-through text-xs">
+                                                <span className="text-n-600 line-through text-xs">
                                                     ${lowestKiwi}
                                                 </span>
                                                 <span className="bg-gold/15 text-gold text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
@@ -170,7 +170,7 @@ export default function PriceComparisonTable() {
                                                 </span>
                                             </div>
                                             <div className={`w-5 h-5 border border-white/20 rounded-full flex items-center justify-center transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>
-                                                <span className="text-gray-400 text-lg leading-none">+</span>
+                                                <span className="text-n-400 text-lg leading-none">+</span>
                                             </div>
                                         </div>
                                     </button>
@@ -182,7 +182,7 @@ export default function PriceComparisonTable() {
                                                 <table className="w-full text-sm">
                                                     <thead>
                                                         <tr className="border-b border-white/8 bg-black/30">
-                                                            <th className="text-left px-4 py-3 text-gray-400 font-medium">Vehicle Class</th>
+                                                            <th className="text-left px-4 py-3 text-n-400 font-medium">Vehicle Class</th>
                                                             <th className="text-center px-4 py-3 text-gold font-bold">Direct (Us)</th>
                                                             <th className="text-center px-4 py-3 text-red-400 font-medium">Via Platform</th>
                                                             <th className="text-center px-4 py-3 text-gold font-medium hidden md:table-cell">You Save</th>
@@ -197,7 +197,7 @@ export default function PriceComparisonTable() {
                                                                     key={vi}
                                                                     className={`border-b border-white/5 last:border-0 ${vi % 2 === 0 ? 'bg-white/2' : ''}`}
                                                                 >
-                                                                    <td className="px-4 py-3 text-gray-300">{v.label}</td>
+                                                                    <td className="px-4 py-3 text-n-300">{v.label}</td>
                                                                     <td className="px-4 py-3 text-center">
                                                                         <span className="text-gold font-black text-base">${v.ourPrice}</span>
                                                                     </td>
@@ -238,7 +238,7 @@ export default function PriceComparisonTable() {
                     </div>
 
                     {/* Bottom note */}
-                    <p className="text-center text-xs text-gray-600 mt-8 max-w-xl mx-auto">
+                    <p className="text-center text-xs text-n-600 mt-8 max-w-xl mx-auto">
                         Platform prices shown are approximate estimates based on standard commission rates (20–30%).
                         Al Kiswah direct prices are guaranteed fixed rates inclusive of all taxes and fees.
                     </p>

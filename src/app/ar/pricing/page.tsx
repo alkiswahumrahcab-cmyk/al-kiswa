@@ -77,7 +77,7 @@ export default function PricingPage() {
                     <FadeIn>
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold font-sans text-white mb-6">Popular Routes from <span className="text-gold">Starting Rates</span></h2>
-                            <p className="text-gray-400 max-w-2xl mx-auto">
+                            <p className="text-n-400 max-w-2xl mx-auto">
                                 Rates shown are for standard sedan booking. Upgrade options for GMC Yukon and Staria are available during booking.
                             </p>
                         </div>
@@ -96,28 +96,28 @@ export default function PricingPage() {
                                 <Shield size={32} />
                             </div>
                             <h4 className="font-bold text-white">Fixed Rates</h4>
-                            <p className="text-xs text-gray-400">Price locked at booking</p>
+                            <p className="text-xs text-n-400">Price locked at booking</p>
                         </div>
                         <div className="flex flex-col items-center gap-4">
                             <div className="p-4 rounded-full bg-gold/10 text-gold mb-2">
                                 <Banknote size={32} />
                             </div>
                             <h4 className="font-bold text-white">Pay Later</h4>
-                            <p className="text-xs text-gray-400">Cash to driver accepted</p>
+                            <p className="text-xs text-n-400">Cash to driver accepted</p>
                         </div>
                         <div className="flex flex-col items-center gap-4">
                             <div className="p-4 rounded-full bg-gold/10 text-gold mb-2">
                                 <CreditCard size={32} />
                             </div>
                             <h4 className="font-bold text-white">Secure Online</h4>
-                            <p className="text-xs text-gray-400">All cards supported</p>
+                            <p className="text-xs text-n-400">All cards supported</p>
                         </div>
                         <div className="flex flex-col items-center gap-4">
                             <div className="p-4 rounded-full bg-gold/10 text-gold mb-2">
                                 <AlertCircle size={32} />
                             </div>
                             <h4 className="font-bold text-white">Free Cancel</h4>
-                            <p className="text-xs text-gray-400">Up to 24h before trip</p>
+                            <p className="text-xs text-n-400">Up to 24h before trip</p>
                         </div>
                     </div>
                 </div>
@@ -133,7 +133,7 @@ export default function PricingPage() {
                                 {vehicles.map((v, i) => (
                                     <div key={i} className="flex flex-col md:flex-row justify-between items-center bg-black/40 p-4 rounded-xl border border-white/5 gap-4">
                                         <div className="flex items-center gap-4">
-                                            <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-gray-400">
+                                            <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-n-400">
                                                 <span className="font-bold text-lg">{i + 1}</span>
                                             </div>
                                             <div>
@@ -141,14 +141,14 @@ export default function PricingPage() {
                                                     {v.name}
                                                     {v.badge && <span className="bg-gold text-black text-[10px] px-2 py-0.5 rounded-full font-bold">{v.badge}</span>}
                                                 </h4>
-                                                <p className="text-gray-500 text-sm">{v.capacity} • {v.bags}</p>
+                                                <p className="text-n-500 text-sm">{v.capacity} • {v.bags}</p>
                                             </div>
                                         </div>
                                         <div className="text-right">
                                             {i === 0 ? (
                                                 <span className="text-gold font-bold">Standard Rate</span>
                                             ) : (
-                                                <span className="text-gray-400 font-light">+ {i === 1 ? '50-100' : '150-200'} SAR approx.</span>
+                                                <span className="text-n-400 font-light">+ {i === 1 ? '50-100' : '150-200'} SAR approx.</span>
                                             )}
                                         </div>
                                     </div>

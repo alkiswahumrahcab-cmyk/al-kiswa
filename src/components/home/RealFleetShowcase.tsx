@@ -44,7 +44,7 @@ export default function RealFleetShowcase() {
                                 Real Trips, <span className="text-gold">Real Moments</span>
                             </h2>
                         </div>
-                        <p className="text-gray-400 max-w-md text-sm md:text-base border-l-2 border-gold/30 pl-4">
+                        <p className="text-n-400 max-w-md text-sm md:text-base border-l-2 border-gold/30 pl-4">
                             See our fleet in action across the Holy Cities. We don't just use stock photos; we are on the ground serving legitimate pilgrims every day.
                         </p>
                     </div>

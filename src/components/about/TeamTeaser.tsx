@@ -13,7 +13,7 @@ export default function TeamTeaser() {
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-sans">
                         Dedicated Professionals at Your Service
                     </h2>
-                    <p className="max-w-2xl mx-auto text-lg text-gray-400 mb-12 leading-relaxed font-light">
+                    <p className="max-w-2xl mx-auto text-lg text-n-400 mb-12 leading-relaxed font-light">
                         We take pride in our team of <strong className="text-white">licensed, multilingual, and respectful professionals</strong> who ensure your journey is safe and comfortable.
                     </p>
                 </FadeIn>

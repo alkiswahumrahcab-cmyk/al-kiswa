@@ -164,7 +164,7 @@ export default function AirportStylizedCanvas({ routes, activeRouteId, hoveredRo
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-gold"></span>
                 </span>
-                <span className="text-xs text-gray-300 font-medium tracking-wide">Live Traffic</span>
+                <span className="text-xs text-n-300 font-medium tracking-wide">Live Traffic</span>
             </div>
         </div>
     );

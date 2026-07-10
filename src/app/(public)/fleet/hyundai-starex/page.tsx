@@ -98,7 +98,7 @@ export default async function HyundaiStarexPage() {
             />
 
             {/* Vehicle Highlights */}
-            <section className="py-16 bg-white dark:bg-slate-900">
+            <section className="py-16 bg-white dark:bg-n-900">
                 <div className="container mx-auto px-4">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
@@ -113,10 +113,10 @@ export default async function HyundaiStarexPage() {
                             </div>
                         </div>
                         <div>
-                            <h2 className="text-3xl font-bold mb-6 font-playfair text-slate-800 dark:text-slate-100">
+                            <h2 className="text-3xl font-bold mb-6 font-playfair text-n-800 dark:text-n-100">
                                 Why Book Hyundai Starex for Makkah Travel?
                             </h2>
-                            <p className="text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+                            <p className="text-n-600 dark:text-n-300 mb-6 leading-relaxed">
                                 The Hyundai H1 (Starex) is the top choice for families performing Umrah. It offers excellent value for trips from <Link href="/services/jeddah-airport-transfer" className="text-teal-600 hover:underline">Jeddah Airport</Link> to Makkah and
                                 provides a comfortable ride for Ziyarat tours in the Holy Cities.
                             </p>
@@ -125,40 +125,40 @@ export default async function HyundaiStarexPage() {
                                 <h3 className="font-bold text-teal-800 dark:text-teal-400 mb-1 flex items-center gap-2">
                                     <Star size={18} /> Who Should Choose This Vehicle?
                                 </h3>
-                                <p className="text-sm text-slate-700 dark:text-slate-300">
+                                <p className="text-sm text-n-700 dark:text-n-300">
                                     Best for budget-conscious families and medium-sized groups (up to 7 passengers) who need more luggage space than a sedan but want a more affordable option than the Staria or Yukon.
                                 </p>
                             </div>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Users className="text-teal-500" size={20} /> 7 Passengers
                                     </div>
-                                    <p className="text-sm text-slate-500">Ample room for full families</p>
+                                    <p className="text-sm text-n-500">Ample room for full families</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Briefcase className="text-teal-500" size={20} /> 6 Suitcases
                                     </div>
-                                    <p className="text-sm text-slate-500">Large rear cargo capacity</p>
+                                    <p className="text-sm text-n-500">Large rear cargo capacity</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <LayoutGrid className="text-teal-500" size={20} /> High Roof
                                     </div>
-                                    <p className="text-sm text-slate-500">Easy movement inside cabin</p>
+                                    <p className="text-sm text-n-500">Easy movement inside cabin</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Wifi className="text-teal-500" size={20} /> Dual AC
                                     </div>
-                                    <p className="text-sm text-slate-500">Dedicated vents for rear seats</p>
+                                    <p className="text-sm text-n-500">Dedicated vents for rear seats</p>
                                 </div>
                             </div>
 
                             <div className="mt-10">
-                                <Link href="/booking" className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-teal-500/20">
+                                <Link href="/booking" className="inline-flex items-center gap-2 bg-n-900 text-white hover:bg-n-800 dark:bg-white dark:text-n-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-teal-500/20">
                                     Book Hyundai H1 Now <ArrowRight size={20} />
                                 </Link>
                             </div>
@@ -168,36 +168,36 @@ export default async function HyundaiStarexPage() {
             </section>
 
             {/* Detailed Specifications */}
-            <section className="py-12 bg-slate-50 dark:bg-slate-950">
+            <section className="py-12 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-slate-900 dark:text-white">Technical Specifications</h2>
+                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-n-900 dark:text-white">Technical Specifications</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Engine & Power</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">2.4L MPi</p>
-                            <p className="text-sm text-slate-400">Reliable Performance</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Engine & Power</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">2.4L MPi</p>
+                            <p className="text-sm text-n-400">Reliable Performance</p>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Climate Control</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">Dual AC System</p>
-                            <p className="text-sm text-slate-400">Front & Rear Control</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Climate Control</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">Dual AC System</p>
+                            <p className="text-sm text-n-400">Front & Rear Control</p>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Space Layout</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">Swivel Seats</p>
-                            <p className="text-sm text-slate-400">Flexible Configuration</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Space Layout</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">Swivel Seats</p>
+                            <p className="text-sm text-n-400">Flexible Configuration</p>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Convenience</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">Dual Sliding Doors</p>
-                            <p className="text-sm text-slate-400">Easy Access</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Convenience</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">Dual Sliding Doors</p>
+                            <p className="text-sm text-n-400">Easy Access</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* 360 Interior Preview (Placeholder) */}
-            <section className="py-16 bg-slate-900 text-white overflow-hidden relative">
+            <section className="py-16 bg-n-900 text-white overflow-hidden relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <span className="text-teal-500 font-bold tracking-widest uppercase text-sm mb-4 block">Budget Friendly Comfort</span>
@@ -208,19 +208,19 @@ export default async function HyundaiStarexPage() {
                             imageUrl="/images/fleet/camry-interior-360.webp"
                             title="Hyundai H1 Starex Interior"
                         /> */}
-                        <div className="w-full h-[400px] flex items-center justify-center bg-slate-800 rounded-2xl border border-slate-700">
+                        <div className="w-full h-[400px] flex items-center justify-center bg-n-800 rounded-2xl border border-n-700">
                             <div className="text-center">
                                 <h3 className="text-2xl font-bold text-white mb-2">360° View Coming Soon</h3>
-                                <p className="text-slate-400">We will upload the interior view later.</p>
+                                <p className="text-n-400">We will upload the interior view later.</p>
                             </div>
                         </div>
                     </div>
-                    <p className="text-slate-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
+                    <p className="text-n-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
                 </div>
             </section>
 
             {/* Popular Routes */}
-            <section className="py-16 bg-slate-50 dark:bg-slate-950">
+            <section className="py-16 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl font-bold text-center mb-12 font-playfair">Popular Routes for Hyundai Starex</h2>
                     <div className="grid md:grid-cols-3 gap-8">
@@ -244,14 +244,14 @@ export default async function HyundaiStarexPage() {
                                 href: "/services/ziyarat-tours"
                             }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-md border-t-4 border-teal-500 transition-all hover:-translate-y-1">
+                            <div key={idx} className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-md border-t-4 border-teal-500 transition-all hover:-translate-y-1">
                                 <item.icon className="w-10 h-10 text-teal-500 mb-4" />
-                                <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">
+                                <h3 className="text-xl font-bold mb-2 text-n-800 dark:text-white">
                                     <Link href={item.href} className="hover:text-teal-600 transition-colors">
                                         {item.title}
                                     </Link>
                                 </h3>
-                                <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
+                                <p className="text-n-600 dark:text-n-400">{item.desc}</p>
                             </div>
                         ))}
                     </div>

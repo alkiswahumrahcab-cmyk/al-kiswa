@@ -68,11 +68,11 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
             <div className="flex justify-between items-center">
                 <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-white">Select Your Fleet</h2>
-                    <p className="text-gray-400 mt-1 text-sm">Tap a vehicle to select. Add multiple if needed.</p>
+                    <p className="text-n-400 mt-1 text-sm">Tap a vehicle to select. Add multiple if needed.</p>
                 </div>
                 <button
                     onClick={onBack}
-                    className="flex items-center gap-1.5 text-gray-400 hover:text-white font-medium transition-colors text-sm p-2 min-h-[44px]"
+                    className="flex items-center gap-1.5 text-n-400 hover:text-white font-medium transition-colors text-sm p-2 min-h-[44px]"
                 >
                     <ChevronLeft size={18} /> Back
                 </button>
@@ -118,7 +118,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                             sizes="112px"
                                         />
                                     ) : (
-                                        <Users size={28} className="text-gray-500" />
+                                        <Users size={28} className="text-n-500" />
                                     )}
                                     {/* Badges */}
                                     {isFamilyFriendly && (
@@ -147,10 +147,10 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                         )}
                                     </div>
                                     <div className="flex items-center gap-2 mt-1.5 flex-wrap">
-                                        <span className="flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg px-2 py-1 text-[10px] text-gray-300 font-bold">
+                                        <span className="flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg px-2 py-1 text-[10px] text-n-300 font-bold">
                                             <Users size={10} className="text-gold" /> {vehicle.capacity} pax
                                         </span>
-                                        <span className="flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg px-2 py-1 text-[10px] text-gray-300 font-bold">
+                                        <span className="flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg px-2 py-1 text-[10px] text-n-300 font-bold">
                                             <Briefcase size={10} className="text-gold" /> {vehicle.luggage} bags
                                         </span>
                                     </div>
@@ -242,7 +242,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                             transition={{ duration: 0.4 }}
                                         />
                                     ) : (
-                                        <Users size={64} className="text-gray-700" />
+                                        <Users size={64} className="text-n-700" />
                                     )}
                                 </div>
                                 <div className="p-5 flex-1 flex flex-col justify-between bg-black/40">
@@ -251,11 +251,11 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                             {vehicle.name}
                                         </h3>
                                         <div className="flex items-center gap-2">
-                                            <div className="flex items-center gap-1.5 text-xs font-bold text-gray-300 bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/5">
+                                            <div className="flex items-center gap-1.5 text-xs font-bold text-n-300 bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/5">
                                                 <Users size={12} className="text-gold" />
                                                 <span>{vehicle.capacity} Passengers</span>
                                             </div>
-                                            <div className="flex items-center gap-1.5 text-xs font-bold text-gray-300 bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/5">
+                                            <div className="flex items-center gap-1.5 text-xs font-bold text-n-300 bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/5">
                                                 <Briefcase size={12} className="text-gold" />
                                                 <span>{vehicle.luggage} Bags</span>
                                             </div>
@@ -265,14 +265,14 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                         <div>
                                             {pricing ? (
                                                 <div>
-                                                    <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold block mb-0.5">Total Price</span>
+                                                    <span className="text-[10px] text-n-500 uppercase tracking-widest font-bold block mb-0.5">Total Price</span>
                                                     <div className="flex items-baseline gap-1">
                                                         <span className="text-2xl font-black text-white">{formatPrice(pricing.price).amount}</span>
                                                         <span className="text-[10px] font-bold text-gold">{currency}</span>
                                                     </div>
                                                 </div>
                                             ) : (
-                                                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest bg-white/5 px-2 py-1 rounded">Rate on Request</span>
+                                                <span className="text-[10px] font-bold text-n-500 uppercase tracking-widest bg-white/5 px-2 py-1 rounded">Rate on Request</span>
                                             )}
                                         </div>
                                         <div className="flex items-center gap-1 bg-zinc-900 rounded-lg p-1 border border-white/10">
@@ -298,12 +298,12 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
             {/* Child Seat Toggle */}
             <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                    <div className={`p-2.5 rounded-full ${data.childSeats ? 'bg-gold/20 text-gold' : 'bg-white/10 text-gray-400'}`}>
+                    <div className={`p-2.5 rounded-full ${data.childSeats ? 'bg-gold/20 text-gold' : 'bg-white/10 text-n-400'}`}>
                         <Users size={18} />
                     </div>
                     <div>
                         <h4 className="text-white font-bold text-sm">Need a Child Seat?</h4>
-                        <p className="text-gray-500 text-xs">We'll provide a safety seat for your little ones.</p>
+                        <p className="text-n-500 text-xs">We'll provide a safety seat for your little ones.</p>
                     </div>
                 </div>
                 <button
@@ -311,7 +311,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                     className={`min-w-[80px] px-4 py-2.5 rounded-xl font-bold uppercase tracking-wider text-xs transition-all border min-h-[44px]
                         ${data.childSeats
                             ? 'bg-gold text-white border-gold shadow-lg shadow-gold/20'
-                            : 'bg-transparent text-gray-400 border-white/20 hover:border-white/50'}
+                            : 'bg-transparent text-n-400 border-white/20 hover:border-white/50'}
                     `}
                 >
                     {data.childSeats ? 'Added ✓' : 'Add'}
@@ -327,7 +327,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                         w-full py-4 md:py-5 text-base font-bold uppercase tracking-widest rounded-2xl shadow-xl transition-all flex items-center justify-center gap-3 group min-h-[56px]
                         ${totalSelected > 0
                             ? 'bg-gradient-to-r from-gold via-[#F3D383] to-gold text-black hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.4)] hover:scale-[1.01]'
-                            : 'bg-white/5 text-gray-500 border border-white/5 cursor-not-allowed'}
+                            : 'bg-white/5 text-n-500 border border-white/5 cursor-not-allowed'}
                     `}
                 >
                     {totalSelected > 0

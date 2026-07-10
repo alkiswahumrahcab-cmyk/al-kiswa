@@ -44,7 +44,7 @@ export default function MobileStickySummary({
                     <div className="bg-charcoal/95 backdrop-blur-xl border-t border-gold/30 p-3 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
                         <div className="flex items-center justify-between mb-2">
                             <div className="flex flex-col">
-                                <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                                <span className="text-[10px] text-n-400 font-medium uppercase tracking-wider">
                                     Selected
                                 </span>
                                 <span className="text-sm text-white font-bold truncate max-w-[150px]">
@@ -52,7 +52,7 @@ export default function MobileStickySummary({
                                 </span>
                             </div>
                             <div className="flex flex-col items-end">
-                                <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
+                                <span className="text-[10px] text-n-400 font-medium uppercase tracking-wider">
                                     Total
                                 </span>
                                 <span className="text-base text-gold font-bold">

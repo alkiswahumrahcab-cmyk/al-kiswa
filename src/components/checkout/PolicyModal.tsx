@@ -44,7 +44,7 @@ export default function PolicyModal({ isOpen, type, onClose }: PolicyModalProps)
     if (type === 'cancellation') {
         title = 'Cancellation Policy';
         content = (
-            <div className="space-y-4 text-sm text-gray-300 leading-relaxed">
+            <div className="space-y-4 text-sm text-n-300 leading-relaxed">
                 <ul className="list-disc pl-5 space-y-2">
                     <li>Free cancellation up to <strong className="text-white">24 hours</strong> before scheduled pickup.</li>
                     <li>No prepayment required — payment is made in cash on arrival / to the driver.</li>
@@ -57,7 +57,7 @@ export default function PolicyModal({ isOpen, type, onClose }: PolicyModalProps)
     } else if (type === 'privacy') {
         title = 'Privacy Policy';
         content = (
-            <div className="space-y-4 text-sm text-gray-300 leading-relaxed">
+            <div className="space-y-4 text-sm text-n-300 leading-relaxed">
                 <ul className="list-disc pl-5 space-y-2">
                     <li>We collect only the details needed to arrange your transport: name, contact, flight/itinerary details, and passenger count.</li>
                     <li>Your data is used solely to confirm and deliver your booking and to contact you about it.</li>
@@ -74,7 +74,7 @@ export default function PolicyModal({ isOpen, type, onClose }: PolicyModalProps)
     } else if (type === 'guide') {
         title = 'Booking Guide';
         content = (
-            <div className="space-y-4 text-sm text-gray-300 leading-relaxed">
+            <div className="space-y-4 text-sm text-n-300 leading-relaxed">
                 <ol className="list-decimal pl-5 space-y-3">
                     <li><strong>Build your itinerary:</strong> select route(s), date, time, and passengers.</li>
                     <li><strong>Choose your vehicle:</strong> select from our fleet (GMC Yukon XL, Hyundai Staria, Toyota HiAce/Coaster, Camry, Kia K5, Xpander).</li>
@@ -83,7 +83,7 @@ export default function PolicyModal({ isOpen, type, onClose }: PolicyModalProps)
                     <li><strong>Arrival:</strong> Meet your driver on arrival; pay in cash. Free cancellation up to 24h.</li>
                 </ol>
                 <div className="bg-white/5 p-4 rounded-lg mt-4 border border-white/10">
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-n-400">
                         <strong className="text-gold">Tip:</strong> Add your flight number for airport pickups, and note any requirements for child seats or extra luggage in the details field.
                     </p>
                 </div>
@@ -120,7 +120,7 @@ export default function PolicyModal({ isOpen, type, onClose }: PolicyModalProps)
                             </h3>
                             <button
                                 onClick={onClose}
-                                className="text-gray-400 hover:text-white transition-colors p-1 rounded-full hover:bg-white/10"
+                                className="text-n-400 hover:text-white transition-colors p-1 rounded-full hover:bg-white/10"
                                 aria-label="Close modal"
                             >
                                 <X size={20} />

@@ -142,7 +142,7 @@ export default async function RamadanLandingPage() {
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-sans text-white mb-6 leading-tight">
                             Experience a <span className="text-gold">Blessed Journey</span>
                         </h1>
-                        <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
+                        <p className="text-xl md:text-2xl text-n-200 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
                             Focus on your worship while we handle your travel. Reliable, comfortable, and punctual transport for the Holy Month.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -171,7 +171,7 @@ export default async function RamadanLandingPage() {
                     <FadeIn>
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Peace of Mind in the Holy Month</h2>
-                            <p className="text-gray-400 max-w-2xl mx-auto">Ramadan in Makkah is busy. Choose a transport partner that <Link href="/booking" className="text-gold hover:underline">guarantees your arrival</Link>.</p>
+                            <p className="text-n-400 max-w-2xl mx-auto">Ramadan in Makkah is busy. Choose a transport partner that <Link href="/booking" className="text-gold hover:underline">guarantees your arrival</Link>.</p>
                         </div>
 
                         <div className="grid md:grid-cols-3 gap-8">
@@ -180,21 +180,21 @@ export default async function RamadanLandingPage() {
                                     <Clock size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3">Punctual for Prayers</h3>
-                                <p className="text-gray-400">We understand the importance of time. We plan routes to ensure you reach the Haram before Adhan.</p>
+                                <p className="text-n-400">We understand the importance of time. We plan routes to ensure you reach the Haram before Adhan.</p>
                             </div>
                             <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-gold/50 transition-colors group">
                                 <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-black transition-all">
                                     <Shield size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3">Guaranteed Booking</h3>
-                                <p className="text-gray-400">Once confirmed, your ride is locked. No cancellations, no last-minute "unavailable" excuses.</p>
+                                <p className="text-n-400">Once confirmed, your ride is locked. No cancellations, no last-minute "unavailable" excuses.</p>
                             </div>
                             <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-gold/50 transition-colors group">
                                 <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-black transition-all">
                                     <CheckCircle size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3">Fixed Ramadan Rates</h3>
-                                <p className="text-gray-400">No surge pricing when you book in advance. Bypassing the high <Link href="/pricing" className="text-gold hover:underline">on-spot taxi fares</Link>.</p>
+                                <p className="text-n-400">No surge pricing when you book in advance. Bypassing the high <Link href="/pricing" className="text-gold hover:underline">on-spot taxi fares</Link>.</p>
                             </div>
                         </div>
                     </FadeIn>
@@ -228,11 +228,11 @@ export default async function RamadanLandingPage() {
                                         <p className="text-gold text-sm font-medium uppercase tracking-wide">{pkg.subtitle}</p>
                                     </div>
 
-                                    <p className="text-gray-400 mb-8 min-h-[48px]">{pkg.description}</p>
+                                    <p className="text-n-400 mb-8 min-h-[48px]">{pkg.description}</p>
 
                                     <ul className="space-y-4 mb-8 flex-grow">
                                         {pkg.features.map((feat, i) => (
-                                            <li key={i} className="flex items-start gap-3 text-gray-300 text-sm">
+                                            <li key={i} className="flex items-start gap-3 text-n-300 text-sm">
                                                 <CheckCircle className="text-gold shrink-0" size={18} />
                                                 <span>{feat}</span>
                                             </li>

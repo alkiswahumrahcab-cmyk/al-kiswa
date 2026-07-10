@@ -84,7 +84,7 @@ export default function PWAInstallPrompt() {
                 exit={{ y: 100, opacity: 0 }}
                 className="fixed bottom-24 left-4 right-4 z-50 md:bottom-8 md:left-1/2 md:right-auto md:-translate-x-1/2 flex justify-center"
             >
-                <div className="bg-n-800 border border-gray-700/50 rounded-2xl shadow-2xl p-4 flex items-center gap-4 w-full max-w-sm backdrop-blur-sm">
+                <div className="bg-n-800 border border-n-700/50 rounded-2xl shadow-2xl p-4 flex items-center gap-4 w-full max-w-sm backdrop-blur-sm">
                     {/* Icon */}
                     <div className="w-12 h-12 bg-amber-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-amber-500/20">
                         <Download className="text-black w-6 h-6" />
@@ -93,21 +93,21 @@ export default function PWAInstallPrompt() {
                     {/* Text */}
                     <div className="flex-1 min-w-0">
                         <h3 className="text-white font-bold text-sm">Install Al Kiswah App</h3>
-                        <p className="text-gray-400 text-xs truncate">Add to home screen for quick access</p>
+                        <p className="text-n-400 text-xs truncate">Add to home screen for quick access</p>
                     </div>
 
                     {/* Actions */}
                     <div className="flex items-center gap-2">
                         <button
                             onClick={handleDismiss}
-                            className="text-gray-400 hover:text-white p-2"
+                            className="text-n-400 hover:text-white p-2"
                             aria-label="Close"
                         >
                             <X className="w-5 h-5" />
                         </button>
                         <button
                             onClick={handleInstallClick}
-                            className="bg-white text-black text-sm font-bold px-4 py-2 rounded-full hover:bg-gray-100 transition-colors shadow-sm"
+                            className="bg-white text-black text-sm font-bold px-4 py-2 rounded-full hover:bg-n-100 transition-colors shadow-sm"
                         >
                             Install
                         </button>

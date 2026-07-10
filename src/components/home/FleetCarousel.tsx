@@ -74,7 +74,7 @@ export default function FleetCarousel({ vehicles, discount }: FleetCarouselProps
                                     Luxury Vehicles for <br />
                                     <span className="text-gold italic font-serif">Every Journey</span>
                                 </h2>
-                                <p className="text-gray-400 text-lg leading-relaxed max-w-xl font-light">
+                                <p className="text-n-400 text-lg leading-relaxed max-w-xl font-light">
                                     Meticulously maintained GMC Yukons, H1 Vans, and Buses.
                                     Designed for the comfort of pilgrims in Makkah & Madinah.
                                 </p>
@@ -151,18 +151,18 @@ export default function FleetCarousel({ vehicles, discount }: FleetCarouselProps
                                             {[1, 2, 3, 4, 5].map((star) => (
                                                 <Star key={star} size={12} className="fill-gold text-gold" />
                                             ))}
-                                            <span className="text-xs text-gray-500 font-medium ml-2">(5.0)</span>
+                                            <span className="text-xs text-n-500 font-medium ml-2">(5.0)</span>
                                         </div>
 
                                         <div className="grid grid-cols-2 gap-3">
                                             <div className="bg-white/5 rounded-xl p-3 border border-white/5 flex flex-col items-center justify-center text-center group-hover:bg-white/10 transition-colors">
-                                                <Users size={18} className="text-gray-400 mb-2 group-hover:text-gold transition-colors" />
-                                                <span className="text-xs text-gray-500 font-medium uppercase tracking-wider mb-0.5">Capacity</span>
+                                                <Users size={18} className="text-n-400 mb-2 group-hover:text-gold transition-colors" />
+                                                <span className="text-xs text-n-500 font-medium uppercase tracking-wider mb-0.5">Capacity</span>
                                                 <span className="text-sm font-bold text-white">{vehicle.passengers}</span>
                                             </div>
                                             <div className="bg-white/5 rounded-xl p-3 border border-white/5 flex flex-col items-center justify-center text-center group-hover:bg-white/10 transition-colors">
-                                                <Briefcase size={18} className="text-gray-400 mb-2 group-hover:text-gold transition-colors" />
-                                                <span className="text-xs text-gray-500 font-medium uppercase tracking-wider mb-0.5">Luggage</span>
+                                                <Briefcase size={18} className="text-n-400 mb-2 group-hover:text-gold transition-colors" />
+                                                <span className="text-xs text-n-500 font-medium uppercase tracking-wider mb-0.5">Luggage</span>
                                                 <span className="text-sm font-bold text-white">{vehicle.luggage} Bags</span>
                                             </div>
                                         </div>
@@ -170,7 +170,7 @@ export default function FleetCarousel({ vehicles, discount }: FleetCarouselProps
 
                                     <div className="space-y-3 mb-8">
                                         {vehicle.features.slice(0, 3).map((feature, i) => (
-                                            <div key={i} className="flex items-center gap-3 text-gray-400 text-sm">
+                                            <div key={i} className="flex items-center gap-3 text-n-400 text-sm">
                                                 <div className="w-1.5 h-1.5 rounded-full bg-gold/50" />
                                                 <span>{feature}</span>
                                             </div>

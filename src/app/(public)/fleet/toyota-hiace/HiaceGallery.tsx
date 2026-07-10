@@ -73,7 +73,7 @@ export default function HiaceGallery() {
                     <h2 className="text-4xl md:text-5xl font-bold font-playfair text-white mb-4">
                         Toyota Hiace 2026 in Abha
                     </h2>
-                    <p className="text-slate-400 max-w-2xl mx-auto">
+                    <p className="text-n-400 max-w-2xl mx-auto">
                         Real photography from Abha's mountains, roads and fog. Click any image to view in full-screen high resolution.
                     </p>
                 </div>
@@ -87,7 +87,7 @@ export default function HiaceGallery() {
                             className={`px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 border ${
                                 activeCategory === cat
                                     ? 'bg-gold border-gold text-black'
-                                    : 'border-white/20 text-slate-400 hover:border-gold/60 hover:text-white'
+                                    : 'border-white/20 text-n-400 hover:border-gold/60 hover:text-white'
                             }`}
                         >
                             {cat}
@@ -178,8 +178,8 @@ export default function HiaceGallery() {
                                 sizes="100vw"
                             />
                             <div className="absolute bottom-[-36px] left-0 right-0 text-center">
-                                <p className="text-slate-400 text-sm font-mono">{filtered[selectedIndex].alt}</p>
-                                <p className="text-slate-600 text-xs mt-1">{selectedIndex + 1} / {filtered.length}</p>
+                                <p className="text-n-400 text-sm font-mono">{filtered[selectedIndex].alt}</p>
+                                <p className="text-n-600 text-xs mt-1">{selectedIndex + 1} / {filtered.length}</p>
                             </div>
                         </div>
 

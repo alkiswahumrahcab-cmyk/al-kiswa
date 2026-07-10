@@ -49,7 +49,7 @@ export default function HadithCarousel() {
                             </div>
                         </div>
                         <h2 className="text-3xl md:text-5xl font-bold font-sans text-white mb-4">Sayings of Prophet Muhammad <span className="text-gold">(ﷺ)</span></h2>
-                        <p className="text-gray-400 font-light text-lg">Timeless wisdom to guide our character and daily lives.</p>
+                        <p className="text-n-400 font-light text-lg">Timeless wisdom to guide our character and daily lives.</p>
                     </div>
                 </FadeIn>
 
@@ -71,7 +71,7 @@ export default function HadithCarousel() {
                                 <div className="space-y-2">
                                     <p className="font-bold text-gold text-lg tracking-wide uppercase">{currentHadith.source}</p>
                                     {currentHadith.narrator && (
-                                        <p className="text-sm text-gray-400 font-medium font-sans">Narrated by: {currentHadith.narrator}</p>
+                                        <p className="text-sm text-n-400 font-medium font-sans">Narrated by: {currentHadith.narrator}</p>
                                     )}
                                 </div>
                             </div>

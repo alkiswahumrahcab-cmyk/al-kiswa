@@ -165,7 +165,7 @@ export default function HomeFleetCarousel() {
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
                         Travel in <span className="text-gold italic font-serif">Luxury & Comfort</span>
                     </h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light">
+                    <p className="text-n-400 max-w-2xl mx-auto text-lg font-light">
                         Choose from our exclusive selection of latest 2025 models, designed for your spiritual journey.
                     </p>
                 </div>
@@ -255,7 +255,7 @@ export default function HomeFleetCarousel() {
                                         </h3>
                                         <div className="flex items-baseline justify-center md:justify-start gap-2">
                                             <span className="text-2xl font-bold text-gold">{currentVehicle.offerPrice || currentVehicle.price}</span>
-                                            <span className="text-xs text-gray-400">/ Trip</span>
+                                            <span className="text-xs text-n-400">/ Trip</span>
                                         </div>
                                     </div>
 

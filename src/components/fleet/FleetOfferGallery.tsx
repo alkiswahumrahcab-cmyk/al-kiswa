@@ -208,13 +208,13 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
                                             <div className="p-1.5 bg-white/5 rounded text-gold">
                                                 <Users size={14} />
                                             </div>
-                                            <span className="text-xs text-gray-400 font-medium">{vehicle.capacity || vehicle.passengers} Pax</span>
+                                            <span className="text-xs text-n-400 font-medium">{vehicle.capacity || vehicle.passengers} Pax</span>
                                         </div>
                                         <div className="flex items-center gap-2">
                                             <div className="p-1.5 bg-white/5 rounded text-gold">
                                                 <Briefcase size={14} />
                                             </div>
-                                            <span className="text-xs text-gray-400 font-medium">{vehicle.luggage} Bags</span>
+                                            <span className="text-xs text-n-400 font-medium">{vehicle.luggage} Bags</span>
                                         </div>
                                     </div>
 
@@ -222,7 +222,7 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
                                     <div className="mt-auto flex items-end justify-between pt-2">
                                         <div>
                                             {(vehicle.offerPrice || vehicle.originalPrice) && (
-                                                <span className="block text-[10px] text-gray-600 line-through mb-1">
+                                                <span className="block text-[10px] text-n-600 line-through mb-1">
                                                     {vehicle.originalPrice || vehicle.price}
                                                 </span>
                                             )}
@@ -231,7 +231,7 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
                                                     {vehicle.offerPrice || vehicle.price}
                                                 </span>
                                                 {!String(vehicle.price || '').toLowerCase().includes('trip') && (
-                                                    <span className="text-[10px] text-gray-500 uppercase font-medium">/ Trip</span>
+                                                    <span className="text-[10px] text-n-500 uppercase font-medium">/ Trip</span>
                                                 )}
                                             </div>
                                         </div>

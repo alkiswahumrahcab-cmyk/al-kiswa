@@ -62,7 +62,7 @@ function ErrorFallback() {
         <Html center>
             <div className="text-center p-6 bg-black/80 backdrop-blur-xl rounded-2xl border border-red-500/30">
                 <p className="text-red-400 font-bold mb-2">Image Unavailable</p>
-                <p className="text-gray-400 text-xs">The 360° view could not be loaded.</p>
+                <p className="text-n-400 text-xs">The 360° view could not be loaded.</p>
             </div>
         </Html>
     );
@@ -148,7 +148,7 @@ export default function Interior360Viewer({ imageUrl, title = "360° Interior Ex
             <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none z-10"></div>
 
             <div className="absolute bottom-8 left-8 z-20 pointer-events-none">
-                <p className="text-gray-400 text-xs uppercase tracking-[0.2em] font-medium flex items-center gap-2">
+                <p className="text-n-400 text-xs uppercase tracking-[0.2em] font-medium flex items-center gap-2">
                     <span className="w-8 h-[1px] bg-gold"></span>
                     Use Mouse/Touch to Rotate • Scroll to Zoom
                 </p>

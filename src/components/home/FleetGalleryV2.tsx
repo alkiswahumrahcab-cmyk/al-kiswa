@@ -105,7 +105,7 @@ export default function FleetGalleryV2() {
                             Luxury Vehicles for <br />
                             <span className="text-gold italic font-serif">Every Journey</span>
                         </h2>
-                        <p className="text-gray-400 text-lg leading-relaxed max-w-xl font-light">
+                        <p className="text-n-400 text-lg leading-relaxed max-w-xl font-light">
                             Meticulously maintained GMC Yukons, H1 Vans, and Buses.
                             Designed for the comfort of pilgrims in Makkah & Madinah.
                         </p>
@@ -196,7 +196,7 @@ export default function FleetGalleryV2() {
                                                     {[1, 2, 3, 4, 5].map((star) => (
                                                         <Star key={star} size={12} className="fill-gold text-gold" />
                                                     ))}
-                                                    <span className="text-xs text-gray-500 font-medium ml-2">({img.rating})</span>
+                                                    <span className="text-xs text-n-500 font-medium ml-2">({img.rating})</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -208,7 +208,7 @@ export default function FleetGalleryV2() {
                                                     <Users size={14} />
                                                 </div>
                                                 <div className="flex flex-col">
-                                                    <span className="text-[10px] uppercase text-gray-500 font-bold tracking-widest leading-none mb-1">Capacity</span>
+                                                    <span className="text-[10px] uppercase text-n-500 font-bold tracking-widest leading-none mb-1">Capacity</span>
                                                     <span className="text-sm font-bold text-white leading-none">{img.capacity}</span>
                                                 </div>
                                             </div>
@@ -218,7 +218,7 @@ export default function FleetGalleryV2() {
                                                     <Briefcase size={14} />
                                                 </div>
                                                 <div className="flex flex-col">
-                                                    <span className="text-[10px] uppercase text-gray-500 font-bold tracking-widest leading-none mb-1">Luggage</span>
+                                                    <span className="text-[10px] uppercase text-n-500 font-bold tracking-widest leading-none mb-1">Luggage</span>
                                                     <span className="text-sm font-bold text-white leading-none">{img.luggage}</span>
                                                 </div>
                                             </div>

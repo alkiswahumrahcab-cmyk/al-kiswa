@@ -21,21 +21,21 @@ export default function ReviewSnippet({
             {/* Decorative background blur */}
             <div className="absolute -inset-1 bg-gradient-to-r from-gold/20 to-gold/20 rounded-2xl blur-lg opacity-50 group-hover:opacity-100 transition duration-500" />
 
-            <div className="relative bg-white dark:bg-slate-900 border border-gold/20 p-6 rounded-xl shadow-sm">
+            <div className="relative bg-white dark:bg-n-900 border border-gold/20 p-6 rounded-xl shadow-sm">
                 <div className="flex gap-1 text-amber-400 mb-3">
                     {[...Array(rating)].map((_, i) => (
                         <Star key={i} size={16} fill="currentColor" />
                     ))}
                 </div>
 
-                <p className="text-slate-700 dark:text-slate-300 italic mb-4 text-lg leading-relaxed font-serif">
+                <p className="text-n-700 dark:text-n-300 italic mb-4 text-lg leading-relaxed font-serif">
                     &quot;{text}&quot;
                 </p>
 
-                <div className="flex items-center justify-between border-t border-slate-100 dark:border-slate-800 pt-4">
+                <div className="flex items-center justify-between border-t border-n-100 dark:border-n-800 pt-4">
                     <div>
-                        <p className="font-bold text-slate-900 dark:text-white text-sm">{author}</p>
-                        {location && <p className="text-xs text-slate-500 uppercase tracking-wider">{location}</p>}
+                        <p className="font-bold text-n-900 dark:text-white text-sm">{author}</p>
+                        {location && <p className="text-xs text-n-500 uppercase tracking-wider">{location}</p>}
                     </div>
                     <Quote className="text-gold/20" size={32} />
                 </div>

@@ -61,7 +61,7 @@ export default function CallbackWidget() {
                     >
                         <button
                             onClick={() => setIsOpen(false)}
-                            className="absolute top-3 right-3 text-gray-400 hover:text-white"
+                            className="absolute top-3 right-3 text-n-400 hover:text-white"
                         >
                             <X size={18} />
                         </button>
@@ -74,7 +74,7 @@ export default function CallbackWidget() {
                                     </div>
                                     <h3 className="font-bold text-lg text-white">Request a Call</h3>
                                 </div>
-                                <p className="text-sm text-gray-300 mb-4 leading-relaxed">
+                                <p className="text-sm text-n-300 mb-4 leading-relaxed">
                                     Prefer to talk to a human? Enter your number and our VIP team will call you back within 5 minutes.
                                 </p>
                                 <form onSubmit={handleSubmit} className="space-y-3">
@@ -100,7 +100,7 @@ export default function CallbackWidget() {
                                     <CheckCircle size={24} />
                                 </div>
                                 <h3 className="font-bold text-white mb-2">Request Received!</h3>
-                                <p className="text-sm text-gray-400">
+                                <p className="text-sm text-n-400">
                                     Stand by, our agent is dialing you now.
                                 </p>
                             </div>
@@ -123,7 +123,7 @@ export default function CallbackWidget() {
                         <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse border-2 border-white" />
                     </div>
                     <div className="flex flex-col items-start">
-                        <span className="text-xs font-bold uppercase tracking-wider text-gray-500">Have Questions?</span>
+                        <span className="text-xs font-bold uppercase tracking-wider text-n-500">Have Questions?</span>
                         <span className="text-sm font-bold">Request Callback</span>
                     </div>
                 </motion.button>

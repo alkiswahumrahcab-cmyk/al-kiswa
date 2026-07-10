@@ -57,7 +57,7 @@ export default function ArticleGrid({
                                         onClick={() => onCategoryChange(cat)}
                                         className={`px-4 py-2 rounded-full text-sm font-bold transition-all ${activeCategory === cat
                                             ? 'bg-gold text-black shadow-lg shadow-gold/20'
-                                            : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/5'
+                                            : 'bg-white/5 text-n-400 hover:bg-white/10 hover:text-white border border-white/5'
                                             }`}
                                     >
                                         {cat}
@@ -76,7 +76,7 @@ export default function ArticleGrid({
                                     onChange={(e) => onSearchChange(e.target.value)}
                                     className="w-full pl-10 pr-4 py-2 bg-neutral-900/50 border border-white/10 rounded-full focus:outline-none focus:ring-2 focus:ring-gold text-sm text-white placeholder-gray-500"
                                 />
-                                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
+                                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-n-500" size={16} />
                             </div>
                         )}
                     </div>
@@ -137,7 +137,7 @@ export default function ArticleGrid({
                                             {article.title}
                                         </h3>
 
-                                        <p className="text-gray-400 text-sm leading-relaxed line-clamp-3 mb-6 flex-1 font-light">
+                                        <p className="text-n-400 text-sm leading-relaxed line-clamp-3 mb-6 flex-1 font-light">
                                             {article.excerpt}
                                         </p>
 
@@ -162,7 +162,7 @@ export default function ArticleGrid({
                             onClick={() => onPageChange(page)}
                             className={`w-10 h-10 rounded-full font-bold transition-all ${currentPage === page
                                 ? 'bg-gold text-black'
-                                : 'bg-white/5 text-gray-400 hover:bg-white/10 border border-white/5'
+                                : 'bg-white/5 text-n-400 hover:bg-white/10 border border-white/5'
                                 }`}
                         >
                             {page}

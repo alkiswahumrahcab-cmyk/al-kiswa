@@ -33,7 +33,7 @@ export default function RouteVisual({
                         <MapPin className="text-gold" size={32} />
                     </div>
                     <h3 className="text-xl font-bold font-sans text-white">{from}</h3>
-                    <p className="text-sm text-gray-400">{fromLabel}</p>
+                    <p className="text-sm text-n-400">{fromLabel}</p>
                 </div>
 
                 {/* Mid Point: Distance/Time */}
@@ -41,7 +41,7 @@ export default function RouteVisual({
                     <span className="text-sm font-bold text-gold flex items-center gap-2">
                         <Clock size={16} /> {duration}
                     </span>
-                    <span className="text-xs text-gray-400 mt-1">{distance}</span>
+                    <span className="text-xs text-n-400 mt-1">{distance}</span>
                 </div>
 
                 {/* Stop: Miqat (Conditional) */}
@@ -51,7 +51,7 @@ export default function RouteVisual({
                             <div className="w-4 h-4 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]" />
                         </div>
                         <h3 className="text-lg font-bold text-white">Miqat (Bir Ali)</h3>
-                        <p className="text-sm text-gray-400">Optional Stop</p>
+                        <p className="text-sm text-n-400">Optional Stop</p>
                     </div>
                 )}
 
@@ -61,7 +61,7 @@ export default function RouteVisual({
                         <MapPin size={32} />
                     </div>
                     <h3 className="text-xl font-bold font-sans text-white">{to}</h3>
-                    <p className="text-sm text-gray-400">{toLabel}</p>
+                    <p className="text-sm text-n-400">{toLabel}</p>
                 </div>
 
             </div>

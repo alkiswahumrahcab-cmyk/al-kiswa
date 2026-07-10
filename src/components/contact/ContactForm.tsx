@@ -51,7 +51,7 @@ export default function ContactForm() {
     return (
         <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-200 flex items-center justify-between" htmlFor="name">
+                <label className="text-sm font-bold text-n-200 flex items-center justify-between" htmlFor="name">
                     <span>Full Name</span>
                     <span className="text-xs text-gold font-arabic">الاسم الكامل</span>
                 </label>
@@ -61,7 +61,7 @@ export default function ContactForm() {
                         type="text"
                         id="name"
                         name="name"
-                        className="w-full bg-black/40 border border-white/10 rounded-xl pl-10 pr-4 py-3 focus:ring-1 focus:ring-gold/50 focus:border-gold outline-none transition-all placeholder:text-gray-600 text-white"
+                        className="w-full bg-black/40 border border-white/10 rounded-xl pl-10 pr-4 py-3 focus:ring-1 focus:ring-gold/50 focus:border-gold outline-none transition-all placeholder:text-n-600 text-white"
                         placeholder="e.g. Abdullah Ahmed"
                         required
                     />
@@ -69,7 +69,7 @@ export default function ContactForm() {
             </div>
 
             <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-200 flex items-center justify-between" htmlFor="email">
+                <label className="text-sm font-bold text-n-200 flex items-center justify-between" htmlFor="email">
                     <span>Email Address</span>
                     <span className="text-xs text-gold font-arabic">البريد الإلكتروني</span>
                 </label>
@@ -79,7 +79,7 @@ export default function ContactForm() {
                         type="email"
                         id="email"
                         name="email"
-                        className={`w-full bg-black/40 border rounded-xl pl-10 pr-4 py-3 outline-none transition-all placeholder:text-gray-600 text-white ${emailError ? 'border-red-500 focus:ring-red-500/50' : 'border-white/10 focus:ring-1 focus:ring-gold/50 focus:border-gold'}`}
+                        className={`w-full bg-black/40 border rounded-xl pl-10 pr-4 py-3 outline-none transition-all placeholder:text-n-600 text-white ${emailError ? 'border-red-500 focus:ring-red-500/50' : 'border-white/10 focus:ring-1 focus:ring-gold/50 focus:border-gold'}`}
                         placeholder="your@email.com"
                         required
                         onChange={() => setEmailError('')}
@@ -89,7 +89,7 @@ export default function ContactForm() {
             </div>
 
             <div className="space-y-2">
-                <label className="text-sm font-bold text-gray-200 flex items-center justify-between" htmlFor="message">
+                <label className="text-sm font-bold text-n-200 flex items-center justify-between" htmlFor="message">
                     <span>Message</span>
                     <span className="text-xs text-gold font-arabic">الرسالة</span>
                 </label>
@@ -98,7 +98,7 @@ export default function ContactForm() {
                     <textarea
                         id="message"
                         name="message"
-                        className="w-full bg-black/40 border border-white/10 rounded-xl pl-10 pr-4 py-3 h-32 resize-none focus:ring-1 focus:ring-gold/50 focus:border-gold outline-none transition-all placeholder:text-gray-600 text-white"
+                        className="w-full bg-black/40 border border-white/10 rounded-xl pl-10 pr-4 py-3 h-32 resize-none focus:ring-1 focus:ring-gold/50 focus:border-gold outline-none transition-all placeholder:text-n-600 text-white"
                         placeholder="How can we help you? (كيف يمكننا مساعدتك؟)"
                         required
                     ></textarea>

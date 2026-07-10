@@ -35,7 +35,7 @@ export default function VehicleCapacityGuide() {
                 <div className="text-center mb-16">
                     <FadeIn>
                         <h2 className="text-3xl font-bold font-sans mb-4 text-white">Vehicle Capacity Guide</h2>
-                        <p className="text-gray-400 font-light text-lg">Choose the right vehicle for your group size and luggage.</p>
+                        <p className="text-n-400 font-light text-lg">Choose the right vehicle for your group size and luggage.</p>
                     </FadeIn>
                 </div>
 
@@ -48,17 +48,17 @@ export default function VehicleCapacityGuide() {
                             <h3 className="font-bold font-sans text-xl mb-4 text-white group-hover:text-gold transition-colors">{v.name}</h3>
 
                             <div className="space-y-3 mb-6">
-                                <div className="flex items-center justify-center gap-3 text-gray-300 bg-white/5 py-3 rounded-xl border border-white/5">
+                                <div className="flex items-center justify-center gap-3 text-n-300 bg-white/5 py-3 rounded-xl border border-white/5">
                                     <Users size={18} className="text-gold" />
                                     <span className="font-medium">{v.pax}</span>
                                 </div>
-                                <div className="flex items-center justify-center gap-3 text-gray-300 bg-white/5 py-3 rounded-xl border border-white/5">
+                                <div className="flex items-center justify-center gap-3 text-n-300 bg-white/5 py-3 rounded-xl border border-white/5">
                                     <Briefcase size={18} className="text-gold" />
                                     <span className="font-medium">{v.bags}</span>
                                 </div>
                             </div>
 
-                            <p className="text-sm text-gray-500 italic font-light">{v.desc}</p>
+                            <p className="text-sm text-n-500 italic font-light">{v.desc}</p>
                         </GlassCard>
                     ))}
                 </div>

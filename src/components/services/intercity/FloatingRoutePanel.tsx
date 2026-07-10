@@ -26,29 +26,29 @@ export default function FloatingRoutePanel({ route }: FloatingRoutePanelProps) {
                 <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gold rounded-r-full" />
                 <span className="text-gold text-[10px] font-bold uppercase tracking-[0.2em] mb-1 block">Selected Connection</span>
                 <h3 className="text-xl font-bold font-sans leading-tight text-white">
-                    {route.origin} <span className="text-gray-500 font-light mx-1">to</span> {route.destination}
+                    {route.origin} <span className="text-n-500 font-light mx-1">to</span> {route.destination}
                 </h3>
             </div>
 
             <div className="grid grid-cols-2 gap-3 mb-6">
                 <div className="bg-white/5 p-3 rounded-2xl flex flex-col gap-1 border border-white/5">
-                    <span className="text-[10px] uppercase tracking-wider text-gray-400 flex items-center gap-1 font-bold"><Clock size={10} className="text-gold" /> Duration</span>
+                    <span className="text-[10px] uppercase tracking-wider text-n-400 flex items-center gap-1 font-bold"><Clock size={10} className="text-gold" /> Duration</span>
                     <span className="font-bold text-white text-lg">{route.duration || '--'}</span>
                 </div>
                 <div className="bg-white/5 p-3 rounded-2xl flex flex-col gap-1 border border-white/5">
-                    <span className="text-[10px] uppercase tracking-wider text-gray-400 flex items-center gap-1 font-bold"><Navigation size={10} className="text-gold" /> Distance</span>
+                    <span className="text-[10px] uppercase tracking-wider text-n-400 flex items-center gap-1 font-bold"><Navigation size={10} className="text-gold" /> Distance</span>
                     <span className="font-bold text-white text-lg">{route.distance || '--'}</span>
                 </div>
             </div>
 
             <div className="space-y-4 mb-8">
-                <div className="flex items-center gap-3 text-sm text-gray-300">
+                <div className="flex items-center gap-3 text-sm text-n-300">
                     <div className="p-1.5 rounded-full bg-green-500/10">
                         <ShieldCheck size={14} className="text-green-500" />
                     </div>
                     <span>Hijrah Road Certified</span>
                 </div>
-                <div className="flex items-center gap-3 text-sm text-gray-300">
+                <div className="flex items-center gap-3 text-sm text-n-300">
                     <div className="p-1.5 rounded-full bg-gold/10">
                         <Star size={14} className="text-gold" />
                     </div>

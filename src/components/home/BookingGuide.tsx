@@ -59,7 +59,7 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-gray-400 text-lg leading-relaxed font-medium font-light"
+                        className="text-n-400 text-lg leading-relaxed font-medium font-light"
                     >
                         {lang === 'ar' ? 'اختبر أعلى معايير نقل العمرة. سلاسة تامة لراحتكم وطمأنينتكم.' : 'Experience the gold standard of Umrah transport. Streamlined for your comfort and peace of mind.'}
                     </motion.p>
@@ -98,7 +98,7 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                                 <h3 className="text-xl font-bold text-white mb-3">
                                     {step.title}
                                 </h3>
-                                <p className="text-gray-400 leading-relaxed max-w-[260px] mx-auto text-base">
+                                <p className="text-n-400 leading-relaxed max-w-[260px] mx-auto text-base">
                                     {step.description}
                                 </p>
                             </div>
@@ -122,7 +122,7 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                         {lang === 'ar' ? 'احجز رحلتك الآن' : 'Book Your Ride Now'}
                         <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
-                    <p className="mt-6 text-sm font-medium text-gray-500 flex items-center justify-center gap-2 uppercase tracking-wide">
+                    <p className="mt-6 text-sm font-medium text-n-500 flex items-center justify-center gap-2 uppercase tracking-wide">
                         <MousePointerClick size={16} className="text-gold" />
                         {lang === 'ar' ? 'لا دفع مسبق مطلوب • الدفع عند الوصول' : 'No prepayment required • Pay upon arrival'}
                     </p>

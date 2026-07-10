@@ -120,7 +120,7 @@ export default async function ToyotaCoasterPage() {
             />
 
             {/* Vehicle Highlights */}
-            <section className="py-16 bg-white dark:bg-slate-900">
+            <section className="py-16 bg-white dark:bg-n-900">
                 <div className="container mx-auto px-4">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
@@ -135,43 +135,43 @@ export default async function ToyotaCoasterPage() {
                             </div>
                         </div>
                         <div>
-                            <h2 className="text-3xl font-bold mb-6 font-playfair text-slate-800 dark:text-slate-100">
+                            <h2 className="text-3xl font-bold mb-6 font-playfair text-n-800 dark:text-n-100">
                                 Why Choose Toyota Coaster?
                             </h2>
-                            <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                            <p className="text-n-600 dark:text-n-300 mb-8 leading-relaxed">
                                 Experience seamless group travel with the Toyota Coaster. Designed for comfort and durability, it offers a smooth ride for up to 19 passengers.
                                 Whether you are traveling from <Link href="/services/jeddah-airport-transfer" className="text-gold-dark font-medium hover:underline">Jeddah Airport</Link> or visiting Ziyarat sites, the Coaster ensures everyone travels together in comfort.
                             </p>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Users className="text-gold" size={20} /> 19 passengers
                                     </div>
-                                    <p className="text-sm text-slate-500">Ideal for 3-5 families</p>
+                                    <p className="text-sm text-n-500">Ideal for 3-5 families</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Briefcase className="text-gold" size={20} /> 15+ Bags
                                     </div>
-                                    <p className="text-sm text-slate-500">Ample storage space</p>
+                                    <p className="text-sm text-n-500">Ample storage space</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Shield className="text-gold" size={20} /> Safety First
                                     </div>
-                                    <p className="text-sm text-slate-500">Equipped with ABS & safety belts</p>
+                                    <p className="text-sm text-n-500">Equipped with ABS & safety belts</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Fuel className="text-gold" size={20} /> Smooth Ride
                                     </div>
-                                    <p className="text-sm text-slate-500">Stable suspension system</p>
+                                    <p className="text-sm text-n-500">Stable suspension system</p>
                                 </div>
                             </div>
 
                             <div className="mt-10">
-                                <Link href="/booking" className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-gold/20">
+                                <Link href="/booking" className="inline-flex items-center gap-2 bg-n-900 text-white hover:bg-n-800 dark:bg-white dark:text-n-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-gold/20">
                                     Book Toyota Coaster <ArrowRight size={20} />
                                 </Link>
                             </div>
@@ -181,36 +181,36 @@ export default async function ToyotaCoasterPage() {
             </section>
 
             {/* Detailed Specifications */}
-            <section className="py-12 bg-slate-50 dark:bg-slate-950">
+            <section className="py-12 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-slate-900 dark:text-white">Technical Specifications</h2>
+                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-n-900 dark:text-white">Technical Specifications</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Engine</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">4.0L Diesel</p>
-                            <p className="text-sm text-slate-400">Reliable Performance</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Engine</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">4.0L Diesel</p>
+                            <p className="text-sm text-n-400">Reliable Performance</p>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Climate Control</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">Ducted AC</p>
-                            <p className="text-sm text-slate-400">Vents for every seat</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Climate Control</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">Ducted AC</p>
+                            <p className="text-sm text-n-400">Vents for every seat</p>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Seating</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">19 Seats</p>
-                            <p className="text-sm text-slate-400">High-back fabric seats</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Seating</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">19 Seats</p>
+                            <p className="text-sm text-n-400">High-back fabric seats</p>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Features</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">Mic & Audio</p>
-                            <p className="text-sm text-slate-400">Guide seat included</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Features</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">Mic & Audio</p>
+                            <p className="text-sm text-n-400">Guide seat included</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* Use Cases */}
-            <section className="py-16 bg-slate-50 dark:bg-slate-950">
+            <section className="py-16 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl font-bold text-center mb-12 font-playfair">Perfect For</h2>
                     <div className="grid md:grid-cols-3 gap-8">
@@ -231,10 +231,10 @@ export default async function ToyotaCoasterPage() {
                                 icon: MapPin
                             }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-md border-t-4 border-gold transition-all hover:-translate-y-1">
+                            <div key={idx} className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-md border-t-4 border-gold transition-all hover:-translate-y-1">
                                 <item.icon className="w-10 h-10 text-gold mb-4" />
-                                <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">{item.title}</h3>
-                                <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
+                                <h3 className="text-xl font-bold mb-2 text-n-800 dark:text-white">{item.title}</h3>
+                                <p className="text-n-600 dark:text-n-400">{item.desc}</p>
                             </div>
                         ))}
                     </div>

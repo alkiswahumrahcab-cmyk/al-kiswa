@@ -116,12 +116,12 @@ export default async function AirportTransfersPage() {
                                 <h1 className="text-3xl md:text-4xl font-bold font-sans text-white">
                                     Airport Connectivity Network
                                 </h1>
-                                <p className="text-gray-400 mt-3 max-w-xl font-light leading-relaxed">
+                                <p className="text-n-400 mt-3 max-w-xl font-light leading-relaxed">
                                     Visualize your journey from King Abdulaziz International Airport (KAIA).
                                     Select your destination to see route details, estimated time, and instant pricing.
                                 </p>
                             </div>
-                            <div className="flex items-center gap-6 text-xs font-bold text-gray-300 uppercase tracking-wider">
+                            <div className="flex items-center gap-6 text-xs font-bold text-n-300 uppercase tracking-wider">
                                 <div className="flex items-center gap-2">
                                     <span className="w-2 h-2 rounded-full bg-gold animate-pulse shadow-[0_0_10px_#D4AF37]" />
                                     Live Flight Tracking
@@ -148,7 +148,7 @@ export default async function AirportTransfersPage() {
                             <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-6 font-sans text-white">
                                 Why Book Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Airport Transfer?</span>
                             </h2>
-                            <p className="text-gray-400 max-w-2xl mx-auto font-light text-lg leading-relaxed">
+                            <p className="text-n-400 max-w-2xl mx-auto font-light text-lg leading-relaxed">
                                 We go beyond just transport. We offer comprehensive service ensuring your peace of mind from the moment you land.
                             </p>
                         </div>
@@ -166,7 +166,7 @@ export default async function AirportTransfersPage() {
                                     <item.icon size={36} className="text-gold group-hover:text-gold-light transition-colors" />
                                 </div>
                                 <h3 className="font-bold text-xl mb-4 text-white font-sans">{item.title}</h3>
-                                <p className="text-sm text-gray-400 leading-relaxed font-light group-hover:text-gray-300 transition-colors">
+                                <p className="text-sm text-n-400 leading-relaxed font-light group-hover:text-n-300 transition-colors">
                                     {item.desc}
                                 </p>
                             </GlassCard>
@@ -203,7 +203,7 @@ export default async function AirportTransfersPage() {
                                         </div>
                                     </div>
                                     <h3 className="font-bold text-xl mt-8 mb-2 text-white group-hover:text-gold transition-colors font-sans">{step.title}</h3>
-                                    <p className="text-sm text-gray-400 font-light max-w-[200px]">{step.desc}</p>
+                                    <p className="text-sm text-n-400 font-light max-w-[200px]">{step.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -217,7 +217,7 @@ export default async function AirportTransfersPage() {
                     <FadeIn>
                         <div className="text-center mb-20">
                             <h2 className="text-4xl md:text-5xl font-bold font-sans mb-6 text-white">Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Vehicle</span></h2>
-                            <p className="text-gray-400 text-lg font-light">Select the perfect vehicle for your group size and comfort preferences.</p>
+                            <p className="text-n-400 text-lg font-light">Select the perfect vehicle for your group size and comfort preferences.</p>
                         </div>
                     </FadeIn>
                     <div className="grid md:grid-cols-3 gap-8">
@@ -233,8 +233,8 @@ export default async function AirportTransfersPage() {
                                 </div>
                                 <div className="p-8 flex-1 flex flex-col border-t border-white/5 bg-black/20 backdrop-blur-sm">
                                     <h3 className="text-2xl font-bold mb-2 text-white font-sans">Standard Sedan</h3>
-                                    <p className="text-gray-400 text-sm mb-6 font-light">Perfect for couples or solo travelers with light luggage.</p>
-                                    <ul className="text-sm space-y-4 mb-8 mt-auto text-gray-300">
+                                    <p className="text-n-400 text-sm mb-6 font-light">Perfect for couples or solo travelers with light luggage.</p>
+                                    <ul className="text-sm space-y-4 mb-8 mt-auto text-n-300">
                                         <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Comfortable for 2-3 Passengers</li>
                                         <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Space for 2 Standard Suitcases</li>
                                     </ul>
@@ -256,7 +256,7 @@ export default async function AirportTransfersPage() {
                                 </div>
                                 <div className="p-8 flex-1 flex flex-col border-t border-white/10 bg-black/80 backdrop-blur-md">
                                     <h3 className="text-2xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold font-sans">VIP GMC Yukon</h3>
-                                    <p className="text-gray-300 text-sm mb-6 font-light">Luxury and space for families. Travel like a VIP.</p>
+                                    <p className="text-n-300 text-sm mb-6 font-light">Luxury and space for families. Travel like a VIP.</p>
                                     <ul className="text-sm space-y-4 mb-8 mt-auto text-white">
                                         <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Luxury seating for 7 Passengers</li>
                                         <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Large boot for 5-6 Suitcases</li>
@@ -276,8 +276,8 @@ export default async function AirportTransfersPage() {
                                 </div>
                                 <div className="p-8 flex-1 flex flex-col border-t border-white/5 bg-black/20 backdrop-blur-sm">
                                     <h3 className="text-2xl font-bold mb-2 text-white font-sans">Family Van (Hiace)</h3>
-                                    <p className="text-gray-400 text-sm mb-6 font-light">Ideal for large groups or families with extra luggage.</p>
-                                    <ul className="text-sm space-y-4 mb-8 mt-auto text-gray-300">
+                                    <p className="text-n-400 text-sm mb-6 font-light">Ideal for large groups or families with extra luggage.</p>
+                                    <ul className="text-sm space-y-4 mb-8 mt-auto text-n-300">
                                         <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Spacious for 10 Passengers</li>
                                         <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Capacity for 8-10 Suitcases</li>
                                     </ul>
@@ -309,7 +309,7 @@ export default async function AirportTransfersPage() {
                                         <span className="text-gold mt-1 p-1 bg-gold/10 rounded-full"><ChevronDown size={16} /></span>
                                         {faq.q}
                                     </h3>
-                                    <p className="text-gray-400 font-light leading-relaxed pl-10 group-hover:text-gray-300 transition-colors">{faq.a}</p>
+                                    <p className="text-n-400 font-light leading-relaxed pl-10 group-hover:text-n-300 transition-colors">{faq.a}</p>
                                 </div>
                             ))}
                         </div>

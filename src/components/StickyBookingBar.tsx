@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 /**
  * StickyBookingBar
@@ -39,7 +39,7 @@ export default function StickyBookingBar({
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-100 px-[14px] pt-[10px]"
+      className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-n-100 px-[14px] pt-[10px]"
       /* env(safe-area-inset-bottom) has no Tailwind equivalent — inline style required */
       style={{ paddingBottom: "calc(10px + env(safe-area-inset-bottom))" }}
     >

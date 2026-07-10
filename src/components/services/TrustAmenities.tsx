@@ -41,7 +41,7 @@ export default function TrustAmenities() {
                         <h2 className="text-3xl md:text-5xl font-bold font-sans text-white mb-6">
                             Why Choose <span className="text-gold">Al Kiswah Transport?</span>
                         </h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light leading-relaxed">
+                        <p className="text-n-400 max-w-2xl mx-auto text-lg font-light leading-relaxed">
                             We are committed to providing a safe, reliable, and spiritually uplifting journey for all guests of Allah.
                         </p>
                     </FadeIn>
@@ -62,7 +62,7 @@ export default function TrustAmenities() {
                             <h3 className="text-xl font-bold font-sans text-white mb-3 group-hover:text-gold transition-colors">
                                 {item.title}
                             </h3>
-                            <p className="text-gray-400 leading-relaxed text-sm font-light">
+                            <p className="text-n-400 leading-relaxed text-sm font-light">
                                 {item.description}
                             </p>
                         </GlassCard>

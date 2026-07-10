@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -59,9 +59,9 @@ export default function MobileDrawer({ isOpen, onClose, title, children }: Mobil
               className="relative bg-[#0B0F19]/95 backdrop-blur-2xl w-full rounded-t-3xl shadow-[0_-10px_40px_rgba(0,0,0,0.5)] border-t border-white/10 overflow-hidden flex flex-col max-h-[90vh]"
             >
               <div className="p-4 border-b border-white/10 flex flex-col items-center sticky top-0 z-10">
-                <div className="w-12 h-1.5 bg-gray-600/50 rounded-full mb-3" />
+                <div className="w-12 h-1.5 bg-n-600/50 rounded-full mb-3" />
                 {title && <h3 className="text-white font-bold text-lg w-full text-center pr-8">{title}</h3>}
-                <button onClick={onClose} className="absolute right-4 top-4 text-gray-400 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors">
+                <button onClick={onClose} className="absolute right-4 top-4 text-n-400 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors">
                    <X size={20} />
                 </button>
               </div>

@@ -23,7 +23,7 @@ export default function RespectSection() {
                             </cite>
                         </div>
                         <h2 className="text-3xl md:text-5xl font-bold font-sans text-white mb-6 leading-tight">{respectSectionData.title}</h2>
-                        <p className="text-lg text-gray-400 leading-relaxed max-w-2xl mx-auto font-light">{respectSectionData.intro}</p>
+                        <p className="text-lg text-n-400 leading-relaxed max-w-2xl mx-auto font-light">{respectSectionData.intro}</p>
                     </FadeIn>
                 </div>
 
@@ -36,7 +36,7 @@ export default function RespectSection() {
                                     <div className="w-20 h-20 rounded-full bg-black flex items-center justify-center mb-8 text-gold border border-white/10 group-hover:border-gold/50 group-hover:scale-110 transition-all duration-300 shadow-inner">
                                         <Icon size={32} />
                                     </div>
-                                    <p className="text-gray-300 font-light leading-relaxed text-lg">{item.text}</p>
+                                    <p className="text-n-300 font-light leading-relaxed text-lg">{item.text}</p>
                                 </GlassCard>
                             </FadeIn>
                         );

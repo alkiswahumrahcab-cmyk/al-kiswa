@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import { Mic, X } from 'lucide-react';
@@ -30,20 +30,20 @@ export default function WhatsAppVoiceButton({ phoneNumber = '966570000000' }: Wh
                         initial={{ opacity: 0, y: 10, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                        className="bg-white text-black px-4 py-3 rounded-2xl rounded-br-none shadow-xl max-w-[200px] relative border border-gray-100 hidden md:block"
+                        className="bg-white text-black px-4 py-3 rounded-2xl rounded-br-none shadow-xl max-w-[200px] relative border border-n-100 hidden md:block"
                     >
                         <button
                             onClick={(e) => {
                                 e.stopPropagation();
                                 setShowTooltip(false);
                             }}
-                            className="absolute -top-2 -left-2 bg-gray-200 rounded-full p-0.5 hover:bg-red-100 hover:text-red-500 transition-colors"
+                            className="absolute -top-2 -left-2 bg-n-200 rounded-full p-0.5 hover:bg-red-100 hover:text-red-500 transition-colors"
                         >
                             <X size={12} />
                         </button>
                         <p className="text-sm font-bold leading-tight">
                             Difficult to type?
-                            <span className="block text-xs font-normal text-gray-600 mt-1">Send us a voice note on WhatsApp! 🎙️</span>
+                            <span className="block text-xs font-normal text-n-600 mt-1">Send us a voice note on WhatsApp! 🎙️</span>
                         </p>
                     </motion.div>
                 )}
@@ -71,7 +71,7 @@ export default function WhatsAppVoiceButton({ phoneNumber = '966570000000' }: Wh
                 </svg>
 
                 {/* Mini Mic Icon Badge */}
-                <div className="absolute -bottom-1 -right-1 bg-white text-[#25D366] rounded-full p-1.5 shadow-md border border-gray-100">
+                <div className="absolute -bottom-1 -right-1 bg-white text-[#25D366] rounded-full p-1.5 shadow-md border border-n-100">
                     <Mic size={14} strokeWidth={3} />
                 </div>
             </a>

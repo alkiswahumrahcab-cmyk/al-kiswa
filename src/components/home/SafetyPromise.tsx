@@ -80,7 +80,7 @@ export default function SafetyPromise({ lang = 'en' }: Props) {
                             <FadeIn>
                                 <div className="inline-flex items-start md:items-center gap-3 px-4 py-3 rounded-2xl bg-gold/10 border border-gold/20 text-gold text-sm md:text-base font-medium mb-8 max-w-xl group hover:bg-gold/15 transition-colors cursor-default">
                                     <AlertTriangle className="shrink-0 text-gold animate-pulse" size={20} />
-                                    <span className="leading-snug text-gray-200" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
+                                    <span className="leading-snug text-n-200" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
                                         <strong className="text-gold">{content.guaranteeLabel}</strong> {content.guaranteeText}
                                     </span>
                                 </div>
@@ -91,7 +91,7 @@ export default function SafetyPromise({ lang = 'en' }: Props) {
                                     {content.title}
                                 </h2>
 
-                                <p className="text-gray-400 text-base md:text-lg lg:text-xl mb-10 leading-relaxed max-w-xl font-light" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
+                                <p className="text-n-400 text-base md:text-lg lg:text-xl mb-10 leading-relaxed max-w-xl font-light" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
                                     {content.subtitle}
                                 </p>
                             </FadeIn>
@@ -105,7 +105,7 @@ export default function SafetyPromise({ lang = 'en' }: Props) {
                                         </div>
                                         <div>
                                             <h4 className="text-white font-bold text-lg leading-none mb-1.5 group-hover:text-gold transition-colors font-sans">{content.targetTitle}</h4>
-                                            <p className="text-gray-500 text-xs md:text-sm font-medium group-hover:text-gray-400" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>{content.targetDesc}</p>
+                                            <p className="text-n-500 text-xs md:text-sm font-medium group-hover:text-n-400" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>{content.targetDesc}</p>
                                         </div>
                                     </div>
                                 </FadeIn>
@@ -118,7 +118,7 @@ export default function SafetyPromise({ lang = 'en' }: Props) {
                                         </div>
                                         <div>
                                             <h4 className="text-white font-bold text-lg leading-none mb-1.5 group-hover:text-gold transition-colors font-sans">{content.commandTitle}</h4>
-                                            <p className="text-gray-500 text-xs md:text-sm font-medium group-hover:text-gray-400" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>{content.commandDesc}</p>
+                                            <p className="text-n-500 text-xs md:text-sm font-medium group-hover:text-n-400" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>{content.commandDesc}</p>
                                         </div>
                                     </div>
                                 </FadeIn>
@@ -135,7 +135,7 @@ export default function SafetyPromise({ lang = 'en' }: Props) {
                                         <div className="flex justify-between items-center mb-8 border-b border-white/5 pb-6">
                                             <div className="flex items-center gap-2">
                                                 <ShieldCheck className="text-gold hidden md:block shrink-0" size={20} />
-                                                <span className="text-gray-400 text-xs font-mono uppercase tracking-widest">{content.statusLabel}</span>
+                                                <span className="text-n-400 text-xs font-mono uppercase tracking-widest">{content.statusLabel}</span>
                                             </div>
                                             <div className="bg-gold/10 border border-gold/20 text-gold text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-2 animate-pulse">
                                                 <span className="w-2 h-2 rounded-full bg-gold shrink-0"></span>
@@ -156,7 +156,7 @@ export default function SafetyPromise({ lang = 'en' }: Props) {
                                                     </div>
                                                     <div>
                                                         <h5 className="text-white font-bold text-sm md:text-base mb-1 group-hover:text-gold transition-colors font-sans">{item.title}</h5>
-                                                        <p className="text-gray-400 text-xs md:text-sm leading-relaxed group-hover:text-gray-300 transition-colors font-light" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
+                                                        <p className="text-n-400 text-xs md:text-sm leading-relaxed group-hover:text-n-300 transition-colors font-light" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
                                                             {item.desc}
                                                         </p>
                                                     </div>
@@ -166,7 +166,7 @@ export default function SafetyPromise({ lang = 'en' }: Props) {
 
                                         {/* Action Button */}
                                         <div className="mt-8 pt-6 border-t border-white/5 text-center">
-                                            <a href={isAr ? "/ar/safety" : "/safety"} className="text-xs md:text-sm text-gray-400 hover:text-white transition-colors flex items-center justify-center gap-2 group" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
+                                            <a href={isAr ? "/ar/safety" : "/safety"} className="text-xs md:text-sm text-n-400 hover:text-white transition-colors flex items-center justify-center gap-2 group" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
                                                 {content.documentationLink}
                                                 <Zap size={14} className="text-gold group-hover:fill-gold transition-all shrink-0" />
                                             </a>

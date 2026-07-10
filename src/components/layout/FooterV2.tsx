@@ -74,7 +74,7 @@ export default function Footer() {
     };
 
     return (
-        <footer className="bg-gray-900 border-t border-white/10 text-white relative">
+        <footer className="bg-n-900 border-t border-white/10 text-white relative">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -99,10 +99,10 @@ export default function Footer() {
                             </div>
                         </Link>
                         <div className="space-y-2">
-                            <p className="text-gray-300 text-sm leading-relaxed">
+                            <p className="text-n-300 text-sm leading-relaxed">
                                 Your trusted companion for a blessed Umrah journey.
                             </p>
-                            <p className="text-gray-500 text-xs leading-relaxed" dir="rtl">
+                            <p className="text-n-500 text-xs leading-relaxed" dir="rtl">
                                 رفيقكم الأمين في رحلة العمرة المباركة
                             </p>
                         </div>
@@ -116,7 +116,7 @@ export default function Footer() {
                                 <span className="text-yellow-400 text-sm tracking-widest group-hover:scale-105 transition-transform origin-left">⭐⭐⭐⭐⭐</span>
                                 <span className="text-[10px] font-bold text-white bg-blue-600/20 px-2 py-0.5 rounded border border-blue-500/30">Google Provider</span>
                             </div>
-                            <span className="text-xs text-gray-400 mt-1 block group-hover:text-white transition-colors">5.0 Rating — See our reviews</span>
+                            <span className="text-xs text-n-400 mt-1 block group-hover:text-white transition-colors">5.0 Rating — See our reviews</span>
                         </a>
                         <a
                             href={`https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}`}
@@ -127,39 +127,39 @@ export default function Footer() {
                             Book via WhatsApp
                         </a>
                         <div className="pt-2">
-                            <p className="text-xs text-gray-500 mb-2 font-medium">ACCEPTED PAYMENTS:</p>
-                            <div className="flex flex-wrap gap-2 text-[10px] font-bold text-gray-400">
-                                <span className="bg-gray-800 px-2 py-1 rounded">SAR</span>
-                                <span className="bg-gray-800 px-2 py-1 rounded">USD</span>
-                                <span className="bg-gray-800 px-2 py-1 rounded">GBP</span>
-                                <span className="bg-gray-800 px-2 py-1 rounded">EUR</span>
+                            <p className="text-xs text-n-500 mb-2 font-medium">ACCEPTED PAYMENTS:</p>
+                            <div className="flex flex-wrap gap-2 text-[10px] font-bold text-n-400">
+                                <span className="bg-n-800 px-2 py-1 rounded">SAR</span>
+                                <span className="bg-n-800 px-2 py-1 rounded">USD</span>
+                                <span className="bg-n-800 px-2 py-1 rounded">GBP</span>
+                                <span className="bg-n-800 px-2 py-1 rounded">EUR</span>
                             </div>
                         </div>
 
                         {/* Social Links */}
                         <div className="flex items-center gap-4 pt-2">
                             {settings?.contact?.social?.facebook && (
-                                <a href={settings.contact.social.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-500 transition-colors" aria-label="Facebook">
+                                <a href={settings.contact.social.facebook} target="_blank" rel="noopener noreferrer" className="text-n-400 hover:text-blue-500 transition-colors" aria-label="Facebook">
                                     <Facebook size={20} strokeWidth={1.5} />
                                 </a>
                             )}
                             {settings?.contact?.social?.instagram && (
-                                <a href={settings.contact.social.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition-colors" aria-label="Instagram">
+                                <a href={settings.contact.social.instagram} target="_blank" rel="noopener noreferrer" className="text-n-400 hover:text-pink-500 transition-colors" aria-label="Instagram">
                                     <Instagram size={20} strokeWidth={1.5} />
                                 </a>
                             )}
                             {settings?.contact?.social?.twitter && (
-                                <a href={settings.contact.social.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-400 transition-colors" aria-label="Twitter">
+                                <a href={settings.contact.social.twitter} target="_blank" rel="noopener noreferrer" className="text-n-400 hover:text-blue-400 transition-colors" aria-label="Twitter">
                                     <Twitter size={20} strokeWidth={1.5} />
                                 </a>
                             )}
                             {settings?.contact?.social?.linkedin && (
-                                <a href={settings.contact.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-600 transition-colors" aria-label="LinkedIn">
+                                <a href={settings.contact.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-n-400 hover:text-blue-600 transition-colors" aria-label="LinkedIn">
                                     <Linkedin size={20} strokeWidth={1.5} />
                                 </a>
                             )}
                             {settings?.contact?.social?.tiktok && (
-                                <a href={settings.contact.social.tiktok} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors" aria-label="TikTok">
+                                <a href={settings.contact.social.tiktok} target="_blank" rel="noopener noreferrer" className="text-n-400 hover:text-white transition-colors" aria-label="TikTok">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                                     </svg>
@@ -174,12 +174,12 @@ export default function Footer() {
                             Popular Umrah Routes
                         </h3>
                         <ul className="space-y-3">
-                            <li><Link href="/services/jeddah-airport-transfer" className="text-gray-400 hover:text-white transition-colors text-[15px]">Jeddah Airport to Makkah Taxi</Link></li>
-                            <li><Link href="/services/makkah-madinah-taxi" className="text-gray-400 hover:text-white transition-colors text-[15px]">Makkah to Madinah Private Taxi</Link></li>
-                            <li><Link href="/services/madinah-airport-transfer" className="text-gray-400 hover:text-white transition-colors text-[15px]">Madinah Airport to Hotel Transfer</Link></li>
-                            <li><Link href="/services/intercity-transfer" className="text-gray-400 hover:text-white transition-colors text-[15px]">Jeddah to Madinah Direct Transfer</Link></li>
-                            <li><Link href="/services/ziyarat-tours" className="text-gray-400 hover:text-white transition-colors text-[15px]">Makkah Ziyarat City Tours</Link></li>
-                            <li><Link href="/ramadan-2026" className="text-gray-400 hover:text-white transition-colors text-[15px]">Ramadan 2026 Umrah Transport</Link></li>
+                            <li><Link href="/services/jeddah-airport-transfer" className="text-n-400 hover:text-white transition-colors text-[15px]">Jeddah Airport to Makkah Taxi</Link></li>
+                            <li><Link href="/services/makkah-madinah-taxi" className="text-n-400 hover:text-white transition-colors text-[15px]">Makkah to Madinah Private Taxi</Link></li>
+                            <li><Link href="/services/madinah-airport-transfer" className="text-n-400 hover:text-white transition-colors text-[15px]">Madinah Airport to Hotel Transfer</Link></li>
+                            <li><Link href="/services/intercity-transfer" className="text-n-400 hover:text-white transition-colors text-[15px]">Jeddah to Madinah Direct Transfer</Link></li>
+                            <li><Link href="/services/ziyarat-tours" className="text-n-400 hover:text-white transition-colors text-[15px]">Makkah Ziyarat City Tours</Link></li>
+                            <li><Link href="/ramadan-2026" className="text-n-400 hover:text-white transition-colors text-[15px]">Ramadan 2026 Umrah Transport</Link></li>
                         </ul>
                     </div>
 
@@ -189,13 +189,13 @@ export default function Footer() {
                             Services & Fleet
                         </h3>
                         <ul className="space-y-3">
-                            <li><Link href="/services/airport-transfers" className="text-gray-400 hover:text-white transition-colors text-[15px]">Airport Transfers</Link></li>
-                            <li><Link href="/services/hotel-transfers" className="text-gray-400 hover:text-white transition-colors text-[15px]">Hotel Transfers</Link></li>
-                            <li><Link href="/services/intercity-transfer" className="text-gray-400 hover:text-white transition-colors text-[15px]">Intercity Transport</Link></li>
-                            <li><Link href="/fleet/gmc-yukon-at4" className="text-gray-400 hover:text-white transition-colors text-[15px]">GMC Yukon XL — VIP SUV</Link></li>
-                            <li><Link href="/fleet/hyundai-staria" className="text-gray-400 hover:text-white transition-colors text-[15px]">Hyundai Staria — Family MPV</Link></li>
-                            <li><Link href="/fleet/toyota-hiace" className="text-gray-400 hover:text-white transition-colors text-[15px]">Toyota Hiace — Group Bus</Link></li>
-                            <li><Link href="/pricing" className="text-gray-400 hover:text-white transition-colors text-[15px]">Pricing & Rates</Link></li>
+                            <li><Link href="/services/airport-transfers" className="text-n-400 hover:text-white transition-colors text-[15px]">Airport Transfers</Link></li>
+                            <li><Link href="/services/hotel-transfers" className="text-n-400 hover:text-white transition-colors text-[15px]">Hotel Transfers</Link></li>
+                            <li><Link href="/services/intercity-transfer" className="text-n-400 hover:text-white transition-colors text-[15px]">Intercity Transport</Link></li>
+                            <li><Link href="/fleet/gmc-yukon-at4" className="text-n-400 hover:text-white transition-colors text-[15px]">GMC Yukon XL — VIP SUV</Link></li>
+                            <li><Link href="/fleet/hyundai-staria" className="text-n-400 hover:text-white transition-colors text-[15px]">Hyundai Staria — Family MPV</Link></li>
+                            <li><Link href="/fleet/toyota-hiace" className="text-n-400 hover:text-white transition-colors text-[15px]">Toyota Hiace — Group Bus</Link></li>
+                            <li><Link href="/pricing" className="text-n-400 hover:text-white transition-colors text-[15px]">Pricing & Rates</Link></li>
                             <li><Link href="/pricing/compare" className="text-gold/70 hover:text-gold transition-colors text-[15px]">Compare vs Kiwi · Telixo · 5Star</Link></li>
                         </ul>
                     </div>
@@ -206,19 +206,19 @@ export default function Footer() {
                             Al Kiswah Transport
                         </h3>
                         <ul className="space-y-3">
-                            <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors text-[15px]">About Us</Link></li>
-                            <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors text-[15px]">Blog & Travel Guides</Link></li>
-                            <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-[15px]">Contact Us</Link></li>
-                            <li><Link href="/safety" className="text-gray-400 hover:text-white transition-colors text-[15px]">Safety Policy</Link></li>
-                            <li><Link href="/track-booking" className="text-gray-400 hover:text-white transition-colors text-[15px]">Track My Booking</Link></li>
+                            <li><Link href="/about" className="text-n-400 hover:text-white transition-colors text-[15px]">About Us</Link></li>
+                            <li><Link href="/blog" className="text-n-400 hover:text-white transition-colors text-[15px]">Blog & Travel Guides</Link></li>
+                            <li><Link href="/contact" className="text-n-400 hover:text-white transition-colors text-[15px]">Contact Us</Link></li>
+                            <li><Link href="/safety" className="text-n-400 hover:text-white transition-colors text-[15px]">Safety Policy</Link></li>
+                            <li><Link href="/track-booking" className="text-n-400 hover:text-white transition-colors text-[15px]">Track My Booking</Link></li>
                             {regions.slice(0, 4).map((region) => (
                                 <li key={region.id}>
-                                    <Link href={`/pilgrims/${region.id}`} className="text-gray-400 hover:text-white transition-colors text-[15px]">
+                                    <Link href={`/pilgrims/${region.id}`} className="text-n-400 hover:text-white transition-colors text-[15px]">
                                         Umrah Taxi {region.name}
                                     </Link>
                                 </li>
                             ))}
-                            <li><Link href="/ar" className="text-gray-400 hover:text-white transition-colors text-[15px]" dir="rtl">للمعتمرين العرب</Link></li>
+                            <li><Link href="/ar" className="text-n-400 hover:text-white transition-colors text-[15px]" dir="rtl">للمعتمرين العرب</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -228,24 +228,24 @@ export default function Footer() {
             <NusukFooterSeal />
 
             {/* Full-Width Trust Bar */}
-            <div className="border-y border-white/5 py-6 bg-gray-900/50">
+            <div className="border-y border-white/5 py-6 bg-n-900/50">
                 <div className="container mx-auto px-4">
-                    <div className="flex flex-col md:flex-row flex-wrap justify-between items-center gap-4 text-[13px] text-gray-500 font-medium">
+                    <div className="flex flex-col md:flex-row flex-wrap justify-between items-center gap-4 text-[13px] text-n-500 font-medium">
                         <div className="flex items-center gap-2">
                             <span>🛡️</span>
                             <span>Ministry of Hajj Licensed</span>
                         </div>
-                        <div className="hidden md:block w-px h-4 bg-gray-700" />
+                        <div className="hidden md:block w-px h-4 bg-n-700" />
                         <div className="flex items-center gap-2">
                             <span>✈️</span>
                             <span>Real-Time Flight Tracking</span>
                         </div>
-                        <div className="hidden md:block w-px h-4 bg-gray-700" />
+                        <div className="hidden md:block w-px h-4 bg-n-700" />
                         <div className="flex items-center gap-2">
                             <span>💰</span>
                             <span>Fixed Prices — No Hidden Fees</span>
                         </div>
-                        <div className="hidden md:block w-px h-4 bg-gray-700" />
+                        <div className="hidden md:block w-px h-4 bg-n-700" />
                         <div className="flex items-center gap-2">
                             <span>🕐</span>
                             <span>24/7 Support — Always Available</span>
@@ -257,15 +257,15 @@ export default function Footer() {
             {/* Bottom Legal Bar */}
             <div className="container mx-auto px-4 py-8">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center text-center lg:text-left">
-                    <div className="text-[13px] text-gray-500">
+                    <div className="text-[13px] text-n-500">
                         © 2026 Al Kiswah Umrah Transport. All rights reserved. | Jeddah · Makkah · Madinah
                     </div>
                     
-                    <div className="text-[11px] text-gray-600 lg:text-center order-last lg:order-none flex flex-wrap justify-center gap-2">
+                    <div className="text-[11px] text-n-600 lg:text-center order-last lg:order-none flex flex-wrap justify-center gap-2">
                         <span>Serving pilgrims from:</span>
                         {regions.map((region, index) => (
                             <span key={region.id}>
-                                <Link href={`/pilgrims/${region.id}`} className="hover:text-gray-400 transition-colors">
+                                <Link href={`/pilgrims/${region.id}`} className="hover:text-n-400 transition-colors">
                                     {region.name}
                                 </Link>
                                 {index < regions.length - 1 && <span className="mx-1">·</span>}
@@ -273,7 +273,7 @@ export default function Footer() {
                         ))}
                     </div>
 
-                    <div className="flex items-center justify-center lg:justify-end gap-6 text-[13px] text-gray-500">
+                    <div className="flex items-center justify-center lg:justify-end gap-6 text-[13px] text-n-500">
                         <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
                         <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
                         <Link href="/sitemap.xml" className="hover:text-white transition-colors">Sitemap</Link>

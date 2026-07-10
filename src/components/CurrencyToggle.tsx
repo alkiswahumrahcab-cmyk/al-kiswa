@@ -18,7 +18,7 @@ export default function CurrencyToggle({ className = '' }: CurrencyToggleProps) 
     }, []);
 
     if (!mounted) {
-        return <div className={`w-16 h-8 rounded-full bg-slate-800/50 ${className}`} />;
+        return <div className={`w-16 h-8 rounded-full bg-n-800/50 ${className}`} />;
     }
 
     return (
@@ -45,10 +45,10 @@ export default function CurrencyToggle({ className = '' }: CurrencyToggleProps) 
                 transition={{ type: 'spring', stiffness: 400, damping: 25 }}
             />
             
-            <span className={`relative z-10 w-1/2 text-center text-xs font-bold tracking-wider transition-colors duration-300 ${currency === 'SAR' ? 'text-black' : 'text-gray-400'}`}>
+            <span className={`relative z-10 w-1/2 text-center text-xs font-bold tracking-wider transition-colors duration-300 ${currency === 'SAR' ? 'text-black' : 'text-n-400'}`}>
                 SAR
             </span>
-            <span className={`relative z-10 w-1/2 text-center text-xs font-bold tracking-wider transition-colors duration-300 ${currency === 'USD' ? 'text-black' : 'text-gray-400'}`}>
+            <span className={`relative z-10 w-1/2 text-center text-xs font-bold tracking-wider transition-colors duration-300 ${currency === 'USD' ? 'text-black' : 'text-n-400'}`}>
                 USD
             </span>
         </button>

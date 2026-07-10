@@ -145,7 +145,7 @@ export default async function ToyotaHiacePage() {
             />
 
             {/* Vehicle Highlights */}
-            <section className="py-16 bg-white dark:bg-slate-900">
+            <section className="py-16 bg-white dark:bg-n-900">
                 <div className="container mx-auto px-4">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
@@ -160,43 +160,43 @@ export default async function ToyotaHiacePage() {
                             </div>
                         </div>
                         <div>
-                            <h2 className="text-3xl font-bold mb-6 font-playfair text-slate-800 dark:text-slate-100">
+                            <h2 className="text-3xl font-bold mb-6 font-playfair text-n-800 dark:text-n-100">
                                 Why Choose Toyota Hiace for Group Umrah?
                             </h2>
-                            <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                            <p className="text-n-600 dark:text-n-300 mb-8 leading-relaxed">
                                 Keep your group united. The Toyota Hiace is perfect for families traveling from <Link href="/ar/services/jeddah-airport-transfer" className="text-gold-dark font-medium hover:underline">Jeddah Airport to Makkah</Link>.
                                 Known for its reliability and powerful AC, it ensures a comfortable journey across Saudi Arabia for up to 12 passengers.
                             </p>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Users className="text-gold" size={20} /> 10 Passengers
                                     </div>
-                                    <p className="text-sm text-slate-500">Perfect for 2-3 families</p>
+                                    <p className="text-sm text-n-500">Perfect for 2-3 families</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Briefcase className="text-gold" size={20} /> 10+ Bags
                                     </div>
-                                    <p className="text-sm text-slate-500">Dedicated rear luggage area</p>
+                                    <p className="text-sm text-n-500">Dedicated rear luggage area</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Shield className="text-gold" size={20} /> Extreme Reliability
                                     </div>
-                                    <p className="text-sm text-slate-500">Toyota's legendarily durable engine</p>
+                                    <p className="text-sm text-n-500">Toyota's legendarily durable engine</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Fuel className="text-gold" size={20} /> Fuel Efficient
                                     </div>
-                                    <p className="text-sm text-slate-500">High efficiency for long distances</p>
+                                    <p className="text-sm text-n-500">High efficiency for long distances</p>
                                 </div>
                             </div>
 
                             <div className="mt-10">
-                                <Link href="/ar/booking" className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-gold/20">
+                                <Link href="/ar/booking" className="inline-flex items-center gap-2 bg-n-900 text-white hover:bg-n-800 dark:bg-white dark:text-n-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-gold/20">
                                     Book Toyota Hiace <ArrowRight size={20} />
                                 </Link>
                             </div>
@@ -206,36 +206,36 @@ export default async function ToyotaHiacePage() {
             </section>
 
             {/* Detailed Specifications */}
-            <section className="py-12 bg-slate-50 dark:bg-slate-950">
+            <section className="py-12 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-slate-900 dark:text-white">Technical Specifications</h2>
+                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-n-900 dark:text-white">Technical Specifications</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Engine & Power</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">2.8L Turbo Diesel</p>
-                            <p className="text-sm text-slate-400">High Torque Motor</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Engine & Power</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">2.8L Turbo Diesel</p>
+                            <p className="text-sm text-n-400">High Torque Motor</p>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Cooling System</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">Heavy Duty AC</p>
-                            <p className="text-sm text-slate-400">Individual Roof Vents</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Cooling System</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">Heavy Duty AC</p>
+                            <p className="text-sm text-n-400">Individual Roof Vents</p>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Capacity</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">10-13 Seats</p>
-                            <p className="text-sm text-slate-400">Configurable Layout</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Capacity</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">10-13 Seats</p>
+                            <p className="text-sm text-n-400">Configurable Layout</p>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Safety</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">ABS & Airbags</p>
-                            <p className="text-sm text-slate-400">Standard Safety Pack</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Safety</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">ABS & Airbags</p>
+                            <p className="text-sm text-n-400">Standard Safety Pack</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* 360 Interior Preview (Placeholder) */}
-            <section className="py-16 bg-slate-900 text-white overflow-hidden relative">
+            <section className="py-16 bg-n-900 text-white overflow-hidden relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <span className="text-gold font-bold tracking-widest uppercase text-sm mb-4 block">Spacious Group Travel</span>
@@ -247,12 +247,12 @@ export default async function ToyotaHiacePage() {
                             title="Toyota Hiace Interior"
                         />
                     </div>
-                    <p className="text-slate-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
+                    <p className="text-n-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
                 </div>
             </section>
 
             {/* Use Cases */}
-            <section className="py-16 bg-slate-50 dark:bg-slate-950">
+            <section className="py-16 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl font-bold text-center mb-12 font-playfair">Proven for Big Groups</h2>
                     <div className="grid md:grid-cols-3 gap-8">
@@ -273,10 +273,10 @@ export default async function ToyotaHiacePage() {
                                 icon: Shield
                             }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-md border-t-4 border-gold transition-all hover:-translate-y-1">
+                            <div key={idx} className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-md border-t-4 border-gold transition-all hover:-translate-y-1">
                                 <item.icon className="w-10 h-10 text-gold mb-4" />
-                                <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">{item.title}</h3>
-                                <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
+                                <h3 className="text-xl font-bold mb-2 text-n-800 dark:text-white">{item.title}</h3>
+                                <p className="text-n-600 dark:text-n-400">{item.desc}</p>
                             </div>
                         ))}
                     </div>

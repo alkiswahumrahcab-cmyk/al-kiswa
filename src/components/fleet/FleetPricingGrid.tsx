@@ -63,14 +63,14 @@ const PricingCard = ({ route, dbVehicleId }: { route: RouteProduct; dbVehicleId:
                 <div className="flex items-center justify-center gap-3">
                     <button
                         onClick={handleDecrement}
-                        className="w-8 h-8 rounded-full bg-white/5 hover:bg-gold/20 hover:text-gold text-gray-400 flex items-center justify-center transition-colors border border-white/5"
+                        className="w-8 h-8 rounded-full bg-white/5 hover:bg-gold/20 hover:text-gold text-n-400 flex items-center justify-center transition-colors border border-white/5"
                     >
                         <Minus size={12} />
                     </button>
                     <span className="font-bold text-sm text-white w-6 text-center">{quantity}</span>
                     <button
                         onClick={handleIncrement}
-                        className="w-8 h-8 rounded-full bg-white/5 hover:bg-gold/20 hover:text-gold text-gray-400 flex items-center justify-center transition-colors border border-white/5"
+                        className="w-8 h-8 rounded-full bg-white/5 hover:bg-gold/20 hover:text-gold text-n-400 flex items-center justify-center transition-colors border border-white/5"
                     >
                         <Plus size={12} />
                     </button>
@@ -117,7 +117,7 @@ export default function FleetPricingGrid({
                         <h2 className="text-3xl md:text-5xl font-bold mb-6 font-sans text-white">
                             {title || `Affordable ${vehicleType.toUpperCase()} Services`}
                         </h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto font-light text-lg">
+                        <p className="text-n-400 max-w-2xl mx-auto font-light text-lg">
                             {subtitle || `Best value and comfort for your journey. Enjoy a premium ride with our ${vehicleType.toUpperCase()} fleet.`}
                         </p>
                     </div>

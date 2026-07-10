@@ -47,7 +47,7 @@ export default function CompanyStory() {
                         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-sans">
                             Our Sacred Journey
                         </h2>
-                        <p className="text-lg text-gray-400 leading-relaxed font-light">
+                        <p className="text-lg text-n-400 leading-relaxed font-light">
                             From a humble beginning to a leading service provider, our path has always been guided by faith, dedication, and the privilege of serving pilgrims.
                         </p>
                     </FadeIn>
@@ -77,7 +77,7 @@ export default function CompanyStory() {
                                             <span className="text-4xl font-bold font-sans text-white tracking-tight">{item.year}</span>
                                         </div>
                                         <h3 className="text-xl font-bold text-white mb-3 font-sans tracking-wide">{item.title}</h3>
-                                        <p className="text-gray-400 leading-relaxed font-light text-base">
+                                        <p className="text-n-400 leading-relaxed font-light text-base">
                                             {item.desc}
                                         </p>
                                     </GlassCard>

@@ -69,7 +69,7 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
                 </div>
                 <ChevronRight
                     size={16}
-                    className={`text-gray-400 transition-transform duration-300 ${isCollapsed ? 'rotate-90' : '-rotate-90'}`}
+                    className={`text-n-400 transition-transform duration-300 ${isCollapsed ? 'rotate-90' : '-rotate-90'}`}
                 />
             </div>
 
@@ -92,7 +92,7 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
                                             href={`#${heading.id}`}
                                             className={`block py-1.5 text-sm transition-all duration-200 border-l-2 pl-3 ${activeId === heading.id
                                                     ? 'border-gold text-gold font-medium bg-gold/5'
-                                                    : 'border-transparent text-gray-400 hover:text-white hover:border-white/20'
+                                                    : 'border-transparent text-n-400 hover:text-white hover:border-white/20'
                                                 }`}
                                             onClick={(e) => {
                                                 e.preventDefault();

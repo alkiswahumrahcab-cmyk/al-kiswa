@@ -161,10 +161,10 @@ export default function UKPilgrimsPage() {
       <div className="container relative z-10 mx-auto px-4 max-w-5xl">
 
         {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="text-sm text-gray-500 mb-10 flex items-center gap-2">
+        <nav aria-label="Breadcrumb" className="text-sm text-n-500 mb-10 flex items-center gap-2">
           <Link href="/" className="hover:text-gold transition-colors">Home</Link>
           <span>/</span>
-          <span className="text-gray-300">UK Pilgrims Umrah Transport</span>
+          <span className="text-n-300">UK Pilgrims Umrah Transport</span>
         </nav>
 
         {/* Hero */}
@@ -174,7 +174,7 @@ export default function UKPilgrimsPage() {
             Umrah Transport<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-amber-400">Trusted by British Pilgrims</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-n-300 max-w-2xl mx-auto leading-relaxed">
             From Jeddah Airport to the Haram — private, comfortable, and fixed-price.
             Serving UK pilgrims from London, Birmingham, Manchester, Bradford, and beyond since 2014.
           </p>
@@ -197,7 +197,7 @@ export default function UKPilgrimsPage() {
           ].map((s, i) => (
             <div key={i} className="bg-white/5 rounded-xl p-6 border border-white/10">
               <div className="text-4xl font-bold text-gold">{s.stat}</div>
-              <div className="text-gray-400 mt-2 text-sm">{s.label}</div>
+              <div className="text-n-400 mt-2 text-sm">{s.label}</div>
             </div>
           ))}
         </div>
@@ -207,7 +207,7 @@ export default function UKPilgrimsPage() {
           {features.map((f, i) => (
             <div key={i} className="flex items-center gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
               <CheckCircle className="text-gold shrink-0" size={20} />
-              <span className="text-gray-200">{f}</span>
+              <span className="text-n-200">{f}</span>
             </div>
           ))}
         </div>
@@ -215,7 +215,7 @@ export default function UKPilgrimsPage() {
         {/* Pricing Guide */}
         <div className="bg-white/5 rounded-2xl border border-gold/20 p-8 mb-12">
           <h2 className="text-2xl font-bold mb-2 text-white">Umrah Transport Pricing Guide for UK Pilgrims</h2>
-          <p className="text-gray-400 text-sm mb-6">All prices are per vehicle, fixed at time of booking. No airport surcharges, no night supplements.</p>
+          <p className="text-n-400 text-sm mb-6">All prices are per vehicle, fixed at time of booking. No airport surcharges, no night supplements.</p>
           <div className="grid sm:grid-cols-2 gap-4 mb-6">
             {[
               { from: "Jeddah Airport (KAIA)", to: "Makkah Hotels", price: "From £35", note: "~1 hr journey" },
@@ -227,15 +227,15 @@ export default function UKPilgrimsPage() {
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-2 text-sm">
                     <MapPin size={14} className="text-gold shrink-0" />
-                    <span className="text-gray-300">{route.from} → {route.to}</span>
+                    <span className="text-n-300">{route.from} → {route.to}</span>
                   </div>
-                  <span className="text-gray-500 text-xs pl-5">{route.note}</span>
+                  <span className="text-n-500 text-xs pl-5">{route.note}</span>
                 </div>
                 <span className="text-gold font-bold text-sm shrink-0 ml-4">{route.price}</span>
               </div>
             ))}
           </div>
-          <div className="bg-gold/10 border border-gold/20 rounded-xl p-4 text-sm text-gray-300">
+          <div className="bg-gold/10 border border-gold/20 rounded-xl p-4 text-sm text-n-300">
             <strong className="text-gold">Pricing tip:</strong> Prices are per vehicle, so larger groups get better value. A Hyundai Staria (11 seats) from Jeddah to Makkah works out to around £3–4 per person for a family group.
           </div>
           <div className="mt-4 text-center">
@@ -248,7 +248,7 @@ export default function UKPilgrimsPage() {
         {/* How It Works */}
         <div className="mb-16">
           <h2 className="text-2xl font-bold text-center mb-4">How to Book Your Umrah Transfer</h2>
-          <p className="text-center text-gray-400 text-sm mb-10 max-w-xl mx-auto">Booking from the UK is simple. Most pilgrims confirm their transfer within 5 minutes of enquiring.</p>
+          <p className="text-center text-n-400 text-sm mb-10 max-w-xl mx-auto">Booking from the UK is simple. Most pilgrims confirm their transfer within 5 minutes of enquiring.</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { step: 1, title: "Book Online or WhatsApp", desc: "Fill in your flight number, arrival date, and Makkah hotel. Takes 2 minutes via our booking form or WhatsApp." },
@@ -260,7 +260,7 @@ export default function UKPilgrimsPage() {
                   {s.step}
                 </div>
                 <h3 className="font-bold text-white mb-2">{s.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-n-400 text-sm leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -269,7 +269,7 @@ export default function UKPilgrimsPage() {
         {/* SEO Travel Guide */}
         <div className="bg-white/5 rounded-2xl border border-white/10 p-8 mb-12">
           <h2 className="text-2xl font-bold mb-4 text-white">UK Pilgrim's Guide to Umrah Transport in Saudi Arabia</h2>
-          <div className="prose prose-invert prose-sm max-w-none text-gray-300 space-y-4">
+          <div className="prose prose-invert prose-sm max-w-none text-n-300 space-y-4">
             <p>
               Every year, thousands of British Muslims travel from UK cities to perform Umrah in Makkah and Madinah. Arranging reliable, halal-certified transport from Jeddah Airport is one of the most important logistical decisions you will make for your pilgrimage.
             </p>
@@ -303,8 +303,8 @@ export default function UKPilgrimsPage() {
                     <Star key={j} size={14} className="fill-gold text-gold" />
                   ))}
                 </div>
-                <p className="text-gray-300 text-sm leading-relaxed mb-4">"{t.text}"</p>
-                <div className="text-sm font-semibold text-gold">{t.name} <span className="text-gray-500 font-normal">— {t.city}</span></div>
+                <p className="text-n-300 text-sm leading-relaxed mb-4">"{t.text}"</p>
+                <div className="text-sm font-semibold text-gold">{t.name} <span className="text-n-500 font-normal">— {t.city}</span></div>
               </div>
             ))}
           </div>
@@ -317,7 +317,7 @@ export default function UKPilgrimsPage() {
             {faqs.map((faq, i) => (
               <div key={i} className="bg-white/5 rounded-xl border border-white/10 p-6">
                 <h3 className="font-bold text-white mb-2">{faq.q}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{faq.a}</p>
+                <p className="text-n-400 text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -337,7 +337,7 @@ export default function UKPilgrimsPage() {
             ].map((link, i) => (
               <Link key={i} href={link.href} className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-gold/30 rounded-xl p-4 transition-all group">
                 <div className="font-semibold text-white group-hover:text-gold transition-colors text-sm">{link.label}</div>
-                <div className="text-gray-500 text-xs mt-1">{link.desc}</div>
+                <div className="text-n-500 text-xs mt-1">{link.desc}</div>
               </Link>
             ))}
           </div>
@@ -346,7 +346,7 @@ export default function UKPilgrimsPage() {
         {/* CTA */}
         <div className="text-center bg-gradient-to-r from-gold/10 to-amber-500/10 rounded-2xl border border-gold/30 p-10">
           <h2 className="text-2xl font-bold mb-3">Ready to book your Umrah transfer?</h2>
-          <p className="text-gray-400 mb-6">WhatsApp us or book online — we reply within minutes.</p>
+          <p className="text-n-400 mb-6">WhatsApp us or book online — we reply within minutes.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform">
               Book Online

@@ -294,9 +294,9 @@ May Allah invite you to His House in **Ramadan 2026**, accept your fasting, and 
                 <li>Manage AC temperature to ensure parents aren't too cold.</li>
             </ul>
 
-            <div class="bg-ivory dark:bg-slate-800 p-6 rounded-xl border-l-4 border-gold my-8">
+            <div class="bg-ivory dark:bg-n-800 p-6 rounded-xl border-l-4 border-gold my-8">
                 <h4 class="font-bold text-lg mb-2 text-gold-dark dark:text-gold">A Spiritual Reminder</h4>
-                <p class="text-slate-700 dark:text-slate-300">"And lower to them the wing of humility out of mercy and say, 'My Lord, have mercy upon them as they brought me up [when I was] small.'" (Quran 17:24). Your patience with their slowness is your ticket to Jannah.</p>
+                <p class="text-n-700 dark:text-n-300">"And lower to them the wing of humility out of mercy and say, 'My Lord, have mercy upon them as they brought me up [when I was] small.'" (Quran 17:24). Your patience with their slowness is your ticket to Jannah.</p>
             </div>
 
             <p>Let us handle the road so you can focus on holding their hand in the Haram.</p>
@@ -470,9 +470,9 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
                 <li><strong>Vehicle Choice:</strong> High-demand vehicles like the <a href="/fleet/gmc-yukon-at4" class="text-amber-600 hover:underline">GMC Yukon XL</a> sell out fast. Early booking guarantees your specific car.</li>
             </ul>
 
-            <div class="bg-ivory dark:bg-slate-800 p-6 rounded-xl border-l-4 border-gold my-8">
+            <div class="bg-ivory dark:bg-n-800 p-6 rounded-xl border-l-4 border-gold my-8">
                 <h4 class="font-bold text-lg mb-2 text-gold-dark dark:text-gold">Resolution Idea: The "Digital Detox" Umrah</h4>
-                <p class="text-slate-700 dark:text-slate-300">For 2026, make a Niyyah to keep your phone in the hotel safe during Salah times. Use the travel time between <a href="/services/makkah-madinah-taxi" class="text-amber-600 hover:underline">Makkah and Madinah</a> to read Seerah instead of scrolling social media. Our wifi-enabled cars are there if you need them, but disconnecting is the ultimate luxury.</p>
+                <p class="text-n-700 dark:text-n-300">For 2026, make a Niyyah to keep your phone in the hotel safe during Salah times. Use the travel time between <a href="/services/makkah-madinah-taxi" class="text-amber-600 hover:underline">Makkah and Madinah</a> to read Seerah instead of scrolling social media. Our wifi-enabled cars are there if you need them, but disconnecting is the ultimate luxury.</p>
             </div>
 
             <h3>4. Packing for a 2026 Umrah</h3>
@@ -534,9 +534,9 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
                 <li><strong>Individual Comfort:</strong> Reclining seats with armrests, perfect for elderly parents who need to sleep during the 4.5-hour drive to Madinah.</li>
             </ul>
 
-            <div class="bg-amber-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-amber-500 my-8">
+            <div class="bg-amber-50 dark:bg-n-800 p-6 rounded-xl border-l-4 border-amber-500 my-8">
                 <h4 class="font-bold text-lg mb-2 text-amber-800 dark:text-amber-400">Did You Know?</h4>
-                <p class="text-slate-700 dark:text-slate-300">The GMC Yukon XL suspension is tuned for "Magnetic Ride Control," meaning it absorbs the bumps of the desert highway better than almost any other vehicle, reducing motion sickness for children.</p>
+                <p class="text-n-700 dark:text-n-300">The GMC Yukon XL suspension is tuned for "Magnetic Ride Control," meaning it absorbs the bumps of the desert highway better than almost any other vehicle, reducing motion sickness for children.</p>
             </div>
 
             <h3>4. Privacy and Power</h3>
@@ -674,9 +674,9 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
             <h3>3. Hydration Station</h3>
             <p>Dehydration is a serious risk. We provide unlimited chilled bottled water in every vehicle. It is a small touch, but after standing in immigration queues, that first sip of cold water is a blessing.</p>
 
-            <div class="bg-blue-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-blue-500 my-8">
+            <div class="bg-blue-50 dark:bg-n-800 p-6 rounded-xl border-l-4 border-blue-500 my-8">
                 <h4 class="font-bold text-lg mb-2 text-blue-800 dark:text-blue-400">Summer Umrah Survival Tips</h4>
-                <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300">
+                <ul class="list-disc pl-5 space-y-2 text-n-700 dark:text-n-300">
                     <li><strong>Travel at Night:</strong> Book your Jeddah to Makkah transfer after Isha if possible to avoid the midday sun.</li>
                     <li><strong>Dress Smart:</strong> If you aren't in Ihram yet, wear light-colored, loose cotton.</li>
                     <li><strong>Don't Be Shy:</strong> If you are too cold or too hot, tell your driver immediately. Your comfort is their job.</li>
@@ -723,9 +723,9 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
             <h3>3. The Taif Day Trip</h3>
             <p>Just an hour from Makkah, Taif offers cool mountain air and rich history. Visit the <strong>Masjid Addas</strong> (built by the Christian boy who served grapes to the Prophet ﷺ) and see the valleys where the Prophet ﷺ was tested.</p>
 
-            <div class="bg-amber-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-amber-500 my-8">
+            <div class="bg-amber-50 dark:bg-n-800 p-6 rounded-xl border-l-4 border-amber-500 my-8">
                 <h4 class="font-bold text-lg mb-2 text-amber-800 dark:text-amber-400">Why Go Private?</h4>
-                <p class="text-slate-700 dark:text-slate-300"><strong>Flexibility is key.</strong> Want to spend an hour making Dua at Uhud? You can. Want to stop for dates at the best farm in Quba? We know the place. You aren't on a schedule; you are on a journey.</p>
+                <p class="text-n-700 dark:text-n-300"><strong>Flexibility is key.</strong> Want to spend an hour making Dua at Uhud? You can. Want to stop for dates at the best farm in Quba? We know the place. You aren't on a schedule; you are on a journey.</p>
             </div>
 
             <p>Don't settle for a window-seat view of history. Step out, touch the ground, and breathe in the stories of the Seerah.</p>
@@ -780,9 +780,9 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
                 <li>Non-smoker policy inside vehicles.</li>
             </ul>
 
-            <div class="bg-ivory dark:bg-slate-800 p-6 rounded-xl border-l-4 border-gold my-8">
+            <div class="bg-ivory dark:bg-n-800 p-6 rounded-xl border-l-4 border-gold my-8">
                 <h4 class="font-bold text-lg mb-2 text-gold-dark dark:text-gold">The "Sister Safety" Badge</h4>
-                <p class="text-slate-700 dark:text-slate-300">For our solo female travelers, we assign specific drivers who have maintained a 5-star rating for professionalism and boundaries. We call this our <strong>"Sister Safety" Corps</strong>—drivers trusted to protect and respect our sisters in Islam.</p>
+                <p class="text-n-700 dark:text-n-300">For our solo female travelers, we assign specific drivers who have maintained a 5-star rating for professionalism and boundaries. We call this our <strong>"Sister Safety" Corps</strong>—drivers trusted to protect and respect our sisters in Islam.</p>
             </div>
 
             <p>When you book with us, you aren't just getting a ride; you are getting a guardian for your journey.</p>
@@ -829,13 +829,13 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
             <h3>Why It Matters for Your Umrah</h3>
             
             <div class="grid md:grid-cols-2 gap-4 my-6">
-                <div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700">
+                <div class="bg-white dark:bg-n-800 p-4 rounded-lg shadow-sm border border-n-100 dark:border-n-700">
                     <h5 class="font-bold text-secondary mb-2">Health Protection</h5>
-                    <p class="text-sm text-slate-600 dark:text-slate-300">Pilgrims often get the "Umrah Cough." A sanitized vehicle reduces your exposure to viruses before you even reach the Haram.</p>
+                    <p class="text-sm text-n-600 dark:text-n-300">Pilgrims often get the "Umrah Cough." A sanitized vehicle reduces your exposure to viruses before you even reach the Haram.</p>
                 </div>
-                <div class="bg-white dark:bg-slate-800 p-4 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700">
+                <div class="bg-white dark:bg-n-800 p-4 rounded-lg shadow-sm border border-n-100 dark:border-n-700">
                     <h5 class="font-bold text-secondary mb-2">Spiritual Focus</h5>
-                    <p class="text-sm text-slate-600 dark:text-slate-300">It is hard to make Dhikr in a dirty environment. A pristine car uplifts your spirit and helps you maintain the state of purity.</p>
+                    <p class="text-sm text-n-600 dark:text-n-300">It is hard to make Dhikr in a dirty environment. A pristine car uplifts your spirit and helps you maintain the state of purity.</p>
                 </div>
             </div>
 
@@ -1659,9 +1659,9 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
 
             <h3>3. Our 60-Minute Rescue Protocol</h3>
             <p>In the rare event of a failure, our "Red Phone" protocol activates:</p>
-            <div class="bg-amber-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-amber-500 my-8">
+            <div class="bg-amber-50 dark:bg-n-800 p-6 rounded-xl border-l-4 border-amber-500 my-8">
                 <h4 class="font-bold text-lg mb-2 text-amber-700 dark:text-amber-400">The S.O.P.</h4>
-                <ol class="list-decimal pl-5 space-y-2 text-slate-700 dark:text-slate-300">
+                <ol class="list-decimal pl-5 space-y-2 text-n-700 dark:text-n-300">
                     <li><strong>Safety First:</strong> Driver secures the vehicle on the shoulder and guides you to a shaded safe zone.</li>
                     <li><strong>Instant Alert:</strong> GPS automatically flags the breakdown to our 24/7 Operations Hub.</li>
                     <li><strong>Rescue Fleet:</strong> A replacement vehicle (always kept on standby at strategic highway intervals) is dispatched immediately.</li>
@@ -1711,7 +1711,7 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
                 <li><strong>Silence:</strong> Superior sound insulation makes it perfect for reciting Quran or napping peacefully.</li>
             </ul>
 
-            <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-lg my-6">
+            <div class="bg-n-100 dark:bg-n-800 p-4 rounded-lg my-6">
                 <strong>⚠️ The Luggage Reality Check:</strong> While it seats 7 passengers on paper, with luggage, it comfortably holds <strong>4 Adults + 4 Large Suitcases</strong>. If you have 5 adults with full luggage, it <em>will</em> be tight.
             </div>
 
@@ -1726,34 +1726,34 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
             </ul>
 
             <h3>Head-to-Head Comparison</h3>
-            <table class="w-full border-collapse border border-slate-200 dark:border-slate-700 my-8 text-sm">
-                <thead class="bg-amber-50 dark:bg-slate-900">
+            <table class="w-full border-collapse border border-n-200 dark:border-n-700 my-8 text-sm">
+                <thead class="bg-amber-50 dark:bg-n-900">
                     <tr>
-                        <th class="p-3 border border-slate-200 dark:border-slate-700 text-left">Feature</th>
-                        <th class="p-3 border border-slate-200 dark:border-slate-700 text-left">GMC Yukon 2024</th>
-                        <th class="p-3 border border-slate-200 dark:border-slate-700 text-left">Toyota Hiace 2024</th>
+                        <th class="p-3 border border-n-200 dark:border-n-700 text-left">Feature</th>
+                        <th class="p-3 border border-n-200 dark:border-n-700 text-left">GMC Yukon 2024</th>
+                        <th class="p-3 border border-n-200 dark:border-n-700 text-left">Toyota Hiace 2024</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700 font-bold">Ride Quality</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">Premium / Soft</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">Stable / Firm</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700 font-bold">Ride Quality</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">Premium / Soft</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">Stable / Firm</td>
                     </tr>
                     <tr>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700 font-bold">Ideal Pax (with Luggage)</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">1-4 Adults</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">5-10 Adults</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700 font-bold">Ideal Pax (with Luggage)</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">1-4 Adults</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">5-10 Adults</td>
                     </tr>
                     <tr>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700 font-bold">Speed Limits</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">140 km/h (Smooth)</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">100 km/h (Govt Regulated)</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700 font-bold">Speed Limits</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">140 km/h (Smooth)</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">100 km/h (Govt Regulated)</td>
                     </tr>
                     <tr>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700 font-bold">Privacy</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">High (Tinted)</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">Medium (Curtains)</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700 font-bold">Privacy</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">High (Tinted)</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">Medium (Curtains)</td>
                     </tr>
                 </tbody>
             </table>
@@ -1795,10 +1795,10 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
                 <li><strong>Duration (Haramain Train):</strong> 2 hours 20 minutes (plus station transfers).</li>
             </ul>
 
-            <div class="bg-blue-50 dark:bg-slate-900 p-6 rounded-xl border-l-4 border-blue-600 my-8">
+            <div class="bg-blue-50 dark:bg-n-900 p-6 rounded-xl border-l-4 border-blue-600 my-8">
                 <h4 class="font-bold text-lg mb-2 text-blue-800 dark:text-blue-400">Pro Tip: The "Door-to-Door" Reality</h4>
-                <p class="text-slate-700 dark:text-slate-300">Many pilgrims choose the Train for speed. However, consider the total travel time: Hotel to Makkah Station (30 min) + Boarding (45 min) + Train Ride (2.5 hrs) + Madinah Station to Hotel (30 min). <strong>Total: ~4 hours 15 mins.</strong></p>
-                <p class="mt-2 text-slate-700 dark:text-slate-300"><strong>Private Taxi:</strong> Pick up at lobby -> Drop off at lobby. <strong>Total: ~4 hours 30 mins.</strong> The difference is negligible, but the comfort of a private car is unmatched.</p>
+                <p class="text-n-700 dark:text-n-300">Many pilgrims choose the Train for speed. However, consider the total travel time: Hotel to Makkah Station (30 min) + Boarding (45 min) + Train Ride (2.5 hrs) + Madinah Station to Hotel (30 min). <strong>Total: ~4 hours 15 mins.</strong></p>
+                <p class="mt-2 text-n-700 dark:text-n-300"><strong>Private Taxi:</strong> Pick up at lobby -> Drop off at lobby. <strong>Total: ~4 hours 30 mins.</strong> The difference is negligible, but the comfort of a private car is unmatched.</p>
             </div>
 
             <h3>Key Landmarks & Rest Stops</h3>
@@ -1810,29 +1810,29 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
             </ul>
 
             <h3>Choosing Your Transport Mode</h3>
-            <table class="w-full border-collapse border border-slate-200 dark:border-slate-700 my-8 text-sm">
-                <thead class="bg-amber-50 dark:bg-slate-900">
+            <table class="w-full border-collapse border border-n-200 dark:border-n-700 my-8 text-sm">
+                <thead class="bg-amber-50 dark:bg-n-900">
                     <tr>
-                        <th class="p-3 border border-slate-200 dark:border-slate-700 text-left">Mode</th>
-                        <th class="p-3 border border-slate-200 dark:border-slate-700 text-left">Pros</th>
-                        <th class="p-3 border border-slate-200 dark:border-slate-700 text-left">Cons</th>
+                        <th class="p-3 border border-n-200 dark:border-n-700 text-left">Mode</th>
+                        <th class="p-3 border border-n-200 dark:border-n-700 text-left">Pros</th>
+                        <th class="p-3 border border-n-200 dark:border-n-700 text-left">Cons</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700 font-bold">Private Taxi (GMC/Sedan)</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">Privacy, Door-to-Door, Flexible Stops, 24/7 Availability.</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">Cost is higher for solo travelers.</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700 font-bold">Private Taxi (GMC/Sedan)</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">Privacy, Door-to-Door, Flexible Stops, 24/7 Availability.</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">Cost is higher for solo travelers.</td>
                     </tr>
                     <tr>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700 font-bold">Haramain Train</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">Fastest vehicle speed, smooth ride.</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">Strict luggage limits, fixed schedule, requires taxi to/from stations.</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700 font-bold">Haramain Train</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">Fastest vehicle speed, smooth ride.</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">Strict luggage limits, fixed schedule, requires taxi to/from stations.</td>
                     </tr>
                     <tr>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700 font-bold">SAPTCO Bus</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">Very cheap.</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">Slow, crowded, fixed terminals, no flexibility.</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700 font-bold">SAPTCO Bus</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">Very cheap.</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">Slow, crowded, fixed terminals, no flexibility.</td>
                     </tr>
                 </tbody>
             </table>
@@ -1944,9 +1944,9 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
             <p><strong>Look for:</strong> Licensed companies offering GMC Yukons, Ford Expeditions, or Toyota Camrys.</p>
             <p>For 90% of international pilgrims—especially families, elderly travelers, and those with luggage—luxury private taxis remain the gold standard. Services like <strong>Al Kiswah Umrah Transport</strong> specialize in this "door-to-door" experience.</p>
             
-            <div class="bg-amber-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-amber-500 my-8">
+            <div class="bg-amber-50 dark:bg-n-800 p-6 rounded-xl border-l-4 border-amber-500 my-8">
                 <h4 class="font-bold text-lg mb-2 text-amber-700 dark:text-amber-400">Why It Ranks #1:</h4>
-                <ul class="list-disc pl-5 space-y-2 text-slate-700 dark:text-slate-300">
+                <ul class="list-disc pl-5 space-y-2 text-n-700 dark:text-n-300">
                     <li><strong>Door-to-Door:</strong> You are picked up from the chaos of Jeddah Airport arrivals and dropped off <em>exactly</em> at your hotel lobby in Makkah. No shuttles, no walking.</li>
                     <li><strong>Luggage Freedom:</strong> Unlike trains (which limit you) or buses (where bags get crushed), a GMC Yukon can hold 6-8 large suitcases easily.</li>
                     <li><strong>Spiritual Focus:</strong> Private cars mean privacy. You can recite Talbiyah, listen to Quran, or sleep without stranger interruption.</li>
@@ -1968,33 +1968,33 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
             <p>SAPTCO VIP buses are decent, but standard buses can be a test of patience. Expect travel times of 6+ hours between Holy Cities due to multiple stops, checkpoints, and slower speeds.</p>
             
             <h3>Comparision: Jeddah Airport to Makkah</h3>
-            <table class="w-full border-collapse border border-slate-200 dark:border-slate-700 my-8 text-sm">
-                <thead class="bg-amber-50 dark:bg-slate-900">
+            <table class="w-full border-collapse border border-n-200 dark:border-n-700 my-8 text-sm">
+                <thead class="bg-amber-50 dark:bg-n-900">
                     <tr>
-                        <th class="p-3 border border-slate-200 dark:border-slate-700 text-left">Feature</th>
-                        <th class="p-3 border border-slate-200 dark:border-slate-700 text-left">Private VIP Taxi</th>
-                        <th class="p-3 border border-slate-200 dark:border-slate-700 text-left">Haramain Train</th>
-                        <th class="p-3 border border-slate-200 dark:border-slate-700 text-left">Airport Taxi</th>
+                        <th class="p-3 border border-n-200 dark:border-n-700 text-left">Feature</th>
+                        <th class="p-3 border border-n-200 dark:border-n-700 text-left">Private VIP Taxi</th>
+                        <th class="p-3 border border-n-200 dark:border-n-700 text-left">Haramain Train</th>
+                        <th class="p-3 border border-n-200 dark:border-n-700 text-left">Airport Taxi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700 font-bold">Total Time</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">60-90 Mins (Direct)</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">~3 Hours (Inc. transfers)</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">Variable (Negotiation)</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700 font-bold">Total Time</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">60-90 Mins (Direct)</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">~3 Hours (Inc. transfers)</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">Variable (Negotiation)</td>
                     </tr>
                     <tr>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700 font-bold">Privacy</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">100% Private</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">Public</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">Private (Maybe)</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700 font-bold">Privacy</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">100% Private</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">Public</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">Private (Maybe)</td>
                     </tr>
                     <tr>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700 font-bold">Cost (Family of 4)</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">Best Value (~400 SAR Total)</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">Expensive (~600+ SAR Total)</td>
-                        <td class="p-3 border border-slate-200 dark:border-slate-700">Unpredictable</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700 font-bold">Cost (Family of 4)</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">Best Value (~400 SAR Total)</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">Expensive (~600+ SAR Total)</td>
+                        <td class="p-3 border border-n-200 dark:border-n-700">Unpredictable</td>
                     </tr>
                 </tbody>
             </table>
@@ -2062,29 +2062,29 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
                 </ul>
 
                 <h3>مقارنة سريعة: التاكسي vs النقل الخاص</h3>
-                <table class="w-full border-collapse border border-slate-200 dark:border-slate-700 my-8 text-sm text-right">
-                    <thead class="bg-amber-50 dark:bg-slate-900">
+                <table class="w-full border-collapse border border-n-200 dark:border-n-700 my-8 text-sm text-right">
+                    <thead class="bg-amber-50 dark:bg-n-900">
                         <tr>
-                            <th class="p-3 border border-slate-200 dark:border-slate-700">وجه المقارنة</th>
-                            <th class="p-3 border border-slate-200 dark:border-slate-700">النقل الخاص (الكسوة)</th>
-                            <th class="p-3 border border-slate-200 dark:border-slate-700">تاكسي المطار / التطبيقات</th>
+                            <th class="p-3 border border-n-200 dark:border-n-700">وجه المقارنة</th>
+                            <th class="p-3 border border-n-200 dark:border-n-700">النقل الخاص (الكسوة)</th>
+                            <th class="p-3 border border-n-200 dark:border-n-700">تاكسي المطار / التطبيقات</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="p-3 border border-slate-200 dark:border-slate-700 font-bold">السعر</td>
-                            <td class="p-3 border border-slate-200 dark:border-slate-700">ثابت ومعروف مسبقاً</td>
-                            <td class="p-3 border border-slate-200 dark:border-slate-700">متغير وقد يزيد فجأة</td>
+                            <td class="p-3 border border-n-200 dark:border-n-700 font-bold">السعر</td>
+                            <td class="p-3 border border-n-200 dark:border-n-700">ثابت ومعروف مسبقاً</td>
+                            <td class="p-3 border border-n-200 dark:border-n-700">متغير وقد يزيد فجأة</td>
                         </tr>
                         <tr>
-                            <td class="p-3 border border-slate-200 dark:border-slate-700 font-bold">الاستقبال</td>
-                            <td class="p-3 border border-slate-200 dark:border-slate-700">استقبال بالاسم داخل المطار</td>
-                            <td class="p-3 border border-slate-200 dark:border-slate-700">البحث عن السائق خارج الصالة</td>
+                            <td class="p-3 border border-n-200 dark:border-n-700 font-bold">الاستقبال</td>
+                            <td class="p-3 border border-n-200 dark:border-n-700">استقبال بالاسم داخل المطار</td>
+                            <td class="p-3 border border-n-200 dark:border-n-700">البحث عن السائق خارج الصالة</td>
                         </tr>
                         <tr>
-                            <td class="p-3 border border-slate-200 dark:border-slate-700 font-bold">جودة السيارة</td>
-                            <td class="p-3 border border-slate-200 dark:border-slate-700">موديلات حديثة ونظيفة ومعقمة</td>
-                            <td class="p-3 border border-slate-200 dark:border-slate-700">تتفاوت الجودة والنظافة</td>
+                            <td class="p-3 border border-n-200 dark:border-n-700 font-bold">جودة السيارة</td>
+                            <td class="p-3 border border-n-200 dark:border-n-700">موديلات حديثة ونظيفة ومعقمة</td>
+                            <td class="p-3 border border-n-200 dark:border-n-700">تتفاوت الجودة والنظافة</td>
                         </tr>
                     </tbody>
                 </table>

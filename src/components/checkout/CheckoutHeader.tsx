@@ -33,22 +33,22 @@ export default function CheckoutHeader({ contactSettings }: CheckoutHeaderProps)
 
                 {/* Center/Right: Trust Badges (Hidden on mobile) */}
                 <div className="hidden md:flex items-center gap-6">
-                    <div className="flex items-center gap-2 text-xs text-gray-300 font-medium">
+                    <div className="flex items-center gap-2 text-xs text-n-300 font-medium">
                         <Shield size={16} className="text-gold" />
                         <span>Ministry Licensed</span>
                     </div>
-                    <div className="flex items-center gap-2 text-xs text-gray-300 font-medium">
+                    <div className="flex items-center gap-2 text-xs text-n-300 font-medium">
                         <CreditCard size={16} className="text-gold" />
                         <span>Pay on Arrival</span>
                     </div>
-                    <div className="flex items-center gap-2 text-xs text-gray-300 font-medium">
+                    <div className="flex items-center gap-2 text-xs text-n-300 font-medium">
                         <Star size={16} className="text-gold" />
                         <span>4.9★ Rated</span>
                     </div>
                 </div>
 
                 {/* Mobile Trust Line */}
-                <div className="flex md:hidden items-center gap-1.5 text-[10px] text-gray-300 font-medium">
+                <div className="flex md:hidden items-center gap-1.5 text-[10px] text-n-300 font-medium">
                     <Shield size={12} className="text-gold" />
                     <span>Secure Booking</span>
                 </div>

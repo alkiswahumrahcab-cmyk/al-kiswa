@@ -57,7 +57,7 @@ export default function HiaceHero({ whatsappLink, phoneNumber }: Props) {
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 }}
-                    className="text-slate-300 text-base md:text-lg max-w-xl mx-auto mb-8"
+                    className="text-n-300 text-base md:text-lg max-w-xl mx-auto mb-8"
                 >
                     Group transport for Umrah, families & business — Jeddah, Makkah, Madinah & Abha.
                 </motion.p>

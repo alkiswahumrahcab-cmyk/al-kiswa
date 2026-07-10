@@ -92,7 +92,7 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
             <div className="flex items-start justify-between gap-4">
                 <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-white">Plan Your Journey</h2>
-                    <p className="text-gray-400 mt-1 text-sm">Choose your route, date, and time.</p>
+                    <p className="text-n-400 mt-1 text-sm">Choose your route, date, and time.</p>
                 </div>
             </div>
 
@@ -112,7 +112,7 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                                 relative flex flex-col items-center justify-center py-3.5 md:py-4 px-2 rounded-2xl border-2 transition-all duration-300 group overflow-hidden
                                 ${isActive
                                     ? 'border-gold bg-gold/10 text-gold shadow-[0_0_20px_hsl(var(--gold-glow) / 0.15)]'
-                                    : 'border-white/10 bg-white/5 text-gray-400 hover:border-white/20 hover:bg-white/10 hover:text-white'}
+                                    : 'border-white/10 bg-white/5 text-n-400 hover:border-white/20 hover:bg-white/10 hover:text-white'}
                             `}
                         >
                             {isActive && (
@@ -120,9 +120,9 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                                     <CheckCircle2 size={12} className="text-gold" />
                                 </div>
                             )}
-                            <type.icon size={20} className={`mb-1.5 transition-colors ${isActive ? 'text-gold' : 'text-gray-500 group-hover:text-white'}`} />
+                            <type.icon size={20} className={`mb-1.5 transition-colors ${isActive ? 'text-gold' : 'text-n-500 group-hover:text-white'}`} />
                             <span className="text-xs font-bold uppercase tracking-widest">{type.label}</span>
-                            <span className={`text-[10px] mt-0.5 ${isActive ? 'text-gold/70' : 'text-gray-600'}`}>{type.desc}</span>
+                            <span className={`text-[10px] mt-0.5 ${isActive ? 'text-gold/70' : 'text-n-600'}`}>{type.desc}</span>
                         </motion.button>
                     );
                 })}
@@ -147,12 +147,12 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                                     : 'border-white/10 bg-white/5 hover:border-white/20'}
                             `}
                         >
-                            <span className={`text-sm font-medium truncate ${data.pickup || data.dropoff ? 'text-white' : 'text-gray-500'}`}>
+                            <span className={`text-sm font-medium truncate ${data.pickup || data.dropoff ? 'text-white' : 'text-n-500'}`}>
                                 {currentLabel}
                             </span>
                             <ChevronDown
                                 size={16}
-                                className={`text-gray-400 shrink-0 transition-transform duration-300 ${showRouteDropdown ? 'rotate-180 text-gold' : ''}`}
+                                className={`text-n-400 shrink-0 transition-transform duration-300 ${showRouteDropdown ? 'rotate-180 text-gold' : ''}`}
                             />
                         </button>
 
@@ -167,7 +167,7 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                                 >
                                     <div className="p-3 border-b border-white/10">
                                         <div className="relative">
-                                            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
+                                            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-n-500" />
                                             <input
                                                 autoFocus
                                                 type="text"
@@ -177,7 +177,7 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                                                 className="w-full pl-9 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder-gray-500 outline-none focus:border-gold/50 transition-colors"
                                             />
                                             {routeSearch && (
-                                                <button onClick={() => setRouteSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white">
+                                                <button onClick={() => setRouteSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-n-500 hover:text-white">
                                                     <X size={13} />
                                                 </button>
                                             )}
@@ -185,7 +185,7 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                                     </div>
                                     <div className="max-h-60 overflow-y-auto">
                                         {filteredRoutes.length === 0 ? (
-                                            <div className="py-8 text-center text-gray-500 text-sm flex flex-col items-center gap-2">
+                                            <div className="py-8 text-center text-n-500 text-sm flex flex-col items-center gap-2">
                                                 <Plane size={22} className="opacity-30" />
                                                 <span>No routes found</span>
                                             </div>
@@ -204,19 +204,19 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                                                             w-full flex items-center justify-between px-4 py-3.5 text-left transition-all group border-b border-white/5 last:border-0 min-h-[52px]
                                                             ${isSelected
                                                                 ? 'bg-gold/15 text-gold'
-                                                                : 'hover:bg-white/5 text-gray-300 hover:text-white'}
+                                                                : 'hover:bg-white/5 text-n-300 hover:text-white'}
                                                         `}
                                                     >
                                                         <div className="flex items-center gap-3 min-w-0">
-                                                            <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${isSelected ? 'bg-gold' : 'bg-gray-600 group-hover:bg-gold/60'}`} />
+                                                            <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${isSelected ? 'bg-gold' : 'bg-n-600 group-hover:bg-gold/60'}`} />
                                                             <div className="min-w-0">
                                                                 <div className="flex items-center gap-2 text-sm font-medium">
                                                                     <span className="truncate">{route.origin}</span>
-                                                                    <ArrowRight size={12} className="text-gray-500 shrink-0" />
+                                                                    <ArrowRight size={12} className="text-n-500 shrink-0" />
                                                                     <span className="truncate">{route.destination}</span>
                                                                 </div>
                                                                 {(route.distance || route.time) && (
-                                                                    <p className="text-[11px] text-gray-500 mt-0.5">
+                                                                    <p className="text-[11px] text-n-500 mt-0.5">
                                                                         {route.distance}{route.distance && route.time ? ' · ' : ''}{route.time}
                                                                     </p>
                                                                 )}

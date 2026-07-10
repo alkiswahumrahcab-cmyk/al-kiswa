@@ -209,7 +209,7 @@ export default async function JeddahAirportTransferPage() {
                                         {feature.icon}
                                     </div>
                                     <h3 className="font-bold text-white text-sm md:text-base mb-1">{feature.title}</h3>
-                                    <p className="text-xs text-gray-400 font-light">{feature.desc}</p>
+                                    <p className="text-xs text-n-400 font-light">{feature.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -226,7 +226,7 @@ export default async function JeddahAirportTransferPage() {
                                 <h2 className="text-3xl md:text-4xl font-bold text-white font-sans mb-4">
                                     Transparent <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Route Pricing</span>
                                 </h2>
-                                <p className="text-gray-400 font-light text-lg">Fixed rates for your peace of mind. No hidden fees.</p>
+                                <p className="text-n-400 font-light text-lg">Fixed rates for your peace of mind. No hidden fees.</p>
                             </div>
 
                             <div className="overflow-x-auto rounded-2xl border border-white/10 shadow-2xl bg-black/60 backdrop-blur-md">
@@ -234,10 +234,10 @@ export default async function JeddahAirportTransferPage() {
                                     <thead>
                                         <tr className="bg-gold/10 border-b border-gold/20">
                                             <th className="text-left p-5 text-gold font-bold uppercase tracking-wider min-w-[200px]">Route</th>
-                                            <th className="text-center p-5 text-white font-bold tracking-wider">Sedan<br/><span className="text-xs text-gray-400 font-light">(1-4 Seats)</span></th>
-                                            <th className="text-center p-5 text-white font-bold tracking-wider">GMC Yukon<br/><span className="text-xs text-gray-400 font-light">(1-7 Seats)</span></th>
-                                            <th className="text-center p-5 text-white font-bold tracking-wider">Hyundai Staria<br/><span className="text-xs text-gray-400 font-light">(1-9 Seats)</span></th>
-                                            <th className="text-center p-5 text-white font-bold tracking-wider">Toyota Hiace<br/><span className="text-xs text-gray-400 font-light">(10-14 Seats)</span></th>
+                                            <th className="text-center p-5 text-white font-bold tracking-wider">Sedan<br/><span className="text-xs text-n-400 font-light">(1-4 Seats)</span></th>
+                                            <th className="text-center p-5 text-white font-bold tracking-wider">GMC Yukon<br/><span className="text-xs text-n-400 font-light">(1-7 Seats)</span></th>
+                                            <th className="text-center p-5 text-white font-bold tracking-wider">Hyundai Staria<br/><span className="text-xs text-n-400 font-light">(1-9 Seats)</span></th>
+                                            <th className="text-center p-5 text-white font-bold tracking-wider">Toyota Hiace<br/><span className="text-xs text-n-400 font-light">(10-14 Seats)</span></th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-white/5">
@@ -283,22 +283,22 @@ export default async function JeddahAirportTransferPage() {
                     <FadeIn delay={0.3}>
                         <div className="max-w-4xl mx-auto prose prose-invert prose-gold">
                             <h2 className="text-3xl font-bold font-sans text-white mb-6">Your Trusted Umrah Taxi Service in Jeddah</h2>
-                            <p className="text-gray-300 leading-relaxed font-light mb-6 text-lg">
+                            <p className="text-n-300 leading-relaxed font-light mb-6 text-lg">
                                 Embarking on your spiritual journey should be peaceful and entirely free of stress. As the <strong>best Umrah transport service</strong>, Al Kiswah provides a seamless, private <strong>Jeddah Airport to Makkah taxi</strong> experience. From the moment you land at King Abdulaziz International Airport (KAIA), our professional drivers ensure a smooth transition from the terminal straight to your hotel in the Holy City.
                             </p>
 
                             <h3 className="text-2xl font-bold font-sans text-white mb-4 mt-8 text-gold">How Our Private Airport Transfer in Saudi Arabia Works</h3>
-                            <p className="text-gray-300 leading-relaxed font-light mb-6">
+                            <p className="text-n-300 leading-relaxed font-light mb-6">
                                 Booking your <strong>JED to Makkah cab</strong> is incredibly straightforward. Once you book online or via WhatsApp, we monitor your flight in real-time. Even if your flight is delayed, our driver will be there—offering a complimentary meet and greet service at the arrivals hall with a personalized name sign. There is no need to navigate chaotic taxi queues or negotiate prices; everything is arranged and fixed prior to your arrival.
                             </p>
 
                             <h3 className="text-2xl font-bold font-sans text-white mb-4 mt-8 text-gold">Why Pilgrims Prefer Our Jeddah Airport to Madinah Transfer</h3>
-                            <p className="text-gray-300 leading-relaxed font-light mb-6">
+                            <p className="text-n-300 leading-relaxed font-light mb-6">
                                 Many pilgrims choose to head straight to the Prophet's City. Our <strong>Jeddah Airport to Madinah transfer</strong> offers exceptional comfort over the longer distance. Whether you choose a luxury GMC Yukon or a spacious Hyundai Staria, you are guaranteed a clean, climate-controlled environment driven by highly trained, multilingual professionals who speak English, Arabic, and Urdu.
                             </p>
 
                             <h3 className="text-2xl font-bold font-sans text-white mb-4 mt-8 text-gold">Safety, Comfort, and 10+ Years of Reliability</h3>
-                            <p className="text-gray-300 leading-relaxed font-light mb-6">
+                            <p className="text-n-300 leading-relaxed font-light mb-6">
                                 With over 10 years of experience serving Umrah pilgrims, we understand the specific needs of families and individuals performing their religious duties. Safety is our top priority—all our vehicles are Nusuk-registered, strictly licensed, and maintained to the highest standards. We offer child seats upon request and operate with absolute <strong>24/7 availability</strong>, ensuring your ride is ready whether you land at noon or midnight. 
                             </p>
                         </div>

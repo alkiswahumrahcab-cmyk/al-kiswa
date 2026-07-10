@@ -71,7 +71,7 @@ export default function FleetShowcase({ vehicles }: FleetShowcaseProps) {
                 <div className="text-center mb-16">
                     <FadeIn>
                         <h2 className="text-4xl font-bold font-sans text-white mb-4">Our Premium Fleet</h2>
-                        <p className="text-gray-400 text-lg font-light">Choose from our wide range of luxury vehicles</p>
+                        <p className="text-n-400 text-lg font-light">Choose from our wide range of luxury vehicles</p>
                     </FadeIn>
                 </div>
 
@@ -106,11 +106,11 @@ export default function FleetShowcase({ vehicles }: FleetShowcaseProps) {
                                     <div className="p-6 flex flex-col flex-1">
                                         <div className="flex justify-between items-end mb-6 border-b border-white/5 pb-4">
                                             <div className="flex flex-col">
-                                                <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Starting From</span>
+                                                <span className="text-xs font-bold text-n-500 uppercase tracking-widest mb-1">Starting From</span>
                                                 <div className="flex items-baseline gap-2">
                                                     {discountInfo ? (
                                                         <>
-                                                            <span className="text-sm text-gray-600 line-through decoration-red-500/50">{vehicle.price}</span>
+                                                            <span className="text-sm text-n-600 line-through decoration-red-500/50">{vehicle.price}</span>
                                                             <span className="text-xl font-bold text-gold">{discountInfo.formatted}</span>
                                                         </>
                                                     ) : (
@@ -123,11 +123,11 @@ export default function FleetShowcase({ vehicles }: FleetShowcaseProps) {
                                         <div className="flex gap-4 mb-6">
                                             <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
                                                 <Users size={16} className="text-gold" />
-                                                <span className="text-sm font-medium text-gray-300">{vehicle.passengers} pax</span>
+                                                <span className="text-sm font-medium text-n-300">{vehicle.passengers} pax</span>
                                             </div>
                                             <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
                                                 <Briefcase size={16} className="text-gold" />
-                                                <span className="text-sm font-medium text-gray-300">{vehicle.luggage} bags</span>
+                                                <span className="text-sm font-medium text-n-300">{vehicle.luggage} bags</span>
                                             </div>
                                         </div>
 
@@ -137,7 +137,7 @@ export default function FleetShowcase({ vehicles }: FleetShowcaseProps) {
                                                     <div className="w-5 h-5 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
                                                         <Check size={12} className="text-gold" />
                                                     </div>
-                                                    <span className="text-sm text-gray-400 font-light">{feature}</span>
+                                                    <span className="text-sm text-n-400 font-light">{feature}</span>
                                                 </div>
                                             ))}
                                         </div>

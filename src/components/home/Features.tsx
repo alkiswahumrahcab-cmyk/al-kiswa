@@ -75,7 +75,7 @@ export default function Features({ lang = 'en' }: Props) {
                     <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 font-sans text-white leading-tight">
                         {t.heading}
                     </h2>
-                    <p className="text-lg text-gray-400 text-center max-w-2xl mx-auto mb-16 font-light leading-relaxed">
+                    <p className="text-lg text-n-400 text-center max-w-2xl mx-auto mb-16 font-light leading-relaxed">
                         {t.sub}
                     </p>
                 </FadeIn>
@@ -88,7 +88,7 @@ export default function Features({ lang = 'en' }: Props) {
                             </div>
                             <h3 className="text-2xl font-bold mb-2 font-sans text-white group-hover:text-gold transition-colors">{feature.title}</h3>
                             <p className="text-gold-metallic/80 font-bold font-reem-kufi mb-4 text-lg">{feature.arabic}</p>
-                            <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">{feature.desc}</p>
+                            <p className="text-n-400 leading-relaxed group-hover:text-n-300 transition-colors">{feature.desc}</p>
                         </div>
                     ))}
                 </div>

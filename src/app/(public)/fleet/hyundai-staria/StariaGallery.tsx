@@ -75,7 +75,7 @@ export default function StariaGallery() {
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair text-white mb-4">
                         Full Gallery Experience
                     </h2>
-                    <p className="text-slate-400 max-w-2xl mx-auto">
+                    <p className="text-n-400 max-w-2xl mx-auto">
                         Explore every angle of the Hyundai Staria 2026. Click any image to view in high-resolution full screen.
                     </p>
                 </div>
@@ -150,7 +150,7 @@ export default function StariaGallery() {
                                 className="object-contain"
                                 priority
                             />
-                            <div className="absolute bottom-[-40px] left-0 right-0 text-center text-slate-400 font-mono text-sm">
+                            <div className="absolute bottom-[-40px] left-0 right-0 text-center text-n-400 font-mono text-sm">
                                 {selectedIndex + 1} / {IMAGES.length}
                             </div>
                         </div>

@@ -113,11 +113,11 @@ export default async function ZiarahMakkahPage() {
                                 <div key={i} className="bg-black/50 border border-white/10 rounded-xl p-4 hover:border-gold/30 transition-all">
                                     <div className="text-gold font-bold text-lg">{v.price}</div>
                                     <div className="text-white font-semibold text-sm mt-1">{v.vehicle}</div>
-                                    <div className="text-gray-500 text-xs">{v.capacity}</div>
+                                    <div className="text-n-500 text-xs">{v.capacity}</div>
                                 </div>
                             ))}
                         </div>
-                        <p className="text-center text-xs text-gray-500 mt-4">All prices per vehicle • Fuel, tolls & waiting included • Duration: 3–4 hours</p>
+                        <p className="text-center text-xs text-n-500 mt-4">All prices per vehicle • Fuel, tolls & waiting included • Duration: 3–4 hours</p>
                         <SeasonalPricingNote className="mt-4" />
                     </FadeIn>
                 </div>
@@ -130,7 +130,7 @@ export default async function ZiarahMakkahPage() {
                         <h2 className="text-3xl md:text-4xl font-bold text-white font-sans mb-3 border-l-4 border-gold pl-4">
                             15 Sacred Sites We Visit
                         </h2>
-                        <p className="text-gray-400 font-light mb-8 ml-6">
+                        <p className="text-n-400 font-light mb-8 ml-6">
                             Our private Makkah Ziyarat covers every significant Islamic historical site outside the Haram. Tap any location to read its full history.
                         </p>
                         <LocationGrid sites={makkahSites} city="makkah" />
@@ -156,7 +156,7 @@ export default async function ZiarahMakkahPage() {
                                         {f.icon}
                                     </div>
                                     <h3 className="text-base font-bold mb-2 text-white">{f.title}</h3>
-                                    <p className="text-xs text-gray-400 leading-relaxed font-light">{f.desc}</p>
+                                    <p className="text-xs text-n-400 leading-relaxed font-light">{f.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -173,7 +173,7 @@ export default async function ZiarahMakkahPage() {
             <section className="py-20 bg-neutral-900/50 border-y border-white/5 relative z-10">
                 <div className="container mx-auto px-4">
                     <FadeIn>
-                        <div className="max-w-4xl mx-auto space-y-6 text-gray-300 leading-relaxed font-light">
+                        <div className="max-w-4xl mx-auto space-y-6 text-n-300 leading-relaxed font-light">
                             <h2 className="text-2xl md:text-3xl font-bold text-white font-sans text-center mb-6">Private Makkah Ziyarat Tour — Complete Guide</h2>
                             <p>A <strong className="text-white">Makkah Ziyarat tour</strong> is an essential spiritual experience for every Umrah pilgrim. While the rituals of Umrah centre around the Haram and the Kaaba, the blessed city of Makkah is surrounded by sites where pivotal moments of Islamic history unfolded. At <strong className="text-white">Al Kiswah Umrah Transport</strong>, we offer fully private tours covering <strong className="text-white">15 Islamic historical sites</strong> with knowledgeable, multilingual drivers who share the significance of each location.</p>
                             <p>Our tour begins at <strong className="text-white">Jabal Al-Nour</strong>, the Mountain of Light, where Angel Jibreel (AS) revealed the first verses of the Quran in the Cave of Hira. The journey continues to <strong className="text-white">Jabal Thawr</strong>, where the Prophet (SAW) and Abu Bakr (RA) hid during the Hijra, then on to the vast plains of <strong className="text-white">Arafat</strong> (site of the Farewell Sermon), the tent city of <strong className="text-white">Mina</strong>, and the open skies of <strong className="text-white">Muzdalifah</strong>. We also visit lesser-known but historically rich sites including <strong className="text-white">Masjid Al-Jinn</strong>, <strong className="text-white">Masjid Al-Khayf</strong> (where 70 prophets prayed), and the <strong className="text-white">Hudaybiyyah treaty site</strong> on the Jeddah road.</p>

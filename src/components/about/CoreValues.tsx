@@ -42,7 +42,7 @@ export default function CoreValues() {
                     <h2 className={`text-3xl md:text-5xl font-bold text-white mb-6 font-sans transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         Our Core Values
                     </h2>
-                    <p className={`text-lg text-gray-400 transition-all duration-700 delay-100 font-light ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <p className={`text-lg text-n-400 transition-all duration-700 delay-100 font-light ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         The guiding principles that define our service to the Guests of Allah.
                     </p>
                 </div>
@@ -58,7 +58,7 @@ export default function CoreValues() {
                                 <value.icon size={32} strokeWidth={1.5} />
                             </div>
                             <h3 className="text-xl font-bold text-white mb-3 font-sans group-hover:text-gold transition-colors">{value.title}</h3>
-                            <p className="text-gray-400 leading-relaxed text-sm font-light">{value.desc}</p>
+                            <p className="text-n-400 leading-relaxed text-sm font-light">{value.desc}</p>
                         </GlassCard>
                     ))}
                 </div>

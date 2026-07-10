@@ -38,7 +38,7 @@ export default function BookPage() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-gray-400 text-lg max-w-xl mx-auto font-light"
+                        className="text-n-400 text-lg max-w-xl mx-auto font-light"
                     >
                         Experience Makkah & Madinah with our luxury fleet.
                         Simple 3-step booking with instant confirmation.

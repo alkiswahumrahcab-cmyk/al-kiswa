@@ -128,7 +128,7 @@ export default async function RegionalLandingPage({ params }: Params) {
                     <FadeIn>
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold font-sans text-white mb-4">Dedicated to <span className="text-gold-primary">{nationality}</span> Pilgrims</h2>
-                            <p className="text-gray-400 max-w-2xl mx-auto">
+                            <p className="text-n-400 max-w-2xl mx-auto">
                                 We understand the unique needs of international travelers arriving at King Abdulaziz International Airport.
                             </p>
                         </div>
@@ -140,7 +140,7 @@ export default async function RegionalLandingPage({ params }: Params) {
                                 <UserCheck className="text-gold-primary" size={32} />
                             </div>
                             <h3 className="text-xl font-bold mb-3">Meet & Greet at Arrivals</h3>
-                            <p className="text-gray-400 text-sm">
+                            <p className="text-n-400 text-sm">
                                 Our drivers track your incoming flight from {name} and will be waiting holding a personalized name sign. 
                             </p>
                         </div>
@@ -149,7 +149,7 @@ export default async function RegionalLandingPage({ params }: Params) {
                                 <MapPin className="text-gold-primary" size={32} />
                             </div>
                             <h3 className="text-xl font-bold mb-3">Clear Fixed Pricing</h3>
-                            <p className="text-gray-400 text-sm">
+                            <p className="text-n-400 text-sm">
                                 No hidden fees. Pay your driver directly in SAR or use your secure credit card. The price you see is exactly what you pay.
                             </p>
                         </div>
@@ -158,7 +158,7 @@ export default async function RegionalLandingPage({ params }: Params) {
                                 <ShieldCheck className="text-gold-primary" size={32} />
                             </div>
                             <h3 className="text-xl font-bold mb-3">VIP Fleet Comfort</h3>
-                            <p className="text-gray-400 text-sm">
+                            <p className="text-n-400 text-sm">
                                 After a long flight from {name}, relax in our modern, air-conditioned VIP SUVs or spacious family vans.
                             </p>
                         </div>
@@ -170,7 +170,7 @@ export default async function RegionalLandingPage({ params }: Params) {
             <section className="py-24 relative z-10 bg-neutral-900/30 border-t border-white/10">
                 <div className="container text-center max-w-3xl mx-auto px-4">
                     <h2 className="text-3xl md:text-5xl font-bold mb-6 font-sans">Ready to secure your transport?</h2>
-                    <p className="text-gray-400 mb-10 text-lg">
+                    <p className="text-n-400 mb-10 text-lg">
                         Avoid taxi queues and negotiate meters. Book in under 60 seconds and gain instant peace of mind.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

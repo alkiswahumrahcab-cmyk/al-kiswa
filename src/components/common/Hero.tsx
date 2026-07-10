@@ -233,7 +233,7 @@ const Hero: React.FC<HeroProps> = ({
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                        className={`text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-2xl ${layout === 'center' ? 'mx-auto' : 'mx-auto lg:mx-0 border-l-2 border-gold/30 pl-6'} ${isSpiritual ? 'text-white/90 drop-shadow-md' : ''}`}
+                        className={`text-lg md:text-xl text-n-300 font-light leading-relaxed max-w-2xl ${layout === 'center' ? 'mx-auto' : 'mx-auto lg:mx-0 border-l-2 border-gold/30 pl-6'} ${isSpiritual ? 'text-white/90 drop-shadow-md' : ''}`}
                     >
                         {subtitle}
                     </motion.div>
@@ -286,7 +286,7 @@ const Hero: React.FC<HeroProps> = ({
                                         {stat.icon || <CheckCircle size={16} />}
                                         <span className="font-bold text-2xl text-white">{stat.value}</span>
                                     </div>
-                                    <span className="text-[10px] md:text-xs text-gray-400 uppercase tracking-wider">{stat.label}</span>
+                                    <span className="text-[10px] md:text-xs text-n-400 uppercase tracking-wider">{stat.label}</span>
                                 </div>
                             ))}
                         </motion.div>

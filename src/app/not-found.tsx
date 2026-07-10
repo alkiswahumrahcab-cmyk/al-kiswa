@@ -33,7 +33,7 @@ export default function NotFound() {
                         <span className="block text-xl font-normal text-gold mt-2 font-arabic">الصفحة غير موجودة</span>
                     </h2>
 
-                    <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light">
+                    <p className="text-n-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light">
                         We couldn't find the page you were looking for. It might have been moved, deleted, or you may have mistyped the address.
                     </p>
 
@@ -43,7 +43,7 @@ export default function NotFound() {
                                 <Home size={24} />
                             </div>
                             <h3 className="text-white font-bold mb-2">Back Home</h3>
-                            <p className="text-sm text-gray-500">Return to the main page</p>
+                            <p className="text-sm text-n-500">Return to the main page</p>
                         </Link>
 
                         <Link href="/fleet" className="group bg-neutral-900/50 hover:bg-neutral-900 border border-white/10 hover:border-gold/50 p-6 rounded-2xl transition-all duration-300">
@@ -51,7 +51,7 @@ export default function NotFound() {
                                 <Car size={24} />
                             </div>
                             <h3 className="text-white font-bold mb-2">View Fleet</h3>
-                            <p className="text-sm text-gray-500">Explore our vehicles</p>
+                            <p className="text-sm text-n-500">Explore our vehicles</p>
                         </Link>
 
                         <Link href="/contact" className="group bg-neutral-900/50 hover:bg-neutral-900 border border-white/10 hover:border-gold/50 p-6 rounded-2xl transition-all duration-300">
@@ -59,7 +59,7 @@ export default function NotFound() {
                                 <Phone size={24} />
                             </div>
                             <h3 className="text-white font-bold mb-2">Contact Us</h3>
-                            <p className="text-sm text-gray-500">Get in touch for help</p>
+                            <p className="text-sm text-n-500">Get in touch for help</p>
                         </Link>
                     </div>
 

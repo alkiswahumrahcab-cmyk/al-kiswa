@@ -149,7 +149,7 @@ export default function ReviewsSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed font-light mb-12"
+                        className="text-lg text-n-400 max-w-2xl mx-auto leading-relaxed font-light mb-12"
                     >
                         Join the community of pilgrims who trust Al Kiswah Transport for their spiritual journey.
                     </motion.p>
@@ -172,10 +172,10 @@ export default function ReviewsSection() {
                                 <div className="text-6xl font-serif font-medium text-white tracking-tight">{averageRating}</div>
                                 <div className="flex gap-1 justify-center my-3">
                                     {[...Array(5)].map((_, i) => (
-                                        <Star key={i} size={18} className={`${i < Math.round(Number(averageRating)) ? 'fill-gold text-gold' : 'text-gray-600'}`} />
+                                        <Star key={i} size={18} className={`${i < Math.round(Number(averageRating)) ? 'fill-gold text-gold' : 'text-n-600'}`} />
                                     ))}
                                 </div>
-                                <div className="text-xs text-gray-400 font-medium tracking-widest uppercase opacity-80">{totalReviews} Reviews</div>
+                                <div className="text-xs text-n-400 font-medium tracking-widest uppercase opacity-80">{totalReviews} Reviews</div>
                             </div>
 
                             {/* Divider for mobile/desktop */}
@@ -184,7 +184,7 @@ export default function ReviewsSection() {
                             {/* Rating Bars */}
                             <div className="space-y-2 w-full max-w-xs px-2">
                                 {[5, 4, 3, 2, 1].map((star) => (
-                                    <div key={star} className="flex items-center gap-4 text-[11px] font-medium text-gray-400">
+                                    <div key={star} className="flex items-center gap-4 text-[11px] font-medium text-n-400">
                                         <span className="w-2">{star}</span>
                                         <div className="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
                                             <div
@@ -207,7 +207,7 @@ export default function ReviewsSection() {
                                     <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
                                 </svg>
                                 <div className="flex flex-col leading-none">
-                                    <span className="text-[9px] text-gray-400 uppercase tracking-wider font-bold">Recommended on</span>
+                                    <span className="text-[9px] text-n-400 uppercase tracking-wider font-bold">Recommended on</span>
                                     <span className="text-xs font-bold text-white tracking-wide">Google Reviews</span>
                                 </div>
                             </div>

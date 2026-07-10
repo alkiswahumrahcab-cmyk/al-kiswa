@@ -19,7 +19,7 @@ const TopBar = async () => {
     // }
 
     return (
-        <div className="hidden lg:block bg-charcoal text-gray-300 border-b border-white/5 relative z-50">
+        <div className="hidden lg:block bg-charcoal text-n-300 border-b border-white/5 relative z-50">
             <div className="container mx-auto px-4 h-12 flex justify-between items-center text-xs font-medium tracking-wide">
 
                 {/* Left Side: Contact Info */}
@@ -69,7 +69,7 @@ const TopBar = async () => {
 
                 {/* Right Side: Socials & Extras */}
                 <div className="flex items-center gap-4">
-                    <span className="text-gray-500">Follow us:</span>
+                    <span className="text-n-500">Follow us:</span>
                     <div className="flex items-center gap-2">
                         {[
                             { icon: Facebook, href: contact.social.facebook, label: 'Facebook' },
@@ -104,7 +104,7 @@ const TopBar = async () => {
                                     target="_blank"
                                     rel="noreferrer"
                                     aria-label={social.label}
-                                    className="w-7 h-7 flex items-center justify-center rounded-full bg-white/5 text-gray-400 hover:bg-gold hover:text-black hover:-translate-y-0.5 transition-all duration-300"
+                                    className="w-7 h-7 flex items-center justify-center rounded-full bg-white/5 text-n-400 hover:bg-gold hover:text-black hover:-translate-y-0.5 transition-all duration-300"
                                 >
                                     <social.icon size={13} />
                                 </a>

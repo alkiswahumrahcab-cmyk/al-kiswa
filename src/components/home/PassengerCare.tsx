@@ -90,7 +90,7 @@ export default function PassengerCare({ lang = 'en' }: Props) {
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-sans">
                         {lang === 'ar' ? <>مصمم لـ<span className="text-gold italic font-serif">كل معتمر</span></> : <>Tailored for <span className="text-gold italic font-serif">Every Pilgrim</span></>}
                     </h2>
-                    <p className="text-gray-400 text-lg max-w-2xl mx-auto font-light">
+                    <p className="text-n-400 text-lg max-w-2xl mx-auto font-light">
                         {lang === 'ar' ? 'رعاية متخصصة لكل فرد في عائلتكم.' : 'Specialized care for every member of your family.'}
                     </p>
                 </FadeIn>
@@ -133,13 +133,13 @@ export default function PassengerCare({ lang = 'en' }: Props) {
                                         {option.title}
                                     </h3>
 
-                                    <p className="text-gray-400 text-base leading-relaxed mb-6 font-light">
+                                    <p className="text-n-400 text-base leading-relaxed mb-6 font-light">
                                         {option.description}
                                     </p>
 
                                     <ul className="space-y-3 mb-8">
                                         {option.features.map((feature, idx) => (
-                                            <li key={idx} className="flex items-center gap-4 text-gray-300">
+                                            <li key={idx} className="flex items-center gap-4 text-n-300">
                                                 <div className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
                                                 <span className="text-sm">{feature}</span>
                                             </li>

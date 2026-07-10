@@ -62,12 +62,12 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
                             {post.title}
                         </h3>
 
-                        <p className="text-lg text-gray-300 mb-8 leading-relaxed font-light">
+                        <p className="text-lg text-n-300 mb-8 leading-relaxed font-light">
                             {post.excerpt}
                         </p>
 
                         {/* Meta Info */}
-                        <div className="flex items-center gap-4 text-sm font-medium text-gray-400 mb-6">
+                        <div className="flex items-center gap-4 text-sm font-medium text-n-400 mb-6">
                             <span className="flex items-center gap-1.5">
                                 <Calendar size={14} className="text-gold" />
                                 {formattedDate}

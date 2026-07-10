@@ -21,16 +21,16 @@ const NusukSidebarCard = () => {
 
             {/* Body Area */}
             <div className="p-6">
-                <p className="text-gray-400 text-sm leading-relaxed text-center mb-6">
+                <p className="text-n-400 text-sm leading-relaxed text-center mb-6">
                     All Al Kiswah vehicles are officially registered on the Ministry of Hajj & Umrah's government-verified system.
                 </p>
 
                 <ul className="space-y-4 mb-6">
-                    <li className="flex gap-3 text-sm text-gray-300">
+                    <li className="flex gap-3 text-sm text-n-300">
                         <Award size={18} className="text-gold shrink-0 mt-0.5" />
                         <span>Ministry Licensed Operator</span>
                     </li>
-                    <li className="flex gap-3 text-sm text-gray-300">
+                    <li className="flex gap-3 text-sm text-n-300">
                         <MapPin size={18} className="text-blue-400 shrink-0 mt-0.5" />
                         <span>Live GPS Tracking Systems</span>
                     </li>

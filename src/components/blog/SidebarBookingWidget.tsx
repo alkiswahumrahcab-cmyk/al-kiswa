@@ -17,7 +17,7 @@ export default function SidebarBookingWidget() {
 
             <div className="space-y-4 mb-6">
                 <div className="space-y-2">
-                    <label className="text-xs text-gray-400 uppercase tracking-wider font-semibold">Pickup</label>
+                    <label className="text-xs text-n-400 uppercase tracking-wider font-semibold">Pickup</label>
                     <div className="flex items-center gap-3 bg-white/5 p-3 rounded-lg border border-white/10">
                         <MapPin size={18} className="text-gold" />
                         <span className="text-sm">Jeddah Airport (JED)</span>
@@ -25,7 +25,7 @@ export default function SidebarBookingWidget() {
                 </div>
 
                 <div className="space-y-2">
-                    <label className="text-xs text-gray-400 uppercase tracking-wider font-semibold">Drop-off</label>
+                    <label className="text-xs text-n-400 uppercase tracking-wider font-semibold">Drop-off</label>
                     <div className="flex items-center gap-3 bg-white/5 p-3 rounded-lg border border-white/10">
                         <MapPin size={18} className="text-gold" />
                         <span className="text-sm">Makkah Hotel</span>
@@ -45,7 +45,7 @@ export default function SidebarBookingWidget() {
                 className="w-full justify-center !py-4"
             />
 
-            <p className="text-[10px] text-center text-gray-500 mt-4">
+            <p className="text-[10px] text-center text-n-500 mt-4">
                 No credit card required for quote
             </p>
         </div>

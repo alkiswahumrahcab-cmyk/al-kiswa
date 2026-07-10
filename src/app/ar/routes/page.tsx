@@ -197,15 +197,15 @@ export default function RoutesPage() {
                                             </div>
 
                                             <div className="space-y-4 mb-8">
-                                                <p className="text-gray-400 text-sm leading-relaxed font-light">
+                                                <p className="text-n-400 text-sm leading-relaxed font-light">
                                                     {route.description}
                                                 </p>
-                                                <p className="text-gray-500 text-sm font-arabic leading-relaxed text-right border-t border-dashed border-white/10 pt-3">
+                                                <p className="text-n-500 text-sm font-arabic leading-relaxed text-right border-t border-dashed border-white/10 pt-3">
                                                     {route.descriptionAr}
                                                 </p>
                                             </div>
 
-                                            <div className="hidden md:grid grid-cols-2 gap-3 mb-8 text-sm text-gray-400">
+                                            <div className="hidden md:grid grid-cols-2 gap-3 mb-8 text-sm text-n-400">
                                                 {/* English Features */}
                                                 <div className="flex flex-wrap gap-2">
                                                     {route.features.map((f, i) => (
@@ -226,7 +226,7 @@ export default function RoutesPage() {
 
                                             <div className="mt-auto flex items-center justify-between pt-6 border-t border-white/10">
                                                 <div className="flex flex-col">
-                                                    <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold">
+                                                    <span className="text-xs text-n-500 uppercase tracking-wider font-semibold">
                                                         Starting from
                                                     </span>
                                                     <span className="text-xl font-bold text-gold">
@@ -236,7 +236,7 @@ export default function RoutesPage() {
                                                 <div className="flex gap-4 relative z-20 items-center">
                                                     <Link
                                                         href="/ar/fleet"
-                                                        className="hidden md:flex items-center text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-wider"
+                                                        className="hidden md:flex items-center text-xs font-medium text-n-400 hover:text-white transition-colors uppercase tracking-wider"
                                                         aria-label="View Fleet"
                                                     >
                                                         View Fleet
@@ -261,7 +261,7 @@ export default function RoutesPage() {
                     <div className="text-center max-w-2xl mx-auto mb-20">
                         <FadeIn>
                             <h2 className="text-3xl lg:text-5xl font-bold font-sans text-white mb-6">Why Travel With Al Kiswah?</h2>
-                            <p className="text-gray-400 font-light text-lg">More than just transport, we provide a seamless bridge between your spiritual destinations.</p>
+                            <p className="text-n-400 font-light text-lg">More than just transport, we provide a seamless bridge between your spiritual destinations.</p>
                         </FadeIn>
                     </div>
 
@@ -296,8 +296,8 @@ export default function RoutesPage() {
                                     </div>
                                     <h3 className="text-2xl font-bold mb-2 text-white font-sans">{feature.title}</h3>
                                     <h4 className="text-xl font-bold text-gold font-reem-kufi mb-4">{feature.titleAr}</h4>
-                                    <p className="text-gray-400 text-sm mb-4 leading-relaxed font-light">{feature.desc}</p>
-                                    <p className="text-gray-500 text-sm font-arabic border-t border-white/10 pt-3">{feature.descAr}</p>
+                                    <p className="text-n-400 text-sm mb-4 leading-relaxed font-light">{feature.desc}</p>
+                                    <p className="text-n-500 text-sm font-arabic border-t border-white/10 pt-3">{feature.descAr}</p>
                                 </GlassCard>
                             </FadeIn>
                         ))}

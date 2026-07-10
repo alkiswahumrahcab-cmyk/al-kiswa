@@ -110,7 +110,7 @@ function ConfirmationContent() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.38 }}
-                            className="text-slate-400 text-sm"
+                            className="text-n-400 text-sm"
                         >
                             Thank you, <span className="text-white font-semibold">{name}</span>
                         </motion.p>
@@ -119,7 +119,7 @@ function ConfirmationContent() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.42 }}
-                                className="text-slate-500 text-xs mt-1"
+                                className="text-n-500 text-xs mt-1"
                             >
                                 Receipt sent to <span className="text-gold/90">{email}</span>
                             </motion.p>
@@ -133,7 +133,7 @@ function ConfirmationContent() {
                             onClick={copyBookingId}
                             className="mt-6 inline-flex items-center gap-2 bg-white/5 border border-gold/25 hover:border-gold/60 hover:bg-gold/10 text-gold px-5 py-2.5 rounded-full text-sm font-mono font-bold transition-all duration-200 group"
                         >
-                            <span className="text-slate-400 text-xs font-sans font-normal">ID</span>
+                            <span className="text-n-400 text-xs font-sans font-normal">ID</span>
                             <span>#{id}</span>
                             {copied
                                 ? <Check size={14} className="text-gold" />
@@ -159,7 +159,7 @@ function ConfirmationContent() {
                         >
                             {/* Route */}
                             <div className="bg-white/[0.04] border border-white/8 rounded-2xl p-4">
-                                <p className="text-[10px] text-slate-500 uppercase tracking-widest font-semibold mb-2.5 flex items-center gap-1.5">
+                                <p className="text-[10px] text-n-500 uppercase tracking-widest font-semibold mb-2.5 flex items-center gap-1.5">
                                     <MapPin size={10} className="text-gold" /> Route
                                 </p>
                                 <div className="flex items-center gap-2 min-w-0">
@@ -170,7 +170,7 @@ function ConfirmationContent() {
                                         <>
                                             <ArrowRight size={14} className="text-gold shrink-0" />
                                             <div className="flex-1 min-w-0 text-right">
-                                                <p className="text-slate-300 text-sm font-medium truncate">{displayDropoff}</p>
+                                                <p className="text-n-300 text-sm font-medium truncate">{displayDropoff}</p>
                                             </div>
                                         </>
                                     )}
@@ -181,17 +181,17 @@ function ConfirmationContent() {
                             <div className="grid grid-cols-3 gap-2.5">
                                 <div className="bg-white/[0.04] border border-white/8 rounded-xl p-3 flex flex-col gap-1.5">
                                     <Calendar size={13} className="text-gold" />
-                                    <p className="text-[10px] text-slate-500 uppercase tracking-wider">Date</p>
+                                    <p className="text-[10px] text-n-500 uppercase tracking-wider">Date</p>
                                     <p className="text-white text-xs font-semibold leading-tight">{formattedDate}</p>
                                 </div>
                                 <div className="bg-white/[0.04] border border-white/8 rounded-xl p-3 flex flex-col gap-1.5">
                                     <Clock size={13} className="text-gold" />
-                                    <p className="text-[10px] text-slate-500 uppercase tracking-wider">Time</p>
+                                    <p className="text-[10px] text-n-500 uppercase tracking-wider">Time</p>
                                     <p className="text-white text-sm font-bold">{time}</p>
                                 </div>
                                 <div className="bg-white/[0.04] border border-white/8 rounded-xl p-3 flex flex-col gap-1.5">
                                     <Users size={13} className="text-gold" />
-                                    <p className="text-[10px] text-slate-500 uppercase tracking-wider">Pax</p>
+                                    <p className="text-[10px] text-n-500 uppercase tracking-wider">Pax</p>
                                     <p className="text-white text-sm font-bold">{passengers}</p>
                                 </div>
                             </div>
@@ -203,29 +203,29 @@ function ConfirmationContent() {
                                         <Car size={18} className="text-gold" />
                                     </div>
                                     <div>
-                                        <p className="text-[10px] text-slate-500 uppercase tracking-wider">Vehicle</p>
+                                        <p className="text-[10px] text-n-500 uppercase tracking-wider">Vehicle</p>
                                         <p className="text-white text-sm font-semibold">{vehicleName}</p>
                                     </div>
                                 </div>
                                 <div className="text-right">
-                                    <p className="text-[10px] text-slate-500 uppercase tracking-wider">Total</p>
+                                    <p className="text-[10px] text-n-500 uppercase tracking-wider">Total</p>
                                     <p className="text-gold text-xl font-extrabold tracking-tight">{priceDisplay}</p>
                                 </div>
                             </div>
 
                             {/* Trust badge */}
                             <div className="flex items-center justify-center gap-4 pt-3">
-                                <div className="flex items-center gap-1.5 text-slate-500 text-[11px]">
+                                <div className="flex items-center gap-1.5 text-n-500 text-[11px]">
                                     <Shield size={11} className="text-gold/60" />
                                     Pay on arrival
                                 </div>
                                 <div className="w-px h-3 bg-white/10" />
-                                <div className="flex items-center gap-1.5 text-slate-500 text-[11px]">
+                                <div className="flex items-center gap-1.5 text-n-500 text-[11px]">
                                     <Star size={11} className="text-gold/60" />
                                     Licensed & insured
                                 </div>
                                 <div className="w-px h-3 bg-white/10" />
-                                <div className="flex items-center gap-1.5 text-slate-500 text-[11px]">
+                                <div className="flex items-center gap-1.5 text-n-500 text-[11px]">
                                     <CheckCircle size={11} className="text-gold/60" />
                                     24/7 support
                                 </div>

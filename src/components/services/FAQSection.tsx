@@ -66,10 +66,10 @@ export default function FAQSection({ items = defaultFAQs, title = "Frequently As
                                 className="w-full flex items-center justify-between p-6 text-left"
                                 onClick={() => toggleAccordion(index)}
                             >
-                                <span className={`text-lg font-bold font-sans transition-colors ${activeAccordion === index ? 'text-white' : 'text-gray-200'}`}>
+                                <span className={`text-lg font-bold font-sans transition-colors ${activeAccordion === index ? 'text-white' : 'text-n-200'}`}>
                                     {faq.question}
                                 </span>
-                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${activeAccordion === index ? 'bg-gold text-black rotate-180' : 'bg-white/10 text-gray-400'}`}>
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${activeAccordion === index ? 'bg-gold text-black rotate-180' : 'bg-white/10 text-n-400'}`}>
                                     <ChevronDown size={20} />
                                 </div>
                             </button>
@@ -78,7 +78,7 @@ export default function FAQSection({ items = defaultFAQs, title = "Frequently As
                                 className={`grid transition-all duration-300 ease-in-out ${activeAccordion === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
                             >
                                 <div className="overflow-hidden">
-                                    <p className="px-6 pb-6 text-gray-400 leading-relaxed font-light">
+                                    <p className="px-6 pb-6 text-n-400 leading-relaxed font-light">
                                         {faq.answer}
                                     </p>
                                 </div>

@@ -70,7 +70,7 @@ export default function CookieConsent() {
                             </div>
                             <div>
                                 <h3 className="text-white font-bold text-sm mb-1">Privacy & Cookies</h3>
-                                <p className="text-gray-400 text-xs leading-relaxed">
+                                <p className="text-n-400 text-xs leading-relaxed">
                                     We use cookies to improve your experience and ensure secure bookings.
                                 </p>
                             </div>
@@ -79,17 +79,17 @@ export default function CookieConsent() {
                         <div className="flex items-center gap-3">
                             <button
                                 onClick={handleAccept}
-                                className="flex-1 bg-white text-black hover:bg-gray-200 text-xs font-bold py-2.5 px-4 rounded-lg transition-colors"
+                                className="flex-1 bg-white text-black hover:bg-n-200 text-xs font-bold py-2.5 px-4 rounded-lg transition-colors"
                             >
                                 Accept <span className="font-arabic ml-1">موافق</span>
                             </button>
                             <button
                                 onClick={handleReject}
-                                className="flex-1 bg-white/5 text-gray-400 hover:text-white hover:bg-white/10 text-xs font-medium py-2.5 px-4 rounded-lg transition-colors border border-white/5"
+                                className="flex-1 bg-white/5 text-n-400 hover:text-white hover:bg-white/10 text-xs font-medium py-2.5 px-4 rounded-lg transition-colors border border-white/5"
                             >
                                 Reject
                             </button>
-                            <Link href="/cookie-preferences" className="text-[10px] text-gray-500 hover:text-gold transition-colors underline decoration-dotted">
+                            <Link href="/cookie-preferences" className="text-[10px] text-n-500 hover:text-gold transition-colors underline decoration-dotted">
                                 Manage
                             </Link>
                         </div>

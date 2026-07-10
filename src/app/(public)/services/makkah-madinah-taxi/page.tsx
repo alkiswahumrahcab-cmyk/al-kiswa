@@ -186,7 +186,7 @@ export default async function MakkahMadinahTaxiPage() {
                                 <h2 className="text-3xl md:text-5xl font-bold mb-8 font-sans text-white">
                                     Why Choose Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Makkah-Madinah</span> Transfer?
                                 </h2>
-                                <p className="text-gray-400 mb-8 leading-relaxed font-light text-lg">
+                                <p className="text-n-400 mb-8 leading-relaxed font-light text-lg">
                                     The journey between the two Holy Cities (approx. 450km) requires a vehicle that guarantees comfort and safety.
                                     Skip the crowded buses and strict train schedules. Our private taxi service offers premium rides in our <Link href="/fleet/gmc-yukon-at4" className="text-gold font-bold hover:underline">GMC Yukon</Link> or <Link href="/fleet/hyundai-staria" className="text-gold font-bold hover:underline">Hyundai Staria</Link>:
                                 </p>
@@ -209,7 +209,7 @@ export default async function MakkahMadinahTaxiPage() {
                                             <div className="bg-gold/10 rounded-full p-1.5 border border-gold/20 group-hover:bg-gold transition-colors">
                                                 <CheckCircle2 className="text-gold group-hover:text-black flex-shrink-0 transition-colors" size={18} />
                                             </div>
-                                            <span className="text-gray-300 font-light text-lg">{item}</span>
+                                            <span className="text-n-300 font-light text-lg">{item}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -226,7 +226,7 @@ export default async function MakkahMadinahTaxiPage() {
                                 <h3 className="text-xl font-bold mb-4 flex items-center gap-3 text-white font-sans">
                                     <MapPin className="text-gold" size={24} /> Route Highlights
                                 </h3>
-                                <div className="space-y-4 text-base text-gray-400 font-light">
+                                <div className="space-y-4 text-base text-n-400 font-light">
                                     <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gold"></span> Pickup from your Makkah Hotel</p>
                                     <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gold"></span> Optional <Link href="/services/ziyarat-tours" className="text-gold hover:underline underline-offset-4 decoration-dotted">Ziyarat stops</Link> (on request)</p>
                                     <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gold"></span> Drop-off at Madinah Hotel / Masjid Nabawi</p>
@@ -234,7 +234,7 @@ export default async function MakkahMadinahTaxiPage() {
 
                                 <div className="mt-8 pt-8 border-t border-white/10">
                                     <div className="flex items-center justify-between mb-4">
-                                        <span className="text-sm text-gray-500 uppercase tracking-widest font-bold">Starting From</span>
+                                        <span className="text-sm text-n-500 uppercase tracking-widest font-bold">Starting From</span>
                                         <span className="text-2xl font-bold text-white">SAR 400</span>
                                     </div>
                                     <SeasonalPricingNote />
@@ -258,19 +258,19 @@ export default async function MakkahMadinahTaxiPage() {
                             <div className="grid md:grid-cols-3 gap-8 text-left">
                                 <GlassCard className="p-8 bg-neutral-900/50 rounded-2xl border border-white/5">
                                     <h3 className="text-xl font-bold text-gold mb-4">Travel Time & Traffic</h3>
-                                    <p className="text-gray-400 font-light leading-relaxed">
+                                    <p className="text-n-400 font-light leading-relaxed">
                                         The drive via Route 15 (Al Hijrah Expressway) takes exactly <strong>4.5 to 5 hours</strong>. Traffic is usually smooth, except during peak Ramadan/Hajj nights near the Haram boundaries.
                                     </p>
                                 </GlassCard>
                                 <GlassCard className="p-8 bg-neutral-900/50 rounded-2xl border border-white/5">
                                     <h3 className="text-xl font-bold text-gold mb-4">Rest Stops & Amenities</h3>
-                                    <p className="text-gray-400 font-light leading-relaxed">
+                                    <p className="text-n-400 font-light leading-relaxed">
                                         We typically stop midway at a major <strong>SASCO</strong> or <strong>Al Tashilat</strong> station. These feature clean prayer rooms, Al Baik or similar fast food, and convenience stores for the family.
                                     </p>
                                 </GlassCard>
                                 <GlassCard className="p-8 bg-neutral-900/50 rounded-2xl border border-white/5">
                                     <h3 className="text-xl font-bold text-gold mb-4">Gas Stations & Bathrooms</h3>
-                                    <p className="text-gray-400 font-light leading-relaxed">
+                                    <p className="text-n-400 font-light leading-relaxed">
                                         The highway is highly developed for 2026. Clean, well-lit bathrooms are available every 50-80 km. Just let your driver know 10 minutes in advance if you need a break.
                                     </p>
                                 </GlassCard>
@@ -301,12 +301,12 @@ export default async function MakkahMadinahTaxiPage() {
                                     <h2 className="text-2xl md:text-3xl font-bold text-white font-sans mb-3">
                                         Heading Back from <span className="text-gold">Madinah</span> to Makkah?
                                     </h2>
-                                    <p className="text-gray-400 font-light leading-relaxed mb-4">
+                                    <p className="text-n-400 font-light leading-relaxed mb-4">
                                         Book your return journey from Madinah to Makkah at the same time and
                                         <strong className="text-white"> save 10%</strong> with a round-trip booking.
                                         Our driver picks you up from your Madinah hotel lobby — no stress, no haggling.
                                     </p>
-                                    <div className="flex flex-wrap gap-4 text-sm text-gray-400">
+                                    <div className="flex flex-wrap gap-4 text-sm text-n-400">
                                         <span className="flex items-center gap-1.5"><ArrowRight size={14} className="text-gold" /> Door-to-door from Madinah hotel</span>
                                         <span className="flex items-center gap-1.5"><ArrowRight size={14} className="text-gold" /> Optional Miqat stop (Bir Ali)</span>
                                         <span className="flex items-center gap-1.5"><ArrowRight size={14} className="text-gold" /> Same trusted driver available</span>
@@ -341,7 +341,7 @@ export default async function MakkahMadinahTaxiPage() {
                 <div className="container mx-auto px-4 max-w-4xl text-center">
                     <FadeIn delay={0.4}>
                         <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white">Compare: Taxi vs. Haramain Train</h2>
-                        <p className="text-gray-400 mb-10 leading-relaxed font-light text-lg">
+                        <p className="text-n-400 mb-10 leading-relaxed font-light text-lg">
                             While the train is fast, a private taxi offers unmatched convenience for families.
                             No need to travel to the station, handle luggage multiple times, or worry about ticket availability.
                             Our service picks you up directly from your lobby.

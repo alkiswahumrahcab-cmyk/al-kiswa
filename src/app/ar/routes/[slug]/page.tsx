@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -89,24 +89,24 @@ export default async function RouteDetail({ params }: Props) {
             />
 
             {/* Route Info Cards */}
-            <section className="py-12 bg-slate-50 dark:bg-slate-950 -mt-10 relative z-10">
+            <section className="py-12 bg-n-50 dark:bg-n-950 -mt-10 relative z-10">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow border-t-4 border-amber-500 flex items-center gap-4">
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow border-t-4 border-amber-500 flex items-center gap-4">
                             <Clock className="text-amber-500 w-8 h-8" />
                             <div>
                                 <h3 className="font-bold text-sm text-muted-foreground uppercase">Est. Time</h3>
                                 <p className="text-lg font-bold">{route.time}</p>
                             </div>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow border-t-4 border-amber-500 flex items-center gap-4">
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow border-t-4 border-amber-500 flex items-center gap-4">
                             <MapPin className="text-amber-500 w-8 h-8" />
                             <div>
                                 <h3 className="font-bold text-sm text-muted-foreground uppercase">Distance</h3>
                                 <p className="text-lg font-bold">{route.distance}</p>
                             </div>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow border-t-4 border-amber-500 flex items-center gap-4">
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow border-t-4 border-amber-500 flex items-center gap-4">
                             <CheckCircle className="text-amber-500 w-8 h-8" />
                             <div>
                                 <h3 className="font-bold text-sm text-muted-foreground uppercase">Availability</h3>
@@ -132,8 +132,8 @@ export default async function RouteDetail({ params }: Props) {
 
                             return (
                                 <FadeIn key={vehicle.id} scale>
-                                    <div className="group bg-white dark:bg-slate-900 border border-border rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                                        <div className="relative h-48 bg-slate-100 dark:bg-slate-800 p-4">
+                                    <div className="group bg-white dark:bg-n-900 border border-border rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                                        <div className="relative h-48 bg-n-100 dark:bg-n-800 p-4">
                                             <div className="absolute top-3 right-3 bg-white/90 dark:bg-black/50 backdrop-blur px-2 py-1 rounded text-xs font-bold flex items-center gap-1">
                                                 <Car size={12} /> {vehicle.capacity}
                                             </div>
@@ -151,10 +151,10 @@ export default async function RouteDetail({ params }: Props) {
                                             </p>
 
                                             <ul className="mb-6 space-y-2">
-                                                <li className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+                                                <li className="flex items-center gap-2 text-sm text-n-600 dark:text-n-300">
                                                     <CheckCircle size={14} className="text-green-500" /> Free WiFi
                                                 </li>
-                                                <li className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
+                                                <li className="flex items-center gap-2 text-sm text-n-600 dark:text-n-300">
                                                     <CheckCircle size={14} className="text-green-500" /> Best Price Guarantee
                                                 </li>
                                             </ul>
@@ -166,7 +166,7 @@ export default async function RouteDetail({ params }: Props) {
                                                 </div>
                                                 <Link
                                                     href={`/booking?route=${route.id}&vehicle=${vehicle.id}`}
-                                                    className="bg-slate-900 hover:bg-slate-800 text-white dark:bg-white dark:text-slate-900 px-4 py-2 rounded-lg text-sm font-bold transition-colors flex items-center gap-2"
+                                                    className="bg-n-900 hover:bg-n-800 text-white dark:bg-white dark:text-n-900 px-4 py-2 rounded-lg text-sm font-bold transition-colors flex items-center gap-2"
                                                 >
                                                     Book Now <ArrowRight size={16} />
                                                 </Link>
@@ -181,7 +181,7 @@ export default async function RouteDetail({ params }: Props) {
             </section>
 
             {/* Why Choose Us */}
-            <section className="py-16 bg-slate-50 dark:bg-slate-950">
+            <section className="py-16 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-3xl font-bold font-playfair mb-8">Why Book This Route With Us?</h2>
                     <div className="grid md:grid-cols-3 gap-8">

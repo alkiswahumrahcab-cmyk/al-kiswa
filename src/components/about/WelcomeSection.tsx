@@ -47,7 +47,7 @@ export default function WelcomeSection() {
                             <span className="text-gold italic font-serif">Umrah Transport</span>
                             <span className="block text-3xl md:text-5xl mt-4 font-reem-kufi text-white/90">الكسوة لنقل المعتمرين</span>
                         </h2>
-                        <p className="text-xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-xl text-n-300 font-light max-w-2xl mx-auto leading-relaxed">
                             Your trusted partner in pilgrim travel across Saudi Arabia.
                             <span className="block font-arabic text-lg mt-2 text-gold/80">شريكك الموثوق في رحلات العمرة عبر المملكة العربية السعودية.</span>
                         </p>
@@ -59,7 +59,7 @@ export default function WelcomeSection() {
                     {/* Intro Content */}
                     <div className="space-y-8">
                         <FadeIn delay={0.2}>
-                            <p className="text-lg leading-relaxed text-gray-300">
+                            <p className="text-lg leading-relaxed text-n-300">
                                 {parseMarkdown("We specialize in providing **safe, comfortable, and affordable [Umrah transport services](/services)** for pilgrims traveling to Makkah, Madinah, and beyond.")}
                             </p>
 
@@ -72,7 +72,7 @@ export default function WelcomeSection() {
                                 </p>
                             </div>
 
-                            <p className="text-lg leading-relaxed text-gray-300">
+                            <p className="text-lg leading-relaxed text-n-300">
                                 {parseMarkdown("Our fleet of [modern buses and vans](/fleet) ensures **stress‑free [Jeddah Airport transfers](/services/jeddah-airport-transfer) and [Makkah to Madinah journeys](/services/makkah-madinah-taxi)**. We provide professional drivers dedicated to hospitality and punctuality. Whether you are traveling solo, with family, or in large groups, Al Kiswah Umrah Transport offers **[customized packages](/booking)** to meet your needs.")}
                             </p>
                         </FadeIn>
@@ -91,7 +91,7 @@ export default function WelcomeSection() {
                                     {whyChooseUsItems.map((item, index) => (
                                         <li key={index} className="flex items-start gap-4 group">
                                             <CheckCircle2 className="text-gold shrink-0 mt-1 bg-gold/10 rounded-full p-0.5" size={24} />
-                                            <span className="text-gray-300 group-hover:text-white transition-colors">{parseMarkdown(item)}</span>
+                                            <span className="text-n-300 group-hover:text-white transition-colors">{parseMarkdown(item)}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -103,13 +103,13 @@ export default function WelcomeSection() {
                             <div className="bg-gradient-to-br from-neutral-900 to-black text-white p-8 rounded-3xl relative overflow-hidden border border-white/5 shadow-2xl group hover:border-gold/30 transition-colors duration-500">
                                 <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-10 mix-blend-overlay pointer-events-none" />
                                 <Quote className="absolute top-6 right-6 text-gold/10 group-hover:text-gold/20 transition-colors duration-500" size={100} />
-                                <blockquote className="relative z-10 text-xl font-serif leading-relaxed opacity-90 mb-6 text-gray-200 italic">
+                                <blockquote className="relative z-10 text-xl font-serif leading-relaxed opacity-90 mb-6 text-n-200 italic">
                                     “And proclaim to the people the Hajj; they will come to you on foot and on every lean camel; they will come from every distant pass.”
                                 </blockquote>
                                 <blockquote className="relative z-10 text-2xl font-arabic leading-relaxed opacity-90 mb-4 text-right text-gold" dir="rtl">
                                     "وَأَذِّن فِي النَّاسِ بِالْحَجِّ يَأْتُوكَ رِجَالًا وَعَلَىٰ كُلِّ ضَامِرٍ يَأْتِينَ مِن كُلِّ فَجٍّ عَمِيقٍ"
                                 </blockquote>
-                                <cite className="block text-gray-500 font-medium not-italic text-sm border-t border-white/10 pt-4 mt-6">– Qur’an (22:27) | سورة الحج</cite>
+                                <cite className="block text-n-500 font-medium not-italic text-sm border-t border-white/10 pt-4 mt-6">– Qur’an (22:27) | سورة الحج</cite>
                             </div>
                         </FadeIn>
                     </div>

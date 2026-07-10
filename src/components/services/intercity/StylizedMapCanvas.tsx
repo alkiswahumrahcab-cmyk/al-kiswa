@@ -130,7 +130,7 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
                                     stroke={isRelevant ? "hsl(var(--gold))" : "currentColor"}
                                     strokeWidth={isActive ? "0.6" : (isHovered ? "0.4" : "0.2")}
                                     strokeLinecap="round"
-                                    className={!isRelevant ? "text-gray-600 transition-colors duration-500" : ""}
+                                    className={!isRelevant ? "text-n-600 transition-colors duration-500" : ""}
                                     animate={{
                                         strokeOpacity: isRelevant ? 1 : 0.3,
                                         filter: isRelevant ? "url(#glow-gold)" : "none"
@@ -214,7 +214,7 @@ export default function StylizedMapCanvas({ routes, activeRouteId, hoveredRouteI
 
             {/* Map Controls Prompt */}
             <div className="absolute bottom-6 right-6 hidden lg:block pointer-events-none opacity-50">
-                <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs text-gray-400 border border-white/10">
+                <div className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs text-n-400 border border-white/10">
                     <span className="w-2 h-2 rounded-full border border-current animate-ping" /> Drag to pan map
                 </div>
             </div>

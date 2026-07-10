@@ -36,7 +36,7 @@ export const AbandonedCartTemplate = ({
             <Head />
             <Preview>{previewText}</Preview>
             <Tailwind>
-                <Body className="bg-slate-50 font-sans">
+                <Body className="bg-n-50 font-sans">
                     <Container className="mx-auto py-8 max-w-lg">
                         {/* Logo */}
                         <Section className="mb-6 text-center">
@@ -50,20 +50,20 @@ export const AbandonedCartTemplate = ({
                         </Section>
 
                         {/* Card */}
-                        <Section className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+                        <Section className="bg-white rounded-2xl shadow-lg border border-n-200 overflow-hidden">
                             {/* Header Image/Banner */}
                             <div className="bg-gold h-2 w-full" />
 
                             <div className="p-8">
-                                <Heading className="text-2xl font-bold text-slate-800 mb-4 text-center">
+                                <Heading className="text-2xl font-bold text-n-800 mb-4 text-center">
                                     Your Journey Awaits, {customerName.split(' ')[0]}
                                 </Heading>
-                                <Text className="text-slate-600 mb-6 text-base leading-relaxed text-center">
+                                <Text className="text-n-600 mb-6 text-base leading-relaxed text-center">
                                     We noticed you started booking a trip from <strong>{pickup}</strong> to <strong>{dropoff}</strong>
                                     {vehicleName && ` with our premium ${vehicleName}`} but didn't finish.
                                 </Text>
 
-                                <Text className="text-slate-600 mb-8 text-base leading-relaxed text-center">
+                                <Text className="text-n-600 mb-8 text-base leading-relaxed text-center">
                                     High demand is expected soon. Secure your luxury transport now to ensure availability.
                                 </Text>
 
@@ -76,7 +76,7 @@ export const AbandonedCartTemplate = ({
                                     </Button>
                                 </Section>
 
-                                <Text className="text-center text-slate-400 text-xs">
+                                <Text className="text-center text-n-400 text-xs">
                                     If you already completed your booking, please ignore this email.
                                 </Text>
                             </div>
@@ -84,10 +84,10 @@ export const AbandonedCartTemplate = ({
 
                         {/* Footer */}
                         <Section className="text-center mt-8">
-                            <Text className="text-slate-400 text-xs">
+                            <Text className="text-n-400 text-xs">
                                 © {new Date().getFullYear()} Al Kiswah Transport. All rights reserved.
                             </Text>
-                            <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/contact`} className="text-slate-400 text-xs underline">
+                            <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/contact`} className="text-n-400 text-xs underline">
                                 Contact Support
                             </Link>
                         </Section>

@@ -108,7 +108,7 @@ export default async function MadinahAirportPage() {
                                 <h2 className="text-4xl md:text-5xl font-bold mb-8 font-sans text-white">
                                     Seamless Arrival in <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Madinah</span>
                                 </h2>
-                                <p className="text-gray-400 mb-8 leading-relaxed font-light text-lg">
+                                <p className="text-n-400 mb-8 leading-relaxed font-light text-lg">
                                     Arriving for Umrah or Ziyarat should be stress-free. Avoid the hassle of haggling with local taxis.
                                     Our professional drivers greet you at the arrival terminal with a name sign and assist with your luggage to your comfortable private vehicle.
                                 </p>
@@ -120,7 +120,7 @@ export default async function MadinahAirportPage() {
                                         </div>
                                         <div>
                                             <h4 className="font-bold text-xl mb-2 text-white group-hover:text-gold transition-colors font-sans">Flight Tracking</h4>
-                                            <p className="text-sm text-gray-400 font-light leading-relaxed">We monitor your flight status to ensure we are there when you land, adjusting for any delays automatically.</p>
+                                            <p className="text-sm text-n-400 font-light leading-relaxed">We monitor your flight status to ensure we are there when you land, adjusting for any delays automatically.</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-6 group">
@@ -129,7 +129,7 @@ export default async function MadinahAirportPage() {
                                         </div>
                                         <div>
                                             <h4 className="font-bold text-xl mb-2 text-white group-hover:text-gold transition-colors font-sans">Hotel Drop-off</h4>
-                                            <p className="text-sm text-gray-400 font-light leading-relaxed">Direct transfer to your hotel lobby in the Markazia District (near Masjid Nabawi) or any other location.</p>
+                                            <p className="text-sm text-n-400 font-light leading-relaxed">Direct transfer to your hotel lobby in the Markazia District (near Masjid Nabawi) or any other location.</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-6 group">
@@ -138,7 +138,7 @@ export default async function MadinahAirportPage() {
                                         </div>
                                         <div>
                                             <h4 className="font-bold text-xl mb-2 text-white group-hover:text-gold transition-colors font-sans">24/7 Availability</h4>
-                                            <p className="text-sm text-gray-400 font-light leading-relaxed">Late night or early morning flight? We are always available to serve you at any hour.</p>
+                                            <p className="text-sm text-n-400 font-light leading-relaxed">Late night or early morning flight? We are always available to serve you at any hour.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -166,12 +166,12 @@ export default async function MadinahAirportPage() {
                                             </div>
                                             <div>
                                                 <p className="font-bold text-white text-lg">To Masjid Nabawi</p>
-                                                <p className="text-xs text-gray-500 uppercase tracking-wider">Central Hotels</p>
+                                                <p className="text-xs text-n-500 uppercase tracking-wider">Central Hotels</p>
                                             </div>
                                         </div>
                                         <div className="text-right">
                                             <p className="font-bold text-gold">25 Mins</p>
-                                            <p className="text-xs text-gray-500">20 km</p>
+                                            <p className="text-xs text-n-500">20 km</p>
                                         </div>
                                     </div>
 
@@ -182,12 +182,12 @@ export default async function MadinahAirportPage() {
                                             </div>
                                             <div>
                                                 <p className="font-bold text-white text-lg"><Link href="/ar/services/makkah-madinah-taxi" className="hover:text-green-400 transition-colors underline decoration-dotted underline-offset-4">To Makkah Hotel</Link></p>
-                                                <p className="text-xs text-gray-500 uppercase tracking-wider">Direct Transfer</p>
+                                                <p className="text-xs text-n-500 uppercase tracking-wider">Direct Transfer</p>
                                             </div>
                                         </div>
                                         <div className="text-right">
                                             <p className="font-bold text-gold">4.5 Hours</p>
-                                            <p className="text-xs text-gray-500">450 km</p>
+                                            <p className="text-xs text-n-500">450 km</p>
                                         </div>
                                     </div>
 
@@ -198,17 +198,17 @@ export default async function MadinahAirportPage() {
                                             </div>
                                             <div>
                                                 <p className="font-bold text-white text-lg"><Link href="/ar/services/ziyarat-tours" className="hover:text-blue-400 transition-colors underline decoration-dotted underline-offset-4">To Masjid Quba</Link></p>
-                                                <p className="text-xs text-gray-500 uppercase tracking-wider">Ziyarat Start</p>
+                                                <p className="text-xs text-n-500 uppercase tracking-wider">Ziyarat Start</p>
                                             </div>
                                         </div>
                                         <div className="text-right">
                                             <p className="font-bold text-gold">30 Mins</p>
-                                            <p className="text-xs text-gray-500">25 km</p>
+                                            <p className="text-xs text-n-500">25 km</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <p className="text-center text-xs text-gray-500 mt-8 italic font-light">
+                                <p className="text-center text-xs text-n-500 mt-8 italic font-light">
                                     *Travel times may vary based on traffic conditions
                                 </p>
                             </div>
@@ -246,11 +246,11 @@ export default async function MadinahAirportPage() {
                                     <details className="group [&_summary::-webkit-details-marker]:hidden">
                                         <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-2xl bg-neutral-900 border border-white/10 p-6 text-white hover:border-gold/50 transition-colors shadow-md">
                                             <h3 className="font-bold font-sans text-lg group-open:text-gold transition-colors">{faq.question}</h3>
-                                            <span className="shrink-0 rounded-full bg-white/5 p-1.5 text-gray-400 sm:p-3 group-open:bg-gold/10 group-open:text-gold transition-all">
+                                            <span className="shrink-0 rounded-full bg-white/5 p-1.5 text-n-400 sm:p-3 group-open:bg-gold/10 group-open:text-gold transition-all">
                                                 <ChevronDown size={20} className="group-open:rotate-180 transition-transform duration-300" />
                                             </span>
                                         </summary>
-                                        <div className="mt-4 px-6 leading-relaxed text-gray-400 font-light border-l-2 border-gold/30 ml-4">
+                                        <div className="mt-4 px-6 leading-relaxed text-n-400 font-light border-l-2 border-gold/30 ml-4">
                                             {faq.answer}
                                         </div>
                                     </details>

@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from '@/lib/hreflang';
+﻿import { generateMetadataAlternates } from '@/lib/hreflang';
 import type { Metadata } from 'next';
 import { getSettings } from '@/lib/settings-storage';
 import { vehicleService } from '@/services/vehicleService';
@@ -119,17 +119,17 @@ export default async function ToyotaCamryPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent" />
                 </div>
                 <div className="relative z-10 container mx-auto px-4">
-                    <span className="inline-block bg-amber-500 text-slate-900 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Most Popular Sedan</span>
+                    <span className="inline-block bg-amber-500 text-n-900 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Most Popular Sedan</span>
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-playfair text-white mb-5 max-w-4xl leading-tight">
                         Toyota Camry –<br />
                         <span className="text-amber-400">Executive Comfort</span><br />
                         for Umrah Travel
                     </h1>
-                    <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl">
+                    <p className="text-lg md:text-xl text-n-300 mb-10 max-w-2xl">
                         Smooth, stylish, and perfect for couples, small families &amp; business travelers across Saudi Arabia.
                     </p>
                     <div className="flex flex-wrap gap-4">
-                        <Link href="/booking?vehicle=camry" className="bg-amber-500 hover:bg-amber-400 text-slate-900 px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-amber-500/30 flex items-center gap-2">
+                        <Link href="/booking?vehicle=camry" className="bg-amber-500 hover:bg-amber-400 text-n-900 px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-amber-500/30 flex items-center gap-2">
                             Book Now <ArrowRight size={20} />
                         </Link>
                         <a href={whatsappLink} className="bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 flex items-center gap-2">
@@ -143,14 +143,14 @@ export default async function ToyotaCamryPage() {
             </section>
 
             {/* Breadcrumb Strip */}
-            <div className="bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-3">
+            <div className="bg-n-100 dark:bg-n-900 border-b border-n-200 dark:border-n-800 py-3">
                 <div className="container mx-auto px-4">
                     <nav aria-label="breadcrumb">
-                        <ol className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+                        <ol className="flex items-center gap-2 text-sm text-n-500 dark:text-n-400">
                             <li><Link href="/" className="hover:text-amber-600 transition-colors">Home</Link></li>
-                            <li className="text-slate-400">/</li>
+                            <li className="text-n-400">/</li>
                             <li><Link href="/fleet" className="hover:text-amber-600 transition-colors">Fleet</Link></li>
-                            <li className="text-slate-400">/</li>
+                            <li className="text-n-400">/</li>
                             <li className="text-amber-600 font-medium">Toyota Camry</li>
                         </ol>
                     </nav>
@@ -158,7 +158,7 @@ export default async function ToyotaCamryPage() {
             </div>
 
             {/* B. Quick Stats Bar */}
-            <section className="bg-slate-900 border-y border-slate-700 py-6">
+            <section className="bg-n-900 border-y border-n-700 py-6">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                         {[
@@ -169,7 +169,7 @@ export default async function ToyotaCamryPage() {
                         ].map((s, i) => (
                             <div key={i}>
                                 <div className="text-3xl font-bold text-amber-400 font-playfair">{s.val}</div>
-                                <div className="text-slate-400 text-sm mt-1">{s.label}</div>
+                                <div className="text-n-400 text-sm mt-1">{s.label}</div>
                             </div>
                         ))}
                     </div>
@@ -177,12 +177,12 @@ export default async function ToyotaCamryPage() {
             </section>
 
             {/* C. Exterior Gallery */}
-            <section className="py-20 bg-slate-950">
+            <section className="py-20 bg-n-950">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                         <span className="text-amber-500 font-bold tracking-widest uppercase text-sm">Exterior Design</span>
                         <h2 className="text-4xl md:text-5xl font-bold font-playfair text-white mt-3 mb-4">Refined Road Presence</h2>
-                        <p className="text-slate-400 max-w-xl mx-auto">Bold aerodynamic styling, LED lighting, and signature alloy wheels that command attention on every route.</p>
+                        <p className="text-n-400 max-w-xl mx-auto">Bold aerodynamic styling, LED lighting, and signature alloy wheels that command attention on every route.</p>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                         {exteriorImages.map((img, i) => (
@@ -199,12 +199,12 @@ export default async function ToyotaCamryPage() {
             </section>
 
             {/* D. Interior Gallery */}
-            <section className="py-20 bg-slate-900">
+            <section className="py-20 bg-n-900">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                         <span className="text-amber-500 font-bold tracking-widest uppercase text-sm">Interior Luxury</span>
                         <h2 className="text-4xl md:text-5xl font-bold font-playfair text-white mt-3 mb-4">Premium Cabin Experience</h2>
-                        <p className="text-slate-400 max-w-xl mx-auto">Soft leather, whisper-quiet ride, and modern technology — every detail crafted for pilgrim comfort.</p>
+                        <p className="text-n-400 max-w-xl mx-auto">Soft leather, whisper-quiet ride, and modern technology — every detail crafted for pilgrim comfort.</p>
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {interiorImages.map((img, i) => (
@@ -220,18 +220,18 @@ export default async function ToyotaCamryPage() {
             </section>
 
             {/* E. Specifications Grid */}
-            <section className="py-20 bg-white dark:bg-slate-950">
+            <section className="py-20 bg-white dark:bg-n-950">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-14">
-                        <h2 className="text-3xl md:text-4xl font-bold font-playfair text-slate-900 dark:text-white mb-3">Premium Specifications</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold font-playfair text-n-900 dark:text-white mb-3">Premium Specifications</h2>
                         <div className="w-24 h-1 bg-amber-500 mx-auto rounded-full" />
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                         {specs.map((s, i) => (
-                            <div key={i} className="p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                            <div key={i} className="p-6 rounded-2xl border border-n-100 dark:border-n-800 bg-n-50 dark:bg-n-900 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                                 <s.icon className="w-10 h-10 text-amber-500 mb-4" />
-                                <h3 className="font-bold text-xl mb-2 text-slate-900 dark:text-white">{s.title}</h3>
-                                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{s.desc}</p>
+                                <h3 className="font-bold text-xl mb-2 text-n-900 dark:text-white">{s.title}</h3>
+                                <p className="text-n-600 dark:text-n-400 leading-relaxed">{s.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -242,10 +242,10 @@ export default async function ToyotaCamryPage() {
             <section className="py-24 bg-amber-50 dark:bg-amber-900/10">
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8 text-slate-900 dark:text-white text-center">
+                        <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8 text-n-900 dark:text-white text-center">
                             Toyota Camry – Executive Sedan for Umrah, Airport Transfers & Saudi Travel
                         </h2>
-                        <div className="prose prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
+                        <div className="prose prose-lg dark:prose-invert max-w-none text-n-700 dark:text-n-300 space-y-6">
                             <p>The <strong>Toyota Camry</strong> is one of the most popular and reliable sedans for <strong>Umrah travel, airport transfers, and intercity journeys</strong> across Saudi Arabia. Known for its exceptional comfort, fuel efficiency, and smooth driving experience, the Camry is the perfect choice for couples, small families, business travelers, and pilgrims seeking a peaceful and elegant ride. At <strong>Al Kiswah Umrah Cab</strong>, we offer the Toyota Camry as part of our premium fleet, ensuring a safe, clean, and comfortable journey for every passenger.</p>
                             <p>The Camry's exterior features a sleek aerodynamic body, stylish LED headlights, and a modern executive look. Whether you are traveling from <Link href="/services/jeddah-airport-transfer" className="text-amber-600 font-semibold hover:underline">Jeddah Airport to Makkah</Link>, heading toward <Link href="/services/makkah-madinah-taxi" className="text-amber-600 font-semibold hover:underline">Madinah</Link>, or exploring holy sites during <Link href="/services/ziyarat-tours" className="text-amber-600 font-semibold hover:underline">Ziyarat tours</Link>, the Camry delivers a stable and refined driving experience. Its fuel-efficient hybrid engine makes it ideal for long routes.</p>
                             <p>Inside, the Toyota Camry provides a premium environment with <strong>comfortable leather seating</strong>, a modern infotainment system, spacious legroom, and excellent dual-zone climate control. The quiet cabin ensures a relaxing journey, especially for elderly pilgrims or travelers who prefer a peaceful ride.</p>
@@ -263,7 +263,7 @@ export default async function ToyotaCamryPage() {
                             />
                         </div>
                         <div>
-                            <h3 className="text-3xl font-bold font-playfair mb-8 text-slate-900 dark:text-white">Why Choose Camry for Umrah Travel?</h3>
+                            <h3 className="text-3xl font-bold font-playfair mb-8 text-n-900 dark:text-white">Why Choose Camry for Umrah Travel?</h3>
                             <ul className="space-y-4">
                                 {[
                                     'Ideal for couples & small families',
@@ -273,9 +273,9 @@ export default async function ToyotaCamryPage() {
                                     'Affordable premium option',
                                     'Fuel-efficient hybrid engine',
                                 ].map((item, idx) => (
-                                    <li key={idx} className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 shadow-sm border border-amber-100 dark:border-slate-800 hover:-translate-y-1 transition-transform">
+                                    <li key={idx} className="flex items-center gap-4 p-4 rounded-xl bg-white dark:bg-n-900 shadow-sm border border-amber-100 dark:border-n-800 hover:-translate-y-1 transition-transform">
                                         <CheckCircle className="w-6 h-6 text-amber-500 shrink-0" />
-                                        <span className="font-medium text-slate-800 dark:text-slate-200">{item}</span>
+                                        <span className="font-medium text-n-800 dark:text-n-200">{item}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -294,11 +294,11 @@ export default async function ToyotaCamryPage() {
             />
 
             {/* H. Route Packages */}
-            <section className="py-20 bg-slate-50 dark:bg-slate-950">
+            <section className="py-20 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-14">
                         <span className="text-amber-500 font-bold tracking-widest uppercase text-sm">Routes & Packages</span>
-                        <h2 className="text-3xl md:text-4xl font-bold font-playfair text-slate-900 dark:text-white mt-3 mb-3">Popular Toyota Camry Routes</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold font-playfair text-n-900 dark:text-white mt-3 mb-3">Popular Toyota Camry Routes</h2>
                         <div className="w-24 h-1 bg-amber-500 mx-auto rounded-full" />
                     </div>
                     <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -325,11 +325,11 @@ export default async function ToyotaCamryPage() {
                                 icon: '📍',
                             },
                         ].map((r, i) => (
-                            <div key={i} className="bg-white dark:bg-slate-900 rounded-2xl shadow-md border-t-4 border-amber-500 p-6 hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                            <div key={i} className="bg-white dark:bg-n-900 rounded-2xl shadow-md border-t-4 border-amber-500 p-6 hover:-translate-y-2 transition-transform duration-300 flex flex-col">
                                 <div className="text-4xl mb-4">{r.icon}</div>
                                 <span className="inline-block bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 w-fit">{r.badge}</span>
-                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{r.route}</h3>
-                                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-1">{r.desc}</p>
+                                <h3 className="text-xl font-bold text-n-900 dark:text-white mb-3">{r.route}</h3>
+                                <p className="text-n-600 dark:text-n-400 text-sm leading-relaxed flex-1">{r.desc}</p>
                                 <Link href={r.href} className="mt-5 inline-flex items-center gap-2 text-amber-600 hover:text-amber-500 font-bold text-sm transition-colors">
                                     View Route Details <ArrowRight size={16} />
                                 </Link>
@@ -340,15 +340,15 @@ export default async function ToyotaCamryPage() {
             </section>
 
             {/* I. Booking Form */}
-            <section className="py-20 bg-white dark:bg-slate-900">
+            <section className="py-20 bg-white dark:bg-n-900">
                 <div className="container mx-auto px-4">
                     <div className="max-w-3xl mx-auto">
                         <div className="text-center mb-10">
                             <span className="text-amber-500 font-bold tracking-widest uppercase text-sm">Quick Booking</span>
-                            <h2 className="text-3xl md:text-4xl font-bold font-playfair text-slate-900 dark:text-white mt-3 mb-2">Reserve Your Toyota Camry</h2>
-                            <p className="text-slate-500 dark:text-slate-400">Fill in your details and our team will confirm your booking within minutes.</p>
+                            <h2 className="text-3xl md:text-4xl font-bold font-playfair text-n-900 dark:text-white mt-3 mb-2">Reserve Your Toyota Camry</h2>
+                            <p className="text-n-500 dark:text-n-400">Fill in your details and our team will confirm your booking within minutes.</p>
                         </div>
-                        <div className="bg-slate-50 dark:bg-slate-800 rounded-3xl p-8 shadow-xl border border-slate-100 dark:border-slate-700">
+                        <div className="bg-n-50 dark:bg-n-800 rounded-3xl p-8 shadow-xl border border-n-100 dark:border-n-700">
                             <div className="grid md:grid-cols-2 gap-5">
                                 {[
                                     { label: 'Full Name', placeholder: 'Your full name', type: 'text', id: 'camry-name' },
@@ -359,22 +359,22 @@ export default async function ToyotaCamryPage() {
                                     { label: 'No. of Passengers', placeholder: 'e.g. 3', type: 'number', id: 'camry-passengers' },
                                 ].map((field) => (
                                     <div key={field.id}>
-                                        <label htmlFor={field.id} className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">{field.label}</label>
+                                        <label htmlFor={field.id} className="block text-sm font-semibold text-n-700 dark:text-n-300 mb-2">{field.label}</label>
                                         <input
                                             id={field.id}
                                             type={field.type}
                                             placeholder={field.placeholder}
-                                            className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
+                                            className="w-full px-4 py-3 rounded-xl border border-n-200 dark:border-n-700 bg-white dark:bg-n-900 text-n-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
                                         />
                                     </div>
                                 ))}
                                 <div className="md:col-span-2">
-                                    <label htmlFor="camry-vehicle" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Vehicle</label>
+                                    <label htmlFor="camry-vehicle" className="block text-sm font-semibold text-n-700 dark:text-n-300 mb-2">Vehicle</label>
                                     <input id="camry-vehicle" type="text" value="Toyota Camry (Pre-selected)" readOnly className="w-full px-4 py-3 rounded-xl border border-amber-300 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-800 text-amber-800 dark:text-amber-300 font-semibold focus:outline-none cursor-not-allowed" />
                                 </div>
                             </div>
                             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                                <Link href="/booking?vehicle=camry" className="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-900 px-8 py-4 rounded-full font-bold text-lg text-center transition-all hover:scale-105 shadow-lg shadow-amber-500/30 flex items-center justify-center gap-2">
+                                <Link href="/booking?vehicle=camry" className="flex-1 bg-amber-500 hover:bg-amber-400 text-n-900 px-8 py-4 rounded-full font-bold text-lg text-center transition-all hover:scale-105 shadow-lg shadow-amber-500/30 flex items-center justify-center gap-2">
                                     Go to Full Booking Form <ArrowRight size={20} />
                                 </Link>
                                 <a href={whatsappLink} className="flex-1 bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg text-center transition-all hover:scale-105 flex items-center justify-center gap-2">
@@ -395,13 +395,13 @@ export default async function ToyotaCamryPage() {
                         fill
                         className="object-cover object-center"
                     />
-                    <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm" />
+                    <div className="absolute inset-0 bg-n-900/80 backdrop-blur-sm" />
                 </div>
                 <div className="relative z-10 text-center max-w-2xl mx-auto px-4">
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair text-white mb-6">Ready to Book Your Camry?</h2>
-                    <p className="text-lg text-slate-300 mb-10">Reserve your Toyota Camry instantly with our online booking or chat with our support team on WhatsApp.</p>
+                    <p className="text-lg text-n-300 mb-10">Reserve your Toyota Camry instantly with our online booking or chat with our support team on WhatsApp.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking?vehicle=camry" className="bg-amber-500 hover:bg-amber-400 text-slate-900 px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-amber-500/30 flex items-center justify-center gap-2">
+                        <Link href="/booking?vehicle=camry" className="bg-amber-500 hover:bg-amber-400 text-n-900 px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-amber-500/30 flex items-center justify-center gap-2">
                             Go to Booking Form <ArrowRight size={20} />
                         </Link>
                         <a href={whatsappLink} className="bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 flex items-center justify-center gap-2">
@@ -413,7 +413,7 @@ export default async function ToyotaCamryPage() {
 
             <FAQSection items={camryFAQs.map(f => ({ question: f.q, answer: f.a }))} title="Toyota Camry Umrah – Frequently Asked Questions" />
 
-            <div className="py-10 bg-white dark:bg-slate-950">
+            <div className="py-10 bg-white dark:bg-n-950">
                 <FleetCarouselWrapper />
             </div>
         </main>

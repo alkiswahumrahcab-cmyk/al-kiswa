@@ -113,11 +113,11 @@ export default async function ZiarahMadinahPage() {
                                 <div key={i} className="bg-black/50 border border-white/10 rounded-xl p-4 hover:border-gold/30 transition-all">
                                     <div className="text-gold font-bold text-lg">{v.price}</div>
                                     <div className="text-white font-semibold text-sm mt-1">{v.vehicle}</div>
-                                    <div className="text-gray-500 text-xs">{v.capacity}</div>
+                                    <div className="text-n-500 text-xs">{v.capacity}</div>
                                 </div>
                             ))}
                         </div>
-                        <p className="text-center text-xs text-gray-500 mt-4">All prices per vehicle • Fuel, tolls & waiting included • Duration: 3–4 hours</p>
+                        <p className="text-center text-xs text-n-500 mt-4">All prices per vehicle • Fuel, tolls & waiting included • Duration: 3–4 hours</p>
                         <SeasonalPricingNote className="mt-4" />
                     </FadeIn>
                 </div>
@@ -130,7 +130,7 @@ export default async function ZiarahMadinahPage() {
                         <h2 className="text-3xl md:text-4xl font-bold text-white font-sans mb-3 border-l-4 border-gold pl-4">
                             14 Sacred Sites We Visit
                         </h2>
-                        <p className="text-gray-400 font-light mb-8 ml-6">
+                        <p className="text-n-400 font-light mb-8 ml-6">
                             Our private Madinah Ziyarat covers every significant Islamic site in the Prophet&apos;s city. Tap any location to read its full history and significance.
                         </p>
                         <LocationGrid sites={madinahSites} city="madinah" />
@@ -156,7 +156,7 @@ export default async function ZiarahMadinahPage() {
                                         {f.icon}
                                     </div>
                                     <h3 className="text-base font-bold mb-2 text-white">{f.title}</h3>
-                                    <p className="text-xs text-gray-400 leading-relaxed font-light">{f.desc}</p>
+                                    <p className="text-xs text-n-400 leading-relaxed font-light">{f.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -173,7 +173,7 @@ export default async function ZiarahMadinahPage() {
             <section className="py-20 bg-neutral-900/50 border-y border-white/5 relative z-10">
                 <div className="container mx-auto px-4">
                     <FadeIn>
-                        <div className="max-w-4xl mx-auto space-y-6 text-gray-300 leading-relaxed font-light">
+                        <div className="max-w-4xl mx-auto space-y-6 text-n-300 leading-relaxed font-light">
                             <h2 className="text-2xl md:text-3xl font-bold text-white font-sans text-center mb-6">Private Madinah Ziyarat Tour — Complete Guide</h2>
                             <p>Madinah Al-Munawwarah — the Illuminated City — holds a special place in every Muslim&apos;s heart. Beyond the magnificent <strong className="text-white">Masjid An-Nabawi</strong>, the city is filled with sacred sites that connect you to the earliest days of Islam. At <strong className="text-white">Al Kiswah Umrah Transport</strong>, we offer fully private tours covering <strong className="text-white">14 Islamic historical sites</strong> with multilingual drivers who share the significance of each location.</p>
                             <p>Our Madinah tour always begins at <strong className="text-white">Masjid Quba</strong> — the first mosque built in Islam. The Prophet (SAW) said that praying two Rakaats here equals an Umrah. We continue to <strong className="text-white">Mount Uhud</strong> and the Martyrs&apos; Cemetery where Hamza (RA), the Lion of Allah, rests alongside 70 companions. The <strong className="text-white">Seven Mosques</strong> complex marks the Battle of the Trench, and <strong className="text-white">Masjid Al-Qiblatayn</strong> is where the direction of prayer changed forever. We also visit <strong className="text-white">Jannat Al-Baqi</strong> (10,000+ companions), the companion mosques, and the famous <strong className="text-white">Date Market</strong> where you can buy Ajwa dates that the Prophet (SAW) recommended.</p>

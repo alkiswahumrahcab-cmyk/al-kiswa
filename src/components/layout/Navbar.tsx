@@ -133,7 +133,7 @@ export default function Navbar() {
                         <div key={link.href} className="relative group">
                             {link.href === '#' ? (
                                 <span
-                                    className={`relative text-xs font-medium transition-all duration-300 px-4 py-2.5 rounded-full flex items-center gap-1 cursor-default text-gray-300 hover:text-white group-hover:bg-white/5`}
+                                    className={`relative text-xs font-medium transition-all duration-300 px-4 py-2.5 rounded-full flex items-center gap-1 cursor-default text-n-300 hover:text-white group-hover:bg-white/5`}
                                 >
                                     {link.label}
                                     {link.children && <ChevronDown size={12} className="group-hover:rotate-180 transition-transform duration-300 text-gold" />}
@@ -143,7 +143,7 @@ export default function Navbar() {
                                     href={link.href}
                                     className={`relative text-xs font-medium transition-all duration-300 px-4 py-2.5 rounded-full flex items-center gap-1 ${pathname === link.href
                                         ? 'bg-gold text-black font-bold shadow-[0_0_15px_hsl(var(--gold-glow) / 0.4)]'
-                                        : 'text-gray-300 hover:text-white hover:bg-white/5'
+                                        : 'text-n-300 hover:text-white hover:bg-white/5'
                                         }`}
                                 >
                                     {link.label}
@@ -169,11 +169,11 @@ export default function Navbar() {
                                                     {/* Hover accent line */}
                                                     <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-0 bg-gold transition-all duration-300 group-hover/link:h-3/4 rounded-r-full opacity-0 group-hover/link:opacity-100"></div>
                                                     
-                                                    <div className="font-sans font-bold text-gray-200 text-sm tracking-wide transition-colors duration-300 group-hover/link:text-gold group-hover/link:translate-x-1 transform">
+                                                    <div className="font-sans font-bold text-n-200 text-sm tracking-wide transition-colors duration-300 group-hover/link:text-gold group-hover/link:translate-x-1 transform">
                                                         {child.label}
                                                     </div>
                                                     {child.description && (
-                                                        <div className="text-[11px] text-gray-500 mt-1.5 leading-relaxed tracking-wider transition-all duration-300 group-hover/link:text-gray-400 group-hover/link:translate-x-1 transform">
+                                                        <div className="text-[11px] text-n-500 mt-1.5 leading-relaxed tracking-wider transition-all duration-300 group-hover/link:text-n-400 group-hover/link:translate-x-1 transform">
                                                             {child.description}
                                                         </div>
                                                     )}
@@ -226,7 +226,7 @@ export default function Navbar() {
                         </span>
                     </div>
                     <button
-                        className="p-2 text-gray-400 hover:text-white hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-white/10"
+                        className="p-2 text-n-400 hover:text-white hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-white/10"
                         onClick={() => setIsMenuOpen(false)}
                     >
                         <X size={28} strokeWidth={1.5} />
@@ -239,7 +239,7 @@ export default function Navbar() {
                             {link.children ? (
                                 <button
                                     onClick={() => toggleAccordion(link.label)}
-                                    className="flex items-center justify-between text-2xl font-bold text-gray-200 hover:text-gold transition-colors group text-left"
+                                    className="flex items-center justify-between text-2xl font-bold text-n-200 hover:text-gold transition-colors group text-left"
                                 >
                                     <span>{link.label}</span>
                                     <ChevronDown 
@@ -250,7 +250,7 @@ export default function Navbar() {
                             ) : (
                                 <Link
                                     href={link.href}
-                                    className={`text-2xl font-bold transition-all duration-300 ${pathname === link.href ? 'text-gold' : 'text-gray-200 hover:text-white'}`}
+                                    className={`text-2xl font-bold transition-all duration-300 ${pathname === link.href ? 'text-gold' : 'text-n-200 hover:text-white'}`}
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     {link.label}
@@ -266,12 +266,12 @@ export default function Navbar() {
                                             <Link
                                                 key={child.href}
                                                 href={child.href}
-                                                className="text-base text-gray-400 hover:text-gold transition-colors py-1 flex flex-col"
+                                                className="text-base text-n-400 hover:text-gold transition-colors py-1 flex flex-col"
                                                 onClick={() => setIsMenuOpen(false)}
                                             >
                                                 <span className="font-medium">{child.label}</span>
                                                 {child.description && (
-                                                    <span className="text-xs text-gray-600 mt-0.5">{child.description}</span>
+                                                    <span className="text-xs text-n-600 mt-0.5">{child.description}</span>
                                                 )}
                                             </Link>
                                         ))}
@@ -283,7 +283,7 @@ export default function Navbar() {
                 </div>
 
                 <div className="p-6 bg-gradient-to-t from-black via-black/80 to-transparent mt-auto pt-12 pb-8 flex flex-col gap-6 border-t border-white/5">
-                    <div className="flex items-center justify-between text-gray-300 px-2">
+                    <div className="flex items-center justify-between text-n-300 px-2">
                         <a href="tel:+966548707332" className="flex items-center gap-3 hover:text-gold transition-colors font-medium group/phone">
                             <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover/phone:bg-gold group-hover/phone:text-black group-hover/phone:border-gold transition-all duration-300">
                                 <Phone size={18} />

@@ -139,9 +139,9 @@ export default function BookingSuccessModal({
 
                                         {/* Booking ID Pill */}
                                         <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 text-white px-6 py-3 rounded-full text-sm font-mono font-bold hover:bg-white/10 transition-colors cursor-pointer backdrop-blur-sm mb-10" onClick={copyBookingId}>
-                                            <span className="text-gray-400 text-xs font-sans font-normal">Booking ID</span>
+                                            <span className="text-n-400 text-xs font-sans font-normal">Booking ID</span>
                                             <span className="text-base">#{bookingData.bookingId}</span>
-                                            {copied ? <Check size={16} className="text-green-400" /> : <Copy size={16} className="text-gray-400" />}
+                                            {copied ? <Check size={16} className="text-green-400" /> : <Copy size={16} className="text-n-400" />}
                                         </div>
                                     </div>
 
@@ -163,7 +163,7 @@ export default function BookingSuccessModal({
                                             </div>
                                         </div>
                                         <div className="mt-6 pt-5 border-t border-white/10">
-                                            <p className="text-gray-400 text-sm italic font-montserrat">
+                                            <p className="text-n-400 text-sm italic font-montserrat">
                                                 No charge has been made. Free cancellation up to 24 hours before pickup.
                                             </p>
                                         </div>
@@ -186,17 +186,17 @@ export default function BookingSuccessModal({
                                     <div className="space-y-3 relative z-10">
                                         <div className="bg-white/5 border border-white/5 rounded-2xl p-4 backdrop-blur-sm">
                                             <div className="flex items-center justify-between mb-3">
-                                                <p className="text-xs text-gray-400 uppercase tracking-widest font-semibold flex items-center gap-1.5">
+                                                <p className="text-xs text-n-400 uppercase tracking-widest font-semibold flex items-center gap-1.5">
                                                     <User size={12} className="text-gold" /> Customer Info
                                                 </p>
                                             </div>
                                             <div className="grid grid-cols-2 gap-3">
                                                 <div>
-                                                    <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-0.5">Email</p>
+                                                    <p className="text-[10px] text-n-500 uppercase tracking-wider mb-0.5">Email</p>
                                                     <p className="text-white font-semibold text-sm truncate">{bookingData.email || '—'}</p>
                                                 </div>
                                                 <div>
-                                                    <p className="text-[10px] text-gray-500 uppercase tracking-wider mb-0.5">Phone</p>
+                                                    <p className="text-[10px] text-n-500 uppercase tracking-wider mb-0.5">Phone</p>
                                                     <p className="text-white font-semibold text-sm">{bookingData.phone || '—'}</p>
                                                 </div>
                                             </div>
@@ -205,10 +205,10 @@ export default function BookingSuccessModal({
                                         {/* Route */}
                                         <div className="bg-white/5 border border-white/5 rounded-2xl p-4 backdrop-blur-sm">
                                             <div className="flex items-center justify-between mb-2">
-                                                <p className="text-xs text-gray-400 uppercase tracking-widest font-semibold flex items-center gap-1.5">
+                                                <p className="text-xs text-n-400 uppercase tracking-widest font-semibold flex items-center gap-1.5">
                                                     <MapPin size={12} className="text-gold" /> Route
                                                 </p>
-                                                <p className="text-xs text-gray-400 font-bold" dir="rtl">المسار</p>
+                                                <p className="text-xs text-n-400 font-bold" dir="rtl">المسار</p>
                                             </div>
                                             <p className="text-white font-semibold">{pickup} {dropoff && ` → ${dropoff}`}</p>
                                         </div>
@@ -218,10 +218,10 @@ export default function BookingSuccessModal({
                                             {/* Date */}
                                             <div className="bg-white/5 border border-white/5 rounded-xl p-3.5 backdrop-blur-sm">
                                                 <div className="flex justify-between items-center mb-1.5">
-                                                    <div className="flex items-center gap-1.5 text-xs text-gray-400 uppercase tracking-wider">
+                                                    <div className="flex items-center gap-1.5 text-xs text-n-400 uppercase tracking-wider">
                                                         <Calendar size={12} className="text-gold" /> Date
                                                     </div>
-                                                    <span className="text-xs text-gray-400 font-bold" dir="rtl">التاريخ</span>
+                                                    <span className="text-xs text-n-400 font-bold" dir="rtl">التاريخ</span>
                                                 </div>
                                                 <p className="text-white font-bold text-sm">{formattedDate}</p>
                                             </div>
@@ -229,10 +229,10 @@ export default function BookingSuccessModal({
                                             {/* Time */}
                                             <div className="bg-white/5 border border-white/5 rounded-xl p-3.5 backdrop-blur-sm">
                                                 <div className="flex justify-between items-center mb-1.5">
-                                                    <div className="flex items-center gap-1.5 text-xs text-gray-400 uppercase tracking-wider">
+                                                    <div className="flex items-center gap-1.5 text-xs text-n-400 uppercase tracking-wider">
                                                         <Clock size={12} className="text-gold" /> Time
                                                     </div>
-                                                    <span className="text-xs text-gray-400 font-bold" dir="rtl">الوقت</span>
+                                                    <span className="text-xs text-n-400 font-bold" dir="rtl">الوقت</span>
                                                 </div>
                                                 <p className="text-white font-bold text-sm">{bookingData.time}</p>
                                             </div>
@@ -240,10 +240,10 @@ export default function BookingSuccessModal({
                                             {/* Vehicle */}
                                             <div className="bg-white/5 border border-white/5 rounded-xl p-3.5 backdrop-blur-sm">
                                                 <div className="flex justify-between items-center mb-1.5">
-                                                    <div className="flex items-center gap-1.5 text-xs text-gray-400 uppercase tracking-wider">
+                                                    <div className="flex items-center gap-1.5 text-xs text-n-400 uppercase tracking-wider">
                                                         <Car size={12} className="text-gold" /> Vehicle
                                                     </div>
-                                                    <span className="text-xs text-gray-400 font-bold" dir="rtl">السيارة</span>
+                                                    <span className="text-xs text-n-400 font-bold" dir="rtl">السيارة</span>
                                                 </div>
                                                 <p className="text-white font-bold text-sm">{bookingData.vehicleName}</p>
                                             </div>
@@ -251,10 +251,10 @@ export default function BookingSuccessModal({
                                             {/* Passengers */}
                                             <div className="bg-white/5 border border-white/5 rounded-xl p-3.5 backdrop-blur-sm">
                                                 <div className="flex justify-between items-center mb-1.5">
-                                                    <div className="flex items-center gap-1.5 text-xs text-gray-400 uppercase tracking-wider">
+                                                    <div className="flex items-center gap-1.5 text-xs text-n-400 uppercase tracking-wider">
                                                         <Users size={12} className="text-gold" /> Pax
                                                     </div>
-                                                    <span className="text-xs text-gray-400 font-bold" dir="rtl">الركاب</span>
+                                                    <span className="text-xs text-n-400 font-bold" dir="rtl">الركاب</span>
                                                 </div>
                                                 <p className="text-white font-bold text-sm">{bookingData.passengers}</p>
                                             </div>

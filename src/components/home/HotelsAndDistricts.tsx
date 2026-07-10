@@ -72,7 +72,7 @@ export default function HotelsAndDistricts() {
                         <h2 className="text-3xl md:text-4xl font-bold font-playfair text-white mb-4">
                             Premium Coverage Across Holy Cities
                         </h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+                        <p className="text-n-400 max-w-2xl mx-auto text-lg">
                             Select your destination city to explore our extensive service coverage.
                         </p>
                     </div>
@@ -84,7 +84,7 @@ export default function HotelsAndDistricts() {
                                 onClick={() => setActiveCity('makkah')}
                                 className={`px-8 py-3 rounded-full text-sm md:text-base font-bold transition-all duration-300 ${activeCity === 'makkah'
                                     ? 'bg-gold text-black shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)]'
-                                    : 'text-gray-400 hover:text-white'
+                                    : 'text-n-400 hover:text-white'
                                     }`}
                             >
                                 Makkah Al Mukarramah
@@ -93,7 +93,7 @@ export default function HotelsAndDistricts() {
                                 onClick={() => setActiveCity('madinah')}
                                 className={`px-8 py-3 rounded-full text-sm md:text-base font-bold transition-all duration-300 ${activeCity === 'madinah'
                                     ? 'bg-gold text-black shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)]'
-                                    : 'text-gray-400 hover:text-white'
+                                    : 'text-n-400 hover:text-white'
                                     }`}
                             >
                                 Madinah Al Munawwarah
@@ -125,7 +125,7 @@ export default function HotelsAndDistricts() {
                                             <h3 className="text-3xl md:text-4xl font-bold text-white font-playfair mb-4">
                                                 {cityData.title}
                                             </h3>
-                                            <p className="text-gray-400 text-lg leading-relaxed">
+                                            <p className="text-n-400 text-lg leading-relaxed">
                                                 {cityData.description}
                                             </p>
                                         </div>
@@ -140,7 +140,7 @@ export default function HotelsAndDistricts() {
                                                     <Link
                                                         key={idx}
                                                         href="/booking"
-                                                        className="group flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/5"
+                                                        className="group flex items-center gap-3 text-sm text-n-400 hover:text-white transition-colors p-2 rounded-lg hover:bg-white/5"
                                                     >
                                                         <span className="w-1.5 h-1.5 rounded-full bg-white/20 group-hover:bg-gold transition-colors" />
                                                         <span className="group-hover:translate-x-1 transition-transform duration-300">
@@ -163,7 +163,7 @@ export default function HotelsAndDistricts() {
                                                 {cityData.districts.map((district, idx) => (
                                                     <span
                                                         key={idx}
-                                                        className="inline-flex items-center gap-1.5 bg-black/40 hover:bg-gold text-gray-300 hover:text-black hover:font-bold px-4 py-2 rounded-lg text-sm transition-all duration-300 cursor-default border border-white/10 hover:border-gold hover:shadow-[0_0_15px_hsl(var(--gold-glow) / 0.4)]"
+                                                        className="inline-flex items-center gap-1.5 bg-black/40 hover:bg-gold text-n-300 hover:text-black hover:font-bold px-4 py-2 rounded-lg text-sm transition-all duration-300 cursor-default border border-white/10 hover:border-gold hover:shadow-[0_0_15px_hsl(var(--gold-glow) / 0.4)]"
                                                     >
                                                         {district}
                                                     </span>

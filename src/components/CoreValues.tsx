@@ -30,14 +30,14 @@ const values = [
 
 export default function CoreValues() {
     return (
-        <section className="py-20 px-4 bg-gray-900 relative overflow-hidden">
+        <section className="py-20 px-4 bg-n-900 relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
 
             <div className="max-w-6xl mx-auto relative z-10">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Our Core Values</h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto">
+                    <p className="text-n-400 max-w-2xl mx-auto">
                         The principles that guide every journey we undertake.
                     </p>
                 </div>
@@ -49,7 +49,7 @@ export default function CoreValues() {
                                 <val.icon size={24} />
                             </div>
                             <h3 className="text-xl font-bold text-white mb-3">{val.title}</h3>
-                            <p className="text-gray-400 text-sm leading-relaxed">
+                            <p className="text-n-400 text-sm leading-relaxed">
                                 {val.desc}
                             </p>
                         </div>

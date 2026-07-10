@@ -84,12 +84,12 @@ export default function TrackBookingPage() {
             case 'confirmed': return 'text-blue-500 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800';
             case 'pending': return 'text-gold bg-amber-50 dark:bg-amber-900/20 border-gold/40 dark:border-gold/30';
             case 'cancelled': return 'text-red-500 bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800';
-            default: return 'text-slate-500 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700';
+            default: return 'text-n-500 bg-n-50 dark:bg-n-800 border-n-200 dark:border-n-700';
         }
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col">
+        <div className="min-h-screen bg-n-50 dark:bg-n-950 flex flex-col">
             <main className="flex-1 container mx-auto px-4 py-32 flex flex-col items-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -97,21 +97,21 @@ export default function TrackBookingPage() {
                     className="max-w-xl w-full"
                 >
                     <div className="text-center mb-10">
-                        <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">Track Your Booking</h1>
-                        <p className="text-slate-500 dark:text-slate-400 text-lg">Enter your booking reference and email to see real-time updates.</p>
+                        <h1 className="text-4xl font-bold text-n-900 dark:text-white mb-4">Track Your Booking</h1>
+                        <p className="text-n-500 dark:text-n-400 text-lg">Enter your booking reference and email to see real-time updates.</p>
                     </div>
 
-                    <div className="bg-white dark:bg-slate-900 rounded-3xl p-8 shadow-xl border border-slate-100 dark:border-slate-800 relative overflow-hidden">
+                    <div className="bg-white dark:bg-n-900 rounded-3xl p-8 shadow-xl border border-n-100 dark:border-n-800 relative overflow-hidden">
                         {/* Decorative BG */}
                         <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
                         <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
                             <div>
-                                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Booking Reference</label>
+                                <label className="block text-xs font-bold text-n-500 uppercase tracking-wider mb-2 ml-1">Booking Reference</label>
                                 <input
                                     type="text"
                                     placeholder="e.g. 64f8a..."
-                                    className="w-full premium-input rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-secondary transition-all"
+                                    className="w-full premium-input rounded-xl px-4 py-4 text-n-900 dark:text-white outline-none border border-n-200 dark:border-n-700 focus:border-secondary transition-all"
                                     value={formData.reference}
                                     onChange={e => setFormData({ ...formData, reference: e.target.value })}
                                     required
@@ -119,11 +119,11 @@ export default function TrackBookingPage() {
                             </div>
 
                             <div>
-                                <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1">Email Address</label>
+                                <label className="block text-xs font-bold text-n-500 uppercase tracking-wider mb-2 ml-1">Email Address</label>
                                 <input
                                     type="email"
                                     placeholder="name@example.com"
-                                    className="w-full premium-input rounded-xl px-4 py-4 text-slate-900 dark:text-white outline-none border border-slate-200 dark:border-slate-700 focus:border-secondary transition-all"
+                                    className="w-full premium-input rounded-xl px-4 py-4 text-n-900 dark:text-white outline-none border border-n-200 dark:border-n-700 focus:border-secondary transition-all"
                                     value={formData.email}
                                     onChange={e => setFormData({ ...formData, email: e.target.value })}
                                     required
@@ -163,13 +163,13 @@ export default function TrackBookingPage() {
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                                className="mt-8 bg-white dark:bg-slate-900 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800 overflow-hidden"
+                                className="mt-8 bg-white dark:bg-n-900 rounded-3xl shadow-xl border border-n-100 dark:border-n-800 overflow-hidden"
                             >
                                 {/* Results Header */}
-                                <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                                <div className="p-6 border-b border-n-100 dark:border-n-800 flex justify-between items-center">
                                     <div>
-                                        <h3 className="font-bold text-slate-900 dark:text-white mb-1">Booking Found</h3>
-                                        <p className="text-xs text-slate-500 font-mono">ID: {booking.id}</p>
+                                        <h3 className="font-bold text-n-900 dark:text-white mb-1">Booking Found</h3>
+                                        <p className="text-xs text-n-500 font-mono">ID: {booking.id}</p>
                                     </div>
                                     <div className={`px-4 py-1.5 rounded-full text-sm font-bold border ${getStatusColor(booking.status)} capitalize flex items-center gap-2`}>
                                         {booking.status === 'completed' && <CheckCircle size={14} />}
@@ -185,34 +185,34 @@ export default function TrackBookingPage() {
                                     <div className="flex items-start gap-4">
                                         <div className="flex flex-col items-center pt-2">
                                             <div className="w-3 h-3 rounded-full bg-secondary" />
-                                            <div className="w-0.5 h-12 bg-slate-200 dark:bg-slate-800 my-1" />
-                                            <div className="w-3 h-3 rounded-full bg-slate-900 dark:bg-white" />
+                                            <div className="w-0.5 h-12 bg-n-200 dark:bg-n-800 my-1" />
+                                            <div className="w-3 h-3 rounded-full bg-n-900 dark:bg-white" />
                                         </div>
                                         <div className="flex-1 space-y-4">
                                             <div>
-                                                <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Pickup</p>
-                                                <p className="font-bold text-slate-900 dark:text-white">{booking.pickup}</p>
-                                                <div className="flex items-center gap-4 mt-1 text-sm text-slate-500">
+                                                <p className="text-xs font-bold text-n-400 uppercase tracking-wider mb-1">Pickup</p>
+                                                <p className="font-bold text-n-900 dark:text-white">{booking.pickup}</p>
+                                                <div className="flex items-center gap-4 mt-1 text-sm text-n-500">
                                                     <span className="flex items-center gap-1"><Calendar size={14} /> {new Date(booking.date).toLocaleDateString()}</span>
                                                     <span className="flex items-center gap-1"><Clock size={14} /> {booking.time}</span>
                                                 </div>
                                             </div>
                                             <div>
-                                                <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Destination</p>
-                                                <p className="font-bold text-slate-900 dark:text-white">{booking.dropoff}</p>
+                                                <p className="text-xs font-bold text-n-400 uppercase tracking-wider mb-1">Destination</p>
+                                                <p className="font-bold text-n-900 dark:text-white">{booking.dropoff}</p>
                                             </div>
                                         </div>
                                     </div>
 
                                     {/* Vehicle Info */}
-                                    <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center shadow-sm text-slate-400">
+                                    <div className="bg-n-50 dark:bg-n-800/50 rounded-xl p-4 flex items-center gap-4">
+                                        <div className="w-12 h-12 bg-white dark:bg-n-800 rounded-full flex items-center justify-center shadow-sm text-n-400">
                                             <Car size={24} />
                                         </div>
                                         <div>
-                                            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-0.5">Vehicle Type</p>
-                                            <p className="font-bold text-slate-900 dark:text-white">{booking.vehicle}</p>
-                                            <p className="text-xs text-slate-500">{booking.passengers} Passengers · {booking.luggage || 0} Luggage</p>
+                                            <p className="text-xs font-bold text-n-400 uppercase tracking-wider mb-0.5">Vehicle Type</p>
+                                            <p className="font-bold text-n-900 dark:text-white">{booking.vehicle}</p>
+                                            <p className="text-xs text-n-500">{booking.passengers} Passengers · {booking.luggage || 0} Luggage</p>
                                         </div>
                                     </div>
                                 </div>

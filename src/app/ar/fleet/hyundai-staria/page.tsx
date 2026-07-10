@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -147,7 +147,7 @@ export default async function HyundaiStariaPage() {
             />
 
             {/* Vehicle Highlights */}
-            <section className="py-16 bg-white dark:bg-slate-900">
+            <section className="py-16 bg-white dark:bg-n-900">
                 <div className="container mx-auto px-4">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
@@ -162,43 +162,43 @@ export default async function HyundaiStariaPage() {
                             </div>
                         </div>
                         <div>
-                            <h2 className="text-3xl font-bold mb-6 font-playfair text-slate-800 dark:text-slate-100">
+                            <h2 className="text-3xl font-bold mb-6 font-playfair text-n-800 dark:text-n-100">
                                 Experience Luxury: Hyundai Staria in Makkah
                             </h2>
-                            <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                            <p className="text-n-600 dark:text-n-300 mb-8 leading-relaxed">
                                 Enjoy panoramic views of the Holy Lands with the Hyundai Staria. Its lounge-style seating makes the journey between Jeddah, Makkah, and Madinah
                                 incredibly relaxing for pilgrims seeking a premium travel experience.
                             </p>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Users className="text-blue-500" size={20} /> 7 Passengers
                                     </div>
-                                    <p className="text-sm text-slate-500">Ample legroom for all rows</p>
+                                    <p className="text-sm text-n-500">Ample legroom for all rows</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Briefcase className="text-blue-500" size={20} /> 6 Suitcases
                                     </div>
-                                    <p className="text-sm text-slate-500">Expansive vertical cargo space</p>
+                                    <p className="text-sm text-n-500">Expansive vertical cargo space</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Wifi className="text-blue-500" size={20} /> USB Chargers
                                     </div>
-                                    <p className="text-sm text-slate-500">Available at every seat</p>
+                                    <p className="text-sm text-n-500">Available at every seat</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Shield className="text-blue-500" size={20} /> Smart Safety
                                     </div>
-                                    <p className="text-sm text-slate-500">Advanced 360 collision detection</p>
+                                    <p className="text-sm text-n-500">Advanced 360 collision detection</p>
                                 </div>
                             </div>
 
                             <div className="mt-10">
-                                <Link href="/ar/booking" className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all border border-blue-500/20 shadow-lg shadow-blue-500/10">
+                                <Link href="/ar/booking" className="inline-flex items-center gap-2 bg-n-900 text-white hover:bg-n-800 dark:bg-white dark:text-n-900 px-8 py-3 rounded-full font-bold transition-all border border-blue-500/20 shadow-lg shadow-blue-500/10">
                                     Book Hyundai Staria <ArrowRight size={20} />
                                 </Link>
                             </div>
@@ -208,36 +208,36 @@ export default async function HyundaiStariaPage() {
             </section>
 
             {/* Detailed Specifications */}
-            <section className="py-12 bg-slate-50 dark:bg-slate-950">
+            <section className="py-12 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-slate-900 dark:text-white">Technical Specifications</h2>
+                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-n-900 dark:text-white">Technical Specifications</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Engine & Power</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">3.5L V6 MPi</p>
-                            <p className="text-sm text-slate-400">272 Horsepower</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Engine & Power</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">3.5L V6 MPi</p>
+                            <p className="text-sm text-n-400">272 Horsepower</p>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Comfort Control</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">Diffused Air Vents</p>
-                            <p className="text-sm text-slate-400">Roof-mounted AC</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Comfort Control</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">Diffused Air Vents</p>
+                            <p className="text-sm text-n-400">Roof-mounted AC</p>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Luggage Capacity</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">Flexible Space</p>
-                            <p className="text-sm text-slate-400">Foldable Rear Seats</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Luggage Capacity</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">Flexible Space</p>
+                            <p className="text-sm text-n-400">Foldable Rear Seats</p>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Safety Tech</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">Smart Sense</p>
-                            <p className="text-sm text-slate-400">ADAS Suite Included</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Safety Tech</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">Smart Sense</p>
+                            <p className="text-sm text-n-400">ADAS Suite Included</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* 360 Interior Preview (Placeholder) */}
-            <section className="py-16 bg-slate-900 text-white overflow-hidden relative">
+            <section className="py-16 bg-n-900 text-white overflow-hidden relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <span className="text-blue-500 font-bold tracking-widest uppercase text-sm mb-4 block">Future of Travel</span>
@@ -248,19 +248,19 @@ export default async function HyundaiStariaPage() {
                             imageUrl="/images/fleet/camry-interior-360.webp"
                             title="Hyundai Staria Premium Interior"
                         /> */}
-                        <div className="w-full h-[400px] flex items-center justify-center bg-slate-800 rounded-2xl border border-slate-700">
+                        <div className="w-full h-[400px] flex items-center justify-center bg-n-800 rounded-2xl border border-n-700">
                             <div className="text-center">
                                 <h3 className="text-2xl font-bold text-white mb-2">360° View Coming Soon</h3>
-                                <p className="text-slate-400">We will upload the interior view later.</p>
+                                <p className="text-n-400">We will upload the interior view later.</p>
                             </div>
                         </div>
                     </div>
-                    <p className="text-slate-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
+                    <p className="text-n-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
                 </div>
             </section>
 
             {/* Use Cases */}
-            <section className="py-16 bg-slate-50 dark:bg-slate-950">
+            <section className="py-16 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl font-bold text-center mb-12 font-playfair">Why Families Love The Staria</h2>
                     <div className="grid md:grid-cols-3 gap-8">
@@ -281,10 +281,10 @@ export default async function HyundaiStariaPage() {
                                 icon: Shield
                             }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-md border-t-4 border-blue-500 transition-transform hover:-translate-y-1">
+                            <div key={idx} className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-md border-t-4 border-blue-500 transition-transform hover:-translate-y-1">
                                 <item.icon className="w-10 h-10 text-blue-500 mb-4" />
-                                <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">{item.title}</h3>
-                                <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
+                                <h3 className="text-xl font-bold mb-2 text-n-800 dark:text-white">{item.title}</h3>
+                                <p className="text-n-600 dark:text-n-400">{item.desc}</p>
                             </div>
                         ))}
                     </div>

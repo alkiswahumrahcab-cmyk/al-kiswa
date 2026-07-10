@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -146,7 +146,7 @@ export default async function ToyotaCamryPage() {
             />
 
             {/* Vehicle Highlights */}
-            <section className="py-16 bg-white dark:bg-slate-900">
+            <section className="py-16 bg-white dark:bg-n-900">
                 <div className="container mx-auto px-4">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
@@ -161,43 +161,43 @@ export default async function ToyotaCamryPage() {
                             </div>
                         </div>
                         <div>
-                            <h2 className="text-3xl font-bold mb-6 font-playfair text-slate-800 dark:text-slate-100">
+                            <h2 className="text-3xl font-bold mb-6 font-playfair text-n-800 dark:text-n-100">
                                 Reliable Toyota Camry for Umrah Travel
                             </h2>
-                            <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                            <p className="text-n-600 dark:text-n-300 mb-8 leading-relaxed">
                                 Our Toyota Camry fleet offers the smoothest ride for your Umrah journey. Ideal for small families or couples traveling from Jeddah Airport
                                 to Makkah, ensuring a peaceful and efficient trip to the Holy Cities.
                             </p>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Users className="text-amber-500" size={20} /> 4 Passengers
                                     </div>
-                                    <p className="text-sm text-slate-500">Perfect for couples & small families</p>
+                                    <p className="text-sm text-n-500">Perfect for couples & small families</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Briefcase className="text-amber-500" size={20} /> 2-3 Suitcases
                                     </div>
-                                    <p className="text-sm text-slate-500">Ample trunk space for pilgrims</p>
+                                    <p className="text-sm text-n-500">Ample trunk space for pilgrims</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Wifi className="text-amber-500" size={20} /> Modern Tech
                                     </div>
-                                    <p className="text-sm text-slate-500">Bluetooth & Charging ports</p>
+                                    <p className="text-sm text-n-500">Bluetooth & Charging ports</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
                                         <Fuel className="text-amber-500" size={20} /> Fuel Efficient
                                     </div>
-                                    <p className="text-sm text-slate-500">Eco-friendly & powerful</p>
+                                    <p className="text-sm text-n-500">Eco-friendly & powerful</p>
                                 </div>
                             </div>
 
                             <div className="mt-10">
-                                <Link href="/ar/booking" className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-amber-500/20">
+                                <Link href="/ar/booking" className="inline-flex items-center gap-2 bg-n-900 text-white hover:bg-n-800 dark:bg-white dark:text-n-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-amber-500/20">
                                     Book Toyota Camry <ArrowRight size={20} />
                                 </Link>
                             </div>
@@ -207,36 +207,36 @@ export default async function ToyotaCamryPage() {
             </section>
 
             {/* Detailed Specifications */}
-            <section className="py-12 bg-slate-50 dark:bg-slate-950">
+            <section className="py-12 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-slate-900 dark:text-white">Technical Specifications</h2>
+                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-n-900 dark:text-white">Technical Specifications</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Engine & Power</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">2.5L Hybrid</p>
-                            <p className="text-sm text-slate-400">208 Net Horsepower</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Engine & Power</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">2.5L Hybrid</p>
+                            <p className="text-sm text-n-400">208 Net Horsepower</p>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Comfort Control</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">Dual-Zone Auto</p>
-                            <p className="text-sm text-slate-400">Rear Seat Vents</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Comfort Control</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">Dual-Zone Auto</p>
+                            <p className="text-sm text-n-400">Rear Seat Vents</p>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Luggage Capacity</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">15.1 Cubic Ft</p>
-                            <p className="text-sm text-slate-400">2-3 Large Suitcases</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Luggage Capacity</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">15.1 Cubic Ft</p>
+                            <p className="text-sm text-n-400">2-3 Large Suitcases</p>
                         </div>
-                        <div className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-800">
-                            <h3 className="font-bold text-slate-500 uppercase text-xs tracking-wider mb-2">Cabin Peace</h3>
-                            <p className="font-bold text-xl text-slate-900 dark:text-white">Quiet Tuning</p>
-                            <p className="text-sm text-slate-400">Sound-dampening Glass</p>
+                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Cabin Peace</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">Quiet Tuning</p>
+                            <p className="text-sm text-n-400">Sound-dampening Glass</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* 360 Interior Preview (Placeholder) */}
-            <section className="py-16 bg-slate-900 text-white overflow-hidden relative">
+            <section className="py-16 bg-n-900 text-white overflow-hidden relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <span className="text-amber-500 font-bold tracking-widest uppercase text-sm mb-4 block">Premium Economy</span>
@@ -248,12 +248,12 @@ export default async function ToyotaCamryPage() {
                             title="Toyota Camry 2024 Interior"
                         />
                     </div>
-                    <p className="text-slate-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
+                    <p className="text-n-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
                 </div>
             </section>
 
             {/* Use Cases */}
-            <section className="py-16 bg-slate-50 dark:bg-slate-950">
+            <section className="py-16 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl font-bold text-center mb-12 font-playfair">Perfect For Every Journey</h2>
                     <div className="grid md:grid-cols-3 gap-8">
@@ -274,10 +274,10 @@ export default async function ToyotaCamryPage() {
                                 icon: Star
                             }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-md border-t-4 border-amber-500 transition-all hover:-translate-y-1">
+                            <div key={idx} className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-md border-t-4 border-amber-500 transition-all hover:-translate-y-1">
                                 <item.icon className="w-10 h-10 text-amber-500 mb-4" />
-                                <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">{item.title}</h3>
-                                <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
+                                <h3 className="text-xl font-bold mb-2 text-n-800 dark:text-white">{item.title}</h3>
+                                <p className="text-n-600 dark:text-n-400">{item.desc}</p>
                             </div>
                         ))}
                     </div>

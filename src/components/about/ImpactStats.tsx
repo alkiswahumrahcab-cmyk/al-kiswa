@@ -136,30 +136,30 @@ export default function ImpactStats({ lang = 'en' }: Props) {
 
               {lang === 'ar' ? (
                 <>
-                  <p className="text-gray-300 text-sm font-medium uppercase tracking-[0.1em] mb-1" style={{ fontFamily: 'var(--font-tajawal)' }}>
+                  <p className="text-n-300 text-sm font-medium uppercase tracking-[0.1em] mb-1" style={{ fontFamily: 'var(--font-tajawal)' }}>
                     {stat.labelAr}
                   </p>
-                  <p className="text-gray-500 text-xs mb-3 font-sans uppercase tracking-widest">
+                  <p className="text-n-500 text-xs mb-3 font-sans uppercase tracking-widest">
                     {stat.label}
                   </p>
-                  <p className="text-gray-400 text-xs mb-4 opacity-0 h-0 overflow-hidden group-hover:h-auto group-hover:opacity-100 transition-all duration-300" style={{ fontFamily: 'var(--font-tajawal)' }}>
+                  <p className="text-n-400 text-xs mb-4 opacity-0 h-0 overflow-hidden group-hover:h-auto group-hover:opacity-100 transition-all duration-300" style={{ fontFamily: 'var(--font-tajawal)' }}>
                     {stat.descriptionAr || stat.description}
                   </p>
                 </>
               ) : (
                 <>
-                  <p className="text-gray-300 text-sm font-medium uppercase tracking-[0.1em] mb-1">
+                  <p className="text-n-300 text-sm font-medium uppercase tracking-[0.1em] mb-1">
                     {stat.label}
                   </p>
                   <p
-                    className="text-gray-500 text-xs mb-3"
+                    className="text-n-500 text-xs mb-3"
                     dir="rtl"
                     lang="ar"
                     style={{ fontFamily: 'var(--font-tajawal)' }}
                   >
                     {stat.labelAr}
                   </p>
-                  <p className="text-gray-400 text-xs mb-4 opacity-0 h-0 overflow-hidden group-hover:h-auto group-hover:opacity-100 transition-all duration-300">
+                  <p className="text-n-400 text-xs mb-4 opacity-0 h-0 overflow-hidden group-hover:h-auto group-hover:opacity-100 transition-all duration-300">
                     {stat.description}
                   </p>
                 </>
@@ -178,7 +178,7 @@ export default function ImpactStats({ lang = 'en' }: Props) {
 
         <SocialProofTicker lang={lang} />
 
-        <p className="text-center text-gray-500 text-sm mt-8 italic" style={{ fontFamily: 'var(--font-tajawal)' }}>
+        <p className="text-center text-n-500 text-sm mt-8 italic" style={{ fontFamily: 'var(--font-tajawal)' }}>
           {lang === 'ar' ? 'أرقام موثقة منذ 2014 · Figures reflect verified bookings and reviews since 2014' : 'Figures reflect verified bookings and reviews since 2014 · أرقام موثقة منذ 2014'}
         </p>
       </div>

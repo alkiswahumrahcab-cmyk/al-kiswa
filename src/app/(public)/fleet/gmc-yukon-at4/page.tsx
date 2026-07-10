@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -144,7 +144,7 @@ export default async function GmcYukonPage() {
     ];
 
     return (
-        <main className="overflow-x-hidden bg-slate-50 dark:bg-slate-950">
+        <main className="overflow-x-hidden bg-n-50 dark:bg-n-950">
             <TrackEvent event="ViewContent" params={{ content_name: 'GMC Yukon XL' }} />
             <script
                 type="application/ld+json"
@@ -170,12 +170,12 @@ export default async function GmcYukonPage() {
             </Hero>
 
             {/* B & C. Exterior Highlights / Cinematic Gallery */}
-            <section className="py-20 bg-white dark:bg-slate-900">
+            <section className="py-20 bg-white dark:bg-n-900">
                 <div className="container mx-auto px-4">
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <span className="text-amber-500 font-bold tracking-widest uppercase text-sm mb-4 block">Exterior</span>
-                        <h2 className="text-4xl md:text-5xl font-bold font-playfair text-slate-900 dark:text-white mb-6">Commanding Presence</h2>
-                        <p className="text-lg text-slate-600 dark:text-slate-300">The GMC Yukon XL makes a statement on the roads of Makkah and Madinah with its rugged yet luxurious exterior design.</p>
+                        <h2 className="text-4xl md:text-5xl font-bold font-playfair text-n-900 dark:text-white mb-6">Commanding Presence</h2>
+                        <p className="text-lg text-n-600 dark:text-n-300">The GMC Yukon XL makes a statement on the roads of Makkah and Madinah with its rugged yet luxurious exterior design.</p>
                     </div>
 
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
@@ -192,13 +192,13 @@ export default async function GmcYukonPage() {
             </section>
 
             {/* D. Interior Luxury Section */}
-            <section className="py-20 bg-slate-900 text-white relative">
+            <section className="py-20 bg-n-900 text-white relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5"></div>
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <span className="text-amber-500 font-bold tracking-widest uppercase text-sm mb-4 block">Interior</span>
                         <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6">Unmatched Cabin Comfort</h2>
-                        <p className="text-slate-300 text-lg">Experience first-class travel with premium leather seating, advanced climate control, and massive legroom for every passenger.</p>
+                        <p className="text-n-300 text-lg">Experience first-class travel with premium leather seating, advanced climate control, and massive legroom for every passenger.</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
@@ -212,7 +212,7 @@ export default async function GmcYukonPage() {
                         ))}
                     </div>
 
-                    <div className="max-w-5xl mx-auto mt-12 bg-slate-800 rounded-2xl p-2 md:p-4 shadow-2xl border border-slate-700">
+                    <div className="max-w-5xl mx-auto mt-12 bg-n-800 rounded-2xl p-2 md:p-4 shadow-2xl border border-n-700">
                         <Interior360Viewer
                             imageUrl="/images/fleet/gmc-yukon-interior-360.webp"
                             title="Interactive 360° Cabin View"
@@ -222,43 +222,43 @@ export default async function GmcYukonPage() {
             </section>
 
             {/* E. Features & Specifications */}
-            <section className="py-20 bg-white dark:bg-slate-950">
+            <section className="py-20 bg-white dark:bg-n-950">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold font-playfair text-slate-900 dark:text-white mb-4">Premium Specifications</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold font-playfair text-n-900 dark:text-white mb-4">Premium Specifications</h2>
                         <div className="w-24 h-1 bg-amber-500 mx-auto rounded-full"></div>
                     </div>
                     
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                        <div className="p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow">
+                        <div className="p-6 rounded-2xl border border-n-100 dark:border-n-800 bg-n-50 dark:bg-n-900 shadow-sm hover:shadow-md transition-shadow">
                             <Shield className="w-10 h-10 text-amber-500 mb-4" />
                             <h3 className="font-bold text-xl mb-2 dark:text-white">Safety Features</h3>
-                            <p className="text-slate-600 dark:text-slate-400">Advanced airbags, lane departure warning, and StabiliTrak electronic stability control system.</p>
+                            <p className="text-n-600 dark:text-n-400">Advanced airbags, lane departure warning, and StabiliTrak electronic stability control system.</p>
                         </div>
-                        <div className="p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow">
+                        <div className="p-6 rounded-2xl border border-n-100 dark:border-n-800 bg-n-50 dark:bg-n-900 shadow-sm hover:shadow-md transition-shadow">
                             <Users className="w-10 h-10 text-amber-500 mb-4" />
                             <h3 className="font-bold text-xl mb-2 dark:text-white">Comfort & Seating</h3>
-                            <p className="text-slate-600 dark:text-slate-400">Plush leather bucket seats, 7-passenger capacity, with Tri-Zone automatic climate control.</p>
+                            <p className="text-n-600 dark:text-n-400">Plush leather bucket seats, 7-passenger capacity, with Tri-Zone automatic climate control.</p>
                         </div>
-                        <div className="p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow">
+                        <div className="p-6 rounded-2xl border border-n-100 dark:border-n-800 bg-n-50 dark:bg-n-900 shadow-sm hover:shadow-md transition-shadow">
                             <Briefcase className="w-10 h-10 text-amber-500 mb-4" />
                             <h3 className="font-bold text-xl mb-2 dark:text-white">Luggage Capacity</h3>
-                            <p className="text-slate-600 dark:text-slate-400">Massive trunk space accommodating 5+ large suitcases easily, perfect for international pilgrims.</p>
+                            <p className="text-n-600 dark:text-n-400">Massive trunk space accommodating 5+ large suitcases easily, perfect for international pilgrims.</p>
                         </div>
-                        <div className="p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow">
+                        <div className="p-6 rounded-2xl border border-n-100 dark:border-n-800 bg-n-50 dark:bg-n-900 shadow-sm hover:shadow-md transition-shadow">
                             <Wifi className="w-10 h-10 text-amber-500 mb-4" />
                             <h3 className="font-bold text-xl mb-2 dark:text-white">Tech & Connectivity</h3>
-                            <p className="text-slate-600 dark:text-slate-400">10.2" diagonal premium infotainment system with wireless Apple CarPlay and Android Auto.</p>
+                            <p className="text-n-600 dark:text-n-400">10.2" diagonal premium infotainment system with wireless Apple CarPlay and Android Auto.</p>
                         </div>
-                        <div className="p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow">
+                        <div className="p-6 rounded-2xl border border-n-100 dark:border-n-800 bg-n-50 dark:bg-n-900 shadow-sm hover:shadow-md transition-shadow">
                             <MapPin className="w-10 h-10 text-amber-500 mb-4" />
                             <h3 className="font-bold text-xl mb-2 dark:text-white">Engine Power</h3>
-                            <p className="text-slate-600 dark:text-slate-400">Powerful 5.3L V8 Engine delivering 355 horsepower, ensuring smooth highway cruising.</p>
+                            <p className="text-n-600 dark:text-n-400">Powerful 5.3L V8 Engine delivering 355 horsepower, ensuring smooth highway cruising.</p>
                         </div>
-                        <div className="p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 shadow-sm hover:shadow-md transition-shadow">
+                        <div className="p-6 rounded-2xl border border-n-100 dark:border-n-800 bg-n-50 dark:bg-n-900 shadow-sm hover:shadow-md transition-shadow">
                             <Star className="w-10 h-10 text-amber-500 mb-4" />
                             <h3 className="font-bold text-xl mb-2 dark:text-white">Suspension & Ride</h3>
-                            <p className="text-slate-600 dark:text-slate-400">Premium Smooth Ride suspension isolates the cabin from rough roads for maximum comfort.</p>
+                            <p className="text-n-600 dark:text-n-400">Premium Smooth Ride suspension isolates the cabin from rough roads for maximum comfort.</p>
                         </div>
                     </div>
                 </div>
@@ -268,9 +268,9 @@ export default async function GmcYukonPage() {
             <section className="py-24 bg-amber-50 dark:bg-amber-900/10">
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8 text-slate-900 dark:text-white text-center">GMC Yukon – Luxury SUV for Umrah, Ziyarat & Long‑Distance Travel in Saudi Arabia</h2>
+                        <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8 text-n-900 dark:text-white text-center">GMC Yukon – Luxury SUV for Umrah, Ziyarat & Long‑Distance Travel in Saudi Arabia</h2>
                         
-                        <div className="prose prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 space-y-6">
+                        <div className="prose prose-lg dark:prose-invert max-w-none text-n-700 dark:text-n-300 space-y-6">
                             <p>
                                 The <strong>GMC Yukon</strong> stands as one of the most trusted luxury SUVs for <strong>Umrah pilgrims, families, and international travelers</strong> seeking comfort, safety, and premium travel across Saudi Arabia. At <strong>Al Kiswah Umrah Cab</strong>, we proudly offer the Yukon as part of our elite fleet, ensuring a smooth, spacious, and reliable journey whether you are traveling for Umrah, Ziyarat, or airport transfers.
                             </p>
@@ -299,7 +299,7 @@ export default async function GmcYukonPage() {
                             />
                         </div>
                         <div>
-                            <h3 className="text-3xl font-bold font-playfair mb-8 text-slate-900 dark:text-white">Why Choose the GMC Yukon for Umrah Travel?</h3>
+                            <h3 className="text-3xl font-bold font-playfair mb-8 text-n-900 dark:text-white">Why Choose the GMC Yukon for Umrah Travel?</h3>
                             <ul className="space-y-5">
                                 {[
                                     "Ideal for families and groups",
@@ -308,9 +308,9 @@ export default async function GmcYukonPage() {
                                     "Perfect for elderly pilgrims",
                                     "Premium comfort for sacred journeys"
                                 ].map((item, idx) => (
-                                    <li key={idx} className="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 shadow-sm border border-amber-100 dark:border-slate-800 transition-transform hover:-translate-y-1">
+                                    <li key={idx} className="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-n-900 shadow-sm border border-amber-100 dark:border-n-800 transition-transform hover:-translate-y-1">
                                         <CheckCircle className="w-6 h-6 text-amber-500 shrink-0" />
-                                        <span className="text-lg font-medium text-slate-800 dark:text-slate-200">{item}</span>
+                                        <span className="text-lg font-medium text-n-800 dark:text-n-200">{item}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -329,11 +329,11 @@ export default async function GmcYukonPage() {
             />
 
             {/* H. Route Packages */}
-            <section className="py-20 bg-slate-50 dark:bg-slate-950">
+            <section className="py-20 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-14">
                         <span className="text-amber-500 font-bold tracking-widest uppercase text-sm">Routes & Packages</span>
-                        <h2 className="text-3xl md:text-4xl font-bold font-playfair text-slate-900 dark:text-white mt-3 mb-3">Popular GMC Yukon Routes</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold font-playfair text-n-900 dark:text-white mt-3 mb-3">Popular GMC Yukon Routes</h2>
                         <div className="w-24 h-1 bg-amber-500 mx-auto rounded-full" />
                     </div>
                     <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -360,11 +360,11 @@ export default async function GmcYukonPage() {
                                 icon: '📍',
                             },
                         ].map((r, i) => (
-                            <div key={i} className="bg-white dark:bg-slate-900 rounded-2xl shadow-md border-t-4 border-amber-500 p-6 hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                            <div key={i} className="bg-white dark:bg-n-900 rounded-2xl shadow-md border-t-4 border-amber-500 p-6 hover:-translate-y-2 transition-transform duration-300 flex flex-col">
                                 <div className="text-4xl mb-4">{r.icon}</div>
                                 <span className="inline-block bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 w-fit">{r.badge}</span>
-                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">{r.route}</h3>
-                                <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed flex-1">{r.desc}</p>
+                                <h3 className="text-xl font-bold text-n-900 dark:text-white mb-3">{r.route}</h3>
+                                <p className="text-n-600 dark:text-n-400 text-sm leading-relaxed flex-1">{r.desc}</p>
                                 <Link href={r.href} className="mt-5 inline-flex items-center gap-2 text-amber-600 hover:text-amber-500 font-bold text-sm transition-colors">
                                     View Route Details <ArrowRight size={16} />
                                 </Link>
@@ -375,15 +375,15 @@ export default async function GmcYukonPage() {
             </section>
 
             {/* I. Booking Form */}
-            <section className="py-20 bg-white dark:bg-slate-900">
+            <section className="py-20 bg-white dark:bg-n-900">
                 <div className="container mx-auto px-4">
                     <div className="max-w-3xl mx-auto">
                         <div className="text-center mb-10">
                             <span className="text-amber-500 font-bold tracking-widest uppercase text-sm">Quick Booking</span>
-                            <h2 className="text-3xl md:text-4xl font-bold font-playfair text-slate-900 dark:text-white mt-3 mb-2">Reserve Your GMC Yukon</h2>
-                            <p className="text-slate-500 dark:text-slate-400">Fill in your details and our team will confirm your booking within minutes.</p>
+                            <h2 className="text-3xl md:text-4xl font-bold font-playfair text-n-900 dark:text-white mt-3 mb-2">Reserve Your GMC Yukon</h2>
+                            <p className="text-n-500 dark:text-n-400">Fill in your details and our team will confirm your booking within minutes.</p>
                         </div>
-                        <div className="bg-slate-50 dark:bg-slate-800 rounded-3xl p-8 shadow-xl border border-slate-100 dark:border-slate-700">
+                        <div className="bg-n-50 dark:bg-n-800 rounded-3xl p-8 shadow-xl border border-n-100 dark:border-n-700">
                             <div className="grid md:grid-cols-2 gap-5">
                                 {[
                                     { label: 'Full Name', placeholder: 'Your full name', type: 'text', id: 'gmc-name' },
@@ -394,22 +394,22 @@ export default async function GmcYukonPage() {
                                     { label: 'No. of Passengers', placeholder: 'e.g. 5', type: 'number', id: 'gmc-passengers' },
                                 ].map((field) => (
                                     <div key={field.id}>
-                                        <label htmlFor={field.id} className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">{field.label}</label>
+                                        <label htmlFor={field.id} className="block text-sm font-semibold text-n-700 dark:text-n-300 mb-2">{field.label}</label>
                                         <input
                                             id={field.id}
                                             type={field.type}
                                             placeholder={field.placeholder}
-                                            className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
+                                            className="w-full px-4 py-3 rounded-xl border border-n-200 dark:border-n-700 bg-white dark:bg-n-900 text-n-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
                                         />
                                     </div>
                                 ))}
                                 <div className="md:col-span-2">
-                                    <label htmlFor="gmc-vehicle" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Vehicle</label>
+                                    <label htmlFor="gmc-vehicle" className="block text-sm font-semibold text-n-700 dark:text-n-300 mb-2">Vehicle</label>
                                     <input id="gmc-vehicle" type="text" value="GMC Yukon XL (Pre-selected)" readOnly className="w-full px-4 py-3 rounded-xl border border-amber-300 bg-amber-50 dark:bg-amber-900/20 dark:border-amber-800 text-amber-800 dark:text-amber-300 font-semibold focus:outline-none cursor-not-allowed" />
                                 </div>
                             </div>
                             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                                <Link href="/booking?vehicle=gmc" className="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-900 px-8 py-4 rounded-full font-bold text-lg text-center transition-all hover:scale-105 shadow-lg shadow-amber-500/30 flex items-center justify-center gap-2">
+                                <Link href="/booking?vehicle=gmc" className="flex-1 bg-amber-500 hover:bg-amber-400 text-n-900 px-8 py-4 rounded-full font-bold text-lg text-center transition-all hover:scale-105 shadow-lg shadow-amber-500/30 flex items-center justify-center gap-2">
                                     Go to Full Booking Form <ArrowRight size={20} />
                                 </Link>
                                 <a href={whatsappLink} className="flex-1 bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg text-center transition-all hover:scale-105 flex items-center justify-center gap-2">
@@ -430,14 +430,14 @@ export default async function GmcYukonPage() {
                         fill 
                         className="object-cover object-center"
                     />
-                    <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm"></div>
+                    <div className="absolute inset-0 bg-n-900/80 backdrop-blur-sm"></div>
                 </div>
                 
                 <div className="relative z-10 text-center max-w-2xl mx-auto px-4">
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair text-white mb-6">Ready to Book Your VIP Ride?</h2>
-                    <p className="text-lg text-slate-300 mb-10">Reserve your GMC Yukon XL instantly with our online booking system or chat with our support team via WhatsApp.</p>
+                    <p className="text-lg text-n-300 mb-10">Reserve your GMC Yukon XL instantly with our online booking system or chat with our support team via WhatsApp.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking?vehicle=gmc" className="bg-amber-500 hover:bg-amber-600 text-slate-900 px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-lg shadow-amber-500/30 flex items-center justify-center gap-2">
+                        <Link href="/booking?vehicle=gmc" className="bg-amber-500 hover:bg-amber-600 text-n-900 px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-lg shadow-amber-500/30 flex items-center justify-center gap-2">
                             Go to Booking Form <ArrowRight size={20} />
                         </Link>
                         <a href={whatsappLink} className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
@@ -449,7 +449,7 @@ export default async function GmcYukonPage() {
 
             <FAQSection items={gmcFAQs} title="GMC Yukon Transport - FAQs" />
             
-            <div className="py-10 bg-white dark:bg-slate-950">
+            <div className="py-10 bg-white dark:bg-n-950">
                 <FleetCarouselWrapper />
             </div>
         </main>

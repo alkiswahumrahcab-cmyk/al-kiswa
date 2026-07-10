@@ -66,7 +66,7 @@ export default function CustomerGallery() {
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-sans">
                             Our Happy <span className="text-gold italic font-serif">Pilgrims</span>
                         </h2>
-                        <p className="text-gray-400 text-lg font-light max-w-2xl mx-auto">
+                        <p className="text-n-400 text-lg font-light max-w-2xl mx-auto">
                             Moments of spirituality and joy, captured forever.
                         </p>
                     </div>

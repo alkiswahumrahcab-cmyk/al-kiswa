@@ -20,7 +20,7 @@ export default function MissionVision() {
                             <Target size={40} strokeWidth={1.5} className="text-gold drop-shadow-[0_0_10px_hsl(var(--gold-glow) / 0.4)]" />
                         </div>
                         <h2 className="text-4xl font-bold text-white mb-6 font-sans tracking-tight">Our Mission</h2>
-                        <p className="text-lg text-gray-300 leading-relaxed font-light group-hover:text-white transition-colors">
+                        <p className="text-lg text-n-300 leading-relaxed font-light group-hover:text-white transition-colors">
                             To serve the Guests of Allah with <span className="text-gold font-medium">sincerity, safety, and excellence</span>. We strive to ensure every mile traveled is a seamless part of your spiritual journey, honoring your trust with the highest standards of hospitality.
                         </p>
                     </div>
@@ -33,7 +33,7 @@ export default function MissionVision() {
                             <Eye size={40} strokeWidth={1.5} className="text-gold drop-shadow-[0_0_10px_rgba(52,211,153,0.4)]" />
                         </div>
                         <h2 className="text-4xl font-bold text-white mb-6 font-sans tracking-tight">Our Vision</h2>
-                        <p className="text-lg text-gray-300 leading-relaxed font-light group-hover:text-white transition-colors">
+                        <p className="text-lg text-n-300 leading-relaxed font-light group-hover:text-white transition-colors">
                             To be the most <span className="text-gold font-medium">trusted companion</span> for Hajj and Umrah pilgrims. We envision a world where every pilgrim can focus entirely on their worship, knowing their journey is in safe, caring hands.
                         </p>
                     </div>

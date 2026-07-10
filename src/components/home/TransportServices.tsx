@@ -130,7 +130,7 @@ export default function TransportServices({ lang = 'en' }: Props) {
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans text-white mb-8 tracking-tight leading-tight">
                             {heading.title}
                         </h2>
-                        <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-2xl mx-auto font-light">
+                        <p className="text-lg md:text-xl text-n-400 leading-relaxed max-w-2xl mx-auto font-light">
                             {heading.sub}
                         </p>
                     </div>
@@ -164,7 +164,7 @@ export default function TransportServices({ lang = 'en' }: Props) {
                                     </div>
                                 </Link>
                                 <div className="p-8 pt-6 flex flex-col flex-1 bg-gradient-to-b from-transparent to-black/20">
-                                    <p className="text-gray-400 leading-relaxed mb-8 flex-1">{service.description}</p>
+                                    <p className="text-n-400 leading-relaxed mb-8 flex-1">{service.description}</p>
                                     <Link href={service.link} className="inline-flex items-center gap-3 text-white font-bold uppercase tracking-wider text-sm group/btn group-hover:text-gold transition-colors mt-auto">
                                         <span className="border-b-2 border-white/20 group-hover:border-gold transition-colors py-1">
                                             {lang === 'ar' ? 'عرض التفاصيل' : 'View Details'}

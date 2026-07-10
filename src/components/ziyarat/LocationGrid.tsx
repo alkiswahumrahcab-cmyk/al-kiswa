@@ -27,24 +27,24 @@ export function LocationGrid({ sites, city }: { sites: ZiyaratSite[]; city: stri
               <p className="text-xs text-gold/80 font-medium mb-1">{site.significance}</p>
               {expanded === site.id ? (
                 <div className="mt-3 space-y-3 animate-in fade-in duration-300">
-                  <p className="text-sm text-gray-300 leading-relaxed font-light">{site.desc}</p>
+                  <p className="text-sm text-n-300 leading-relaxed font-light">{site.desc}</p>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3 pt-2">
-                    <div className="flex items-center gap-2 text-xs text-gray-400">
+                    <div className="flex items-center gap-2 text-xs text-n-400">
                       <Clock size={14} className="text-gold" />
                       <span>{site.bestTime}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-xs text-gray-400">
+                    <div className="flex items-center gap-2 text-xs text-n-400">
                       <Accessibility size={14} className="text-gold" />
                       <span>{site.accessibility}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-xs text-gray-400">
+                    <div className="flex items-center gap-2 text-xs text-n-400">
                       <Users size={14} className="text-gold" />
                       <span>{site.familyFriendly ? 'Family friendly' : 'Adults recommended'}</span>
                     </div>
                   </div>
                 </div>
               ) : (
-                <p className="text-xs text-gray-500 mt-1">Tap to read more →</p>
+                <p className="text-xs text-n-500 mt-1">Tap to read more →</p>
               )}
             </div>
           </div>

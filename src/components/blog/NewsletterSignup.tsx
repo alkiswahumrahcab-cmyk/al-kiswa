@@ -57,7 +57,7 @@ export default function NewsletterSignup() {
                                 <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-sans">
                                     Join Our Community
                                 </h2>
-                                <p className="text-gray-400 text-lg leading-relaxed max-w-xl font-light">
+                                <p className="text-n-400 text-lg leading-relaxed max-w-xl font-light">
                                     Get exclusive travel tips, spiritual guides, and special offers for your Umrah journey delivered directly to your inbox.
                                 </p>
                             </FadeIn>
@@ -83,14 +83,14 @@ export default function NewsletterSignup() {
                                 ) : (
                                     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                                         <div className="relative">
-                                            <Mail className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-500" size={20} />
+                                            <Mail className="absolute left-5 top-1/2 -translate-y-1/2 text-n-500" size={20} />
                                             <input
                                                 type="email"
                                                 required
                                                 placeholder="Enter your email address"
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
-                                                className="w-full bg-black/50 border border-white/10 rounded-2xl py-5 pl-14 pr-6 text-white placeholder:text-gray-600 focus:ring-2 focus:ring-gold/50 focus:border-gold/50 outline-none transition-all shadow-inner"
+                                                className="w-full bg-black/50 border border-white/10 rounded-2xl py-5 pl-14 pr-6 text-white placeholder:text-n-600 focus:ring-2 focus:ring-gold/50 focus:border-gold/50 outline-none transition-all shadow-inner"
                                             />
                                         </div>
                                         <button
@@ -107,7 +107,7 @@ export default function NewsletterSignup() {
                                                 </>
                                             )}
                                         </button>
-                                        <p className="text-xs text-gray-600 text-center mt-2 font-light">
+                                        <p className="text-xs text-n-600 text-center mt-2 font-light">
                                             We respect your privacy. Unsubscribe at any time.
                                         </p>
                                     </form>

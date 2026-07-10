@@ -70,7 +70,7 @@ export default async function ArabicContactPage() {
                             <div key={idx} className="bg-black/60 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/10 text-center hover:-translate-y-1 transition-all duration-300 hover:border-gold/30">
                                 <item.icon className="w-8 h-8 mx-auto mb-2 text-gold" />
                                 <h3 className="font-bold text-white text-sm md:text-base">{item.text}</h3>
-                                <p className="text-xs text-gray-400">{item.sub}</p>
+                                <p className="text-xs text-n-400">{item.sub}</p>
                             </div>
                         ))}
                     </div>
@@ -107,7 +107,7 @@ export default async function ArabicContactPage() {
                                         أرسل لنا رسالة
                                         <span className="block text-xl font-normal text-gold mt-1">Send Us a Message</span>
                                     </h2>
-                                    <p className="text-gray-400 font-light">
+                                    <p className="text-n-400 font-light">
                                         هل تحتاج إلى عرض سعر مخصص لمجموعة العمرة؟ لديك استفسار حول أسطولنا؟ أرسل لنا رسالتك وسيرد عليك فريقنا خلال دقائق.
                                     </p>
                                 </div>

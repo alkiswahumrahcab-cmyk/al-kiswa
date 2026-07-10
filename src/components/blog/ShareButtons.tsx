@@ -86,16 +86,16 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ slug, title }) => {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`group relative w-[48px] h-[48px] rounded-full bg-slate-50 flex items-center justify-center text-slate-500 transition-all duration-300 border border-slate-200 
+                        className={`group relative w-[48px] h-[48px] rounded-full bg-n-50 flex items-center justify-center text-n-500 transition-all duration-300 border border-n-200 
                 hover:-translate-y-1 hover:shadow-lg
-                dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 
+                dark:bg-n-800 dark:border-n-700 dark:text-n-400 
                 ${link.colorClass}`}
                         aria-label={`Share on ${link.name}`}
                     >
                         {link.customIcon || link.icon}
 
                         {/* Tooltip */}
-                        <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-slate-900 text-white text-xs font-semibold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-t-slate-900">
+                        <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-n-900 text-white text-xs font-semibold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-t-slate-900">
                             {link.name}
                         </span>
                     </a>
@@ -108,18 +108,18 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ slug, title }) => {
             hover:-translate-y-1 hover:shadow-lg
             ${copied
                             ? 'bg-green-50 text-green-600 border-green-200 dark:bg-green-900/20 dark:text-green-400 dark:border-green-800'
-                            : 'bg-slate-50 text-slate-500 border-slate-200 hover:bg-slate-900 hover:text-gold hover:border-slate-900 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-gold dark:hover:text-slate-900 dark:hover:border-gold'
+                            : 'bg-n-50 text-n-500 border-n-200 hover:bg-n-900 hover:text-gold hover:border-n-900 dark:bg-n-800 dark:border-n-700 dark:text-n-400 dark:hover:bg-gold dark:hover:text-n-900 dark:hover:border-gold'
                         }`}
                     aria-label="Copy Link"
                 >
                     {copied ? <Check size={20} /> : <LinkIcon size={20} />}
 
-                    <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-slate-900 text-white text-xs font-semibold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-t-slate-900">
+                    <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-n-900 text-white text-xs font-semibold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none after:content-[''] after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-t-slate-900">
                         {copied ? 'Copied!' : 'Copy Link'}
                     </span>
                 </button>
             </div>
-            <p className="text-xs text-slate-400 font-medium uppercase tracking-wider">Spread the word</p>
+            <p className="text-xs text-n-400 font-medium uppercase tracking-wider">Spread the word</p>
         </div>
     );
 };

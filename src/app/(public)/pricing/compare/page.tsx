@@ -213,19 +213,19 @@ export default function ComparePage() {
                         </h1>
                         {/* Platforms we supply */}
                         <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
-                            <span className="text-gray-500 text-xs uppercase tracking-widest">We power:</span>
+                            <span className="text-n-500 text-xs uppercase tracking-widest">We power:</span>
                             {['Kiwi Taxi', 'Telixo', '5Star', 'Booking.com'].map(p => (
-                                <span key={p} className="bg-white/5 border border-white/10 text-gray-400 text-xs font-medium px-3 py-1.5 rounded-full">
+                                <span key={p} className="bg-white/5 border border-white/10 text-n-400 text-xs font-medium px-3 py-1.5 rounded-full">
                                     {p}
                                 </span>
                             ))}
                         </div>
-                        <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-4">
+                        <p className="text-xl text-n-300 max-w-2xl mx-auto mb-4">
                             Al Kiswah supplies the actual vehicles to Kiwi Taxi, Telixo, 5Star and Booking.com
                             for Saudi Arabia routes. Those platforms add{' '}
                             <strong className="text-red-400">20–30% commission</strong> before you see the price.
                         </p>
-                        <p className="text-gray-500 max-w-xl mx-auto mb-10">
+                        <p className="text-n-500 max-w-xl mx-auto mb-10">
                             Book direct with Al Kiswah → same car, same driver, lower price. No platform. No commission.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -253,7 +253,7 @@ export default function ComparePage() {
                             ].map(stat => (
                                 <div key={stat.label} className="bg-white/5 border border-white/8 rounded-2xl p-5 text-center">
                                     <p className={`text-3xl font-black mb-1 ${stat.color}`}>{stat.val}</p>
-                                    <p className="text-gray-400 text-xs">{stat.label}</p>
+                                    <p className="text-n-400 text-xs">{stat.label}</p>
                                 </div>
                             ))}
                         </div>
@@ -268,7 +268,7 @@ export default function ComparePage() {
                         <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-3">
                             Feature-by-Feature Comparison
                         </h2>
-                        <p className="text-gray-400 text-center mb-12 max-w-xl mx-auto">
+                        <p className="text-n-400 text-center mb-12 max-w-xl mx-auto">
                             The full breakdown of what you actually get when booking each platform.
                         </p>
 
@@ -276,37 +276,37 @@ export default function ComparePage() {
                             <table className="w-full text-sm border-collapse min-w-[700px]">
                                 <thead>
                                     <tr>
-                                        <th className="text-left py-4 px-4 text-gray-400 font-medium w-[22%]">Feature</th>
+                                        <th className="text-left py-4 px-4 text-n-400 font-medium w-[22%]">Feature</th>
                                         <th className="py-4 px-3 text-center w-[22%]">
                                             <div className="inline-flex flex-col items-center">
                                                 <span className="bg-gold/15 border border-gold/40 text-gold font-bold px-3 py-2 rounded-xl text-xs">
                                                     Al Kiswah
                                                 </span>
-                                                <span className="text-[10px] text-gray-500 mt-1">Direct Operator</span>
+                                                <span className="text-[10px] text-n-500 mt-1">Direct Operator</span>
                                             </div>
                                         </th>
                                         <th className="py-4 px-3 text-center w-[19%]">
                                             <div className="inline-flex flex-col items-center">
-                                                <span className="bg-white/5 border border-white/10 text-gray-300 font-medium px-3 py-2 rounded-xl text-xs">
+                                                <span className="bg-white/5 border border-white/10 text-n-300 font-medium px-3 py-2 rounded-xl text-xs">
                                                     Kiwi Taxi
                                                 </span>
-                                                <span className="text-[10px] text-gray-500 mt-1">Platform</span>
+                                                <span className="text-[10px] text-n-500 mt-1">Platform</span>
                                             </div>
                                         </th>
                                         <th className="py-4 px-3 text-center w-[19%]">
                                             <div className="inline-flex flex-col items-center">
-                                                <span className="bg-white/5 border border-white/10 text-gray-300 font-medium px-3 py-2 rounded-xl text-xs">
+                                                <span className="bg-white/5 border border-white/10 text-n-300 font-medium px-3 py-2 rounded-xl text-xs">
                                                     Telixo
                                                 </span>
-                                                <span className="text-[10px] text-gray-500 mt-1">Platform</span>
+                                                <span className="text-[10px] text-n-500 mt-1">Platform</span>
                                             </div>
                                         </th>
                                         <th className="py-4 px-3 text-center w-[18%]">
                                             <div className="inline-flex flex-col items-center">
-                                                <span className="bg-white/5 border border-white/10 text-gray-300 font-medium px-3 py-2 rounded-xl text-xs">
+                                                <span className="bg-white/5 border border-white/10 text-n-300 font-medium px-3 py-2 rounded-xl text-xs">
                                                     5Star / Booking
                                                 </span>
-                                                <span className="text-[10px] text-gray-500 mt-1">Platform</span>
+                                                <span className="text-[10px] text-n-500 mt-1">Platform</span>
                                             </div>
                                         </th>
                                     </tr>
@@ -314,7 +314,7 @@ export default function ComparePage() {
                                 <tbody>
                                     {FEATURES.map((row, i) => (
                                         <tr key={i} className={`border-b border-white/5 ${i % 2 === 0 ? 'bg-white/2' : ''}`}>
-                                            <td className="py-4 px-4 text-gray-300 font-medium text-xs">{row.label}</td>
+                                            <td className="py-4 px-4 text-n-300 font-medium text-xs">{row.label}</td>
                                             {/* Al Kiswah */}
                                             <td className="py-3 px-3">
                                                 <div className="flex items-start gap-1.5">
@@ -367,7 +367,7 @@ export default function ComparePage() {
                         <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-3">
                             Price Comparison by Route (USD)
                         </h2>
-                        <p className="text-gray-400 text-center mb-12 max-w-xl mx-auto">
+                        <p className="text-n-400 text-center mb-12 max-w-xl mx-auto">
                             All prices are per vehicle, private, all-inclusive. Platform prices are estimates based on standard commission rates.
                         </p>
 
@@ -379,7 +379,7 @@ export default function ComparePage() {
                                         <div className="flex items-center gap-3">
                                             <ArrowRight size={16} className="text-gold" />
                                             <h3 className="text-white font-bold">{route.route}</h3>
-                                            <span className="text-gray-500 text-sm">{route.distance}</span>
+                                            <span className="text-n-500 text-sm">{route.distance}</span>
                                         </div>
                                         <Link
                                             href={`/booking?from=${encodeURIComponent(route.route.split('→')[0].trim())}&to=${encodeURIComponent(route.route.split('→')[1].trim())}`}
@@ -393,10 +393,10 @@ export default function ComparePage() {
                                     <table className="w-full text-sm">
                                         <thead>
                                             <tr className="border-b border-white/5">
-                                                <th className="text-left px-6 py-3 text-gray-400 font-medium">Vehicle</th>
+                                                <th className="text-left px-6 py-3 text-n-400 font-medium">Vehicle</th>
                                                 <th className="text-center px-4 py-3 text-gold font-bold">Al Kiswah</th>
-                                                <th className="text-center px-4 py-3 text-gray-400 font-medium">Kiwi Taxi</th>
-                                                <th className="text-center px-4 py-3 text-gray-400 font-medium hidden md:table-cell">Booking.com</th>
+                                                <th className="text-center px-4 py-3 text-n-400 font-medium">Kiwi Taxi</th>
+                                                <th className="text-center px-4 py-3 text-n-400 font-medium hidden md:table-cell">Booking.com</th>
                                                 <th className="text-center px-4 py-3 text-gold font-medium hidden md:table-cell">You Save</th>
                                             </tr>
                                         </thead>
@@ -406,15 +406,15 @@ export default function ComparePage() {
                                                 const savePct = Math.round((saveVsKiwi / v.kiwi) * 100);
                                                 return (
                                                     <tr key={vi} className={`border-b border-white/5 last:border-0 ${vi % 2 === 0 ? 'bg-white/2' : ''}`}>
-                                                        <td className="px-6 py-3 text-gray-300">{v.type}</td>
+                                                        <td className="px-6 py-3 text-n-300">{v.type}</td>
                                                         <td className="px-4 py-3 text-center">
                                                             <span className="text-gold font-black text-base">${v.alkiswah}</span>
                                                         </td>
                                                         <td className="px-4 py-3 text-center">
-                                                            <span className="text-gray-400 line-through">${v.kiwi}</span>
+                                                            <span className="text-n-400 line-through">${v.kiwi}</span>
                                                         </td>
                                                         <td className="px-4 py-3 text-center hidden md:table-cell">
-                                                            <span className="text-gray-500 line-through">${v.booking}</span>
+                                                            <span className="text-n-500 line-through">${v.booking}</span>
                                                         </td>
                                                         <td className="px-4 py-3 text-center hidden md:table-cell">
                                                             <span className="bg-gold/15 text-gold text-xs font-bold px-2 py-1 rounded-full">
@@ -440,7 +440,7 @@ export default function ComparePage() {
                         <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-3">
                             Frequently Asked Questions
                         </h2>
-                        <p className="text-gray-400 text-center mb-12 max-w-xl mx-auto">
+                        <p className="text-n-400 text-center mb-12 max-w-xl mx-auto">
                             Common questions pilgrims ask when comparing Umrah taxi options.
                         </p>
 
@@ -452,7 +452,7 @@ export default function ComparePage() {
                                         <span className="shrink-0 text-gold text-xl font-light group-open:rotate-45 transition-transform duration-200 mt-0.5">+</span>
                                     </summary>
                                     <div className="px-6 pb-6">
-                                        <p className="text-gray-400 text-sm leading-relaxed">{item.a}</p>
+                                        <p className="text-n-400 text-sm leading-relaxed">{item.a}</p>
                                     </div>
                                 </details>
                             ))}
@@ -470,7 +470,7 @@ export default function ComparePage() {
                             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                                 Skip the Platform. Book the Operator.
                             </h2>
-                            <p className="text-gray-400 mb-8 text-lg">
+                            <p className="text-n-400 mb-8 text-lg">
                                 Al Kiswah owns its fleet in Saudi Arabia. No broker. No markup. <br />
                                 Same vehicle you'd get on Kiwi Taxi — at the real price.
                             </p>

@@ -30,7 +30,7 @@ export default function ClockHand({ angle, type }: ClockHandProps) {
 
             {/* The Knob (Selector Circle) */}
             <div
-                className={`absolute left-1/2 -translate-x-1/2 bg-gold rounded-full border-4 border-white dark:border-slate-800 shadow-lg
+                className={`absolute left-1/2 -translate-x-1/2 bg-gold rounded-full border-4 border-white dark:border-n-800 shadow-lg
                     ${type === 'hours' ? 'top-[22%] w-8 h-8' : 'top-[12%] w-6 h-6'}`}
             />
         </div>

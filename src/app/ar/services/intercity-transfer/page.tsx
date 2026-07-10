@@ -134,10 +134,10 @@ export default async function IntercityTransferPage() {
                                     Journey with Peace <br />
                                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Between Haramains</span>
                                 </h2>
-                                <p className="text-lg text-gray-300 leading-relaxed mb-6 font-light">
+                                <p className="text-lg text-n-300 leading-relaxed mb-6 font-light">
                                     The journey between Makkah and Madinah is more than just travel; it is a transition between two sacred sanctuaries. We honor this journey by providing a service that prioritizes your rest and reverence.
                                 </p>
-                                <p className="text-lg text-gray-300 leading-relaxed mb-10 font-light">
+                                <p className="text-lg text-n-300 leading-relaxed mb-10 font-light">
                                     Forget the hassle of shared buses. Our <strong>private intercity taxis</strong> allow you to travel on your own schedule, stop at Miqats (Dhul Hulayfah) for intention, and enjoy the scenic Hijrah route in the privacy of a premium vehicle.
                                 </p>
 
@@ -154,7 +154,7 @@ export default async function IntercityTransferPage() {
                                             </div>
                                             <div>
                                                 <h4 className="font-bold text-lg text-white mb-1 group-hover:text-gold transition-colors font-sans">{item.title}</h4>
-                                                <p className="text-sm text-gray-400 font-light leading-relaxed">{item.desc}</p>
+                                                <p className="text-sm text-n-400 font-light leading-relaxed">{item.desc}</p>
                                             </div>
                                         </GlassCard>
                                     ))}
@@ -198,7 +198,7 @@ export default async function IntercityTransferPage() {
                                         <span className="text-gold mt-1 p-1 bg-gold/10 rounded-full flex items-center justify-center"><ChevronDown size={16} /></span>
                                         {faq.q}
                                     </h3>
-                                    <p className="text-gray-400 font-light leading-relaxed pl-10">{faq.a}</p>
+                                    <p className="text-n-400 font-light leading-relaxed pl-10">{faq.a}</p>
                                 </div>
                             ))}
                         </div>

@@ -22,7 +22,7 @@ export default function PilgrimVoices() {
                     <h2 className={`text-3xl md:text-5xl font-bold text-white mb-6 font-sans transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         Pilgrim Voices
                     </h2>
-                    <p className={`text-lg text-gray-400 transition-all duration-700 delay-100 font-light ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <p className={`text-lg text-n-400 transition-all duration-700 delay-100 font-light ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         Hear from those who have journeyed with us.
                     </p>
                 </div>
@@ -36,7 +36,7 @@ export default function PilgrimVoices() {
                         >
                             <Quote size={40} className="text-gold/10 absolute top-8 right-8 group-hover:text-gold/20 transition-colors" />
 
-                            <p className="text-gray-300 italic mb-8 relative z-10 flex-grow font-serif leading-relaxed text-lg">
+                            <p className="text-n-300 italic mb-8 relative z-10 flex-grow font-serif leading-relaxed text-lg">
                                 &quot;{item.text}&quot;
                             </p>
 
@@ -46,7 +46,7 @@ export default function PilgrimVoices() {
                                 </div>
                                 <div>
                                     <div className="font-bold text-white font-sans">{item.author}</div>
-                                    <div className="text-sm text-gray-500 uppercase tracking-wider text-xs font-bold">{item.location}</div>
+                                    <div className="text-sm text-n-500 uppercase tracking-wider text-xs font-bold">{item.location}</div>
                                 </div>
                             </div>
                         </GlassCard>

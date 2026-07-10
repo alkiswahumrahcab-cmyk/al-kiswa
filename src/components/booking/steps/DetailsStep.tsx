@@ -220,7 +220,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                     <CheckCircle size={44} strokeWidth={1.5} />
                 </motion.div>
                 <h2 className="text-3xl font-bold text-white mb-3">Booking Confirmed!</h2>
-                <p className="text-gray-400 max-w-md mx-auto text-base font-light leading-relaxed mb-8">
+                <p className="text-n-400 max-w-md mx-auto text-base font-light leading-relaxed mb-8">
                     A confirmation email has been sent to <span className="text-gold font-medium">{data.email}</span>. Please check your inbox for trip details.
                 </p>
 
@@ -236,7 +236,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                         <span>Share Review on Google</span>
                     </a>
                     
-                    <p className="text-[11px] text-gray-500 font-medium">Your receipt has been sent via email. May your journey be blessed.</p>
+                    <p className="text-[11px] text-n-500 font-medium">Your receipt has been sent via email. May your journey be blessed.</p>
                 </div>
 
                 <div className="flex flex-col gap-3 max-w-xs mx-auto">
@@ -260,11 +260,11 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
             <div className="flex justify-between items-center">
                 <div>
                     <h2 className="text-2xl md:text-3xl font-bold text-white">Final Details</h2>
-                    <p className="text-gray-400 mt-1 text-sm">Secure your reservation in seconds.</p>
+                    <p className="text-n-400 mt-1 text-sm">Secure your reservation in seconds.</p>
                 </div>
                 <button
                     onClick={onBack}
-                    className="flex items-center gap-1.5 text-gray-400 hover:text-white font-medium transition-colors text-sm p-2 min-h-[44px]"
+                    className="flex items-center gap-1.5 text-n-400 hover:text-white font-medium transition-colors text-sm p-2 min-h-[44px]"
                 >
                     <ChevronLeft size={18} /> Back
                 </button>
@@ -316,21 +316,21 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                     </div>
                                 </div>
 
-                                <div className="p-4 space-y-4 text-gray-900">
+                                <div className="p-4 space-y-4 text-n-900">
                                     {/* Route */}
                                     <div className="flex gap-3">
                                         <div className="flex flex-col items-center pt-1">
                                             <div className="w-2.5 h-2.5 rounded-full bg-black" />
-                                            <div className="w-px h-10 bg-gray-300 border-l border-dashed border-gray-400 my-1" />
+                                            <div className="w-px h-10 bg-n-300 border-l border-dashed border-n-400 my-1" />
                                             <div className="w-2.5 h-2.5 rounded-full border-2 border-black bg-white" />
                                         </div>
                                         <div className="flex-1 space-y-3">
                                             <div>
-                                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Pickup</p>
+                                                <p className="text-[10px] font-bold text-n-400 uppercase tracking-wider">Pickup</p>
                                                 <p className="font-bold text-sm">{data.pickup || '—'}</p>
                                             </div>
                                             <div>
-                                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Dropoff</p>
+                                                <p className="text-[10px] font-bold text-n-400 uppercase tracking-wider">Dropoff</p>
                                                 <p className="font-bold text-sm">{data.dropoff || '—'}</p>
                                             </div>
                                         </div>
@@ -338,27 +338,27 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
 
                                     <div className="flex justify-between text-sm">
                                         <div>
-                                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Date</p>
+                                            <p className="text-[10px] font-bold text-n-400 uppercase tracking-wider">Date</p>
                                             <p className="font-bold">{data.date?.toLocaleDateString() || '—'}</p>
                                         </div>
                                         <div className="text-right">
-                                            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Time</p>
+                                            <p className="text-[10px] font-bold text-n-400 uppercase tracking-wider">Time</p>
                                             <p className="font-bold">{data.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) || '—'}</p>
                                         </div>
                                     </div>
 
-                                    <div className="flex justify-between items-center pt-1 border-t border-gray-100">
-                                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Total Estimate</p>
+                                    <div className="flex justify-between items-center pt-1 border-t border-n-100">
+                                        <p className="text-[10px] font-bold text-n-400 uppercase tracking-wider">Total Estimate</p>
                                         <p className="text-2xl font-black">
                                             {grandTotal > 0 ? formatPrice(grandTotal).amount : '—'} <span className="text-xs font-bold text-amber-600">{currency}</span>
                                         </p>
                                     </div>
 
                                     {/* Payment */}
-                                    <div className="flex items-center gap-2 bg-gray-50 border border-gray-100 rounded-xl p-3">
+                                    <div className="flex items-center gap-2 bg-n-50 border border-n-100 rounded-xl p-3">
                                         <Wallet size={16} className="text-amber-600 shrink-0" />
                                         <div>
-                                            <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400">Payment</p>
+                                            <p className="text-[10px] font-bold uppercase tracking-wider text-n-400">Payment</p>
                                             <p className="text-xs font-bold text-black">Pay Cash to Driver (After Trip)</p>
                                         </div>
                                     </div>
@@ -377,7 +377,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                     <div className="space-y-1.5">
                         <label className="text-xs font-bold text-gold uppercase tracking-widest ml-1">Full Name</label>
                         <div className="relative group">
-                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gold transition-colors">
+                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-n-500 group-focus-within:text-gold transition-colors">
                                 <User size={18} />
                             </div>
                             <input
@@ -395,7 +395,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                     <div className="space-y-1.5">
                         <label className="text-xs font-bold text-gold uppercase tracking-widest ml-1">Email Address</label>
                         <div className="relative group">
-                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gold transition-colors">
+                            <div className="absolute left-4 top-1/2 -translate-y-1/2 text-n-500 group-focus-within:text-gold transition-colors">
                                 <Mail size={18} />
                             </div>
                             <input
@@ -419,8 +419,8 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                     className="flex items-center gap-1.5 px-3 py-4 border-r border-white/10 text-sm font-bold text-white whitespace-nowrap hover:bg-white/5 transition-colors min-h-[52px]"
                                 >
                                     <span>{selectedCountry.flag}</span>
-                                    <span className="text-gray-300 text-xs">{selectedCountry.code}</span>
-                                    <ChevronDown size={12} className="text-gray-500" />
+                                    <span className="text-n-300 text-xs">{selectedCountry.code}</span>
+                                    <ChevronDown size={12} className="text-n-500" />
                                 </button>
                                 <AnimatePresence>
                                     {showCountryPicker && (
@@ -438,7 +438,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                                 >
                                                     <span className="text-lg">{c.flag}</span>
                                                     <span className="text-sm text-white font-medium">{c.label}</span>
-                                                    <span className="text-xs text-gray-500 ml-auto">{c.code}</span>
+                                                    <span className="text-xs text-n-500 ml-auto">{c.code}</span>
                                                 </button>
                                             ))}
                                         </motion.div>
@@ -460,7 +460,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                     <div className="space-y-1.5">
                         <label className="text-xs font-bold text-gold uppercase tracking-widest ml-1">Additional Notes (Optional)</label>
                         <div className="relative group">
-                            <div className="absolute left-4 top-4 text-gray-500 group-focus-within:text-gold transition-colors">
+                            <div className="absolute left-4 top-4 text-n-500 group-focus-within:text-gold transition-colors">
                                 <MessageSquare size={18} />
                             </div>
                             <textarea
@@ -488,47 +488,47 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                 ))}
                             </div>
                         </div>
-                        <div className="p-6 space-y-6 text-gray-900">
+                        <div className="p-6 space-y-6 text-n-900">
                             <div className="flex gap-4">
                                 <div className="flex flex-col items-center">
                                     <div className="w-3 h-3 rounded-full bg-black" />
-                                    <div className="w-0.5 h-12 bg-gray-200 border-l border-dashed border-gray-400 my-1" />
+                                    <div className="w-0.5 h-12 bg-n-200 border-l border-dashed border-n-400 my-1" />
                                     <div className="w-3 h-3 rounded-full border-2 border-black bg-white" />
                                 </div>
                                 <div className="flex-1 space-y-5">
                                     <div>
-                                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Pickup</p>
+                                        <p className="text-[10px] font-bold text-n-400 uppercase tracking-wider">Pickup</p>
                                         <p className="font-bold text-sm">{data.pickup || '—'}</p>
                                     </div>
                                     <div>
-                                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Dropoff</p>
+                                        <p className="text-[10px] font-bold text-n-400 uppercase tracking-wider">Dropoff</p>
                                         <p className="font-bold text-sm">{data.dropoff || '—'}</p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="h-px bg-gray-100" />
+                            <div className="h-px bg-n-100" />
                             <div className="flex justify-between">
                                 <div>
-                                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Date</p>
+                                    <p className="text-[10px] font-bold text-n-400 uppercase tracking-wider">Date</p>
                                     <p className="font-bold text-sm">{data.date?.toLocaleDateString() || '—'}</p>
                                 </div>
                                 <div className="text-right">
-                                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Time</p>
+                                    <p className="text-[10px] font-bold text-n-400 uppercase tracking-wider">Time</p>
                                     <p className="font-bold text-sm">{data.time?.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) || '—'}</p>
                                 </div>
                             </div>
                             <div className="flex justify-between items-center pt-1">
-                                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Total Estimate</p>
+                                <p className="text-[10px] font-bold text-n-400 uppercase tracking-wider">Total Estimate</p>
                                 <p className="text-3xl font-black">{grandTotal > 0 ? formatPrice(grandTotal).amount : '—'} <span className="text-xs font-bold text-amber-600">{currency}</span></p>
                             </div>
                         </div>
-                        <div className="bg-gray-50 border-t border-gray-100 p-4 relative">
+                        <div className="bg-n-50 border-t border-n-100 p-4 relative">
                             <div className="absolute -top-3 -left-3 w-6 h-6 bg-charcoal rounded-full" />
                             <div className="absolute -top-3 -right-3 w-6 h-6 bg-charcoal rounded-full" />
-                            <div className="flex items-center gap-3 text-gray-700 bg-white border border-gray-200 rounded-xl p-3 shadow-sm">
+                            <div className="flex items-center gap-3 text-n-700 bg-white border border-n-200 rounded-xl p-3 shadow-sm">
                                 <Wallet size={18} className="text-gold" />
                                 <div>
-                                    <p className="text-[10px] font-bold uppercase tracking-wider text-gray-500">Payment Method</p>
+                                    <p className="text-[10px] font-bold uppercase tracking-wider text-n-500">Payment Method</p>
                                     <p className="text-sm font-bold text-black">Pay Cash to Driver (After Trip)</p>
                                 </div>
                             </div>
@@ -538,7 +538,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                         <ShieldCheck className="text-gold shrink-0 mt-0.5" size={20} />
                         <div>
                             <h4 className="text-white font-bold text-sm mb-1">Book Now, Pay Later</h4>
-                            <p className="text-xs text-gray-300 font-medium leading-relaxed">
+                            <p className="text-xs text-n-300 font-medium leading-relaxed">
                                 No credit card needed. Confirmed instantly, pay the driver on arrival.
                             </p>
                         </div>
@@ -551,7 +551,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                 <div className="space-y-1.5">
                     <label className="text-xs font-bold text-gold uppercase tracking-widest ml-1">Full Name</label>
                     <div className="relative group">
-                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gold transition-colors">
+                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-n-500 group-focus-within:text-gold transition-colors">
                             <User size={16} />
                         </div>
                         <input
@@ -569,7 +569,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                 <div className="space-y-1.5">
                     <label className="text-xs font-bold text-gold uppercase tracking-widest ml-1">Email Address</label>
                     <div className="relative group">
-                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gold transition-colors">
+                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-n-500 group-focus-within:text-gold transition-colors">
                             <Mail size={16} />
                         </div>
                         <input
@@ -594,8 +594,8 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                 className="flex items-center gap-1 px-3 py-3.5 border-r border-white/10 text-sm font-bold text-white whitespace-nowrap hover:bg-white/5 transition-colors min-h-[52px]"
                             >
                                 <span>{selectedCountry.flag}</span>
-                                <span className="text-gray-300 text-xs">{selectedCountry.code}</span>
-                                <ChevronDown size={11} className="text-gray-500" />
+                                <span className="text-n-300 text-xs">{selectedCountry.code}</span>
+                                <ChevronDown size={11} className="text-n-500" />
                             </button>
                             <AnimatePresence>
                                 {showCountryPicker && (
@@ -613,7 +613,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                             >
                                                 <span className="text-base">{c.flag}</span>
                                                 <span className="text-sm text-white font-medium">{c.label}</span>
-                                                <span className="text-xs text-gray-500 ml-auto font-mono">{c.code}</span>
+                                                <span className="text-xs text-n-500 ml-auto font-mono">{c.code}</span>
                                             </button>
                                         ))}
                                     </motion.div>
@@ -648,7 +648,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                     <ShieldCheck className="text-gold shrink-0 mt-0.5" size={18} />
                     <div>
                         <h4 className="text-white font-bold text-sm">Book Now, Pay Later</h4>
-                        <p className="text-xs text-gray-400 mt-0.5 leading-relaxed">No credit card needed. Pay driver cash on arrival.</p>
+                        <p className="text-xs text-n-400 mt-0.5 leading-relaxed">No credit card needed. Pay driver cash on arrival.</p>
                     </div>
                 </div>
             </div>

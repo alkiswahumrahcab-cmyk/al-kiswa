@@ -141,7 +141,7 @@ export default async function JeddahAirportTransferPage() {
                             <h2 className="text-3xl md:text-4xl font-bold mb-4 font-sans text-white">
                                 Arrival Procedure: What to Expect
                             </h2>
-                            <p className="text-gray-300 text-lg font-light leading-relaxed">
+                            <p className="text-n-300 text-lg font-light leading-relaxed">
                                 We know arriving in a new country can be stressful. Here is how we make it easy:
                             </p>
                             <div className="mt-8 p-6 bg-white/5 rounded-2xl border border-white/10 inline-block">
@@ -172,7 +172,7 @@ export default async function JeddahAirportTransferPage() {
                                 <div key={idx} className="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-gold/30 transition-all text-center group hover:bg-black/60">
                                     <div className="flex justify-center mb-6 p-4 bg-gold/10 rounded-full w-fit mx-auto border border-gold/20 group-hover:bg-gold/20 transition-colors">{item.icon}</div>
                                     <h3 className="text-xl font-bold mb-3 text-white font-sans">{item.title}</h3>
-                                    <p className="text-gray-400 text-sm leading-relaxed font-light">{item.desc}</p>
+                                    <p className="text-n-400 text-sm leading-relaxed font-light">{item.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -204,7 +204,7 @@ export default async function JeddahAirportTransferPage() {
                     <FadeIn delay={0.3}>
                         <div className="max-w-3xl mx-auto p-8 rounded-3xl bg-gradient-to-br from-neutral-900 to-black border border-white/10 shadow-2xl">
                             <h3 className="text-2xl font-bold mb-4 text-white font-sans">Which Terminal?</h3>
-                            <p className="text-gray-300 mb-6 font-light leading-relaxed">
+                            <p className="text-n-300 mb-6 font-light leading-relaxed">
                                 Most international flights land at <strong className="font-bold text-gold">Terminal 1 (New Airport)</strong>.
                                 Some regional carriers use the North Terminal.
                                 Don't worry, we track your flight number and adjust the pickup location automatically.
@@ -237,7 +237,7 @@ export default async function JeddahAirportTransferPage() {
                         <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-5 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] text-black hover:scale-105">
                             Check Taxi Fares <ArrowRight size={20} className="ml-2" />
                         </Link>
-                        <p className="mt-8 text-sm text-gray-400 font-light">
+                        <p className="mt-8 text-sm text-n-400 font-light">
                             Going to Madinah next? Check our <Link href="/ar/services/makkah-madinah-taxi" className="text-gold hover:text-white font-bold underline underline-offset-4 decoration-gold/50">Makkah to Madinah Taxi</Link> rates.
                         </p>
                     </FadeIn>

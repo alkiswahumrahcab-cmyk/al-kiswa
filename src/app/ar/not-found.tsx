@@ -32,7 +32,7 @@ export default function NotFoundArabic() {
                         الصفحة غير موجودة
                     </h2>
 
-                    <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+                    <p className="text-n-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed">
                         عذراً، لم نتمكن من العثور على الصفحة التي تبحث عنها. ربما تم نقلها أو حذفها، أو ربما أدخلت الرابط بشكل خاطئ.
                     </p>
 
@@ -42,7 +42,7 @@ export default function NotFoundArabic() {
                                 <Home size={24} />
                             </div>
                             <h3 className="text-white font-bold mb-2 text-xl">الرئيسية</h3>
-                            <p className="text-sm text-gray-500">العودة للصفحة الرئيسية</p>
+                            <p className="text-sm text-n-500">العودة للصفحة الرئيسية</p>
                         </Link>
 
                         <Link href="/ar/fleet" className="group bg-neutral-900/50 hover:bg-neutral-900 border border-white/10 hover:border-gold/50 p-6 rounded-2xl transition-all duration-300">
@@ -50,7 +50,7 @@ export default function NotFoundArabic() {
                                 <Car size={24} />
                             </div>
                             <h3 className="text-white font-bold mb-2 text-xl">سياراتنا</h3>
-                            <p className="text-sm text-gray-500">تصفح أسطول سياراتنا</p>
+                            <p className="text-sm text-n-500">تصفح أسطول سياراتنا</p>
                         </Link>
 
                         <Link href="/ar/contact" className="group bg-neutral-900/50 hover:bg-neutral-900 border border-white/10 hover:border-gold/50 p-6 rounded-2xl transition-all duration-300">
@@ -58,7 +58,7 @@ export default function NotFoundArabic() {
                                 <Phone size={24} />
                             </div>
                             <h3 className="text-white font-bold mb-2 text-xl">اتصل بنا</h3>
-                            <p className="text-sm text-gray-500">تواصل معنا للمساعدة</p>
+                            <p className="text-sm text-n-500">تواصل معنا للمساعدة</p>
                         </Link>
                     </div>
 

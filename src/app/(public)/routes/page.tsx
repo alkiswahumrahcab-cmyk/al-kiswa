@@ -203,10 +203,10 @@ export default function RoutesPage() {
                                                 <h4 className="text-lg font-bold text-gold font-reem-kufi mt-1">{route.titleAr}</h4>
                                             </div>
                                             <div className="space-y-4 mb-8">
-                                                <p className="text-gray-400 text-sm leading-relaxed font-light">{route.description}</p>
-                                                <p className="text-gray-500 text-sm font-arabic leading-relaxed text-right border-t border-dashed border-white/10 pt-3">{route.descriptionAr}</p>
+                                                <p className="text-n-400 text-sm leading-relaxed font-light">{route.description}</p>
+                                                <p className="text-n-500 text-sm font-arabic leading-relaxed text-right border-t border-dashed border-white/10 pt-3">{route.descriptionAr}</p>
                                             </div>
-                                            <div className="hidden md:grid grid-cols-2 gap-3 mb-8 text-sm text-gray-400">
+                                            <div className="hidden md:grid grid-cols-2 gap-3 mb-8 text-sm text-n-400">
                                                 <div className="flex flex-wrap gap-2">
                                                     {route.features.map((f, i) => (<span key={i} className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/5 rounded-lg text-xs border border-white/5"><CheckCircle size={10} className="text-gold" /> {f}</span>))}
                                                 </div>
@@ -216,11 +216,11 @@ export default function RoutesPage() {
                                             </div>
                                             <div className="mt-auto flex items-center justify-between pt-6 border-t border-white/10">
                                                 <div className="flex flex-col">
-                                                    <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold">Starting from</span>
+                                                    <span className="text-xs text-n-500 uppercase tracking-wider font-semibold">Starting from</span>
                                                     <span className="text-xl font-bold text-gold">{route.price}</span>
                                                 </div>
                                                 <div className="flex gap-4 relative z-20 items-center">
-                                                    <Link href="/fleet" className="hidden md:flex items-center text-xs font-medium text-gray-400 hover:text-white transition-colors uppercase tracking-wider">View Fleet</Link>
+                                                    <Link href="/fleet" className="hidden md:flex items-center text-xs font-medium text-n-400 hover:text-white transition-colors uppercase tracking-wider">View Fleet</Link>
                                                     <span className="flex items-center gap-2 text-sm font-bold text-black bg-gold px-4 py-2 rounded-full hover:bg-white transition-colors shadow-lg shadow-gold/20">Book Now <ArrowRight size={16} /></span>
                                                 </div>
                                             </div>
@@ -249,7 +249,7 @@ export default function RoutesPage() {
                             <FadeIn key={i} delay={i * 0.1}>
                                 <div className="text-gold text-4xl md:text-5xl font-bold mb-2">{s.value}</div>
                                 <div className="text-white font-semibold text-sm">{s.label}</div>
-                                <div className="text-gray-500 text-xs font-arabic">{s.labelAr}</div>
+                                <div className="text-n-500 text-xs font-arabic">{s.labelAr}</div>
                             </FadeIn>
                         ))}
                     </div>
@@ -262,7 +262,7 @@ export default function RoutesPage() {
                     <div className="text-center max-w-2xl mx-auto mb-20">
                         <FadeIn>
                             <h2 className="text-3xl lg:text-5xl font-bold font-sans text-white mb-6">Why Travel With Al Kiswah?</h2>
-                            <p className="text-gray-400 font-light text-lg">More than just transport, we provide a seamless bridge between your spiritual destinations.</p>
+                            <p className="text-n-400 font-light text-lg">More than just transport, we provide a seamless bridge between your spiritual destinations.</p>
                         </FadeIn>
                     </div>
                     <div className="grid md:grid-cols-3 gap-8">
@@ -278,8 +278,8 @@ export default function RoutesPage() {
                                     </div>
                                     <h3 className="text-2xl font-bold mb-2 text-white font-sans">{feature.title}</h3>
                                     <h4 className="text-xl font-bold text-gold font-reem-kufi mb-4">{feature.titleAr}</h4>
-                                    <p className="text-gray-400 text-sm mb-4 leading-relaxed font-light">{feature.desc}</p>
-                                    <p className="text-gray-500 text-sm font-arabic border-t border-white/10 pt-3">{feature.descAr}</p>
+                                    <p className="text-n-400 text-sm mb-4 leading-relaxed font-light">{feature.desc}</p>
+                                    <p className="text-n-500 text-sm font-arabic border-t border-white/10 pt-3">{feature.descAr}</p>
                                 </GlassCard>
                             </FadeIn>
                         ))}
@@ -291,7 +291,7 @@ export default function RoutesPage() {
             <section className="py-20 bg-neutral-900/50 border-y border-white/5 relative">
                 <div className="container mx-auto px-4">
                     <FadeIn>
-                        <div className="max-w-4xl mx-auto space-y-5 text-gray-300 leading-relaxed font-light">
+                        <div className="max-w-4xl mx-auto space-y-5 text-n-300 leading-relaxed font-light">
                             <h2 className="text-2xl md:text-3xl font-bold text-white font-sans text-center mb-6">Umrah Transport Routes — Your Complete Guide</h2>
                             <p>Planning your Umrah journey requires reliable transport between Saudi Arabia&apos;s holy cities. <strong className="text-white">Al Kiswah Umrah Transport</strong> operates <strong className="text-white">8 dedicated routes</strong> connecting Jeddah Airport, Makkah, Madinah, and Taif — serving over 10,000 pilgrims annually with our fleet of <Link href="/fleet/toyota-camry" className="text-gold hover:text-white hover:underline">Toyota Camry sedans</Link>, <Link href="/fleet/gmc-yukon-at4" className="text-gold hover:text-white hover:underline">GMC Yukon AT4 SUVs</Link>, <Link href="/fleet/hyundai-staria" className="text-gold hover:text-white hover:underline">Hyundai Staria vans</Link>, and <Link href="/fleet/toyota-hiace" className="text-gold hover:text-white hover:underline">Toyota Hiace buses</Link>.</p>
                             <p>Our most popular route — <Link href="/services/jeddah-airport-transfer" className="text-gold hover:text-white hover:underline">Jeddah Airport to Makkah</Link> — features meet &amp; greet service, flight monitoring, and luggage assistance from SAR 200. For the journey between the two holy cities, our <Link href="/services/makkah-madinah-taxi" className="text-gold hover:text-white hover:underline">Makkah to Madinah transfer</Link> includes optional Miqat stops for Ihram.</p>

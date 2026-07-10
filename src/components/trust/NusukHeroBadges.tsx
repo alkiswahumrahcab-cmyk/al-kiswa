@@ -16,11 +16,11 @@ const NusukHeroBadges = () => {
                 <Shield size={14} className="fill-[hsl(var(--gold-light))]/20" />
                 Nusuk Registered
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 border border-white/10 text-gray-300 text-[11px] font-bold tracking-wider uppercase backdrop-blur-md">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 border border-white/10 text-n-300 text-[11px] font-bold tracking-wider uppercase backdrop-blur-md">
                 <Award size={14} className="text-gold" />
                 Ministry Licensed
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 border border-white/10 text-gray-300 text-[11px] font-bold tracking-wider uppercase backdrop-blur-md">
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 border border-white/10 text-n-300 text-[11px] font-bold tracking-wider uppercase backdrop-blur-md">
                 <CheckCircle size={14} className="text-[hsl(var(--gold-light))]" />
                 Verified Transport
             </div>

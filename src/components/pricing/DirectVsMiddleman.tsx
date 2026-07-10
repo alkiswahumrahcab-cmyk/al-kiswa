@@ -55,7 +55,7 @@ export default function DirectVsMiddleman() {
                             We Are <span className="text-gold">Not a Middleman.</span>
                             <br className="hidden md:block" /> We Are the Driver.
                         </h2>
-                        <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+                        <p className="text-n-400 max-w-2xl mx-auto text-lg">
                             Unlike {competitors.join(', ')} — we own every vehicle in our fleet.
                             No broker. No commission. No mystery surcharge. You book with us, you ride with us.
                         </p>
@@ -73,7 +73,7 @@ export default function DirectVsMiddleman() {
                                 </div>
                             </div>
                             <div className="text-center">
-                                <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-gray-400 font-medium px-4 py-2 rounded-full text-sm">
+                                <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-n-400 font-medium px-4 py-2 rounded-full text-sm">
                                     Other Platforms
                                 </div>
                             </div>
@@ -90,10 +90,10 @@ export default function DirectVsMiddleman() {
                                     >
                                         {/* Label */}
                                         <div className="flex items-center gap-3">
-                                            <div className="p-2 rounded-xl bg-white/5 text-gray-400 shrink-0">
+                                            <div className="p-2 rounded-xl bg-white/5 text-n-400 shrink-0">
                                                 <Icon size={18} />
                                             </div>
-                                            <span className="text-gray-300 font-medium text-sm md:text-base">{row.label}</span>
+                                            <span className="text-n-300 font-medium text-sm md:text-base">{row.label}</span>
                                         </div>
 
                                         {/* Al Kiswah */}
@@ -126,7 +126,7 @@ export default function DirectVsMiddleman() {
                                 </div>
                                 <div>
                                     <p className="text-white font-bold text-lg">Saudi-Licensed Fleet Owner</p>
-                                    <p className="text-gray-400 text-sm">Ministry of Hajj &amp; Umrah Licensed · Makkah, Saudi Arabia</p>
+                                    <p className="text-n-400 text-sm">Ministry of Hajj &amp; Umrah Licensed · Makkah, Saudi Arabia</p>
                                 </div>
                             </div>
                             <a

@@ -79,7 +79,7 @@ export default function BookingWizard() {
                         </p>
                         <p className="text-base font-bold text-white leading-tight">
                             {STEPS[currentStep - 1].title}
-                            <span className="text-gray-500 font-normal text-sm ml-2">— {STEPS[currentStep - 1].description}</span>
+                            <span className="text-n-500 font-normal text-sm ml-2">— {STEPS[currentStep - 1].description}</span>
                         </p>
                     </div>
                     {/* Circle steps mini */}
@@ -92,7 +92,7 @@ export default function BookingWizard() {
                                         ? 'w-6 h-6 bg-gold text-black'
                                         : currentStep === step.id
                                             ? 'w-7 h-7 bg-gold text-black ring-2 ring-gold/30 ring-offset-1 ring-offset-black'
-                                            : 'w-6 h-6 bg-white/10 text-gray-500'
+                                            : 'w-6 h-6 bg-white/10 text-n-500'
                                     }`}
                             >
                                 {currentStep > step.id ? <Check size={10} strokeWidth={3} /> : step.id}
@@ -119,15 +119,15 @@ export default function BookingWizard() {
                             w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold text-lg transition-all duration-500 border-2
                             ${currentStep >= step.id
                                 ? 'bg-gold border-gold text-black shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)]'
-                                : 'bg-charcoal border-white/10 text-gray-500'}
+                                : 'bg-charcoal border-white/10 text-n-500'}
                         `}>
                             {currentStep > step.id ? <Check size={24} strokeWidth={3} /> : step.id}
                         </div>
                         <div className="text-center">
-                            <span className={`text-xs uppercase font-bold tracking-[0.2em] mb-1.5 block ${currentStep >= step.id ? 'text-gold' : 'text-gray-600'}`}>
+                            <span className={`text-xs uppercase font-bold tracking-[0.2em] mb-1.5 block ${currentStep >= step.id ? 'text-gold' : 'text-n-600'}`}>
                                 Step 0{step.id}
                             </span>
-                            <h3 className={`text-sm md:text-base font-bold uppercase tracking-wider ${currentStep >= step.id ? 'text-white' : 'text-gray-600'}`}>
+                            <h3 className={`text-sm md:text-base font-bold uppercase tracking-wider ${currentStep >= step.id ? 'text-white' : 'text-n-600'}`}>
                                 {step.title}
                             </h3>
                         </div>
@@ -158,15 +158,15 @@ export default function BookingWizard() {
 
                 {/* Trust Footer */}
                 <div className="bg-black/40 border-t border-white/5 py-4 px-4 md:px-10 flex flex-wrap justify-center md:justify-between items-center gap-4 md:gap-8">
-                    <div className="flex items-center gap-2 text-gray-400 text-[10px] font-bold uppercase tracking-widest">
+                    <div className="flex items-center gap-2 text-n-400 text-[10px] font-bold uppercase tracking-widest">
                         <ShieldCheck size={13} className="text-gold" />
                         Safe & Secure
                     </div>
-                    <div className="flex items-center gap-2 text-gray-400 text-[10px] font-bold uppercase tracking-widest">
+                    <div className="flex items-center gap-2 text-n-400 text-[10px] font-bold uppercase tracking-widest">
                         <Headphones size={13} className="text-gold" />
                         24/7 Support
                     </div>
-                    <div className="flex items-center gap-2 text-gray-400 text-[10px] font-bold uppercase tracking-widest">
+                    <div className="flex items-center gap-2 text-n-400 text-[10px] font-bold uppercase tracking-widest">
                         <CreditCard size={13} className="text-gold" />
                         Pay on Arrival
                     </div>

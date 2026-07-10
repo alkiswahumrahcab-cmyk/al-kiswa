@@ -120,10 +120,10 @@ export default function GermanyPilgrimsPage() {
       <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none fixed" />
       <div className="container relative z-10 mx-auto px-4 max-w-5xl">
 
-        <nav aria-label="Breadcrumb" className="text-sm text-gray-500 mb-10 flex items-center gap-2">
+        <nav aria-label="Breadcrumb" className="text-sm text-n-500 mb-10 flex items-center gap-2">
           <Link href="/" className="hover:text-gold transition-colors">Startseite</Link>
           <span>/</span>
-          <span className="text-gray-300">Umrah Transport Deutschland</span>
+          <span className="text-n-300">Umrah Transport Deutschland</span>
         </nav>
 
         {/* Hero */}
@@ -133,7 +133,7 @@ export default function GermanyPilgrimsPage() {
             Umrah Transport<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-amber-400">Für Deutsche Pilger</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-n-300 max-w-2xl mx-auto leading-relaxed">
             Vom Flughafen Dschidda bis zum Haram — privat, komfortabel und zum Festpreis.
             Im Dienst von Pilgern aus Berlin, Hamburg, München, Frankfurt und ganz Deutschland seit 2014.
           </p>
@@ -152,7 +152,7 @@ export default function GermanyPilgrimsPage() {
           {[{ stat: "3.000+", label: "Europäische Pilger Befördert" }, { stat: "5★", label: "Durchschnittliche Bewertung" }, { stat: "10+", label: "Jahre Erfahrung" }].map((s, i) => (
             <div key={i} className="bg-white/5 rounded-xl p-6 border border-white/10">
               <div className="text-4xl font-bold text-gold">{s.stat}</div>
-              <div className="text-gray-400 mt-2 text-sm">{s.label}</div>
+              <div className="text-n-400 mt-2 text-sm">{s.label}</div>
             </div>
           ))}
         </div>
@@ -162,7 +162,7 @@ export default function GermanyPilgrimsPage() {
           {features.map((f, i) => (
             <div key={i} className="flex items-center gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
               <CheckCircle className="text-gold shrink-0" size={20} />
-              <span className="text-gray-200">{f}</span>
+              <span className="text-n-200">{f}</span>
             </div>
           ))}
         </div>
@@ -170,22 +170,22 @@ export default function GermanyPilgrimsPage() {
         {/* Pricing Guide */}
         <div className="bg-white/5 rounded-2xl border border-gold/20 p-8 mb-12">
           <h2 className="text-2xl font-bold mb-2 text-white">Preisübersicht — Umrah-Transfer für Deutsche Pilger</h2>
-          <p className="text-gray-400 text-sm mb-6">Alle Preise pro Fahrzeug, Festpreis bei Buchung. Keine Flughafenzuschläge, keine Nachtzuschläge.</p>
+          <p className="text-n-400 text-sm mb-6">Alle Preise pro Fahrzeug, Festpreis bei Buchung. Keine Flughafenzuschläge, keine Nachtzuschläge.</p>
           <div className="grid sm:grid-cols-2 gap-4 mb-6">
             {pricingRows.map((route, i) => (
               <div key={i} className="flex items-center justify-between p-4 bg-black/30 rounded-xl border border-white/5">
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-2 text-sm">
                     <MapPin size={14} className="text-gold shrink-0" />
-                    <span className="text-gray-300">{route.from} → {route.to}</span>
+                    <span className="text-n-300">{route.from} → {route.to}</span>
                   </div>
-                  <span className="text-gray-500 text-xs pl-5">{route.note}</span>
+                  <span className="text-n-500 text-xs pl-5">{route.note}</span>
                 </div>
                 <span className="text-gold font-bold text-sm shrink-0 ml-4">{route.price}</span>
               </div>
             ))}
           </div>
-          <div className="bg-gold/10 border border-gold/20 rounded-xl p-4 text-sm text-gray-300">
+          <div className="bg-gold/10 border border-gold/20 rounded-xl p-4 text-sm text-n-300">
             <strong className="text-gold">Preistipp:</strong> Preis pro Fahrzeug — ein Familiengroup im Staria (11 Sitze) zahlt nur ca. 4–5€ pro Person auf der Strecke Dschidda → Mekka.
           </div>
           <div className="mt-4 text-center">
@@ -198,7 +198,7 @@ export default function GermanyPilgrimsPage() {
         {/* How It Works */}
         <div className="mb-16">
           <h2 className="text-2xl font-bold text-center mb-4">Wie Sie Ihren Umrah-Transfer Buchen</h2>
-          <p className="text-center text-gray-400 text-sm mb-8 max-w-xl mx-auto">Die meisten Pilger aus Deutschland bestätigen ihren Transfer in unter 5 Minuten.</p>
+          <p className="text-center text-n-400 text-sm mb-8 max-w-xl mx-auto">Die meisten Pilger aus Deutschland bestätigen ihren Transfer in unter 5 Minuten.</p>
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { step: 1, title: "Online oder WhatsApp Buchen", desc: "Flugnummer, Ankunftsdatum und Hotel in Mekka angeben. 2 Minuten über Formular oder WhatsApp." },
@@ -208,7 +208,7 @@ export default function GermanyPilgrimsPage() {
               <div key={s.step} className="text-center bg-white/5 rounded-2xl border border-white/10 p-6">
                 <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mx-auto mb-4 font-bold text-lg">{s.step}</div>
                 <h3 className="font-bold text-white mb-2">{s.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-n-400 text-sm leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -217,7 +217,7 @@ export default function GermanyPilgrimsPage() {
         {/* SEO Guide */}
         <div className="bg-white/5 rounded-2xl border border-white/10 p-8 mb-12">
           <h2 className="text-2xl font-bold mb-4 text-white">Reiseführer: Umrah-Transport für Pilger aus Deutschland</h2>
-          <div className="text-gray-300 text-sm space-y-4 leading-relaxed">
+          <div className="text-n-300 text-sm space-y-4 leading-relaxed">
             <p>Jedes Jahr reisen tausende Muslime aus Deutschland zur Umrah nach Mekka und Medina. Die Organisation eines zuverlässigen Transfers vom Flughafen Dschidda ist eine der wichtigsten logistischen Entscheidungen Ihrer Pilgerreise.</p>
             <h3 className="text-white font-semibold mt-5">Flughafen Dschidda (KAIA) nach Mekka — Was Sie wissen müssen</h3>
             <p>Der King Abdulaziz International Airport liegt etwa 80 km vom Masjid al-Haram in Mekka entfernt. Die Fahrt dauert <strong>60–90 Minuten</strong> je nach Verkehr, der besonders während des Ramadans und der deutschen Schulferien hoch sein kann. Ihr Al Kiswah-Fahrer verfolgt Ihren Flug in Echtzeit — bei Verspätung Ihres Fluges aus Frankfurt, München oder Berlin passen wir uns ohne Aufpreis an.</p>
@@ -237,8 +237,8 @@ export default function GermanyPilgrimsPage() {
             {testimonials.map((t, i) => (
               <div key={i} className="bg-white/5 rounded-2xl border border-white/10 p-6">
                 <div className="flex gap-1 mb-3">{Array.from({ length: t.stars }).map((_, j) => <Star key={j} size={14} className="fill-gold text-gold" />)}</div>
-                <p className="text-gray-300 text-sm leading-relaxed mb-4">&ldquo;{t.text}&rdquo;</p>
-                <div className="text-sm font-semibold text-gold">{t.name} <span className="text-gray-500 font-normal">— {t.city}</span></div>
+                <p className="text-n-300 text-sm leading-relaxed mb-4">&ldquo;{t.text}&rdquo;</p>
+                <div className="text-sm font-semibold text-gold">{t.name} <span className="text-n-500 font-normal">— {t.city}</span></div>
               </div>
             ))}
           </div>
@@ -251,7 +251,7 @@ export default function GermanyPilgrimsPage() {
             {faqs.map((faq, i) => (
               <div key={i} className="bg-white/5 rounded-xl border border-white/10 p-6">
                 <h3 className="font-bold text-white mb-2">{faq.q}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{faq.a}</p>
+                <p className="text-n-400 text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
@@ -271,7 +271,7 @@ export default function GermanyPilgrimsPage() {
             ].map((link, i) => (
               <Link key={i} href={link.href} className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-gold/30 rounded-xl p-4 transition-all group">
                 <div className="font-semibold text-white group-hover:text-gold transition-colors text-sm">{link.label}</div>
-                <div className="text-gray-500 text-xs mt-1">{link.desc}</div>
+                <div className="text-n-500 text-xs mt-1">{link.desc}</div>
               </Link>
             ))}
           </div>
@@ -280,7 +280,7 @@ export default function GermanyPilgrimsPage() {
         {/* CTA */}
         <div className="text-center bg-gradient-to-r from-gold/10 to-amber-500/10 rounded-2xl border border-gold/30 p-10">
           <h2 className="text-2xl font-bold mb-3">Bereit zur Buchung Ihres Umrah-Transfers?</h2>
-          <p className="text-gray-400 mb-6">Kontaktieren Sie uns per WhatsApp oder buchen Sie online — Antwort in Minuten.</p>
+          <p className="text-n-400 mb-6">Kontaktieren Sie uns per WhatsApp oder buchen Sie online — Antwort in Minuten.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform">Online Buchen</Link>
             <a href="tel:+966548707332" className="flex items-center justify-center gap-2 border border-white/20 text-white font-bold px-8 py-4 rounded-full hover:bg-white/5 transition-colors">

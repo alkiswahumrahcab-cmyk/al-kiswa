@@ -148,7 +148,7 @@ export default async function ZiyaratToursPage() {
                     <FadeIn>
                         <div className="text-center mb-10">
                             <h2 className="text-2xl md:text-3xl font-bold text-white font-sans mb-2">Tour Packages &amp; Pricing</h2>
-                            <p className="text-gray-400 font-light">Fixed prices per vehicle — no hidden charges. All tours include hotel pickup &amp; drop-off.</p>
+                            <p className="text-n-400 font-light">Fixed prices per vehicle — no hidden charges. All tours include hotel pickup &amp; drop-off.</p>
                         </div>
                         <div className="bg-black/50 border border-gold/20 rounded-3xl p-6 md:p-8">
                             <PackagePricingTable packages={tourPackages} whatsappLink={whatsappLink} />
@@ -168,7 +168,7 @@ export default async function ZiyaratToursPage() {
                             </div>
                             <div>
                                 <h2 className="text-3xl md:text-4xl font-bold text-white font-sans">Makkah Ziyarat Sites</h2>
-                                <p className="text-gray-400 font-light">15 sacred locations — tap any site to read its full history</p>
+                                <p className="text-n-400 font-light">15 sacred locations — tap any site to read its full history</p>
                             </div>
                         </div>
                         <LocationGrid sites={makkahSites} city="makkah" />
@@ -191,7 +191,7 @@ export default async function ZiyaratToursPage() {
                             </div>
                             <div>
                                 <h2 className="text-3xl md:text-4xl font-bold text-white font-sans">Madinah Ziyarat Sites</h2>
-                                <p className="text-gray-400 font-light">14 sacred locations in the City of the Prophet (SAW)</p>
+                                <p className="text-n-400 font-light">14 sacred locations in the City of the Prophet (SAW)</p>
                             </div>
                         </div>
                         <LocationGrid sites={madinahSites} city="madinah" />
@@ -214,10 +214,10 @@ export default async function ZiyaratToursPage() {
                             </div>
                             <div>
                                 <h2 className="text-3xl md:text-4xl font-bold text-white font-sans">Jeddah Islamic &amp; Tourist Attractions</h2>
-                                <p className="text-gray-400 font-light">8 must-see destinations — optional add-on tour</p>
+                                <p className="text-n-400 font-light">8 must-see destinations — optional add-on tour</p>
                             </div>
                         </div>
-                        <p className="text-gray-400 font-light mb-8 ml-16">Combine a Jeddah city tour with your <Link href="/services/jeddah-airport-transfer" className="text-gold hover:text-white hover:underline">airport transfer</Link> for a memorable day out.</p>
+                        <p className="text-n-400 font-light mb-8 ml-16">Combine a Jeddah city tour with your <Link href="/services/jeddah-airport-transfer" className="text-gold hover:text-white hover:underline">airport transfer</Link> for a memorable day out.</p>
                         <LocationGrid sites={jeddahSites} city="jeddah" />
                     </FadeIn>
                 </div>
@@ -233,10 +233,10 @@ export default async function ZiyaratToursPage() {
                             </div>
                             <div>
                                 <h2 className="text-3xl md:text-4xl font-bold text-white font-sans">Taif Mountain Tour</h2>
-                                <p className="text-gray-400 font-light">6 scenic attractions — full-day escape from Makkah heat</p>
+                                <p className="text-n-400 font-light">6 scenic attractions — full-day escape from Makkah heat</p>
                             </div>
                         </div>
-                        <p className="text-gray-400 font-light mb-8 ml-16">Just 80 km from Makkah, Taif offers cooler mountain air, rose gardens, and cable car rides. Perfect for families with children.</p>
+                        <p className="text-n-400 font-light mb-8 ml-16">Just 80 km from Makkah, Taif offers cooler mountain air, rose gardens, and cable car rides. Perfect for families with children.</p>
                         <LocationGrid sites={taifSites} city="taif" />
                     </FadeIn>
                 </div>
@@ -260,7 +260,7 @@ export default async function ZiyaratToursPage() {
                                         {f.icon}
                                     </div>
                                     <h3 className="text-base font-bold mb-2 text-white">{f.title}</h3>
-                                    <p className="text-xs text-gray-400 leading-relaxed font-light">{f.desc}</p>
+                                    <p className="text-xs text-n-400 leading-relaxed font-light">{f.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -281,7 +281,7 @@ export default async function ZiyaratToursPage() {
                             <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 font-sans text-center">
                                 Private Ziyarat Tours in Saudi Arabia — Your Complete Guide
                             </h2>
-                            <div className="space-y-6 text-gray-300 leading-relaxed font-light">
+                            <div className="space-y-6 text-n-300 leading-relaxed font-light">
                                 <p>A Ziyarat tour is one of the most spiritually rewarding experiences any Umrah pilgrim can undertake. While the rituals of Umrah centre around the Haram in Makkah, the surrounding region is filled with Islamic historical sites that deepen your connection to the faith. At <strong className="text-white">Al Kiswah Umrah Transport</strong>, we offer fully private Ziyarat tours across four cities — <strong className="text-white">Makkah, Madinah, Jeddah, and Taif</strong> — covering more than 43 sacred and historical locations with knowledgeable multilingual drivers.</p>
 
                                 <h3 className="text-xl font-bold text-white mt-8 mb-3 font-sans">Makkah Ziyarat: Walk Where Revelation Began</h3>

@@ -201,7 +201,7 @@ export default async function Home() {
             <h2 className="text-4xl md:text-6xl font-bold font-sans mb-6 drop-shadow-xl tracking-tight text-white">
               Start Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-light to-gold">Spiritual Journey</span> with Peace of Mind
             </h2>
-            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+            <p className="text-lg md:text-xl text-n-400 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
               Don&apos;t worry about logistics. Book your private transfer now and let us serve you with the care you deserve.
             </p>
             <Link
