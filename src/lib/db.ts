@@ -85,7 +85,7 @@ export async function getDashboardStats() {
     const routesCount = await Route.countDocuments({});
 
     const statusMap: Record<string, string> = {
-        confirmed: '#10b981',
+        confirmed: 'hsl(var(--gold))',
         pending: 'hsl(var(--gold))',
         completed: '#3b82f6',
         cancelled: '#ef4444'

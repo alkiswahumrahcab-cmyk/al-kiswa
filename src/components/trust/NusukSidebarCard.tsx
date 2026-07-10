@@ -11,10 +11,10 @@ const NusukSidebarCard = () => {
             <div className="bg-gradient-to-br from-[#0f3d2b] to-[#0a2015] p-6 text-center relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10 mix-blend-overlay" />
                 <div className="w-16 h-16 mx-auto bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm border border-white/20 mb-4 relative z-10">
-                    <ShieldCheck size={32} className="text-[#34d399]" />
+                    <ShieldCheck size={32} className="text-[hsl(var(--gold-light))]" />
                 </div>
                 <h3 className="text-white font-bold text-xl mb-2 relative z-10">Official Transport</h3>
-                <div className="inline-block px-3 py-1 bg-black/40 rounded-full border border-white/10 text-[#34d399] text-xs font-bold tracking-widest uppercase relative z-10">
+                <div className="inline-block px-3 py-1 bg-black/40 rounded-full border border-white/10 text-[hsl(var(--gold-light))] text-xs font-bold tracking-widest uppercase relative z-10">
                     Nusuk Registered
                 </div>
             </div>

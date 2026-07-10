@@ -77,14 +77,14 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
                         key={index} 
                         className={`p-6 transition-all duration-300 group border-white/10 ${
                             card.type === 'whatsapp' 
-                                ? 'bg-emerald-900/30 border-emerald-500/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]' 
+                                ? 'bg-gold-dark/30 border-gold/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]' 
                                 : 'bg-black/40 hover:border-gold/50 hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.15)]'
                         }`}
                     >
                         <div className="flex items-start gap-4">
                             <div className={`p-4 rounded-2xl group-hover:scale-110 transition-transform ${
                                 card.type === 'whatsapp'
-                                    ? 'bg-emerald-500/20 text-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.2)]'
+                                    ? 'bg-gold/20 text-gold shadow-[0_0_10px_rgba(16,185,129,0.2)]'
                                     : 'bg-gold/10 text-gold shadow-[0_0_10px_hsl(var(--gold-glow) / 0.2)]'
                             }`}>
                                 <card.icon size={24} />
@@ -93,7 +93,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
                                 <h3 className="font-bold font-sans text-lg text-white mb-1 flex items-center gap-2">
                                     {card.title}
                                     {card.type === 'whatsapp' && (
-                                        <span className="text-[10px] uppercase tracking-wider bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full">Primary</span>
+                                        <span className="text-[10px] uppercase tracking-wider bg-gold/20 text-gold px-2 py-0.5 rounded-full">Primary</span>
                                     )}
                                 </h3>
                                 <p className="font-medium text-gray-200 mb-1">{card.value}</p>
@@ -105,7 +105,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
                                     onClick={() => trackConversion(card.type as any, 'contact_page')}
                                     className={`inline-flex items-center text-sm font-bold transition-colors ${
                                         card.type === 'whatsapp'
-                                            ? 'bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full mt-2'
+                                            ? 'bg-gold hover:bg-gold text-white px-4 py-2 rounded-full mt-2'
                                             : 'text-gold hover:text-white'
                                     }`}
                                 >

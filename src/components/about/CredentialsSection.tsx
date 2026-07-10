@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import FadeIn from '@/components/common/FadeIn';
@@ -10,7 +10,7 @@ export default function CredentialsSection() {
             <div className="container mx-auto px-4">
                 <FadeIn>
                     <div className="text-center max-w-3xl mx-auto mb-16">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-400 text-sm font-semibold mb-4">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-light dark:bg-gold-dark/30 text-gold-dark dark:text-gold text-sm font-semibold mb-4">
                             <ShieldCheck size={16} />
                             <span>Verified & Licensed</span>
                         </div>
@@ -24,8 +24,8 @@ export default function CredentialsSection() {
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {/* Licence Placeholder */}
-                        <div className="bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl text-center border border-slate-200 dark:border-slate-700 hover:border-emerald-500 transition-colors">
-                            <div className="w-16 h-16 mx-auto bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mb-6 text-emerald-600 dark:text-emerald-400">
+                        <div className="bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl text-center border border-slate-200 dark:border-slate-700 hover:border-gold transition-colors">
+                            <div className="w-16 h-16 mx-auto bg-gold-light dark:bg-gold-dark/30 rounded-full flex items-center justify-center mb-6 text-gold-dark dark:text-gold">
                                 <FileText size={32} />
                             </div>
                             <h3 className="font-bold text-xl text-slate-900 dark:text-white mb-2">Transport Licence</h3>
@@ -36,8 +36,8 @@ export default function CredentialsSection() {
                         </div>
 
                         {/* CR Placeholder */}
-                        <div className="bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl text-center border border-slate-200 dark:border-slate-700 hover:border-emerald-500 transition-colors">
-                            <div className="w-16 h-16 mx-auto bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mb-6 text-emerald-600 dark:text-emerald-400">
+                        <div className="bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl text-center border border-slate-200 dark:border-slate-700 hover:border-gold transition-colors">
+                            <div className="w-16 h-16 mx-auto bg-gold-light dark:bg-gold-dark/30 rounded-full flex items-center justify-center mb-6 text-gold-dark dark:text-gold">
                                 <Award size={32} />
                             </div>
                             <h3 className="font-bold text-xl text-slate-900 dark:text-white mb-2">Commercial Registration</h3>
@@ -48,25 +48,25 @@ export default function CredentialsSection() {
                         </div>
 
                         {/* Fleet Safety */}
-                        <div className="bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl text-center border border-slate-200 dark:border-slate-700 hover:border-emerald-500 transition-colors">
-                            <div className="w-16 h-16 mx-auto bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mb-6 text-emerald-600 dark:text-emerald-400">
+                        <div className="bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl text-center border border-slate-200 dark:border-slate-700 hover:border-gold transition-colors">
+                            <div className="w-16 h-16 mx-auto bg-gold-light dark:bg-gold-dark/30 rounded-full flex items-center justify-center mb-6 text-gold-dark dark:text-gold">
                                 <ShieldCheck size={32} />
                             </div>
                             <h3 className="font-bold text-xl text-slate-900 dark:text-white mb-2">Safety Standards</h3>
                             <p className="text-slate-500 dark:text-slate-400 mb-4 text-sm">Fleet Maintenance</p>
-                            <div className="flex items-center justify-center gap-2 text-sm font-bold text-emerald-600 dark:text-emerald-400">
+                            <div className="flex items-center justify-center gap-2 text-sm font-bold text-gold-dark dark:text-gold">
                                 <CheckCircle size={16} /> 100% Compliant
                             </div>
                         </div>
 
                         {/* Experience */}
-                        <div className="bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl text-center border border-slate-200 dark:border-slate-700 hover:border-emerald-500 transition-colors">
-                            <div className="w-16 h-16 mx-auto bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mb-6 text-emerald-600 dark:text-emerald-400">
+                        <div className="bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl text-center border border-slate-200 dark:border-slate-700 hover:border-gold transition-colors">
+                            <div className="w-16 h-16 mx-auto bg-gold-light dark:bg-gold-dark/30 rounded-full flex items-center justify-center mb-6 text-gold-dark dark:text-gold">
                                 <Award size={32} />
                             </div>
                             <h3 className="font-bold text-xl text-slate-900 dark:text-white mb-2">Trusted Provider</h3>
                             <p className="text-slate-500 dark:text-slate-400 mb-4 text-sm">Umrah Operations</p>
-                            <div className="flex items-center justify-center gap-2 text-sm font-bold text-emerald-600 dark:text-emerald-400">
+                            <div className="flex items-center justify-center gap-2 text-sm font-bold text-gold-dark dark:text-gold">
                                 <CheckCircle size={16} /> Verified Experience
                             </div>
                         </div>

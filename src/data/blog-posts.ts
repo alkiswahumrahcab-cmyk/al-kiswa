@@ -1,4 +1,4 @@
-export const staticBlogPosts = [
+﻿export const staticBlogPosts = [
     {
         _id: 'static-new-hajj-2026',
         slug: 'hajj-2026-guidance-taxi-service-pilgrims',
@@ -294,8 +294,8 @@ May Allah invite you to His House in **Ramadan 2026**, accept your fasting, and 
                 <li>Manage AC temperature to ensure parents aren't too cold.</li>
             </ul>
 
-            <div class="bg-emerald-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-emerald-500 my-8">
-                <h4 class="font-bold text-lg mb-2 text-emerald-800 dark:text-emerald-400">A Spiritual Reminder</h4>
+            <div class="bg-ivory dark:bg-slate-800 p-6 rounded-xl border-l-4 border-gold my-8">
+                <h4 class="font-bold text-lg mb-2 text-gold-dark dark:text-gold">A Spiritual Reminder</h4>
                 <p class="text-slate-700 dark:text-slate-300">"And lower to them the wing of humility out of mercy and say, 'My Lord, have mercy upon them as they brought me up [when I was] small.'" (Quran 17:24). Your patience with their slowness is your ticket to Jannah.</p>
             </div>
 
@@ -470,8 +470,8 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
                 <li><strong>Vehicle Choice:</strong> High-demand vehicles like the <a href="/fleet/gmc-yukon-at4" class="text-amber-600 hover:underline">GMC Yukon XL</a> sell out fast. Early booking guarantees your specific car.</li>
             </ul>
 
-            <div class="bg-emerald-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-emerald-500 my-8">
-                <h4 class="font-bold text-lg mb-2 text-emerald-800 dark:text-emerald-400">Resolution Idea: The "Digital Detox" Umrah</h4>
+            <div class="bg-ivory dark:bg-slate-800 p-6 rounded-xl border-l-4 border-gold my-8">
+                <h4 class="font-bold text-lg mb-2 text-gold-dark dark:text-gold">Resolution Idea: The "Digital Detox" Umrah</h4>
                 <p class="text-slate-700 dark:text-slate-300">For 2026, make a Niyyah to keep your phone in the hotel safe during Salah times. Use the travel time between <a href="/services/makkah-madinah-taxi" class="text-amber-600 hover:underline">Makkah and Madinah</a> to read Seerah instead of scrolling social media. Our wifi-enabled cars are there if you need them, but disconnecting is the ultimate luxury.</p>
             </div>
 
@@ -486,7 +486,7 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
             <p>May 2026 be the year your heart finds peace in the Haram. We are here to carry you on that journey.</p>
             
             <p class="mt-8 font-bold text-center">
-                <a href="/booking" class="inline-block bg-emerald-600 text-white px-8 py-3 rounded-full hover:bg-emerald-700 transition-colors shadow-lg">Plan Your 2026 Journey Now</a>
+                <a href="/booking" class="inline-block bg-gold text-white px-8 py-3 rounded-full hover:bg-gold transition-colors shadow-lg">Plan Your 2026 Journey Now</a>
             </p>
         `,
         category: 'Spiritual',
@@ -780,8 +780,8 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
                 <li>Non-smoker policy inside vehicles.</li>
             </ul>
 
-            <div class="bg-emerald-50 dark:bg-slate-800 p-6 rounded-xl border-l-4 border-emerald-500 my-8">
-                <h4 class="font-bold text-lg mb-2 text-emerald-800 dark:text-emerald-400">The "Sister Safety" Badge</h4>
+            <div class="bg-ivory dark:bg-slate-800 p-6 rounded-xl border-l-4 border-gold my-8">
+                <h4 class="font-bold text-lg mb-2 text-gold-dark dark:text-gold">The "Sister Safety" Badge</h4>
                 <p class="text-slate-700 dark:text-slate-300">For our solo female travelers, we assign specific drivers who have maintained a 5-star rating for professionalism and boundaries. We call this our <strong>"Sister Safety" Corps</strong>—drivers trusted to protect and respect our sisters in Islam.</p>
             </div>
 

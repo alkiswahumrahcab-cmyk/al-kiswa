@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Link from 'next/link';
@@ -108,7 +108,7 @@ export default async function HyundaiStarexPage() {
                                 fallbackSrc={starexImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                             />
-                            <div className="absolute bottom-4 left-4 bg-emerald-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+                            <div className="absolute bottom-4 left-4 bg-gold text-white px-4 py-1 rounded-full text-sm font-bold">
                                 Value Choice
                             </div>
                         </div>

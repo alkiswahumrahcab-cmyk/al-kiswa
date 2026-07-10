@@ -98,11 +98,11 @@ export default function DirectVsMiddleman() {
 
                                         {/* Al Kiswah */}
                                         <div className="flex items-center gap-2 justify-center md:justify-start">
-                                            <div className="shrink-0 p-0.5 rounded-full bg-emerald-500/20 text-emerald-400">
+                                            <div className="shrink-0 p-0.5 rounded-full bg-gold/20 text-gold">
                                                 <Check size={14} />
                                             </div>
-                                            <span className="text-emerald-400 font-semibold text-sm hidden md:block">{row.us.text}</span>
-                                            <span className="text-emerald-400 font-semibold text-xs md:hidden">Direct</span>
+                                            <span className="text-gold font-semibold text-sm hidden md:block">{row.us.text}</span>
+                                            <span className="text-gold font-semibold text-xs md:hidden">Direct</span>
                                         </div>
 
                                         {/* Competitors */}

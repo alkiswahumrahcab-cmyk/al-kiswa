@@ -6,7 +6,7 @@ import FadeIn from '../common/FadeIn';
 
 const features = [
     {
-        icon: <ShieldCheck size={32} className="text-[#34d399]" />,
+        icon: <ShieldCheck size={32} className="text-[hsl(var(--gold-light))]" />,
         title: "Nusuk Verified",
         description: "Officially registered on the Ministry of Hajj's Nusuk platform for authorized pilgrim transport."
     },
@@ -31,7 +31,7 @@ const NusukTrustStrip = () => {
     return (
         <section className="bg-[#0a0a0a] border-y border-white/5 py-16 relative overflow-hidden">
             {/* Background Glows */}
-            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-[#10b981]/5 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-[hsl(var(--gold))]/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
             
             <div className="container mx-auto px-4 relative z-10">

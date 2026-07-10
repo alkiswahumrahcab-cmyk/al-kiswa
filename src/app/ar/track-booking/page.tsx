@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { Search, MapPin, Calendar, User, Phone, CheckCircle, Clock, XCircle, AlertCircle, ArrowRight, Car } from 'lucide-react';
@@ -80,7 +80,7 @@ export default function TrackBookingPage() {
 
     const getStatusColor = (status: string) => {
         switch (status.toLowerCase()) {
-            case 'completed': return 'text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200 dark:border-emerald-800';
+            case 'completed': return 'text-gold bg-ivory dark:bg-gold/10 border-gold-light dark:border-gold-dark';
             case 'confirmed': return 'text-blue-500 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800';
             case 'pending': return 'text-gold bg-amber-50 dark:bg-amber-900/20 border-gold/40 dark:border-gold/30';
             case 'cancelled': return 'text-red-500 bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800';

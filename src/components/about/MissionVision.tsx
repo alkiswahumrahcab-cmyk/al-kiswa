@@ -14,7 +14,7 @@ export default function MissionVision() {
 
                     {/* Mission */}
                     <div
-                        className={`glass-card-emerald p-8 md:p-12 rounded-3xl transition-all duration-700 transform hover:-translate-y-2 group ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
+                        className={`glass-card p-8 md:p-12 rounded-3xl transition-all duration-700 transform hover:-translate-y-2 group ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
                     >
                         <div className="w-20 h-20 bg-gradient-to-br from-gold/20 to-black border border-gold/30 rounded-2xl flex items-center justify-center mb-8 shadow-[0_0_30px_hsl(var(--gold-glow) / 0.1)] group-hover:scale-110 transition-transform duration-500">
                             <Target size={40} strokeWidth={1.5} className="text-gold drop-shadow-[0_0_10px_hsl(var(--gold-glow) / 0.4)]" />
@@ -27,14 +27,14 @@ export default function MissionVision() {
 
                     {/* Vision */}
                     <div
-                        className={`glass-card-emerald p-8 md:p-12 rounded-3xl transition-all duration-700 delay-200 transform hover:-translate-y-2 group ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
+                        className={`glass-card p-8 md:p-12 rounded-3xl transition-all duration-700 delay-200 transform hover:-translate-y-2 group ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
                     >
-                        <div className="w-20 h-20 bg-gradient-to-br from-emerald-900/40 to-black border border-emerald-500/30 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
-                            <Eye size={40} strokeWidth={1.5} className="text-emerald-400 drop-shadow-[0_0_10px_rgba(52,211,153,0.4)]" />
+                        <div className="w-20 h-20 bg-gradient-to-br from-charcoal/40 to-black border border-gold/30 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                            <Eye size={40} strokeWidth={1.5} className="text-gold drop-shadow-[0_0_10px_rgba(52,211,153,0.4)]" />
                         </div>
                         <h2 className="text-4xl font-bold text-white mb-6 font-sans tracking-tight">Our Vision</h2>
                         <p className="text-lg text-gray-300 leading-relaxed font-light group-hover:text-white transition-colors">
-                            To be the most <span className="text-emerald-400 font-medium">trusted companion</span> for Hajj and Umrah pilgrims. We envision a world where every pilgrim can focus entirely on their worship, knowing their journey is in safe, caring hands.
+                            To be the most <span className="text-gold font-medium">trusted companion</span> for Hajj and Umrah pilgrims. We envision a world where every pilgrim can focus entirely on their worship, knowing their journey is in safe, caring hands.
                         </p>
                     </div>
 

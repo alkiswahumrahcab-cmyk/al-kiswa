@@ -408,7 +408,7 @@ export const blogPosts: BlogPost[] = [
             </ul>
 
             <div style="margin: 2rem 0; text-align: center;">
-                <a href="/booking" style="background: linear-gradient(90deg, #10b981, #059669); color: white; padding: 1rem 2rem; border-radius: 12px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);">
+                <a href="/booking" style="background: linear-gradient(90deg, hsl(var(--gold)), #059669); color: white; padding: 1rem 2rem; border-radius: 12px; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.3);">
                     <span>Get Your Fixed Price Quote</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                 </a>

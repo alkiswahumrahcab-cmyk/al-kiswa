@@ -69,7 +69,7 @@ export default function CompanyStory() {
 
                                 {/* Content Card */}
                                 <div className="ml-16 md:ml-0 md:w-5/12">
-                                    <GlassCard delay={index * 0.2} className="p-8 relative hover:-translate-y-2 transition-transform duration-500 border-l-4 border-l-gold glass-card-emerald !bg-emerald-950/10">
+                                    <GlassCard delay={index * 0.2} className="p-8 relative hover:-translate-y-2 transition-transform duration-500 border-l-4 border-l-gold glass-card !bg-gold-dark/10">
                                         <div className="flex items-center gap-4 mb-4">
                                             <div className="bg-gold/10 p-3 rounded-xl text-gold border border-gold/20 shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)]">
                                                 <item.icon size={24} />

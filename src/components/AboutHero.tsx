@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Image from 'next/image';
 
 export default function AboutHero() {
@@ -13,15 +13,15 @@ export default function AboutHero() {
                     className="object-cover"
                     priority
                 />
-                {/* Premium Emerald Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/80 via-emerald-900/40 to-emerald-950/90 mix-blend-multiply" />
-                <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-transparent to-transparent opacity-70" />
+                {/* Premium gold Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-charcoal/80 via-charcoal/40 to-charcoal/90 mix-blend-multiply" />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-transparent opacity-70" />
                 {/* Texture */}
                 <div className="absolute inset-0 bg-heritage opacity-[0.05] mix-blend-overlay pointer-events-none" />
             </div>
 
             {/* Light Beam Effect */}
-            <div className="absolute top-0 right-1/4 w-[400px] h-full bg-gradient-to-l from-emerald-400/5 to-transparent skew-x-[15deg] blur-3xl pointer-events-none z-[1]" />
+            <div className="absolute top-0 right-1/4 w-[400px] h-full bg-gradient-to-l from-gold-light/5 to-transparent skew-x-[15deg] blur-3xl pointer-events-none z-[1]" />
 
             {/* Content */}
             <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto flex flex-col items-center">
@@ -31,7 +31,7 @@ export default function AboutHero() {
                     <span className="text-gradient-gold">Sincerity & Excellence</span>
                 </h1>
                 <div className="w-24 h-1 bg-gold rounded-full mb-8 shadow-lg shadow-gold/20" />
-                <p className="text-xl md:text-2xl font-light text-emerald-50/90 leading-relaxed drop-shadow-md max-w-2xl">
+                <p className="text-xl md:text-2xl font-light text-ivory/90 leading-relaxed drop-shadow-md max-w-2xl">
                     Your journey of faith deserves the highest level of <br className="hidden md:block" /> comfort, safety, and spiritual care.
                 </p>
             </div>

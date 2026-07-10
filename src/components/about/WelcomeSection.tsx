@@ -82,7 +82,7 @@ export default function WelcomeSection() {
                     <div className="space-y-8">
                         {/* Features Box */}
                         <FadeIn delay={0.4}>
-                            <div className="glass-card-emerald p-8 md:p-10">
+                            <div className="glass-card p-8 md:p-10">
                                 <h3 className="text-2xl font-bold text-white mb-8 font-sans flex justify-between items-center border-b border-white/10 pb-4">
                                     Why Choose Us?
                                     <span className="font-reem-kufi text-2xl text-gold">لماذا نحن؟</span>
@@ -90,7 +90,7 @@ export default function WelcomeSection() {
                                 <ul className="space-y-5">
                                     {whyChooseUsItems.map((item, index) => (
                                         <li key={index} className="flex items-start gap-4 group">
-                                            <CheckCircle2 className="text-emerald-500 shrink-0 mt-1 bg-emerald-500/10 rounded-full p-0.5" size={24} />
+                                            <CheckCircle2 className="text-gold shrink-0 mt-1 bg-gold/10 rounded-full p-0.5" size={24} />
                                             <span className="text-gray-300 group-hover:text-white transition-colors">{parseMarkdown(item)}</span>
                                         </li>
                                     ))}

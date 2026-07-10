@@ -92,7 +92,7 @@ export default function ArticleGrid({
                     return (
                         <FadeIn key={linkSlug} delay={index * 0.05}>
                             <Link href={`/blog/${linkSlug}`} className="group h-full block">
-                                <article className="h-full flex flex-col glass-card-emerald hover:-translate-y-2 relative isolate group-hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.15)]">
+                                <article className="h-full flex flex-col glass-card hover:-translate-y-2 relative isolate group-hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.15)]">
 
                                     {/* Image */}
                                     <div className="relative h-64 overflow-hidden border-b border-white/5">

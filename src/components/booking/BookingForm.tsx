@@ -494,15 +494,15 @@ export default function BookingForm() {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-emerald-900/40 to-green-900/40 border border-emerald-500/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-[0_0_30px_rgba(16,185,129,0.1)]"
+                        className="mb-8 p-6 rounded-2xl bg-gradient-to-r from-charcoal/40 to-green-900/40 border border-gold/30 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-[0_0_30px_rgba(16,185,129,0.1)]"
                     >
                         <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
-                                <MessageCircle size={24} className="text-emerald-400" />
+                            <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
+                                <MessageCircle size={24} className="text-gold" />
                             </div>
                             <div>
                                 <h3 className="text-white font-bold text-lg">Experiencing connection issues?</h3>
-                                <p className="text-emerald-200 text-sm">Our live pricing engine is taking longer than expected to load. You can easily book your trip via WhatsApp right now.</p>
+                                <p className="text-gold text-sm">Our live pricing engine is taking longer than expected to load. You can easily book your trip via WhatsApp right now.</p>
                             </div>
                         </div>
                         <a 

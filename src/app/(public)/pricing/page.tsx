@@ -331,7 +331,7 @@ export default async function PricingPage() {
                                     href="https://wa.me/966548707332"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-emerald-600 text-white font-bold px-10 py-4 rounded-xl hover:bg-emerald-500 transition-colors uppercase tracking-wider"
+                                    className="bg-gold text-black font-bold px-10 py-4 rounded-xl hover:bg-gold-light transition-colors uppercase tracking-wider"
                                 >
                                     WhatsApp Us
                                 </a>

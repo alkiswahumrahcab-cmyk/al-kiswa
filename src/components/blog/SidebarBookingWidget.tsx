@@ -32,8 +32,8 @@ export default function SidebarBookingWidget() {
                     </div>
                 </div>
 
-                <div className="p-3 bg-emerald-500/10 border border-emerald-500/20 rounded-lg">
-                    <p className="text-xs text-emerald-400 text-center font-medium">
+                <div className="p-3 bg-gold/10 border border-gold/20 rounded-lg">
+                    <p className="text-xs text-gold text-center font-medium">
                         ✨ Best Price Guarantee
                     </p>
                 </div>

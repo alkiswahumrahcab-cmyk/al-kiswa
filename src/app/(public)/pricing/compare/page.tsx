@@ -247,7 +247,7 @@ export default function ComparePage() {
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
                             {[
                                 { val: '0%', label: 'Platform Commission', color: 'text-gold' },
-                                { val: '20–30%', label: 'Cheaper than Kiwi Taxi', color: 'text-emerald-400' },
+                                { val: '20–30%', label: 'Cheaper than Kiwi Taxi', color: 'text-gold' },
                                 { val: '10,000+', label: 'Pilgrims Transported', color: 'text-white' },
                                 { val: '5.0★', label: 'Google Rating', color: 'text-gold' },
                             ].map(stat => (
@@ -318,10 +318,10 @@ export default function ComparePage() {
                                             {/* Al Kiswah */}
                                             <td className="py-3 px-3">
                                                 <div className="flex items-start gap-1.5">
-                                                    <div className="mt-0.5 shrink-0 p-0.5 rounded-full bg-emerald-500/20 text-emerald-400">
+                                                    <div className="mt-0.5 shrink-0 p-0.5 rounded-full bg-gold/20 text-gold">
                                                         <Check size={11} />
                                                     </div>
-                                                    <span className="text-emerald-400 text-xs leading-tight">{row.alkiswah.text}</span>
+                                                    <span className="text-gold text-xs leading-tight">{row.alkiswah.text}</span>
                                                 </div>
                                             </td>
                                             {/* Kiwi */}
@@ -397,7 +397,7 @@ export default function ComparePage() {
                                                 <th className="text-center px-4 py-3 text-gold font-bold">Al Kiswah</th>
                                                 <th className="text-center px-4 py-3 text-gray-400 font-medium">Kiwi Taxi</th>
                                                 <th className="text-center px-4 py-3 text-gray-400 font-medium hidden md:table-cell">Booking.com</th>
-                                                <th className="text-center px-4 py-3 text-emerald-400 font-medium hidden md:table-cell">You Save</th>
+                                                <th className="text-center px-4 py-3 text-gold font-medium hidden md:table-cell">You Save</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -417,7 +417,7 @@ export default function ComparePage() {
                                                             <span className="text-gray-500 line-through">${v.booking}</span>
                                                         </td>
                                                         <td className="px-4 py-3 text-center hidden md:table-cell">
-                                                            <span className="bg-emerald-500/15 text-emerald-400 text-xs font-bold px-2 py-1 rounded-full">
+                                                            <span className="bg-gold/15 text-gold text-xs font-bold px-2 py-1 rounded-full">
                                                                 ${saveVsKiwi} ({savePct}%)
                                                             </span>
                                                         </td>
@@ -482,7 +482,7 @@ export default function ComparePage() {
                                     href="https://wa.me/966548707332"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-emerald-600 text-white font-bold px-10 py-4 rounded-xl hover:bg-emerald-500 transition-colors uppercase tracking-wider"
+                                    className="bg-gold text-black font-bold px-10 py-4 rounded-xl hover:bg-gold-light transition-colors uppercase tracking-wider"
                                 >
                                     WhatsApp for Quote
                                 </a>

@@ -122,7 +122,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                     )}
                                     {/* Badges */}
                                     {isFamilyFriendly && (
-                                        <div className="absolute top-0 left-0 bg-emerald-900/90 text-emerald-400 text-[8px] font-bold px-2 py-0.5 rounded-br-lg uppercase tracking-wide">
+                                        <div className="absolute top-0 left-0 bg-gold text-gold text-[8px] font-bold px-2 py-0.5 rounded-br-lg uppercase tracking-wide">
                                             Family
                                         </div>
                                     )}
@@ -220,7 +220,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                         >
                             <div className="bg-black/60 backdrop-blur-md rounded-[22px] h-full relative z-10 overflow-hidden border border-white/5 group-hover:border-gold/20 transition-colors flex flex-col">
                                 {isFamilyFriendly && (
-                                    <div className="absolute top-0 left-0 bg-emerald-900/90 border-b border-r border-emerald-500/30 text-emerald-400 text-[10px] font-bold px-4 py-1.5 rounded-br-2xl uppercase tracking-wider z-20 flex items-center gap-1.5 shadow-lg">
+                                    <div className="absolute top-0 left-0 bg-gold border-b border-r border-gold/30 text-gold text-[10px] font-bold px-4 py-1.5 rounded-br-2xl uppercase tracking-wider z-20 flex items-center gap-1.5 shadow-lg">
                                         <Users size={12} /> Family Choice
                                     </div>
                                 )}
@@ -298,7 +298,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
             {/* Child Seat Toggle */}
             <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                    <div className={`p-2.5 rounded-full ${data.childSeats ? 'bg-emerald-500/20 text-emerald-400' : 'bg-white/10 text-gray-400'}`}>
+                    <div className={`p-2.5 rounded-full ${data.childSeats ? 'bg-gold/20 text-gold' : 'bg-white/10 text-gray-400'}`}>
                         <Users size={18} />
                     </div>
                     <div>
@@ -310,7 +310,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                     onClick={() => updateData({ childSeats: !data.childSeats })}
                     className={`min-w-[80px] px-4 py-2.5 rounded-xl font-bold uppercase tracking-wider text-xs transition-all border min-h-[44px]
                         ${data.childSeats
-                            ? 'bg-emerald-500 text-white border-emerald-500 shadow-lg shadow-emerald-500/20'
+                            ? 'bg-gold text-white border-gold shadow-lg shadow-gold/20'
                             : 'bg-transparent text-gray-400 border-white/20 hover:border-white/50'}
                     `}
                 >

@@ -78,7 +78,7 @@ export default function PolicyModal({ isOpen, type, onClose }: PolicyModalProps)
                 <ol className="list-decimal pl-5 space-y-3">
                     <li><strong>Build your itinerary:</strong> select route(s), date, time, and passengers.</li>
                     <li><strong>Choose your vehicle:</strong> select from our fleet (GMC Yukon XL, Hyundai Staria, Toyota HiAce/Coaster, Camry, Kia K5, Xpander).</li>
-                    <li><strong>Enter guest details:</strong> submit your info — <strong className="text-emerald-400">no payment is taken online.</strong></li>
+                    <li><strong>Enter guest details:</strong> submit your info — <strong className="text-gold">no payment is taken online.</strong></li>
                     <li><strong>Confirmation:</strong> Our team confirms availability and contacts you <strong className="text-white">before your flight</strong> with driver and vehicle details.</li>
                     <li><strong>Arrival:</strong> Meet your driver on arrival; pay in cash. Free cancellation up to 24h.</li>
                 </ol>

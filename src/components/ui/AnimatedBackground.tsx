@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -53,7 +53,7 @@ export default function AnimatedBackground() {
                     repeat: Infinity,
                     ease: "easeInOut"
                 }}
-                className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-emerald-500/5 rounded-full blur-[100px]"
+                className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[100px]"
             />
 
             {/* Divine Dust Motes & Particles - Client Only */}
@@ -86,7 +86,7 @@ export default function AnimatedBackground() {
             )}
 
             {/* Light Rays Effect */}
-            <div className="absolute inset-0 pointer-events-none z-0 bg-gradient-to-tr from-emerald-950/20 via-transparent to-gold/5" />
+            <div className="absolute inset-0 pointer-events-none z-0 bg-gradient-to-tr from-charcoal/20 via-transparent to-gold/5" />
         </div>
     );
 }

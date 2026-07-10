@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -31,7 +31,7 @@ export const Toast = ({ message, type, isVisible, onClose }: ToastProps) => {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 20, scale: 0.9 }}
                     className={`fixed bottom-6 right-6 z-[10000] flex items-center gap-3 px-6 py-4 rounded-xl shadow-2xl border backdrop-blur-md ${type === 'success'
-                        ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-600 dark:text-emerald-400'
+                        ? 'bg-gold/10 border-gold/20 text-gold-dark dark:text-gold'
                         : 'bg-red-500/10 border-red-500/20 text-red-600 dark:text-red-400'
                         }`}
                 >

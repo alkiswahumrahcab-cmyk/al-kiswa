@@ -209,8 +209,8 @@ const Hero: React.FC<HeroProps> = ({
                             ) : badge
                         ) : (
                             <div className="flex gap-3">
-                                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-500/30 text-emerald-400 text-xs font-bold tracking-widest uppercase backdrop-blur-sm shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-                                    <Shield size={14} className="fill-emerald-400/20" />
+                                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold border border-gold/30 text-gold text-xs font-bold tracking-widest uppercase backdrop-blur-sm shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+                                    <Shield size={14} className="fill-gold-light/20" />
                                     Ministry Licensed Operator
                                 </span>
                             </div>

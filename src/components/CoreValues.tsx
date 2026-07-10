@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Shield, Clock, Heart, Star } from 'lucide-react';
 
 const values = [
@@ -24,7 +24,7 @@ const values = [
         icon: Star,
         title: "Spiritual Care",
         desc: "We understand the sanctity of your journey and strive to maintain an atmosphere of respect and tranquility.",
-        color: "emerald"
+        color: "gold"
     }
 ];
 

@@ -19,7 +19,7 @@ export default function ReviewSnippet({
     return (
         <div className="my-8 relative group">
             {/* Decorative background blur */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-gold/20 to-emerald-500/20 rounded-2xl blur-lg opacity-50 group-hover:opacity-100 transition duration-500" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-gold/20 to-gold/20 rounded-2xl blur-lg opacity-50 group-hover:opacity-100 transition duration-500" />
 
             <div className="relative bg-white dark:bg-slate-900 border border-gold/20 p-6 rounded-xl shadow-sm">
                 <div className="flex gap-1 text-amber-400 mb-3">

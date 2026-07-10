@@ -10,7 +10,7 @@ export default function BlogHero() {
                 <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-10 mix-blend-overlay" />
 
                 {/* Gradient Overlays */}
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-900/20 rounded-full blur-[120px] pointer-events-none" />
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[120px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
             </div>
 

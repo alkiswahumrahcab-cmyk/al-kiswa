@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Link from 'next/link';
@@ -130,7 +130,7 @@ export default async function ToyotaCoasterPage() {
                                 fallbackSrc={coasterImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                             />
-                            <div className="absolute bottom-4 left-4 bg-emerald-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+                            <div className="absolute bottom-4 left-4 bg-gold text-white px-4 py-1 rounded-full text-sm font-bold">
                                 Group Favorite
                             </div>
                         </div>
@@ -140,38 +140,38 @@ export default async function ToyotaCoasterPage() {
                             </h2>
                             <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
                                 Experience seamless group travel with the Toyota Coaster. Designed for comfort and durability, it offers a smooth ride for up to 19 passengers.
-                                Whether you are traveling from <Link href="/services/jeddah-airport-transfer" className="text-emerald-600 font-medium hover:underline">Jeddah Airport</Link> or visiting Ziyarat sites, the Coaster ensures everyone travels together in comfort.
+                                Whether you are traveling from <Link href="/services/jeddah-airport-transfer" className="text-gold-dark font-medium hover:underline">Jeddah Airport</Link> or visiting Ziyarat sites, the Coaster ensures everyone travels together in comfort.
                             </p>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
-                                        <Users className="text-emerald-500" size={20} /> 19 passengers
+                                        <Users className="text-gold" size={20} /> 19 passengers
                                     </div>
                                     <p className="text-sm text-slate-500">Ideal for 3-5 families</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
-                                        <Briefcase className="text-emerald-500" size={20} /> 15+ Bags
+                                        <Briefcase className="text-gold" size={20} /> 15+ Bags
                                     </div>
                                     <p className="text-sm text-slate-500">Ample storage space</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
-                                        <Shield className="text-emerald-500" size={20} /> Safety First
+                                        <Shield className="text-gold" size={20} /> Safety First
                                     </div>
                                     <p className="text-sm text-slate-500">Equipped with ABS & safety belts</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
-                                        <Fuel className="text-emerald-500" size={20} /> Smooth Ride
+                                        <Fuel className="text-gold" size={20} /> Smooth Ride
                                     </div>
                                     <p className="text-sm text-slate-500">Stable suspension system</p>
                                 </div>
                             </div>
 
                             <div className="mt-10">
-                                <Link href="/booking" className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-emerald-500/20">
+                                <Link href="/booking" className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-gold/20">
                                     Book Toyota Coaster <ArrowRight size={20} />
                                 </Link>
                             </div>
@@ -231,8 +231,8 @@ export default async function ToyotaCoasterPage() {
                                 icon: MapPin
                             }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-md border-t-4 border-emerald-500 transition-all hover:-translate-y-1">
-                                <item.icon className="w-10 h-10 text-emerald-500 mb-4" />
+                            <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-md border-t-4 border-gold transition-all hover:-translate-y-1">
+                                <item.icon className="w-10 h-10 text-gold mb-4" />
                                 <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">{item.title}</h3>
                                 <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
                             </div>

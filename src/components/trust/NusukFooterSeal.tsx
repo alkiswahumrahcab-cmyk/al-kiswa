@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { ShieldCheck, Phone } from 'lucide-react';
@@ -16,17 +16,17 @@ const NusukFooterSeal = () => {
                     
                     {/* Left: Seal and Text */}
                     <div className="flex items-center gap-6 max-w-2xl text-center lg:text-left">
-                        <div className="hidden sm:flex w-20 h-20 rounded-full bg-white/5 items-center justify-center border-2 border-[#34d399]/30 shrink-0">
-                            <ShieldCheck size={40} className="text-[#34d399]" />
+                        <div className="hidden sm:flex w-20 h-20 rounded-full bg-white/5 items-center justify-center border-2 border-[hsl(var(--gold-light))]/30 shrink-0">
+                            <ShieldCheck size={40} className="text-[hsl(var(--gold-light))]" />
                         </div>
                         <div>
                             <div className="flex items-center justify-center lg:justify-start gap-2 mb-2">
-                                <ShieldCheck size={20} className="text-[#34d399] sm:hidden" />
+                                <ShieldCheck size={20} className="text-[hsl(var(--gold-light))] sm:hidden" />
                                 <h3 className="text-white font-bold text-xl uppercase tracking-wider">
                                     Nusuk Verified Platform
                                 </h3>
                             </div>
-                            <p className="text-[#34d399]/80 text-sm leading-relaxed">
+                            <p className="text-[hsl(var(--gold-light))]/80 text-sm leading-relaxed">
                                 All Al Kiswah Umrah Cab vehicles are officially registered on the Nusuk platform — the Ministry of Hajj & Umrah's government-verified system for licensed pilgrim transport in Saudi Arabia.
                             </p>
                         </div>

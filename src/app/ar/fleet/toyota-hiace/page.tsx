@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Link from 'next/link';
@@ -155,7 +155,7 @@ export default async function ToyotaHiacePage() {
                                 fallbackSrc={hiaceImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                             />
-                            <div className="absolute bottom-4 left-4 bg-emerald-600 text-white px-4 py-1 rounded-full text-sm font-bold">
+                            <div className="absolute bottom-4 left-4 bg-gold text-white px-4 py-1 rounded-full text-sm font-bold">
                                 Capacity Leader
                             </div>
                         </div>
@@ -164,39 +164,39 @@ export default async function ToyotaHiacePage() {
                                 Why Choose Toyota Hiace for Group Umrah?
                             </h2>
                             <p className="text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
-                                Keep your group united. The Toyota Hiace is perfect for families traveling from <Link href="/ar/services/jeddah-airport-transfer" className="text-emerald-600 font-medium hover:underline">Jeddah Airport to Makkah</Link>.
+                                Keep your group united. The Toyota Hiace is perfect for families traveling from <Link href="/ar/services/jeddah-airport-transfer" className="text-gold-dark font-medium hover:underline">Jeddah Airport to Makkah</Link>.
                                 Known for its reliability and powerful AC, it ensures a comfortable journey across Saudi Arabia for up to 12 passengers.
                             </p>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
-                                        <Users className="text-emerald-500" size={20} /> 10 Passengers
+                                        <Users className="text-gold" size={20} /> 10 Passengers
                                     </div>
                                     <p className="text-sm text-slate-500">Perfect for 2-3 families</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
-                                        <Briefcase className="text-emerald-500" size={20} /> 10+ Bags
+                                        <Briefcase className="text-gold" size={20} /> 10+ Bags
                                     </div>
                                     <p className="text-sm text-slate-500">Dedicated rear luggage area</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
-                                        <Shield className="text-emerald-500" size={20} /> Extreme Reliability
+                                        <Shield className="text-gold" size={20} /> Extreme Reliability
                                     </div>
                                     <p className="text-sm text-slate-500">Toyota's legendarily durable engine</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
-                                        <Fuel className="text-emerald-500" size={20} /> Fuel Efficient
+                                        <Fuel className="text-gold" size={20} /> Fuel Efficient
                                     </div>
                                     <p className="text-sm text-slate-500">High efficiency for long distances</p>
                                 </div>
                             </div>
 
                             <div className="mt-10">
-                                <Link href="/ar/booking" className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-emerald-500/20">
+                                <Link href="/ar/booking" className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-gold/20">
                                     Book Toyota Hiace <ArrowRight size={20} />
                                 </Link>
                             </div>
@@ -238,7 +238,7 @@ export default async function ToyotaHiacePage() {
             <section className="py-16 bg-slate-900 text-white overflow-hidden relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                 <div className="container mx-auto px-4 text-center relative z-10">
-                    <span className="text-emerald-500 font-bold tracking-widest uppercase text-sm mb-4 block">Spacious Group Travel</span>
+                    <span className="text-gold font-bold tracking-widest uppercase text-sm mb-4 block">Spacious Group Travel</span>
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>
 
                     <div className="max-w-6xl mx-auto">
@@ -273,8 +273,8 @@ export default async function ToyotaHiacePage() {
                                 icon: Shield
                             }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-md border-t-4 border-emerald-500 transition-all hover:-translate-y-1">
-                                <item.icon className="w-10 h-10 text-emerald-500 mb-4" />
+                            <div key={idx} className="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-md border-t-4 border-gold transition-all hover:-translate-y-1">
+                                <item.icon className="w-10 h-10 text-gold mb-4" />
                                 <h3 className="text-xl font-bold mb-2 text-slate-800 dark:text-white">{item.title}</h3>
                                 <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
                             </div>

@@ -21,7 +21,7 @@ export default function CheckoutFooter({ contactSettings }: CheckoutFooterProps)
                 
                 {/* Reassurance Line */}
                 <div className="mb-6">
-                    <p className="text-sm md:text-base font-semibold text-emerald-400">
+                    <p className="text-sm md:text-base font-semibold text-gold">
                         No prepayment · Free cancellation up to 24h · Pay cash on arrival.
                     </p>
                 </div>

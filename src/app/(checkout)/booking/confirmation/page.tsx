@@ -91,9 +91,9 @@ function ConfirmationContent() {
                             initial={{ opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.25 }}
-                            className="inline-flex items-center gap-1.5 bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3"
+                            className="inline-flex items-center gap-1.5 bg-gold/15 border border-gold/30 text-gold text-[11px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3"
                         >
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
                             Confirmed
                         </motion.div>
 
@@ -136,7 +136,7 @@ function ConfirmationContent() {
                             <span className="text-slate-400 text-xs font-sans font-normal">ID</span>
                             <span>#{id}</span>
                             {copied
-                                ? <Check size={14} className="text-emerald-400" />
+                                ? <Check size={14} className="text-gold" />
                                 : <Copy size={14} className="opacity-50 group-hover:opacity-100 transition-opacity" />
                             }
                         </motion.button>

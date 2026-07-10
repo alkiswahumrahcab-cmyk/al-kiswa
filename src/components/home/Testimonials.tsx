@@ -220,7 +220,7 @@ export default function Testimonials() {
 
                                         {/* Footer */}
                                         <div className="mt-auto pt-5 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
-                                            <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-emerald-500" /> Google Verified</span>
+                                            <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-gold" /> Google Verified</span>
                                             <span>Journey Completed</span>
                                         </div>
                                     </div>

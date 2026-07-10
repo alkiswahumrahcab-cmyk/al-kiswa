@@ -159,7 +159,7 @@ export default function BookingSuccessModal({
                                             </div>
                                             <div className="flex gap-4 items-start">
                                                 <div className="w-7 h-7 rounded-full bg-gold/20 text-gold flex items-center justify-center shrink-0 font-bold text-sm mt-0.5">3</div>
-                                                <p className="text-white text-base font-montserrat leading-relaxed">On arrival, your driver meets you — <strong className="text-emerald-400">pay cash, no prepayment needed</strong>.</p>
+                                                <p className="text-white text-base font-montserrat leading-relaxed">On arrival, your driver meets you — <strong className="text-gold">pay cash, no prepayment needed</strong>.</p>
                                             </div>
                                         </div>
                                         <div className="mt-6 pt-5 border-t border-white/10">

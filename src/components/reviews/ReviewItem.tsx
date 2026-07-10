@@ -42,8 +42,8 @@ export default function ReviewItem({ review }: ReviewProps) {
                         ))}
                     </div>
                     {review.rating >= 4 && (
-                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-500/20 text-[10px] font-bold uppercase tracking-widest text-emerald-400">
-                            <CheckCircle2 size={12} className="text-emerald-400" />
+                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold border border-gold/20 text-[10px] font-bold uppercase tracking-widest text-gold">
+                            <CheckCircle2 size={12} className="text-gold" />
                             <span>Verified</span>
                         </div>
                     )}

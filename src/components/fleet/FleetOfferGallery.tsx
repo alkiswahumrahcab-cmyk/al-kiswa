@@ -132,7 +132,7 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
             {/* Background Ambience */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[100px]" />
-                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-emerald-900/10 rounded-full blur-[100px]" />
+                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gold rounded-full blur-[100px]" />
             </div>
 
             <div className="container mx-auto px-4 relative z-10">

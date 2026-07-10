@@ -178,9 +178,9 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
                             const waNum = settings?.contact?.whatsapp?.replace(/\D/g, '') || '966548707332';
                             window.open(`https://wa.me/${waNum}`, '_blank');
                         }}
-                        className="ml-auto mr-2 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500 hover:text-black transition-all text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full flex items-center gap-1.5"
+                        className="ml-auto mr-2 bg-gold/10 border border-gold/30 text-gold hover:bg-gold hover:text-black transition-all text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full flex items-center gap-1.5"
                     >
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
                         Live Agent
                     </button>
 

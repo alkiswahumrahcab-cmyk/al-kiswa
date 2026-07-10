@@ -86,7 +86,7 @@ export default function PriceComparisonTable() {
             <div className="container mx-auto px-4">
                 <FadeIn>
                     <div className="text-center mb-14">
-                        <span className="inline-block bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+                        <span className="inline-block bg-gold/10 border border-gold/30 text-gold text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
                             Real Price Comparison
                         </span>
                         <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
@@ -164,7 +164,7 @@ export default function PriceComparisonTable() {
                                                 <span className="text-gray-600 line-through text-xs">
                                                     ${lowestKiwi}
                                                 </span>
-                                                <span className="bg-emerald-500/15 text-emerald-400 text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                                                <span className="bg-gold/15 text-gold text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
                                                     <TrendingDown size={11} />
                                                     Save {savingPct}%
                                                 </span>
@@ -185,7 +185,7 @@ export default function PriceComparisonTable() {
                                                             <th className="text-left px-4 py-3 text-gray-400 font-medium">Vehicle Class</th>
                                                             <th className="text-center px-4 py-3 text-gold font-bold">Direct (Us)</th>
                                                             <th className="text-center px-4 py-3 text-red-400 font-medium">Via Platform</th>
-                                                            <th className="text-center px-4 py-3 text-emerald-400 font-medium hidden md:table-cell">You Save</th>
+                                                            <th className="text-center px-4 py-3 text-gold font-medium hidden md:table-cell">You Save</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -205,7 +205,7 @@ export default function PriceComparisonTable() {
                                                                         <span className="text-red-400 line-through opacity-70">${v.kiwiPrice}</span>
                                                                     </td>
                                                                     <td className="px-4 py-3 text-center hidden md:table-cell">
-                                                                        <span className="text-emerald-400 font-semibold">${save} ({pct}%)</span>
+                                                                        <span className="text-gold font-semibold">${save} ({pct}%)</span>
                                                                     </td>
                                                                 </tr>
                                                             );
@@ -225,7 +225,7 @@ export default function PriceComparisonTable() {
                                                     href="https://wa.me/966548707332"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="sm:w-auto bg-emerald-600/20 border border-emerald-600/40 text-emerald-400 font-bold py-3 px-6 rounded-xl text-center hover:bg-emerald-600 hover:text-white transition-colors text-sm"
+                                                    className="sm:w-auto bg-gold/20 border border-gold text-gold font-bold py-3 px-6 rounded-xl text-center hover:bg-gold hover:text-white transition-colors text-sm"
                                                 >
                                                     WhatsApp Quote
                                                 </a>

@@ -348,8 +348,8 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                                                             <h5 className="text-xs text-gray-500 uppercase font-bold mb-3">Included Services</h5>
                                                             <div className="flex flex-wrap gap-2">
                                                                 {features.map((f, i) => (
-                                                                    <div key={i} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-900/20 border border-emerald-500/20 text-emerald-100 text-xs font-medium">
-                                                                        <CheckCircle2 size={12} className="text-emerald-500" /> {f}
+                                                                    <div key={i} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/20 text-gold-light text-xs font-medium">
+                                                                        <CheckCircle2 size={12} className="text-gold" /> {f}
                                                                     </div>
                                                                 ))}
                                                                 <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/30 text-gold-light text-xs font-medium">
