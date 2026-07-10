@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { ShieldCheck, Phone } from 'lucide-react';
@@ -26,7 +26,7 @@ const NusukFooterSeal = () => {
                                     Nusuk Verified Platform
                                 </h3>
                             </div>
-                            <p className="text-[hsl(var(--gold-light))]/80 text-sm leading-relaxed">
+                            <p className="text-white/80 text-sm leading-relaxed">
                                 All Al Kiswah Umrah Cab vehicles are officially registered on the Nusuk platform — the Ministry of Hajj & Umrah's government-verified system for licensed pilgrim transport in Saudi Arabia.
                             </p>
                         </div>
