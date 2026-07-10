@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Link from 'next/link';
@@ -40,8 +40,8 @@ export async function generateMetadata(): Promise<Metadata> {
             "family minivan taxi makkah",
             "jeddah airport to makkah transfer",
             "starex umrah cab",
-            "فان عائلي مكة",
-            "توصيل مطار جدة"
+            "??? ????? ???",
+            "????? ???? ???"
         ],
         alternates: generateMetadataAlternates("/fleet/hyundai-starex"),
     };
@@ -108,7 +108,7 @@ export default async function HyundaiStarexPage() {
                                 fallbackSrc={starexImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                             />
-                            <div className="absolute bottom-4 left-4 bg-gold text-white px-4 py-1 rounded-full text-sm font-bold">
+                            <div className="absolute bottom-4 left-4 bg-gold text-black px-4 py-1 rounded-full text-sm font-bold">
                                 Value Choice
                             </div>
                         </div>
@@ -210,12 +210,12 @@ export default async function HyundaiStarexPage() {
                         /> */}
                         <div className="w-full h-[400px] flex items-center justify-center bg-n-800 rounded-2xl border border-n-700">
                             <div className="text-center">
-                                <h3 className="text-2xl font-bold text-white mb-2">360° View Coming Soon</h3>
+                                <h3 className="text-2xl font-bold text-white mb-2">360� View Coming Soon</h3>
                                 <p className="text-n-400">We will upload the interior view later.</p>
                             </div>
                         </div>
                     </div>
-                    <p className="text-n-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
+                    <p className="text-n-400 mt-6 text-sm">Interactive 360� Interior View not available on mobile devices in low-data mode.</p>
                 </div>
             </section>
 
@@ -264,3 +264,4 @@ export default async function HyundaiStarexPage() {
         </main>
     );
 }
+

@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { Star, Quote, CheckCircle2 } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
@@ -42,7 +42,7 @@ export default function ReviewItem({ review }: ReviewProps) {
                         ))}
                     </div>
                     {review.rating >= 4 && (
-                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold border border-gold/20 text-[10px] font-bold uppercase tracking-widest text-gold">
+                        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold/15 border border-gold/20 text-[10px] font-bold uppercase tracking-widest text-gold">
                             <CheckCircle2 size={12} className="text-gold" />
                             <span>Verified</span>
                         </div>
@@ -82,7 +82,7 @@ export default function ReviewItem({ review }: ReviewProps) {
                                 </svg>
                                 Google Review
                             </span>
-                            <span className="opacity-30">•</span>
+                            <span className="opacity-30">�</span>
                             <span suppressHydrationWarning className="opacity-60">{new Date(review.date).toLocaleDateString()}</span>
                         </div>
                     </div>
@@ -91,3 +91,4 @@ export default function ReviewItem({ review }: ReviewProps) {
         </GlassCard>
     );
 }
+

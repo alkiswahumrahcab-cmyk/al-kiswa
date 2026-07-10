@@ -1,4 +1,4 @@
-﻿import {
+import {
     Body,
     Button,
     Container,
@@ -70,7 +70,7 @@ export const AbandonedCartTemplate = ({
                                 <Section className="text-center mb-8">
                                     <Button
                                         href={recoveryLink}
-                                        className="bg-gold text-white font-bold px-8 py-4 rounded-xl text-base hover:bg-[#B38E2D] block w-full"
+                                        className="bg-gold text-black font-bold px-8 py-4 rounded-xl text-base hover:bg-[#B38E2D] block w-full"
                                     >
                                         Complete My Booking
                                     </Button>
@@ -85,7 +85,7 @@ export const AbandonedCartTemplate = ({
                         {/* Footer */}
                         <Section className="text-center mt-8">
                             <Text className="text-n-400 text-xs">
-                                © {new Date().getFullYear()} Al Kiswah Transport. All rights reserved.
+                                � {new Date().getFullYear()} Al Kiswah Transport. All rights reserved.
                             </Text>
                             <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/contact`} className="text-n-400 text-xs underline">
                                 Contact Support
@@ -99,3 +99,4 @@ export const AbandonedCartTemplate = ({
 };
 
 export default AbandonedCartTemplate;
+

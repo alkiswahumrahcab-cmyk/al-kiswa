@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Link from 'next/link';
@@ -23,8 +23,8 @@ export async function generateMetadata(): Promise<Metadata> {
             "large group bus makkah",
             "coaster umrah transfer",
             "19 seater bus jeddah",
-            "باص كوستر مكة",
-            "نقل جماعي للعمرة"
+            "??? ????? ???",
+            "??? ????? ??????"
         ],
         alternates: generateMetadataAlternates("/fleet/toyota-coaster"),
     };
@@ -130,7 +130,7 @@ export default async function ToyotaCoasterPage() {
                                 fallbackSrc={coasterImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                             />
-                            <div className="absolute bottom-4 left-4 bg-gold text-white px-4 py-1 rounded-full text-sm font-bold">
+                            <div className="absolute bottom-4 left-4 bg-gold text-black px-4 py-1 rounded-full text-sm font-bold">
                                 Group Favorite
                             </div>
                         </div>
@@ -247,3 +247,4 @@ export default async function ToyotaCoasterPage() {
         </main>
     );
 }
+

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { Mail, MapPin, Phone, MessageCircle, Star } from 'lucide-react';
@@ -24,7 +24,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
     const contactCards = [
         {
             icon: MessageCircle,
-            title: "WhatsApp Support (واتساب)",
+            title: "WhatsApp Support (??????)",
             value: "Instant replies for bookings",
             sub: "Average response: < 5 mins",
             action: `https://wa.me/${whatsapp.replace(/\D/g, '')}`,
@@ -33,7 +33,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
         },
         {
             icon: Phone,
-            title: "Call Us 24/7 (اتصل بنا)",
+            title: "Call Us 24/7 (???? ???)",
             value: phone,
             sub: "Support in English, Arabic, Urdu",
             action: `tel:${phone.replace(/\s/g, '')}`,
@@ -42,7 +42,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
         },
         {
             icon: Mail,
-            title: "Email Us (البريد الإلكتروني)",
+            title: "Email Us (?????? ??????????)",
             value: email,
             sub: "For quote requests & inquiries",
             action: `mailto:${email}`,
@@ -51,7 +51,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
         },
         {
             icon: MapPin,
-            title: "Visit Our Office (موقعنا)",
+            title: "Visit Our Office (??????)",
             value: address,
             sub: "Open Daily: 9 AM - 10 PM",
             action: "#map",
@@ -105,11 +105,11 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
                                     onClick={() => trackConversion(card.type as any, 'contact_page')}
                                     className={`inline-flex items-center text-sm font-bold transition-colors ${
                                         card.type === 'whatsapp'
-                                            ? 'bg-gold hover:bg-gold text-white px-4 py-2 rounded-full mt-2'
+                                            ? 'bg-gold hover:bg-gold text-black px-4 py-2 rounded-full mt-2'
                                             : 'text-gold hover:text-white'
                                     }`}
                                 >
-                                    {card.btnText} →
+                                    {card.btnText} ?
                                 </a>
                             </div>
                         </div>
@@ -119,3 +119,4 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
         </FadeIn>
     );
 }
+

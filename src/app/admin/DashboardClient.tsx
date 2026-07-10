@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import KPIGrid from '@/components/admin/dashboard/KPIGrid';
 import PopularRoutesChart from '@/components/admin/dashboard/PopularRoutesChart';
@@ -137,7 +137,7 @@ export default function DashboardClient({
                         </h1>
                         <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                            System Operational • {new Date().toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+                            System Operational � {new Date().toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
                         </p>
                     </div>
                     <div className="flex gap-3">
@@ -187,3 +187,4 @@ export default function DashboardClient({
         </div>
     );
 }
+

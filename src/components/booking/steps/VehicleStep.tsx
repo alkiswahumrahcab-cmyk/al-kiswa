@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import Image from 'next/image';
@@ -78,7 +78,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                 </button>
             </div>
 
-            {/* ── Vehicle List ── */}
+            {/* -- Vehicle List -- */}
             <div className="space-y-3 md:hidden">
                 {vehicles.map((vehicle) => {
                     const count = getCount(vehicle.id);
@@ -171,7 +171,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                                         onClick={() => handleDecrement(vehicle.id)}
                                                         className="w-10 h-10 flex items-center justify-center text-white hover:text-red-400 transition-colors font-bold text-base"
                                                     >
-                                                        −
+                                                        -
                                                     </button>
                                                     <span className="w-7 text-center text-sm font-black text-gold font-mono">{count}</span>
                                                     <button
@@ -196,7 +196,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                 })}
             </div>
 
-            {/* ── Desktop Grid View ── */}
+            {/* -- Desktop Grid View -- */}
             <div className="hidden md:grid md:grid-cols-2 gap-6">
                 {vehicles.map((vehicle) => {
                     const count = getCount(vehicle.id);
@@ -280,7 +280,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                                 onClick={(e) => { e.stopPropagation(); handleDecrement(vehicle.id); }}
                                                 className={`w-9 h-9 rounded-md flex items-center justify-center transition-all text-base font-bold ${count > 0 ? 'bg-white/10 text-white hover:bg-white/20' : 'text-zinc-600 cursor-not-allowed'}`}
                                                 disabled={count === 0}
-                                            >−</button>
+                                            >-</button>
                                             <span className="w-8 text-center font-black text-base text-white font-mono">{count}</span>
                                             <button
                                                 onClick={(e) => { e.stopPropagation(); handleIncrement(vehicle.id); }}
@@ -310,11 +310,11 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                     onClick={() => updateData({ childSeats: !data.childSeats })}
                     className={`min-w-[80px] px-4 py-2.5 rounded-xl font-bold uppercase tracking-wider text-xs transition-all border min-h-[44px]
                         ${data.childSeats
-                            ? 'bg-gold text-white border-gold shadow-lg shadow-gold/20'
+                            ? 'bg-gold text-black border-gold shadow-lg shadow-gold/20'
                             : 'bg-transparent text-n-400 border-white/20 hover:border-white/50'}
                     `}
                 >
-                    {data.childSeats ? 'Added ✓' : 'Add'}
+                    {data.childSeats ? 'Added ?' : 'Add'}
                 </button>
             </div>
 
@@ -331,7 +331,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                     `}
                 >
                     {totalSelected > 0
-                        ? `Continue — ${totalSelected} vehicle${totalSelected > 1 ? 's' : ''}${totalPrice > 0 ? ` · ${formatPrice(totalPrice).formatted}` : ''}`
+                        ? `Continue � ${totalSelected} vehicle${totalSelected > 1 ? 's' : ''}${totalPrice > 0 ? ` � ${formatPrice(totalPrice).formatted}` : ''}`
                         : 'Select a Vehicle to Continue'}
                     {totalSelected > 0 && <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />}
                 </button>
@@ -339,3 +339,4 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
         </div>
     );
 }
+

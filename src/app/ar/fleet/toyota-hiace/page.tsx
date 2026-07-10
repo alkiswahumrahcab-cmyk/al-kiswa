@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Link from 'next/link';
@@ -83,9 +83,9 @@ export async function generateMetadata(): Promise<Metadata> {
             "Cheap Umrah Transport",
             "Group Taxi Jeddah to Makkah",
             "Toyota Hiace Bus Price",
-            "حجز باص هايس",
-            "نقل جماعي مكة",
-            "باص 10 راكب جدة"
+            "??? ??? ????",
+            "??? ????? ???",
+            "??? 10 ???? ???"
         ],
         alternates: {
     ...generateMetadataAlternates("/fleet/toyota-hiace"),
@@ -155,7 +155,7 @@ export default async function ToyotaHiacePage() {
                                 fallbackSrc={hiaceImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                             />
-                            <div className="absolute bottom-4 left-4 bg-gold text-white px-4 py-1 rounded-full text-sm font-bold">
+                            <div className="absolute bottom-4 left-4 bg-gold text-black px-4 py-1 rounded-full text-sm font-bold">
                                 Capacity Leader
                             </div>
                         </div>
@@ -247,7 +247,7 @@ export default async function ToyotaHiacePage() {
                             title="Toyota Hiace Interior"
                         />
                     </div>
-                    <p className="text-n-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
+                    <p className="text-n-400 mt-6 text-sm">Interactive 360� Interior View not available on mobile devices in low-data mode.</p>
                 </div>
             </section>
 
@@ -289,4 +289,5 @@ export default async function ToyotaHiacePage() {
         </main>
     );
 }
+
 
