@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState } from 'react';
 import { X, Download } from 'lucide-react';
@@ -84,7 +84,7 @@ export default function PWAInstallPrompt() {
                 exit={{ y: 100, opacity: 0 }}
                 className="fixed bottom-24 left-4 right-4 z-50 md:bottom-8 md:left-1/2 md:right-auto md:-translate-x-1/2 flex justify-center"
             >
-                <div className="bg-[#1e293b] border border-gray-700/50 rounded-2xl shadow-2xl p-4 flex items-center gap-4 w-full max-w-sm backdrop-blur-sm">
+                <div className="bg-n-800 border border-gray-700/50 rounded-2xl shadow-2xl p-4 flex items-center gap-4 w-full max-w-sm backdrop-blur-sm">
                     {/* Icon */}
                     <div className="w-12 h-12 bg-amber-500 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg shadow-amber-500/20">
                         <Download className="text-black w-6 h-6" />

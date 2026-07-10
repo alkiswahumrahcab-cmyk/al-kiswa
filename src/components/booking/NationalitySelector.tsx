@@ -58,7 +58,7 @@ export default function NationalitySelector({ value, onChange, error }: National
                 aria-expanded={isOpen}
                 aria-controls="nationality-listbox"
                 onClick={() => setIsOpen(true)}
-                className={`w-full flex items-center justify-between pl-8 pr-4 py-4 bg-[#0F172A] border-b-2 text-left outline-none transition-colors ${error ? 'border-red-500' : 'border-white/20 hover:border-gold focus:border-gold'}`}
+                className={`w-full flex items-center justify-between pl-8 pr-4 py-4 bg-n-900 border-b-2 text-left outline-none transition-colors ${error ? 'border-red-500' : 'border-white/20 hover:border-gold focus:border-gold'}`}
             >
                 <span className={`text-base font-medium truncate ${value ? 'text-white' : 'text-gray-500'}`}>
                     {selectedCountry ? (
