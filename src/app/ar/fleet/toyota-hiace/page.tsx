@@ -247,7 +247,7 @@ export default async function ToyotaHiacePage() {
                             title="Toyota Hiace Interior"
                         />
                     </div>
-                    <p className="text-n-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
+                    <p className="text-n-400 mt-6 text-sm">Interactive 360Â° Interior View not available on mobile devices in low-data mode.</p>
                 </div>
             </section>
 

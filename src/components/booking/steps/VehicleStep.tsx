@@ -331,7 +331,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                     `}
                 >
                     {totalSelected > 0
-                        ? `Continue — ${totalSelected} vehicle${totalSelected > 1 ? 's' : ''}${totalPrice > 0 ? ` · ${formatPrice(totalPrice).formatted}` : ''}`
+                        ? `Continue â€” ${totalSelected} vehicle${totalSelected > 1 ? 's' : ''}${totalPrice > 0 ? ` Â· ${formatPrice(totalPrice).formatted}` : ''}`
                         : 'Select a Vehicle to Continue'}
                     {totalSelected > 0 && <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />}
                 </button>

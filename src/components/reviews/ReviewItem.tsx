@@ -82,7 +82,7 @@ export default function ReviewItem({ review }: ReviewProps) {
                                 </svg>
                                 Google Review
                             </span>
-                            <span className="opacity-30">•</span>
+                            <span className="opacity-30">â€¢</span>
                             <span suppressHydrationWarning className="opacity-60">{new Date(review.date).toLocaleDateString()}</span>
                         </div>
                     </div>

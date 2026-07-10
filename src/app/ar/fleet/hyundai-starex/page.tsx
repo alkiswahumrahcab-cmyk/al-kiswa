@@ -203,12 +203,12 @@ export default async function HyundaiStarexPage() {
                         /> */}
                         <div className="w-full h-[400px] flex items-center justify-center bg-n-800 rounded-2xl border border-n-700">
                             <div className="text-center">
-                                <h3 className="text-2xl font-bold text-white mb-2">360° View Coming Soon</h3>
+                                <h3 className="text-2xl font-bold text-white mb-2">360Â° View Coming Soon</h3>
                                 <p className="text-n-400">We will upload the interior view later.</p>
                             </div>
                         </div>
                     </div>
-                    <p className="text-n-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
+                    <p className="text-n-400 mt-6 text-sm">Interactive 360Â° Interior View not available on mobile devices in low-data mode.</p>
                 </div>
             </section>
 

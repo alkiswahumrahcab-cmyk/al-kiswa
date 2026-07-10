@@ -85,7 +85,7 @@ export const AbandonedCartTemplate = ({
                         {/* Footer */}
                         <Section className="text-center mt-8">
                             <Text className="text-n-400 text-xs">
-                                © {new Date().getFullYear()} Al Kiswah Transport. All rights reserved.
+                                Â© {new Date().getFullYear()} Al Kiswah Transport. All rights reserved.
                             </Text>
                             <Link href={`${process.env.NEXT_PUBLIC_APP_URL}/contact`} className="text-n-400 text-xs underline">
                                 Contact Support
