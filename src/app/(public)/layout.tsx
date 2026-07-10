@@ -1,8 +1,7 @@
-﻿
+
 import type { Metadata, Viewport } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/FooterV2";
-import NusukTopBar from "@/components/trust/NusukTopBar";
 import AnnouncementBanner from "@/components/ui/AnnouncementBanner";
 import GlobalClientComponents from "@/components/common/GlobalClientComponents";
 import { getSettings } from "@/lib/settings-storage";
@@ -40,7 +39,6 @@ export default async function UmrahLayout({
     return (
         <>
             <ClientLayoutWrapper>
-                <NusukTopBar />
                 <UmrahPWA />
                 <AnnouncementBanner discount={settings.discount || { enabled: false, type: 'percentage', value: 0 }} />
                 <Navbar />
