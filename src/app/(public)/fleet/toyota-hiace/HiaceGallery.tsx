@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
@@ -69,7 +69,7 @@ export default function HiaceGallery() {
             <div className="container mx-auto px-4">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <span className="text-gold-primary text-sm font-bold tracking-[0.3em] uppercase mb-3 block">Visual Gallery</span>
+                    <span className="text-gold text-sm font-bold tracking-[0.3em] uppercase mb-3 block">Visual Gallery</span>
                     <h2 className="text-4xl md:text-5xl font-bold font-playfair text-white mb-4">
                         Toyota Hiace 2026 in Abha
                     </h2>
@@ -86,8 +86,8 @@ export default function HiaceGallery() {
                             onClick={() => { setActiveCategory(cat); setShowAll(false); }}
                             className={`px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 border ${
                                 activeCategory === cat
-                                    ? 'bg-gold-primary border-gold-primary text-black'
-                                    : 'border-white/20 text-slate-400 hover:border-gold-primary/60 hover:text-white'
+                                    ? 'bg-gold border-gold text-black'
+                                    : 'border-white/20 text-slate-400 hover:border-gold/60 hover:text-white'
                             }`}
                         >
                             {cat}
@@ -119,11 +119,11 @@ export default function HiaceGallery() {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                                <div className="bg-gold-primary/90 p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                                <div className="bg-gold/90 p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300">
                                     <Maximize2 size={22} className="text-black" />
                                 </div>
                             </div>
-                            <span className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-gold-primary text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-gold text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
                                 {img.category}
                             </span>
                         </motion.div>
@@ -135,7 +135,7 @@ export default function HiaceGallery() {
                     <div className="text-center mt-10">
                         <button
                             onClick={() => setShowAll(true)}
-                            className="inline-flex items-center gap-2 px-8 py-3 border-2 border-gold-primary text-gold-primary rounded-full font-bold hover:bg-gold-primary hover:text-black transition-all duration-300"
+                            className="inline-flex items-center gap-2 px-8 py-3 border-2 border-gold text-gold rounded-full font-bold hover:bg-gold hover:text-black transition-all duration-300"
                         >
                             <Grid3X3 size={18} />
                             View All {filtered.length} Images
@@ -162,7 +162,7 @@ export default function HiaceGallery() {
                         {/* Prev */}
                         <button
                             onClick={(e) => { e.stopPropagation(); setSelectedIndex((selectedIndex - 1 + filtered.length) % filtered.length); }}
-                            className="absolute left-4 md:left-8 z-[110] text-white/60 hover:text-white bg-white/10 hover:bg-gold-primary/80 p-3 rounded-full transition-all"
+                            className="absolute left-4 md:left-8 z-[110] text-white/60 hover:text-white bg-white/10 hover:bg-gold/80 p-3 rounded-full transition-all"
                         >
                             <ChevronLeft size={32} />
                         </button>
@@ -186,7 +186,7 @@ export default function HiaceGallery() {
                         {/* Next */}
                         <button
                             onClick={(e) => { e.stopPropagation(); setSelectedIndex((selectedIndex + 1) % filtered.length); }}
-                            className="absolute right-4 md:right-8 z-[110] text-white/60 hover:text-white bg-white/10 hover:bg-gold-primary/80 p-3 rounded-full transition-all"
+                            className="absolute right-4 md:right-8 z-[110] text-white/60 hover:text-white bg-white/10 hover:bg-gold/80 p-3 rounded-full transition-all"
                         >
                             <ChevronRight size={32} />
                         </button>

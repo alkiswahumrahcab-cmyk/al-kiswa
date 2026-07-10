@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import Link from "next/link";
 import { CheckCircle, Phone, MapPin, Star, ArrowRight } from "lucide-react";
 import { JsonLdScript } from "@/components/seo/JsonLd";
@@ -112,26 +112,26 @@ export default function FrancePilgrimsPage() {
       <div className="container relative z-10 mx-auto px-4 max-w-5xl">
 
         <nav aria-label="Fil d'Ariane" className="text-sm text-gray-500 mb-10 flex items-center gap-2">
-          <Link href="/" className="hover:text-gold-primary transition-colors">Accueil</Link>
+          <Link href="/" className="hover:text-gold transition-colors">Accueil</Link>
           <span>/</span>
           <span className="text-gray-300">Transport Omra France</span>
         </nav>
 
         <div className="text-center mb-14">
-          <span className="text-gold-primary font-bold uppercase tracking-widest text-sm">🇫🇷 Pour les Pèlerins Français</span>
+          <span className="text-gold font-bold uppercase tracking-widest text-sm">🇫🇷 Pour les Pèlerins Français</span>
           <h1 className="text-4xl md:text-6xl font-bold mt-4 mb-6 leading-tight">
             Transport Omra<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-primary to-amber-400">Pour Pèlerins Français</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-amber-400">Pour Pèlerins Français</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             De l&apos;aéroport de Djeddah jusqu&apos;au Haram — transfert privé, confortable et à prix fixe.
             Au service des pèlerins de Paris, Lyon, Marseille et toute la France depuis 2014.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-            <Link href="/booking" className="bg-gold-primary text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_rgba(212,175,55,0.4)] uppercase tracking-wider">
+            <Link href="/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)] uppercase tracking-wider">
               Réserver Maintenant
             </Link>
-            <a href="https://wa.me/966548707332" className="border border-gold-primary/50 text-gold-primary font-bold px-8 py-4 rounded-full hover:bg-gold-primary/10 transition-colors uppercase tracking-wider">
+            <a href="https://wa.me/966548707332" className="border border-gold/50 text-gold font-bold px-8 py-4 rounded-full hover:bg-gold/10 transition-colors uppercase tracking-wider">
               WhatsApp
             </a>
           </div>
@@ -140,7 +140,7 @@ export default function FrancePilgrimsPage() {
         <div className="grid sm:grid-cols-3 gap-6 text-center mb-16">
           {[{ stat: "3 000+", label: "Pèlerins Européens Servis" }, { stat: "5★", label: "Note Moyenne" }, { stat: "10+", label: "Ans d'Expérience" }].map((s, i) => (
             <div key={i} className="bg-white/5 rounded-xl p-6 border border-white/10">
-              <div className="text-4xl font-bold text-gold-primary">{s.stat}</div>
+              <div className="text-4xl font-bold text-gold">{s.stat}</div>
               <div className="text-gray-400 mt-2 text-sm">{s.label}</div>
             </div>
           ))}
@@ -149,14 +149,14 @@ export default function FrancePilgrimsPage() {
         <div className="grid md:grid-cols-2 gap-4 mb-16">
           {features.map((f, i) => (
             <div key={i} className="flex items-center gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
-              <CheckCircle className="text-gold-primary shrink-0" size={20} />
+              <CheckCircle className="text-gold shrink-0" size={20} />
               <span className="text-gray-200">{f}</span>
             </div>
           ))}
         </div>
 
         {/* Pricing Guide */}
-        <div className="bg-white/5 rounded-2xl border border-gold-primary/20 p-8 mb-12">
+        <div className="bg-white/5 rounded-2xl border border-gold/20 p-8 mb-12">
           <h2 className="text-2xl font-bold mb-2 text-white">Guide Tarifaire — Transport Omra pour Pèlerins Français</h2>
           <p className="text-gray-400 text-sm mb-6">Tous les prix sont par véhicule, fixes à la réservation. Pas de surprime, pas de suppléments nocturnes.</p>
           <div className="grid sm:grid-cols-2 gap-4 mb-6">
@@ -169,20 +169,20 @@ export default function FrancePilgrimsPage() {
               <div key={i} className="flex items-center justify-between p-4 bg-black/30 rounded-xl border border-white/5">
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-2 text-sm">
-                    <MapPin size={14} className="text-gold-primary shrink-0" />
+                    <MapPin size={14} className="text-gold shrink-0" />
                     <span className="text-gray-300">{route.from} → {route.to}</span>
                   </div>
                   <span className="text-gray-500 text-xs pl-5">{route.note}</span>
                 </div>
-                <span className="text-gold-primary font-bold text-sm shrink-0 ml-4">{route.price}</span>
+                <span className="text-gold font-bold text-sm shrink-0 ml-4">{route.price}</span>
               </div>
             ))}
           </div>
-          <div className="bg-gold-primary/10 border border-gold-primary/20 rounded-xl p-4 text-sm text-gray-300">
-            <strong className="text-gold-primary">Conseil :</strong> Prix par véhicule — un groupe dans un Staria (11 places) revient à environ 4–5€ par personne Djeddah→Mecque.
+          <div className="bg-gold/10 border border-gold/20 rounded-xl p-4 text-sm text-gray-300">
+            <strong className="text-gold">Conseil :</strong> Prix par véhicule — un groupe dans un Staria (11 places) revient à environ 4–5€ par personne Djeddah→Mecque.
           </div>
           <div className="mt-4 text-center">
-            <Link href="/pricing" className="text-gold-primary hover:underline font-semibold text-sm inline-flex items-center gap-1">
+            <Link href="/pricing" className="text-gold hover:underline font-semibold text-sm inline-flex items-center gap-1">
               Voir le tableau complet des tarifs <ArrowRight size={14} />
             </Link>
           </div>
@@ -198,7 +198,7 @@ export default function FrancePilgrimsPage() {
               { step: 3, title: "Retrouvez Votre Chauffeur", desc: "Votre chauffeur bilingue vous accueille à KAIA avec votre nom. Direction votre hôtel, sans escale." },
             ].map((s) => (
               <div key={s.step} className="text-center bg-white/5 rounded-2xl border border-white/10 p-6">
-                <div className="w-12 h-12 rounded-full bg-gold-primary/10 border border-gold-primary/30 flex items-center justify-center text-gold-primary mx-auto mb-4 font-bold text-lg">{s.step}</div>
+                <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mx-auto mb-4 font-bold text-lg">{s.step}</div>
                 <h3 className="font-bold text-white mb-2">{s.title}</h3>
                 <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
               </div>
@@ -214,9 +214,9 @@ export default function FrancePilgrimsPage() {
             <h3 className="text-white font-semibold mt-4">Pourquoi éviter les taxis non réservés à Djeddah ?</h3>
             <p>Les rabatteurs à KAIA pratiquent des tarifs gonflés avec des véhicules non agréés. En réservant avec Al Kiswah, vous bénéficiez d&apos;un prix fixe, d&apos;un véhicule agréé Ministère des Transports et d&apos;un chauffeur professionnel.</p>
             <h3 className="text-white font-semibold mt-4">Meilleur véhicule pour les familles françaises</h3>
-            <p>Le <Link href="/fleet/hyundai-staria" className="text-gold-primary hover:underline">Hyundai Staria</Link> (11 places) est idéal pour les familles. Le <Link href="/fleet/toyota-camry" className="text-gold-primary hover:underline">Toyota Camry</Link> convient aux couples. Les grands groupes choisiront le <Link href="/fleet/toyota-hiace" className="text-gold-primary hover:underline">Toyota Hiace</Link>.</p>
+            <p>Le <Link href="/fleet/hyundai-staria" className="text-gold hover:underline">Hyundai Staria</Link> (11 places) est idéal pour les familles. Le <Link href="/fleet/toyota-camry" className="text-gold hover:underline">Toyota Camry</Link> convient aux couples. Les grands groupes choisiront le <Link href="/fleet/toyota-hiace" className="text-gold hover:underline">Toyota Hiace</Link>.</p>
             <h3 className="text-white font-semibold mt-4">Trajet Mecque–Médine : conseils pratiques</h3>
-            <p>Le trajet Mecque–Médine fait ~430 km (4h30–5h). Réservez à l&apos;avance, surtout pendant le Ramadan. Voir notre page <Link href="/services/makkah-madinah-taxi" className="text-gold-primary hover:underline">Taxi Mecque–Médine</Link> pour plus de détails.</p>
+            <p>Le trajet Mecque–Médine fait ~430 km (4h30–5h). Réservez à l&apos;avance, surtout pendant le Ramadan. Voir notre page <Link href="/services/makkah-madinah-taxi" className="text-gold hover:underline">Taxi Mecque–Médine</Link> pour plus de détails.</p>
           </div>
         </div>
 
@@ -226,9 +226,9 @@ export default function FrancePilgrimsPage() {
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
               <div key={i} className="bg-white/5 rounded-2xl border border-white/10 p-6">
-                <div className="flex gap-1 mb-3">{Array.from({ length: t.stars }).map((_, j) => <Star key={j} size={14} className="fill-gold-primary text-gold-primary" />)}</div>
+                <div className="flex gap-1 mb-3">{Array.from({ length: t.stars }).map((_, j) => <Star key={j} size={14} className="fill-gold text-gold" />)}</div>
                 <p className="text-gray-300 text-sm leading-relaxed mb-4">&ldquo;{t.text}&rdquo;</p>
-                <div className="text-sm font-semibold text-gold-primary">{t.name} <span className="text-gray-500 font-normal">— {t.city}</span></div>
+                <div className="text-sm font-semibold text-gold">{t.name} <span className="text-gray-500 font-normal">— {t.city}</span></div>
               </div>
             ))}
           </div>
@@ -259,19 +259,19 @@ export default function FrancePilgrimsPage() {
               { href: "/services/makkah-madinah-taxi", label: "Taxi Mecque–Médine", desc: "Transport inter-cités" },
               { href: "/pricing", label: "Grille Tarifaire Complète", desc: "Tous véhicules et tarifs" },
             ].map((link, i) => (
-              <Link key={i} href={link.href} className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-gold-primary/30 rounded-xl p-4 transition-all group">
-                <div className="font-semibold text-white group-hover:text-gold-primary transition-colors text-sm">{link.label}</div>
+              <Link key={i} href={link.href} className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-gold/30 rounded-xl p-4 transition-all group">
+                <div className="font-semibold text-white group-hover:text-gold transition-colors text-sm">{link.label}</div>
                 <div className="text-gray-500 text-xs mt-1">{link.desc}</div>
               </Link>
             ))}
           </div>
         </div>
 
-        <div className="text-center bg-gradient-to-r from-gold-primary/10 to-amber-500/10 rounded-2xl border border-gold-primary/30 p-10">
+        <div className="text-center bg-gradient-to-r from-gold/10 to-amber-500/10 rounded-2xl border border-gold/30 p-10">
           <h2 className="text-2xl font-bold mb-3">Prêt à réserver votre transfert Omra ?</h2>
           <p className="text-gray-400 mb-6">Contactez-nous par WhatsApp ou réservez en ligne — réponse en quelques minutes.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/booking" className="bg-gold-primary text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform">Réserver en Ligne</Link>
+            <Link href="/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform">Réserver en Ligne</Link>
             <a href="tel:+966548707332" className="flex items-center justify-center gap-2 border border-white/20 text-white font-bold px-8 py-4 rounded-full hover:bg-white/5 transition-colors">
               <Phone size={18} /> +966 54 870 7332
             </a>

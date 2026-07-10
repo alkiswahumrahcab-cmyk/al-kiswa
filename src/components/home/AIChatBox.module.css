@@ -1,4 +1,4 @@
-.container {
+﻿.container {
     position: fixed;
     bottom: 2rem;
     left: 2rem;
@@ -14,14 +14,14 @@
     border-radius: 50%;
     background: #ffffff !important;
     color: #c5a059;
-    border: 2px solid #EFBF5B !important;
+    border: 2px solid hsl(var(--gold)) !important;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.2),
-        inset 0 0 15px rgba(239, 191, 91, 0.1);
+        inset 0 0 15px hsl(var(--gold-glow) / 0.1);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     z-index: 1002;
@@ -32,7 +32,7 @@
 
 .toggleButton.open {
     background: #09090b !important;
-    border-color: rgba(239, 191, 91, 0.3) !important;
+    border-color: hsl(var(--gold-glow) / 0.3) !important;
     transform: rotate(90deg);
 }
 
@@ -40,15 +40,15 @@
     transform: scale(1.05) translateY(-2px);
     box-shadow:
         0 12px 24px rgba(0, 0, 0, 0.3),
-        0 0 0 2px rgba(239, 191, 91, 0.3);
-    border-color: #EFBF5B;
+        0 0 0 2px hsl(var(--gold-glow) / 0.3);
+    border-color: hsl(var(--gold));
 }
 
 .toggleButton::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(45deg, transparent, rgba(239, 191, 91, 0.1), transparent);
+    background: linear-gradient(45deg, transparent, hsl(var(--gold-glow) / 0.1), transparent);
     transform: translateX(-100%);
     transition: transform 0.6s ease;
 }
@@ -59,15 +59,15 @@
 
 @keyframes pulse-gold {
     0% {
-        box-shadow: 0 0 0 0 rgba(239, 191, 91, 0.4);
+        box-shadow: 0 0 0 0 hsl(var(--gold-glow) / 0.4);
     }
 
     70% {
-        box-shadow: 0 0 0 15px rgba(239, 191, 91, 0);
+        box-shadow: 0 0 0 15px hsl(var(--gold-glow) / 0);
     }
 
     100% {
-        box-shadow: 0 0 0 0 rgba(239, 191, 91, 0);
+        box-shadow: 0 0 0 0 hsl(var(--gold-glow) / 0);
     }
 }
 
@@ -96,7 +96,7 @@
     opacity: 0;
     transform: scale(0.95) translateY(20px);
     pointer-events: none;
-    border: 1px solid rgba(239, 191, 91, 0.1);
+    border: 1px solid hsl(var(--gold-glow) / 0.1);
 }
 
 .chatWindow.open {
@@ -112,7 +112,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid rgba(239, 191, 91, 0.15);
+    border-bottom: 1px solid hsl(var(--gold-glow) / 0.15);
 }
 
 .headerTitle h3 {
@@ -128,7 +128,7 @@
 .headerTitle p {
     margin: 0;
     font-size: 0.75rem;
-    color: #EFBF5B;
+    color: hsl(var(--gold));
     font-weight: 500;
     letter-spacing: 0.02em;
 }
@@ -137,7 +137,7 @@
 .minimizeButton {
     background: rgba(255, 255, 255, 0.05);
     border: none;
-    color: #EFBF5B;
+    color: hsl(var(--gold));
     cursor: pointer;
     opacity: 0.8;
     transition: all 0.2s;
@@ -152,7 +152,7 @@
 .closeButton:hover,
 .minimizeButton:hover {
     opacity: 1;
-    background: rgba(239, 191, 91, 0.15);
+    background: hsl(var(--gold-glow) / 0.15);
     transform: rotate(90deg);
 }
 
@@ -181,7 +181,7 @@
     flex-direction: column;
     gap: 1.25rem;
     background:
-        radial-gradient(circle at 50% 50%, rgba(239, 191, 91, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, hsl(var(--gold-glow) / 0.02) 0%, transparent 50%),
         linear-gradient(to bottom, rgba(9, 9, 11, 0.8), rgba(9, 9, 11, 0.95));
 }
 
@@ -214,11 +214,11 @@
 }
 
 .userMessage {
-    background: linear-gradient(135deg, #EFBF5B, #c5a059);
+    background: linear-gradient(135deg, hsl(var(--gold)), #c5a059);
     color: #000;
     font-weight: 600;
     border-bottom-right-radius: 4px;
-    box-shadow: 0 4px 15px rgba(239, 191, 91, 0.2);
+    box-shadow: 0 4px 15px hsl(var(--gold-glow) / 0.2);
 }
 
 .aiMessage {
@@ -240,22 +240,22 @@
     align-items: center;
     gap: 0.4rem;
     margin-top: 0.75rem;
-    background: rgba(239, 191, 91, 0.1);
-    color: #EFBF5B;
+    background: hsl(var(--gold-glow) / 0.1);
+    color: hsl(var(--gold));
     padding: 0.4rem 0.85rem;
     border-radius: 10px;
     font-size: 0.8rem;
     font-weight: 600;
     text-decoration: none;
-    border: 1px solid rgba(239, 191, 91, 0.2);
+    border: 1px solid hsl(var(--gold-glow) / 0.2);
     transition: all 0.2s;
 }
 
 .messageAction:hover {
-    background: #EFBF5B;
+    background: hsl(var(--gold));
     color: #000;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(239, 191, 91, 0.2);
+    box-shadow: 0 4px 12px hsl(var(--gold-glow) / 0.2);
 }
 
 .quickReplies {
@@ -282,9 +282,9 @@
 }
 
 .quickReplyChip:hover {
-    background: rgba(239, 191, 91, 0.1);
-    border-color: #EFBF5B;
-    color: #EFBF5B;
+    background: hsl(var(--gold-glow) / 0.1);
+    border-color: hsl(var(--gold));
+    color: hsl(var(--gold));
     transform: translateY(-1px);
 }
 
@@ -314,16 +314,16 @@
 }
 
 .input:focus {
-    border-color: #EFBF5B;
+    border-color: hsl(var(--gold));
     background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 0 0 1px rgba(239, 191, 91, 0.3);
+    box-shadow: 0 0 0 1px hsl(var(--gold-glow) / 0.3);
 }
 
 .sendButton {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: #EFBF5B;
+    background: hsl(var(--gold));
     color: #000;
     border: none;
     cursor: pointer;
@@ -331,12 +331,12 @@
     align-items: center;
     justify-content: center;
     transition: all 0.2s;
-    box-shadow: 0 0 15px rgba(239, 191, 91, 0.2);
+    box-shadow: 0 0 15px hsl(var(--gold-glow) / 0.2);
 }
 
 .sendButton:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(239, 191, 91, 0.4);
+    box-shadow: 0 0 25px hsl(var(--gold-glow) / 0.4);
 }
 
 .sendButton:disabled {
@@ -357,8 +357,8 @@
     border-radius: 12px;
     box-shadow:
         0 15px 35px rgba(0, 0, 0, 0.3),
-        0 0 0 1px rgba(239, 191, 91, 0.3);
-    border-right: 3px solid #EFBF5B;
+        0 0 0 1px hsl(var(--gold-glow) / 0.3);
+    border-right: 3px solid hsl(var(--gold));
     cursor: pointer;
     animation: floatGreeting 4s ease-in-out infinite, fadeIn 0.5s ease-out;
     z-index: 1003;
@@ -368,7 +368,7 @@
 
 .welcomeBubble:hover {
     transform: scale(1.05) translateY(-5px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px #EFBF5B;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px hsl(var(--gold));
 }
 
 .bubbleContent {
@@ -400,8 +400,8 @@
 }
 
 .bubbleClose:hover {
-    background: rgba(239, 191, 91, 0.2);
-    color: #EFBF5B;
+    background: hsl(var(--gold-glow) / 0.2);
+    color: hsl(var(--gold));
     transform: scale(1.1);
 }
 

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Calendar, MapPin, ArrowRight } from 'lucide-react';
@@ -8,10 +8,10 @@ export default function SidebarBookingWidget() {
     return (
         <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-6 text-white shadow-xl border border-white/10 relative overflow-hidden">
             {/* Background Pattern */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gold-primary/10 rounded-full blur-3xl -mr-16 -mt-16" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full blur-3xl -mr-16 -mt-16" />
 
             <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                <span className="w-1 h-6 bg-gold-primary rounded-full" />
+                <span className="w-1 h-6 bg-gold rounded-full" />
                 Get a Quote
             </h3>
 
@@ -19,7 +19,7 @@ export default function SidebarBookingWidget() {
                 <div className="space-y-2">
                     <label className="text-xs text-gray-400 uppercase tracking-wider font-semibold">Pickup</label>
                     <div className="flex items-center gap-3 bg-white/5 p-3 rounded-lg border border-white/10">
-                        <MapPin size={18} className="text-gold-primary" />
+                        <MapPin size={18} className="text-gold" />
                         <span className="text-sm">Jeddah Airport (JED)</span>
                     </div>
                 </div>
@@ -27,7 +27,7 @@ export default function SidebarBookingWidget() {
                 <div className="space-y-2">
                     <label className="text-xs text-gray-400 uppercase tracking-wider font-semibold">Drop-off</label>
                     <div className="flex items-center gap-3 bg-white/5 p-3 rounded-lg border border-white/10">
-                        <MapPin size={18} className="text-gold-primary" />
+                        <MapPin size={18} className="text-gold" />
                         <span className="text-sm">Makkah Hotel</span>
                     </div>
                 </div>

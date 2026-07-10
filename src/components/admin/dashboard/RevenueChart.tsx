@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { TrendingUp } from 'lucide-react';
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
@@ -17,7 +17,7 @@ export default function RevenueChart({ data }: RevenueChartProps) {
             <div className="flex items-center justify-between mb-8">
                 <div>
                     <h3 className="text-xl font-bold text-white flex items-center gap-2">
-                        <TrendingUp size={20} className="text-gold-primary" />
+                        <TrendingUp size={20} className="text-gold" />
                         Revenue Analytics
                     </h3>
                     <p className="text-sm text-gray-400 mt-1">Monthly performance overview</p>
@@ -28,8 +28,8 @@ export default function RevenueChart({ data }: RevenueChartProps) {
                     <AreaChart data={data}>
                         <defs>
                             <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="5%" stopColor="#D4AF37" stopOpacity={0.3} />
-                                <stop offset="95%" stopColor="#D4AF37" stopOpacity={0} />
+                                <stop offset="5%" stopColor="hsl(var(--gold))" stopOpacity={0.3} />
+                                <stop offset="95%" stopColor="hsl(var(--gold))" stopOpacity={0} />
                             </linearGradient>
                         </defs>
                         <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
@@ -57,12 +57,12 @@ export default function RevenueChart({ data }: RevenueChartProps) {
                                 borderRadius: '12px',
                                 boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.5)'
                             }}
-                            itemStyle={{ color: '#D4AF37' }}
+                            itemStyle={{ color: 'hsl(var(--gold))' }}
                         />
                         <Area
                             type="monotone"
                             dataKey="revenue"
-                            stroke="#D4AF37"
+                            stroke="hsl(var(--gold))"
                             strokeWidth={3}
                             fillOpacity={1}
                             fill="url(#colorRevenue)"

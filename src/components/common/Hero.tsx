@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useRef } from 'react';
 import Image from 'next/image';
@@ -175,7 +175,7 @@ const Hero: React.FC<HeroProps> = ({
                         <div className="absolute inset-0 bg-gradient-to-b from-primary-black/80 via-primary-black/40 to-primary-black" />
                     )}
                     {!fleetImages && !isSpiritual && (
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold-primary/10 via-transparent to-transparent opacity-60" />
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold/10 via-transparent to-transparent opacity-60" />
                     )}
                 </div>
             </motion.div>
@@ -202,8 +202,8 @@ const Hero: React.FC<HeroProps> = ({
 
                         {badge ? (
                             typeof badge === 'string' ? (
-                                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-primary/10 border border-gold-primary/30 text-gold-primary text-xs font-bold tracking-widest uppercase shadow-lg shadow-gold-primary/5">
-                                    <span className="w-1.5 h-1.5 rounded-full bg-gold-primary animate-pulse" />
+                                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/10 border border-gold/30 text-gold text-xs font-bold tracking-widest uppercase shadow-lg shadow-gold/5">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
                                     {badge}
                                 </span>
                             ) : badge
@@ -221,7 +221,7 @@ const Hero: React.FC<HeroProps> = ({
                     <div>
                         <h1 className="font-sans font-bold text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight drop-shadow-2xl">
                             {title.split(' ').map((word, i) => (
-                                <span key={i} className={i === 1 || word.includes('VIP') ? 'text-gold-metallic drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]' : ''}>
+                                <span key={i} className={i === 1 || word.includes('VIP') ? 'text-gold-metallic drop-shadow-[0_0_15px_hsl(var(--gold-glow) / 0.3)]' : ''}>
                                     {word}{' '}
                                 </span>
                             ))}
@@ -233,7 +233,7 @@ const Hero: React.FC<HeroProps> = ({
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                        className={`text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-2xl ${layout === 'center' ? 'mx-auto' : 'mx-auto lg:mx-0 border-l-2 border-gold-primary/30 pl-6'} ${isSpiritual ? 'text-white/90 drop-shadow-md' : ''}`}
+                        className={`text-lg md:text-xl text-gray-300 font-light leading-relaxed max-w-2xl ${layout === 'center' ? 'mx-auto' : 'mx-auto lg:mx-0 border-l-2 border-gold/30 pl-6'} ${isSpiritual ? 'text-white/90 drop-shadow-md' : ''}`}
                     >
                         {subtitle}
                     </motion.div>
@@ -250,7 +250,7 @@ const Hero: React.FC<HeroProps> = ({
                                 href={ctaLink}
                                 variant="primary"
                                 size="lg"
-                                className="bg-gradient-to-r from-gold-primary to-gold-dark text-black border-none font-bold shadow-[0_0_20px_rgba(239,191,91,0.3)] hover:shadow-[0_0_40px_rgba(239,191,91,0.5)] hover:scale-105 transition-all duration-300"
+                                className="bg-gradient-to-r from-gold to-gold-dark text-black border-none font-bold shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.5)] hover:scale-105 transition-all duration-300"
                                 onClick={() => trackConversion('other', 'hero_cta_booking_start')}
                             >
                                 {ctaText}
@@ -262,7 +262,7 @@ const Hero: React.FC<HeroProps> = ({
                                 href={secondaryCtaLink}
                                 variant="outline"
                                 size="lg"
-                                className="border-white/20 text-white hover:bg-white/10 hover:border-gold-primary/50 backdrop-blur-sm"
+                                className="border-white/20 text-white hover:bg-white/10 hover:border-gold/50 backdrop-blur-sm"
                             >
                                 {secondaryCtaText}
                             </GlassButton>
@@ -282,7 +282,7 @@ const Hero: React.FC<HeroProps> = ({
                         >
                             {stats.map((stat, i) => (
                                 <div key={i} className="flex flex-col gap-1 items-center lg:items-start text-center lg:text-left">
-                                    <div className="flex items-center gap-2 text-gold-primary mb-1">
+                                    <div className="flex items-center gap-2 text-gold mb-1">
                                         {stat.icon || <CheckCircle size={16} />}
                                         <span className="font-bold text-2xl text-white">{stat.value}</span>
                                     </div>
@@ -303,7 +303,7 @@ const Hero: React.FC<HeroProps> = ({
                     >
                         <div className="relative">
                             {/* Enhanced Glow Effect */}
-                            <div className="absolute -inset-1 bg-gradient-to-b from-gold-primary/30 to-transparent blur-3xl opacity-40 rounded-[2.5rem] animate-pulse" />
+                            <div className="absolute -inset-1 bg-gradient-to-b from-gold/30 to-transparent blur-3xl opacity-40 rounded-[2.5rem] animate-pulse" />
                             <div className="absolute inset-0 bg-black/40 backdrop-blur-xl rounded-[2rem] border border-white/10 shadow-2xl" />
 
                             <div className="relative z-10">

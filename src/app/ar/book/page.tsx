@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { Suspense } from 'react';
 import BookingWizard from '@/components/booking/BookingWizard';
@@ -11,7 +11,7 @@ export default function BookPage() {
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none" />
 
             {/* Ambient Glows */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-primary/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[120px] pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold-secondary/5 rounded-full blur-[120px] pointer-events-none" />
 
             {/* Minimalist Hero for Booking */}
@@ -20,9 +20,9 @@ export default function BookPage() {
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="inline-block mb-4 px-4 py-1.5 rounded-full bg-gold-primary/10 border border-gold-primary/20"
+                        className="inline-block mb-4 px-4 py-1.5 rounded-full bg-gold/10 border border-gold/20"
                     >
-                        <span className="text-gold-primary text-xs font-bold uppercase tracking-[0.2em]">Secure Reservation</span>
+                        <span className="text-gold text-xs font-bold uppercase tracking-[0.2em]">Secure Reservation</span>
                     </motion.div>
 
                     <motion.h1
@@ -31,7 +31,7 @@ export default function BookPage() {
                         transition={{ delay: 0.1 }}
                         className="text-4xl md:text-5xl font-sans font-bold text-white mb-6 tracking-tight"
                     >
-                        Book Your <span className="text-gold-primary">Premium</span> Journey
+                        Book Your <span className="text-gold">Premium</span> Journey
                     </motion.h1>
 
                     <motion.p
@@ -49,7 +49,7 @@ export default function BookPage() {
             <div className="container relative z-20 pb-20 px-4">
                 <Suspense fallback={
                     <div className="max-w-4xl mx-auto h-[600px] w-full animate-pulse bg-white/5 rounded-[2rem] border border-white/10 flex items-center justify-center">
-                        <div className="text-gold-primary/50 text-sm font-medium tracking-widest uppercase">Loading Booking Engine...</div>
+                        <div className="text-gold/50 text-sm font-medium tracking-widest uppercase">Loading Booking Engine...</div>
                     </div>
                 }>
                     <BookingWizard />

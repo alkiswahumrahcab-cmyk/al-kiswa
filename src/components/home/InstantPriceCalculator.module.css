@@ -1,4 +1,4 @@
-.section {
+﻿.section {
     padding: 4rem 0;
     background: radial-gradient(circle at top center, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
     position: relative;
@@ -118,7 +118,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #BFA35A, #FCD34D, #BFA35A);
+    background: linear-gradient(90deg, hsl(var(--gold-dark)), hsl(var(--gold-light)), hsl(var(--gold-dark)));
     box-shadow: 0 2px 10px rgba(191, 163, 90, 0.5);
 }
 
@@ -152,7 +152,7 @@
     border-radius: 99px;
     font-size: 0.75rem;
     font-weight: 700;
-    color: #FCD34D;
+    color: hsl(var(--gold-light));
     letter-spacing: 0.05em;
     text-transform: uppercase;
 }
@@ -185,7 +185,7 @@
     font-size: 1.25rem;
     font-weight: 600;
     margin-top: 0.75rem;
-    color: #BFA35A;
+    color: hsl(var(--gold-dark));
 }
 
 .priceLabel {
@@ -247,7 +247,7 @@
 .bookBtn {
     width: 100%;
     padding: 1.25rem;
-    background: linear-gradient(135deg, #BFA35A 0%, #EFBF5B 100%);
+    background: linear-gradient(135deg, hsl(var(--gold-dark)) 0%, hsl(var(--gold)) 100%);
     color: #0A1F44;
     /* Navy Text */
     border-radius: 1rem;

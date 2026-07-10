@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useEffect, useState } from 'react';
 import { useCurrency } from '@/context/CurrencyContext';
@@ -26,8 +26,8 @@ export default function CurrencyToggle({ className = '' }: CurrencyToggleProps) 
             onClick={toggleCurrency}
             className={`
                 relative flex items-center justify-between w-24 h-10 rounded-full 
-                bg-black/50 border border-gold-primary/30 backdrop-blur-md
-                hover:border-gold-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gold-primary/50 shadow-[0_0_15px_rgba(239,191,91,0.1)] hover:shadow-[0_0_20px_rgba(239,191,91,0.2)]
+                bg-black/50 border border-gold/30 backdrop-blur-md
+                hover:border-gold transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-gold/50 shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)] hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.2)]
                 ${className}
             `}
             aria-label="Toggle currency"
@@ -36,7 +36,7 @@ export default function CurrencyToggle({ className = '' }: CurrencyToggleProps) 
             
             {/* Background pill */}
             <motion.div
-                className="absolute inset-y-1 bg-gradient-to-r from-gold-primary to-gold-dark rounded-full shadow-inner"
+                className="absolute inset-y-1 bg-gradient-to-r from-gold to-gold-dark rounded-full shadow-inner"
                 initial={false}
                 animate={{
                     left: currency === 'SAR' ? '4px' : 'calc(100% - 44px)',

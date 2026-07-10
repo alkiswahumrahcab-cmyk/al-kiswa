@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
 import Hero from '@/components/common/Hero';
@@ -37,7 +37,7 @@ export default function PrivacyPage() {
                                 <p className="mb-4">
                                     We may collect, use, store and transfer different kinds of personal data about you which we have grouped together follows:
                                 </p>
-                                <ul className="list-disc pl-5 space-y-2 marker:text-gold-primary">
+                                <ul className="list-disc pl-5 space-y-2 marker:text-gold">
                                     <li><strong className="text-white">Identity Data:</strong> includes first name, last name, username or similar identifier.</li>
                                     <li><strong className="text-white">Contact Data:</strong> includes email address and telephone numbers.</li>
                                     <li><strong className="text-white">Transaction Data:</strong> includes details about payments to and from you and other details of products and services you have purchased from us.</li>
@@ -50,7 +50,7 @@ export default function PrivacyPage() {
                                 <p className="mb-4">
                                     We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:
                                 </p>
-                                <ul className="list-disc pl-5 space-y-2 marker:text-gold-primary">
+                                <ul className="list-disc pl-5 space-y-2 marker:text-gold">
                                     <li>To process and deliver your booking.</li>
                                     <li>To manage our relationship with you.</li>
                                     <li>To improve our website, products/services, marketing or customer relationships.</li>
@@ -72,15 +72,15 @@ export default function PrivacyPage() {
                                 </p>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                     <div className="flex items-center gap-3 p-4 bg-black/40 rounded-lg border border-white/5">
-                                        <MapPin size={24} className="text-gold-primary" />
+                                        <MapPin size={24} className="text-gold" />
                                         <span className="font-medium text-white">Makkah, Saudi Arabia</span>
                                     </div>
                                     <div className="flex items-center gap-3 p-4 bg-black/40 rounded-lg border border-white/5">
-                                        <Phone size={24} className="text-gold-primary" />
+                                        <Phone size={24} className="text-gold" />
                                         <span className="font-medium text-white">+966 54 870 7332</span>
                                     </div>
                                     <div className="flex items-center gap-3 p-4 bg-black/40 rounded-lg border border-white/5">
-                                        <Mail size={24} className="text-gold-primary" />
+                                        <Mail size={24} className="text-gold" />
                                         <span className="font-medium text-white">info@alkiswahumrahtransport.com</span>
                                     </div>
                                 </div>

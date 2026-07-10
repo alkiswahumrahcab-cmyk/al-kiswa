@@ -1,4 +1,4 @@
-.section {
+﻿.section {
     padding: 4rem 0;
     position: relative;
     overflow: hidden;
@@ -301,7 +301,7 @@
     gap: 0.75rem;
     background: linear-gradient(135deg, hsl(var(--secondary)) 0%, #B4941F 100%);
     color: hsl(var(--secondary-foreground));
-    box-shadow: 0 8px 20px -5px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 8px 20px -5px hsl(var(--gold-glow) / 0.4);
     position: relative;
     overflow: hidden;
 }
@@ -319,7 +319,7 @@
 
 .bookBtn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 25px -5px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 12px 25px -5px hsl(var(--gold-glow) / 0.5);
 }
 
 .bookBtn:hover::before {

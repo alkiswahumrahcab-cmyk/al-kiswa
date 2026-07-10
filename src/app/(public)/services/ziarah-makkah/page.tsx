@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -110,8 +110,8 @@ export default async function ZiarahMakkahPage() {
                                 { vehicle: "GMC Yukon", capacity: "7 pax", price: "SAR 400" },
                                 { vehicle: "Toyota Coaster", capacity: "19 pax", price: "SAR 500" },
                             ].map((v, i) => (
-                                <div key={i} className="bg-black/50 border border-white/10 rounded-xl p-4 hover:border-[#D4AF37]/30 transition-all">
-                                    <div className="text-[#D4AF37] font-bold text-lg">{v.price}</div>
+                                <div key={i} className="bg-black/50 border border-white/10 rounded-xl p-4 hover:border-gold/30 transition-all">
+                                    <div className="text-gold font-bold text-lg">{v.price}</div>
                                     <div className="text-white font-semibold text-sm mt-1">{v.vehicle}</div>
                                     <div className="text-gray-500 text-xs">{v.capacity}</div>
                                 </div>
@@ -127,7 +127,7 @@ export default async function ZiarahMakkahPage() {
             <section className="py-20 bg-transparent relative z-10">
                 <div className="container mx-auto px-4">
                     <FadeIn>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white font-sans mb-3 border-l-4 border-[#D4AF37] pl-4">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white font-sans mb-3 border-l-4 border-gold pl-4">
                             15 Sacred Sites We Visit
                         </h2>
                         <p className="text-gray-400 font-light mb-8 ml-6">
@@ -151,8 +151,8 @@ export default async function ZiarahMakkahPage() {
                                 { icon: <Shield size={26} />, title: "Licensed & Safe", desc: "Nusuk-registered, fully insured vehicles with professional licensed drivers." },
                                 { icon: <Users size={26} />, title: "All Group Sizes", desc: "From couples (Camry) to groups of 21 (Coaster) — we have the right vehicle." },
                             ].map((f, i) => (
-                                <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-[#D4AF37]/30 transition-all hover:bg-white/10 group">
-                                    <div className="bg-[#D4AF37]/10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 text-[#D4AF37] border border-[#D4AF37]/20 group-hover:bg-[#D4AF37] group-hover:text-black transition-all">
+                                <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-gold/30 transition-all hover:bg-white/10 group">
+                                    <div className="bg-gold/10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                         {f.icon}
                                     </div>
                                     <h3 className="text-base font-bold mb-2 text-white">{f.title}</h3>
@@ -161,7 +161,7 @@ export default async function ZiarahMakkahPage() {
                             ))}
                         </div>
                         <div className="mt-12">
-                            <Link href="/booking" className="inline-flex items-center btn-gold px-10 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] uppercase tracking-[0.15em] text-sm text-black hover:scale-105">
+                            <Link href="/booking" className="inline-flex items-center btn-gold px-10 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] uppercase tracking-[0.15em] text-sm text-black hover:scale-105">
                                 Book Makkah Ziyarat <ArrowRight size={18} className="ml-2" />
                             </Link>
                         </div>
@@ -177,7 +177,7 @@ export default async function ZiarahMakkahPage() {
                             <h2 className="text-2xl md:text-3xl font-bold text-white font-sans text-center mb-6">Private Makkah Ziyarat Tour — Complete Guide</h2>
                             <p>A <strong className="text-white">Makkah Ziyarat tour</strong> is an essential spiritual experience for every Umrah pilgrim. While the rituals of Umrah centre around the Haram and the Kaaba, the blessed city of Makkah is surrounded by sites where pivotal moments of Islamic history unfolded. At <strong className="text-white">Al Kiswah Umrah Transport</strong>, we offer fully private tours covering <strong className="text-white">15 Islamic historical sites</strong> with knowledgeable, multilingual drivers who share the significance of each location.</p>
                             <p>Our tour begins at <strong className="text-white">Jabal Al-Nour</strong>, the Mountain of Light, where Angel Jibreel (AS) revealed the first verses of the Quran in the Cave of Hira. The journey continues to <strong className="text-white">Jabal Thawr</strong>, where the Prophet (SAW) and Abu Bakr (RA) hid during the Hijra, then on to the vast plains of <strong className="text-white">Arafat</strong> (site of the Farewell Sermon), the tent city of <strong className="text-white">Mina</strong>, and the open skies of <strong className="text-white">Muzdalifah</strong>. We also visit lesser-known but historically rich sites including <strong className="text-white">Masjid Al-Jinn</strong>, <strong className="text-white">Masjid Al-Khayf</strong> (where 70 prophets prayed), and the <strong className="text-white">Hudaybiyyah treaty site</strong> on the Jeddah road.</p>
-                            <p>All prices are <strong className="text-white">fixed per vehicle</strong> starting from SAR 200 (sedan) with fuel, tolls, and unlimited waiting included. Choose from our <Link href="/fleet/toyota-camry" className="text-[#D4AF37] hover:text-white hover:underline">Toyota Camry</Link>, <Link href="/fleet/gmc-yukon-at4" className="text-[#D4AF37] hover:text-white hover:underline">GMC Yukon</Link>, <Link href="/fleet/hyundai-staria" className="text-[#D4AF37] hover:text-white hover:underline">Hyundai Staria</Link>, or <Link href="/fleet/toyota-hiace" className="text-[#D4AF37] hover:text-white hover:underline">Toyota Hiace</Link>. For the complete Ziyarat experience, see our <Link href="/services/ziyarat-tours" className="text-[#D4AF37] hover:text-white hover:underline">full Ziyarat Tours page</Link> covering Makkah, Madinah, Jeddah &amp; Taif.</p>
+                            <p>All prices are <strong className="text-white">fixed per vehicle</strong> starting from SAR 200 (sedan) with fuel, tolls, and unlimited waiting included. Choose from our <Link href="/fleet/toyota-camry" className="text-gold hover:text-white hover:underline">Toyota Camry</Link>, <Link href="/fleet/gmc-yukon-at4" className="text-gold hover:text-white hover:underline">GMC Yukon</Link>, <Link href="/fleet/hyundai-staria" className="text-gold hover:text-white hover:underline">Hyundai Staria</Link>, or <Link href="/fleet/toyota-hiace" className="text-gold hover:text-white hover:underline">Toyota Hiace</Link>. For the complete Ziyarat experience, see our <Link href="/services/ziyarat-tours" className="text-gold hover:text-white hover:underline">full Ziyarat Tours page</Link> covering Makkah, Madinah, Jeddah &amp; Taif.</p>
                         </div>
                     </FadeIn>
                 </div>

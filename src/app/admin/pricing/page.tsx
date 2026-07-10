@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect, memo, useCallback } from 'react';
 import dynamic from 'next/dynamic';
@@ -296,7 +296,7 @@ export default function PricingPage() {
                 <div className="bg-slate-900 border border-white/10 p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
                     <div>
                         <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                            <RotateCcw className="text-gold-primary" size={20} />
+                            <RotateCcw className="text-gold" size={20} />
                             Global Price Adjustment
                         </h2>
                         <p className="text-gray-400 text-sm mt-1">
@@ -316,14 +316,14 @@ export default function PricingPage() {
                                     ...settings,
                                     pricing: { ...settings.pricing, globalPercentageAdjustment: parseFloat(e.target.value) || 0 }
                                 })}
-                                className="bg-transparent text-white text-2xl font-bold w-32 px-4 py-2 border-b-2 border-gold-primary focus:outline-none focus:border-white transition-colors text-center"
+                                className="bg-transparent text-white text-2xl font-bold w-32 px-4 py-2 border-b-2 border-gold focus:outline-none focus:border-white transition-colors text-center"
                                 placeholder="0"
                             />
                         </div>
                         <button
                             onClick={handleSaveGlobalSettings}
                             disabled={isSavingSettings}
-                            className="bg-gold-primary text-black px-6 py-4 rounded-xl font-bold shadow-lg hover:bg-white hover:scale-105 transition-all disabled:opacity-50 disabled:hover:scale-100"
+                            className="bg-gold text-black px-6 py-4 rounded-xl font-bold shadow-lg hover:bg-white hover:scale-105 transition-all disabled:opacity-50 disabled:hover:scale-100"
                         >
                             {isSavingSettings ? 'Saving...' : 'Apply Adjustment'}
                         </button>

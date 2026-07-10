@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useMemo, useRef } from 'react';
 import { motion } from 'framer-motion';
@@ -101,7 +101,7 @@ export default function AirportStylizedCanvas({ routes, activeRouteId, hoveredRo
                                 <motion.path
                                     d={path}
                                     fill="none"
-                                    stroke={isRelevant ? "#EFBF5B" : "#334155"} // Gold if active, Slate-700 if inactive
+                                    stroke={isRelevant ? "hsl(var(--gold))" : "#334155"} // Gold if active, Slate-700 if inactive
                                     strokeWidth={isRelevant ? "0.5" : "0.2"}
                                     strokeDasharray={isActive ? "none" : "1 1"} // Dashed for inactive "planned" routes
                                     animate={{
@@ -115,7 +115,7 @@ export default function AirportStylizedCanvas({ routes, activeRouteId, hoveredRo
                                     <motion.g>
                                         <switch>
                                             <foreignObject width="4" height="4" x="-2" y="-2">
-                                                <div className="w-full h-full flex items-center justify-center text-gold-primary">
+                                                <div className="w-full h-full flex items-center justify-center text-gold">
                                                     <Plane size={8} className="rotate-90" />
                                                 </div>
                                             </foreignObject>
@@ -139,7 +139,7 @@ export default function AirportStylizedCanvas({ routes, activeRouteId, hoveredRo
                             {/* Pulse */}
                             <motion.circle
                                 cx={node.x} cy={node.y} r="3"
-                                stroke="#EFBF5B" strokeWidth="0.1" fill="none"
+                                stroke="hsl(var(--gold))" strokeWidth="0.1" fill="none"
                                 animate={{ scale: [1, 2], opacity: [0.8, 0] }}
                                 transition={{ duration: 2, repeat: Infinity }}
                             />
@@ -161,8 +161,8 @@ export default function AirportStylizedCanvas({ routes, activeRouteId, hoveredRo
             {/* Map Controls Hint */}
             <div className="absolute bottom-6 right-6 flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
                 <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold-primary opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-gold-primary"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gold opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-gold"></span>
                 </span>
                 <span className="text-xs text-gray-300 font-medium tracking-wide">Live Traffic</span>
             </div>

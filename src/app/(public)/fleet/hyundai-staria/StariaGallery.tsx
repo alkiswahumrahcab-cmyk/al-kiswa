@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -89,7 +89,7 @@ export default function StariaGallery() {
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.05 }}
                             onClick={() => openLightbox(idx)}
-                            className="relative h-48 md:h-64 rounded-xl overflow-hidden cursor-pointer group bg-primary-black border border-gold-primary/20"
+                            className="relative h-48 md:h-64 rounded-xl overflow-hidden cursor-pointer group bg-primary-black border border-gold/20"
                         >
                             <Image 
                                 src={src} 
@@ -98,7 +98,7 @@ export default function StariaGallery() {
                                 className="object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100" 
                             />
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <div className="bg-gold-primary/90 p-3 rounded-full text-primary-black transform scale-50 group-hover:scale-100 transition-transform duration-300">
+                                <div className="bg-gold/90 p-3 rounded-full text-primary-black transform scale-50 group-hover:scale-100 transition-transform duration-300">
                                     <Maximize2 size={24} />
                                 </div>
                             </div>
@@ -110,7 +110,7 @@ export default function StariaGallery() {
                     <div className="text-center mt-12">
                         <button 
                             onClick={() => setShowAll(true)}
-                            className="px-8 py-3 border-2 border-gold-primary text-gold-primary rounded-full font-bold hover:bg-gold-primary hover:text-primary-black transition-colors"
+                            className="px-8 py-3 border-2 border-gold text-gold rounded-full font-bold hover:bg-gold hover:text-primary-black transition-colors"
                         >
                             View All 25 Images
                         </button>

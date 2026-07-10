@@ -1,4 +1,4 @@
-export interface BlogPost {
+﻿export interface BlogPost {
     id: string;
     title: string;
     excerpt: string;
@@ -577,7 +577,7 @@ export const blogPosts: BlogPost[] = [
             <div style="margin: 2rem 0; padding: 2rem; background: linear-gradient(to right, #f8fafc, #fff); border: 1px solid #e2e8f0; border-radius: 20px; text-align: center;">
                 <h3 style="margin-top: 0; color: #0f172a;">Focus on Worship, We Handle the Rest</h3>
                 <p style="color: #64748b; margin-bottom: 1.5rem;">Let Al Kiswah Umrah Transport take care of your transfers between Jeddah, Makkah, and Madinah with our premium fleet.</p>
-                <a href="/booking" style="background: #D4AF37; color: white; padding: 1rem 2.5rem; border-radius: 99px; font-weight: bold; text-decoration: none; display: inline-block; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);">
+                <a href="/booking" style="background: #D4AF37; color: white; padding: 1rem 2.5rem; border-radius: 99px; font-weight: bold; text-decoration: none; display: inline-block; box-shadow: 0 4px 15px hsl(var(--gold-glow) / 0.3);">
                     Book Your Ride Now
                 </a>
             </div>

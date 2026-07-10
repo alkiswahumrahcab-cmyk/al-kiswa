@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -26,7 +26,7 @@ export default function BookingGuide({ lang = 'en' }: Props) {
         <section className="py-24 bg-primary-black overflow-hidden relative border-t border-white/5">
             {/* Elegant Background Patterns */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('/pattern.png')] mix-blend-overlay" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold-primary/5 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}
@@ -51,7 +51,7 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                         {lang === 'ar' ? (
                             <>رحلتك في <span className="relative inline-block"><span className="relative z-10 text-gradient-gold">٣ خطوات بسيطة</span></span></>
                         ) : (
-                            <>Your Journey in <br className="hidden md:block" /><span className="relative inline-block"><span className="relative z-10 text-gradient-gold">3 Simple Steps</span><span className="absolute bottom-2 left-0 w-full h-3 bg-gold-primary/10 -rotate-1 z-0 rounded-full blur-sm"></span></span></>
+                            <>Your Journey in <br className="hidden md:block" /><span className="relative inline-block"><span className="relative z-10 text-gradient-gold">3 Simple Steps</span><span className="absolute bottom-2 left-0 w-full h-3 bg-gold/10 -rotate-1 z-0 rounded-full blur-sm"></span></span></>
                         )}
                     </motion.h2>
                     <motion.p
@@ -83,14 +83,14 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                                 {/* Simplified Icon Container - No Rotation */}
                                 <div className="relative mb-6">
                                     <div className="glass-panel w-24 h-24 flex items-center justify-center relative z-10 group-hover:bg-white/10 transition-colors">
-                                        <step.icon size={36} className="text-gold-primary" />
+                                        <step.icon size={36} className="text-gold" />
                                     </div>
 
                                     {/* background glow */}
-                                    <div className="absolute inset-0 bg-gold-primary/20 blur-xl rounded-full -z-10 transform scale-75 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    <div className="absolute inset-0 bg-gold/20 blur-xl rounded-full -z-10 transform scale-75 opacity-0 group-hover:opacity-100 transition-opacity" />
 
                                     {/* Step Number Badge */}
-                                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-gold-primary text-black rounded-lg flex items-center justify-center font-bold text-sm shadow-md z-20 border-2 border-primary-black">
+                                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-gold text-black rounded-lg flex items-center justify-center font-bold text-sm shadow-md z-20 border-2 border-primary-black">
                                         {step.id}
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                         <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
                     </Link>
                     <p className="mt-6 text-sm font-medium text-gray-500 flex items-center justify-center gap-2 uppercase tracking-wide">
-                        <MousePointerClick size={16} className="text-gold-primary" />
+                        <MousePointerClick size={16} className="text-gold" />
                         {lang === 'ar' ? 'لا دفع مسبق مطلوب • الدفع عند الوصول' : 'No prepayment required • Pay upon arrival'}
                     </p>
                 </motion.div>

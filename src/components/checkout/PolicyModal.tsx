@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
@@ -65,7 +65,7 @@ export default function PolicyModal({ isOpen, type, onClose }: PolicyModalProps)
                     <li>You can request access to or deletion of your data via WhatsApp/email.</li>
                 </ul>
                 <div className="pt-4 border-t border-white/10 mt-4">
-                    <Link href="/privacy" className="text-gold-primary hover:underline font-medium" onClick={onClose}>
+                    <Link href="/privacy" className="text-gold hover:underline font-medium" onClick={onClose}>
                         Read full Privacy Policy &rarr;
                     </Link>
                 </div>
@@ -84,7 +84,7 @@ export default function PolicyModal({ isOpen, type, onClose }: PolicyModalProps)
                 </ol>
                 <div className="bg-white/5 p-4 rounded-lg mt-4 border border-white/10">
                     <p className="text-xs text-gray-400">
-                        <strong className="text-gold-primary">Tip:</strong> Add your flight number for airport pickups, and note any requirements for child seats or extra luggage in the details field.
+                        <strong className="text-gold">Tip:</strong> Add your flight number for airport pickups, and note any requirements for child seats or extra luggage in the details field.
                     </p>
                 </div>
             </div>

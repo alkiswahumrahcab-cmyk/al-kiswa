@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -120,7 +120,7 @@ export default function Navbar() {
                                     Al Kiswah
                                 </span>
                             </div>
-                            <span className="text-[0.65rem] font-bold text-gold-primary tracking-[0.2em] uppercase leading-none mt-1.5">
+                            <span className="text-[0.65rem] font-bold text-gold tracking-[0.2em] uppercase leading-none mt-1.5">
                                 Umrah Transport
                             </span>
                         </div>
@@ -136,18 +136,18 @@ export default function Navbar() {
                                     className={`relative text-xs font-medium transition-all duration-300 px-4 py-2.5 rounded-full flex items-center gap-1 cursor-default text-gray-300 hover:text-white group-hover:bg-white/5`}
                                 >
                                     {link.label}
-                                    {link.children && <ChevronDown size={12} className="group-hover:rotate-180 transition-transform duration-300 text-gold-primary" />}
+                                    {link.children && <ChevronDown size={12} className="group-hover:rotate-180 transition-transform duration-300 text-gold" />}
                                 </span>
                             ) : (
                                 <Link
                                     href={link.href}
                                     className={`relative text-xs font-medium transition-all duration-300 px-4 py-2.5 rounded-full flex items-center gap-1 ${pathname === link.href
-                                        ? 'bg-gold-primary text-black font-bold shadow-[0_0_15px_rgba(239,191,91,0.4)]'
+                                        ? 'bg-gold text-black font-bold shadow-[0_0_15px_hsl(var(--gold-glow) / 0.4)]'
                                         : 'text-gray-300 hover:text-white hover:bg-white/5'
                                         }`}
                                 >
                                     {link.label}
-                                    {link.children && <ChevronDown size={12} className="group-hover:rotate-180 transition-transform duration-300 text-gold-primary" />}
+                                    {link.children && <ChevronDown size={12} className="group-hover:rotate-180 transition-transform duration-300 text-gold" />}
                                 </Link>
                             )}
 
@@ -157,7 +157,7 @@ export default function Navbar() {
                                     <div className={`bg-primary-black/95 backdrop-blur-2xl rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.9)] border border-white/10 p-3 relative overflow-hidden ${link.children.length > 4 ? 'w-[600px]' : 'w-[320px]'}`}>
                                         
                                         {/* Subtle elegant top highlight */}
-                                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-gold-primary/50 to-transparent"></div>
+                                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent"></div>
 
                                         <div className={`grid gap-1 ${link.children.length > 4 ? 'grid-cols-2' : 'grid-cols-1'}`}>
                                             {link.children.map((child) => (
@@ -167,9 +167,9 @@ export default function Navbar() {
                                                     className="group/link relative flex flex-col justify-center px-4 py-3.5 rounded-xl transition-all duration-300 hover:bg-white/[0.03] overflow-hidden"
                                                 >
                                                     {/* Hover accent line */}
-                                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-0 bg-gold-primary transition-all duration-300 group-hover/link:h-3/4 rounded-r-full opacity-0 group-hover/link:opacity-100"></div>
+                                                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-0 bg-gold transition-all duration-300 group-hover/link:h-3/4 rounded-r-full opacity-0 group-hover/link:opacity-100"></div>
                                                     
-                                                    <div className="font-sans font-bold text-gray-200 text-sm tracking-wide transition-colors duration-300 group-hover/link:text-gold-primary group-hover/link:translate-x-1 transform">
+                                                    <div className="font-sans font-bold text-gray-200 text-sm tracking-wide transition-colors duration-300 group-hover/link:text-gold group-hover/link:translate-x-1 transform">
                                                         {child.label}
                                                     </div>
                                                     {child.description && (
@@ -191,7 +191,7 @@ export default function Navbar() {
                     <LanguageSwitcher />
                     <Link
                         href="/booking"
-                        className="bg-gradient-to-r from-gold-primary to-gold-dark text-black px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:scale-105 transition-transform shadow-[0_0_20px_rgba(239,191,91,0.3)] flex items-center justify-center"
+                        className="bg-gradient-to-r from-gold to-gold-dark text-black px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:scale-105 transition-transform shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] flex items-center justify-center"
                     >
                         Book Now
                     </Link>
@@ -199,7 +199,7 @@ export default function Navbar() {
 
                 {/* Mobile Menu Button */}
                 <button
-                    className={`xl:hidden p-2 transition-all relative z-50 text-white hover:text-gold-primary bg-white/5 rounded-lg border border-white/10`}
+                    className={`xl:hidden p-2 transition-all relative z-50 text-white hover:text-gold bg-white/5 rounded-lg border border-white/10`}
                     onClick={toggleMenu}
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     aria-expanded={isMenuOpen}
@@ -221,7 +221,7 @@ export default function Navbar() {
                                 Al Kiswah
                             </span>
                         </div>
-                        <span className="text-[0.65rem] font-bold text-gold-primary tracking-[0.2em] uppercase">
+                        <span className="text-[0.65rem] font-bold text-gold tracking-[0.2em] uppercase">
                             Umrah Transport
                         </span>
                     </div>
@@ -239,18 +239,18 @@ export default function Navbar() {
                             {link.children ? (
                                 <button
                                     onClick={() => toggleAccordion(link.label)}
-                                    className="flex items-center justify-between text-2xl font-bold text-gray-200 hover:text-gold-primary transition-colors group text-left"
+                                    className="flex items-center justify-between text-2xl font-bold text-gray-200 hover:text-gold transition-colors group text-left"
                                 >
                                     <span>{link.label}</span>
                                     <ChevronDown 
                                         size={24} 
-                                        className={`transition-transform duration-400 text-gold-primary ${expandedMenu === link.label ? 'rotate-180' : ''}`} 
+                                        className={`transition-transform duration-400 text-gold ${expandedMenu === link.label ? 'rotate-180' : ''}`} 
                                     />
                                 </button>
                             ) : (
                                 <Link
                                     href={link.href}
-                                    className={`text-2xl font-bold transition-all duration-300 ${pathname === link.href ? 'text-gold-primary' : 'text-gray-200 hover:text-white'}`}
+                                    className={`text-2xl font-bold transition-all duration-300 ${pathname === link.href ? 'text-gold' : 'text-gray-200 hover:text-white'}`}
                                     onClick={() => setIsMenuOpen(false)}
                                 >
                                     {link.label}
@@ -261,12 +261,12 @@ export default function Navbar() {
                                 <div 
                                     className={`grid transition-all duration-500 ease-in-out ${expandedMenu === link.label ? 'grid-rows-[1fr] opacity-100 mt-6' : 'grid-rows-[0fr] opacity-0 mt-0'}`}
                                 >
-                                    <div className="overflow-hidden flex flex-col gap-4 pl-4 border-l-2 border-gold-primary/30">
+                                    <div className="overflow-hidden flex flex-col gap-4 pl-4 border-l-2 border-gold/30">
                                         {link.children.map((child) => (
                                             <Link
                                                 key={child.href}
                                                 href={child.href}
-                                                className="text-base text-gray-400 hover:text-gold-primary transition-colors py-1 flex flex-col"
+                                                className="text-base text-gray-400 hover:text-gold transition-colors py-1 flex flex-col"
                                                 onClick={() => setIsMenuOpen(false)}
                                             >
                                                 <span className="font-medium">{child.label}</span>
@@ -284,8 +284,8 @@ export default function Navbar() {
 
                 <div className="p-6 bg-gradient-to-t from-black via-black/80 to-transparent mt-auto pt-12 pb-8 flex flex-col gap-6 border-t border-white/5">
                     <div className="flex items-center justify-between text-gray-300 px-2">
-                        <a href="tel:+966548707332" className="flex items-center gap-3 hover:text-gold-primary transition-colors font-medium group/phone">
-                            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover/phone:bg-gold-primary group-hover/phone:text-black group-hover/phone:border-gold-primary transition-all duration-300">
+                        <a href="tel:+966548707332" className="flex items-center gap-3 hover:text-gold transition-colors font-medium group/phone">
+                            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover/phone:bg-gold group-hover/phone:text-black group-hover/phone:border-gold transition-all duration-300">
                                 <Phone size={18} />
                             </div>
                         </a>
@@ -317,7 +317,7 @@ export default function Navbar() {
 
                     <Link
                         href="/booking"
-                        className="w-full relative overflow-hidden group bg-gold-primary text-black py-4 rounded-xl text-center font-bold uppercase tracking-widest shadow-[0_0_30px_rgba(239,191,91,0.2)] hover:shadow-[0_0_40px_rgba(239,191,91,0.4)] transition-all duration-300"
+                        className="w-full relative overflow-hidden group bg-gold text-black py-4 rounded-xl text-center font-bold uppercase tracking-widest shadow-[0_0_30px_hsl(var(--gold-glow) / 0.2)] hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.4)] transition-all duration-300"
                         onClick={() => setIsMenuOpen(false)}
                     >
                         <span className="relative z-10">Book Now</span>

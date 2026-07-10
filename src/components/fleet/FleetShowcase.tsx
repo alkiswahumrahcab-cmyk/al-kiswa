@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { Users, Briefcase, Check, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
@@ -64,8 +64,8 @@ export default function FleetShowcase({ vehicles }: FleetShowcaseProps) {
     return (
         <section className="py-20 bg-transparent relative overflow-hidden">
             {/* Decor */}
-            <div className="absolute top-0 left-0 w-64 h-64 bg-gold-primary/5 blur-[100px] rounded-full pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold-primary/5 blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute top-0 left-0 w-64 h-64 bg-gold/5 blur-[100px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold/5 blur-[120px] rounded-full pointer-events-none" />
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
@@ -81,7 +81,7 @@ export default function FleetShowcase({ vehicles }: FleetShowcaseProps) {
 
                         return (
                             <FadeIn key={vehicle.id} delay={index * 0.1}>
-                                <GlassCard className="h-full flex flex-col p-0 overflow-hidden group hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] hover:border-gold-primary/40 border-white/10 bg-black/40 backdrop-blur-md transition-all duration-500">
+                                <GlassCard className="h-full flex flex-col p-0 overflow-hidden group hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.2)] hover:border-gold/40 border-white/10 bg-black/40 backdrop-blur-md transition-all duration-500">
                                     <div className="relative h-64 w-full bg-gradient-to-br from-neutral-900 to-black overflow-hidden border-b border-white/5">
                                         <Image
                                             src={vehicle.image}
@@ -111,7 +111,7 @@ export default function FleetShowcase({ vehicles }: FleetShowcaseProps) {
                                                     {discountInfo ? (
                                                         <>
                                                             <span className="text-sm text-gray-600 line-through decoration-red-500/50">{vehicle.price}</span>
-                                                            <span className="text-xl font-bold text-gold-primary">{discountInfo.formatted}</span>
+                                                            <span className="text-xl font-bold text-gold">{discountInfo.formatted}</span>
                                                         </>
                                                     ) : (
                                                         <span className="text-xl font-bold text-white">{vehicle.price}</span>
@@ -122,11 +122,11 @@ export default function FleetShowcase({ vehicles }: FleetShowcaseProps) {
 
                                         <div className="flex gap-4 mb-6">
                                             <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
-                                                <Users size={16} className="text-gold-primary" />
+                                                <Users size={16} className="text-gold" />
                                                 <span className="text-sm font-medium text-gray-300">{vehicle.passengers} pax</span>
                                             </div>
                                             <div className="flex items-center gap-2 bg-white/5 px-3 py-1.5 rounded-lg border border-white/5">
-                                                <Briefcase size={16} className="text-gold-primary" />
+                                                <Briefcase size={16} className="text-gold" />
                                                 <span className="text-sm font-medium text-gray-300">{vehicle.luggage} bags</span>
                                             </div>
                                         </div>
@@ -134,15 +134,15 @@ export default function FleetShowcase({ vehicles }: FleetShowcaseProps) {
                                         <div className="space-y-3 mb-8 flex-1">
                                             {vehicle.features.slice(0, 4).map((feature: string, i: number) => (
                                                 <div key={i} className="flex items-center gap-3">
-                                                    <div className="w-5 h-5 rounded-full bg-gold-primary/10 flex items-center justify-center shrink-0">
-                                                        <Check size={12} className="text-gold-primary" />
+                                                    <div className="w-5 h-5 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
+                                                        <Check size={12} className="text-gold" />
                                                     </div>
                                                     <span className="text-sm text-gray-400 font-light">{feature}</span>
                                                 </div>
                                             ))}
                                         </div>
 
-                                        <Link href="/booking" className="btn-gold w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-black shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] transition-all duration-300 group/btn relative overflow-hidden">
+                                        <Link href="/booking" className="btn-gold w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-black shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] transition-all duration-300 group/btn relative overflow-hidden">
                                             <span className="relative z-10">Book Now</span>
                                             <ArrowRight size={18} className="relative z-10 group-hover/btn:translate-x-1 transition-transform" />
                                         </Link>

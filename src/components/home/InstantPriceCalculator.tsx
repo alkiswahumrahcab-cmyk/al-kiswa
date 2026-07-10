@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { usePricing } from '@/context/PricingContext';
@@ -38,18 +38,18 @@ export default function InstantPriceCalculator() {
     const currentRoute = routes.find(r => r.id === selectedRoute);
     const currentVehicle = vehicles.find(v => v.id === selectedVehicle);
 
-    if (isLoading) return <div className="p-8 text-center text-gold-primary animate-pulse">Loading rates...</div>;
+    if (isLoading) return <div className="p-8 text-center text-gold animate-pulse">Loading rates...</div>;
 
     return (
         <section className="py-24 bg-primary-black relative" id="booking-calculator">
             <div className="container mx-auto px-4 relative z-10">
                 <FadeIn>
                     <div className="text-center mb-16">
-                        <span className="text-gold-primary text-xs font-bold tracking-[0.3em] uppercase mb-4 block">
+                        <span className="text-gold text-xs font-bold tracking-[0.3em] uppercase mb-4 block">
                             Premium Chauffeur Services
                         </span>
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white mb-6">
-                            Plan Your <span className="text-gold-primary">Royal Journey</span>
+                            Plan Your <span className="text-gold">Royal Journey</span>
                         </h2>
                         <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light leading-relaxed">
                             Get an instant quote for your spiritual journey. Transparent pricing, premium vehicles.
@@ -66,7 +66,7 @@ export default function InstantPriceCalculator() {
                                 {/* Route Section */}
                                 <div className="space-y-4">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-full border border-gold-primary text-gold-primary flex items-center justify-center font-bold text-sm">
+                                        <div className="w-8 h-8 rounded-full border border-gold text-gold flex items-center justify-center font-bold text-sm">
                                             1
                                         </div>
                                         <h3 className="text-xl font-bold text-white">Choose Route</h3>
@@ -81,7 +81,7 @@ export default function InstantPriceCalculator() {
                                 {/* Vehicle Section */}
                                 <div className="space-y-4">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-full border border-gold-primary text-gold-primary flex items-center justify-center font-bold text-sm">
+                                        <div className="w-8 h-8 rounded-full border border-gold text-gold flex items-center justify-center font-bold text-sm">
                                             2
                                         </div>
                                         <h3 className="text-xl font-bold text-white">Select Vehicle</h3>
@@ -100,7 +100,7 @@ export default function InstantPriceCalculator() {
                                     <div className="mb-6 text-center">
                                         <span className="text-gray-500 text-xs font-medium uppercase tracking-widest block mb-1">Total Estimate</span>
                                         <div className="flex items-center justify-center gap-1.5 text-white">
-                                            <span className="text-lg text-gold-primary font-medium">SAR</span>
+                                            <span className="text-lg text-gold font-medium">SAR</span>
                                             <span className="text-5xl font-bold tracking-tight">
                                                 {priceDetails ? priceDetails.price.toLocaleString() : 0}
                                             </span>
@@ -118,7 +118,7 @@ export default function InstantPriceCalculator() {
                                         </div>
                                         <div className="flex justify-between text-sm py-2 border-b border-white/5">
                                             <span className="text-gray-500">Vehicle</span>
-                                            <span className="text-gold-primary font-medium">{currentVehicle?.name || '-'}</span>
+                                            <span className="text-gold font-medium">{currentVehicle?.name || '-'}</span>
                                         </div>
                                     </div>
 

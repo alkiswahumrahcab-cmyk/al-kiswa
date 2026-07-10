@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { ShieldCheck, CheckCircle2, Navigation, Clock } from 'lucide-react';
@@ -11,7 +11,7 @@ const features = [
         description: "Officially registered on the Ministry of Hajj's Nusuk platform for authorized pilgrim transport."
     },
     {
-        icon: <CheckCircle2 size={32} className="text-gold-primary" />,
+        icon: <CheckCircle2 size={32} className="text-gold" />,
         title: "Ministry Licensed",
         description: "Fully compliant with Saudi government regulations for safe and legal operations."
     },
@@ -32,7 +32,7 @@ const NusukTrustStrip = () => {
         <section className="bg-[#0a0a0a] border-y border-white/5 py-16 relative overflow-hidden">
             {/* Background Glows */}
             <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-[#10b981]/5 rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-gold-primary/5 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
             
             <div className="container mx-auto px-4 relative z-10">
                 <div className="max-w-3xl mx-auto text-center mb-12">

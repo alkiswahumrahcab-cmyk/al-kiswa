@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { Activity, Calendar, Car, MapPin, TrendingUp } from 'lucide-react';
 
 interface KPIGridProps {
@@ -43,17 +43,17 @@ export default function KPIGrid({
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
             {/* Revenue Card */}
-            <motion.div variants={item} className="relative group bg-primary-black/80 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:border-gold-primary/50 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(212,175,55,0.1)] overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gold-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:bg-gold-primary/10 transition-colors" />
+            <motion.div variants={item} className="relative group bg-primary-black/80 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:border-gold/50 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.1)] overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:bg-gold/10 transition-colors" />
                 <div className="flex justify-between items-start mb-4 relative z-10">
                     <div>
                         <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Total Revenue</p>
                         <h3 className="text-3xl font-bold text-white tracking-tight">
-                            <span className="text-lg text-gold-primary font-normal mr-1">SAR</span>
+                            <span className="text-lg text-gold font-normal mr-1">SAR</span>
                             {totalRevenue.toLocaleString()}
                         </h3>
                     </div>
-                    <div className="p-3 bg-white/5 rounded-xl text-gold-primary border border-white/10 group-hover:bg-gold-primary/10 transition-colors">
+                    <div className="p-3 bg-white/5 rounded-xl text-gold border border-white/10 group-hover:bg-gold/10 transition-colors">
                         <TrendingUp size={24} />
                     </div>
                 </div>

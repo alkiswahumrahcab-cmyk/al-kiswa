@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -245,13 +245,13 @@ const QuickBookingForm = ({
             transition={{ duration: 0.4, ease: "easeOut" }}
         >
             {/* Ambient Glow */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gold-primary/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
 
             {(title || variant === 'fleet') && (
                 <div className="mb-6 border-b border-white/10 pb-4">
                     <h3 className="text-2xl font-sans font-bold text-white mb-1 shadow-sm uppercase tracking-tight flex items-center gap-2">
                         {title || 'Quick Booking'}
-                        <div className="h-px flex-1 bg-gradient-to-r from-gold-primary/50 to-transparent ml-4" />
+                        <div className="h-px flex-1 bg-gradient-to-r from-gold/50 to-transparent ml-4" />
                     </h3>
                     <p className="text-sm text-gray-400 font-medium tracking-wide">
                         {subtitle || 'Premium Luxury Transport'}
@@ -275,7 +275,7 @@ const QuickBookingForm = ({
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
                     >
-                        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-gold-primary to-gold-dark flex items-center justify-center shadow-lg shadow-gold-primary/20">
+                        <div className="w-20 h-20 rounded-full bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center shadow-lg shadow-gold/20">
                             <CheckCircle size={40} className="text-white" />
                         </div>
                         <div>
@@ -300,7 +300,7 @@ const QuickBookingForm = ({
                     >
                         {/* WhatsApp Fast Track - Accessibility Feature */}
                         <div 
-                            className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between gap-4 mb-6 hover:bg-white/10 transition-all duration-300 group cursor-pointer hover:border-gold-primary/30" 
+                            className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between gap-4 mb-6 hover:bg-white/10 transition-all duration-300 group cursor-pointer hover:border-gold/30" 
                             onClick={() => {
                                 const waNum = settings?.contact?.whatsapp?.replace(/\D/g, '') || '966548707332';
                                 window.open(`https://wa.me/${waNum}`, '_blank');
@@ -322,7 +322,7 @@ const QuickBookingForm = ({
 
                         {/* Route Pills */}
                         <div>
-                            <label className="text-[10px] font-bold text-gold-primary/90 uppercase tracking-[0.15em] mb-2.5 block">Popular Routes</label>
+                            <label className="text-[10px] font-bold text-gold/90 uppercase tracking-[0.15em] mb-2.5 block">Popular Routes</label>
                             <div className="flex flex-wrap gap-2">
                                 {[
                                     { label: 'Jeddah ⇄ Makkah', icon: PlaneLanding, pickup: 'Jeddah Airport', dropoff: 'Makkah Hotel' },
@@ -347,12 +347,12 @@ const QuickBookingForm = ({
                                             className={`
                                                 flex items-center gap-2 px-4 py-3 rounded-xl text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 border
                                                 ${isActive
-                                                    ? 'bg-gold-primary text-black border-gold-primary shadow-[0_0_15px_rgba(212,175,55,0.4)] scale-105'
-                                                    : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10 hover:border-gold-primary/50 hover:text-white'
+                                                    ? 'bg-gold text-black border-gold shadow-[0_0_15px_hsl(var(--gold-glow) / 0.4)] scale-105'
+                                                    : 'bg-white/5 border-white/10 text-gray-400 hover:bg-white/10 hover:border-gold/50 hover:text-white'
                                                 }
                                             `}
                                         >
-                                            <route.icon size={12} className={isActive ? 'text-black' : 'text-gold-primary'} />
+                                            <route.icon size={12} className={isActive ? 'text-black' : 'text-gold'} />
                                             {route.label}
                                         </button>
                                     );
@@ -382,7 +382,7 @@ const QuickBookingForm = ({
                                                 });
                                             }
                                         }}
-                                        className="text-[10px] flex items-center gap-1 text-gold-primary hover:text-white transition-colors cursor-pointer ml-auto"
+                                        className="text-[10px] flex items-center gap-1 text-gold hover:text-white transition-colors cursor-pointer ml-auto"
                                     >
                                         <MapPin size={10} /> Use My Location
                                     </button>
@@ -393,8 +393,8 @@ const QuickBookingForm = ({
                                     onChange={(e: any) => setFormData({ ...formData, pickup: e.target.value })}
                                     options={allLocations.map(l => ({ value: l, label: l }))}
                                     placeholder="Pickup Location"
-                                    className="w-full !bg-white/5 !border-white/10 !text-white !placeholder-gray-500 rounded-xl focus:!border-gold-primary focus:!ring-gold-primary/20 hover:!bg-white/10 transition-all font-light"
-                                    icon={<MapPin size={16} className="text-gold-primary" />}
+                                    className="w-full !bg-white/5 !border-white/10 !text-white !placeholder-gray-500 rounded-xl focus:!border-gold focus:!ring-gold/20 hover:!bg-white/10 transition-all font-light"
+                                    icon={<MapPin size={16} className="text-gold" />}
                                 />
                                 {errors.pickup && <span className="text-red-400 text-xs ml-2">{errors.pickup}</span>}
 
@@ -404,8 +404,8 @@ const QuickBookingForm = ({
                                     onChange={(e: any) => setFormData({ ...formData, dropoff: e.target.value })}
                                     options={allLocations.map(l => ({ value: l, label: l }))}
                                     placeholder="Dropoff Location"
-                                    className="w-full !bg-white/5 !border-white/10 !text-white !placeholder-gray-500 rounded-xl focus:!border-gold-primary focus:!ring-gold-primary/20 hover:!bg-white/10 transition-all font-light"
-                                    icon={<MapPin size={16} className="text-gold-primary" />}
+                                    className="w-full !bg-white/5 !border-white/10 !text-white !placeholder-gray-500 rounded-xl focus:!border-gold focus:!ring-gold/20 hover:!bg-white/10 transition-all font-light"
+                                    icon={<MapPin size={16} className="text-gold" />}
                                 />
                                 {errors.dropoff && <span className="text-red-400 text-xs ml-2">{errors.dropoff}</span>}
                             </div>
@@ -413,18 +413,18 @@ const QuickBookingForm = ({
                             {/* Date & Time */}
                             <div className="space-y-4">
                                 <div className="relative group">
-                                    <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gold-primary"><Calendar size={16} /></div>
+                                    <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gold"><Calendar size={16} /></div>
                                     <input
                                         type="date"
                                         value={formData.date ? formData.date.toISOString().split('T')[0] : ''}
                                         onChange={(e) => handleDateChange(e.target.value ? new Date(e.target.value) : null)}
                                         min={new Date().toISOString().split('T')[0]}
-                                        className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold-primary focus:ring-4 focus:ring-gold-primary/10 transition-all text-sm font-light hover:bg-white/10"
+                                        className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm font-light hover:bg-white/10"
                                     />
                                     {errors.date && <span className="text-red-400 text-xs ml-2 absolute -bottom-5">{errors.date}</span>}
                                 </div>
                                 <div className="relative group">
-                                    <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gold-primary"><Clock size={16} /></div>
+                                    <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gold"><Clock size={16} /></div>
                                     <input
                                         type="time"
                                         value={formData.time ? formData.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) : ''}
@@ -434,7 +434,7 @@ const QuickBookingForm = ({
                                             const t = new Date(); t.setHours(h); t.setMinutes(m);
                                             handleTimeChange(t);
                                         }}
-                                        className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold-primary focus:ring-4 focus:ring-gold-primary/10 transition-all text-sm font-light hover:bg-white/10"
+                                        className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm font-light hover:bg-white/10"
                                     />
                                     {errors.time && <span className="text-red-400 text-xs ml-2 absolute -bottom-5">{errors.time}</span>}
                                 </div>
@@ -450,8 +450,8 @@ const QuickBookingForm = ({
                                 // @ts-ignore
                                 options={vehicleOptions}
                                 placeholder="Select Vehicle Class"
-                                className="w-full !bg-white/5 !border-gold-primary/30 !text-white !py-3.5 focus:!border-gold-primary hover:!bg-white/10 transition-all"
-                                icon={<Car size={18} className="text-gold-primary" />}
+                                className="w-full !bg-white/5 !border-gold/30 !text-white !py-3.5 focus:!border-gold hover:!bg-white/10 transition-all"
+                                icon={<Car size={18} className="text-gold" />}
                                 renderOption={(option: any) => (
                                     <div className="flex items-center justify-between w-full p-1">
                                         <div className="flex items-center gap-3">
@@ -489,7 +489,7 @@ const QuickBookingForm = ({
                                     <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col items-end pointer-events-none">
                                         <span className="text-[10px] text-gray-400 uppercase tracking-wider">{selected.price > 0 ? 'Est. Fare' : 'Status'}</span>
                                         {selected.price > 0 ? (
-                                            <span className="text-gold-primary font-bold text-lg leading-none">{selected.price} <span className="text-xs">SAR</span></span>
+                                            <span className="text-gold font-bold text-lg leading-none">{selected.price} <span className="text-xs">SAR</span></span>
                                         ) : (
                                             <span className="text-red-400 font-bold text-xs uppercase tracking-wider">Not Available</span>
                                         )}
@@ -509,38 +509,38 @@ const QuickBookingForm = ({
                                 >
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
                                         <div className="relative">
-                                            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gold-primary"><User size={16} /></div>
+                                            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gold"><User size={16} /></div>
                                             <input
                                                 type="text"
                                                 name="name"
                                                 placeholder="Full Name"
                                                 value={formData.name}
                                                 onChange={handleChange}
-                                                className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold-primary focus:ring-4 focus:ring-gold-primary/10 transition-all text-sm font-light hover:bg-white/10"
+                                                className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm font-light hover:bg-white/10"
                                             />
                                             {errors.name && <span className="text-red-400 text-xs ml-2">{errors.name}</span>}
                                         </div>
                                         <div className="relative">
-                                            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gold-primary"><Phone size={16} /></div>
+                                            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gold"><Phone size={16} /></div>
                                             <input
                                                 type="tel"
                                                 name="phone"
                                                 placeholder="Phone (+966...)"
                                                 value={formData.phone}
                                                 onChange={handleChange}
-                                                className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold-primary focus:ring-4 focus:ring-gold-primary/10 transition-all text-sm font-light hover:bg-white/10"
+                                                className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm font-light hover:bg-white/10"
                                             />
                                             {errors.phone && <span className="text-red-400 text-xs ml-2">{errors.phone}</span>}
                                         </div>
                                         <div className="md:col-span-2 relative">
-                                            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gold-primary"><Mail size={16} /></div>
+                                            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gold"><Mail size={16} /></div>
                                             <input
                                                 type="email"
                                                 name="email"
                                                 placeholder="Email Address *"
                                                 value={formData.email}
                                                 onChange={handleChange}
-                                                className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold-primary focus:ring-4 focus:ring-gold-primary/10 transition-all text-sm font-light hover:bg-white/10"
+                                                className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm font-light hover:bg-white/10"
                                             />
                                             {errors.email && <span className="text-red-400 text-xs ml-2">{errors.email}</span>}
                                             <p className="text-gray-400 text-[10px] mt-1 ml-2">We will send a confirmation mail to this email address.</p>
@@ -576,9 +576,9 @@ const QuickBookingForm = ({
 
                         {/* Trust Badges */}
                         <div className="flex justify-center gap-6 pt-2 opacity-60">
-                            <span className="flex items-center gap-1.5 text-[10px] text-white uppercase tracking-wider font-medium"><ShieldCheck size={12} className="text-gold-primary" /> Secure</span>
-                            <span className="flex items-center gap-1.5 text-[10px] text-white uppercase tracking-wider font-medium"><CreditCard size={12} className="text-gold-primary" /> Pay Later</span>
-                            <span className="flex items-center gap-1.5 text-[10px] text-white uppercase tracking-wider font-medium"><HeartHandshake size={12} className="text-gold-primary" /> 24/7 Support</span>
+                            <span className="flex items-center gap-1.5 text-[10px] text-white uppercase tracking-wider font-medium"><ShieldCheck size={12} className="text-gold" /> Secure</span>
+                            <span className="flex items-center gap-1.5 text-[10px] text-white uppercase tracking-wider font-medium"><CreditCard size={12} className="text-gold" /> Pay Later</span>
+                            <span className="flex items-center gap-1.5 text-[10px] text-white uppercase tracking-wider font-medium"><HeartHandshake size={12} className="text-gold" /> 24/7 Support</span>
                         </div>
                     </motion.form>
                 )}

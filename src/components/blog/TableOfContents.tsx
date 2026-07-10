@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -63,7 +63,7 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
                 className="flex items-center justify-between p-4 cursor-pointer hover:bg-white/5 transition-colors"
                 onClick={() => setIsCollapsed(!isCollapsed)}
             >
-                <div className="flex items-center gap-2 text-gold-primary font-bold text-sm uppercase tracking-wider">
+                <div className="flex items-center gap-2 text-gold font-bold text-sm uppercase tracking-wider">
                     <List size={16} />
                     <span>Table of Contents</span>
                 </div>
@@ -81,7 +81,7 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                     >
-                        <nav className="p-4 pt-0 max-h-[60vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gold-primary/20 scrollbar-track-transparent">
+                        <nav className="p-4 pt-0 max-h-[60vh] overflow-y-auto scrollbar-thin scrollbar-thumb-gold/20 scrollbar-track-transparent">
                             <ul className="space-y-1">
                                 {headings.map((heading) => (
                                     <li
@@ -91,7 +91,7 @@ export default function TableOfContents({ content }: TableOfContentsProps) {
                                         <a
                                             href={`#${heading.id}`}
                                             className={`block py-1.5 text-sm transition-all duration-200 border-l-2 pl-3 ${activeId === heading.id
-                                                    ? 'border-gold-primary text-gold-primary font-medium bg-gold-primary/5'
+                                                    ? 'border-gold text-gold font-medium bg-gold/5'
                                                     : 'border-transparent text-gray-400 hover:text-white hover:border-white/20'
                                                 }`}
                                             onClick={(e) => {

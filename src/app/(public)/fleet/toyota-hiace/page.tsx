@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Link from 'next/link';
 import Image from 'next/image';
@@ -157,7 +157,7 @@ export default async function ToyotaHiacePage() {
             <section className="py-24 bg-[#0d0d0d]" id="exterior">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
-                        <span className="text-gold-primary text-sm font-bold tracking-[0.3em] uppercase mb-3 block">Real Abha Shots</span>
+                        <span className="text-gold text-sm font-bold tracking-[0.3em] uppercase mb-3 block">Real Abha Shots</span>
                         <h2 className="text-4xl md:text-5xl font-bold font-playfair text-white mb-4">Toyota Hiace Exterior Design</h2>
                         <p className="text-slate-400 max-w-2xl mx-auto">Photographed in Abha's mountains and open highways — every angle reflects confidence and durability.</p>
                     </div>
@@ -179,19 +179,19 @@ export default async function ToyotaHiacePage() {
             <section className="py-24 bg-[#080808]" id="interior">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
-                        <span className="text-gold-primary text-sm font-bold tracking-[0.3em] uppercase mb-3 block">Premium Cabin</span>
+                        <span className="text-gold text-sm font-bold tracking-[0.3em] uppercase mb-3 block">Premium Cabin</span>
                         <h2 className="text-4xl md:text-5xl font-bold font-playfair text-white mb-4">Toyota Hiace Interior & Comfort</h2>
                         <p className="text-slate-400 max-w-2xl mx-auto">Designed for long-distance comfort with generous legroom, dual-zone AC, and premium seating throughout.</p>
                     </div>
                     <div className="grid md:grid-cols-2 gap-6">
                         {interiorImages.map((img, i) => (
-                            <div key={i} className="group flex gap-5 bg-white/3 border border-white/8 rounded-2xl p-4 hover:border-gold-primary/30 transition-colors duration-300">
+                            <div key={i} className="group flex gap-5 bg-white/3 border border-white/8 rounded-2xl p-4 hover:border-gold/30 transition-colors duration-300">
                                 <div className="relative w-40 h-32 shrink-0 rounded-xl overflow-hidden">
                                     <Image src={img.src} alt={img.alt} fill className="object-cover group-hover:scale-105 transition-transform duration-500" sizes="160px" />
                                 </div>
                                 <div className="flex flex-col justify-center">
                                     <div className="flex items-center gap-2 mb-2">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-gold-primary" />
+                                        <div className="w-1.5 h-1.5 rounded-full bg-gold" />
                                         <h3 className="text-white font-bold">{img.label}</h3>
                                     </div>
                                     <p className="text-slate-400 text-sm leading-relaxed">{img.desc}</p>
@@ -212,8 +212,8 @@ export default async function ToyotaHiacePage() {
                             <div className="absolute bottom-6 left-6 right-6">
                                 <div className="grid grid-cols-3 gap-3">
                                     {[['2.8L', 'Turbo Diesel'], ['174hp', 'Peak Power'], ['10-12', 'Passengers']].map(([val, lbl]) => (
-                                        <div key={lbl} className="bg-black/60 backdrop-blur-sm border border-gold-primary/30 rounded-xl p-3 text-center">
-                                            <p className="text-gold-primary font-bold text-xl">{val}</p>
+                                        <div key={lbl} className="bg-black/60 backdrop-blur-sm border border-gold/30 rounded-xl p-3 text-center">
+                                            <p className="text-gold font-bold text-xl">{val}</p>
                                             <p className="text-slate-400 text-xs">{lbl}</p>
                                         </div>
                                     ))}
@@ -221,7 +221,7 @@ export default async function ToyotaHiacePage() {
                             </div>
                         </div>
                         <div>
-                            <span className="text-gold-primary text-sm font-bold tracking-[0.3em] uppercase mb-4 block">Engine & Performance</span>
+                            <span className="text-gold text-sm font-bold tracking-[0.3em] uppercase mb-4 block">Engine & Performance</span>
                             <h2 className="text-4xl font-bold font-playfair text-white mb-6">Toyota Hiace Performance & Reliability</h2>
                             <p className="text-slate-400 leading-relaxed mb-8">The 2.8L turbocharged diesel engine delivers smooth, confident power on Saudi Arabia's highways — from Jeddah's coastal roads to Abha's mountain passes. Toyota's legendary reliability means zero compromise on your journey.</p>
                             <div className="space-y-4">
@@ -232,7 +232,7 @@ export default async function ToyotaHiacePage() {
                                     ['Cooling', 'Heavy Duty Dual-Zone AC', 'Individual roof vents per row'],
                                 ].map(([label, val, sub]) => (
                                     <div key={label} className="flex items-start gap-4 p-4 bg-white/3 rounded-xl border border-white/5">
-                                        <div className="w-1.5 h-full min-h-[2rem] rounded-full bg-gold-primary shrink-0 mt-1" />
+                                        <div className="w-1.5 h-full min-h-[2rem] rounded-full bg-gold shrink-0 mt-1" />
                                         <div>
                                             <p className="text-slate-500 text-xs uppercase tracking-wider">{label}</p>
                                             <p className="text-white font-bold">{val}</p>
@@ -250,15 +250,15 @@ export default async function ToyotaHiacePage() {
             <section className="py-24 bg-[#080808]" id="safety">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
-                        <span className="text-gold-primary text-sm font-bold tracking-[0.3em] uppercase mb-3 block">Passenger Protection</span>
+                        <span className="text-gold text-sm font-bold tracking-[0.3em] uppercase mb-3 block">Passenger Protection</span>
                         <h2 className="text-4xl md:text-5xl font-bold font-playfair text-white mb-4">Toyota Hiace Safety Systems</h2>
                         <p className="text-slate-400 max-w-xl mx-auto">Every vehicle in our fleet is maintained to Toyota's strict safety standards — your family's protection is non-negotiable.</p>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
                         {safetyFeatures.map(({ icon: Icon, label, desc }) => (
-                            <div key={label} className="flex flex-col gap-3 p-6 bg-white/3 border border-white/8 rounded-2xl hover:border-gold-primary/30 transition-colors">
-                                <div className="w-12 h-12 rounded-xl bg-gold-primary/10 flex items-center justify-center">
-                                    <Icon size={22} className="text-gold-primary" />
+                            <div key={label} className="flex flex-col gap-3 p-6 bg-white/3 border border-white/8 rounded-2xl hover:border-gold/30 transition-colors">
+                                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center">
+                                    <Icon size={22} className="text-gold" />
                                 </div>
                                 <div>
                                     <h3 className="text-white font-bold mb-1">{label}</h3>
@@ -274,7 +274,7 @@ export default async function ToyotaHiacePage() {
             <section className="py-24 bg-[#0d0d0d]" id="use-cases">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-16">
-                        <span className="text-gold-primary text-sm font-bold tracking-[0.3em] uppercase mb-3 block">Versatile Transport</span>
+                        <span className="text-gold text-sm font-bold tracking-[0.3em] uppercase mb-3 block">Versatile Transport</span>
                         <h2 className="text-4xl md:text-5xl font-bold font-playfair text-white mb-4">Toyota Hiace for Every Journey</h2>
                         <p className="text-slate-400 max-w-xl mx-auto">From Umrah pilgrimages to Abha tourism and corporate shuttles — the Hiace delivers every time.</p>
                     </div>
@@ -303,11 +303,11 @@ export default async function ToyotaHiacePage() {
                     <div className="absolute inset-0 bg-gradient-to-b from-deep-black via-deep-black/95 to-deep-black" />
                 </div>
                 <div className="container mx-auto px-4 relative z-10 text-center">
-                    <span className="text-gold-primary text-sm font-bold tracking-[0.3em] uppercase mb-4 block">Ready to Travel?</span>
+                    <span className="text-gold text-sm font-bold tracking-[0.3em] uppercase mb-4 block">Ready to Travel?</span>
                     <h2 className="text-4xl md:text-5xl font-bold font-playfair text-white mb-4">Book Your Toyota Hiace Today</h2>
                     <p className="text-slate-400 max-w-xl mx-auto mb-10">Fixed prices. Professional drivers. Instant confirmation. Keep your entire group together.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking" className="inline-flex items-center justify-center gap-2 bg-gold-primary hover:bg-white text-black font-bold px-10 py-4 rounded-xl transition-all duration-300 text-lg shadow-[0_0_30px_rgba(245,158,11,0.3)]">
+                        <Link href="/booking" className="inline-flex items-center justify-center gap-2 bg-gold hover:bg-white text-black font-bold px-10 py-4 rounded-xl transition-all duration-300 text-lg shadow-[0_0_30px_rgba(245,158,11,0.3)]">
                             Book Now <ArrowRight size={20} />
                         </Link>
                         <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb85a] text-white font-bold px-10 py-4 rounded-xl transition-colors text-lg">
@@ -320,7 +320,7 @@ export default async function ToyotaHiacePage() {
                     <div className="flex flex-wrap justify-center gap-8 mt-12">
                         {[['10–12', 'Passengers'], ['29+', 'Abha Photos'], ['4.8★', 'Rating'], ['350+', 'Bookings']].map(([val, lbl]) => (
                             <div key={lbl} className="text-center">
-                                <p className="text-gold-primary font-bold text-3xl">{val}</p>
+                                <p className="text-gold font-bold text-3xl">{val}</p>
                                 <p className="text-slate-500 text-sm">{lbl}</p>
                             </div>
                         ))}

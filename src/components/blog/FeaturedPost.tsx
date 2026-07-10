@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Calendar, Clock, Sparkles } from 'lucide-react';
@@ -46,14 +46,14 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
                     {/* Content Section */}
                     <div className="relative p-8 lg:p-16 flex flex-col justify-center bg-transparent lg:border-l border-white/10">
                         {/* Decorative Background Glow */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-gold-primary/5 rounded-full blur-[80px] -z-10" />
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-[80px] -z-10" />
 
                         <div className="flex items-center gap-3 mb-6">
-                            <span className="px-4 py-1.5 bg-gold-primary text-black text-xs font-bold uppercase tracking-widest rounded-full shadow-[0_0_15px_rgba(212,175,55,0.3)] flex items-center gap-2">
+                            <span className="px-4 py-1.5 bg-gold text-black text-xs font-bold uppercase tracking-widest rounded-full shadow-[0_0_15px_hsl(var(--gold-glow) / 0.3)] flex items-center gap-2">
                                 <Sparkles size={12} />
                                 Featured
                             </span>
-                            <span className="text-sm font-bold text-gold-primary uppercase tracking-widest">
+                            <span className="text-sm font-bold text-gold uppercase tracking-widest">
                                 {post.category}
                             </span>
                         </div>
@@ -69,19 +69,19 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
                         {/* Meta Info */}
                         <div className="flex items-center gap-4 text-sm font-medium text-gray-400 mb-6">
                             <span className="flex items-center gap-1.5">
-                                <Calendar size={14} className="text-gold-primary" />
+                                <Calendar size={14} className="text-gold" />
                                 {formattedDate}
                             </span>
                             <span className="w-1 h-1 rounded-full bg-white/20" />
                             <span className="flex items-center gap-1.5">
-                                <Clock size={14} className="text-gold-primary" />
+                                <Clock size={14} className="text-gold" />
                                 {post.readTime}
                             </span>
                         </div>
 
-                        <div className="flex items-center gap-3 text-gold-primary font-bold uppercase tracking-widest text-sm group/btn">
+                        <div className="flex items-center gap-3 text-gold font-bold uppercase tracking-widest text-sm group/btn">
                             Read Full Article
-                            <span className="bg-gold-primary/10 p-2 rounded-full transition-all duration-300 group-hover/btn:bg-gold-primary group-hover/btn:text-black group-hover/btn:translate-x-2">
+                            <span className="bg-gold/10 p-2 rounded-full transition-all duration-300 group-hover/btn:bg-gold group-hover/btn:text-black group-hover/btn:translate-x-2">
                                 <ArrowRight size={18} />
                             </span>
                         </div>
@@ -90,7 +90,7 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
             </GlassCard>
 
             {/* Background Decoration behind the card */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-gold-primary/10 via-white/5 to-gold-primary/10 rounded-[3rem] blur-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="absolute -inset-4 bg-gradient-to-r from-gold/10 via-white/5 to-gold/10 rounded-[3rem] blur-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
         </section>
     );
 }

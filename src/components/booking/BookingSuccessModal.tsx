@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
 
@@ -109,7 +109,7 @@ export default function BookingSuccessModal({
 
                                     {/* Header */}
                                     <div className="text-center relative z-10">
-                                        <div className="w-20 h-20 mx-auto bg-gold-primary/20 rounded-full flex items-center justify-center mb-6 text-gold-primary shadow-[0_0_20px_rgba(200,137,31,0.2)]">
+                                        <div className="w-20 h-20 mx-auto bg-gold/20 rounded-full flex items-center justify-center mb-6 text-gold shadow-[0_0_20px_rgba(200,137,31,0.2)]">
                                             <CheckCircle size={40} />
                                         </div>
                                         <h2 className="text-3xl md:text-5xl font-bold text-white mb-2 tracking-tight">Booking Confirmed</h2>
@@ -118,9 +118,9 @@ export default function BookingSuccessModal({
                                         </p>
 
                                         {/* Blessing Quotes */}
-                                        <div className="bg-black/20 border border-gold-primary/20 rounded-2xl p-6 mb-8 text-center shadow-inner">
+                                        <div className="bg-black/20 border border-gold/20 rounded-2xl p-6 mb-8 text-center shadow-inner">
                                             <div className="mb-5">
-                                                <p className="text-gold-primary font-bold text-xl md:text-2xl mb-1.5 leading-loose drop-shadow-sm font-arabic" dir="rtl">
+                                                <p className="text-gold font-bold text-xl md:text-2xl mb-1.5 leading-loose drop-shadow-sm font-arabic" dir="rtl">
                                                     تقبّل الله عمرتكم وبارك في خطاكم.
                                                 </p>
                                                 <p className="text-[#C9D4E0] text-sm font-montserrat">
@@ -128,7 +128,7 @@ export default function BookingSuccessModal({
                                                 </p>
                                             </div>
                                             <div>
-                                                <p className="text-gold-primary font-bold text-xl md:text-2xl mb-1.5 leading-loose drop-shadow-sm font-arabic" dir="rtl">
+                                                <p className="text-gold font-bold text-xl md:text-2xl mb-1.5 leading-loose drop-shadow-sm font-arabic" dir="rtl">
                                                     نسأل الله أن ييسر رحلتكم ويكتب لكم الأجر.
                                                 </p>
                                                 <p className="text-[#C9D4E0] text-sm font-montserrat">
@@ -146,19 +146,19 @@ export default function BookingSuccessModal({
                                     </div>
 
                                     {/* What happens next? */}
-                                    <div className="mb-8 relative z-10 bg-black/20 border border-gold-primary/30 rounded-2xl p-6 md:p-8 text-left shadow-lg">
-                                        <h3 className="text-gold-primary font-bold text-xl md:text-2xl mb-6">What happens next?</h3>
+                                    <div className="mb-8 relative z-10 bg-black/20 border border-gold/30 rounded-2xl p-6 md:p-8 text-left shadow-lg">
+                                        <h3 className="text-gold font-bold text-xl md:text-2xl mb-6">What happens next?</h3>
                                         <div className="space-y-5">
                                             <div className="flex gap-4 items-start">
-                                                <div className="w-7 h-7 rounded-full bg-gold-primary/20 text-gold-primary flex items-center justify-center shrink-0 font-bold text-sm mt-0.5">1</div>
+                                                <div className="w-7 h-7 rounded-full bg-gold/20 text-gold flex items-center justify-center shrink-0 font-bold text-sm mt-0.5">1</div>
                                                 <p className="text-white text-base font-montserrat leading-relaxed">Our team reviews your itinerary and confirms availability.</p>
                                             </div>
                                             <div className="flex gap-4 items-start">
-                                                <div className="w-7 h-7 rounded-full bg-gold-primary/20 text-gold-primary flex items-center justify-center shrink-0 font-bold text-sm mt-0.5">2</div>
-                                                <p className="text-white text-base font-montserrat leading-relaxed">We contact you <strong className="text-gold-primary">before your flight</strong> (WhatsApp/email) with your <strong className="text-gold-primary">driver's name, phone, and vehicle details</strong>.</p>
+                                                <div className="w-7 h-7 rounded-full bg-gold/20 text-gold flex items-center justify-center shrink-0 font-bold text-sm mt-0.5">2</div>
+                                                <p className="text-white text-base font-montserrat leading-relaxed">We contact you <strong className="text-gold">before your flight</strong> (WhatsApp/email) with your <strong className="text-gold">driver's name, phone, and vehicle details</strong>.</p>
                                             </div>
                                             <div className="flex gap-4 items-start">
-                                                <div className="w-7 h-7 rounded-full bg-gold-primary/20 text-gold-primary flex items-center justify-center shrink-0 font-bold text-sm mt-0.5">3</div>
+                                                <div className="w-7 h-7 rounded-full bg-gold/20 text-gold flex items-center justify-center shrink-0 font-bold text-sm mt-0.5">3</div>
                                                 <p className="text-white text-base font-montserrat leading-relaxed">On arrival, your driver meets you — <strong className="text-emerald-400">pay cash, no prepayment needed</strong>.</p>
                                             </div>
                                         </div>
@@ -175,7 +175,7 @@ export default function BookingSuccessModal({
                                             href={whatsappLink}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="w-full flex items-center justify-center gap-3 bg-gold-primary hover:bg-[#b07718] active:scale-[0.98] text-[#012A5B] font-bold py-5 rounded-2xl transition-all shadow-[0_4px_20px_rgba(200,137,31,0.3)] text-lg"
+                                            className="w-full flex items-center justify-center gap-3 bg-gold hover:bg-[#b07718] active:scale-[0.98] text-[#012A5B] font-bold py-5 rounded-2xl transition-all shadow-[0_4px_20px_rgba(200,137,31,0.3)] text-lg"
                                         >
                                             <MessageCircle size={24} />
                                             Message us on WhatsApp
@@ -187,7 +187,7 @@ export default function BookingSuccessModal({
                                         <div className="bg-white/5 border border-white/5 rounded-2xl p-4 backdrop-blur-sm">
                                             <div className="flex items-center justify-between mb-3">
                                                 <p className="text-xs text-gray-400 uppercase tracking-widest font-semibold flex items-center gap-1.5">
-                                                    <User size={12} className="text-gold-primary" /> Customer Info
+                                                    <User size={12} className="text-gold" /> Customer Info
                                                 </p>
                                             </div>
                                             <div className="grid grid-cols-2 gap-3">
@@ -206,7 +206,7 @@ export default function BookingSuccessModal({
                                         <div className="bg-white/5 border border-white/5 rounded-2xl p-4 backdrop-blur-sm">
                                             <div className="flex items-center justify-between mb-2">
                                                 <p className="text-xs text-gray-400 uppercase tracking-widest font-semibold flex items-center gap-1.5">
-                                                    <MapPin size={12} className="text-gold-primary" /> Route
+                                                    <MapPin size={12} className="text-gold" /> Route
                                                 </p>
                                                 <p className="text-xs text-gray-400 font-bold" dir="rtl">المسار</p>
                                             </div>
@@ -219,7 +219,7 @@ export default function BookingSuccessModal({
                                             <div className="bg-white/5 border border-white/5 rounded-xl p-3.5 backdrop-blur-sm">
                                                 <div className="flex justify-between items-center mb-1.5">
                                                     <div className="flex items-center gap-1.5 text-xs text-gray-400 uppercase tracking-wider">
-                                                        <Calendar size={12} className="text-gold-primary" /> Date
+                                                        <Calendar size={12} className="text-gold" /> Date
                                                     </div>
                                                     <span className="text-xs text-gray-400 font-bold" dir="rtl">التاريخ</span>
                                                 </div>
@@ -230,7 +230,7 @@ export default function BookingSuccessModal({
                                             <div className="bg-white/5 border border-white/5 rounded-xl p-3.5 backdrop-blur-sm">
                                                 <div className="flex justify-between items-center mb-1.5">
                                                     <div className="flex items-center gap-1.5 text-xs text-gray-400 uppercase tracking-wider">
-                                                        <Clock size={12} className="text-gold-primary" /> Time
+                                                        <Clock size={12} className="text-gold" /> Time
                                                     </div>
                                                     <span className="text-xs text-gray-400 font-bold" dir="rtl">الوقت</span>
                                                 </div>
@@ -241,7 +241,7 @@ export default function BookingSuccessModal({
                                             <div className="bg-white/5 border border-white/5 rounded-xl p-3.5 backdrop-blur-sm">
                                                 <div className="flex justify-between items-center mb-1.5">
                                                     <div className="flex items-center gap-1.5 text-xs text-gray-400 uppercase tracking-wider">
-                                                        <Car size={12} className="text-gold-primary" /> Vehicle
+                                                        <Car size={12} className="text-gold" /> Vehicle
                                                     </div>
                                                     <span className="text-xs text-gray-400 font-bold" dir="rtl">السيارة</span>
                                                 </div>
@@ -252,7 +252,7 @@ export default function BookingSuccessModal({
                                             <div className="bg-white/5 border border-white/5 rounded-xl p-3.5 backdrop-blur-sm">
                                                 <div className="flex justify-between items-center mb-1.5">
                                                     <div className="flex items-center gap-1.5 text-xs text-gray-400 uppercase tracking-wider">
-                                                        <Users size={12} className="text-gold-primary" /> Pax
+                                                        <Users size={12} className="text-gold" /> Pax
                                                     </div>
                                                     <span className="text-xs text-gray-400 font-bold" dir="rtl">الركاب</span>
                                                 </div>
@@ -262,14 +262,14 @@ export default function BookingSuccessModal({
 
                                         {/* Total Amount */}
                                         <div className="flex items-stretch gap-3 mt-2">
-                                            <div className="flex-1 bg-gold-primary/10 border border-gold-primary/30 text-white rounded-2xl p-5 flex flex-col justify-center shadow-lg backdrop-blur-sm relative overflow-hidden">
-                                                <div className="absolute inset-0 bg-gradient-to-r from-gold-primary/5 to-transparent pointer-events-none" />
+                                            <div className="flex-1 bg-gold/10 border border-gold/30 text-white rounded-2xl p-5 flex flex-col justify-center shadow-lg backdrop-blur-sm relative overflow-hidden">
+                                                <div className="absolute inset-0 bg-gradient-to-r from-gold/5 to-transparent pointer-events-none" />
                                                 <div className="relative z-10 flex justify-between items-end">
                                                     <div>
                                                         <p className="text-xs text-gold-light/80 uppercase tracking-wider mb-0.5 font-semibold">Total Amount</p>
                                                         <p className="text-xs text-gold-light/80 font-bold" dir="rtl">الإجمالي</p>
                                                     </div>
-                                                    <p className="text-2xl md:text-3xl font-extrabold text-gold-primary relative z-10 drop-shadow-md">{priceDisplay}</p>
+                                                    <p className="text-2xl md:text-3xl font-extrabold text-gold relative z-10 drop-shadow-md">{priceDisplay}</p>
                                                 </div>
                                             </div>
                                         </div>

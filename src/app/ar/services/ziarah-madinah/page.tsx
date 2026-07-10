@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -111,7 +111,7 @@ export default async function ZiarahMadinahPage() {
                     <FadeIn>
                         <div className="flex flex-col md:flex-row gap-12 items-start">
                             <div className="md:w-1/2">
-                                <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white border-r-4 border-gold-primary pr-4">
+                                <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white border-r-4 border-gold pr-4">
                                     المعالم المنورة
                                 </h2>
                                 <p className="text-gray-300 mb-8 leading-relaxed font-light text-lg">
@@ -145,8 +145,8 @@ export default async function ZiarahMadinahPage() {
                                             icon: <MapPin size={24} />
                                         }
                                     ].map((site, idx) => (
-                                        <li key={idx} className="bg-white/5 border border-white/10 p-6 rounded-xl flex gap-6 hover:border-gold-primary/30 transition-all hover:bg-white/10 group">
-                                            <div className="bg-gold-primary/10 p-4 rounded-full h-fit text-gold-primary border border-gold-primary/20 group-hover:bg-gold-primary group-hover:text-black transition-colors">
+                                        <li key={idx} className="bg-white/5 border border-white/10 p-6 rounded-xl flex gap-6 hover:border-gold/30 transition-all hover:bg-white/10 group">
+                                            <div className="bg-gold/10 p-4 rounded-full h-fit text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-colors">
                                                 {site.icon}
                                             </div>
                                             <div>
@@ -167,7 +167,7 @@ export default async function ZiarahMadinahPage() {
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-8 z-20">
                                         <div>
-                                            <span className="text-gold-primary font-bold tracking-wider uppercase text-sm mb-2 block">أول مسجد</span>
+                                            <span className="text-gold font-bold tracking-wider uppercase text-sm mb-2 block">أول مسجد</span>
                                             <h3 className="text-white text-3xl font-bold font-sans">مسجد قباء</h3>
                                         </div>
                                     </div>
@@ -184,22 +184,22 @@ export default async function ZiarahMadinahPage() {
                     <FadeIn delay={0.2}>
                         <h2 className="text-3xl md:text-5xl font-bold mb-16 font-sans text-white">مدينة السلام</h2>
                         <div className="grid md:grid-cols-3 gap-8">
-                            <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold-primary/30 transition-all group">
-                                <div className="bg-gold-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold-primary border border-gold-primary/20 group-hover:bg-gold-primary group-hover:text-black transition-all">
+                            <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold/30 transition-all group">
+                                <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                     <Clock size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">وقت كافٍ للدعاء</h3>
                                 <p className="text-sm text-gray-400 leading-relaxed font-light">نضمن لك وقتاً كافياً في جبل أحد ومسجد قباء للدعاء والصلاة دون استعجال.</p>
                             </div>
-                            <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold-primary/30 transition-all group">
-                                <div className="bg-gold-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold-primary border border-gold-primary/20 group-hover:bg-gold-primary group-hover:text-black transition-all">
+                            <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold/30 transition-all group">
+                                <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                     <Heart size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">سائقون مطلعون</h3>
                                 <p className="text-sm text-gray-400 leading-relaxed font-light">يعرف سائقونا تاريخ وآداب زيارة هذه الأماكن المقدسة.</p>
                             </div>
-                            <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold-primary/30 transition-all group">
-                                <div className="bg-gold-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold-primary border border-gold-primary/20 group-hover:bg-gold-primary group-hover:text-black transition-all">
+                            <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold/30 transition-all group">
+                                <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                     <ArrowLeft size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">من الباب للباب</h3>
@@ -207,7 +207,7 @@ export default async function ZiarahMadinahPage() {
                             </div>
                         </div>
                         <div className="mt-16">
-                            <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] tracking-wider text-sm text-black hover:scale-105">
+                            <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] tracking-wider text-sm text-black hover:scale-105">
                                 احجز زيارتك للمدينة <ArrowLeft size={20} className="mr-2" />
                             </Link>
                         </div>

@@ -1,4 +1,4 @@
-.container {
+﻿.container {
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -81,7 +81,7 @@
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--primary);
-    background: rgba(212, 175, 55, 0.1);
+    background: hsl(var(--gold-glow) / 0.1);
     padding: 0.25rem 0.75rem;
     border-radius: 2rem;
 }

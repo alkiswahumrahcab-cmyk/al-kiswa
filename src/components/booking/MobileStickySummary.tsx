@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -41,7 +41,7 @@ export default function MobileStickySummary({
                     className="fixed bottom-0 left-0 right-0 z-[100] md:hidden"
                 >
                     {/* Floating Summary Bar */}
-                    <div className="bg-primary-black/95 backdrop-blur-xl border-t border-gold-primary/30 p-3 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+                    <div className="bg-primary-black/95 backdrop-blur-xl border-t border-gold/30 p-3 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
                         <div className="flex items-center justify-between mb-2">
                             <div className="flex flex-col">
                                 <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
@@ -55,7 +55,7 @@ export default function MobileStickySummary({
                                 <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">
                                     Total
                                 </span>
-                                <span className="text-base text-gold-primary font-bold">
+                                <span className="text-base text-gold font-bold">
                                     {currency === 'USD' ? '$' : ''}{totalAmount}{currency === 'SAR' ? ' SAR' : ''}
                                 </span>
                             </div>
@@ -64,7 +64,7 @@ export default function MobileStickySummary({
                         <button
                             onClick={onConfirm}
                             disabled={isSubmitting || !vehicleName}
-                            className="w-full bg-gradient-to-r from-gold-primary to-gold-dark hover:from-gold-light hover:to-gold-primary text-black font-bold text-sm py-2.5 px-4 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_15px_rgba(239,191,91,0.2)]"
+                            className="w-full bg-gradient-to-r from-gold to-gold-dark hover:from-gold-light hover:to-gold text-black font-bold text-sm py-2.5 px-4 rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_15px_hsl(var(--gold-glow) / 0.2)]"
                         >
                             {isSubmitting ? (
                                 <div className="flex items-center justify-center gap-2">

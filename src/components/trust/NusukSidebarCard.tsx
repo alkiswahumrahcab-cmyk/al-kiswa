@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { ShieldCheck, Award, MapPin } from 'lucide-react';
@@ -27,7 +27,7 @@ const NusukSidebarCard = () => {
 
                 <ul className="space-y-4 mb-6">
                     <li className="flex gap-3 text-sm text-gray-300">
-                        <Award size={18} className="text-gold-primary shrink-0 mt-0.5" />
+                        <Award size={18} className="text-gold shrink-0 mt-0.5" />
                         <span>Ministry Licensed Operator</span>
                     </li>
                     <li className="flex gap-3 text-sm text-gray-300">
@@ -38,7 +38,7 @@ const NusukSidebarCard = () => {
 
                 <Link 
                     href="/#booking" 
-                    className="block w-full text-center py-3 px-4 bg-gold-primary hover:bg-white text-black font-bold rounded-lg transition-colors"
+                    className="block w-full text-center py-3 px-4 bg-gold hover:bg-white text-black font-bold rounded-lg transition-colors"
                 >
                     Book Verified Taxi
                 </Link>

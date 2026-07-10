@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -88,7 +88,7 @@ export default function PassengerCare({ lang = 'en' }: Props) {
             <div className="container mx-auto px-4 py-24 text-center relative z-10">
                 <FadeIn>
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-sans">
-                        {lang === 'ar' ? <>مصمم لـ<span className="text-gold-primary italic font-serif">كل معتمر</span></> : <>Tailored for <span className="text-gold-primary italic font-serif">Every Pilgrim</span></>}
+                        {lang === 'ar' ? <>مصمم لـ<span className="text-gold italic font-serif">كل معتمر</span></> : <>Tailored for <span className="text-gold italic font-serif">Every Pilgrim</span></>}
                     </h2>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto font-light">
                         {lang === 'ar' ? 'رعاية متخصصة لكل فرد في عائلتكم.' : 'Specialized care for every member of your family.'}
@@ -110,7 +110,7 @@ export default function PassengerCare({ lang = 'en' }: Props) {
                                     className="object-cover"
                                 />
                                 <div className="absolute inset-0 bg-black/20" />
-                                <div className="glass-panel absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 !rounded-full flex items-center justify-center text-gold-primary lg:hidden">
+                                <div className="glass-panel absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 !rounded-full flex items-center justify-center text-gold lg:hidden">
                                     {option.icon}
                                 </div>
                             </div>
@@ -118,13 +118,13 @@ export default function PassengerCare({ lang = 'en' }: Props) {
                             {/* Content - Conditional Order */}
                             <div className={`bg-zinc-900 flex items-center p-8 lg:p-16 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                                 <FadeIn className="w-full">
-                                    <div className="glass-panel hidden lg:flex w-16 h-16 items-center justify-center text-gold-primary mb-6">
+                                    <div className="glass-panel hidden lg:flex w-16 h-16 items-center justify-center text-gold mb-6">
                                         {option.icon}
                                     </div>
 
                                     <div className="flex items-center gap-4 mb-3">
-                                        <span className="h-px w-12 bg-gold-primary" />
-                                        <span className="text-gold-primary font-bold uppercase tracking-widest text-[10px]">
+                                        <span className="h-px w-12 bg-gold" />
+                                        <span className="text-gold font-bold uppercase tracking-widest text-[10px]">
                                             {option.arabicTitle}
                                         </span>
                                     </div>
@@ -140,13 +140,13 @@ export default function PassengerCare({ lang = 'en' }: Props) {
                                     <ul className="space-y-3 mb-8">
                                         {option.features.map((feature, idx) => (
                                             <li key={idx} className="flex items-center gap-4 text-gray-300">
-                                                <div className="w-1.5 h-1.5 rounded-full bg-gold-primary shrink-0" />
+                                                <div className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
                                                 <span className="text-sm">{feature}</span>
                                             </li>
                                         ))}
                                     </ul>
 
-                                    <a href={option.link} className="inline-flex items-center gap-3 text-white font-bold uppercase tracking-widest group hover:text-gold-primary transition-colors text-xs">
+                                    <a href={option.link} className="inline-flex items-center gap-3 text-white font-bold uppercase tracking-widest group hover:text-gold transition-colors text-xs">
                                         <span>{option.linkText}</span>
                                         <ArrowRight size={16} className="transform group-hover:translate-x-2 transition-transform" />
                                     </a>

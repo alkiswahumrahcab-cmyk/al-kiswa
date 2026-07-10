@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -204,8 +204,8 @@ export default async function JeddahAirportTransferPage() {
                                 { icon: <Languages size={32} />, title: "Multilingual", desc: "English, Arabic, Urdu" },
                                 { icon: <Car size={32} />, title: "Clean & Comfortable", desc: "Premium vehicles" }
                             ].map((feature, idx) => (
-                                <div key={idx} className="flex flex-col items-center text-center p-4 bg-white/5 rounded-xl border border-white/10 hover:border-gold-primary/30 transition-colors">
-                                    <div className="text-gold-primary mb-3 p-3 bg-gold-primary/10 rounded-full">
+                                <div key={idx} className="flex flex-col items-center text-center p-4 bg-white/5 rounded-xl border border-white/10 hover:border-gold/30 transition-colors">
+                                    <div className="text-gold mb-3 p-3 bg-gold/10 rounded-full">
                                         {feature.icon}
                                     </div>
                                     <h3 className="font-bold text-white text-sm md:text-base mb-1">{feature.title}</h3>
@@ -224,7 +224,7 @@ export default async function JeddahAirportTransferPage() {
                         <div className="max-w-5xl mx-auto">
                             <div className="text-center mb-10">
                                 <h2 className="text-3xl md:text-4xl font-bold text-white font-sans mb-4">
-                                    Transparent <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37]">Route Pricing</span>
+                                    Transparent <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Route Pricing</span>
                                 </h2>
                                 <p className="text-gray-400 font-light text-lg">Fixed rates for your peace of mind. No hidden fees.</p>
                             </div>
@@ -232,8 +232,8 @@ export default async function JeddahAirportTransferPage() {
                             <div className="overflow-x-auto rounded-2xl border border-white/10 shadow-2xl bg-black/60 backdrop-blur-md">
                                 <table className="w-full text-sm md:text-base">
                                     <thead>
-                                        <tr className="bg-[#D4AF37]/10 border-b border-[#D4AF37]/20">
-                                            <th className="text-left p-5 text-[#D4AF37] font-bold uppercase tracking-wider min-w-[200px]">Route</th>
+                                        <tr className="bg-gold/10 border-b border-gold/20">
+                                            <th className="text-left p-5 text-gold font-bold uppercase tracking-wider min-w-[200px]">Route</th>
                                             <th className="text-center p-5 text-white font-bold tracking-wider">Sedan<br/><span className="text-xs text-gray-400 font-light">(1-4 Seats)</span></th>
                                             <th className="text-center p-5 text-white font-bold tracking-wider">GMC Yukon<br/><span className="text-xs text-gray-400 font-light">(1-7 Seats)</span></th>
                                             <th className="text-center p-5 text-white font-bold tracking-wider">Hyundai Staria<br/><span className="text-xs text-gray-400 font-light">(1-9 Seats)</span></th>
@@ -243,30 +243,30 @@ export default async function JeddahAirportTransferPage() {
                                     <tbody className="divide-y divide-white/5">
                                         <tr className="group hover:bg-white/5 transition-colors">
                                             <td className="p-5 font-bold text-white flex items-center gap-2">
-                                                <Plane size={16} className="text-[#D4AF37]" /> Jeddah Airport → Makkah
+                                                <Plane size={16} className="text-gold" /> Jeddah Airport → Makkah
                                             </td>
-                                            <td className="p-5 text-center font-semibold text-[#D4AF37]">SAR 180</td>
-                                            <td className="p-5 text-center font-semibold text-[#D4AF37]">SAR 350</td>
-                                            <td className="p-5 text-center font-semibold text-[#D4AF37]">SAR 280</td>
-                                            <td className="p-5 text-center font-semibold text-[#D4AF37]">SAR 350</td>
+                                            <td className="p-5 text-center font-semibold text-gold">SAR 180</td>
+                                            <td className="p-5 text-center font-semibold text-gold">SAR 350</td>
+                                            <td className="p-5 text-center font-semibold text-gold">SAR 280</td>
+                                            <td className="p-5 text-center font-semibold text-gold">SAR 350</td>
                                         </tr>
                                         <tr className="group hover:bg-white/5 transition-colors bg-white/[0.02]">
                                             <td className="p-5 font-bold text-white flex items-center gap-2">
-                                                <Plane size={16} className="text-[#D4AF37]" /> Jeddah Airport → Madinah
+                                                <Plane size={16} className="text-gold" /> Jeddah Airport → Madinah
                                             </td>
-                                            <td className="p-5 text-center font-semibold text-[#D4AF37]">SAR 380</td>
-                                            <td className="p-5 text-center font-semibold text-[#D4AF37]">SAR 580</td>
-                                            <td className="p-5 text-center font-semibold text-[#D4AF37]">SAR 480</td>
-                                            <td className="p-5 text-center font-semibold text-[#D4AF37]">SAR 580</td>
+                                            <td className="p-5 text-center font-semibold text-gold">SAR 380</td>
+                                            <td className="p-5 text-center font-semibold text-gold">SAR 580</td>
+                                            <td className="p-5 text-center font-semibold text-gold">SAR 480</td>
+                                            <td className="p-5 text-center font-semibold text-gold">SAR 580</td>
                                         </tr>
                                         <tr className="group hover:bg-white/5 transition-colors">
                                             <td className="p-5 font-bold text-white flex items-center gap-2">
-                                                <MapPin size={16} className="text-[#D4AF37]" /> Makkah → Jeddah Airport
+                                                <MapPin size={16} className="text-gold" /> Makkah → Jeddah Airport
                                             </td>
-                                            <td className="p-5 text-center font-semibold text-[#D4AF37]">SAR 150</td>
-                                            <td className="p-5 text-center font-semibold text-[#D4AF37]">SAR 300</td>
-                                            <td className="p-5 text-center font-semibold text-[#D4AF37]">SAR 250</td>
-                                            <td className="p-5 text-center font-semibold text-[#D4AF37]">SAR 300</td>
+                                            <td className="p-5 text-center font-semibold text-gold">SAR 150</td>
+                                            <td className="p-5 text-center font-semibold text-gold">SAR 300</td>
+                                            <td className="p-5 text-center font-semibold text-gold">SAR 250</td>
+                                            <td className="p-5 text-center font-semibold text-gold">SAR 300</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -287,17 +287,17 @@ export default async function JeddahAirportTransferPage() {
                                 Embarking on your spiritual journey should be peaceful and entirely free of stress. As the <strong>best Umrah transport service</strong>, Al Kiswah provides a seamless, private <strong>Jeddah Airport to Makkah taxi</strong> experience. From the moment you land at King Abdulaziz International Airport (KAIA), our professional drivers ensure a smooth transition from the terminal straight to your hotel in the Holy City.
                             </p>
 
-                            <h3 className="text-2xl font-bold font-sans text-white mb-4 mt-8 text-[#D4AF37]">How Our Private Airport Transfer in Saudi Arabia Works</h3>
+                            <h3 className="text-2xl font-bold font-sans text-white mb-4 mt-8 text-gold">How Our Private Airport Transfer in Saudi Arabia Works</h3>
                             <p className="text-gray-300 leading-relaxed font-light mb-6">
                                 Booking your <strong>JED to Makkah cab</strong> is incredibly straightforward. Once you book online or via WhatsApp, we monitor your flight in real-time. Even if your flight is delayed, our driver will be there—offering a complimentary meet and greet service at the arrivals hall with a personalized name sign. There is no need to navigate chaotic taxi queues or negotiate prices; everything is arranged and fixed prior to your arrival.
                             </p>
 
-                            <h3 className="text-2xl font-bold font-sans text-white mb-4 mt-8 text-[#D4AF37]">Why Pilgrims Prefer Our Jeddah Airport to Madinah Transfer</h3>
+                            <h3 className="text-2xl font-bold font-sans text-white mb-4 mt-8 text-gold">Why Pilgrims Prefer Our Jeddah Airport to Madinah Transfer</h3>
                             <p className="text-gray-300 leading-relaxed font-light mb-6">
                                 Many pilgrims choose to head straight to the Prophet's City. Our <strong>Jeddah Airport to Madinah transfer</strong> offers exceptional comfort over the longer distance. Whether you choose a luxury GMC Yukon or a spacious Hyundai Staria, you are guaranteed a clean, climate-controlled environment driven by highly trained, multilingual professionals who speak English, Arabic, and Urdu.
                             </p>
 
-                            <h3 className="text-2xl font-bold font-sans text-white mb-4 mt-8 text-[#D4AF37]">Safety, Comfort, and 10+ Years of Reliability</h3>
+                            <h3 className="text-2xl font-bold font-sans text-white mb-4 mt-8 text-gold">Safety, Comfort, and 10+ Years of Reliability</h3>
                             <p className="text-gray-300 leading-relaxed font-light mb-6">
                                 With over 10 years of experience serving Umrah pilgrims, we understand the specific needs of families and individuals performing their religious duties. Safety is our top priority—all our vehicles are Nusuk-registered, strictly licensed, and maintained to the highest standards. We offer child seats upon request and operate with absolute <strong>24/7 availability</strong>, ensuring your ride is ready whether you land at noon or midnight. 
                             </p>
@@ -322,7 +322,7 @@ export default async function JeddahAirportTransferPage() {
             <section className="py-24 bg-transparent border-t border-white/10 relative z-10">
                 <div className="container mx-auto px-4 text-center">
                     <FadeIn delay={0.4}>
-                        <Link href={whatsappLink} className="inline-flex items-center btn-gold px-12 py-5 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] text-black hover:scale-105">
+                        <Link href={whatsappLink} className="inline-flex items-center btn-gold px-12 py-5 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] text-black hover:scale-105">
                             Book Your Transfer Now <ArrowRight size={20} className="ml-2" />
                         </Link>
                     </FadeIn>

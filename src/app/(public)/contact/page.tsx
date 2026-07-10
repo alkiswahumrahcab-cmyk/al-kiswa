@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 
 import { Clock, ShieldCheck, Globe, Star } from 'lucide-react';
@@ -46,7 +46,7 @@ export default async function ContactPage() {
     const address = settings?.contact.address || 'Al Aziziyah, Makkah, Saudi Arabia';
 
     return (
-        <div className="bg-primary-black min-h-screen relative text-white selection:bg-gold-primary/30">
+        <div className="bg-primary-black min-h-screen relative text-white selection:bg-gold/30">
             <JsonLdScript schema={generateContactPageSchema()} />
             {/* Background Pattern */}
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
@@ -68,8 +68,8 @@ export default async function ContactPage() {
                             { icon: Globe, text: "Multilingual", sub: "دعم متعدد اللغات" },
                             { icon: Star, text: "Top Rated", sub: "أعلى تقييم" }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-black/60 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/10 text-center transform hover:-translate-y-1 transition-all duration-300 hover:border-gold-primary/30">
-                                <item.icon className="w-8 h-8 mx-auto mb-2 text-gold-primary" />
+                            <div key={idx} className="bg-black/60 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/10 text-center transform hover:-translate-y-1 transition-all duration-300 hover:border-gold/30">
+                                <item.icon className="w-8 h-8 mx-auto mb-2 text-gold" />
                                 <h3 className="font-bold text-white text-sm md:text-base">{item.text}</h3>
                                 <p className="text-xs text-gray-400 font-arabic">{item.sub}</p>
                             </div>
@@ -89,7 +89,7 @@ export default async function ContactPage() {
                         {/* Map Placeholder */}
                         <FadeIn direction="up" delay={0.4}>
                             <GlassCard className="p-0 overflow-hidden min-h-[400px] relative flex items-center justify-center bg-black/40 border-white/10" id="map">
-                                <div className="absolute inset-0 bg-gold-primary/5 pointer-events-none z-10 mix-blend-overlay" />
+                                <div className="absolute inset-0 bg-gold/5 pointer-events-none z-10 mix-blend-overlay" />
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3713.526883410923!2d39.8126588!3d21.447833599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c21d9da1e4d599%3A0xb8a485c3949902cc!2zQWwgS2lzd2FoIFVtyoNoIFRyYW5zcG9ydA!5e0!3m2!1sen!2s"
                                     width="100%"
@@ -106,11 +106,11 @@ export default async function ContactPage() {
                     {/* Contact Form Column */}
                     <div className="lg:col-span-7">
                         <FadeIn direction="left" delay={0.3}>
-                            <GlassCard className="p-8 md:p-10 border-t-4 border-t-gold-primary bg-black/40 border-white/10">
+                            <GlassCard className="p-8 md:p-10 border-t-4 border-t-gold bg-black/40 border-white/10">
                                 <div className="mb-8">
                                     <h2 className="text-3xl font-bold text-white mb-2 font-sans">
                                         Send Us a Message
-                                        <span className="block text-xl font-arabic font-normal text-gold-primary mt-1">أرسل لنا رسالة</span>
+                                        <span className="block text-xl font-arabic font-normal text-gold mt-1">أرسل لنا رسالة</span>
                                     </h2>
                                     <p className="text-gray-400 font-light">
                                         Need a custom quote for your Umrah group? Have questions about our GMC Yukon fleet?

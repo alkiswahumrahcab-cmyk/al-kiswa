@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import { Shield, Sparkles, UserCheck, CheckCircle, Clock, Search, Heart, AlertTriangle, Phone, Activity, Wrench, FileCheck, Award } from 'lucide-react';
 import Hero from '@/components/common/Hero';
@@ -35,7 +35,7 @@ export default function SafetyPage() {
                 />
 
                 {/* Trust Signals Bar */}
-                <section className="bg-gradient-to-r from-gold-primary to-amber-500 py-6 relative z-10 -mt-8 mx-4 md:mx-auto max-w-6xl rounded-xl shadow-lg border border-white/10">
+                <section className="bg-gradient-to-r from-gold to-amber-500 py-6 relative z-10 -mt-8 mx-4 md:mx-auto max-w-6xl rounded-xl shadow-lg border border-white/10">
                     <div className="container mx-auto px-4">
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-black text-center">
                             <div className="flex flex-col items-center">
@@ -61,7 +61,7 @@ export default function SafetyPage() {
                 {/* Intro Section */}
                 <section className="py-16 md:py-24">
                     <div className="container mx-auto px-4 text-center max-w-3xl">
-                        <span className="text-gold-primary font-bold uppercase tracking-widest text-sm mb-3 block">Peace of Mind</span>
+                        <span className="text-gold font-bold uppercase tracking-widest text-sm mb-3 block">Peace of Mind</span>
                         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-sans">
                             Traveling with Confidence
                         </h2>
@@ -83,7 +83,7 @@ export default function SafetyPage() {
                         <div className="grid md:grid-cols-3 gap-8">
                             {/* Women Safety */}
                             <FadeIn delay={0.1}>
-                                <div className="bg-black/40 backdrop-blur-md rounded-3xl p-8 border border-white/10 h-full hover:border-gold-primary/30 hover:shadow-[0_0_20px_rgba(212,175,55,0.1)] transition-all duration-300">
+                                <div className="bg-black/40 backdrop-blur-md rounded-3xl p-8 border border-white/10 h-full hover:border-gold/30 hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.1)] transition-all duration-300">
                                     <div className="w-12 h-12 bg-pink-900/30 rounded-xl flex items-center justify-center text-pink-400 mb-6 border border-pink-500/20">
                                         <Heart size={24} />
                                     </div>
@@ -108,7 +108,7 @@ export default function SafetyPage() {
 
                             {/* Family Safety */}
                             <FadeIn delay={0.2}>
-                                <div className="bg-black/40 backdrop-blur-md rounded-3xl p-8 border border-white/10 h-full hover:border-gold-primary/30 hover:shadow-[0_0_20px_rgba(212,175,55,0.1)] transition-all duration-300">
+                                <div className="bg-black/40 backdrop-blur-md rounded-3xl p-8 border border-white/10 h-full hover:border-gold/30 hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.1)] transition-all duration-300">
                                     <div className="w-12 h-12 bg-blue-900/30 rounded-xl flex items-center justify-center text-blue-400 mb-6 border border-blue-500/20">
                                         <Shield size={24} />
                                     </div>
@@ -133,7 +133,7 @@ export default function SafetyPage() {
 
                             {/* Elderly Care */}
                             <FadeIn delay={0.3}>
-                                <div className="bg-black/40 backdrop-blur-md rounded-3xl p-8 border border-white/10 h-full hover:border-gold-primary/30 hover:shadow-[0_0_20px_rgba(212,175,55,0.1)] transition-all duration-300">
+                                <div className="bg-black/40 backdrop-blur-md rounded-3xl p-8 border border-white/10 h-full hover:border-gold/30 hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.1)] transition-all duration-300">
                                     <div className="w-12 h-12 bg-green-900/30 rounded-xl flex items-center justify-center text-green-400 mb-6 border border-green-500/20">
                                         <Activity size={24} />
                                     </div>
@@ -164,7 +164,7 @@ export default function SafetyPage() {
                     <div className="container mx-auto px-4">
                         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                             <div>
-                                <span className="text-gold-primary font-bold uppercase tracking-widest text-sm mb-3 block">Behind the Scenes</span>
+                                <span className="text-gold font-bold uppercase tracking-widest text-sm mb-3 block">Behind the Scenes</span>
                                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-sans">Rigorous Fleet Maintenance</h2>
                                 <p className="text-lg text-gray-300 mb-8 font-light">
                                     A safe journey starts long before you enter the car. Our fleet undergoes a strict maintenance schedule to ensure 100% reliability in the Saudi climate.
@@ -173,7 +173,7 @@ export default function SafetyPage() {
                                 <div className="space-y-6">
                                     <div className="flex gap-4">
                                         <div className="bg-white/5 p-3 rounded-xl h-fit border border-white/5">
-                                            <Wrench size={24} className="text-gold-primary" />
+                                            <Wrench size={24} className="text-gold" />
                                         </div>
                                         <div>
                                             <h4 className="font-bold text-white text-lg">Weekly Mechanical Audit</h4>
@@ -182,7 +182,7 @@ export default function SafetyPage() {
                                     </div>
                                     <div className="flex gap-4">
                                         <div className="bg-white/5 p-3 rounded-xl h-fit border border-white/5">
-                                            <Sparkles size={24} className="text-gold-primary" />
+                                            <Sparkles size={24} className="text-gold" />
                                         </div>
                                         <div>
                                             <h4 className="font-bold text-white text-lg">Daily Hygiene Protocol</h4>
@@ -191,7 +191,7 @@ export default function SafetyPage() {
                                     </div>
                                     <div className="flex gap-4">
                                         <div className="bg-white/5 p-3 rounded-xl h-fit border border-white/5">
-                                            <FileCheck size={24} className="text-gold-primary" />
+                                            <FileCheck size={24} className="text-gold" />
                                         </div>
                                         <div>
                                             <h4 className="font-bold text-white text-lg">Legal Compliance</h4>
@@ -201,7 +201,7 @@ export default function SafetyPage() {
                                 </div>
                             </div>
                             <div className="relative">
-                                <div className="absolute -inset-4 bg-gradient-to-r from-gold-primary/20 to-amber-500/20 rounded-3xl opacity-50 blur-2xl transform rotate-2"></div>
+                                <div className="absolute -inset-4 bg-gradient-to-r from-gold/20 to-amber-500/20 rounded-3xl opacity-50 blur-2xl transform rotate-2"></div>
                                 <div className="bg-neutral-900 rounded-2xl shadow-2xl overflow-hidden border border-white/10 relative z-10">
                                     <div className="bg-black/80 p-4 flex items-center justify-between border-b border-white/10">
                                         <span className="text-white font-mono text-sm">MAINTENANCE_LOG_V8.2.pdf</span>
@@ -254,10 +254,10 @@ export default function SafetyPage() {
                                 { step: '03', title: 'Health Screen', icon: Activity, desc: 'Vision test and drug screening for 100% alertness.' },
                                 { step: '04', title: 'Adab Training', icon: UserCheck, desc: 'Workshop on pilgrim interaction, patience, and history.' },
                             ].map((item, idx) => (
-                                <div key={idx} className="bg-black/40 backdrop-blur-md p-6 rounded-2xl border border-white/10 relative overflow-hidden group hover:border-gold-primary transition-colors">
-                                    <span className="absolute -top-4 -right-4 text-8xl font-black text-white/5 group-hover:text-gold-primary/10 transition-colors z-0">{item.step}</span>
+                                <div key={idx} className="bg-black/40 backdrop-blur-md p-6 rounded-2xl border border-white/10 relative overflow-hidden group hover:border-gold transition-colors">
+                                    <span className="absolute -top-4 -right-4 text-8xl font-black text-white/5 group-hover:text-gold/10 transition-colors z-0">{item.step}</span>
                                     <div className="relative z-10">
-                                        <div className="w-12 h-12 bg-gold-primary/10 text-gold-primary rounded-xl flex items-center justify-center mb-4 border border-gold-primary/20">
+                                        <div className="w-12 h-12 bg-gold/10 text-gold rounded-xl flex items-center justify-center mb-4 border border-gold/20">
                                             <item.icon size={24} />
                                         </div>
                                         <h3 className="font-bold text-lg text-white mb-2">{item.title}</h3>
@@ -274,7 +274,7 @@ export default function SafetyPage() {
                     <div className="container mx-auto px-4">
                         <div className="bg-neutral-900 rounded-3xl overflow-hidden shadow-2xl relative border border-white/10">
                             {/* Decorative Background */}
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-gold-primary/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
                             <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-900/10 rounded-full blur-3xl -ml-32 -mb-32"></div>
 
                             <div className="relative z-10 grid md:grid-cols-2 gap-12 p-8 md:p-16 items-center">
@@ -315,15 +315,15 @@ export default function SafetyPage() {
                                     <h4 className="text-white font-bold text-xl mb-4 border-b border-white/10 pb-4">Standard Operating Procedure</h4>
                                     <ul className="space-y-4">
                                         <li className="flex gap-4 text-gray-300">
-                                            <span className="bg-gold-primary/20 text-gold-primary flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold shrink-0 border border-gold-primary/30">1</span>
+                                            <span className="bg-gold/20 text-gold flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold shrink-0 border border-gold/30">1</span>
                                             <span>Driver secures vehicle in safe zone and ensures passenger comfort.</span>
                                         </li>
                                         <li className="flex gap-4 text-gray-300">
-                                            <span className="bg-gold-primary/20 text-gold-primary flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold shrink-0 border border-gold-primary/30">2</span>
+                                            <span className="bg-gold/20 text-gold flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold shrink-0 border border-gold/30">2</span>
                                             <span>Control room deploys nearest standby vehicle (GMC/Starex).</span>
                                         </li>
                                         <li className="flex gap-4 text-gray-300">
-                                            <span className="bg-gold-primary/20 text-gold-primary flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold shrink-0 border border-gold-primary/30">3</span>
+                                            <span className="bg-gold/20 text-gold flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold shrink-0 border border-gold/30">3</span>
                                             <span>Full trip refund or discount issued for the inconvenience.</span>
                                         </li>
                                     </ul>
@@ -342,30 +342,30 @@ export default function SafetyPage() {
                         </div>
 
                         <div className="space-y-4">
-                            <details className="group bg-neutral-900/50 rounded-xl shadow-sm border border-white/10 open:border-gold-primary/50 transition-all duration-300">
+                            <details className="group bg-neutral-900/50 rounded-xl shadow-sm border border-white/10 open:border-gold/50 transition-all duration-300">
                                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none font-bold text-white text-lg">
                                     <span>Is it safe for solo female travelers?</span>
-                                    <span className="transform group-open:rotate-180 transition-transform duration-300 text-gold-primary">▼</span>
+                                    <span className="transform group-open:rotate-180 transition-transform duration-300 text-gold">▼</span>
                                 </summary>
                                 <div className="px-6 pb-6 text-gray-300 leading-relaxed border-t border-white/5 pt-4 font-light">
                                     <p>Absolutely. We specialize in family and female-friendly transport. Our drivers are trained in Adab (respect/etiquette), and all trips are GPS tracked by our control room. You can also share your live trip link with family members for added peace of mind.</p>
                                 </div>
                             </details>
 
-                            <details className="group bg-neutral-900/50 rounded-xl shadow-sm border border-white/10 open:border-gold-primary/50 transition-all duration-300">
+                            <details className="group bg-neutral-900/50 rounded-xl shadow-sm border border-white/10 open:border-gold/50 transition-all duration-300">
                                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none font-bold text-white text-lg">
                                     <span>What if I leave something in the taxi?</span>
-                                    <span className="transform group-open:rotate-180 transition-transform duration-300 text-gold-primary">▼</span>
+                                    <span className="transform group-open:rotate-180 transition-transform duration-300 text-gold">▼</span>
                                 </summary>
                                 <div className="px-6 pb-6 text-gray-300 leading-relaxed border-t border-white/5 pt-4 font-light">
                                     <p>We have a strict "Lost & Found" protocol. Drivers check the vehicle after every drop-off. If you realize you've lost something, contact our 24/7 support immediately. We have a 98% recovery rate for items reported within 24 hours.</p>
                                 </div>
                             </details>
 
-                            <details className="group bg-neutral-900/50 rounded-xl shadow-sm border border-white/10 open:border-gold-primary/50 transition-all duration-300">
+                            <details className="group bg-neutral-900/50 rounded-xl shadow-sm border border-white/10 open:border-gold/50 transition-all duration-300">
                                 <summary className="flex items-center justify-between p-6 cursor-pointer list-none font-bold text-white text-lg">
                                     <span>Are your vehicles insured?</span>
-                                    <span className="transform group-open:rotate-180 transition-transform duration-300 text-gold-primary">▼</span>
+                                    <span className="transform group-open:rotate-180 transition-transform duration-300 text-gold">▼</span>
                                 </summary>
                                 <div className="px-6 pb-6 text-gray-300 leading-relaxed border-t border-white/5 pt-4 font-light">
                                     <p>Yes, comprehensive insurance covers all vehicles, drivers, and passengers, fulfilling all Saudi Transport Authority regulations. Your ride is legally protected.</p>
@@ -374,7 +374,7 @@ export default function SafetyPage() {
                         </div>
 
                         <div className="text-center mt-12">
-                            <Link href="/contact" className="inline-flex items-center justify-center gap-2 bg-gold-primary text-black px-8 py-3 rounded-full font-bold hover:bg-gold-primary/90 transition-opacity shadow-[0_0_20px_rgba(212,175,55,0.3)]">
+                            <Link href="/contact" className="inline-flex items-center justify-center gap-2 bg-gold text-black px-8 py-3 rounded-full font-bold hover:bg-gold/90 transition-opacity shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)]">
                                 <Heart size={18} className="text-red-600" />
                                 <span>Contact Safety Team</span>
                             </Link>

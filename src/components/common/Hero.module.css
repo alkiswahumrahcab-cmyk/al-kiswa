@@ -1,4 +1,4 @@
-.hero {
+﻿.hero {
     position: relative;
     min-height: 90vh;
     display: flex;
@@ -81,7 +81,7 @@
 }
 
 :global(.dark) .badge {
-    color: #fbbf24;
+    color: hsl(var(--gold));
 }
 
 .content {
@@ -107,7 +107,7 @@
 
     /* Light Mode Title - White on Navy */
     color: #ffffff;
-    background: linear-gradient(to bottom, #ffffff 30%, #fcd34d 100%);
+    background: linear-gradient(to bottom, #ffffff 30%, hsl(var(--gold-light)) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -124,7 +124,7 @@
 :global(.dark) .title {
     /* Dark Mode Title */
     color: white;
-    background: linear-gradient(to bottom, #ffffff 30%, #fcd34d 100%);
+    background: linear-gradient(to bottom, #ffffff 30%, hsl(var(--gold-light)) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -165,7 +165,7 @@
 }
 
 .primaryBtn {
-    background: linear-gradient(135deg, #D4AF37 0%, #B49126 100%);
+    background: linear-gradient(135deg, hsl(var(--gold)) 0%, #B49126 100%);
     /* Rich Golden */
     color: #0A1F44;
     /* Deep Navy Text */
@@ -178,7 +178,7 @@
     gap: 0.5rem;
     transition: all 0.3s ease;
     border: none;
-    box-shadow: 0 4px 14px 0 rgba(212, 175, 55, 0.4);
+    box-shadow: 0 4px 14px 0 hsl(var(--gold-glow) / 0.4);
 }
 
 .primaryBtn:hover {
@@ -241,7 +241,7 @@
 }
 
 .scrollIndicator:hover {
-    color: #fbbf24;
+    color: hsl(var(--gold));
 }
 
 @keyframes bounce {

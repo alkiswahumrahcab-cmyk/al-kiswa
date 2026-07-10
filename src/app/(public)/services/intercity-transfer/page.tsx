@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -134,10 +134,10 @@ export default async function IntercityTransferPage() {
                     <div className="grid lg:grid-cols-2 gap-12 items-start mb-20">
                         <FadeIn>
                             <div className="prose prose-invert max-w-none">
-                                <span className="text-[#D4AF37] font-bold tracking-[0.2em] text-sm uppercase mb-3 block border-l-4 border-[#D4AF37] pl-4">The Sacred Route</span>
+                                <span className="text-gold font-bold tracking-[0.2em] text-sm uppercase mb-3 block border-l-4 border-gold pl-4">The Sacred Route</span>
                                 <h2 className="text-4xl md:text-5xl font-bold font-sans mb-8 text-white leading-tight">
                                     Journey with Peace <br />
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37]">Between Haramains</span>
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Between Haramains</span>
                                 </h2>
                                 <p className="text-lg text-gray-300 leading-relaxed mb-6 font-light">
                                     The journey between Makkah and Madinah is more than just travel; it is a transition between two sacred sanctuaries. We honor this journey by providing a service that prioritizes your rest and reverence.
@@ -153,12 +153,12 @@ export default async function IntercityTransferPage() {
                                         { icon: UserCheck, title: "Door-to-Door", desc: "Hotel pickup & drop-off involved." },
                                         { icon: Timer, title: "On Your Schedule", desc: "Depart exactly when you are ready." }
                                     ].map((item, idx) => (
-                                        <GlassCard key={idx} className="flex gap-4 items-start p-6 rounded-2xl bg-neutral-900/50 border border-white/5 hover:border-[#D4AF37]/30 transition-all duration-300 group hover:-translate-y-1">
-                                            <div className="p-3 rounded-lg bg-black border border-white/5 text-[#D4AF37] shrink-0 group-hover:scale-110 transition-transform shadow-inner">
+                                        <GlassCard key={idx} className="flex gap-4 items-start p-6 rounded-2xl bg-neutral-900/50 border border-white/5 hover:border-gold/30 transition-all duration-300 group hover:-translate-y-1">
+                                            <div className="p-3 rounded-lg bg-black border border-white/5 text-gold shrink-0 group-hover:scale-110 transition-transform shadow-inner">
                                                 <item.icon size={28} />
                                             </div>
                                             <div>
-                                                <h4 className="font-bold text-lg text-white mb-1 group-hover:text-[#D4AF37] transition-colors font-sans">{item.title}</h4>
+                                                <h4 className="font-bold text-lg text-white mb-1 group-hover:text-gold transition-colors font-sans">{item.title}</h4>
                                                 <p className="text-sm text-gray-400 font-light leading-relaxed">{item.desc}</p>
                                             </div>
                                         </GlassCard>
@@ -168,7 +168,7 @@ export default async function IntercityTransferPage() {
                         </FadeIn>
 
                         <div className="relative sticky top-32 lg:pl-10">
-                            <div className="absolute inset-0 bg-[#D4AF37]/10 rounded-full blur-[100px] opacity-20 transform translate-y-10 pointer-events-none" />
+                            <div className="absolute inset-0 bg-gold/10 rounded-full blur-[100px] opacity-20 transform translate-y-10 pointer-events-none" />
                             <div className="relative z-10 border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
                                 <BookingFormWrapper title="Book Your Transfer" subtitle="Best Rates & Immediate Confirmation" />
                             </div>
@@ -188,7 +188,7 @@ export default async function IntercityTransferPage() {
                             <div className="overflow-x-auto rounded-xl border border-white/10 shadow-2xl">
                                 <table className="w-full text-left text-sm md:text-base border-collapse">
                                     <thead>
-                                        <tr className="bg-black/80 text-[#D4AF37] border-b border-white/10 uppercase tracking-wider text-xs font-bold">
+                                        <tr className="bg-black/80 text-gold border-b border-white/10 uppercase tracking-wider text-xs font-bold">
                                             <th className="p-4 md:p-6 font-sans">Route</th>
                                             <th className="p-4 md:p-6 font-sans">Distance (km)</th>
                                             <th className="p-4 md:p-6 font-sans">Estimated Time</th>
@@ -245,13 +245,13 @@ export default async function IntercityTransferPage() {
                 <div className="container max-w-4xl mx-auto px-4">
                     <FadeIn>
                         <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 font-sans text-white">
-                            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37]">Questions</span>
+                            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Questions</span>
                         </h2>
                         <div className="space-y-6">
                             {intercityFAQs.map((faq, i) => (
-                                <div key={i} className="bg-black/40 border border-white/5 rounded-2xl p-8 hover:border-[#D4AF37]/30 transition-all duration-300">
+                                <div key={i} className="bg-black/40 border border-white/5 rounded-2xl p-8 hover:border-gold/30 transition-all duration-300">
                                     <h3 className="font-bold text-lg mb-3 text-white flex items-start gap-4 font-sans">
-                                        <span className="text-[#D4AF37] mt-1 p-1 bg-[#D4AF37]/10 rounded-full flex items-center justify-center"><ChevronDown size={16} /></span>
+                                        <span className="text-gold mt-1 p-1 bg-gold/10 rounded-full flex items-center justify-center"><ChevronDown size={16} /></span>
                                         {faq.question}
                                     </h3>
                                     <p className="text-gray-400 font-light leading-relaxed pl-10">{faq.answer}</p>

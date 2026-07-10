@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Quote, Star, Moon } from 'lucide-react';
@@ -44,11 +44,11 @@ export default function HadithCarousel() {
                 <FadeIn>
                     <div className="text-center mb-16">
                         <div className="flex justify-center mb-6">
-                            <div className="w-14 h-14 rounded-full bg-gold-primary/10 flex items-center justify-center border border-gold-primary/20 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
-                                <Moon size={28} className="text-gold-primary" />
+                            <div className="w-14 h-14 rounded-full bg-gold/10 flex items-center justify-center border border-gold/20 shadow-[0_0_15px_hsl(var(--gold-glow) / 0.2)]">
+                                <Moon size={28} className="text-gold" />
                             </div>
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-bold font-sans text-white mb-4">Sayings of Prophet Muhammad <span className="text-gold-primary">(ﷺ)</span></h2>
+                        <h2 className="text-3xl md:text-5xl font-bold font-sans text-white mb-4">Sayings of Prophet Muhammad <span className="text-gold">(ﷺ)</span></h2>
                         <p className="text-gray-400 font-light text-lg">Timeless wisdom to guide our character and daily lives.</p>
                     </div>
                 </FadeIn>
@@ -59,17 +59,17 @@ export default function HadithCarousel() {
                     onMouseLeave={() => setIsAutoPlaying(true)}
                 >
                     <div className="relative">
-                        <GlassCard className="p-10 md:p-16 min-h-[350px] flex items-center justify-center text-center relative bg-neutral-900/60 border-gold-primary/30 shadow-2xl backdrop-blur-xl group">
-                            <Quote size={64} className="absolute top-8 left-8 text-gold-primary/10 group-hover:text-gold-primary/20 transition-colors" />
-                            <Quote size={64} className="absolute bottom-8 right-8 text-gold-primary/10 rotate-180 group-hover:text-gold-primary/20 transition-colors" />
+                        <GlassCard className="p-10 md:p-16 min-h-[350px] flex items-center justify-center text-center relative bg-neutral-900/60 border-gold/30 shadow-2xl backdrop-blur-xl group">
+                            <Quote size={64} className="absolute top-8 left-8 text-gold/10 group-hover:text-gold/20 transition-colors" />
+                            <Quote size={64} className="absolute bottom-8 right-8 text-gold/10 rotate-180 group-hover:text-gold/20 transition-colors" />
 
                             <div className="relative z-10 space-y-8">
                                 <p className="text-2xl md:text-3xl font-serif leading-relaxed text-white italic drop-shadow-md">
                                     &quot;{currentHadith.text}&quot;
                                 </p>
-                                <div className="border-t border-gold-primary/30 w-24 mx-auto" />
+                                <div className="border-t border-gold/30 w-24 mx-auto" />
                                 <div className="space-y-2">
-                                    <p className="font-bold text-gold-primary text-lg tracking-wide uppercase">{currentHadith.source}</p>
+                                    <p className="font-bold text-gold text-lg tracking-wide uppercase">{currentHadith.source}</p>
                                     {currentHadith.narrator && (
                                         <p className="text-sm text-gray-400 font-medium font-sans">Narrated by: {currentHadith.narrator}</p>
                                     )}
@@ -79,12 +79,12 @@ export default function HadithCarousel() {
 
                         {/* Controls */}
                         <div className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-16 z-20">
-                            <button onClick={handlePrev} className="w-12 h-12 rounded-full bg-black/50 border border-white/10 hover:border-gold-primary hover:bg-gold-primary hover:text-black hover:scale-110 flex items-center justify-center text-white transition-all duration-300 backdrop-blur-md shadow-lg" aria-label="Previous Hadith">
+                            <button onClick={handlePrev} className="w-12 h-12 rounded-full bg-black/50 border border-white/10 hover:border-gold hover:bg-gold hover:text-black hover:scale-110 flex items-center justify-center text-white transition-all duration-300 backdrop-blur-md shadow-lg" aria-label="Previous Hadith">
                                 <ChevronLeft size={24} />
                             </button>
                         </div>
                         <div className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-16 z-20">
-                            <button onClick={handleNext} className="w-12 h-12 rounded-full bg-black/50 border border-white/10 hover:border-gold-primary hover:bg-gold-primary hover:text-black hover:scale-110 flex items-center justify-center text-white transition-all duration-300 backdrop-blur-md shadow-lg" aria-label="Next Hadith">
+                            <button onClick={handleNext} className="w-12 h-12 rounded-full bg-black/50 border border-white/10 hover:border-gold hover:bg-gold hover:text-black hover:scale-110 flex items-center justify-center text-white transition-all duration-300 backdrop-blur-md shadow-lg" aria-label="Next Hadith">
                                 <ChevronRight size={24} />
                             </button>
                         </div>
@@ -94,7 +94,7 @@ export default function HadithCarousel() {
                         {hadithCollection.map((_, index) => (
                             <button
                                 key={index}
-                                className={`h-2 rounded-full transition-all duration-500 ${index === currentIndex ? 'bg-gold-primary w-10 shadow-[0_0_10px_rgba(212,175,55,0.5)]' : 'bg-white/20 w-3 hover:bg-white/40'}`}
+                                className={`h-2 rounded-full transition-all duration-500 ${index === currentIndex ? 'bg-gold w-10 shadow-[0_0_10px_hsl(var(--gold-glow) / 0.5)]' : 'bg-white/20 w-3 hover:bg-white/40'}`}
                                 onClick={() => handleDotClick(index)}
                                 aria-label={`Go to Hadith ${index + 1}`}
                             />

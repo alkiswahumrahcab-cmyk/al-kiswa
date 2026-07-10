@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -87,12 +87,12 @@ export default function Footer() {
                         <Link href="/" className="inline-block relative group">
                             <div className="flex flex-col gap-1 mb-2">
                                 <div className="flex items-center gap-3">
-                                    <span className="text-2xl font-sans font-bold text-white tracking-wide uppercase transition-colors group-hover:text-gold-primary">
+                                    <span className="text-2xl font-sans font-bold text-white tracking-wide uppercase transition-colors group-hover:text-gold">
                                         Al Kiswah
                                     </span>
                                 </div>
                                 <div className="flex items-center gap-3">
-                                    <span className="text-[0.7rem] font-bold text-gold-primary tracking-[0.2em] uppercase">
+                                    <span className="text-[0.7rem] font-bold text-gold tracking-[0.2em] uppercase">
                                         Umrah Transport
                                     </span>
                                 </div>
@@ -196,7 +196,7 @@ export default function Footer() {
                             <li><Link href="/fleet/hyundai-staria" className="text-gray-400 hover:text-white transition-colors text-[15px]">Hyundai Staria — Family MPV</Link></li>
                             <li><Link href="/fleet/toyota-hiace" className="text-gray-400 hover:text-white transition-colors text-[15px]">Toyota Hiace — Group Bus</Link></li>
                             <li><Link href="/pricing" className="text-gray-400 hover:text-white transition-colors text-[15px]">Pricing & Rates</Link></li>
-                            <li><Link href="/pricing/compare" className="text-gold-primary/70 hover:text-gold-primary transition-colors text-[15px]">Compare vs Kiwi · Telixo · 5Star</Link></li>
+                            <li><Link href="/pricing/compare" className="text-gold/70 hover:text-gold transition-colors text-[15px]">Compare vs Kiwi · Telixo · 5Star</Link></li>
                         </ul>
                     </div>
 

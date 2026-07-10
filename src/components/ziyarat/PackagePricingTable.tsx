@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import type { TourPackage } from '@/data/ziyarat-packages';
 import { vehicleLabels } from '@/data/ziyarat-packages';
@@ -31,7 +31,7 @@ export function PackagePricingTable({ packages, whatsappLink }: { packages: Tour
               <td className="text-center py-4 px-2 text-gray-300">{pkg.duration}</td>
               {vehicleKeys.map(v => (
                 <td key={v} className="text-center py-4 px-2">
-                  <span className="text-[#D4AF37] font-bold">SAR {pkg.prices[v]}</span>
+                  <span className="text-gold font-bold">SAR {pkg.prices[v]}</span>
                 </td>
               ))}
             </tr>
@@ -39,7 +39,7 @@ export function PackagePricingTable({ packages, whatsappLink }: { packages: Tour
         </tbody>
       </table>
       <div className="text-center mt-8">
-        <Link href={whatsappLink} className="inline-flex items-center btn-gold px-10 py-3.5 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] uppercase tracking-[0.15em] text-sm text-black hover:scale-105">
+        <Link href={whatsappLink} className="inline-flex items-center btn-gold px-10 py-3.5 rounded-full font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] uppercase tracking-[0.15em] text-sm text-black hover:scale-105">
           Book Your Tour Now <ArrowRight size={18} className="ml-2" />
         </Link>
         <p className="mt-4 text-xs text-gray-500">All prices per vehicle • Fuel, tolls & waiting included • No hidden charges</p>

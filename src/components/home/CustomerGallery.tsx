@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -57,14 +57,14 @@ export default function CustomerGallery() {
                 <FadeIn>
                     <div className="text-center mb-12">
                         <div className="flex items-center justify-center gap-4 mb-4">
-                            <div className="h-px w-12 bg-gold-primary"></div>
-                            <span className="text-gold-primary font-bold tracking-[0.2em] uppercase text-xs">
+                            <div className="h-px w-12 bg-gold"></div>
+                            <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs">
                                 Memories
                             </span>
-                            <div className="h-px w-12 bg-gold-primary"></div>
+                            <div className="h-px w-12 bg-gold"></div>
                         </div>
                         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-sans">
-                            Our Happy <span className="text-gold-primary italic font-serif">Pilgrims</span>
+                            Our Happy <span className="text-gold italic font-serif">Pilgrims</span>
                         </h2>
                         <p className="text-gray-400 text-lg font-light max-w-2xl mx-auto">
                             Moments of spirituality and joy, captured forever.
@@ -105,13 +105,13 @@ export default function CustomerGallery() {
                                     animate={{ y: 0, opacity: 1 }}
                                     transition={{ delay: 0.2 }}
                                 >
-                                    <div className="inline-block p-3 rounded-full bg-gold-primary/20 backdrop-blur-md text-gold-primary mb-4 border border-gold-primary/30">
+                                    <div className="inline-block p-3 rounded-full bg-gold/20 backdrop-blur-md text-gold mb-4 border border-gold/30">
                                         <Quote size={24} className="fill-current rotate-180" />
                                     </div>
                                     <h3 className="text-2xl md:text-4xl font-bold text-white font-serif italic mb-3 drop-shadow-lg">
                                         "{currentItem.caption}"
                                     </h3>
-                                    <div className="flex items-center justify-center gap-2 text-gold-primary font-bold uppercase tracking-widest text-sm">
+                                    <div className="flex items-center justify-center gap-2 text-gold font-bold uppercase tracking-widest text-sm">
                                         <MapPin size={16} /> {currentItem.location}
                                     </div>
                                 </motion.div>
@@ -121,14 +121,14 @@ export default function CustomerGallery() {
 
                     {/* Controls - Arrows */}
                     <button
-                        className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/30 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-gold-primary hover:text-black hover:border-gold-primary transition-all z-20 group"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/30 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-gold hover:text-black hover:border-gold transition-all z-20 group"
                         onClick={() => swipe(-1)}
                         aria-label="Previous"
                     >
                         <ChevronLeft size={28} className="group-hover:-translate-x-1 transition-transform" />
                     </button>
                     <button
-                        className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/30 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-gold-primary hover:text-black hover:border-gold-primary transition-all z-20 group"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 md:w-16 md:h-16 rounded-full bg-black/30 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white hover:bg-gold hover:text-black hover:border-gold transition-all z-20 group"
                         onClick={() => swipe(1)}
                         aria-label="Next"
                     >
@@ -145,7 +145,7 @@ export default function CustomerGallery() {
                                     setCurrentIndex(idx);
                                 }}
                                 className={`h-2.5 rounded-full transition-all duration-300 ${idx === currentIndex
-                                    ? 'w-10 bg-gold-primary'
+                                    ? 'w-10 bg-gold'
                                     : 'w-2.5 bg-white/30 hover:bg-white'
                                     }`}
                                 aria-label={`Go to slide ${idx + 1}`}

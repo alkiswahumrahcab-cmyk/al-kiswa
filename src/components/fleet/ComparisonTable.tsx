@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import FadeIn from '@/components/common/FadeIn';
 import GlassCard from '@/components/ui/GlassCard';
@@ -20,7 +20,7 @@ export default function ComparisonTable() {
             <div className="container mx-auto px-4">
                 <FadeIn>
                     <h2 className="text-3xl md:text-5xl font-bold font-sans text-center mb-12 text-white">
-                        Compare All <span className="text-gold-primary">Vehicles</span>
+                        Compare All <span className="text-gold">Vehicles</span>
                     </h2>
                 </FadeIn>
 
@@ -28,33 +28,33 @@ export default function ComparisonTable() {
                     <GlassCard className="min-w-[800px] overflow-hidden p-0 border-white/10 bg-neutral-900/80 backdrop-blur-xl">
                         <table className="w-full text-left border-collapse">
                             <thead>
-                                <tr className="bg-black/80 text-white border-b border-gold-primary/30">
-                                    <th className="p-5 font-sans font-bold text-lg text-gold-primary">Vehicle</th>
-                                    <th className="p-5 font-sans font-bold text-lg text-gold-primary text-center">Seats</th>
-                                    <th className="p-5 font-sans font-bold text-lg text-gold-primary text-center">Luggage</th>
-                                    <th className="p-5 font-sans font-bold text-lg text-gold-primary">Best For</th>
-                                    <th className="p-5 font-sans font-bold text-lg text-gold-primary text-right">Price From (SAR)</th>
+                                <tr className="bg-black/80 text-white border-b border-gold/30">
+                                    <th className="p-5 font-sans font-bold text-lg text-gold">Vehicle</th>
+                                    <th className="p-5 font-sans font-bold text-lg text-gold text-center">Seats</th>
+                                    <th className="p-5 font-sans font-bold text-lg text-gold text-center">Luggage</th>
+                                    <th className="p-5 font-sans font-bold text-lg text-gold">Best For</th>
+                                    <th className="p-5 font-sans font-bold text-lg text-gold text-right">Price From (SAR)</th>
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-white/5">
                                 {data.map((row, i) => (
-                                    <tr key={i} className="hover:bg-gold-primary/5 transition-colors duration-200 group">
+                                    <tr key={i} className="hover:bg-gold/5 transition-colors duration-200 group">
                                         <td className="p-5">
-                                            <Link href={row.link} className="font-bold text-white group-hover:text-gold-primary transition-colors inline-flex items-center gap-2">
+                                            <Link href={row.link} className="font-bold text-white group-hover:text-gold transition-colors inline-flex items-center gap-2">
                                                 {row.name}
                                             </Link>
                                         </td>
                                         <td className="p-5 text-gray-300 text-center">{row.seats}</td>
                                         <td className="p-5 text-gray-300 text-center">{row.luggage}</td>
                                         <td className="p-5 text-gray-300">{row.bestFor}</td>
-                                        <td className="p-5 font-bold text-gold-primary text-right">{row.price}</td>
+                                        <td className="p-5 font-bold text-gold text-right">{row.price}</td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>
                     </GlassCard>
                     <div className="text-right mt-4">
-                        <Link href="/pricing" className="text-sm text-gold-primary hover:text-white font-bold underline underline-offset-4 transition-colors inline-flex items-center gap-1">
+                        <Link href="/pricing" className="text-sm text-gold hover:text-white font-bold underline underline-offset-4 transition-colors inline-flex items-center gap-1">
                             → See full route pricing
                         </Link>
                     </div>

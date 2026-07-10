@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { RouteWithPrices } from '@/services/routeService';
@@ -23,8 +23,8 @@ export default function FloatingRoutePanel({ route }: FloatingRoutePanelProps) {
             className="bg-neutral-900/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 p-6 w-full max-w-sm"
         >
             <div className="mb-6 relative">
-                <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gold-primary rounded-r-full" />
-                <span className="text-gold-primary text-[10px] font-bold uppercase tracking-[0.2em] mb-1 block">Selected Connection</span>
+                <div className="absolute -left-6 top-0 bottom-0 w-1 bg-gold rounded-r-full" />
+                <span className="text-gold text-[10px] font-bold uppercase tracking-[0.2em] mb-1 block">Selected Connection</span>
                 <h3 className="text-xl font-bold font-sans leading-tight text-white">
                     {route.origin} <span className="text-gray-500 font-light mx-1">to</span> {route.destination}
                 </h3>
@@ -32,11 +32,11 @@ export default function FloatingRoutePanel({ route }: FloatingRoutePanelProps) {
 
             <div className="grid grid-cols-2 gap-3 mb-6">
                 <div className="bg-white/5 p-3 rounded-2xl flex flex-col gap-1 border border-white/5">
-                    <span className="text-[10px] uppercase tracking-wider text-gray-400 flex items-center gap-1 font-bold"><Clock size={10} className="text-gold-primary" /> Duration</span>
+                    <span className="text-[10px] uppercase tracking-wider text-gray-400 flex items-center gap-1 font-bold"><Clock size={10} className="text-gold" /> Duration</span>
                     <span className="font-bold text-white text-lg">{route.duration || '--'}</span>
                 </div>
                 <div className="bg-white/5 p-3 rounded-2xl flex flex-col gap-1 border border-white/5">
-                    <span className="text-[10px] uppercase tracking-wider text-gray-400 flex items-center gap-1 font-bold"><Navigation size={10} className="text-gold-primary" /> Distance</span>
+                    <span className="text-[10px] uppercase tracking-wider text-gray-400 flex items-center gap-1 font-bold"><Navigation size={10} className="text-gold" /> Distance</span>
                     <span className="font-bold text-white text-lg">{route.distance || '--'}</span>
                 </div>
             </div>
@@ -49,8 +49,8 @@ export default function FloatingRoutePanel({ route }: FloatingRoutePanelProps) {
                     <span>Hijrah Road Certified</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-gray-300">
-                    <div className="p-1.5 rounded-full bg-gold-primary/10">
-                        <Star size={14} className="text-gold-primary" />
+                    <div className="p-1.5 rounded-full bg-gold/10">
+                        <Star size={14} className="text-gold" />
                     </div>
                     <span>VIP Fleet Service</span>
                 </div>
@@ -58,7 +58,7 @@ export default function FloatingRoutePanel({ route }: FloatingRoutePanelProps) {
 
             <div className="pt-6 border-t border-white/10">
                 <Link href={`/booking?from=${encodeURIComponent(route.origin)}&to=${encodeURIComponent(route.destination)}&service=transfer`}>
-                    <button className="w-full group relative flex items-center justify-center gap-2 bg-gradient-to-r from-gold-primary to-gold-dark hover:to-gold-primary text-black font-bold py-4 rounded-xl transition-all shadow-[0_4px_20px_-5px_rgba(212,175,55,0.4)] hover:shadow-[0_6px_25px_-5px_rgba(212,175,55,0.5)] transform hover:-translate-y-0.5">
+                    <button className="w-full group relative flex items-center justify-center gap-2 bg-gradient-to-r from-gold to-gold-dark hover:to-gold text-black font-bold py-4 rounded-xl transition-all shadow-[0_4px_20px_-5px_hsl(var(--gold-glow) / 0.4)] hover:shadow-[0_6px_25px_-5px_hsl(var(--gold-glow) / 0.5)] transform hover:-translate-y-0.5">
                         <span className="tracking-wider uppercase text-xs">Book Transfer</span>
                         {price && <span className="bg-black/10 px-2 py-0.5 rounded text-xs font-black">{price} SAR</span>}
                         <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -17,7 +17,7 @@ export default function CheckoutHeader({ contactSettings }: CheckoutHeaderProps)
     const whatsappLink = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${whatsappMessage}`;
 
     return (
-        <header className="sticky top-0 z-50 bg-primary-black/95 backdrop-blur-xl border-b border-gold-primary/20 shadow-xl">
+        <header className="sticky top-0 z-50 bg-primary-black/95 backdrop-blur-xl border-b border-gold/20 shadow-xl">
             <div className="container mx-auto px-4 h-20 flex items-center justify-between">
                 
                 {/* Left: Logo & Home Link */}
@@ -26,7 +26,7 @@ export default function CheckoutHeader({ contactSettings }: CheckoutHeaderProps)
                     <span className="font-sans font-bold text-white tracking-wide text-xl leading-none">
                         Al Kiswah
                     </span>
-                    <span className="text-[0.60rem] font-bold text-gold-primary tracking-[0.2em] uppercase leading-none border-l border-white/20 pl-2">
+                    <span className="text-[0.60rem] font-bold text-gold tracking-[0.2em] uppercase leading-none border-l border-white/20 pl-2">
                         Checkout
                     </span>
                 </Link>
@@ -34,22 +34,22 @@ export default function CheckoutHeader({ contactSettings }: CheckoutHeaderProps)
                 {/* Center/Right: Trust Badges (Hidden on mobile) */}
                 <div className="hidden md:flex items-center gap-6">
                     <div className="flex items-center gap-2 text-xs text-gray-300 font-medium">
-                        <Shield size={16} className="text-gold-primary" />
+                        <Shield size={16} className="text-gold" />
                         <span>Ministry Licensed</span>
                     </div>
                     <div className="flex items-center gap-2 text-xs text-gray-300 font-medium">
-                        <CreditCard size={16} className="text-gold-primary" />
+                        <CreditCard size={16} className="text-gold" />
                         <span>Pay on Arrival</span>
                     </div>
                     <div className="flex items-center gap-2 text-xs text-gray-300 font-medium">
-                        <Star size={16} className="text-gold-primary" />
+                        <Star size={16} className="text-gold" />
                         <span>4.9★ Rated</span>
                     </div>
                 </div>
 
                 {/* Mobile Trust Line */}
                 <div className="flex md:hidden items-center gap-1.5 text-[10px] text-gray-300 font-medium">
-                    <Shield size={12} className="text-gold-primary" />
+                    <Shield size={12} className="text-gold" />
                     <span>Secure Booking</span>
                 </div>
 

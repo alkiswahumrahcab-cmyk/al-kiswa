@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from 'next';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -76,7 +76,7 @@ export default function PricingPage() {
                 <div className="container mx-auto px-4">
                     <FadeIn>
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold font-sans text-white mb-6">Popular Routes from <span className="text-gold-primary">Starting Rates</span></h2>
+                            <h2 className="text-3xl md:text-5xl font-bold font-sans text-white mb-6">Popular Routes from <span className="text-gold">Starting Rates</span></h2>
                             <p className="text-gray-400 max-w-2xl mx-auto">
                                 Rates shown are for standard sedan booking. Upgrade options for GMC Yukon and Staria are available during booking.
                             </p>
@@ -92,28 +92,28 @@ export default function PricingPage() {
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                         <div className="flex flex-col items-center gap-4">
-                            <div className="p-4 rounded-full bg-gold-primary/10 text-gold-primary mb-2">
+                            <div className="p-4 rounded-full bg-gold/10 text-gold mb-2">
                                 <Shield size={32} />
                             </div>
                             <h4 className="font-bold text-white">Fixed Rates</h4>
                             <p className="text-xs text-gray-400">Price locked at booking</p>
                         </div>
                         <div className="flex flex-col items-center gap-4">
-                            <div className="p-4 rounded-full bg-gold-primary/10 text-gold-primary mb-2">
+                            <div className="p-4 rounded-full bg-gold/10 text-gold mb-2">
                                 <Banknote size={32} />
                             </div>
                             <h4 className="font-bold text-white">Pay Later</h4>
                             <p className="text-xs text-gray-400">Cash to driver accepted</p>
                         </div>
                         <div className="flex flex-col items-center gap-4">
-                            <div className="p-4 rounded-full bg-gold-primary/10 text-gold-primary mb-2">
+                            <div className="p-4 rounded-full bg-gold/10 text-gold mb-2">
                                 <CreditCard size={32} />
                             </div>
                             <h4 className="font-bold text-white">Secure Online</h4>
                             <p className="text-xs text-gray-400">All cards supported</p>
                         </div>
                         <div className="flex flex-col items-center gap-4">
-                            <div className="p-4 rounded-full bg-gold-primary/10 text-gold-primary mb-2">
+                            <div className="p-4 rounded-full bg-gold/10 text-gold mb-2">
                                 <AlertCircle size={32} />
                             </div>
                             <h4 className="font-bold text-white">Free Cancel</h4>
@@ -139,14 +139,14 @@ export default function PricingPage() {
                                             <div>
                                                 <h4 className="text-white font-bold flex items-center gap-2">
                                                     {v.name}
-                                                    {v.badge && <span className="bg-gold-primary text-black text-[10px] px-2 py-0.5 rounded-full font-bold">{v.badge}</span>}
+                                                    {v.badge && <span className="bg-gold text-black text-[10px] px-2 py-0.5 rounded-full font-bold">{v.badge}</span>}
                                                 </h4>
                                                 <p className="text-gray-500 text-sm">{v.capacity} • {v.bags}</p>
                                             </div>
                                         </div>
                                         <div className="text-right">
                                             {i === 0 ? (
-                                                <span className="text-gold-primary font-bold">Standard Rate</span>
+                                                <span className="text-gold font-bold">Standard Rate</span>
                                             ) : (
                                                 <span className="text-gray-400 font-light">+ {i === 1 ? '50-100' : '150-200'} SAR approx.</span>
                                             )}
@@ -155,7 +155,7 @@ export default function PricingPage() {
                                 ))}
                             </div>
                             <div className="mt-8 text-center">
-                                <Link href="/ar/booking" className="text-gold-primary hover:text-white underline text-sm transition-colors">See exact price for your specific date ➔</Link>
+                                <Link href="/ar/booking" className="text-gold hover:text-white underline text-sm transition-colors">See exact price for your specific date ➔</Link>
                             </div>
                         </div>
                     </FadeIn>

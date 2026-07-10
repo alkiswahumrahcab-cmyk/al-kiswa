@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -150,7 +150,7 @@ export default async function ZiyaratToursPage() {
                             <h2 className="text-2xl md:text-3xl font-bold text-white font-sans mb-2">Tour Packages &amp; Pricing</h2>
                             <p className="text-gray-400 font-light">Fixed prices per vehicle — no hidden charges. All tours include hotel pickup &amp; drop-off.</p>
                         </div>
-                        <div className="bg-black/50 border border-[#D4AF37]/20 rounded-3xl p-6 md:p-8">
+                        <div className="bg-black/50 border border-gold/20 rounded-3xl p-6 md:p-8">
                             <PackagePricingTable packages={tourPackages} whatsappLink={whatsappLink} />
                         </div>
                         <SeasonalPricingNote className="mt-6" />
@@ -163,7 +163,7 @@ export default async function ZiyaratToursPage() {
                 <div className="container mx-auto px-4">
                     <FadeIn>
                         <div className="flex items-center gap-4 mb-8">
-                            <div className="bg-[#D4AF37]/10 p-3 rounded-xl text-[#D4AF37] border border-[#D4AF37]/20">
+                            <div className="bg-gold/10 p-3 rounded-xl text-gold border border-gold/20">
                                 <Landmark size={28} />
                             </div>
                             <div>
@@ -173,7 +173,7 @@ export default async function ZiyaratToursPage() {
                         </div>
                         <LocationGrid sites={makkahSites} city="makkah" />
                         <div className="mt-6 text-center">
-                            <Link href={whatsappLink} className="inline-flex items-center text-[#D4AF37] hover:text-white transition-colors text-sm font-bold uppercase tracking-wider">
+                            <Link href={whatsappLink} className="inline-flex items-center text-gold hover:text-white transition-colors text-sm font-bold uppercase tracking-wider">
                                 Book Makkah Ziyarat Tour <ArrowRight size={16} className="ml-2" />
                             </Link>
                         </div>
@@ -186,7 +186,7 @@ export default async function ZiyaratToursPage() {
                 <div className="container mx-auto px-4">
                     <FadeIn delay={0.1}>
                         <div className="flex items-center gap-4 mb-8">
-                            <div className="bg-[#D4AF37]/10 p-3 rounded-xl text-[#D4AF37] border border-[#D4AF37]/20">
+                            <div className="bg-gold/10 p-3 rounded-xl text-gold border border-gold/20">
                                 <Heart size={28} />
                             </div>
                             <div>
@@ -196,7 +196,7 @@ export default async function ZiyaratToursPage() {
                         </div>
                         <LocationGrid sites={madinahSites} city="madinah" />
                         <div className="mt-6 text-center">
-                            <Link href={whatsappLink} className="inline-flex items-center text-[#D4AF37] hover:text-white transition-colors text-sm font-bold uppercase tracking-wider">
+                            <Link href={whatsappLink} className="inline-flex items-center text-gold hover:text-white transition-colors text-sm font-bold uppercase tracking-wider">
                                 Book Madinah Ziyarat Tour <ArrowRight size={16} className="ml-2" />
                             </Link>
                         </div>
@@ -209,7 +209,7 @@ export default async function ZiyaratToursPage() {
                 <div className="container mx-auto px-4">
                     <FadeIn delay={0.2}>
                         <div className="flex items-center gap-4 mb-3">
-                            <div className="bg-[#D4AF37]/10 p-3 rounded-xl text-[#D4AF37] border border-[#D4AF37]/20">
+                            <div className="bg-gold/10 p-3 rounded-xl text-gold border border-gold/20">
                                 <Star size={28} />
                             </div>
                             <div>
@@ -217,7 +217,7 @@ export default async function ZiyaratToursPage() {
                                 <p className="text-gray-400 font-light">8 must-see destinations — optional add-on tour</p>
                             </div>
                         </div>
-                        <p className="text-gray-400 font-light mb-8 ml-16">Combine a Jeddah city tour with your <Link href="/services/jeddah-airport-transfer" className="text-[#D4AF37] hover:text-white hover:underline">airport transfer</Link> for a memorable day out.</p>
+                        <p className="text-gray-400 font-light mb-8 ml-16">Combine a Jeddah city tour with your <Link href="/services/jeddah-airport-transfer" className="text-gold hover:text-white hover:underline">airport transfer</Link> for a memorable day out.</p>
                         <LocationGrid sites={jeddahSites} city="jeddah" />
                     </FadeIn>
                 </div>
@@ -228,7 +228,7 @@ export default async function ZiyaratToursPage() {
                 <div className="container mx-auto px-4">
                     <FadeIn delay={0.3}>
                         <div className="flex items-center gap-4 mb-3">
-                            <div className="bg-[#D4AF37]/10 p-3 rounded-xl text-[#D4AF37] border border-[#D4AF37]/20">
+                            <div className="bg-gold/10 p-3 rounded-xl text-gold border border-gold/20">
                                 <Mountain size={28} />
                             </div>
                             <div>
@@ -255,8 +255,8 @@ export default async function ZiyaratToursPage() {
                                 { icon: <Shield size={26} />, title: "Licensed & Safe", desc: "Nusuk-registered, fully insured vehicles with professional licensed drivers." },
                                 { icon: <Users size={26} />, title: "All Group Sizes", desc: "Sedan, SUV, van, and bus — from couples to groups of 21 passengers." },
                             ].map((f, i) => (
-                                <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-[#D4AF37]/30 transition-all hover:bg-white/10 group">
-                                    <div className="bg-[#D4AF37]/10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 text-[#D4AF37] border border-[#D4AF37]/20 group-hover:bg-[#D4AF37] group-hover:text-black transition-all">
+                                <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-gold/30 transition-all hover:bg-white/10 group">
+                                    <div className="bg-gold/10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                         {f.icon}
                                     </div>
                                     <h3 className="text-base font-bold mb-2 text-white">{f.title}</h3>
@@ -265,7 +265,7 @@ export default async function ZiyaratToursPage() {
                             ))}
                         </div>
                         <div className="mt-12">
-                            <Link href="/booking" className="inline-flex items-center btn-gold px-10 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] uppercase tracking-[0.15em] text-sm text-black hover:scale-105">
+                            <Link href="/booking" className="inline-flex items-center btn-gold px-10 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] uppercase tracking-[0.15em] text-sm text-black hover:scale-105">
                                 Book Your Private Tour <ArrowRight size={18} className="ml-2" />
                             </Link>
                         </div>
@@ -291,10 +291,10 @@ export default async function ZiyaratToursPage() {
                                 <p>In Madinah, our tour covers 14 sites including <strong className="text-white">Masjid Quba</strong> (praying here equals an Umrah), <strong className="text-white">Mount Uhud</strong> and the Martyrs&apos; Cemetery, the <strong className="text-white">Seven Mosques</strong> at the Khandaq battle site, <strong className="text-white">Jannat Al-Baqi</strong> (10,000+ companions buried), and the companion mosques of Abu Bakr, Umar, Ali, and Salman Al-Farsi. For history enthusiasts, we offer an optional extended trip to the <strong className="text-white">Badr battlefield</strong> (150 km) — site of Islam&apos;s first decisive victory.</p>
 
                                 <h3 className="text-xl font-bold text-white mt-8 mb-3 font-sans">Jeddah &amp; Taif: Beyond the Holy Cities</h3>
-                                <p>Jeddah offers the <strong className="text-white">UNESCO Al Balad district</strong>, the iconic <strong className="text-white">Floating Mosque</strong>, and the world&apos;s tallest <strong className="text-white">King Fahd Fountain</strong>. For a cooler escape, our <strong className="text-white">Taif day trip</strong> (from SAR 400) includes the Al Hada cable car, famous rose gardens, and mountain souqs — perfect for families. All tours use your choice of vehicle: <Link href="/fleet/toyota-camry" className="text-[#D4AF37] hover:text-white hover:underline">Toyota Camry</Link>, <Link href="/fleet/gmc-yukon-at4" className="text-[#D4AF37] hover:text-white hover:underline">GMC Yukon</Link>, <Link href="/fleet/hyundai-staria" className="text-[#D4AF37] hover:text-white hover:underline">Hyundai Staria</Link>, or <Link href="/fleet/toyota-hiace" className="text-[#D4AF37] hover:text-white hover:underline">Toyota Hiace bus</Link>.</p>
+                                <p>Jeddah offers the <strong className="text-white">UNESCO Al Balad district</strong>, the iconic <strong className="text-white">Floating Mosque</strong>, and the world&apos;s tallest <strong className="text-white">King Fahd Fountain</strong>. For a cooler escape, our <strong className="text-white">Taif day trip</strong> (from SAR 400) includes the Al Hada cable car, famous rose gardens, and mountain souqs — perfect for families. All tours use your choice of vehicle: <Link href="/fleet/toyota-camry" className="text-gold hover:text-white hover:underline">Toyota Camry</Link>, <Link href="/fleet/gmc-yukon-at4" className="text-gold hover:text-white hover:underline">GMC Yukon</Link>, <Link href="/fleet/hyundai-staria" className="text-gold hover:text-white hover:underline">Hyundai Staria</Link>, or <Link href="/fleet/toyota-hiace" className="text-gold hover:text-white hover:underline">Toyota Hiace bus</Link>.</p>
 
                                 <h3 className="text-xl font-bold text-white mt-8 mb-3 font-sans">Pricing &amp; Booking</h3>
-                                <p>All prices are <strong className="text-white">fixed per vehicle</strong> with fuel, tolls, parking, and waiting time included. Makkah and Madinah tours start from <strong className="text-white">SAR 200</strong>, Taif from <strong className="text-white">SAR 400</strong>. We operate 24/7 year-round. <Link href="/booking" className="text-[#D4AF37] hover:text-white hover:underline font-semibold">Book on WhatsApp</Link> with your preferred date, group size, and itinerary — we confirm within minutes. Need an <Link href="/services/jeddah-airport-transfer" className="text-[#D4AF37] hover:text-white hover:underline">airport transfer</Link> or <Link href="/services/makkah-madinah-taxi" className="text-[#D4AF37] hover:text-white hover:underline">intercity taxi</Link> too? Bundle and save.</p>
+                                <p>All prices are <strong className="text-white">fixed per vehicle</strong> with fuel, tolls, parking, and waiting time included. Makkah and Madinah tours start from <strong className="text-white">SAR 200</strong>, Taif from <strong className="text-white">SAR 400</strong>. We operate 24/7 year-round. <Link href="/booking" className="text-gold hover:text-white hover:underline font-semibold">Book on WhatsApp</Link> with your preferred date, group size, and itinerary — we confirm within minutes. Need an <Link href="/services/jeddah-airport-transfer" className="text-gold hover:text-white hover:underline">airport transfer</Link> or <Link href="/services/makkah-madinah-taxi" className="text-gold hover:text-white hover:underline">intercity taxi</Link> too? Bundle and save.</p>
                             </div>
                         </div>
                     </FadeIn>

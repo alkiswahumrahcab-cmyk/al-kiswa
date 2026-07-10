@@ -158,7 +158,7 @@ export default function RoutesPage() {
                     {ROUTES.map((route, index) => (
                         <FadeIn key={route.id} delay={index * 0.1}>
                             <div className="block h-full group relative">
-                                <GlassCard className="h-full bg-neutral-900/80 border-white/10 hover:border-gold-primary/30 transition-all duration-300 overflow-hidden relative shadow-2xl backdrop-blur-md">
+                                <GlassCard className="h-full bg-neutral-900/80 border-white/10 hover:border-gold/30 transition-all duration-300 overflow-hidden relative shadow-2xl backdrop-blur-md">
                                     <Link href={route.link} className="absolute inset-0 z-10">
                                         <span className="sr-only">View {route.title}</span>
                                     </Link>
@@ -174,11 +174,11 @@ export default function RoutesPage() {
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent md:bg-gradient-to-r md:from-black/60 md:to-transparent" />
                                             <div className="absolute bottom-4 left-4 text-white md:hidden relative z-10">
                                                 <div className="flex items-center gap-2 text-sm font-medium mb-1">
-                                                    <Clock size={14} className="text-gold-primary" />
+                                                    <Clock size={14} className="text-gold" />
                                                     {route.time}
                                                 </div>
                                                 <div className="flex items-center gap-2 text-sm font-medium">
-                                                    <MapPin size={14} className="text-gold-primary" />
+                                                    <MapPin size={14} className="text-gold" />
                                                     {route.distance}
                                                 </div>
                                             </div>
@@ -187,10 +187,10 @@ export default function RoutesPage() {
                                         <div className="p-8 md:w-3/5 flex flex-col">
                                             <div className="flex items-start justify-between mb-4">
                                                 <div>
-                                                    <h3 className="text-2xl font-bold font-sans text-white group-hover:text-gold-primary transition-colors">
+                                                    <h3 className="text-2xl font-bold font-sans text-white group-hover:text-gold transition-colors">
                                                         {route.title}
                                                     </h3>
-                                                    <h4 className="text-lg font-bold text-gold-primary font-reem-kufi mt-1">
+                                                    <h4 className="text-lg font-bold text-gold font-reem-kufi mt-1">
                                                         {route.titleAr}
                                                     </h4>
                                                 </div>
@@ -210,7 +210,7 @@ export default function RoutesPage() {
                                                 <div className="flex flex-wrap gap-2">
                                                     {route.features.map((f, i) => (
                                                         <span key={i} className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/5 rounded-lg text-xs border border-white/5">
-                                                            <CheckCircle size={10} className="text-gold-primary" /> {f}
+                                                            <CheckCircle size={10} className="text-gold" /> {f}
                                                         </span>
                                                     ))}
                                                 </div>
@@ -218,7 +218,7 @@ export default function RoutesPage() {
                                                 <div className="flex flex-wrap gap-2 justify-end" dir="rtl">
                                                     {route.featuresAr.map((f, i) => (
                                                         <span key={i} className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/5 rounded-lg text-xs font-arabic border border-white/5">
-                                                            <CheckCircle size={10} className="text-gold-primary" /> {f}
+                                                            <CheckCircle size={10} className="text-gold" /> {f}
                                                         </span>
                                                     ))}
                                                 </div>
@@ -229,7 +229,7 @@ export default function RoutesPage() {
                                                     <span className="text-xs text-gray-500 uppercase tracking-wider font-semibold">
                                                         Starting from
                                                     </span>
-                                                    <span className="text-xl font-bold text-gold-primary">
+                                                    <span className="text-xl font-bold text-gold">
                                                         {route.price}
                                                     </span>
                                                 </div>
@@ -241,7 +241,7 @@ export default function RoutesPage() {
                                                     >
                                                         View Fleet
                                                     </Link>
-                                                    <span className="flex items-center gap-2 text-sm font-bold text-black bg-gold-primary px-4 py-2 rounded-full hover:bg-white transition-colors shadow-lg shadow-gold-primary/20">
+                                                    <span className="flex items-center gap-2 text-sm font-bold text-black bg-gold px-4 py-2 rounded-full hover:bg-white transition-colors shadow-lg shadow-gold/20">
                                                         Book Now <ArrowRight size={16} />
                                                     </span>
                                                 </div>
@@ -290,12 +290,12 @@ export default function RoutesPage() {
                             }
                         ].map((feature, idx) => (
                             <FadeIn key={idx} delay={0.2 + (idx * 0.1)}>
-                                <GlassCard className="text-center p-10 rounded-3xl bg-neutral-900/50 border-white/10 hover:border-gold-primary/30 transition-all duration-300 hover:-translate-y-2">
-                                    <div className="w-20 h-20 bg-black/50 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-8 text-gold-primary shadow-inner">
+                                <GlassCard className="text-center p-10 rounded-3xl bg-neutral-900/50 border-white/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-2">
+                                    <div className="w-20 h-20 bg-black/50 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-8 text-gold shadow-inner">
                                         <feature.icon size={36} strokeWidth={1.5} />
                                     </div>
                                     <h3 className="text-2xl font-bold mb-2 text-white font-sans">{feature.title}</h3>
-                                    <h4 className="text-xl font-bold text-gold-primary font-reem-kufi mb-4">{feature.titleAr}</h4>
+                                    <h4 className="text-xl font-bold text-gold font-reem-kufi mb-4">{feature.titleAr}</h4>
                                     <p className="text-gray-400 text-sm mb-4 leading-relaxed font-light">{feature.desc}</p>
                                     <p className="text-gray-500 text-sm font-arabic border-t border-white/10 pt-3">{feature.descAr}</p>
                                 </GlassCard>

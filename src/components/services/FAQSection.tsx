@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
@@ -58,8 +58,8 @@ export default function FAQSection({ items = defaultFAQs, title = "Frequently As
                         <div
                             key={index}
                             className={`rounded-2xl border transition-all duration-300 overflow-hidden ${activeAccordion === index
-                                    ? 'bg-neutral-900 border-gold-primary/50 shadow-[0_0_15px_rgba(212,175,55,0.1)]'
-                                    : 'bg-neutral-900/50 border-white/10 hover:border-gold-primary/30 hover:bg-neutral-900'
+                                    ? 'bg-neutral-900 border-gold/50 shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)]'
+                                    : 'bg-neutral-900/50 border-white/10 hover:border-gold/30 hover:bg-neutral-900'
                                 }`}
                         >
                             <button
@@ -69,7 +69,7 @@ export default function FAQSection({ items = defaultFAQs, title = "Frequently As
                                 <span className={`text-lg font-bold font-sans transition-colors ${activeAccordion === index ? 'text-white' : 'text-gray-200'}`}>
                                     {faq.question}
                                 </span>
-                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${activeAccordion === index ? 'bg-gold-primary text-black rotate-180' : 'bg-white/10 text-gray-400'}`}>
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${activeAccordion === index ? 'bg-gold text-black rotate-180' : 'bg-white/10 text-gray-400'}`}>
                                     <ChevronDown size={20} />
                                 </div>
                             </button>

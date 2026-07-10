@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import KPIGrid from '@/components/admin/dashboard/KPIGrid';
 import PopularRoutesChart from '@/components/admin/dashboard/PopularRoutesChart';
@@ -124,7 +124,7 @@ export default function DashboardClient({
     };
 
     return (
-        <div className="min-h-screen bg-[#0F172A] text-slate-200 font-sans selection:bg-[#D4AF37]/30 transition-colors duration-300">
+        <div className="min-h-screen bg-[#0F172A] text-slate-200 font-sans selection:bg-gold/30 transition-colors duration-300">
             {toast && <Toast message={toast.message} type={toast.type} isVisible={true} onClose={() => setToast(null)} />}
 
             <div className="max-w-[1600px] mx-auto p-6 space-y-8">
@@ -142,7 +142,7 @@ export default function DashboardClient({
                     </div>
                     <div className="flex gap-3">
                         <Link href="/admin/bookings">
-                            <button className="flex items-center gap-2 px-6 py-3 bg-[#D4AF37] hover:bg-[#B38E2D] text-white font-bold rounded-xl shadow-lg shadow-[#D4AF37]/20 transition-all active:scale-95">
+                            <button className="flex items-center gap-2 px-6 py-3 bg-gold hover:bg-[#B38E2D] text-white font-bold rounded-xl shadow-lg shadow-[#D4AF37]/20 transition-all active:scale-95">
                                 <Plus size={20} />
                                 <span>New Booking</span>
                             </button>

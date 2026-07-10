@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Image from 'next/image';
 import { Star, Quote, CheckCircle2 } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
@@ -17,14 +17,14 @@ interface ReviewProps {
 export default function ReviewItem({ review }: ReviewProps) {
     return (
         <GlassCard
-            className="h-full flex flex-col relative group border border-white/5 hover:border-gold-primary/30 transition-all duration-500 bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden"
+            className="h-full flex flex-col relative group border border-white/5 hover:border-gold/30 transition-all duration-500 bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden"
             hoverEffect={true}
         >
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
 
             {/* Quote Icon Background */}
-            <div className="absolute top-6 right-6 text-white/5 group-hover:text-gold-primary/10 transition-colors duration-500">
+            <div className="absolute top-6 right-6 text-white/5 group-hover:text-gold/10 transition-colors duration-500">
                 <Quote size={80} className="rotate-12" />
             </div>
 
@@ -37,7 +37,7 @@ export default function ReviewItem({ review }: ReviewProps) {
                             <Star
                                 key={i}
                                 size={16}
-                                className={`${i < review.rating ? 'fill-gold-primary text-gold-primary' : 'text-gray-700'} transition-colors duration-300`}
+                                className={`${i < review.rating ? 'fill-gold text-gold' : 'text-gray-700'} transition-colors duration-300`}
                             />
                         ))}
                     </div>
@@ -58,7 +58,7 @@ export default function ReviewItem({ review }: ReviewProps) {
 
                 {/* Footer: Author Info */}
                 <div className="flex items-center gap-4 pt-6 border-t border-white/10 mt-auto">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden bg-white/10 border border-white/10 group-hover:border-gold-primary/50 transition-colors duration-300">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden bg-white/10 border border-white/10 group-hover:border-gold/50 transition-colors duration-300">
                         {review.avatar ? (
                             <Image src={review.avatar} alt={review.author} fill className="object-cover" unoptimized />
                         ) : (
@@ -69,7 +69,7 @@ export default function ReviewItem({ review }: ReviewProps) {
                     </div>
 
                     <div>
-                        <div className="font-bold text-white text-base font-sans tracking-wide group-hover:text-gold-primary transition-colors">
+                        <div className="font-bold text-white text-base font-sans tracking-wide group-hover:text-gold transition-colors">
                             {review.author}
                         </div>
                         <div className="flex items-center gap-2 text-xs text-gray-500 font-medium mt-0.5">

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -86,7 +86,7 @@ export default function CookiePreferences() {
 
             {/* Background Decoration */}
             <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-black to-transparent opacity-10 pointer-events-none" />
-            <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-gold-primary/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-gold/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="max-w-4xl mx-auto relative z-10">
                 <motion.div
@@ -97,14 +97,14 @@ export default function CookiePreferences() {
                 >
                     <Link
                         href="/"
-                        className="inline-flex items-center text-gray-400 hover:text-gold-primary transition-colors mb-6 group"
+                        className="inline-flex items-center text-gray-400 hover:text-gold transition-colors mb-6 group"
                     >
                         <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
                         Back to Home
                     </Link>
                     <div className="flex items-center gap-4 mb-4">
-                        <div className="p-3 bg-gold-primary/10 rounded-2xl border border-gold-primary/20">
-                            <Shield className="w-8 h-8 text-gold-primary" />
+                        <div className="p-3 bg-gold/10 rounded-2xl border border-gold/20">
+                            <Shield className="w-8 h-8 text-gold" />
                         </div>
                         <h1 className="text-4xl font-bold text-white tracking-tight font-sans">
                             Cookie Preferences
@@ -129,14 +129,14 @@ export default function CookiePreferences() {
                                 className={`
                                     group relative overflow-hidden rounded-2xl border transition-all duration-300
                                     ${isEnabled
-                                        ? 'bg-neutral-900 border-gold-primary/30 shadow-[0_0_15px_rgba(212,175,55,0.1)]'
+                                        ? 'bg-neutral-900 border-gold/30 shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)]'
                                         : 'bg-neutral-900/50 border-white/5'}
                                 `}
                             >
                                 <div className="p-6 sm:p-8 flex items-start gap-6">
                                     <div className={`
                                         p-3 rounded-xl shrink-0 transition-colors duration-300
-                                        ${isEnabled ? 'bg-gold-primary/10 text-gold-primary border border-gold-primary/20' : 'bg-white/5 text-gray-500 border border-white/5'}
+                                        ${isEnabled ? 'bg-gold/10 text-gold border border-gold/20' : 'bg-white/5 text-gray-500 border border-white/5'}
                                     `}>
                                         <Icon className="w-6 h-6" />
                                     </div>
@@ -154,8 +154,8 @@ export default function CookiePreferences() {
                                                 <button
                                                     onClick={() => toggleSetting(section.id as keyof CookieSettings)}
                                                     className={`
-                                                        relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-primary focus-visible:ring-offset-2
-                                                        ${isEnabled ? 'bg-gold-primary' : 'bg-gray-700'}
+                                                        relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2
+                                                        ${isEnabled ? 'bg-gold' : 'bg-gray-700'}
                                                     `}
                                                 >
                                                     <span className="sr-only">Use setting</span>
@@ -195,7 +195,7 @@ export default function CookiePreferences() {
                         <button
                             onClick={handleSave}
                             disabled={saved}
-                            className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-gold-primary to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black rounded-xl font-semibold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] disabled:opacity-75 disabled:cursor-not-allowed transform active:scale-95"
+                            className="flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-gold to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black rounded-xl font-semibold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] disabled:opacity-75 disabled:cursor-not-allowed transform active:scale-95"
                         >
                             {saved ? (
                                 <>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import { Facebook, Twitter, Linkedin, Link as LinkIcon, Check } from 'lucide-react';
@@ -108,7 +108,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ slug, title }) => {
             hover:-translate-y-1 hover:shadow-lg
             ${copied
                             ? 'bg-green-50 text-green-600 border-green-200 dark:bg-green-900/20 dark:text-green-400 dark:border-green-800'
-                            : 'bg-slate-50 text-slate-500 border-slate-200 hover:bg-slate-900 hover:text-[#D4AF37] hover:border-slate-900 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-[#D4AF37] dark:hover:text-slate-900 dark:hover:border-[#D4AF37]'
+                            : 'bg-slate-50 text-slate-500 border-slate-200 hover:bg-slate-900 hover:text-gold hover:border-slate-900 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-gold dark:hover:text-slate-900 dark:hover:border-gold'
                         }`}
                     aria-label="Copy Link"
                 >

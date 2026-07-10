@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useMemo } from 'react';
 import { curatedTestimonials } from '@/data/testimonials';
@@ -55,12 +55,12 @@ export default function Testimonials() {
             {/* PHASE 8: Premium Background with deep gradient & gold lighting */}
             <div className="absolute inset-0 pointer-events-none">
                 {/* Midnight gradient mesh */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_50%,rgba(239,191,91,0.03),transparent_40%),radial-gradient(circle_at_85%_30%,rgba(239,191,91,0.05),transparent_40%),radial-gradient(circle_at_50%_100%,rgba(239,191,91,0.02),transparent_50%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_50%,hsl(var(--gold-glow) / 0.03),transparent_40%),radial-gradient(circle_at_85%_30%,hsl(var(--gold-glow) / 0.05),transparent_40%),radial-gradient(circle_at_50%_100%,hsl(var(--gold-glow) / 0.02),transparent_50%)]" />
                 {/* Floating Particles (CSS simulated) */}
                 <div className="absolute inset-0 opacity-20 bg-[url('/pattern.png')] bg-repeat opacity-[0.015] mix-blend-overlay" />
                 
                 {/* Ambient Lighting */}
-                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold-primary/5 rounded-full blur-[150px] -mr-48 -mt-48 mix-blend-screen" />
+                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[150px] -mr-48 -mt-48 mix-blend-screen" />
                 <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-gold-metallic/5 rounded-full blur-[150px] -ml-48 -mb-48 mix-blend-screen" />
             </div>
 
@@ -75,17 +75,17 @@ export default function Testimonials() {
                     className="text-center mb-12 flex flex-col items-center"
                 >
                     {/* Glowing Glass Badge */}
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-gold-primary/30 shadow-[0_0_20px_rgba(239,191,91,0.15)] mb-6 hover:shadow-[0_0_30px_rgba(239,191,91,0.3)] transition-all duration-300">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-panel border border-gold/30 shadow-[0_0_20px_hsl(var(--gold-glow) / 0.15)] mb-6 hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.3)] transition-all duration-300">
                         <div className="flex gap-0.5">
                             {[1, 2, 3, 4, 5].map((star) => (
-                                <Star key={star} size={14} className="fill-gold-primary text-gold-primary drop-shadow-[0_0_8px_rgba(239,191,91,0.5)]" />
+                                <Star key={star} size={14} className="fill-gold text-gold drop-shadow-[0_0_8px_hsl(var(--gold-glow) / 0.5)]" />
                             ))}
                         </div>
                         <span className="text-white text-sm font-semibold tracking-wide">5.0 Google Rating</span>
                     </div>
                     
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans text-white mb-6 tracking-tight drop-shadow-xl max-w-4xl">
-                        Trusted by <span className="bg-gradient-to-r from-gold-primary via-gold-light to-gold-primary bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(239,191,91,0.3)]">Pilgrims</span> Worldwide
+                        Trusted by <span className="bg-gradient-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent drop-shadow-[0_0_10px_hsl(var(--gold-glow) / 0.3)]">Pilgrims</span> Worldwide
                     </h2>
                     
                     <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-light">
@@ -108,7 +108,7 @@ export default function Testimonials() {
                         { icon: Clock, value: "99.8%", label: "On-Time Pickup", delay: 0.3 }
                     ].map((stat, idx) => (
                         <div key={idx} className="glass-panel p-6 flex flex-col items-center justify-center text-center group hover:bg-[#14171c]/80 transition-all duration-300 hover:-translate-y-1">
-                            <stat.icon size={28} className="text-gold-primary/70 mb-3 group-hover:text-gold-primary group-hover:scale-110 transition-all duration-300 drop-shadow-[0_0_15px_rgba(239,191,91,0.2)]" />
+                            <stat.icon size={28} className="text-gold/70 mb-3 group-hover:text-gold group-hover:scale-110 transition-all duration-300 drop-shadow-[0_0_15px_hsl(var(--gold-glow) / 0.2)]" />
                             <div className="text-3xl md:text-4xl font-bold text-white mb-1 drop-shadow-md">{stat.value}</div>
                             <div className="text-sm font-medium text-gray-400 uppercase tracking-wider">{stat.label}</div>
                         </div>
@@ -123,7 +123,7 @@ export default function Testimonials() {
                             onClick={() => setActiveFilter(filter)}
                             className={`snap-center whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 shadow-md ${
                                 activeFilter === filter 
-                                ? "bg-gradient-to-r from-gold-primary to-gold-dark text-black shadow-[0_0_20px_rgba(239,191,91,0.3)] scale-105 font-bold" 
+                                ? "bg-gradient-to-r from-gold to-gold-dark text-black shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] scale-105 font-bold" 
                                 : "glass-button text-gray-300 hover:text-white border-white/10"
                             }`}
                         >
@@ -147,21 +147,21 @@ export default function Testimonials() {
                                     exit={{ opacity: 0, scale: 0.9 }}
                                     transition={{ duration: 0.4 }}
                                     key={testimonial.id}
-                                    className="snap-center w-[90vw] md:w-auto flex-shrink-0 glass-panel p-6 md:p-8 group flex flex-col h-full border border-gold-primary/20 hover:border-gold-primary/50 relative overflow-hidden"
+                                    className="snap-center w-[90vw] md:w-auto flex-shrink-0 glass-panel p-6 md:p-8 group flex flex-col h-full border border-gold/20 hover:border-gold/50 relative overflow-hidden"
                                 >
                                     {/* Gold Accent Line */}
-                                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                                     
                                     {/* Quote Icon Watermark */}
-                                    <Quote className="absolute -top-4 -right-4 text-white/5 group-hover:text-gold-primary/10 transition-colors duration-500 rotate-180" size={120} />
+                                    <Quote className="absolute -top-4 -right-4 text-white/5 group-hover:text-gold/10 transition-colors duration-500 rotate-180" size={120} />
 
                                     <div className="relative z-10 flex flex-col h-full">
                                         
                                         {/* Customer Header */}
                                         <div className="flex items-center gap-4 mb-6">
-                                            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-gold-primary to-gold-dark p-[2px] shadow-[0_0_15px_rgba(239,191,91,0.3)] flex-shrink-0">
+                                            <div className="w-14 h-14 rounded-full bg-gradient-to-br from-gold to-gold-dark p-[2px] shadow-[0_0_15px_hsl(var(--gold-glow) / 0.3)] flex-shrink-0">
                                                 <div className="w-full h-full rounded-full bg-[#13151a] flex items-center justify-center">
-                                                    <span className="text-gold-primary font-bold text-xl font-sans">
+                                                    <span className="text-gold font-bold text-xl font-sans">
                                                         {testimonial.name.charAt(0)}
                                                     </span>
                                                 </div>
@@ -180,11 +180,11 @@ export default function Testimonials() {
                                         {/* Journey Information Chips */}
                                         <div className="flex flex-wrap gap-2 mb-6">
                                             <div className="flex items-center gap-1.5 px-3 py-1 rounded-md glass-panel !bg-white/5 !border-white/10 text-xs font-medium text-gray-300">
-                                                <Navigation size={12} className="text-gold-primary" />
+                                                <Navigation size={12} className="text-gold" />
                                                 {testimonial.trip}
                                             </div>
                                             <div className="flex items-center gap-1.5 px-3 py-1 rounded-md glass-panel !bg-white/5 !border-white/10 text-xs font-medium text-gray-300">
-                                                <Calendar size={12} className="text-gold-primary" />
+                                                <Calendar size={12} className="text-gold" />
                                                 {testimonial.date}
                                             </div>
                                         </div>
@@ -195,7 +195,7 @@ export default function Testimonials() {
                                                 <Star
                                                     key={i}
                                                     size={18}
-                                                    className={`drop-shadow-sm ${i < testimonial.rating ? "fill-gold-primary text-gold-primary" : "text-gray-700"}`}
+                                                    className={`drop-shadow-sm ${i < testimonial.rating ? "fill-gold text-gold" : "text-gray-700"}`}
                                                 />
                                             ))}
                                         </div>
@@ -211,7 +211,7 @@ export default function Testimonials() {
                                             {shouldClamp && (
                                                 <button 
                                                     onClick={() => toggleExpand(testimonial.id)}
-                                                    className="text-gold-primary hover:text-gold-light font-medium text-sm mt-2 transition-colors focus:outline-none flex items-center gap-1"
+                                                    className="text-gold hover:text-gold-light font-medium text-sm mt-2 transition-colors focus:outline-none flex items-center gap-1"
                                                 >
                                                     {isExpanded ? "Read Less" : "Read Full Review"}
                                                 </button>
@@ -239,7 +239,7 @@ export default function Testimonials() {
                     className="mt-4 md:mt-12 glass-panel p-8 md:p-12 text-center relative overflow-hidden group"
                 >
                     {/* Inner gold glow */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-gold-primary/5 via-transparent to-gold-primary/5 pointer-events-none group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-gold/5 via-transparent to-gold/5 pointer-events-none group-hover:opacity-100 transition-opacity duration-500" />
                     
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 max-w-5xl mx-auto">
                         <div className="text-left flex flex-col md:flex-row items-center gap-6">
@@ -255,10 +255,10 @@ export default function Testimonials() {
                             <div className="text-center md:text-left">
                                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">Excellent</h3>
                                 <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-                                    <span className="font-bold text-xl text-gold-primary">5.0</span>
+                                    <span className="font-bold text-xl text-gold">5.0</span>
                                     <div className="flex gap-0.5">
                                         {[1, 2, 3, 4, 5].map((star) => (
-                                            <Star key={star} size={18} className="fill-gold-primary text-gold-primary drop-shadow-[0_0_8px_rgba(239,191,91,0.5)]" />
+                                            <Star key={star} size={18} className="fill-gold text-gold drop-shadow-[0_0_8px_hsl(var(--gold-glow) / 0.5)]" />
                                         ))}
                                     </div>
                                 </div>

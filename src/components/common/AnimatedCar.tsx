@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 
 interface AnimatedCarProps {
     className?: string;
@@ -17,7 +17,7 @@ const AnimatedCar: React.FC<AnimatedCarProps> = ({ className }) => {
                 <path
                     d="M10,55 L20,35 Q25,25 40,22 L140,22 Q160,22 170,35 L190,55 L190,65 L10,65 Z"
                     fill="#0a192f"
-                    stroke="#d4af37"
+                    stroke="hsl(var(--gold))"
                     strokeWidth="1.5"
                 />
 
@@ -36,26 +36,26 @@ const AnimatedCar: React.FC<AnimatedCarProps> = ({ className }) => {
                 />
                 <defs>
                     <linearGradient id="beamGradient" x1="0" y1="0" x2="1" y2="0">
-                        <stop offset="0%" stopColor="#d4af37" stopOpacity="0.5" />
-                        <stop offset="100%" stopColor="#d4af37" stopOpacity="0" />
+                        <stop offset="0%" stopColor="hsl(var(--gold))" stopOpacity="0.5" />
+                        <stop offset="100%" stopColor="hsl(var(--gold))" stopOpacity="0" />
                     </linearGradient>
                 </defs>
 
                 {/* Wheels - Simplified sleek discs */}
                 <g className="animate-[spin_0.8s_linear_infinite] origin-[45px_65px]">
-                    <circle cx="45" cy="65" r="11" fill="#0f172a" stroke="#d4af37" strokeWidth="2" />
-                    <circle cx="45" cy="65" r="4" fill="#d4af37" />
+                    <circle cx="45" cy="65" r="11" fill="#0f172a" stroke="hsl(var(--gold))" strokeWidth="2" />
+                    <circle cx="45" cy="65" r="4" fill="hsl(var(--gold))" />
                     {/* Spoke */}
-                    <rect x="44" y="54" width="2" height="22" fill="#d4af37" rx="1" />
-                    <rect x="34" y="64" width="22" height="2" fill="#d4af37" rx="1" />
+                    <rect x="44" y="54" width="2" height="22" fill="hsl(var(--gold))" rx="1" />
+                    <rect x="34" y="64" width="22" height="2" fill="hsl(var(--gold))" rx="1" />
                 </g>
 
                 <g className="animate-[spin_0.8s_linear_infinite] origin-[155px_65px]">
-                    <circle cx="155" cy="65" r="11" fill="#0f172a" stroke="#d4af37" strokeWidth="2" />
-                    <circle cx="155" cy="65" r="4" fill="#d4af37" />
+                    <circle cx="155" cy="65" r="11" fill="#0f172a" stroke="hsl(var(--gold))" strokeWidth="2" />
+                    <circle cx="155" cy="65" r="4" fill="hsl(var(--gold))" />
                     {/* Spoke */}
-                    <rect x="154" y="54" width="2" height="22" fill="#d4af37" rx="1" />
-                    <rect x="144" y="64" width="22" height="2" fill="#d4af37" rx="1" />
+                    <rect x="154" y="54" width="2" height="22" fill="hsl(var(--gold))" rx="1" />
+                    <rect x="144" y="64" width="22" height="2" fill="hsl(var(--gold))" rx="1" />
                 </g>
             </svg>
         </div>

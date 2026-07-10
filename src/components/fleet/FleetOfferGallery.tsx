@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -131,17 +131,17 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
         <section className="py-16 bg-primary-black relative overflow-hidden">
             {/* Background Ambience */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gold-primary/5 rounded-full blur-[100px]" />
+                <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[100px]" />
                 <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-emerald-900/10 rounded-full blur-[100px]" />
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-10">
-                    <span className="text-gold-primary font-bold tracking-[0.2em] uppercase text-xs mb-2 block">
+                    <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-2 block">
                         Limited Time Offers
                     </span>
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-                        Exclusive <span className="text-gold-primary italic font-serif">Fleet Deals</span>
+                        Exclusive <span className="text-gold italic font-serif">Fleet Deals</span>
                     </h2>
                 </div>
 
@@ -155,12 +155,12 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
                             transition={{ delay: idx * 0.1 }}
                             className="group h-full"
                         >
-                            <div className="relative h-full flex flex-col bg-zinc-900/40 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden hover:border-gold-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-gold-primary/5">
+                            <div className="relative h-full flex flex-col bg-zinc-900/40 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden hover:border-gold/30 transition-all duration-300 hover:shadow-xl hover:shadow-gold/5">
 
                                 {/* Discount Badge */}
                                 {(vehicle.discountLabel || vehicle.discount) && (
                                     <div className="absolute top-4 left-4 z-20">
-                                        <div className="bg-gold-primary text-black font-bold px-3 py-1 rounded-full text-[10px] uppercase tracking-wide shadow-lg shadow-gold-primary/20 animate-pulse">
+                                        <div className="bg-gold text-black font-bold px-3 py-1 rounded-full text-[10px] uppercase tracking-wide shadow-lg shadow-gold/20 animate-pulse">
                                             {vehicle.discountLabel || vehicle.discount}
                                         </div>
                                     </div>
@@ -169,7 +169,7 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
                                 {/* Rating */}
                                 {vehicle.rating && (
                                     <div className="absolute top-4 right-4 z-20 bg-black/40 backdrop-blur-md px-2 py-1 rounded-full border border-white/10 flex items-center gap-1">
-                                        <Star size={10} className="fill-gold-primary text-gold-primary" />
+                                        <Star size={10} className="fill-gold text-gold" />
                                         <span className="text-xs text-white font-bold">{vehicle.rating}</span>
                                     </div>
                                 )}
@@ -197,7 +197,7 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
                                         <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1 block">
                                             {vehicle.category || vehicle.type}
                                         </span>
-                                        <h3 className="text-xl font-bold text-white group-hover:text-gold-primary transition-colors leading-tight">
+                                        <h3 className="text-xl font-bold text-white group-hover:text-gold transition-colors leading-tight">
                                             {vehicle.name}
                                         </h3>
                                     </div>
@@ -205,13 +205,13 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
                                     {/* Specs Grid */}
                                     <div className="grid grid-cols-2 gap-3 mb-4 py-3 border-t border-b border-white/5">
                                         <div className="flex items-center gap-2">
-                                            <div className="p-1.5 bg-white/5 rounded text-gold-primary">
+                                            <div className="p-1.5 bg-white/5 rounded text-gold">
                                                 <Users size={14} />
                                             </div>
                                             <span className="text-xs text-gray-400 font-medium">{vehicle.capacity || vehicle.passengers} Pax</span>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <div className="p-1.5 bg-white/5 rounded text-gold-primary">
+                                            <div className="p-1.5 bg-white/5 rounded text-gold">
                                                 <Briefcase size={14} />
                                             </div>
                                             <span className="text-xs text-gray-400 font-medium">{vehicle.luggage} Bags</span>
@@ -240,7 +240,7 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
                                             href="/booking"
                                             variant="primary"
                                             size="sm"
-                                            className="!px-5 !py-2 !text-xs !font-bold rounded-lg group-hover:bg-gold-primary group-hover:text-black hover:scale-105 transition-all"
+                                            className="!px-5 !py-2 !text-xs !font-bold rounded-lg group-hover:bg-gold group-hover:text-black hover:scale-105 transition-all"
                                         >
                                             Book Now
                                         </GlassButton>

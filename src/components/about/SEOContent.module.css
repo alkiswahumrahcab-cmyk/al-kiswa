@@ -1,4 +1,4 @@
-.section {
+﻿.section {
     padding: 6rem 0;
     background: linear-gradient(to bottom, #ffffff, #f8fafc);
     position: relative;
@@ -13,7 +13,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: radial-gradient(#d4af37 1px, transparent 1px);
+    background-image: radial-gradient(hsl(var(--gold)) 1px, transparent 1px);
     background-size: 40px 40px;
     opacity: 0.03;
     pointer-events: none;
@@ -77,7 +77,7 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, #d4af37, #fcd34d);
+    background: linear-gradient(90deg, hsl(var(--gold)), hsl(var(--gold-light)));
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -85,7 +85,7 @@
 .card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    border-color: rgba(212, 175, 55, 0.3);
+    border-color: hsl(var(--gold-glow) / 0.3);
     background: #ffffff;
 }
 
@@ -118,9 +118,9 @@
 }
 
 .highlight {
-    color: #d4af37;
+    color: hsl(var(--gold));
     font-weight: 600;
-    background: linear-gradient(120deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.1) 100%);
+    background: linear-gradient(120deg, hsl(var(--gold-glow) / 0.1) 0%, hsl(var(--gold-glow) / 0.1) 100%);
     background-repeat: no-repeat;
     background-size: 100% 40%;
     background-position: 0 88%;

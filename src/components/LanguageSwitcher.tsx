@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -34,7 +34,7 @@ export default function LanguageSwitcher() {
         aria-current={!isArabic ? "true" : undefined}
         className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
           !isArabic
-            ? "bg-gold-primary text-black shadow-md"
+            ? "bg-gold text-black shadow-md"
             : "text-gray-400 hover:text-white"
         }`}
       >
@@ -50,7 +50,7 @@ export default function LanguageSwitcher() {
         aria-current={isArabic ? "true" : undefined}
         className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 ${
           isArabic
-            ? "bg-gold-primary text-black shadow-md"
+            ? "bg-gold text-black shadow-md"
             : "text-gray-400 hover:text-white"
         }`}
         style={{ fontFamily: "var(--font-arabic, inherit)" }}

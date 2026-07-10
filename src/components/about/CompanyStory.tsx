@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import GlassCard from '@/components/ui/GlassCard';
 import { Flag, Trophy, Heart, Briefcase } from 'lucide-react';
@@ -38,12 +38,12 @@ export default function CompanyStory() {
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none" />
 
             {/* Center Line Background */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold-primary/30 to-transparent -translate-x-1/2 hidden md:block" />
+            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/30 to-transparent -translate-x-1/2 hidden md:block" />
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-20">
                     <FadeIn>
-                        <span className="text-gold-primary font-bold uppercase tracking-[0.2em] text-sm mb-4 block">Our History</span>
+                        <span className="text-gold font-bold uppercase tracking-[0.2em] text-sm mb-4 block">Our History</span>
                         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-sans">
                             Our Sacred Journey
                         </h2>
@@ -62,16 +62,16 @@ export default function CompanyStory() {
                             <div key={item.year} className={`relative md:flex items-center justify-between ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} group`}>
 
                                 {/* Center Dot */}
-                                <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-gold-primary rounded-full border-4 border-black shadow-[0_0_15px_rgba(212,175,55,0.5)] -translate-x-1/2 z-10 group-hover:scale-150 transition-transform duration-300" />
+                                <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-gold rounded-full border-4 border-black shadow-[0_0_15px_hsl(var(--gold-glow) / 0.5)] -translate-x-1/2 z-10 group-hover:scale-150 transition-transform duration-300" />
 
                                 {/* Empty space for the other side */}
                                 <div className="hidden md:block w-5/12" />
 
                                 {/* Content Card */}
                                 <div className="ml-16 md:ml-0 md:w-5/12">
-                                    <GlassCard delay={index * 0.2} className="p-8 relative hover:-translate-y-2 transition-transform duration-500 border-l-4 border-l-gold-primary glass-card-emerald !bg-emerald-950/10">
+                                    <GlassCard delay={index * 0.2} className="p-8 relative hover:-translate-y-2 transition-transform duration-500 border-l-4 border-l-gold glass-card-emerald !bg-emerald-950/10">
                                         <div className="flex items-center gap-4 mb-4">
-                                            <div className="bg-gold-primary/10 p-3 rounded-xl text-gold-primary border border-gold-primary/20 shadow-[0_0_15px_rgba(239,191,91,0.1)]">
+                                            <div className="bg-gold/10 p-3 rounded-xl text-gold border border-gold/20 shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)]">
                                                 <item.icon size={24} />
                                             </div>
                                             <span className="text-4xl font-bold font-sans text-white tracking-tight">{item.year}</span>

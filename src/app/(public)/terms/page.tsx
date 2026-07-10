@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
 import Hero from '@/components/common/Hero';
@@ -37,7 +37,7 @@ export default function TermsPage() {
                                 <p className="mb-4">
                                     All bookings are subject to availability and confirmation. We reserve the right to decline any booking at our discretion.
                                 </p>
-                                <ul className="list-disc pl-5 space-y-2 marker:text-gold-primary">
+                                <ul className="list-disc pl-5 space-y-2 marker:text-gold">
                                     <li><strong className="text-white">Pricing:</strong> Prices are subject to change without notice, but confirmed bookings will be honored at the agreed rate.</li>
                                     <li><strong className="text-white">Payment:</strong> Full payment or a deposit may be required to secure your reservation, as specified during the booking process.</li>
                                     <li><strong className="text-white">Confirmation:</strong> You will receive a booking confirmation via email or WhatsApp once your reservation is processed.</li>
@@ -49,7 +49,7 @@ export default function TermsPage() {
                                 <p className="mb-4">
                                     We understand that plans can change. Our cancellation policy is designed to be fair to both parties.
                                 </p>
-                                <ul className="list-disc pl-5 space-y-2 marker:text-gold-primary">
+                                <ul className="list-disc pl-5 space-y-2 marker:text-gold">
                                     <li>Cancellations made more than 48 hours before the scheduled pickup time may be eligible for a full refund.</li>
                                     <li>Cancellations made within 24-48 hours may incur a cancellation fee.</li>
                                     <li>No-shows or cancellations made less than 24 hours in advance are non-refundable.</li>
@@ -61,7 +61,7 @@ export default function TermsPage() {
                                 <p className="mb-4">
                                     As a user of our services, you agree to:
                                 </p>
-                                <ul className="list-disc pl-5 space-y-2 marker:text-gold-primary">
+                                <ul className="list-disc pl-5 space-y-2 marker:text-gold">
                                     <li>Provide accurate and complete information during booking.</li>
                                     <li>Be ready at the designated pickup location at the scheduled time.</li>
                                     <li>Treat our drivers and vehicles with respect.</li>
@@ -83,15 +83,15 @@ export default function TermsPage() {
                                 </p>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                                     <div className="flex items-center gap-3 p-4 bg-black/40 rounded-lg border border-white/5">
-                                        <MapPin size={24} className="text-gold-primary" />
+                                        <MapPin size={24} className="text-gold" />
                                         <span className="font-medium text-white">Makkah, Saudi Arabia</span>
                                     </div>
                                     <div className="flex items-center gap-3 p-4 bg-black/40 rounded-lg border border-white/5">
-                                        <Phone size={24} className="text-gold-primary" />
+                                        <Phone size={24} className="text-gold" />
                                         <span className="font-medium text-white">+966 54 870 7332</span>
                                     </div>
                                     <div className="flex items-center gap-3 p-4 bg-black/40 rounded-lg border border-white/5">
-                                        <Mail size={24} className="text-gold-primary" />
+                                        <Mail size={24} className="text-gold" />
                                         <span className="font-medium text-white">info@alkiswahumrahtransport.com</span>
                                     </div>
                                 </div>

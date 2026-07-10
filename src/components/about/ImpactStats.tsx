@@ -1,4 +1,4 @@
-'use client'; // Required for Next.js App Router
+﻿'use client'; // Required for Next.js App Router
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -97,8 +97,8 @@ export default function ImpactStats({ lang = 'en' }: Props) {
       aria-label="Company statistics and trust signals"
       className="py-20 md:py-24 relative overflow-hidden bg-neutral-900/30 border-y border-white/5 backdrop-blur-sm"
     >
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold-primary/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
@@ -106,10 +106,10 @@ export default function ImpactStats({ lang = 'en' }: Props) {
             <GlassCard
               key={stat.id}
               delay={index * 0.1}
-              className="flex flex-col items-center justify-center text-center p-8 group hover:border-gold-primary/50 transition-all duration-500 bg-black/60 border-white/10 hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] h-full"
+              className="flex flex-col items-center justify-center text-center p-8 group hover:border-gold/50 transition-all duration-500 bg-black/60 border-white/10 hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.15)] h-full"
             >
               <div 
-                className="mb-6 text-2xl md:text-3xl text-gold-primary p-4 bg-gold-primary/10 rounded-full group-hover:scale-110 transition-transform duration-300 border border-gold-primary/20 group-hover:bg-gold-primary group-hover:text-black" 
+                className="mb-6 text-2xl md:text-3xl text-gold p-4 bg-gold/10 rounded-full group-hover:scale-110 transition-transform duration-300 border border-gold/20 group-hover:bg-gold group-hover:text-black" 
                 aria-hidden="true"
               >
                 {stat.icon}
@@ -167,7 +167,7 @@ export default function ImpactStats({ lang = 'en' }: Props) {
 
               <Link
                 href={lang === 'ar' && stat.link.startsWith('/') ? `/ar${stat.link}` : stat.link}
-                className="mt-auto text-xs text-gold-primary/80 hover:text-gold-primary border-b border-gold-primary/30 hover:border-gold-primary transition-colors pb-0.5"
+                className="mt-auto text-xs text-gold/80 hover:text-gold border-b border-gold/30 hover:border-gold transition-colors pb-0.5"
                 style={lang === 'ar' ? { fontFamily: 'var(--font-tajawal)' } : {}}
               >
                 {lang === 'ar' && stat.ctaTextAr ? stat.ctaTextAr : stat.ctaText}

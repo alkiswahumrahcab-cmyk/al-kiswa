@@ -1,4 +1,4 @@
-.container {
+﻿.container {
     padding: 0.75rem 1rem;
     border-radius: 16px;
     margin-top: 0.5rem;
@@ -73,7 +73,7 @@
     font-family: 'Playfair Display', serif;
     letter-spacing: -0.02em;
     text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    background: linear-gradient(to bottom, #ffffff, #BFA35A);
+    background: linear-gradient(to bottom, #ffffff, hsl(var(--gold-dark)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -131,7 +131,7 @@
 
 .inputWrapper:focus-within+.label,
 .inputGroup:hover .label {
-    color: #BFA35A;
+    color: hsl(var(--gold-dark));
 }
 
 .inputWrapper {
@@ -153,7 +153,7 @@
 }
 
 .inputWrapper:focus-within .icon {
-    color: #BFA35A;
+    color: hsl(var(--gold-dark));
     filter: drop-shadow(0 0 8px rgba(191, 163, 90, 0.6));
     transform: translateY(-50%) scale(1.1);
 }
@@ -188,7 +188,7 @@
 }
 
 .input:focus {
-    border-color: #BFA35A;
+    border-color: hsl(var(--gold-dark));
     background: rgba(15, 23, 42, 0.6);
     box-shadow:
         0 0 0 1px rgba(191, 163, 90, 0.5),
@@ -281,7 +281,7 @@
 
 .activeTab {
     background: rgba(255, 255, 255, 0.1);
-    color: #BFA35A;
+    color: hsl(var(--gold-dark));
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -670,7 +670,7 @@
 }
 
 .trustIcon {
-    color: #BFA35A;
+    color: hsl(var(--gold-dark));
 }
 
 .trustText {

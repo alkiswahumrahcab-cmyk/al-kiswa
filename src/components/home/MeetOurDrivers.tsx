@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -71,11 +71,11 @@ export default function MeetOurDrivers({ lang = 'en' }: Props) {
         badgeTitle: isAr ? "فريق محترف" : "Professional Team",
         title: isAr ? (
             <>
-                تعرف على <span className="text-gold-primary">سائقينا الموثوقين</span>
+                تعرف على <span className="text-gold">سائقينا الموثوقين</span>
             </>
         ) : (
             <>
-                Meet Your <span className="text-gold-primary">Trusted Chauffeurs</span>
+                Meet Your <span className="text-gold">Trusted Chauffeurs</span>
             </>
         ),
         subtitle: isAr ? "الأمر لا يقتصر على السيارة فحسب، بل على من يقودها. سائقونا محترفون مرخصون من الوزارة، تم اختيارهم بعناية وتدريبهم لخدمة ضيوف الرحمن بكل كرامة واهتمام." : "It’s not just about the car; it’s about who drives it. Our chauffeurs are handpicked, Ministry-licensed professionals trained to serve the Guests of Allah with dignity and care.",
@@ -91,7 +91,7 @@ export default function MeetOurDrivers({ lang = 'en' }: Props) {
             <div className="container mx-auto px-4 relative z-10">
                 <FadeIn>
                     <div className="text-center max-w-3xl mx-auto mb-16">
-                        <div className="inline-flex items-center gap-2 bg-gold-primary/10 text-gold-primary px-4 py-2 rounded-full mb-6">
+                        <div className="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-2 rounded-full mb-6">
                             <ShieldCheck size={18} />
                             <span className="text-sm font-bold uppercase tracking-wider" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>{content.badgeTitle}</span>
                         </div>
@@ -107,7 +107,7 @@ export default function MeetOurDrivers({ lang = 'en' }: Props) {
                 <div className="grid md:grid-cols-3 gap-8">
                     {drivers.map((driver, index) => (
                         <FadeIn key={index} delay={index * 0.1}>
-                            <div className="group relative bg-primary-black border border-white/10 rounded-3xl overflow-hidden hover:border-gold-primary/40 transition-all duration-500">
+                            <div className="group relative bg-primary-black border border-white/10 rounded-3xl overflow-hidden hover:border-gold/40 transition-all duration-500">
                                 {/* Image Area */}
                                 <div className="relative h-80 overflow-hidden bg-neutral-800">
                                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary-black/90 z-10" />
@@ -116,7 +116,7 @@ export default function MeetOurDrivers({ lang = 'en' }: Props) {
                                     </div>
 
                                     <div className={`absolute bottom-4 ${isAr ? 'right-4' : 'left-4'} z-20`}>
-                                        <div className="bg-gold-primary text-black text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
+                                        <div className="bg-gold text-black text-xs font-bold px-3 py-1 rounded-full mb-2 inline-block" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
                                             {driver.badge}
                                         </div>
                                     </div>
@@ -124,13 +124,13 @@ export default function MeetOurDrivers({ lang = 'en' }: Props) {
 
                                 {/* Content */}
                                 <div className="p-8 relative">
-                                    <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-gold-primary transition-colors font-sans">{driver.name}</h3>
-                                    <p className="text-gold-primary/80 mb-6" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>{driver.role}</p>
+                                    <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-gold transition-colors font-sans">{driver.name}</h3>
+                                    <p className="text-gold/80 mb-6" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>{driver.role}</p>
 
                                     <div className="space-y-3">
                                         <div className="flex items-center gap-3 text-gray-400 text-sm">
                                             <div className="bg-white/5 p-2 rounded-lg shrink-0">
-                                                <ShieldCheck size={16} className="text-gold-primary" />
+                                                <ShieldCheck size={16} className="text-gold" />
                                             </div>
                                             <span style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
                                                 {isAr ? `${driver.experience} ${content.expLabel}` : `${driver.experience} ${content.expLabel}`}
@@ -138,7 +138,7 @@ export default function MeetOurDrivers({ lang = 'en' }: Props) {
                                         </div>
                                         <div className="flex items-center gap-3 text-gray-400 text-sm">
                                             <div className="bg-white/5 p-2 rounded-lg shrink-0">
-                                                <Languages size={16} className="text-gold-primary" />
+                                                <Languages size={16} className="text-gold" />
                                             </div>
                                             <span style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
                                                 {content.speaksLabel} {driver.languages.join("، ")}

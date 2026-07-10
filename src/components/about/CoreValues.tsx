@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -51,13 +51,13 @@ export default function CoreValues() {
                     {values.map((value, index) => (
                         <GlassCard
                             key={value.id}
-                            className={`p-8 h-full flex flex-col items-center text-center transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(212,175,55,0.2)] border-t-4 border-t-gold-primary bg-neutral-900/50 border-white/10 hover:border-gold-primary/50 group`}
+                            className={`p-8 h-full flex flex-col items-center text-center transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.2)] border-t-4 border-t-gold bg-neutral-900/50 border-white/10 hover:border-gold/50 group`}
                             delay={index * 0.1}
                         >
-                            <div className="w-16 h-16 rounded-2xl bg-black border border-white/10 text-gold-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-inner group-hover:border-gold-primary/30">
+                            <div className="w-16 h-16 rounded-2xl bg-black border border-white/10 text-gold flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-inner group-hover:border-gold/30">
                                 <value.icon size={32} strokeWidth={1.5} />
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-3 font-sans group-hover:text-gold-primary transition-colors">{value.title}</h3>
+                            <h3 className="text-xl font-bold text-white mb-3 font-sans group-hover:text-gold transition-colors">{value.title}</h3>
                             <p className="text-gray-400 leading-relaxed text-sm font-light">{value.desc}</p>
                         </GlassCard>
                     ))}

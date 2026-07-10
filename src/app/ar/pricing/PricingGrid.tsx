@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -75,11 +75,11 @@ export default function PricingGrid() {
                 return (
                     <div key={idx} className={`relative p-8 rounded-3xl border transition-all duration-300 group hover:-translate-y-2
                         ${card.highlight
-                            ? 'bg-gradient-to-b from-white/10 to-black border-gold-primary shadow-[0_0_30px_rgba(212,175,55,0.15)]'
-                            : 'bg-white/5 border-white/10 hover:border-gold-primary/50'
+                            ? 'bg-gradient-to-b from-white/10 to-black border-gold shadow-[0_0_30px_hsl(var(--gold-glow) / 0.15)]'
+                            : 'bg-white/5 border-white/10 hover:border-gold/50'
                         }`}>
                         {card.highlight && (
-                            <div className="absolute -top-4 right-1/2 translate-x-1/2 bg-gold-primary text-black font-bold px-4 py-1 rounded-full text-sm uppercase tracking-wider shadow-lg">
+                            <div className="absolute -top-4 right-1/2 translate-x-1/2 bg-gold text-black font-bold px-4 py-1 rounded-full text-sm uppercase tracking-wider shadow-lg">
                                 الأكثر طلباً
                             </div>
                         )}
@@ -87,8 +87,8 @@ export default function PricingGrid() {
                             <h3 className="text-xl font-bold text-white mb-4">{card.title}</h3>
                             <div className="flex justify-center items-end gap-1 mb-2">
                                 <span className="text-sm text-gray-400 mb-2">من</span>
-                                {currency === 'USD' && <span className="text-3xl font-bold text-gold-primary mb-1">$</span>}
-                                <span className="text-5xl font-bold text-gold-primary">{formatted.amount}</span>
+                                {currency === 'USD' && <span className="text-3xl font-bold text-gold mb-1">$</span>}
+                                <span className="text-5xl font-bold text-gold">{formatted.amount}</span>
                                 <span className="text-xl font-bold text-gray-400 mb-2">{currency}</span>
                             </div>
                             <p className="text-gray-500 font-light text-sm">{card.duration} • سيارة سيدان</p>
@@ -97,7 +97,7 @@ export default function PricingGrid() {
                         <ul className="space-y-4 mb-8">
                             {card.features.map((feat, i) => (
                                 <li key={i} className="flex items-start gap-3 text-gray-300 text-sm">
-                                    <Check className="text-gold-primary shrink-0" size={18} />
+                                    <Check className="text-gold shrink-0" size={18} />
                                     <span>{feat}</span>
                                 </li>
                             ))}
@@ -107,8 +107,8 @@ export default function PricingGrid() {
                             href={card.link}
                             className={`block w-full py-4 rounded-xl font-bold text-center uppercase tracking-wider transition-all
                                 ${card.highlight
-                                    ? 'bg-gold-primary text-black hover:bg-white hover:shadow-lg'
-                                    : 'bg-white/10 text-white hover:bg-gold-primary hover:text-black'
+                                    ? 'bg-gold text-black hover:bg-white hover:shadow-lg'
+                                    : 'bg-white/10 text-white hover:bg-gold hover:text-black'
                                 }`}
                         >
                             تحقق من التوافر

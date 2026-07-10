@@ -1,4 +1,4 @@
-
+﻿
 import * as React from 'react';
 
 interface ReviewTemplateProps {
@@ -34,7 +34,7 @@ export const ReviewTemplate: React.FC<ReviewTemplateProps> = ({
                 href={reviewLink}
                 style={{
                     display: 'inline-block',
-                    backgroundColor: '#D4AF37', // Gold
+                    backgroundColor: 'hsl(var(--gold))', // Gold
                     color: '#ffffff',
                     padding: '14px 28px',
                     borderRadius: '8px',

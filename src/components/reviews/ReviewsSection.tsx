@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useEffect, useState } from 'react';
 import ReviewsCarousel from './ReviewsCarousel';
@@ -126,10 +126,10 @@ export default function ReviewsSection() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-primary/10 border border-gold-primary/20 mb-6"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 mb-6"
                     >
-                        <Star size={14} className="fill-gold-primary text-gold-primary" />
-                        <span className="text-sm font-bold text-gold-primary uppercase tracking-widest">
+                        <Star size={14} className="fill-gold text-gold" />
+                        <span className="text-sm font-bold text-gold uppercase tracking-widest">
                             <span className="text-white">{averageRating}/5</span> Average Rating
                         </span>
                     </motion.div>
@@ -141,7 +141,7 @@ export default function ReviewsSection() {
                         transition={{ delay: 0.1 }}
                         className="text-3xl md:text-5xl font-bold font-sans text-white mb-6"
                     >
-                        Trusted by <span className="text-gold-primary">Pilgrims</span>
+                        Trusted by <span className="text-gold">Pilgrims</span>
                     </motion.h2>
 
                     <motion.p
@@ -172,7 +172,7 @@ export default function ReviewsSection() {
                                 <div className="text-6xl font-serif font-medium text-white tracking-tight">{averageRating}</div>
                                 <div className="flex gap-1 justify-center my-3">
                                     {[...Array(5)].map((_, i) => (
-                                        <Star key={i} size={18} className={`${i < Math.round(Number(averageRating)) ? 'fill-gold-primary text-gold-primary' : 'text-gray-600'}`} />
+                                        <Star key={i} size={18} className={`${i < Math.round(Number(averageRating)) ? 'fill-gold text-gold' : 'text-gray-600'}`} />
                                     ))}
                                 </div>
                                 <div className="text-xs text-gray-400 font-medium tracking-widest uppercase opacity-80">{totalReviews} Reviews</div>
@@ -188,7 +188,7 @@ export default function ReviewsSection() {
                                         <span className="w-2">{star}</span>
                                         <div className="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
                                             <div
-                                                className="h-full bg-gold-primary rounded-full opacity-90"
+                                                className="h-full bg-gold rounded-full opacity-90"
                                                 style={{ width: `${totalReviews > 0 ? (ratingCounts[star as keyof typeof ratingCounts] / totalReviews) * 100 : 0}%` }}
                                             />
                                         </div>
@@ -216,7 +216,7 @@ export default function ReviewsSection() {
                                 href={settings.contact.social.googleReview}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group flex items-center gap-3 bg-white text-black hover:bg-gold-primary px-8 py-3.5 rounded-lg font-bold text-sm transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]"
+                                className="group flex items-center gap-3 bg-white text-black hover:bg-gold px-8 py-3.5 rounded-lg font-bold text-sm transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)]"
                             >
                                 <span>Write a Review</span>
                                 <MessageSquarePlus size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -238,7 +238,7 @@ export default function ReviewsSection() {
                         href={settings.contact.social.googleBusiness}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gold-primary hover:text-white transition-colors text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-2 group"
+                        className="text-gold hover:text-white transition-colors text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-2 group"
                     >
                         <span>Read all reviews on Google</span>
                         <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />

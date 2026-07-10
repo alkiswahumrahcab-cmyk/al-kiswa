@@ -1,4 +1,4 @@
-import {
+﻿import {
     Body,
     Button,
     Container,
@@ -52,7 +52,7 @@ export const AbandonedCartTemplate = ({
                         {/* Card */}
                         <Section className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
                             {/* Header Image/Banner */}
-                            <div className="bg-[#D4AF37] h-2 w-full" />
+                            <div className="bg-gold h-2 w-full" />
 
                             <div className="p-8">
                                 <Heading className="text-2xl font-bold text-slate-800 mb-4 text-center">
@@ -70,7 +70,7 @@ export const AbandonedCartTemplate = ({
                                 <Section className="text-center mb-8">
                                     <Button
                                         href={recoveryLink}
-                                        className="bg-[#D4AF37] text-white font-bold px-8 py-4 rounded-xl text-base hover:bg-[#B38E2D] block w-full"
+                                        className="bg-gold text-white font-bold px-8 py-4 rounded-xl text-base hover:bg-[#B38E2D] block w-full"
                                     >
                                         Complete My Booking
                                     </Button>

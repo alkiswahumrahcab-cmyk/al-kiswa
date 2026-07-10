@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import { Phone, X, Clock, CheckCircle, ArrowRight } from 'lucide-react';
@@ -57,7 +57,7 @@ export default function CallbackWidget() {
                         initial={{ opacity: 0, y: 20, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.9 }}
-                        className="bg-primary-black/90 backdrop-blur-xl border border-gold-primary/30 p-6 rounded-2xl shadow-2xl w-80 mb-4"
+                        className="bg-primary-black/90 backdrop-blur-xl border border-gold/30 p-6 rounded-2xl shadow-2xl w-80 mb-4"
                     >
                         <button
                             onClick={() => setIsOpen(false)}
@@ -68,8 +68,8 @@ export default function CallbackWidget() {
 
                         {!submitted ? (
                             <>
-                                <div className="flex items-center gap-3 mb-4 text-gold-primary">
-                                    <div className="bg-gold-primary/10 p-2 rounded-full">
+                                <div className="flex items-center gap-3 mb-4 text-gold">
+                                    <div className="bg-gold/10 p-2 rounded-full">
                                         <Clock size={20} />
                                     </div>
                                     <h3 className="font-bold text-lg text-white">Request a Call</h3>
@@ -83,12 +83,12 @@ export default function CallbackWidget() {
                                         placeholder="Your Phone Number"
                                         value={phone}
                                         onChange={(e) => setPhone(e.target.value)}
-                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold-primary/50 focus:outline-none transition-colors"
+                                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-gold/50 focus:outline-none transition-colors"
                                         required
                                     />
                                     <button
                                         type="submit"
-                                        className="w-full bg-gold-primary hover:bg-gold-dark text-black font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
+                                        className="w-full bg-gold hover:bg-gold-dark text-black font-bold py-3 rounded-lg flex items-center justify-center gap-2 transition-colors"
                                     >
                                         Call Me Back <ArrowRight size={18} />
                                     </button>
@@ -116,7 +116,7 @@ export default function CallbackWidget() {
                     animate={{ opacity: 1, scale: 1 }}
                     whileHover={{ scale: 1.05 }}
                     onClick={() => setIsOpen(true)}
-                    className="group flex items-center gap-3 bg-white text-black px-4 py-3 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_rgba(239,191,91,0.4)] border border-transparent hover:border-gold-primary transition-all duration-300"
+                    className="group flex items-center gap-3 bg-white text-black px-4 py-3 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_hsl(var(--gold-glow) / 0.4)] border border-transparent hover:border-gold transition-all duration-300"
                 >
                     <div className="bg-black text-white p-2 rounded-full relative">
                         <Phone size={18} className="fill-current" />

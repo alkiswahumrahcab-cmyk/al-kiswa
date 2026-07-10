@@ -110,7 +110,7 @@ export default async function ZiyaratToursPage() {
                     <FadeIn>
                         <div className="flex flex-col md:flex-row gap-12 items-center">
                             <div className="md:w-1/2">
-                                <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white border-l-4 border-gold-primary pl-4">
+                                <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white border-l-4 border-gold pl-4">
                                     Makkah Ziyarat Sites
                                 </h2>
                                 <p className="text-gray-300 mb-6 leading-relaxed font-light text-lg">
@@ -123,8 +123,8 @@ export default async function ZiyaratToursPage() {
                                         { name: "Mina, Arafat & Muzdalifah", desc: "The sites of Hajj rituals." },
                                         { name: "Jannat al-Mu'alla", desc: "The cemetery where Khadijah (RA) is buried." }
                                     ].map((site, idx) => (
-                                        <li key={idx} className="bg-white/5 border border-white/10 p-4 rounded-xl flex gap-4 hover:border-gold-primary/30 transition-all hover:bg-white/10 group">
-                                            <div className="bg-gold-primary/10 p-3 rounded-full h-fit text-gold-primary border border-gold-primary/20 group-hover:bg-gold-primary group-hover:text-black transition-colors">
+                                        <li key={idx} className="bg-white/5 border border-white/10 p-4 rounded-xl flex gap-4 hover:border-gold/30 transition-all hover:bg-white/10 group">
+                                            <div className="bg-gold/10 p-3 rounded-full h-fit text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-colors">
                                                 <MapPin size={24} />
                                             </div>
                                             <div>
@@ -157,7 +157,7 @@ export default async function ZiyaratToursPage() {
                     <FadeIn delay={0.2}>
                         <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
                             <div className="md:w-1/2">
-                                <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white border-l-4 border-gold-primary pl-4">
+                                <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white border-l-4 border-gold pl-4">
                                     Madinah Ziyarat Sites
                                 </h2>
                                 <p className="text-gray-300 mb-6 leading-relaxed font-light text-lg">
@@ -170,8 +170,8 @@ export default async function ZiyaratToursPage() {
                                         { name: "Masjid Al-Qiblatayn", desc: "The mosque where the Qibla was changed." },
                                         { name: "The Seven Mosques", desc: "Site of the Battle of the Trench." }
                                     ].map((site, idx) => (
-                                        <li key={idx} className="bg-white/5 border border-white/10 p-4 rounded-xl flex gap-4 hover:border-gold-primary/30 transition-all hover:bg-white/10 group">
-                                            <div className="bg-gold-primary/10 p-3 rounded-full h-fit text-gold-primary border border-gold-primary/20 group-hover:bg-gold-primary group-hover:text-black transition-colors">
+                                        <li key={idx} className="bg-white/5 border border-white/10 p-4 rounded-xl flex gap-4 hover:border-gold/30 transition-all hover:bg-white/10 group">
+                                            <div className="bg-gold/10 p-3 rounded-full h-fit text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-colors">
                                                 <Heart size={24} />
                                             </div>
                                             <div>
@@ -204,22 +204,22 @@ export default async function ZiyaratToursPage() {
                     <FadeIn delay={0.4}>
                         <h2 className="text-3xl md:text-5xl font-bold mb-16 font-sans text-white">Enhance Your Spiritual Journey</h2>
                         <div className="grid md:grid-cols-3 gap-8">
-                            <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-gold-primary/30 transition-all hover:bg-white/10 group">
-                                <div className="bg-gold-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold-primary border border-gold-primary/20 group-hover:bg-gold-primary group-hover:text-black transition-all">
+                            <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-gold/30 transition-all hover:bg-white/10 group">
+                                <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                     <Clock size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">No Hasted Visits</h3>
-                                <p className="text-sm text-gray-400 leading-relaxed font-light">Unlike group buses, we wait for you. Travel in our private <Link href="/ar/fleet/gmc-yukon-at4" className="text-gold-primary hover:text-white hover:underline decoration-gold-primary/50">GMC Yukon</Link> or <Link href="/ar/fleet/hyundai-staria" className="text-gold-primary hover:text-white hover:underline decoration-gold-primary/50">Hyundai Staria</Link> and take your time to pray.</p>
+                                <p className="text-sm text-gray-400 leading-relaxed font-light">Unlike group buses, we wait for you. Travel in our private <Link href="/ar/fleet/gmc-yukon-at4" className="text-gold hover:text-white hover:underline decoration-gold/50">GMC Yukon</Link> or <Link href="/ar/fleet/hyundai-staria" className="text-gold hover:text-white hover:underline decoration-gold/50">Hyundai Staria</Link> and take your time to pray.</p>
                             </div>
-                            <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-gold-primary/30 transition-all hover:bg-white/10 group">
-                                <div className="bg-gold-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold-primary border border-gold-primary/20 group-hover:bg-gold-primary group-hover:text-black transition-all">
+                            <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-gold/30 transition-all hover:bg-white/10 group">
+                                <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                     <BookOpen size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">Historical Context</h3>
                                 <p className="text-sm text-gray-400 leading-relaxed font-light">Our drivers share the history and significance of the locations you visit.</p>
                             </div>
-                            <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-gold-primary/30 transition-all hover:bg-white/10 group">
-                                <div className="bg-gold-primary/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold-primary border border-gold-primary/20 group-hover:bg-gold-primary group-hover:text-black transition-all">
+                            <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-gold/30 transition-all hover:bg-white/10 group">
+                                <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                     <Camera size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold mb-3 text-white">Photo Opportunities</h3>
@@ -227,11 +227,11 @@ export default async function ZiyaratToursPage() {
                             </div>
                         </div>
                         <div className="mt-16">
-                            <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105">
+                            <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105">
                                 Book Your Private Ziyarat Tour <ArrowRight size={20} className="ml-2" />
                             </Link>
                             <p className="mt-8 text-sm text-gray-500 font-light">
-                                Need to travel between cities? We also offer <Link href="/ar/services/makkah-madinah-taxi" className="text-gold-primary hover:text-white transition-colors hover:underline decoration-gold-primary/50">Makkah to Madinah Taxi</Link> services.
+                                Need to travel between cities? We also offer <Link href="/ar/services/makkah-madinah-taxi" className="text-gold hover:text-white transition-colors hover:underline decoration-gold/50">Makkah to Madinah Taxi</Link> services.
                             </p>
                         </div>
                     </FadeIn>

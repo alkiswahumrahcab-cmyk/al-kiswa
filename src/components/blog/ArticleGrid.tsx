@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import FadeIn from '@/components/common/FadeIn';
@@ -56,7 +56,7 @@ export default function ArticleGrid({
                                         key={cat}
                                         onClick={() => onCategoryChange(cat)}
                                         className={`px-4 py-2 rounded-full text-sm font-bold transition-all ${activeCategory === cat
-                                            ? 'bg-gold-primary text-black shadow-lg shadow-gold-primary/20'
+                                            ? 'bg-gold text-black shadow-lg shadow-gold/20'
                                             : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white border border-white/5'
                                             }`}
                                     >
@@ -74,7 +74,7 @@ export default function ArticleGrid({
                                     placeholder="Search articles..."
                                     value={searchTerm}
                                     onChange={(e) => onSearchChange(e.target.value)}
-                                    className="w-full pl-10 pr-4 py-2 bg-neutral-900/50 border border-white/10 rounded-full focus:outline-none focus:ring-2 focus:ring-gold-primary text-sm text-white placeholder-gray-500"
+                                    className="w-full pl-10 pr-4 py-2 bg-neutral-900/50 border border-white/10 rounded-full focus:outline-none focus:ring-2 focus:ring-gold text-sm text-white placeholder-gray-500"
                                 />
                                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" size={16} />
                             </div>
@@ -92,7 +92,7 @@ export default function ArticleGrid({
                     return (
                         <FadeIn key={linkSlug} delay={index * 0.05}>
                             <Link href={`/blog/${linkSlug}`} className="group h-full block">
-                                <article className="h-full flex flex-col glass-card-emerald hover:-translate-y-2 relative isolate group-hover:shadow-[0_0_40px_rgba(212,175,55,0.15)]">
+                                <article className="h-full flex flex-col glass-card-emerald hover:-translate-y-2 relative isolate group-hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.15)]">
 
                                     {/* Image */}
                                     <div className="relative h-64 overflow-hidden border-b border-white/5">
@@ -107,7 +107,7 @@ export default function ArticleGrid({
 
                                         {/* Category Badge */}
                                         <div className="absolute top-4 left-4">
-                                            <span className="px-3 py-1 bg-black/60 backdrop-blur-md text-xs font-bold uppercase tracking-wider text-gold-primary rounded-full border border-white/10 shadow-lg">
+                                            <span className="px-3 py-1 bg-black/60 backdrop-blur-md text-xs font-bold uppercase tracking-wider text-gold rounded-full border border-white/10 shadow-lg">
                                                 {article.category}
                                             </span>
                                         </div>
@@ -118,7 +118,7 @@ export default function ArticleGrid({
                                         {/* Date & Read Time */}
                                         <div className="flex items-center gap-4 text-white/60 mb-4 tracking-wide">
                                             <span className="flex items-center gap-1.5">
-                                                <CalendarDays size={14} className="text-gold-primary" />
+                                                <CalendarDays size={14} className="text-gold" />
                                                 {// Handle both Date object and string date
                                                     new Date(article.date).toLocaleDateString(undefined, {
                                                         month: 'short',
@@ -126,14 +126,14 @@ export default function ArticleGrid({
                                                         year: 'numeric'
                                                     })}
                                             </span>
-                                            <span className="w-1 h-1 rounded-full bg-gold-primary/50" />
+                                            <span className="w-1 h-1 rounded-full bg-gold/50" />
                                             <span className="flex items-center gap-1.5">
-                                                <Clock size={14} className="text-gold-primary" />
+                                                <Clock size={14} className="text-gold" />
                                                 {article.readTime}
                                             </span>
                                         </div>
 
-                                        <h3 className="text-2xl font-bold font-serif text-white mb-3 line-clamp-2 leading-tight group-hover:text-gold-primary transition-colors duration-300">
+                                        <h3 className="text-2xl font-bold font-serif text-white mb-3 line-clamp-2 leading-tight group-hover:text-gold transition-colors duration-300">
                                             {article.title}
                                         </h3>
 
@@ -141,7 +141,7 @@ export default function ArticleGrid({
                                             {article.excerpt}
                                         </p>
 
-                                        <div className="flex items-center gap-2 text-sm font-bold text-gold-primary uppercase tracking-widest group/btn pt-4 border-t border-white/5">
+                                        <div className="flex items-center gap-2 text-sm font-bold text-gold uppercase tracking-widest group/btn pt-4 border-t border-white/5">
                                             Read Article
                                             <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
                                         </div>
@@ -161,7 +161,7 @@ export default function ArticleGrid({
                             key={page}
                             onClick={() => onPageChange(page)}
                             className={`w-10 h-10 rounded-full font-bold transition-all ${currentPage === page
-                                ? 'bg-gold-primary text-black'
+                                ? 'bg-gold text-black'
                                 : 'bg-white/5 text-gray-400 hover:bg-white/10 border border-white/5'
                                 }`}
                         >

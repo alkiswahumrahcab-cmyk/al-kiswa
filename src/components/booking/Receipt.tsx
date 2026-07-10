@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -40,9 +40,9 @@ export default function Receipt({ bookingData, onClose }: ReceiptProps) {
     return (
         <div className="w-full max-w-2xl mx-auto bg-white text-gray-900 rounded-2xl shadow-2xl overflow-hidden relative" id="receipt-container">
             {/* Header / Brand */}
-            <div className="bg-primary-black p-6 flex items-center justify-between border-b-4 border-gold-primary">
+            <div className="bg-primary-black p-6 flex items-center justify-between border-b-4 border-gold">
                 <div className="flex items-center gap-4">
-                    <div className="relative w-16 h-16 bg-white rounded-xl p-2 border border-gold-primary/30">
+                    <div className="relative w-16 h-16 bg-white rounded-xl p-2 border border-gold/30">
                         <Image 
                             src="/logo-dark.svg" 
                             alt="Al Kiswah" 
@@ -53,7 +53,7 @@ export default function Receipt({ bookingData, onClose }: ReceiptProps) {
                     </div>
                     <div>
                         <h2 className="text-xl font-bold text-white">Al Kiswah Transport</h2>
-                        <p className="text-gold-primary text-xs tracking-widest uppercase">Official Booking Receipt</p>
+                        <p className="text-gold text-xs tracking-widest uppercase">Official Booking Receipt</p>
                     </div>
                 </div>
                 <div className="text-right text-white">
@@ -78,7 +78,7 @@ export default function Receipt({ bookingData, onClose }: ReceiptProps) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                     {/* Passenger Details */}
                     <div>
-                        <h3 className="text-sm text-gold-primary uppercase tracking-wider font-bold mb-3">Passenger Info</h3>
+                        <h3 className="text-sm text-gold uppercase tracking-wider font-bold mb-3">Passenger Info</h3>
                         <div className="space-y-2">
                             <p className="text-base font-bold text-gray-900">{bookingData.name}</p>
                             <p className="text-sm text-gray-600">{bookingData.email}</p>
@@ -91,7 +91,7 @@ export default function Receipt({ bookingData, onClose }: ReceiptProps) {
 
                     {/* Trip Details */}
                     <div>
-                        <h3 className="text-sm text-gold-primary uppercase tracking-wider font-bold mb-3">Trip Details</h3>
+                        <h3 className="text-sm text-gold uppercase tracking-wider font-bold mb-3">Trip Details</h3>
                         <div className="space-y-3">
                             <div>
                                 <p className="text-xs text-gray-500 font-medium">Route / Service</p>
@@ -131,7 +131,7 @@ export default function Receipt({ bookingData, onClose }: ReceiptProps) {
                 <div className="bg-gray-50 rounded-xl p-4 mb-8 border border-gray-100">
                     <div className="relative pl-6 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-gray-300">
                         <div className="relative mb-4">
-                            <div className="absolute -left-6 top-1 w-2.5 h-2.5 rounded-full bg-gold-primary border-2 border-white shadow-sm" />
+                            <div className="absolute -left-6 top-1 w-2.5 h-2.5 rounded-full bg-gold border-2 border-white shadow-sm" />
                             <p className="text-xs text-gray-500 font-medium">Pickup Location</p>
                             <p className="text-sm font-semibold text-gray-900">{bookingData.pickupLocation}</p>
                         </div>
@@ -164,7 +164,7 @@ export default function Receipt({ bookingData, onClose }: ReceiptProps) {
 
                         <div className="flex justify-between items-center">
                             <span className="text-lg font-bold text-gray-900">Total Paid</span>
-                            <span className="text-2xl font-black text-gold-primary">
+                            <span className="text-2xl font-black text-gold">
                                 {bookingData.totalAmount} {bookingData.currency}
                             </span>
                         </div>

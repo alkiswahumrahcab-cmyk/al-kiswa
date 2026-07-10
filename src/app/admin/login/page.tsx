@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -58,9 +58,9 @@ export default function LoginPage() {
             {/* Back to Home Button */}
             <Link
                 href="/"
-                className="absolute top-6 left-6 z-50 flex items-center gap-2 text-gray-400 hover:text-gold-primary transition-colors group"
+                className="absolute top-6 left-6 z-50 flex items-center gap-2 text-gray-400 hover:text-gold transition-colors group"
             >
-                <div className="p-2 rounded-full bg-white/5 border border-white/10 group-hover:border-gold-primary/50 transition-colors shadow-sm">
+                <div className="p-2 rounded-full bg-white/5 border border-white/10 group-hover:border-gold/50 transition-colors shadow-sm">
                     <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
                 </div>
                 <span className="font-medium text-sm">Back to Home</span>
@@ -80,18 +80,18 @@ export default function LoginPage() {
             <div className="absolute inset-0 z-0 bg-gradient-to-br from-primary-black via-primary-black to-emerald-950/20"></div>
 
             {/* Decorative Orbs */}
-            <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-gold-primary/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+            <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-gold/10 rounded-full blur-[100px] animate-pulse-slow"></div>
             <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-gem-emerald/10 rounded-full blur-[100px]"></div>
 
             <div className="w-full max-w-md relative z-10 p-6">
-                <div className="bg-primary-black/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 overflow-hidden transition-all duration-500 hover:border-gold-primary/30 hover:shadow-[0_0_30px_rgba(212,175,55,0.1)]">
+                <div className="bg-primary-black/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 overflow-hidden transition-all duration-500 hover:border-gold/30 hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.1)]">
                     {/* Top Accent Line */}
-                    <div className="h-1 w-full bg-gradient-to-r from-transparent via-gold-primary to-transparent opacity-50"></div>
+                    <div className="h-1 w-full bg-gradient-to-r from-transparent via-gold to-transparent opacity-50"></div>
 
                     <div className="p-8 md:p-10">
                         <div className="text-center mb-10">
                             <div className="w-20 h-20 bg-gradient-to-br from-white/5 to-white/10 rounded-2xl mx-auto flex items-center justify-center mb-6 shadow-inner border border-white/5 group transform transition-transform hover:scale-105">
-                                <Lock className="text-gold-primary group-hover:text-gold-light transition-colors drop-shadow-md" size={32} />
+                                <Lock className="text-gold group-hover:text-gold-light transition-colors drop-shadow-md" size={32} />
                             </div>
                             <h1 className="text-3xl font-bold text-white mb-2 tracking-tight font-sans">Welcome Back</h1>
                             <p className="text-gray-400 text-sm">Sign in to manage Al Kiswah Transport</p>
@@ -110,12 +110,12 @@ export default function LoginPage() {
                                     Email Address
                                 </label>
                                 <div className="relative group">
-                                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gold-primary transition-colors" size={20} />
+                                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gold transition-colors" size={20} />
                                     <input
                                         type="email"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        className="w-full pl-12 pr-4 py-4 rounded-xl border border-white/10 bg-white/5 text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-gold-primary/20 focus:border-gold-primary/50 transition-all shadow-sm focus:bg-white/10"
+                                        className="w-full pl-12 pr-4 py-4 rounded-xl border border-white/10 bg-white/5 text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-gold/20 focus:border-gold/50 transition-all shadow-sm focus:bg-white/10"
                                         placeholder="admin@alkiswah.com"
                                         required
                                     />
@@ -127,12 +127,12 @@ export default function LoginPage() {
                                     Password
                                 </label>
                                 <div className="relative group">
-                                    <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gold-primary transition-colors" size={20} />
+                                    <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gold transition-colors" size={20} />
                                     <input
                                         type="password"
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
-                                        className="w-full pl-12 pr-4 py-4 rounded-xl border border-white/10 bg-white/5 text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-gold-primary/20 focus:border-gold-primary/50 transition-all shadow-sm focus:bg-white/10"
+                                        className="w-full pl-12 pr-4 py-4 rounded-xl border border-white/10 bg-white/5 text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-gold/20 focus:border-gold/50 transition-all shadow-sm focus:bg-white/10"
                                         placeholder="••••••••"
                                         required
                                     />
@@ -142,7 +142,7 @@ export default function LoginPage() {
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="w-full bg-gradient-to-r from-gold-primary to-gold-dark hover:from-white hover:to-white hover:text-black text-black font-bold py-4 rounded-xl shadow-[0_0_20px_rgba(212,175,55,0.2)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-8 group relative overflow-hidden"
+                                className="w-full bg-gradient-to-r from-gold to-gold-dark hover:from-white hover:to-white hover:text-black text-black font-bold py-4 rounded-xl shadow-[0_0_20px_hsl(var(--gold-glow) / 0.2)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.4)] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 mt-8 group relative overflow-hidden"
                             >
                                 {loading ? (
                                     <>

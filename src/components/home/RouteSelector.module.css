@@ -1,4 +1,4 @@
-.container {
+﻿.container {
     position: relative;
     width: 100%;
 }
@@ -25,8 +25,8 @@
 }
 
 .trigger.open {
-    border-color: #EFBF5B;
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+    border-color: hsl(var(--gold));
+    box-shadow: 0 0 0 3px hsl(var(--gold-glow) / 0.15);
 }
 
 .triggerContent {
@@ -53,8 +53,8 @@
 }
 
 .trigger.open .iconWrapper {
-    background: rgba(212, 175, 55, 0.1);
-    color: #EFBF5B;
+    background: hsl(var(--gold-glow) / 0.1);
+    color: hsl(var(--gold));
 }
 
 .routeInfo {
@@ -126,8 +126,8 @@
 }
 
 .searchInput:focus {
-    border-color: #EFBF5B;
-    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
+    border-color: hsl(var(--gold));
+    box-shadow: 0 0 0 2px hsl(var(--gold-glow) / 0.1);
 }
 
 .list {
@@ -168,7 +168,7 @@
 }
 
 .option.selected {
-    background: rgba(212, 175, 55, 0.05);
+    background: hsl(var(--gold-glow) / 0.05);
 }
 
 .optionIcon {
@@ -176,7 +176,7 @@
 }
 
 .option.selected .optionIcon {
-    color: #EFBF5B;
+    color: hsl(var(--gold));
 }
 
 .optionContent {
@@ -202,7 +202,7 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #EFBF5B;
+    background: hsl(var(--gold));
 }
 
 .noResults {
@@ -248,8 +248,8 @@
 }
 
 .trigger.open .iconWrapper {
-    background: rgba(212, 175, 55, 0.1);
-    color: #EFBF5B;
+    background: hsl(var(--gold-glow) / 0.1);
+    color: hsl(var(--gold));
 }
 
 .routeInfo {
@@ -321,8 +321,8 @@
 }
 
 .searchInput:focus {
-    border-color: #EFBF5B;
-    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
+    border-color: hsl(var(--gold));
+    box-shadow: 0 0 0 2px hsl(var(--gold-glow) / 0.1);
 }
 
 .list {
@@ -363,7 +363,7 @@
 }
 
 .option.selected {
-    background: rgba(212, 175, 55, 0.05);
+    background: hsl(var(--gold-glow) / 0.05);
 }
 
 .optionIcon {
@@ -371,7 +371,7 @@
 }
 
 .option.selected .optionIcon {
-    color: #EFBF5B;
+    color: hsl(var(--gold));
 }
 
 .optionContent {
@@ -397,7 +397,7 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #EFBF5B;
+    background: hsl(var(--gold));
 }
 
 .noResults {
@@ -450,9 +450,9 @@
 }
 
 :global(.dark) .option.selected {
-    background: rgba(212, 175, 55, 0.15);
+    background: hsl(var(--gold-glow) / 0.15);
 }
 
 :global(.dark) .option.selected .optionIcon {
-    color: #EFBF5B;
+    color: hsl(var(--gold));
 }

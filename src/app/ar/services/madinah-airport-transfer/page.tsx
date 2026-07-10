@@ -104,9 +104,9 @@ export default async function MadinahAirportPage() {
                     <div className="grid md:grid-cols-2 gap-16 items-center">
                         <FadeIn>
                             <div>
-                                <span className="text-[#D4AF37] font-bold tracking-[0.2em] uppercase text-sm border-b border-[#D4AF37]/30 pb-2 mb-4 block w-fit">Stress-Free Welcome</span>
+                                <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm border-b border-gold/30 pb-2 mb-4 block w-fit">Stress-Free Welcome</span>
                                 <h2 className="text-4xl md:text-5xl font-bold mb-8 font-sans text-white">
-                                    Seamless Arrival in <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37]">Madinah</span>
+                                    Seamless Arrival in <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Madinah</span>
                                 </h2>
                                 <p className="text-gray-400 mb-8 leading-relaxed font-light text-lg">
                                     Arriving for Umrah or Ziyarat should be stress-free. Avoid the hassle of haggling with local taxis.
@@ -115,36 +115,36 @@ export default async function MadinahAirportPage() {
 
                                 <div className="space-y-8">
                                     <div className="flex gap-6 group">
-                                        <div className="bg-neutral-900 border border-white/10 p-4 rounded-xl h-fit text-[#D4AF37] group-hover:border-[#D4AF37]/50 transition-colors shadow-lg">
+                                        <div className="bg-neutral-900 border border-white/10 p-4 rounded-xl h-fit text-gold group-hover:border-gold/50 transition-colors shadow-lg">
                                             <Plane size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-xl mb-2 text-white group-hover:text-[#D4AF37] transition-colors font-sans">Flight Tracking</h4>
+                                            <h4 className="font-bold text-xl mb-2 text-white group-hover:text-gold transition-colors font-sans">Flight Tracking</h4>
                                             <p className="text-sm text-gray-400 font-light leading-relaxed">We monitor your flight status to ensure we are there when you land, adjusting for any delays automatically.</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-6 group">
-                                        <div className="bg-neutral-900 border border-white/10 p-4 rounded-xl h-fit text-[#D4AF37] group-hover:border-[#D4AF37]/50 transition-colors shadow-lg">
+                                        <div className="bg-neutral-900 border border-white/10 p-4 rounded-xl h-fit text-gold group-hover:border-gold/50 transition-colors shadow-lg">
                                             <Hotel size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-xl mb-2 text-white group-hover:text-[#D4AF37] transition-colors font-sans">Hotel Drop-off</h4>
+                                            <h4 className="font-bold text-xl mb-2 text-white group-hover:text-gold transition-colors font-sans">Hotel Drop-off</h4>
                                             <p className="text-sm text-gray-400 font-light leading-relaxed">Direct transfer to your hotel lobby in the Markazia District (near Masjid Nabawi) or any other location.</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-6 group">
-                                        <div className="bg-neutral-900 border border-white/10 p-4 rounded-xl h-fit text-[#D4AF37] group-hover:border-[#D4AF37]/50 transition-colors shadow-lg">
+                                        <div className="bg-neutral-900 border border-white/10 p-4 rounded-xl h-fit text-gold group-hover:border-gold/50 transition-colors shadow-lg">
                                             <Clock size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-xl mb-2 text-white group-hover:text-[#D4AF37] transition-colors font-sans">24/7 Availability</h4>
+                                            <h4 className="font-bold text-xl mb-2 text-white group-hover:text-gold transition-colors font-sans">24/7 Availability</h4>
                                             <p className="text-sm text-gray-400 font-light leading-relaxed">Late night or early morning flight? We are always available to serve you at any hour.</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="mt-12">
-                                    <Link href="/ar/booking" className="inline-flex items-center gap-3 bg-gradient-to-r from-[#D4AF37] to-[#B4932F] text-black hover:bg-white hover:text-black hover:from-white hover:to-white px-10 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] uppercase tracking-wider text-sm transform hover:-translate-y-1">
+                                    <Link href="/ar/booking" className="inline-flex items-center gap-3 bg-gradient-to-r from-gold to-gold-dark text-black hover:bg-white hover:text-black hover:from-white hover:to-white px-10 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] uppercase tracking-wider text-sm transform hover:-translate-y-1">
                                         Book Transfer Now <ArrowRight size={20} />
                                     </Link>
                                 </div>
@@ -154,14 +154,14 @@ export default async function MadinahAirportPage() {
                         {/* Map / Route Visual Placeholder */}
                         <FadeIn delay={0.2}>
                             <div className="bg-neutral-900/50 p-8 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-md relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-full blur-[80px] pointer-events-none" />
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-[80px] pointer-events-none" />
 
                                 <h3 className="text-2xl font-bold mb-8 text-center text-white font-sans">Popular Routes from Madinah Airport</h3>
 
                                 <div className="space-y-4 relative z-10">
-                                    <div className="flex items-center justify-between p-5 bg-black/40 border border-white/5 rounded-2xl hover:border-[#D4AF37]/30 transition-all group">
+                                    <div className="flex items-center justify-between p-5 bg-black/40 border border-white/5 rounded-2xl hover:border-gold/30 transition-all group">
                                         <div className="flex items-center gap-4">
-                                            <div className="bg-[#D4AF37]/10 p-2 rounded-lg text-[#D4AF37]">
+                                            <div className="bg-gold/10 p-2 rounded-lg text-gold">
                                                 <MapPin size={24} />
                                             </div>
                                             <div>
@@ -170,14 +170,14 @@ export default async function MadinahAirportPage() {
                                             </div>
                                         </div>
                                         <div className="text-right">
-                                            <p className="font-bold text-[#D4AF37]">25 Mins</p>
+                                            <p className="font-bold text-gold">25 Mins</p>
                                             <p className="text-xs text-gray-500">20 km</p>
                                         </div>
                                     </div>
 
-                                    <div className="flex items-center justify-between p-5 bg-black/40 border border-white/5 rounded-2xl hover:border-[#D4AF37]/30 transition-all group">
+                                    <div className="flex items-center justify-between p-5 bg-black/40 border border-white/5 rounded-2xl hover:border-gold/30 transition-all group">
                                         <div className="flex items-center gap-4">
-                                            <div className="bg-[#D4AF37]/10 p-2 rounded-lg text-green-500">
+                                            <div className="bg-gold/10 p-2 rounded-lg text-green-500">
                                                 <MapPin size={24} />
                                             </div>
                                             <div>
@@ -186,14 +186,14 @@ export default async function MadinahAirportPage() {
                                             </div>
                                         </div>
                                         <div className="text-right">
-                                            <p className="font-bold text-[#D4AF37]">4.5 Hours</p>
+                                            <p className="font-bold text-gold">4.5 Hours</p>
                                             <p className="text-xs text-gray-500">450 km</p>
                                         </div>
                                     </div>
 
-                                    <div className="flex items-center justify-between p-5 bg-black/40 border border-white/5 rounded-2xl hover:border-[#D4AF37]/30 transition-all group">
+                                    <div className="flex items-center justify-between p-5 bg-black/40 border border-white/5 rounded-2xl hover:border-gold/30 transition-all group">
                                         <div className="flex items-center gap-4">
-                                            <div className="bg-[#D4AF37]/10 p-2 rounded-lg text-blue-500">
+                                            <div className="bg-gold/10 p-2 rounded-lg text-blue-500">
                                                 <MapPin size={24} />
                                             </div>
                                             <div>
@@ -202,7 +202,7 @@ export default async function MadinahAirportPage() {
                                             </div>
                                         </div>
                                         <div className="text-right">
-                                            <p className="font-bold text-[#D4AF37]">30 Mins</p>
+                                            <p className="font-bold text-gold">30 Mins</p>
                                             <p className="text-xs text-gray-500">25 km</p>
                                         </div>
                                     </div>
@@ -238,19 +238,19 @@ export default async function MadinahAirportPage() {
                 <div className="container max-w-4xl mx-auto px-4">
                     <FadeIn>
                         <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 font-sans text-white">
-                            Common <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37]">Questions</span>
+                            Common <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Questions</span>
                         </h2>
                         <div className="space-y-4">
                             {madinahAirportFAQs.map((faq, i) => (
                                 <div key={i} className="group">
                                     <details className="group [&_summary::-webkit-details-marker]:hidden">
-                                        <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-2xl bg-neutral-900 border border-white/10 p-6 text-white hover:border-[#D4AF37]/50 transition-colors shadow-md">
-                                            <h3 className="font-bold font-sans text-lg group-open:text-[#D4AF37] transition-colors">{faq.question}</h3>
-                                            <span className="shrink-0 rounded-full bg-white/5 p-1.5 text-gray-400 sm:p-3 group-open:bg-[#D4AF37]/10 group-open:text-[#D4AF37] transition-all">
+                                        <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-2xl bg-neutral-900 border border-white/10 p-6 text-white hover:border-gold/50 transition-colors shadow-md">
+                                            <h3 className="font-bold font-sans text-lg group-open:text-gold transition-colors">{faq.question}</h3>
+                                            <span className="shrink-0 rounded-full bg-white/5 p-1.5 text-gray-400 sm:p-3 group-open:bg-gold/10 group-open:text-gold transition-all">
                                                 <ChevronDown size={20} className="group-open:rotate-180 transition-transform duration-300" />
                                             </span>
                                         </summary>
-                                        <div className="mt-4 px-6 leading-relaxed text-gray-400 font-light border-l-2 border-[#D4AF37]/30 ml-4">
+                                        <div className="mt-4 px-6 leading-relaxed text-gray-400 font-light border-l-2 border-gold/30 ml-4">
                                             {faq.answer}
                                         </div>
                                     </details>

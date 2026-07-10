@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
@@ -87,7 +87,7 @@ export default function FleetGalleryV2() {
         <section className="py-24 bg-zinc-950 relative overflow-hidden">
             {/* Elegant Background */}
             <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold-primary/5 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2" />
+                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2" />
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gold-metallic/5 rounded-full blur-[100px] -translate-x-1/4 translate-y-1/4" />
                 <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.02] mix-blend-overlay" />
             </div>
@@ -96,14 +96,14 @@ export default function FleetGalleryV2() {
                 <div className="flex flex-col md:flex-row justify-between items-end gap-8">
                     <div className="max-w-2xl">
                         <div className="flex items-center gap-4 mb-4">
-                            <div className="h-px w-12 bg-gold-primary"></div>
-                            <span className="text-gold-primary font-bold tracking-[0.2em] uppercase text-xs">
+                            <div className="h-px w-12 bg-gold"></div>
+                            <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs">
                                 The Royal Fleet
                             </span>
                         </div>
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-white mb-6 leading-tight">
                             Luxury Vehicles for <br />
-                            <span className="text-gold-primary italic font-serif">Every Journey</span>
+                            <span className="text-gold italic font-serif">Every Journey</span>
                         </h2>
                         <p className="text-gray-400 text-lg leading-relaxed max-w-xl font-light">
                             Meticulously maintained GMC Yukons, H1 Vans, and Buses.
@@ -115,14 +115,14 @@ export default function FleetGalleryV2() {
                     <div className="flex gap-4">
                         <button
                             onClick={() => scroll('left')}
-                            className="w-14 h-14 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-white hover:border-gold-primary hover:text-gold-primary transition-all duration-300 active:scale-95 group"
+                            className="w-14 h-14 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-white hover:border-gold hover:text-gold transition-all duration-300 active:scale-95 group"
                             aria-label="Previous"
                         >
                             <ChevronLeft size={24} className="group-hover:-translate-x-0.5 transition-transform" />
                         </button>
                         <button
                             onClick={() => scroll('right')}
-                            className="w-14 h-14 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-white hover:border-gold-primary hover:text-gold-primary transition-all duration-300 active:scale-95 group"
+                            className="w-14 h-14 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-white hover:border-gold hover:text-gold transition-all duration-300 active:scale-95 group"
                             aria-label="Next"
                         >
                             <ChevronRight size={24} className="group-hover:translate-x-0.5 transition-transform" />
@@ -136,14 +136,14 @@ export default function FleetGalleryV2() {
                 {/* Floating Navigation Buttons - Always visible on Desktop to prompt scrolling */}
                 <button
                     onClick={() => scroll('left')}
-                    className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-black/80 backdrop-blur-md border border-gold-primary/30 text-gold-primary flex items-center justify-center hover:bg-gold-primary hover:text-black hover:scale-110 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hidden md:flex group"
+                    className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-black/80 backdrop-blur-md border border-gold/30 text-gold flex items-center justify-center hover:bg-gold hover:text-black hover:scale-110 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hidden md:flex group"
                     aria-label="Scroll Left"
                 >
                     <ChevronLeft size={32} className="group-hover:-translate-x-1 transition-transform" />
                 </button>
                 <button
                     onClick={() => scroll('right')}
-                    className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-black/80 backdrop-blur-md border border-gold-primary/30 text-gold-primary flex items-center justify-center hover:bg-gold-primary hover:text-black hover:scale-110 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hidden md:flex group"
+                    className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-black/80 backdrop-blur-md border border-gold/30 text-gold flex items-center justify-center hover:bg-gold hover:text-black hover:scale-110 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hidden md:flex group"
                     aria-label="Scroll Right"
                 >
                     <ChevronRight size={32} className="group-hover:translate-x-1 transition-transform" />
@@ -165,7 +165,7 @@ export default function FleetGalleryV2() {
                             className="group relative w-[340px] h-[480px] md:w-[400px] md:h-[520px] shrink-0 scroll-snap-align-start perspective-1000 block"
                             draggable={false}
                         >
-                            <article className="w-full h-full relative bg-zinc-900 border border-white/5 rounded-[2rem] overflow-hidden group hover:border-gold-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-gold-primary/5 flex flex-col">
+                            <article className="w-full h-full relative bg-zinc-900 border border-white/5 rounded-[2rem] overflow-hidden group hover:border-gold/30 transition-all duration-500 hover:shadow-2xl hover:shadow-gold/5 flex flex-col">
                                 {/* Image Area */}
                                 <div className="relative h-64 overflow-hidden">
                                     <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent z-10 opacity-80" />
@@ -191,10 +191,10 @@ export default function FleetGalleryV2() {
                                     <div className="mb-6">
                                         <div className="flex justify-between items-start mb-4">
                                             <div>
-                                                <h3 className="text-2xl font-bold text-white mb-2 font-sans group-hover:text-gold-primary transition-colors">{img.name}</h3>
+                                                <h3 className="text-2xl font-bold text-white mb-2 font-sans group-hover:text-gold transition-colors">{img.name}</h3>
                                                 <div className="flex items-center gap-1">
                                                     {[1, 2, 3, 4, 5].map((star) => (
-                                                        <Star key={star} size={12} className="fill-gold-primary text-gold-primary" />
+                                                        <Star key={star} size={12} className="fill-gold text-gold" />
                                                     ))}
                                                     <span className="text-xs text-gray-500 font-medium ml-2">({img.rating})</span>
                                                 </div>
@@ -204,7 +204,7 @@ export default function FleetGalleryV2() {
                                         {/* Specs - Minimalist Row */}
                                         <div className="flex items-center gap-6 py-4 border-t border-white/10 border-b">
                                             <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 rounded-full bg-gold-primary/10 flex items-center justify-center text-gold-primary">
+                                                <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold">
                                                     <Users size={14} />
                                                 </div>
                                                 <div className="flex flex-col">
@@ -214,7 +214,7 @@ export default function FleetGalleryV2() {
                                             </div>
                                             <div className="w-px h-8 bg-white/10" />
                                             <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 rounded-full bg-gold-primary/10 flex items-center justify-center text-gold-primary">
+                                                <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold">
                                                     <Briefcase size={14} />
                                                 </div>
                                                 <div className="flex flex-col">
@@ -226,10 +226,10 @@ export default function FleetGalleryV2() {
                                     </div>
 
                                     <div className="mt-auto pt-2 flex items-center justify-between group/btn">
-                                        <span className="font-bold text-xs uppercase tracking-[0.15em] text-gold-primary group-hover:text-white transition-colors">
+                                        <span className="font-bold text-xs uppercase tracking-[0.15em] text-gold group-hover:text-white transition-colors">
                                             View Details
                                         </span>
-                                        <div className="w-10 h-10 rounded-full border border-gold-primary/30 flex items-center justify-center text-gold-primary group-hover:bg-gold-primary group-hover:text-black transition-all duration-300 transform group-hover:scale-110">
+                                        <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-all duration-300 transform group-hover:scale-110">
                                             <ArrowRight size={18} />
                                         </div>
                                     </div>

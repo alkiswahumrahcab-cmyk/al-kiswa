@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 const makkahMadinahFAQs = [
     {
         question: "How long is the journey from Makkah to Madinah?",
-        answer: <span>The distance is approximately 450 km. By private taxi (<Link href="/fleet/gmc-yukon-at4" className="text-[#D4AF37] hover:text-white hover:underline">GMC</Link>/<Link href="/fleet/hyundai-staria" className="text-[#D4AF37] hover:text-white hover:underline">Staria</Link>), the journey typically takes 4.5 to 5 hours. We can stop at the Miqat (Bir Ali) for 15-30 minutes if you wish to assume Ihram before entering Makkah.</span>
+        answer: <span>The distance is approximately 450 km. By private taxi (<Link href="/fleet/gmc-yukon-at4" className="text-gold hover:text-white hover:underline">GMC</Link>/<Link href="/fleet/hyundai-staria" className="text-gold hover:text-white hover:underline">Staria</Link>), the journey typically takes 4.5 to 5 hours. We can stop at the Miqat (Bir Ali) for 15-30 minutes if you wish to assume Ihram before entering Makkah.</span>
     },
     {
         question: "What is the price of a taxi from Makkah to Madinah?",
@@ -42,7 +42,7 @@ const makkahMadinahFAQs = [
     },
     {
         question: "Do you offer transport from Jeddah Airport to Makkah?",
-        answer: <span>Yes, we specialize in <Link href="/services/jeddah-airport-transfer" className="text-[#D4AF37] hover:text-white hover:underline">Jeddah Airport transfers</Link>. Our driver will meet you at the arrival hall and take you directly to your hotel or the Haram.</span>
+        answer: <span>Yes, we specialize in <Link href="/services/jeddah-airport-transfer" className="text-gold hover:text-white hover:underline">Jeddah Airport transfers</Link>. Our driver will meet you at the arrival hall and take you directly to your hotel or the Haram.</span>
     },
     {
         question: "Is it better than the Haramain Train?",
@@ -184,11 +184,11 @@ export default async function MakkahMadinahTaxiPage() {
                         <div className="grid md:grid-cols-2 gap-16 items-center">
                             <div>
                                 <h2 className="text-3xl md:text-5xl font-bold mb-8 font-sans text-white">
-                                    Why Choose Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37]">Makkah-Madinah</span> Transfer?
+                                    Why Choose Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Makkah-Madinah</span> Transfer?
                                 </h2>
                                 <p className="text-gray-400 mb-8 leading-relaxed font-light text-lg">
                                     The journey between the two Holy Cities (approx. 450km) requires a vehicle that guarantees comfort and safety.
-                                    Skip the crowded buses and strict train schedules. Our private taxi service offers premium rides in our <Link href="/fleet/gmc-yukon-at4" className="text-[#D4AF37] font-bold hover:underline">GMC Yukon</Link> or <Link href="/fleet/hyundai-staria" className="text-[#D4AF37] font-bold hover:underline">Hyundai Staria</Link>:
+                                    Skip the crowded buses and strict train schedules. Our private taxi service offers premium rides in our <Link href="/fleet/gmc-yukon-at4" className="text-gold font-bold hover:underline">GMC Yukon</Link> or <Link href="/fleet/hyundai-staria" className="text-gold font-bold hover:underline">Hyundai Staria</Link>:
                                 </p>
 
                                 <GlassCard className="mb-8 p-8 bg-neutral-900/50 rounded-2xl border border-white/5 border-l-4 border-l-[#D4AF37]">
@@ -206,8 +206,8 @@ export default async function MakkahMadinahTaxiPage() {
                                         "New Model Vehicles (2024-2025)"
                                     ].map((item, index) => (
                                         <li key={index} className="flex items-center gap-4 group">
-                                            <div className="bg-[#D4AF37]/10 rounded-full p-1.5 border border-[#D4AF37]/20 group-hover:bg-[#D4AF37] transition-colors">
-                                                <CheckCircle2 className="text-[#D4AF37] group-hover:text-black flex-shrink-0 transition-colors" size={18} />
+                                            <div className="bg-gold/10 rounded-full p-1.5 border border-gold/20 group-hover:bg-gold transition-colors">
+                                                <CheckCircle2 className="text-gold group-hover:text-black flex-shrink-0 transition-colors" size={18} />
                                             </div>
                                             <span className="text-gray-300 font-light text-lg">{item}</span>
                                         </li>
@@ -215,21 +215,21 @@ export default async function MakkahMadinahTaxiPage() {
                                 </ul>
                             </div>
 
-                            <GlassCard className="p-10 rounded-[2.5rem] bg-neutral-900/40 border border-[#D4AF37]/20 shadow-2xl backdrop-blur-md relative overflow-hidden group hover:border-[#D4AF37]/40 transition-all duration-300">
-                                <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4AF37]/10 rounded-full blur-[50px] pointer-events-none" />
+                            <GlassCard className="p-10 rounded-[2.5rem] bg-neutral-900/40 border border-gold/20 shadow-2xl backdrop-blur-md relative overflow-hidden group hover:border-gold/40 transition-all duration-300">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full blur-[50px] pointer-events-none" />
 
                                 <h3 className="text-xl font-bold mb-4 flex items-center gap-3 text-white font-sans">
-                                    <Clock className="text-[#D4AF37]" size={24} /> Average Travel Time
+                                    <Clock className="text-gold" size={24} /> Average Travel Time
                                 </h3>
-                                <p className="mb-8 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37] font-sans">4 Hours 30 Minutes</p>
+                                <p className="mb-8 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold font-sans">4 Hours 30 Minutes</p>
 
                                 <h3 className="text-xl font-bold mb-4 flex items-center gap-3 text-white font-sans">
-                                    <MapPin className="text-[#D4AF37]" size={24} /> Route Highlights
+                                    <MapPin className="text-gold" size={24} /> Route Highlights
                                 </h3>
                                 <div className="space-y-4 text-base text-gray-400 font-light">
-                                    <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span> Pickup from your Makkah Hotel</p>
-                                    <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span> Optional <Link href="/services/ziyarat-tours" className="text-[#D4AF37] hover:underline underline-offset-4 decoration-dotted">Ziyarat stops</Link> (on request)</p>
-                                    <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span> Drop-off at Madinah Hotel / Masjid Nabawi</p>
+                                    <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gold"></span> Pickup from your Makkah Hotel</p>
+                                    <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gold"></span> Optional <Link href="/services/ziyarat-tours" className="text-gold hover:underline underline-offset-4 decoration-dotted">Ziyarat stops</Link> (on request)</p>
+                                    <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gold"></span> Drop-off at Madinah Hotel / Masjid Nabawi</p>
                                 </div>
 
                                 <div className="mt-8 pt-8 border-t border-white/10">
@@ -257,19 +257,19 @@ export default async function MakkahMadinahTaxiPage() {
                             <h2 className="text-3xl font-bold text-center mb-12 font-sans text-white">Route Guide: What to Expect</h2>
                             <div className="grid md:grid-cols-3 gap-8 text-left">
                                 <GlassCard className="p-8 bg-neutral-900/50 rounded-2xl border border-white/5">
-                                    <h3 className="text-xl font-bold text-[#D4AF37] mb-4">Travel Time & Traffic</h3>
+                                    <h3 className="text-xl font-bold text-gold mb-4">Travel Time & Traffic</h3>
                                     <p className="text-gray-400 font-light leading-relaxed">
                                         The drive via Route 15 (Al Hijrah Expressway) takes exactly <strong>4.5 to 5 hours</strong>. Traffic is usually smooth, except during peak Ramadan/Hajj nights near the Haram boundaries.
                                     </p>
                                 </GlassCard>
                                 <GlassCard className="p-8 bg-neutral-900/50 rounded-2xl border border-white/5">
-                                    <h3 className="text-xl font-bold text-[#D4AF37] mb-4">Rest Stops & Amenities</h3>
+                                    <h3 className="text-xl font-bold text-gold mb-4">Rest Stops & Amenities</h3>
                                     <p className="text-gray-400 font-light leading-relaxed">
                                         We typically stop midway at a major <strong>SASCO</strong> or <strong>Al Tashilat</strong> station. These feature clean prayer rooms, Al Baik or similar fast food, and convenience stores for the family.
                                     </p>
                                 </GlassCard>
                                 <GlassCard className="p-8 bg-neutral-900/50 rounded-2xl border border-white/5">
-                                    <h3 className="text-xl font-bold text-[#D4AF37] mb-4">Gas Stations & Bathrooms</h3>
+                                    <h3 className="text-xl font-bold text-gold mb-4">Gas Stations & Bathrooms</h3>
                                     <p className="text-gray-400 font-light leading-relaxed">
                                         The highway is highly developed for 2026. Clean, well-lit bathrooms are available every 50-80 km. Just let your driver know 10 minutes in advance if you need a break.
                                     </p>
@@ -293,13 +293,13 @@ export default async function MakkahMadinahTaxiPage() {
             <section className="py-16 relative z-10 border-t border-white/5">
                 <div className="container mx-auto px-4">
                     <FadeIn delay={0.2}>
-                        <div className="max-w-4xl mx-auto rounded-[2rem] border border-[#D4AF37]/20 bg-gradient-to-br from-neutral-900 to-black p-8 md:p-12 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-full blur-[80px] pointer-events-none" />
+                        <div className="max-w-4xl mx-auto rounded-[2rem] border border-gold/20 bg-gradient-to-br from-neutral-900 to-black p-8 md:p-12 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-[80px] pointer-events-none" />
                             <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
                                 <div className="flex-1">
-                                    <span className="text-[#D4AF37] font-bold tracking-[0.2em] uppercase text-xs border-b border-[#D4AF37]/30 pb-1 mb-4 block w-fit">Round-Trip Offer</span>
+                                    <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs border-b border-gold/30 pb-1 mb-4 block w-fit">Round-Trip Offer</span>
                                     <h2 className="text-2xl md:text-3xl font-bold text-white font-sans mb-3">
-                                        Heading Back from <span className="text-[#D4AF37]">Madinah</span> to Makkah?
+                                        Heading Back from <span className="text-gold">Madinah</span> to Makkah?
                                     </h2>
                                     <p className="text-gray-400 font-light leading-relaxed mb-4">
                                         Book your return journey from Madinah to Makkah at the same time and
@@ -307,21 +307,21 @@ export default async function MakkahMadinahTaxiPage() {
                                         Our driver picks you up from your Madinah hotel lobby — no stress, no haggling.
                                     </p>
                                     <div className="flex flex-wrap gap-4 text-sm text-gray-400">
-                                        <span className="flex items-center gap-1.5"><ArrowRight size={14} className="text-[#D4AF37]" /> Door-to-door from Madinah hotel</span>
-                                        <span className="flex items-center gap-1.5"><ArrowRight size={14} className="text-[#D4AF37]" /> Optional Miqat stop (Bir Ali)</span>
-                                        <span className="flex items-center gap-1.5"><ArrowRight size={14} className="text-[#D4AF37]" /> Same trusted driver available</span>
+                                        <span className="flex items-center gap-1.5"><ArrowRight size={14} className="text-gold" /> Door-to-door from Madinah hotel</span>
+                                        <span className="flex items-center gap-1.5"><ArrowRight size={14} className="text-gold" /> Optional Miqat stop (Bir Ali)</span>
+                                        <span className="flex items-center gap-1.5"><ArrowRight size={14} className="text-gold" /> Same trusted driver available</span>
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-3 w-full md:w-auto shrink-0">
                                     <Link
                                         href="/booking"
-                                        className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#D4AF37] to-[#B4932F] text-black px-8 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] hover:scale-105 text-sm uppercase tracking-wider whitespace-nowrap"
+                                        className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-gold to-gold-dark text-black px-8 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.5)] hover:scale-105 text-sm uppercase tracking-wider whitespace-nowrap"
                                     >
                                         Book Round-Trip <ArrowRight size={16} />
                                     </Link>
                                     <Link
                                         href="/services/madinah-airport-transfer"
-                                        className="text-center text-sm text-[#D4AF37] hover:text-white transition-colors underline underline-offset-4 decoration-dotted"
+                                        className="text-center text-sm text-gold hover:text-white transition-colors underline underline-offset-4 decoration-dotted"
                                     >
                                         → Madinah Airport transfer info
                                     </Link>
@@ -346,7 +346,7 @@ export default async function MakkahMadinahTaxiPage() {
                             No need to travel to the station, handle luggage multiple times, or worry about ticket availability.
                             Our service picks you up directly from your lobby.
                         </p>
-                        <Link href="/booking" className="inline-flex items-center bg-gradient-to-r from-[#D4AF37] to-[#B4932F] px-12 py-5 rounded-full font-bold transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_40px_rgba(212,175,55,0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105 hover:bg-white hover:text-black border border-transparent hover:border-black/10">
+                        <Link href="/booking" className="inline-flex items-center bg-gradient-to-r from-gold to-gold-dark px-12 py-5 rounded-full font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105 hover:bg-white hover:text-black border border-transparent hover:border-black/10">
                             Check Prices & Book Now <ArrowRight size={20} className="ml-2" />
                         </Link>
                     </FadeIn>

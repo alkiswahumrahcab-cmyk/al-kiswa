@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import { X, Calendar, MapPin, User, Mail, Phone, Briefcase, Car, Check, XCircle, CheckCircle2, CarFront } from 'lucide-react';
@@ -136,7 +136,7 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
                                     {booking.visaType && (
                                         <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
                                             <span className="font-semibold w-24">Visa Type:</span>
-                                            <span className={`px-2 py-0.5 rounded text-xs font-semibold ${booking.visaType === 'umrah' ? 'bg-[#C8891F]/10 text-[#C8891F]' : booking.visaType === 'visit' ? 'bg-[#012A5B]/10 text-[#012A5B]' : 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300'}`}>
+                                            <span className={`px-2 py-0.5 rounded text-xs font-semibold ${booking.visaType === 'umrah' ? 'bg-gold-dark/10 text-gold-dark' : booking.visaType === 'visit' ? 'bg-[#012A5B]/10 text-[#012A5B]' : 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-300'}`}>
                                                 {booking.visaType === 'umrah' ? 'Umrah' : booking.visaType === 'visit' ? 'Visit' : booking.visaOther || 'Other'}
                                             </span>
                                         </div>

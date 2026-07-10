@@ -154,23 +154,23 @@ export default async function JeddahAirportTransferPage() {
                         <div className="grid md:grid-cols-3 gap-8">
                             {[
                                 {
-                                    icon: <UserCheck size={40} className="text-gold-primary" />,
+                                    icon: <UserCheck size={40} className="text-gold" />,
                                     title: "1. Meet & Greet",
                                     desc: "Our driver will be waiting at the arrival hall holding a sign with your name. No need to search for a taxi."
                                 },
                                 {
-                                    icon: <ShieldCheck size={40} className="text-gold-primary" />,
+                                    icon: <ShieldCheck size={40} className="text-gold" />,
                                     title: "2. Luggage Assistance",
-                                    desc: <span>Our vehicles (<Link href="/ar/fleet/gmc-yukon-at4" className="text-gold-primary hover:underline">GMC</Link>/<Link href="/ar/fleet/hyundai-starex" className="text-gold-primary hover:underline">H1</Link>) are chosen for their large luggage capacity. The driver will handle your bags.</span>
+                                    desc: <span>Our vehicles (<Link href="/ar/fleet/gmc-yukon-at4" className="text-gold hover:underline">GMC</Link>/<Link href="/ar/fleet/hyundai-starex" className="text-gold hover:underline">H1</Link>) are chosen for their large luggage capacity. The driver will handle your bags.</span>
                                 },
                                 {
-                                    icon: <Plane size={40} className="text-gold-primary" />,
+                                    icon: <Plane size={40} className="text-gold" />,
                                     title: "3. Direct to Hotel",
-                                    desc: <span>Relax in a cooled vehicle while we take you directly to your <Link href="/ar/services/makkah-madinah-taxi" className="text-gold-primary hover:underline">hotel door in Makkah</Link> (approx 60-75 mins).</span>
+                                    desc: <span>Relax in a cooled vehicle while we take you directly to your <Link href="/ar/services/makkah-madinah-taxi" className="text-gold hover:underline">hotel door in Makkah</Link> (approx 60-75 mins).</span>
                                 }
                             ].map((item, idx) => (
-                                <div key={idx} className="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-gold-primary/30 transition-all text-center group hover:bg-black/60">
-                                    <div className="flex justify-center mb-6 p-4 bg-gold-primary/10 rounded-full w-fit mx-auto border border-gold-primary/20 group-hover:bg-gold-primary/20 transition-colors">{item.icon}</div>
+                                <div key={idx} className="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-gold/30 transition-all text-center group hover:bg-black/60">
+                                    <div className="flex justify-center mb-6 p-4 bg-gold/10 rounded-full w-fit mx-auto border border-gold/20 group-hover:bg-gold/20 transition-colors">{item.icon}</div>
                                     <h3 className="text-xl font-bold mb-3 text-white font-sans">{item.title}</h3>
                                     <p className="text-gray-400 text-sm leading-relaxed font-light">{item.desc}</p>
                                 </div>
@@ -205,7 +205,7 @@ export default async function JeddahAirportTransferPage() {
                         <div className="max-w-3xl mx-auto p-8 rounded-3xl bg-gradient-to-br from-neutral-900 to-black border border-white/10 shadow-2xl">
                             <h3 className="text-2xl font-bold mb-4 text-white font-sans">Which Terminal?</h3>
                             <p className="text-gray-300 mb-6 font-light leading-relaxed">
-                                Most international flights land at <strong className="font-bold text-gold-primary">Terminal 1 (New Airport)</strong>.
+                                Most international flights land at <strong className="font-bold text-gold">Terminal 1 (New Airport)</strong>.
                                 Some regional carriers use the North Terminal.
                                 Don't worry, we track your flight number and adjust the pickup location automatically.
                             </p>
@@ -234,11 +234,11 @@ export default async function JeddahAirportTransferPage() {
             <section className="py-24 bg-transparent border-t border-white/10 relative z-10">
                 <div className="container mx-auto px-4 text-center">
                     <FadeIn delay={0.4}>
-                        <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-5 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] text-black hover:scale-105">
+                        <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-5 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] text-black hover:scale-105">
                             Check Taxi Fares <ArrowRight size={20} className="ml-2" />
                         </Link>
                         <p className="mt-8 text-sm text-gray-400 font-light">
-                            Going to Madinah next? Check our <Link href="/ar/services/makkah-madinah-taxi" className="text-gold-primary hover:text-white font-bold underline underline-offset-4 decoration-gold-primary/50">Makkah to Madinah Taxi</Link> rates.
+                            Going to Madinah next? Check our <Link href="/ar/services/makkah-madinah-taxi" className="text-gold hover:text-white font-bold underline underline-offset-4 decoration-gold/50">Makkah to Madinah Taxi</Link> rates.
                         </p>
                     </FadeIn>
                 </div>

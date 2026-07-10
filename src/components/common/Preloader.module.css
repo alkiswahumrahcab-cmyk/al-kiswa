@@ -1,4 +1,4 @@
-.preloader {
+﻿.preloader {
     position: fixed;
     top: 0;
     left: 0;
@@ -54,12 +54,12 @@
 }
 
 .spinnerPath {
-    stroke: #D4AF37;
+    stroke: hsl(var(--gold));
     /* Gold */
     stroke-linecap: round;
     animation: dash 2s ease-in-out infinite;
     /* Slower dash */
-    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.6));
+    filter: drop-shadow(0 0 12px hsl(var(--gold-glow) / 0.6));
     /* Stronger glow */
 }
 
@@ -116,7 +116,7 @@
     width: 60px;
     /* Wider divider */
     height: 2px;
-    background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+    background: linear-gradient(90deg, transparent, hsl(var(--gold)), transparent);
     opacity: 0.8;
 }
 

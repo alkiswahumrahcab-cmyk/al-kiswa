@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -23,7 +23,7 @@ export default function RouteSidebar({ routes, activeRouteId, onSelectRoute, onH
             {/* Header */}
             <div className="p-6 border-b border-white/5 bg-white/5">
                 <div className="mb-4">
-                    <span className="text-gold-primary text-xs font-bold uppercase tracking-wider mb-2 block">
+                    <span className="text-gold text-xs font-bold uppercase tracking-wider mb-2 block">
                         Network Explorer
                     </span>
                     <h2 className="text-2xl font-bold font-sans text-white">
@@ -35,11 +35,11 @@ export default function RouteSidebar({ routes, activeRouteId, onSelectRoute, onH
                 </div>
 
                 <div className="relative group">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gold-primary transition-colors" size={18} />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-gold transition-colors" size={18} />
                     <input
                         type="text"
                         placeholder="Search cities..."
-                        className="w-full pl-10 pr-4 py-2.5 bg-black/40 border border-white/5 rounded-xl focus:outline-none focus:border-gold-primary/30 text-white placeholder:text-gray-600 text-sm transition-all"
+                        className="w-full pl-10 pr-4 py-2.5 bg-black/40 border border-white/5 rounded-xl focus:outline-none focus:border-gold/30 text-white placeholder:text-gray-600 text-sm transition-all"
                     />
                 </div>
             </div>
@@ -60,7 +60,7 @@ export default function RouteSidebar({ routes, activeRouteId, onSelectRoute, onH
                             className={`
                                 group relative p-4 rounded-xl cursor-pointer transition-all duration-300 border
                                 ${isActive
-                                    ? 'bg-gold-primary/10 border-gold-primary/40 shadow-[0_0_15px_-5px_rgba(212,175,55,0.2)]'
+                                    ? 'bg-gold/10 border-gold/40 shadow-[0_0_15px_-5px_hsl(var(--gold-glow) / 0.2)]'
                                     : 'bg-white/5 border-transparent hover:bg-white/10 hover:border-white/10'
                                 }
                             `}
@@ -68,10 +68,10 @@ export default function RouteSidebar({ routes, activeRouteId, onSelectRoute, onH
                             <div className="flex items-start justify-between gap-3">
                                 <div className="flex-1">
                                     <div className="flex items-center gap-2 mb-2">
-                                        <div className={`p-1.5 rounded-full ${isActive ? 'bg-gold-primary/20 text-gold-primary' : 'bg-white/10 text-gray-400'}`}>
+                                        <div className={`p-1.5 rounded-full ${isActive ? 'bg-gold/20 text-gold' : 'bg-white/10 text-gray-400'}`}>
                                             <MapPin size={14} />
                                         </div>
-                                        <span className={`text-xs font-semibold uppercase tracking-wider ${isActive ? 'text-gold-primary' : 'text-gray-500'}`}>
+                                        <span className={`text-xs font-semibold uppercase tracking-wider ${isActive ? 'text-gold' : 'text-gray-500'}`}>
                                             Route {i + 1}
                                         </span>
                                     </div>
@@ -92,7 +92,7 @@ export default function RouteSidebar({ routes, activeRouteId, onSelectRoute, onH
                                     </div>
                                 </div>
 
-                                <div className={`mt-2 ${isActive ? 'text-gold-primary' : 'text-gray-700 group-hover:text-white'} transition-colors`}>
+                                <div className={`mt-2 ${isActive ? 'text-gold' : 'text-gray-700 group-hover:text-white'} transition-colors`}>
                                     <ChevronRight size={18} />
                                 </div>
                             </div>
@@ -101,7 +101,7 @@ export default function RouteSidebar({ routes, activeRouteId, onSelectRoute, onH
                             {isActive && (
                                 <motion.div
                                     layoutId="activeIndicator"
-                                    className="absolute left-0 top-4 bottom-4 w-1 bg-gold-primary rounded-r-full"
+                                    className="absolute left-0 top-4 bottom-4 w-1 bg-gold rounded-r-full"
                                 />
                             )}
                         </motion.div>

@@ -1,4 +1,4 @@
-
+﻿
 import type { Metadata, Viewport } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/FooterV2";
@@ -9,7 +9,7 @@ import { getSettings } from "@/lib/settings-storage";
 import ClientLayoutWrapper from "@/components/layout/ClientLayoutWrapper";
 import UmrahPWA from "@/components/common/UmrahPWA";
 export const viewport: Viewport = {
-    themeColor: '#D4AF37', // Gold theme
+    themeColor: 'hsl(var(--gold))', // Gold theme
     width: 'device-width',
     initialScale: 1,
 };

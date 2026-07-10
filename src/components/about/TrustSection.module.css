@@ -1,4 +1,4 @@
-.section {
+﻿.section {
     padding: 8rem 0;
     background: linear-gradient(135deg, #1e3a8a 0%, #111827 100%);
     position: relative;
@@ -39,7 +39,7 @@
     display: block;
     font-size: 1.25rem;
     font-weight: 600;
-    color: #fbbf24;
+    color: hsl(var(--gold));
     text-transform: uppercase;
     letter-spacing: 2px;
     opacity: 0.9;

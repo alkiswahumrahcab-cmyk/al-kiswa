@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import PolicyModal from './PolicyModal';
@@ -28,15 +28,15 @@ export default function CheckoutFooter({ contactSettings }: CheckoutFooterProps)
 
                 {/* Policy Triggers */}
                 <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 mb-6 text-xs text-gray-400 font-medium">
-                    <button onClick={() => setActivePolicy('cancellation')} className="hover:text-gold-primary transition-colors">
+                    <button onClick={() => setActivePolicy('cancellation')} className="hover:text-gold transition-colors">
                         Cancellation Policy
                     </button>
                     <span className="text-gray-700 hidden sm:inline">•</span>
-                    <button onClick={() => setActivePolicy('privacy')} className="hover:text-gold-primary transition-colors">
+                    <button onClick={() => setActivePolicy('privacy')} className="hover:text-gold transition-colors">
                         Privacy Policy
                     </button>
                     <span className="text-gray-700 hidden sm:inline">•</span>
-                    <button onClick={() => setActivePolicy('guide')} className="hover:text-gold-primary transition-colors">
+                    <button onClick={() => setActivePolicy('guide')} className="hover:text-gold transition-colors">
                         Booking Guide
                     </button>
                 </div>

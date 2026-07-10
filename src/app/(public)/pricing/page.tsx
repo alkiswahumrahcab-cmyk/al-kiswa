@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from 'next';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -213,11 +213,11 @@ export default async function PricingPage() {
                 <div className="container mx-auto px-4">
                     <FadeIn>
                         <div className="text-center mb-16">
-                            <span className="inline-block bg-gold-primary/10 border border-gold-primary/30 text-gold-primary text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+                            <span className="inline-block bg-gold/10 border border-gold/30 text-gold text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
                                 Live Prices — Updated from Admin
                             </span>
                             <h2 className="text-3xl md:text-5xl font-bold font-sans text-white mb-6">
-                                All Routes &amp; <span className="text-gold-primary">Exact Prices</span>
+                                All Routes &amp; <span className="text-gold">Exact Prices</span>
                             </h2>
                             <p className="text-gray-400 max-w-2xl mx-auto">
                                 Prices below are set directly by our team and update in real time.
@@ -237,7 +237,7 @@ export default async function PricingPage() {
             <div className="relative z-10 py-4 border-b border-white/5 bg-white/2">
                 <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-center">
                     <span className="text-gray-400">We supply Kiwi Taxi, Telixo, 5Star &amp; Booking.com. Book direct and save 20–30%.</span>
-                    <Link href="/pricing/compare" className="text-gold-primary font-bold hover:text-white transition-colors whitespace-nowrap">
+                    <Link href="/pricing/compare" className="text-gold font-bold hover:text-white transition-colors whitespace-nowrap">
                         See Full Comparison →
                     </Link>
                 </div>
@@ -260,7 +260,7 @@ export default async function PricingPage() {
                             { Icon: AlertCircle, title: 'Free Cancel', sub: 'Up to 24h before trip' },
                         ].map(({ Icon, title, sub }) => (
                             <div key={title} className="flex flex-col items-center gap-4">
-                                <div className="p-4 rounded-full bg-gold-primary/10 text-gold-primary mb-2">
+                                <div className="p-4 rounded-full bg-gold/10 text-gold mb-2">
                                     <Icon size={32} />
                                 </div>
                                 <h4 className="font-bold text-white">{title}</h4>
@@ -283,7 +283,7 @@ export default async function PricingPage() {
                             <div className="hidden md:block w-px h-12 bg-white/10" />
                             <div>
                                 <div className="flex items-center justify-center md:justify-start gap-1 mb-1">
-                                    {[...Array(5)].map((_, i) => <Star key={i} size={18} className="text-gold-primary fill-gold-primary" />)}
+                                    {[...Array(5)].map((_, i) => <Star key={i} size={18} className="text-gold fill-gold" />)}
                                     <span className="text-white font-bold ml-2">5.0</span>
                                 </div>
                                 <p className="text-gray-400 text-sm">Google Reviews — Verified</p>
@@ -295,7 +295,7 @@ export default async function PricingPage() {
                             </div>
                             <div className="hidden md:block w-px h-12 bg-white/10" />
                             <div>
-                                <p className="text-3xl font-black text-gold-primary mb-1">SAR · USD</p>
+                                <p className="text-3xl font-black text-gold mb-1">SAR · USD</p>
                                 <p className="text-gray-400 text-sm">Pay in your currency</p>
                             </div>
                         </div>
@@ -312,8 +312,8 @@ export default async function PricingPage() {
             <section className="py-24 relative z-10">
                 <div className="container mx-auto px-4">
                     <FadeIn>
-                        <div className="max-w-3xl mx-auto text-center bg-gradient-to-br from-gold-primary/10 to-black border border-gold-primary/20 rounded-3xl p-12">
-                            <CheckCircle2 size={48} className="text-gold-primary mx-auto mb-6" />
+                        <div className="max-w-3xl mx-auto text-center bg-gradient-to-br from-gold/10 to-black border border-gold/20 rounded-3xl p-12">
+                            <CheckCircle2 size={48} className="text-gold mx-auto mb-6" />
                             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                                 Ready to Book Direct?
                             </h2>
@@ -323,7 +323,7 @@ export default async function PricingPage() {
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Link
                                     href="/booking"
-                                    className="bg-gold-primary text-black font-bold px-10 py-4 rounded-xl hover:bg-white transition-colors uppercase tracking-wider"
+                                    className="bg-gold text-black font-bold px-10 py-4 rounded-xl hover:bg-white transition-colors uppercase tracking-wider"
                                 >
                                     Book Now — Instant Confirmation
                                 </Link>

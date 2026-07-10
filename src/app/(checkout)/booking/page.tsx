@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+﻿import React, { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import BookingFormSkeleton from '@/components/booking/BookingFormSkeleton';
 
@@ -39,7 +39,7 @@ export default function BookingPage() {
             {/* Background Texture */}
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none" />
             {/* Ambient Glows */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-primary/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[120px] pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold-secondary/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="container relative z-20 pt-8 md:pt-10 pb-10 px-4 max-w-5xl mx-auto">
@@ -48,11 +48,11 @@ export default function BookingPage() {
                 <BookingForm />
 
                 {/* Pay on Arrival Guarantee Bar */}
-                <div className="mt-6 mb-8 p-5 rounded-2xl bg-white/5 border border-gold-primary/30 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 shadow-xl">
+                <div className="mt-6 mb-8 p-5 rounded-2xl bg-white/5 border border-gold/30 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 shadow-xl">
                     {[
-                        { icon: <CheckCircle2 size={18} className="text-[#C8891F] shrink-0" />, text: 'Pay cash on arrival — zero prepayment' },
-                        { icon: <CheckCircle2 size={18} className="text-[#C8891F] shrink-0" />, text: 'Free cancellation up to 24 hrs before' },
-                        { icon: <CheckCircle2 size={18} className="text-[#C8891F] shrink-0" />, text: 'Fixed price — no surge, no surprises' },
+                        { icon: <CheckCircle2 size={18} className="text-gold-dark shrink-0" />, text: 'Pay cash on arrival — zero prepayment' },
+                        { icon: <CheckCircle2 size={18} className="text-gold-dark shrink-0" />, text: 'Free cancellation up to 24 hrs before' },
+                        { icon: <CheckCircle2 size={18} className="text-gold-dark shrink-0" />, text: 'Fixed price — no surge, no surprises' },
                     ].map((item, i) => (
                         <div key={i} className="flex items-center gap-2 text-sm text-[#C9D4E0] font-medium">
                             {item.icon}

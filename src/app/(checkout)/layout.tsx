@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { getSettings } from "@/lib/settings-storage";
 import ClientLayoutWrapper from "@/components/layout/ClientLayoutWrapper";
 import UmrahPWA from "@/components/common/UmrahPWA";
@@ -7,7 +7,7 @@ import CheckoutHeader from "@/components/checkout/CheckoutHeader";
 import CheckoutFooter from "@/components/checkout/CheckoutFooter";
 
 export const viewport: Viewport = {
-    themeColor: '#D4AF37', // Gold theme
+    themeColor: 'hsl(var(--gold))', // Gold theme
     width: 'device-width',
     initialScale: 1,
 };

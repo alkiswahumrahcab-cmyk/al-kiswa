@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { Check, Clock, MapPin, X, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -40,7 +40,7 @@ export default function RecentBookingsTable({ bookings, onStatusChange }: Recent
                     <Clock size={20} className="text-blue-500" />
                     Recent Bookings
                 </h3>
-                <Link href="/admin/bookings" className="text-sm font-semibold text-[#D4AF37] hover:text-[#f3e5ab] transition-colors flex items-center gap-1">
+                <Link href="/admin/bookings" className="text-sm font-semibold text-gold hover:text-[#f3e5ab] transition-colors flex items-center gap-1">
                     View All <ArrowUpRightIcon size={14} />
                 </Link>
             </div>

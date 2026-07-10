@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { useSettings } from '@/context/SettingsContext';
@@ -48,12 +48,12 @@ export default function FooterAR() {
                         <Link href="/ar" className="inline-block relative group">
                             <div className="flex flex-col gap-1 mb-2">
                                 <div className="flex items-center gap-3">
-                                    <span className="text-2xl font-sans font-bold text-white tracking-wide transition-colors group-hover:text-gold-primary">
+                                    <span className="text-2xl font-sans font-bold text-white tracking-wide transition-colors group-hover:text-gold">
                                         الكسوة
                                     </span>
                                 </div>
                                 <div className="flex items-center gap-3">
-                                    <span className="text-[0.7rem] font-bold text-gold-primary tracking-[0.2em] uppercase">
+                                    <span className="text-[0.7rem] font-bold text-gold tracking-[0.2em] uppercase">
                                         لنقل المعتمرين
                                     </span>
                                 </div>

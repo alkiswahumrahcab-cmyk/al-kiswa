@@ -1,4 +1,4 @@
-.section {
+﻿.section {
     padding: 4rem 0;
     background: linear-gradient(to right, #1e3a8a, #2563eb);
     color: white;
@@ -52,7 +52,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fbbf24;
+    color: hsl(var(--gold));
     /* Amber-400 */
 }
 

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -36,15 +36,15 @@ export default function RealFleetShowcase() {
                 <FadeIn>
                     <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
                         <div className="max-w-2xl">
-                            <div className="inline-flex items-center gap-2 text-gold-primary mb-4">
+                            <div className="inline-flex items-center gap-2 text-gold mb-4">
                                 <Camera size={20} />
                                 <span className="font-bold tracking-widest uppercase text-sm">Live from the Field</span>
                             </div>
                             <h2 className="text-3xl md:text-5xl font-bold text-white font-serif">
-                                Real Trips, <span className="text-gold-primary">Real Moments</span>
+                                Real Trips, <span className="text-gold">Real Moments</span>
                             </h2>
                         </div>
-                        <p className="text-gray-400 max-w-md text-sm md:text-base border-l-2 border-gold-primary/30 pl-4">
+                        <p className="text-gray-400 max-w-md text-sm md:text-base border-l-2 border-gold/30 pl-4">
                             See our fleet in action across the Holy Cities. We don't just use stock photos; we are on the ground serving legitimate pilgrims every day.
                         </p>
                     </div>
@@ -53,7 +53,7 @@ export default function RealFleetShowcase() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {realPhotos.map((photo, idx) => (
                         <FadeIn key={photo.id} delay={idx * 0.1}>
-                            <div className="group relative aspect-[4/5] bg-neutral-900 rounded-2xl overflow-hidden border border-white/10 hover:border-gold-primary/50 transition-all duration-500">
+                            <div className="group relative aspect-[4/5] bg-neutral-900 rounded-2xl overflow-hidden border border-white/10 hover:border-gold/50 transition-all duration-500">
                                 {/* Real Image */}
                                 <div className="absolute inset-0">
                                     <Image
@@ -68,7 +68,7 @@ export default function RealFleetShowcase() {
                                 {/* Overlay Content */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-6 flex flex-col justify-end">
                                     <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                        <div className="flex items-center gap-2 text-gold-primary text-xs font-bold uppercase mb-2">
+                                        <div className="flex items-center gap-2 text-gold text-xs font-bold uppercase mb-2">
                                             <MapPin size={12} />
                                             {photo.location}
                                         </div>

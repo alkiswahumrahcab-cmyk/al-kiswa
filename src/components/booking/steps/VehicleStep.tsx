@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import Image from 'next/image';
@@ -96,7 +96,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                             layout
                             className={`rounded-2xl border transition-all duration-300 overflow-hidden
                                 ${isSelected
-                                    ? 'border-gold-primary bg-gold-primary/8 shadow-[0_0_20px_rgba(212,175,55,0.12)]'
+                                    ? 'border-gold bg-gold/8 shadow-[0_0_20px_hsl(var(--gold-glow) / 0.12)]'
                                     : 'border-white/10 bg-white/5'}
                             `}
                         >
@@ -127,7 +127,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                         </div>
                                     )}
                                     {isLuxury && (
-                                        <div className="absolute top-0 right-0 bg-gold-primary text-black text-[8px] font-black px-2 py-0.5 rounded-bl-lg uppercase tracking-wide">
+                                        <div className="absolute top-0 right-0 bg-gold text-black text-[8px] font-black px-2 py-0.5 rounded-bl-lg uppercase tracking-wide">
                                             VIP
                                         </div>
                                     )}
@@ -136,22 +136,22 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                 {/* Info */}
                                 <div className="flex-1 min-w-0">
                                     <div className="flex justify-between items-start gap-2">
-                                        <h3 className={`font-bold text-sm leading-tight ${isSelected ? 'text-gold-primary' : 'text-white'}`}>
+                                        <h3 className={`font-bold text-sm leading-tight ${isSelected ? 'text-gold' : 'text-white'}`}>
                                             {vehicle.name}
                                         </h3>
                                         {pricing && (
                                             <div className="text-right shrink-0">
                                                 <span className="text-base font-black text-white">{formatPrice(pricing.price).amount}</span>
-                                                <span className="text-[10px] text-gold-primary font-bold ml-0.5">{currency}</span>
+                                                <span className="text-[10px] text-gold font-bold ml-0.5">{currency}</span>
                                             </div>
                                         )}
                                     </div>
                                     <div className="flex items-center gap-2 mt-1.5 flex-wrap">
                                         <span className="flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg px-2 py-1 text-[10px] text-gray-300 font-bold">
-                                            <Users size={10} className="text-gold-primary" /> {vehicle.capacity} pax
+                                            <Users size={10} className="text-gold" /> {vehicle.capacity} pax
                                         </span>
                                         <span className="flex items-center gap-1 bg-white/5 border border-white/10 rounded-lg px-2 py-1 text-[10px] text-gray-300 font-bold">
-                                            <Briefcase size={10} className="text-gold-primary" /> {vehicle.luggage} bags
+                                            <Briefcase size={10} className="text-gold" /> {vehicle.luggage} bags
                                         </span>
                                     </div>
 
@@ -160,7 +160,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                         {count === 0 ? (
                                             <button
                                                 onClick={() => handleIncrement(vehicle.id)}
-                                                className="flex-1 bg-gradient-to-r from-gold-primary to-amber-600 text-black text-xs font-bold py-2.5 rounded-xl hover:opacity-90 transition-all min-h-[40px]"
+                                                className="flex-1 bg-gradient-to-r from-gold to-amber-600 text-black text-xs font-bold py-2.5 rounded-xl hover:opacity-90 transition-all min-h-[40px]"
                                             >
                                                 Select
                                             </button>
@@ -173,16 +173,16 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                                     >
                                                         −
                                                     </button>
-                                                    <span className="w-7 text-center text-sm font-black text-gold-primary font-mono">{count}</span>
+                                                    <span className="w-7 text-center text-sm font-black text-gold font-mono">{count}</span>
                                                     <button
                                                         onClick={() => handleIncrement(vehicle.id)}
-                                                        className="w-10 h-10 flex items-center justify-center text-white hover:text-gold-primary transition-colors font-bold text-base"
+                                                        className="w-10 h-10 flex items-center justify-center text-white hover:text-gold transition-colors font-bold text-base"
                                                     >
                                                         +
                                                     </button>
                                                 </div>
                                                 {count > 0 && (
-                                                    <span className="text-[11px] text-gold-primary font-bold">
+                                                    <span className="text-[11px] text-gold font-bold">
                                                         {pricing ? formatPrice(pricing.price * count).formatted : 'Added'}
                                                     </span>
                                                 )}
@@ -214,22 +214,22 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                             className={`
                                 relative p-1 rounded-3xl transition-all duration-300 group cursor-pointer
                                 ${isSelected
-                                    ? 'bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37] shadow-[0_0_30px_-5px_rgba(212,175,55,0.4)] scale-[1.02]'
-                                    : 'bg-white/5 border border-white/10 hover:border-[#D4AF37]/30 hover:bg-white/10'}
+                                    ? 'bg-gradient-to-r from-gold via-[#F3D383] to-gold shadow-[0_0_30px_-5px_hsl(var(--gold-glow) / 0.4)] scale-[1.02]'
+                                    : 'bg-white/5 border border-white/10 hover:border-gold/30 hover:bg-white/10'}
                             `}
                         >
-                            <div className="bg-black/60 backdrop-blur-md rounded-[22px] h-full relative z-10 overflow-hidden border border-white/5 group-hover:border-gold-primary/20 transition-colors flex flex-col">
+                            <div className="bg-black/60 backdrop-blur-md rounded-[22px] h-full relative z-10 overflow-hidden border border-white/5 group-hover:border-gold/20 transition-colors flex flex-col">
                                 {isFamilyFriendly && (
                                     <div className="absolute top-0 left-0 bg-emerald-900/90 border-b border-r border-emerald-500/30 text-emerald-400 text-[10px] font-bold px-4 py-1.5 rounded-br-2xl uppercase tracking-wider z-20 flex items-center gap-1.5 shadow-lg">
                                         <Users size={12} /> Family Choice
                                     </div>
                                 )}
                                 {isLuxury && (
-                                    <div className="absolute top-0 right-0 bg-gradient-to-bl from-gold-primary to-gold-dark text-black text-xs font-black px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider z-20 shadow-lg shadow-gold-primary/20">
+                                    <div className="absolute top-0 right-0 bg-gradient-to-bl from-gold to-gold-dark text-black text-xs font-black px-4 py-1.5 rounded-bl-2xl uppercase tracking-wider z-20 shadow-lg shadow-gold/20">
                                         VIP Class
                                     </div>
                                 )}
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-black/80 backdrop-blur border border-gold-primary/30 text-gold-primary text-[9px] font-bold px-3 py-1 rounded-b-xl uppercase tracking-widest z-20 flex items-center gap-1 shadow-lg">
+                                <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-black/80 backdrop-blur border border-gold/30 text-gold text-[9px] font-bold px-3 py-1 rounded-b-xl uppercase tracking-widest z-20 flex items-center gap-1 shadow-lg">
                                     <ShieldCheck size={10} /> Verified Driver
                                 </div>
                                 <div className="w-full h-56 relative bg-gradient-to-b from-white/5 to-transparent flex items-center justify-center p-2 shrink-0">
@@ -247,16 +247,16 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                 </div>
                                 <div className="p-5 flex-1 flex flex-col justify-between bg-black/40">
                                     <div className="space-y-3">
-                                        <h3 className={`font-bold text-xl leading-tight ${isSelected ? 'text-gold-primary' : 'text-white'}`}>
+                                        <h3 className={`font-bold text-xl leading-tight ${isSelected ? 'text-gold' : 'text-white'}`}>
                                             {vehicle.name}
                                         </h3>
                                         <div className="flex items-center gap-2">
                                             <div className="flex items-center gap-1.5 text-xs font-bold text-gray-300 bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/5">
-                                                <Users size={12} className="text-gold-primary" />
+                                                <Users size={12} className="text-gold" />
                                                 <span>{vehicle.capacity} Passengers</span>
                                             </div>
                                             <div className="flex items-center gap-1.5 text-xs font-bold text-gray-300 bg-white/5 px-2.5 py-1.5 rounded-lg border border-white/5">
-                                                <Briefcase size={12} className="text-gold-primary" />
+                                                <Briefcase size={12} className="text-gold" />
                                                 <span>{vehicle.luggage} Bags</span>
                                             </div>
                                         </div>
@@ -268,7 +268,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                                     <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold block mb-0.5">Total Price</span>
                                                     <div className="flex items-baseline gap-1">
                                                         <span className="text-2xl font-black text-white">{formatPrice(pricing.price).amount}</span>
-                                                        <span className="text-[10px] font-bold text-gold-primary">{currency}</span>
+                                                        <span className="text-[10px] font-bold text-gold">{currency}</span>
                                                     </div>
                                                 </div>
                                             ) : (
@@ -284,7 +284,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                                             <span className="w-8 text-center font-black text-base text-white font-mono">{count}</span>
                                             <button
                                                 onClick={(e) => { e.stopPropagation(); handleIncrement(vehicle.id); }}
-                                                className="w-9 h-9 rounded-md bg-gold-primary text-black flex items-center justify-center hover:bg-[#F3D383] transition-all font-black text-base"
+                                                className="w-9 h-9 rounded-md bg-gold text-black flex items-center justify-center hover:bg-gold-light transition-all font-black text-base"
                                             >+</button>
                                         </div>
                                     </div>
@@ -326,7 +326,7 @@ export default function VehicleStep({ data, updateData, onNext, onBack }: Vehicl
                     className={`
                         w-full py-4 md:py-5 text-base font-bold uppercase tracking-widest rounded-2xl shadow-xl transition-all flex items-center justify-center gap-3 group min-h-[56px]
                         ${totalSelected > 0
-                            ? 'bg-gradient-to-r from-[#D4AF37] via-[#F3D383] to-[#D4AF37] text-black hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] hover:scale-[1.01]'
+                            ? 'bg-gradient-to-r from-gold via-[#F3D383] to-gold text-black hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.4)] hover:scale-[1.01]'
                             : 'bg-white/5 text-gray-500 border border-white/5 cursor-not-allowed'}
                     `}
                 >

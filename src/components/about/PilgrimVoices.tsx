@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
@@ -18,7 +18,7 @@ export default function PilgrimVoices() {
         <section className="py-24 bg-transparent border-t border-white/5" ref={ref as unknown as React.RefObject<HTMLElement>}>
             <div className="container mx-auto px-4">
                 <div className="text-center max-w-3xl mx-auto mb-20">
-                    <span className="text-gold-primary font-bold uppercase tracking-[0.2em] text-sm mb-4 block">Testimonials</span>
+                    <span className="text-gold font-bold uppercase tracking-[0.2em] text-sm mb-4 block">Testimonials</span>
                     <h2 className={`text-3xl md:text-5xl font-bold text-white mb-6 font-sans transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         Pilgrim Voices
                     </h2>
@@ -31,17 +31,17 @@ export default function PilgrimVoices() {
                     {testimonials.map((item, index) => (
                         <GlassCard
                             key={item.id}
-                            className={`p-10 relative h-full flex flex-col bg-neutral-900 border-white/10 hover:border-gold-primary/30 group transition-all duration-500`}
+                            className={`p-10 relative h-full flex flex-col bg-neutral-900 border-white/10 hover:border-gold/30 group transition-all duration-500`}
                             delay={index * 0.2}
                         >
-                            <Quote size={40} className="text-gold-primary/10 absolute top-8 right-8 group-hover:text-gold-primary/20 transition-colors" />
+                            <Quote size={40} className="text-gold/10 absolute top-8 right-8 group-hover:text-gold/20 transition-colors" />
 
                             <p className="text-gray-300 italic mb-8 relative z-10 flex-grow font-serif leading-relaxed text-lg">
                                 &quot;{item.text}&quot;
                             </p>
 
                             <div className="flex items-center gap-4 mt-auto">
-                                <div className="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-xl font-bold text-gold-primary shadow-inner">
+                                <div className="w-12 h-12 rounded-full bg-black border border-white/10 flex items-center justify-center text-xl font-bold text-gold shadow-inner">
                                     {item.author.charAt(0)}
                                 </div>
                                 <div>

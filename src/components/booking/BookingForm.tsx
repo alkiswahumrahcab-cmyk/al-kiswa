@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -475,7 +475,7 @@ export default function BookingForm() {
         <div className="w-full max-w-4xl mx-auto px-4 pt-0 pb-16 relative">
             
             {/* Currency Toggle placed at the absolute top right */}
-            <div className="absolute top-2 right-4 md:top-[-20px] md:right-4 flex items-center gap-3 bg-[#0B0F19]/90 p-1.5 rounded-full border border-gold-primary/30 backdrop-blur-md z-30 shadow-xl">
+            <div className="absolute top-2 right-4 md:top-[-20px] md:right-4 flex items-center gap-3 bg-[#0B0F19]/90 p-1.5 rounded-full border border-gold/30 backdrop-blur-md z-30 shadow-xl">
                 <span className="text-xs font-medium text-[#C9D4E0] pl-4 uppercase tracking-wider">Currency</span>
                 <CurrencyToggle />
             </div>
@@ -523,7 +523,7 @@ export default function BookingForm() {
                 {/* 1. ROUTE SELECTION */}
                 <section className={`transition-opacity duration-500 ${activeSection !== 'route' && data.legs[0].routeId ? 'opacity-60 hover:opacity-100' : 'opacity-100'}`}>
                     <div className="flex items-center gap-3 mb-6">
-                        <div className="w-8 h-8 rounded-full bg-gold-primary text-black flex items-center justify-center font-bold">1</div>
+                        <div className="w-8 h-8 rounded-full bg-gold text-black flex items-center justify-center font-bold">1</div>
                         <h2 className="text-xl md:text-2xl font-bold text-white">Build Your Itinerary</h2>
                     </div>
                     
@@ -556,7 +556,7 @@ export default function BookingForm() {
                             return (
                                 <div key={`leg-index-${index}`} className="relative mb-8">
                                     <div className="flex justify-between items-center mb-4">
-                                        <h3 className="text-gold-primary font-bold">Transfer {index + 1}</h3>
+                                        <h3 className="text-gold font-bold">Transfer {index + 1}</h3>
                                         {data.legs.length > 1 && (
                                             <button onClick={() => removeLeg(index)} className="text-gray-500 hover:text-red-500 transition-colors">
                                                 <Trash2 size={18} />
@@ -567,11 +567,11 @@ export default function BookingForm() {
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         {/* Route Dropdown */}
                                         <div className="relative md:col-span-2 group">
-                                            <MapPin className="absolute left-0 top-4 text-gold-primary transition-colors z-10" size={20} />
+                                            <MapPin className="absolute left-0 top-4 text-gold transition-colors z-10" size={20} />
                                             <button
                                                 type="button"
                                                 onClick={() => setActiveDropdownIndex(activeDropdownIndex === index ? null : index)}
-                                                className={`w-full flex items-center justify-between pl-8 pr-4 py-4 bg-transparent border-b-2 text-left outline-none transition-colors ${errors[`leg_${index}_route`] ? 'border-red-500' : 'border-white/20 hover:border-gold-primary focus:border-gold-primary'}`}
+                                                className={`w-full flex items-center justify-between pl-8 pr-4 py-4 bg-transparent border-b-2 text-left outline-none transition-colors ${errors[`leg_${index}_route`] ? 'border-red-500' : 'border-white/20 hover:border-gold focus:border-gold'}`}
                                             >
                                                 <span className={`text-base font-medium truncate ${leg.pickup ? 'text-white' : 'text-gray-600'}`}>
                                                     {currentLabel}
@@ -590,16 +590,16 @@ export default function BookingForm() {
                                                     <input
                                                         type="text" value={searchStr} onChange={(e) => setRouteSearches(prev => ({ ...prev, [index]: e.target.value }))}
                                                         placeholder="Search city or airport..."
-                                                        className="w-full pl-10 pr-4 py-2 bg-transparent border-b border-white/10 rounded-none text-base text-white placeholder-gray-500 outline-none focus:border-gold-primary transition-colors"
+                                                        className="w-full pl-10 pr-4 py-2 bg-transparent border-b border-white/10 rounded-none text-base text-white placeholder-gray-500 outline-none focus:border-gold transition-colors"
                                                     />
                                                 </div>
                                                 <div className="max-h-64 overflow-y-auto custom-scrollbar">
                                                     {filteredRoutes.length > 0 ? filteredRoutes.map((route) => (
                                                         <button
                                                             key={route.id} type="button" onClick={() => selectRoute(index, route)}
-                                                            className="w-full px-6 py-4 text-left hover:bg-gold-primary/10 text-gray-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex flex-col"
+                                                            className="w-full px-6 py-4 text-left hover:bg-gold/10 text-gray-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex flex-col"
                                                         >
-                                                            <span className="font-semibold text-lg">{route.origin} <span className="text-gold-primary mx-2">→</span> {route.destination}</span>
+                                                            <span className="font-semibold text-lg">{route.origin} <span className="text-gold mx-2">→</span> {route.destination}</span>
                                                             <span className="text-xs text-gray-500 mt-1 uppercase tracking-wider">{route.category || 'Intercity'}</span>
                                                         </button>
                                                     )) : (
@@ -617,25 +617,25 @@ export default function BookingForm() {
                                                         <h4 className="text-white font-bold font-cormorant text-xl md:text-2xl tracking-wide">{ziyarahTour.displayName}</h4>
                                                         <p className="text-gray-400 text-xs mt-1 font-montserrat">Guided ziyarah by private vehicle — your driver waits at each stop.</p>
                                                     </div>
-                                                    <div className="flex items-center gap-1.5 bg-gold-primary/10 text-gold-primary border border-gold-primary/30 px-3 py-1.5 rounded-full font-semibold text-sm shrink-0">
+                                                    <div className="flex items-center gap-1.5 bg-gold/10 text-gold border border-gold/30 px-3 py-1.5 rounded-full font-semibold text-sm shrink-0">
                                                         <Clock size={14} />
                                                         <span>{ziyarahTour.durationHours} hours total</span>
                                                     </div>
                                                 </div>
                                                 
                                                 <div className="bg-[#111] p-3 flex items-center gap-3 border-b border-white/5">
-                                                    <div className="w-7 h-7 rounded-full bg-gold-primary/20 flex items-center justify-center shrink-0">
-                                                        <MapPin size={14} className="text-gold-primary" />
+                                                    <div className="w-7 h-7 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
+                                                        <MapPin size={14} className="text-gold" />
                                                     </div>
                                                     <p className="text-gray-300 text-xs font-medium">{ZIYARAH_PICKUP_NOTE}</p>
                                                 </div>
 
                                                 <div className="p-4 md:p-5 bg-[#111]">
-                                                    <h5 className="text-gold-primary text-xs uppercase tracking-widest font-bold mb-3 font-montserrat">Included Stops</h5>
+                                                    <h5 className="text-gold text-xs uppercase tracking-widest font-bold mb-3 font-montserrat">Included Stops</h5>
                                                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                                                         {ziyarahTour.stops.map((stop: any, stopIdx: number) => (
-                                                            <div key={stopIdx} className="bg-white/5 border border-white/5 rounded-xl p-3 flex items-start gap-2.5 hover:bg-white/10 hover:border-gold-primary/30 transition-colors">
-                                                                <div className="w-5 h-5 rounded-full bg-gold-primary text-black flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
+                                                            <div key={stopIdx} className="bg-white/5 border border-white/5 rounded-xl p-3 flex items-start gap-2.5 hover:bg-white/10 hover:border-gold/30 transition-colors">
+                                                                <div className="w-5 h-5 rounded-full bg-gold text-black flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
                                                                     {stopIdx + 1}
                                                                 </div>
                                                                 <div>
@@ -656,7 +656,7 @@ export default function BookingForm() {
 
                                         {/* Badr Detour Selector */}
                                         {(selectedRoute?.id === '692db09934f15bc89b45a600' || selectedRoute?.name?.toLowerCase() === 'madinah hotel to makkah hotel' || selectedRoute?.name?.toLowerCase() === 'madinah hotel → makkah hotel' || (selectedRoute?.origin?.toLowerCase() === 'madinah hotel' && selectedRoute?.destination?.toLowerCase() === 'makkah hotel')) && (
-                                            <div className="md:col-span-2 mt-2 bg-[#04162B]/50 border border-gold-primary/30 rounded-xl p-4">
+                                            <div className="md:col-span-2 mt-2 bg-[#04162B]/50 border border-gold/30 rounded-xl p-4">
                                                 <h4 className="text-white font-bold mb-3 font-cormorant text-xl">Route Variant</h4>
                                                 <div className="space-y-4">
                                                     <label className="flex items-start gap-3 cursor-pointer group">
@@ -669,8 +669,8 @@ export default function BookingForm() {
                                                                 onChange={() => updateLeg(index, { routeVariant: 'direct' })}
                                                                 className="peer sr-only"
                                                             />
-                                                            <div className="w-5 h-5 rounded-full border-2 border-gray-400 peer-checked:border-gold-primary transition-colors"></div>
-                                                            <div className="absolute w-2.5 h-2.5 rounded-full bg-gold-primary scale-0 peer-checked:scale-100 transition-transform"></div>
+                                                            <div className="w-5 h-5 rounded-full border-2 border-gray-400 peer-checked:border-gold transition-colors"></div>
+                                                            <div className="absolute w-2.5 h-2.5 rounded-full bg-gold scale-0 peer-checked:scale-100 transition-transform"></div>
                                                         </div>
                                                         <div>
                                                             <p className="text-white font-medium">Direct Route</p>
@@ -687,8 +687,8 @@ export default function BookingForm() {
                                                                 onChange={() => updateLeg(index, { routeVariant: 'via_badr' })}
                                                                 className="peer sr-only"
                                                             />
-                                                            <div className="w-5 h-5 rounded-full border-2 border-gray-400 peer-checked:border-gold-primary transition-colors"></div>
-                                                            <div className="absolute w-2.5 h-2.5 rounded-full bg-gold-primary scale-0 peer-checked:scale-100 transition-transform"></div>
+                                                            <div className="w-5 h-5 rounded-full border-2 border-gray-400 peer-checked:border-gold transition-colors"></div>
+                                                            <div className="absolute w-2.5 h-2.5 rounded-full bg-gold scale-0 peer-checked:scale-100 transition-transform"></div>
                                                         </div>
                                                         <div className="flex-1">
                                                             <p className="text-white font-medium">Via Badr Detour</p>
@@ -698,9 +698,9 @@ export default function BookingForm() {
                                                                 if (activeVehicle) {
                                                                     const surchargeSAR = BADR_DETOUR_SURCHARGE_SAR[activeVehicle] || DEFAULT_BADR_SURCHARGE_SAR;
                                                                     const disp = formatPrice(surchargeSAR, Math.round(surchargeSAR / 3.75));
-                                                                    return <p className="text-gold-primary text-sm font-semibold">+{currency === 'USD' ? '$' : ''}{disp.amount} {currency === 'SAR' ? 'SAR' : ''}</p>;
+                                                                    return <p className="text-gold text-sm font-semibold">+{currency === 'USD' ? '$' : ''}{disp.amount} {currency === 'SAR' ? 'SAR' : ''}</p>;
                                                                 }
-                                                                return <p className="text-gold-primary text-sm font-semibold">+SAR 150–200 depending on vehicle</p>;
+                                                                return <p className="text-gold text-sm font-semibold">+SAR 150–200 depending on vehicle</p>;
                                                             })()}
                                                         </div>
                                                     </label>
@@ -712,7 +712,7 @@ export default function BookingForm() {
                                         {leg.routeVariant === 'via_badr' && (selectedRoute?.id === '692db09934f15bc89b45a600' || selectedRoute?.name?.toLowerCase() === 'madinah hotel to makkah hotel' || selectedRoute?.name?.toLowerCase() === 'madinah hotel → makkah hotel' || (selectedRoute?.origin?.toLowerCase() === 'madinah hotel' && selectedRoute?.destination?.toLowerCase() === 'makkah hotel')) && (
                                             <div className="md:col-span-2 mt-1 mb-2 px-4 py-3 bg-transparent border border-white/10 rounded-lg flex justify-between items-center text-sm">
                                                 <span className="text-gray-300">Badr detour — Jabal al-Malaika ziyarat</span>
-                                                <span className="text-gold-primary font-bold">
+                                                <span className="text-gold font-bold">
                                                     {(() => {
                                                         const activeVehicle = data.selectedVehicles.length > 0 ? data.selectedVehicles[0].vehicleId : null;
                                                         if (activeVehicle) {
@@ -728,7 +728,7 @@ export default function BookingForm() {
 
                                         {/* Wadi Jinn Add-on Selector */}
                                         {(selectedRoute?.id === '6949b367a41f6410e88ed72e' || selectedRoute?.name?.toLowerCase().includes('madinah ziyarat')) && (
-                                            <div className="md:col-span-2 mt-2 bg-[#04162B]/50 border border-gold-primary/30 rounded-xl p-4">
+                                            <div className="md:col-span-2 mt-2 bg-[#04162B]/50 border border-gold/30 rounded-xl p-4">
                                                 <div className="flex items-start justify-between gap-4">
                                                     <div>
                                                         <h4 className="text-white font-bold mb-1 font-cormorant text-xl">Include Wadi Jinn</h4>
@@ -738,15 +738,15 @@ export default function BookingForm() {
                                                             if (activeVehicle) {
                                                                 const surchargeSAR = WADI_JINN_SURCHARGE_SAR[activeVehicle] || DEFAULT_WADI_JINN_SURCHARGE_SAR;
                                                                 const disp = formatPrice(surchargeSAR, Math.round(surchargeSAR / 3.75));
-                                                                return <p className="text-gold-primary text-sm font-semibold">+{currency === 'USD' ? '$' : ''}{disp.amount} {currency === 'SAR' ? 'SAR' : ''}</p>;
+                                                                return <p className="text-gold text-sm font-semibold">+{currency === 'USD' ? '$' : ''}{disp.amount} {currency === 'SAR' ? 'SAR' : ''}</p>;
                                                             }
-                                                            return <p className="text-gold-primary text-sm font-semibold">+SAR 100–250 depending on vehicle</p>;
+                                                            return <p className="text-gold text-sm font-semibold">+SAR 100–250 depending on vehicle</p>;
                                                         })()}
                                                     </div>
                                                     <button
                                                         type="button"
                                                         onClick={() => updateLeg(index, { includeWadiJinn: !leg.includeWadiJinn })}
-                                                        className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gold-primary focus:ring-offset-2 focus:ring-offset-[#04162B] ${leg.includeWadiJinn ? 'bg-gold-primary' : 'bg-gray-600'}`}
+                                                        className={`relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 focus:ring-offset-[#04162B] ${leg.includeWadiJinn ? 'bg-gold' : 'bg-gray-600'}`}
                                                         role="switch"
                                                         aria-checked={leg.includeWadiJinn}
                                                     >
@@ -764,7 +764,7 @@ export default function BookingForm() {
                                         {leg.includeWadiJinn && (selectedRoute?.id === '6949b367a41f6410e88ed72e' || selectedRoute?.name?.toLowerCase().includes('madinah ziyarat')) && (
                                             <div className="md:col-span-2 mt-1 mb-2 px-4 py-3 bg-transparent border border-white/10 rounded-lg flex justify-between items-center text-sm">
                                                 <span className="text-gray-300">Wadi Jinn — Valley of the Jinn ziyarat</span>
-                                                <span className="text-gold-primary font-bold">
+                                                <span className="text-gold font-bold">
                                                     {(() => {
                                                         const activeVehicle = data.selectedVehicles.length > 0 ? data.selectedVehicles[0].vehicleId : null;
                                                         if (activeVehicle) {
@@ -780,7 +780,7 @@ export default function BookingForm() {
 
                                         {/* Date */}
                                         <div className="relative">
-                                            <Calendar className="absolute left-0 top-4 text-gold-primary transition-colors z-10" size={20} />
+                                            <Calendar className="absolute left-0 top-4 text-gold transition-colors z-10" size={20} />
                                             <input
                                                 type={leg.date ? "date" : "text"}
                                                 placeholder={leg.pickup?.toLowerCase().includes('airport') ? 'Landing Date *' : 'Pickup Date *'}
@@ -798,7 +798,7 @@ export default function BookingForm() {
                                                 min={new Date().toISOString().split('T')[0]}
                                                 onChange={(e) => updateLeg(index, { date: e.target.value })}
                                                 className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none cursor-pointer transition-colors placeholder-gray-600
-                                                    ${errors[`leg_${index}_date`] ? 'border-red-500' : 'border-white/20 hover:border-gold-primary focus:border-gold-primary'}
+                                                    ${errors[`leg_${index}_date`] ? 'border-red-500' : 'border-white/20 hover:border-gold focus:border-gold'}
                                                     [color-scheme:dark]`}
                                             />
                                             {errors[`leg_${index}_date`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_date`]}</p>}
@@ -806,7 +806,7 @@ export default function BookingForm() {
 
                                         {/* Time */}
                                         <div className="relative">
-                                            <Clock className="absolute left-0 top-4 text-gold-primary transition-colors z-10" size={20} />
+                                            <Clock className="absolute left-0 top-4 text-gold transition-colors z-10" size={20} />
                                             <input
                                                 type={leg.time ? "time" : "text"}
                                                 placeholder={leg.pickup?.toLowerCase().includes('airport') ? 'Landing Time (Local) *' : 'Pickup Time *'}
@@ -823,7 +823,7 @@ export default function BookingForm() {
                                                 value={leg.time}
                                                 onChange={(e) => updateLeg(index, { time: e.target.value })}
                                                 className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none cursor-pointer transition-colors placeholder-gray-600
-                                                    ${errors[`leg_${index}_time`] ? 'border-red-500' : 'border-white/20 hover:border-gold-primary focus:border-gold-primary'}
+                                                    ${errors[`leg_${index}_time`] ? 'border-red-500' : 'border-white/20 hover:border-gold focus:border-gold'}
                                                     [color-scheme:dark]`}
                                             />
                                             {errors[`leg_${index}_time`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_time`]}</p>}
@@ -832,14 +832,14 @@ export default function BookingForm() {
                                         {/* Flight Number */}
                                         {leg.pickup?.toLowerCase().includes('airport') && (
                                             <div className="relative md:col-span-2 group mt-2">
-                                                <Plane className="absolute left-0 top-4 text-gold-primary transition-colors z-10" size={20} />
+                                                <Plane className="absolute left-0 top-4 text-gold transition-colors z-10" size={20} />
                                                 <input
                                                     type="text"
                                                     placeholder="Flight Number (Required)"
                                                     value={leg.flightNumber}
                                                     onChange={(e) => updateLeg(index, { flightNumber: e.target.value })}
                                                     className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors placeholder-gray-600
-                                                        ${errors[`leg_${index}_flightNumber`] ? 'border-red-500' : 'border-white/20 hover:border-gold-primary focus:border-gold-primary'}`}
+                                                        ${errors[`leg_${index}_flightNumber`] ? 'border-red-500' : 'border-white/20 hover:border-gold focus:border-gold'}`}
                                                 />
                                                 {errors[`leg_${index}_flight`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_flight`]}</p>}
                                             </div>
@@ -849,11 +849,11 @@ export default function BookingForm() {
                                         {leg.pickup?.toLowerCase().includes('jeddah airport') && (
                                             <div className="relative md:col-span-2">
                                                 <div className="relative mt-2">
-                                                    <Plane className="absolute left-0 top-4 text-gold-primary" size={20} />
+                                                    <Plane className="absolute left-0 top-4 text-gold" size={20} />
                                                     <button
                                                         type="button"
                                                         onClick={() => setActiveTerminalDropdown(activeTerminalDropdown === index ? null : index)}
-                                                        className={`w-full flex items-center justify-between pl-8 pr-4 py-4 border-b-2 bg-transparent transition-colors text-left outline-none ${errors.airportTerminal ? 'border-red-500' : 'border-white/20 hover:border-gold-primary focus:border-gold-primary'}`}
+                                                        className={`w-full flex items-center justify-between pl-8 pr-4 py-4 border-b-2 bg-transparent transition-colors text-left outline-none ${errors.airportTerminal ? 'border-red-500' : 'border-white/20 hover:border-gold focus:border-gold'}`}
                                                     >
                                                         <span className={`text-base truncate ${data.airportTerminal ? 'text-white' : 'text-gray-400'}`}>
                                                             {data.airportTerminal || 'Select Arrival Terminal'}
@@ -876,10 +876,10 @@ export default function BookingForm() {
                                                                         if (errors.airportTerminal) setErrors(err => ({ ...err, airportTerminal: '' }));
                                                                         setActiveTerminalDropdown(null);
                                                                     }}
-                                                                    className="w-full px-6 py-4 text-left hover:bg-gold-primary/10 text-gray-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex items-center justify-between"
+                                                                    className="w-full px-6 py-4 text-left hover:bg-gold/10 text-gray-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex items-center justify-between"
                                                                 >
                                                                     <span className="font-medium text-lg">{terminal}</span>
-                                                                    {data.airportTerminal === terminal && <div className="w-2 h-2 rounded-full bg-gold-primary" />}
+                                                                    {data.airportTerminal === terminal && <div className="w-2 h-2 rounded-full bg-gold" />}
                                                                 </button>
                                                             ))}
                                                         </div>
@@ -906,7 +906,7 @@ export default function BookingForm() {
                                         {/* Hours (if Hourly route) */}
                                         {isHourly && (
                                             <div className="relative md:col-span-2">
-                                                <Clock className="absolute left-0 top-4 text-gold-primary" size={20} />
+                                                <Clock className="absolute left-0 top-4 text-gold" size={20} />
                                                 <input
                                                     type="number"
                                                     min="1"
@@ -914,7 +914,7 @@ export default function BookingForm() {
                                                     placeholder="Number of Hours"
                                                     value={leg.hours || ''}
                                                     onChange={(e) => updateLeg(index, { hours: parseInt(e.target.value) || undefined })}
-                                                    className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 border-white/20 focus:border-gold-primary text-white outline-none transition-colors placeholder-gray-600"
+                                                    className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 border-white/20 focus:border-gold text-white outline-none transition-colors placeholder-gray-600"
                                                 />
                                                 <p className="text-gray-400 text-xs mt-1 absolute pl-8">Enter number of hours (e.g., 3)</p>
                                             </div>
@@ -926,7 +926,7 @@ export default function BookingForm() {
 
                         <button 
                             onClick={() => { addLeg(); setActiveSection('route'); }}
-                            className="w-full py-4 border-2 border-dashed border-white/20 hover:border-gold-primary rounded-xl text-gold-primary font-medium flex justify-center items-center gap-2 transition-colors"
+                            className="w-full py-4 border-2 border-dashed border-white/20 hover:border-gold rounded-xl text-gold font-medium flex justify-center items-center gap-2 transition-colors"
                         >
                             <Plus size={20} /> Add Another Transfer
                         </button>
@@ -937,7 +937,7 @@ export default function BookingForm() {
                 {/* 2. VEHICLE SELECTION */}
                 <section ref={vehicleSectionRef} className={`transition-all duration-500 ${!data.legs.every(l => l.routeId) ? 'opacity-30 pointer-events-none' : activeSection !== 'vehicle' && (data.selectedVehicles && data.selectedVehicles.length > 0) ? 'opacity-60 hover:opacity-100' : 'opacity-100'}`}>
                     <div className="flex items-center gap-3 mb-6">
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${data.legs.every(l => l.routeId) ? 'bg-gold-primary text-black' : 'bg-white/10 text-gray-500'}`}>2</div>
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${data.legs.every(l => l.routeId) ? 'bg-gold text-black' : 'bg-white/10 text-gray-500'}`}>2</div>
                         <h2 className={`text-xl md:text-2xl font-bold ${data.legs.every(l => l.routeId) ? 'text-white' : 'text-gray-500'}`}>Select your vehicle</h2>
                     </div>
 
@@ -962,7 +962,7 @@ export default function BookingForm() {
                                     key={vehicle.id}
                                     onClick={() => updateVehicleQuantity(vehicle.id, selectedCount === 0 ? 1 : selectedCount)}
                                     className={`relative cursor-pointer rounded-2xl p-5 md:p-6 transition-all duration-300 border-2 overflow-hidden group
-                                        ${isSelected ? 'bg-gold-primary/5 border-gold-primary shadow-[0_0_30px_rgba(239,191,91,0.2)] scale-[1.02]' : 'bg-[#111] border-white/5 hover:border-gold-primary/50 hover:bg-[#151515]'}
+                                        ${isSelected ? 'bg-gold/5 border-gold shadow-[0_0_30px_hsl(var(--gold-glow) / 0.2)] scale-[1.02]' : 'bg-[#111] border-white/5 hover:border-gold/50 hover:bg-[#151515]'}
                                     `}
                                 >
                                     <div className="relative w-full h-56 sm:h-48 md:h-40 mb-6 rounded-xl overflow-hidden bg-gradient-to-b from-white/5 to-transparent group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
@@ -975,13 +975,13 @@ export default function BookingForm() {
                                     </div>
                                     
                                     <div className="flex justify-between items-start mb-2">
-                                        <h3 className={`text-lg font-bold ${isSelected ? 'text-gold-primary' : 'text-white'}`}>{vehicle.name}</h3>
+                                        <h3 className={`text-lg font-bold ${isSelected ? 'text-gold' : 'text-white'}`}>{vehicle.name}</h3>
                                         {dispPrice && (
                                             <div className="text-right">
                                                 {Number(dispPrice.amount) > 0 ? (
                                                     <>
                                                         <span className="text-sm text-gray-400">Total</span>
-                                                        <p className={`text-lg font-bold text-white ${isLoading ? 'animate-pulse text-gold-primary/70' : ''}`}>
+                                                        <p className={`text-lg font-bold text-white ${isLoading ? 'animate-pulse text-gold/70' : ''}`}>
                                                             {currency === 'USD' ? '$' : ''}{dispPrice.amount}
                                                             {currency === 'SAR' ? ' SAR' : ''}
                                                         </p>
@@ -1026,7 +1026,7 @@ export default function BookingForm() {
                                                 );
                                             })}
                                             {data.legs.length >= 3 && (
-                                                <div className="flex justify-between items-center text-xs text-gold-primary mt-1 pt-1 border-t border-gold-primary/20">
+                                                <div className="flex justify-between items-center text-xs text-gold mt-1 pt-1 border-t border-gold/20">
                                                     <span>Multi-Route Discount</span>
                                                     <span>-5%</span>
                                                 </div>
@@ -1048,7 +1048,7 @@ export default function BookingForm() {
                                                 <span className="w-4 text-center font-bold text-white">{selectedCount}</span>
                                                 <button 
                                                     onClick={(e) => { e.stopPropagation(); updateVehicleQuantity(vehicle.id, selectedCount + 1); }}
-                                                    className="w-8 h-8 rounded bg-gold-primary/20 hover:bg-gold-primary/40 text-gold-primary flex items-center justify-center transition-colors"
+                                                    className="w-8 h-8 rounded bg-gold/20 hover:bg-gold/40 text-gold flex items-center justify-center transition-colors"
                                                 >
                                                     <Plus size={16} />
                                                 </button>
@@ -1065,14 +1065,14 @@ export default function BookingForm() {
                 {/* 3. TRIP DETAILS */}
                 <section ref={detailsSectionRef} className={`transition-all duration-500 ${(!data.selectedVehicles || data.selectedVehicles.length === 0) ? 'opacity-30 pointer-events-none' : 'opacity-100'}`}>
                     <div className="flex items-center gap-3 mb-6">
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${(data.selectedVehicles && data.selectedVehicles.length > 0) ? 'bg-gold-primary text-black' : 'bg-white/10 text-gray-500'}`}>3</div>
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${(data.selectedVehicles && data.selectedVehicles.length > 0) ? 'bg-gold text-black' : 'bg-white/10 text-gray-500'}`}>3</div>
                         <h2 className={`text-xl md:text-2xl font-bold ${(data.selectedVehicles && data.selectedVehicles.length > 0) ? 'text-white' : 'text-gray-500'}`}>Guest Details</h2>
                     </div>
 
                     <div className="pl-0 md:pl-11 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                         {/* Passengers */}
                         <div className="relative md:col-span-2 lg:col-span-1">
-                            <Users className="absolute left-0 top-4 text-gold-primary" size={20} />
+                            <Users className="absolute left-0 top-4 text-gold" size={20} />
                             <div className="flex items-center justify-between w-full pl-8 pr-4 py-3 bg-transparent border-b-2 border-white/20">
                                 <span className="text-gray-400">Number of Passengers</span>
                                 <div className="flex items-center gap-4">
@@ -1097,13 +1097,13 @@ export default function BookingForm() {
 
                         {/* Child Seat Toggle */}
                         <div className="relative md:col-span-2 lg:col-span-1">
-                            <Baby className="absolute left-0 top-4 text-gold-primary" size={20} />
+                            <Baby className="absolute left-0 top-4 text-gold" size={20} />
                             <div className="flex items-center justify-between w-full pl-8 pr-4 py-3 bg-transparent border-b-2 border-white/20">
                                 <span className="text-gray-400">Child Seat Required?</span>
                                 <button
                                     type="button"
                                     onClick={() => updateData({ childSeats: !data.childSeats })}
-                                    className={`relative w-14 h-8 rounded-full transition-colors duration-300 focus:outline-none ${data.childSeats ? 'bg-gold-primary' : 'bg-white/10'}`}
+                                    className={`relative w-14 h-8 rounded-full transition-colors duration-300 focus:outline-none ${data.childSeats ? 'bg-gold' : 'bg-white/10'}`}
                                 >
                                     <span className="sr-only">Toggle Child Seat</span>
                                     <motion.div
@@ -1123,40 +1123,40 @@ export default function BookingForm() {
                         </div>
 
                         <div className="relative">
-                            <User className="absolute left-0 top-4 text-gold-primary" size={20} />
+                            <User className="absolute left-0 top-4 text-gold" size={20} />
                             <input
                                 type="text"
                                 placeholder="Full Name *"
                                 value={data.name}
                                 onChange={(e) => updateData({ name: e.target.value })}
                                 className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors placeholder-gray-600
-                                    ${errors.name ? 'border-red-500' : 'border-white/20 focus:border-gold-primary'}`}
+                                    ${errors.name ? 'border-red-500' : 'border-white/20 focus:border-gold'}`}
                             />
                             {errors.name && <p className="text-red-500 text-xs mt-1 absolute">{errors.name}</p>}
                         </div>
 
                         <div className="relative">
-                            <Phone className="absolute left-0 top-4 text-gold-primary" size={20} />
+                            <Phone className="absolute left-0 top-4 text-gold" size={20} />
                             <input
                                 type="tel"
                                 placeholder="WhatsApp Number *"
                                 value={data.phone}
                                 onChange={(e) => updateData({ phone: e.target.value })}
                                 className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors placeholder-gray-600
-                                    ${errors.phone ? 'border-red-500' : 'border-white/20 focus:border-gold-primary'}`}
+                                    ${errors.phone ? 'border-red-500' : 'border-white/20 focus:border-gold'}`}
                             />
                             {errors.phone && <p className="text-red-500 text-xs mt-1 absolute">{errors.phone}</p>}
                         </div>
 
                         <div className="relative md:col-span-2">
-                            <Mail className="absolute left-0 top-4 text-gold-primary" size={20} />
+                            <Mail className="absolute left-0 top-4 text-gold" size={20} />
                             <input
                                 type="email"
                                 placeholder="Email Address *"
                                 value={data.email}
                                 onChange={(e) => updateData({ email: e.target.value })}
                                 className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors placeholder-gray-600
-                                    ${errors.email ? 'border-red-500' : 'border-white/20 focus:border-gold-primary'}`}
+                                    ${errors.email ? 'border-red-500' : 'border-white/20 focus:border-gold'}`}
                             />
                             {errors.email && <p className="text-red-500 text-xs mt-1 absolute">{errors.email}</p>}
                             <p className="text-gray-400 text-xs mt-2 pl-8">We will send a confirmation mail to this email address.</p>
@@ -1164,7 +1164,7 @@ export default function BookingForm() {
 
                         {/* Visa Type */}
                         <div className="md:col-span-2 mt-4 relative">
-                            <Briefcase className="absolute left-0 top-4 text-gold-primary" size={20} />
+                            <Briefcase className="absolute left-0 top-4 text-gold" size={20} />
                             <div className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors border-white/20">
                                 <span className="text-gray-400 block mb-3">Visa Type *</span>
                                 <div className="flex flex-wrap gap-4">
@@ -1179,7 +1179,7 @@ export default function BookingForm() {
                                                     updateData({ visaType: e.target.value });
                                                     if (e.target.value !== 'other') updateData({ visaOther: '' });
                                                 }}
-                                                className="accent-gold-primary w-4 h-4"
+                                                className="accent-gold w-4 h-4"
                                             />
                                             <span className="text-white text-sm">{vt.label}</span>
                                         </label>
@@ -1191,7 +1191,7 @@ export default function BookingForm() {
                                         placeholder="Please specify *"
                                         value={data.visaOther}
                                         onChange={(e) => updateData({ visaOther: e.target.value })}
-                                        className={`w-full mt-3 pl-4 pr-4 py-2 bg-white/5 border rounded-lg text-white outline-none transition-colors placeholder-gray-500 ${errors.visaOther ? 'border-red-500' : 'border-white/20 focus:border-gold-primary'}`}
+                                        className={`w-full mt-3 pl-4 pr-4 py-2 bg-white/5 border rounded-lg text-white outline-none transition-colors placeholder-gray-500 ${errors.visaOther ? 'border-red-500' : 'border-white/20 focus:border-gold'}`}
                                     />
                                 )}
                             </div>
@@ -1233,7 +1233,7 @@ export default function BookingForm() {
                         <button
                             onClick={handleSubmit}
                             disabled={isSubmitting}
-                            className="w-full md:w-auto px-12 py-4 bg-gold-primary hover:bg-white text-black font-bold text-lg rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(239,191,91,0.2)] flex items-center justify-center gap-3"
+                            className="w-full md:w-auto px-12 py-4 bg-gold hover:bg-white text-black font-bold text-lg rounded-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_hsl(var(--gold-glow) / 0.2)] flex items-center justify-center gap-3"
                         >
                             {isSubmitting ? (
                                 <><Loader2 size={20} className="animate-spin" /> Processing...</>

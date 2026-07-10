@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
@@ -22,7 +22,7 @@ export default function GlassButton({
     const variants = {
         primary: "btn-gold",
         secondary: "glass-button",
-        outline: "btn-outline border-white/20 text-white hover:border-gold-primary/50",
+        outline: "btn-outline border-white/20 text-white hover:border-gold/50",
         gold: "btn-gold",
     };
 
@@ -33,7 +33,7 @@ export default function GlassButton({
     };
 
     const baseStyles = cn(
-        "glass-button inline-flex items-center justify-center rounded-none font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-primary disabled:pointer-events-none disabled:opacity-50",
+        "glass-button inline-flex items-center justify-center rounded-none font-bold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold disabled:pointer-events-none disabled:opacity-50",
         variants[variant],
         sizes[size],
         className

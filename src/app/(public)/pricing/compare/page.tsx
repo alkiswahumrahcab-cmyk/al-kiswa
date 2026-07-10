@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 import Link from 'next/link';
 import { generateMetadataAlternates } from '@/lib/hreflang';
 import { Check, X, ArrowRight, TrendingDown, ShieldCheck, Star, Zap } from 'lucide-react';
@@ -202,7 +202,7 @@ export default function ComparePage() {
                         <div className="mb-4">
                             <Breadcrumbs />
                         </div>
-                        <span className="inline-block bg-gold-primary/10 border border-gold-primary/30 text-gold-primary text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+                        <span className="inline-block bg-gold/10 border border-gold/30 text-gold text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
                             Independent Price Comparison · 2026
                         </span>
                         <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
@@ -229,7 +229,7 @@ export default function ComparePage() {
                             Book direct with Al Kiswah → same car, same driver, lower price. No platform. No commission.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link href="/booking" className="bg-gold-primary text-black font-bold px-10 py-4 rounded-xl hover:bg-white transition-colors uppercase tracking-wider">
+                            <Link href="/booking" className="bg-gold text-black font-bold px-10 py-4 rounded-xl hover:bg-white transition-colors uppercase tracking-wider">
                                 Book Direct — Best Price
                             </Link>
                             <Link href="/pricing" className="bg-white/8 border border-white/15 text-white font-semibold px-10 py-4 rounded-xl hover:bg-white/15 transition-colors">
@@ -246,10 +246,10 @@ export default function ComparePage() {
                     <FadeIn>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
                             {[
-                                { val: '0%', label: 'Platform Commission', color: 'text-gold-primary' },
+                                { val: '0%', label: 'Platform Commission', color: 'text-gold' },
                                 { val: '20–30%', label: 'Cheaper than Kiwi Taxi', color: 'text-emerald-400' },
                                 { val: '10,000+', label: 'Pilgrims Transported', color: 'text-white' },
-                                { val: '5.0★', label: 'Google Rating', color: 'text-gold-primary' },
+                                { val: '5.0★', label: 'Google Rating', color: 'text-gold' },
                             ].map(stat => (
                                 <div key={stat.label} className="bg-white/5 border border-white/8 rounded-2xl p-5 text-center">
                                     <p className={`text-3xl font-black mb-1 ${stat.color}`}>{stat.val}</p>
@@ -279,7 +279,7 @@ export default function ComparePage() {
                                         <th className="text-left py-4 px-4 text-gray-400 font-medium w-[22%]">Feature</th>
                                         <th className="py-4 px-3 text-center w-[22%]">
                                             <div className="inline-flex flex-col items-center">
-                                                <span className="bg-gold-primary/15 border border-gold-primary/40 text-gold-primary font-bold px-3 py-2 rounded-xl text-xs">
+                                                <span className="bg-gold/15 border border-gold/40 text-gold font-bold px-3 py-2 rounded-xl text-xs">
                                                     Al Kiswah
                                                 </span>
                                                 <span className="text-[10px] text-gray-500 mt-1">Direct Operator</span>
@@ -377,13 +377,13 @@ export default function ComparePage() {
                                     {/* Route header */}
                                     <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-black/20">
                                         <div className="flex items-center gap-3">
-                                            <ArrowRight size={16} className="text-gold-primary" />
+                                            <ArrowRight size={16} className="text-gold" />
                                             <h3 className="text-white font-bold">{route.route}</h3>
                                             <span className="text-gray-500 text-sm">{route.distance}</span>
                                         </div>
                                         <Link
                                             href={`/booking?from=${encodeURIComponent(route.route.split('→')[0].trim())}&to=${encodeURIComponent(route.route.split('→')[1].trim())}`}
-                                            className="text-gold-primary text-xs font-bold hover:text-white transition-colors"
+                                            className="text-gold text-xs font-bold hover:text-white transition-colors"
                                         >
                                             Book Direct →
                                         </Link>
@@ -394,7 +394,7 @@ export default function ComparePage() {
                                         <thead>
                                             <tr className="border-b border-white/5">
                                                 <th className="text-left px-6 py-3 text-gray-400 font-medium">Vehicle</th>
-                                                <th className="text-center px-4 py-3 text-gold-primary font-bold">Al Kiswah</th>
+                                                <th className="text-center px-4 py-3 text-gold font-bold">Al Kiswah</th>
                                                 <th className="text-center px-4 py-3 text-gray-400 font-medium">Kiwi Taxi</th>
                                                 <th className="text-center px-4 py-3 text-gray-400 font-medium hidden md:table-cell">Booking.com</th>
                                                 <th className="text-center px-4 py-3 text-emerald-400 font-medium hidden md:table-cell">You Save</th>
@@ -408,7 +408,7 @@ export default function ComparePage() {
                                                     <tr key={vi} className={`border-b border-white/5 last:border-0 ${vi % 2 === 0 ? 'bg-white/2' : ''}`}>
                                                         <td className="px-6 py-3 text-gray-300">{v.type}</td>
                                                         <td className="px-4 py-3 text-center">
-                                                            <span className="text-gold-primary font-black text-base">${v.alkiswah}</span>
+                                                            <span className="text-gold font-black text-base">${v.alkiswah}</span>
                                                         </td>
                                                         <td className="px-4 py-3 text-center">
                                                             <span className="text-gray-400 line-through">${v.kiwi}</span>
@@ -449,7 +449,7 @@ export default function ComparePage() {
                                 <details key={i} className="group bg-white/3 border border-white/8 rounded-2xl overflow-hidden">
                                     <summary className="flex items-start justify-between gap-4 cursor-pointer p-6 list-none">
                                         <h3 className="text-white font-semibold text-sm md:text-base leading-snug">{item.q}</h3>
-                                        <span className="shrink-0 text-gold-primary text-xl font-light group-open:rotate-45 transition-transform duration-200 mt-0.5">+</span>
+                                        <span className="shrink-0 text-gold text-xl font-light group-open:rotate-45 transition-transform duration-200 mt-0.5">+</span>
                                     </summary>
                                     <div className="px-6 pb-6">
                                         <p className="text-gray-400 text-sm leading-relaxed">{item.a}</p>
@@ -465,8 +465,8 @@ export default function ComparePage() {
             <section className="py-20 relative z-10">
                 <div className="container mx-auto px-4">
                     <FadeIn>
-                        <div className="max-w-3xl mx-auto text-center bg-gradient-to-br from-gold-primary/10 to-black border border-gold-primary/20 rounded-3xl p-12">
-                            <ShieldCheck size={48} className="text-gold-primary mx-auto mb-6" />
+                        <div className="max-w-3xl mx-auto text-center bg-gradient-to-br from-gold/10 to-black border border-gold/20 rounded-3xl p-12">
+                            <ShieldCheck size={48} className="text-gold mx-auto mb-6" />
                             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                                 Skip the Platform. Book the Operator.
                             </h2>
@@ -475,7 +475,7 @@ export default function ComparePage() {
                                 Same vehicle you'd get on Kiwi Taxi — at the real price.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <Link href="/booking" className="bg-gold-primary text-black font-bold px-10 py-4 rounded-xl hover:bg-white transition-colors uppercase tracking-wider">
+                                <Link href="/booking" className="bg-gold text-black font-bold px-10 py-4 rounded-xl hover:bg-white transition-colors uppercase tracking-wider">
                                     Book Now — Instant Confirmation
                                 </Link>
                                 <a

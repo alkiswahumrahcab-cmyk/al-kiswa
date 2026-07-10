@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -74,7 +74,7 @@ export default function BookingWizard() {
                 {/* Step label */}
                 <div className="flex justify-between items-center mb-3">
                     <div>
-                        <p className="text-[10px] font-bold text-gold-primary uppercase tracking-[0.25em]">
+                        <p className="text-[10px] font-bold text-gold uppercase tracking-[0.25em]">
                             Step {currentStep} of {STEPS.length}
                         </p>
                         <p className="text-base font-bold text-white leading-tight">
@@ -89,9 +89,9 @@ export default function BookingWizard() {
                                 key={step.id}
                                 className={`transition-all duration-500 rounded-full flex items-center justify-center font-bold text-[10px]
                                     ${currentStep > step.id
-                                        ? 'w-6 h-6 bg-gold-primary text-black'
+                                        ? 'w-6 h-6 bg-gold text-black'
                                         : currentStep === step.id
-                                            ? 'w-7 h-7 bg-gold-primary text-black ring-2 ring-gold-primary/30 ring-offset-1 ring-offset-black'
+                                            ? 'w-7 h-7 bg-gold text-black ring-2 ring-gold/30 ring-offset-1 ring-offset-black'
                                             : 'w-6 h-6 bg-white/10 text-gray-500'
                                     }`}
                             >
@@ -103,7 +103,7 @@ export default function BookingWizard() {
                 {/* Segmented progress bar */}
                 <div className="h-1 bg-white/10 rounded-full overflow-hidden">
                     <motion.div
-                        className="h-full bg-gradient-to-r from-gold-primary to-amber-400 rounded-full"
+                        className="h-full bg-gradient-to-r from-gold to-amber-400 rounded-full"
                         animate={{ width: `${progressPercent === 0 ? 8 : progressPercent}%` }}
                         transition={{ duration: 0.5, ease: 'easeOut' }}
                     />
@@ -118,13 +118,13 @@ export default function BookingWizard() {
                         <div className={`
                             w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold text-lg transition-all duration-500 border-2
                             ${currentStep >= step.id
-                                ? 'bg-gold-primary border-gold-primary text-black shadow-[0_0_20px_rgba(212,175,55,0.4)]'
+                                ? 'bg-gold border-gold text-black shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)]'
                                 : 'bg-primary-black border-white/10 text-gray-500'}
                         `}>
                             {currentStep > step.id ? <Check size={24} strokeWidth={3} /> : step.id}
                         </div>
                         <div className="text-center">
-                            <span className={`text-xs uppercase font-bold tracking-[0.2em] mb-1.5 block ${currentStep >= step.id ? 'text-gold-primary' : 'text-gray-600'}`}>
+                            <span className={`text-xs uppercase font-bold tracking-[0.2em] mb-1.5 block ${currentStep >= step.id ? 'text-gold' : 'text-gray-600'}`}>
                                 Step 0{step.id}
                             </span>
                             <h3 className={`text-sm md:text-base font-bold uppercase tracking-wider ${currentStep >= step.id ? 'text-white' : 'text-gray-600'}`}>
@@ -137,7 +137,7 @@ export default function BookingWizard() {
 
             {/* ── Main Content Card ── */}
             <div className="bg-primary-black/60 backdrop-blur-xl rounded-[1.5rem] md:rounded-[2rem] shadow-2xl border border-white/10 overflow-hidden relative">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-gold-primary/5 blur-[100px] pointer-events-none" />
+                <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 blur-[100px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold-secondary/5 blur-[100px] pointer-events-none" />
 
                 <div className="p-4 md:p-10 relative z-10">
@@ -159,15 +159,15 @@ export default function BookingWizard() {
                 {/* Trust Footer */}
                 <div className="bg-black/40 border-t border-white/5 py-4 px-4 md:px-10 flex flex-wrap justify-center md:justify-between items-center gap-4 md:gap-8">
                     <div className="flex items-center gap-2 text-gray-400 text-[10px] font-bold uppercase tracking-widest">
-                        <ShieldCheck size={13} className="text-gold-primary" />
+                        <ShieldCheck size={13} className="text-gold" />
                         Safe & Secure
                     </div>
                     <div className="flex items-center gap-2 text-gray-400 text-[10px] font-bold uppercase tracking-widest">
-                        <Headphones size={13} className="text-gold-primary" />
+                        <Headphones size={13} className="text-gold" />
                         24/7 Support
                     </div>
                     <div className="flex items-center gap-2 text-gray-400 text-[10px] font-bold uppercase tracking-widest">
-                        <CreditCard size={13} className="text-gold-primary" />
+                        <CreditCard size={13} className="text-gold" />
                         Pay on Arrival
                     </div>
                 </div>

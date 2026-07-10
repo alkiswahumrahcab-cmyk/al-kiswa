@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState } from 'react';
 import FadeIn from '@/components/common/FadeIn';
@@ -42,15 +42,15 @@ export default function NewsletterSignup() {
                 <GlassCard className="relative overflow-hidden p-10 md:p-16 !bg-neutral-900/90 !border-white/10 shadow-2xl backdrop-blur-xl group">
 
                     {/* Background Accents */}
-                    <div className="absolute top-0 right-0 w-80 h-80 bg-gold-primary/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-                    <div className="absolute bottom-0 left-0 w-80 h-80 bg-gold-primary/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+                    <div className="absolute top-0 right-0 w-80 h-80 bg-gold/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
+                    <div className="absolute bottom-0 left-0 w-80 h-80 bg-gold/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
 
                     <div className="relative z-10 flex flex-col md:flex-row items-center gap-12 md:gap-20">
 
                         {/* Text Content */}
                         <div className="flex-1 text-center md:text-left">
                             <FadeIn>
-                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-primary/10 text-gold-primary text-xs font-bold uppercase tracking-[0.2em] mb-6 border border-gold-primary/20 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 text-gold text-xs font-bold uppercase tracking-[0.2em] mb-6 border border-gold/20 shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)]">
                                     <Bell size={14} />
                                     <span>Stay Updated</span>
                                 </div>
@@ -90,13 +90,13 @@ export default function NewsletterSignup() {
                                                 placeholder="Enter your email address"
                                                 value={email}
                                                 onChange={(e) => setEmail(e.target.value)}
-                                                className="w-full bg-black/50 border border-white/10 rounded-2xl py-5 pl-14 pr-6 text-white placeholder:text-gray-600 focus:ring-2 focus:ring-gold-primary/50 focus:border-gold-primary/50 outline-none transition-all shadow-inner"
+                                                className="w-full bg-black/50 border border-white/10 rounded-2xl py-5 pl-14 pr-6 text-white placeholder:text-gray-600 focus:ring-2 focus:ring-gold/50 focus:border-gold/50 outline-none transition-all shadow-inner"
                                             />
                                         </div>
                                         <button
                                             type="submit"
                                             disabled={status === 'loading'}
-                                            className="group bg-gold-primary hover:bg-white hover:text-black text-black font-bold py-5 px-8 rounded-2xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]"
+                                            className="group bg-gold hover:bg-white hover:text-black text-black font-bold py-5 px-8 rounded-2xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3 shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]"
                                         >
                                             {status === 'loading' ? (
                                                 <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />

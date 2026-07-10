@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { Mail, MapPin, Phone, MessageCircle, Star } from 'lucide-react';
@@ -78,14 +78,14 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
                         className={`p-6 transition-all duration-300 group border-white/10 ${
                             card.type === 'whatsapp' 
                                 ? 'bg-emerald-900/30 border-emerald-500/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]' 
-                                : 'bg-black/40 hover:border-gold-primary/50 hover:shadow-[0_0_20px_rgba(212,175,55,0.15)]'
+                                : 'bg-black/40 hover:border-gold/50 hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.15)]'
                         }`}
                     >
                         <div className="flex items-start gap-4">
                             <div className={`p-4 rounded-2xl group-hover:scale-110 transition-transform ${
                                 card.type === 'whatsapp'
                                     ? 'bg-emerald-500/20 text-emerald-400 shadow-[0_0_10px_rgba(16,185,129,0.2)]'
-                                    : 'bg-gold-primary/10 text-gold-primary shadow-[0_0_10px_rgba(212,175,55,0.2)]'
+                                    : 'bg-gold/10 text-gold shadow-[0_0_10px_hsl(var(--gold-glow) / 0.2)]'
                             }`}>
                                 <card.icon size={24} />
                             </div>
@@ -106,7 +106,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
                                     className={`inline-flex items-center text-sm font-bold transition-colors ${
                                         card.type === 'whatsapp'
                                             ? 'bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-full mt-2'
-                                            : 'text-gold-primary hover:text-white'
+                                            : 'text-gold hover:text-white'
                                     }`}
                                 >
                                     {card.btnText} →

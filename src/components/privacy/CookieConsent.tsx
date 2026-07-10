@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -62,10 +62,10 @@ export default function CookieConsent() {
                 >
                     <div className="bg-neutral-900/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.5)] p-6 relative overflow-hidden">
                         {/* Decorative Gradient */}
-                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-50" />
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-50" />
 
                         <div className="flex items-start gap-4 mb-4">
-                            <div className="bg-[#D4AF37]/10 p-2.5 rounded-xl text-[#D4AF37] border border-[#D4AF37]/20">
+                            <div className="bg-gold/10 p-2.5 rounded-xl text-gold border border-gold/20">
                                 <ShieldCheck size={20} />
                             </div>
                             <div>
@@ -89,7 +89,7 @@ export default function CookieConsent() {
                             >
                                 Reject
                             </button>
-                            <Link href="/cookie-preferences" className="text-[10px] text-gray-500 hover:text-[#D4AF37] transition-colors underline decoration-dotted">
+                            <Link href="/cookie-preferences" className="text-[10px] text-gray-500 hover:text-gold transition-colors underline decoration-dotted">
                                 Manage
                             </Link>
                         </div>

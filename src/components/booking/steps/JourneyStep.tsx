@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
 import {
@@ -111,18 +111,18 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                             className={`
                                 relative flex flex-col items-center justify-center py-3.5 md:py-4 px-2 rounded-2xl border-2 transition-all duration-300 group overflow-hidden
                                 ${isActive
-                                    ? 'border-gold-primary bg-gold-primary/10 text-gold-primary shadow-[0_0_20px_rgba(212,175,55,0.15)]'
+                                    ? 'border-gold bg-gold/10 text-gold shadow-[0_0_20px_hsl(var(--gold-glow) / 0.15)]'
                                     : 'border-white/10 bg-white/5 text-gray-400 hover:border-white/20 hover:bg-white/10 hover:text-white'}
                             `}
                         >
                             {isActive && (
                                 <div className="absolute top-2 right-2">
-                                    <CheckCircle2 size={12} className="text-gold-primary" />
+                                    <CheckCircle2 size={12} className="text-gold" />
                                 </div>
                             )}
-                            <type.icon size={20} className={`mb-1.5 transition-colors ${isActive ? 'text-gold-primary' : 'text-gray-500 group-hover:text-white'}`} />
+                            <type.icon size={20} className={`mb-1.5 transition-colors ${isActive ? 'text-gold' : 'text-gray-500 group-hover:text-white'}`} />
                             <span className="text-xs font-bold uppercase tracking-widest">{type.label}</span>
-                            <span className={`text-[10px] mt-0.5 ${isActive ? 'text-gold-primary/70' : 'text-gray-600'}`}>{type.desc}</span>
+                            <span className={`text-[10px] mt-0.5 ${isActive ? 'text-gold/70' : 'text-gray-600'}`}>{type.desc}</span>
                         </motion.button>
                     );
                 })}
@@ -133,7 +133,7 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
 
                 {/* Route Dropdown */}
                 <div className="space-y-2" ref={dropdownRef}>
-                    <label className="text-xs font-bold text-gold-primary uppercase tracking-[0.25em] flex items-center gap-2">
+                    <label className="text-xs font-bold text-gold uppercase tracking-[0.25em] flex items-center gap-2">
                         <Navigation size={12} /> Quick Route Select
                     </label>
                     <div className="relative">
@@ -143,7 +143,7 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                             className={`
                                 w-full flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all duration-300 text-left gap-3 min-h-[52px]
                                 ${showRouteDropdown
-                                    ? 'border-gold-primary bg-black/50 shadow-[0_0_20px_rgba(212,175,55,0.15)]'
+                                    ? 'border-gold bg-black/50 shadow-[0_0_20px_hsl(var(--gold-glow) / 0.15)]'
                                     : 'border-white/10 bg-white/5 hover:border-white/20'}
                             `}
                         >
@@ -152,7 +152,7 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                             </span>
                             <ChevronDown
                                 size={16}
-                                className={`text-gray-400 shrink-0 transition-transform duration-300 ${showRouteDropdown ? 'rotate-180 text-gold-primary' : ''}`}
+                                className={`text-gray-400 shrink-0 transition-transform duration-300 ${showRouteDropdown ? 'rotate-180 text-gold' : ''}`}
                             />
                         </button>
 
@@ -174,7 +174,7 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                                                 value={routeSearch}
                                                 onChange={(e) => setRouteSearch(e.target.value)}
                                                 placeholder="Search routes..."
-                                                className="w-full pl-9 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder-gray-500 outline-none focus:border-gold-primary/50 transition-colors"
+                                                className="w-full pl-9 pr-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-sm text-white placeholder-gray-500 outline-none focus:border-gold/50 transition-colors"
                                             />
                                             {routeSearch && (
                                                 <button onClick={() => setRouteSearch('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white">
@@ -203,12 +203,12 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                                                         className={`
                                                             w-full flex items-center justify-between px-4 py-3.5 text-left transition-all group border-b border-white/5 last:border-0 min-h-[52px]
                                                             ${isSelected
-                                                                ? 'bg-gold-primary/15 text-gold-primary'
+                                                                ? 'bg-gold/15 text-gold'
                                                                 : 'hover:bg-white/5 text-gray-300 hover:text-white'}
                                                         `}
                                                     >
                                                         <div className="flex items-center gap-3 min-w-0">
-                                                            <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${isSelected ? 'bg-gold-primary' : 'bg-gray-600 group-hover:bg-gold-primary/60'}`} />
+                                                            <div className={`w-1.5 h-1.5 rounded-full shrink-0 ${isSelected ? 'bg-gold' : 'bg-gray-600 group-hover:bg-gold/60'}`} />
                                                             <div className="min-w-0">
                                                                 <div className="flex items-center gap-2 text-sm font-medium">
                                                                     <span className="truncate">{route.origin}</span>
@@ -222,7 +222,7 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                                                                 )}
                                                             </div>
                                                         </div>
-                                                        {isSelected && <CheckCircle2 size={15} className="text-gold-primary shrink-0 ml-2" />}
+                                                        {isSelected && <CheckCircle2 size={15} className="text-gold shrink-0 ml-2" />}
                                                     </motion.button>
                                                 );
                                             })
@@ -238,10 +238,10 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                 <div className="space-y-2">
                     {/* Pickup */}
                     <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-gold-primary uppercase tracking-[0.2em] flex items-center gap-2">
+                        <label className="text-xs font-bold text-gold uppercase tracking-[0.2em] flex items-center gap-2">
                             <MapPin size={12} /> Pickup Location
                         </label>
-                        <div className={`bg-white/5 rounded-xl border transition-all duration-300 focus-within:border-gold-primary focus-within:shadow-[0_0_15px_rgba(212,175,55,0.1)] ${errors.pickup ? 'border-red-500/50' : 'border-white/10'}`}>
+                        <div className={`bg-white/5 rounded-xl border transition-all duration-300 focus-within:border-gold focus-within:shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)] ${errors.pickup ? 'border-red-500/50' : 'border-white/10'}`}>
                             <input
                                 type="text"
                                 placeholder="e.g. Makkah Grand Mosque"
@@ -262,7 +262,7 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
                             whileHover={{ rotate: 180 }}
                             transition={{ duration: 0.35, ease: 'easeInOut' }}
                             title="Swap pickup & dropoff"
-                            className="w-9 h-9 flex items-center justify-center rounded-full border border-gold-primary/40 bg-gold-primary/10 text-gold-primary hover:bg-gold-primary hover:text-black transition-all duration-300"
+                            className="w-9 h-9 flex items-center justify-center rounded-full border border-gold/40 bg-gold/10 text-gold hover:bg-gold hover:text-black transition-all duration-300"
                         >
                             <ArrowLeftRight size={14} />
                         </motion.button>
@@ -270,10 +270,10 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
 
                     {/* Dropoff */}
                     <div className="space-y-1.5">
-                        <label className="text-xs font-bold text-gold-primary uppercase tracking-[0.2em] flex items-center gap-2">
+                        <label className="text-xs font-bold text-gold uppercase tracking-[0.2em] flex items-center gap-2">
                             <Navigation size={12} /> Dropoff Destination
                         </label>
-                        <div className={`bg-white/5 rounded-xl border transition-all duration-300 focus-within:border-gold-primary focus-within:shadow-[0_0_15px_rgba(212,175,55,0.1)] ${errors.dropoff ? 'border-red-500/50' : 'border-white/10'}`}>
+                        <div className={`bg-white/5 rounded-xl border transition-all duration-300 focus-within:border-gold focus-within:shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)] ${errors.dropoff ? 'border-red-500/50' : 'border-white/10'}`}>
                             <input
                                 type="text"
                                 placeholder="e.g. Madinah Hotel"
@@ -291,10 +291,10 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
             <div className="grid grid-cols-2 gap-3">
                 {/* Date */}
                 <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-gold-primary uppercase tracking-[0.2em] flex items-center gap-2">
+                    <label className="text-xs font-bold text-gold uppercase tracking-[0.2em] flex items-center gap-2">
                         <Calendar size={12} /> Date
                     </label>
-                    <div className={`bg-white/5 rounded-xl border transition-all duration-300 focus-within:border-gold-primary focus-within:shadow-[0_0_15px_rgba(212,175,55,0.1)] ${errors.date ? 'border-red-500/50' : 'border-white/10'}`}>
+                    <div className={`bg-white/5 rounded-xl border transition-all duration-300 focus-within:border-gold focus-within:shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)] ${errors.date ? 'border-red-500/50' : 'border-white/10'}`}>
                         <input
                             type="date"
                             value={data.date ? data.date.toISOString().split('T')[0] : ''}
@@ -312,10 +312,10 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
 
                 {/* Time */}
                 <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-gold-primary uppercase tracking-[0.2em] flex items-center gap-2">
+                    <label className="text-xs font-bold text-gold uppercase tracking-[0.2em] flex items-center gap-2">
                         <Clock size={12} /> Time
                     </label>
-                    <div className={`bg-white/5 rounded-xl border transition-all duration-300 focus-within:border-gold-primary focus-within:shadow-[0_0_15px_rgba(212,175,55,0.1)] ${errors.time ? 'border-red-500/50' : 'border-white/10'}`}>
+                    <div className={`bg-white/5 rounded-xl border transition-all duration-300 focus-within:border-gold focus-within:shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)] ${errors.time ? 'border-red-500/50' : 'border-white/10'}`}>
                         <input
                             type="time"
                             value={data.time ? data.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }) : ''}
@@ -341,9 +341,9 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
             <motion.button
                 type="button"
                 onClick={handleNext}
-                whileHover={{ scale: 1.01, boxShadow: '0 0 40px rgba(212,175,55,0.35)' }}
+                whileHover={{ scale: 1.01, boxShadow: '0 0 40px hsl(var(--gold-glow) / 0.35)' }}
                 whileTap={{ scale: 0.99 }}
-                className="w-full py-4 md:py-5 bg-gradient-to-r from-gold-primary to-amber-600 text-black font-bold uppercase tracking-[0.2em] rounded-2xl shadow-xl flex items-center justify-center gap-3 group text-sm min-h-[56px]"
+                className="w-full py-4 md:py-5 bg-gradient-to-r from-gold to-amber-600 text-black font-bold uppercase tracking-[0.2em] rounded-2xl shadow-xl flex items-center justify-center gap-3 group text-sm min-h-[56px]"
             >
                 Choose Your Vehicle
                 <ArrowRight size={17} className="group-hover:translate-x-1 transition-transform" />

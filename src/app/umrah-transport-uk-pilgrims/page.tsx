@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import Link from "next/link";
 import { CheckCircle, Phone, MapPin, Star, ArrowRight, Clock, Shield } from "lucide-react";
 import { JsonLdScript } from "@/components/seo/JsonLd";
@@ -162,27 +162,27 @@ export default function UKPilgrimsPage() {
 
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="text-sm text-gray-500 mb-10 flex items-center gap-2">
-          <Link href="/" className="hover:text-gold-primary transition-colors">Home</Link>
+          <Link href="/" className="hover:text-gold transition-colors">Home</Link>
           <span>/</span>
           <span className="text-gray-300">UK Pilgrims Umrah Transport</span>
         </nav>
 
         {/* Hero */}
         <div className="text-center mb-14">
-          <span className="text-gold-primary font-bold uppercase tracking-widest text-sm">🇬🇧 For UK Pilgrims</span>
+          <span className="text-gold font-bold uppercase tracking-widest text-sm">🇬🇧 For UK Pilgrims</span>
           <h1 className="text-4xl md:text-6xl font-bold mt-4 mb-6 leading-tight">
             Umrah Transport<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-primary to-amber-400">Trusted by British Pilgrims</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-amber-400">Trusted by British Pilgrims</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             From Jeddah Airport to the Haram — private, comfortable, and fixed-price.
             Serving UK pilgrims from London, Birmingham, Manchester, Bradford, and beyond since 2014.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-            <Link href="/booking" className="bg-gold-primary text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_rgba(212,175,55,0.4)] uppercase tracking-wider">
+            <Link href="/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)] uppercase tracking-wider">
               Book Your Transfer
             </Link>
-            <a href="https://wa.me/966548707332" className="border border-gold-primary/50 text-gold-primary font-bold px-8 py-4 rounded-full hover:bg-gold-primary/10 transition-colors uppercase tracking-wider">
+            <a href="https://wa.me/966548707332" className="border border-gold/50 text-gold font-bold px-8 py-4 rounded-full hover:bg-gold/10 transition-colors uppercase tracking-wider">
               WhatsApp Us
             </a>
           </div>
@@ -196,7 +196,7 @@ export default function UKPilgrimsPage() {
             { stat: "10+", label: "Years Experience" },
           ].map((s, i) => (
             <div key={i} className="bg-white/5 rounded-xl p-6 border border-white/10">
-              <div className="text-4xl font-bold text-gold-primary">{s.stat}</div>
+              <div className="text-4xl font-bold text-gold">{s.stat}</div>
               <div className="text-gray-400 mt-2 text-sm">{s.label}</div>
             </div>
           ))}
@@ -206,14 +206,14 @@ export default function UKPilgrimsPage() {
         <div className="grid md:grid-cols-2 gap-4 mb-16">
           {features.map((f, i) => (
             <div key={i} className="flex items-center gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
-              <CheckCircle className="text-gold-primary shrink-0" size={20} />
+              <CheckCircle className="text-gold shrink-0" size={20} />
               <span className="text-gray-200">{f}</span>
             </div>
           ))}
         </div>
 
         {/* Pricing Guide */}
-        <div className="bg-white/5 rounded-2xl border border-gold-primary/20 p-8 mb-12">
+        <div className="bg-white/5 rounded-2xl border border-gold/20 p-8 mb-12">
           <h2 className="text-2xl font-bold mb-2 text-white">Umrah Transport Pricing Guide for UK Pilgrims</h2>
           <p className="text-gray-400 text-sm mb-6">All prices are per vehicle, fixed at time of booking. No airport surcharges, no night supplements.</p>
           <div className="grid sm:grid-cols-2 gap-4 mb-6">
@@ -226,20 +226,20 @@ export default function UKPilgrimsPage() {
               <div key={i} className="flex items-center justify-between p-4 bg-black/30 rounded-xl border border-white/5">
                 <div className="flex flex-col gap-1">
                   <div className="flex items-center gap-2 text-sm">
-                    <MapPin size={14} className="text-gold-primary shrink-0" />
+                    <MapPin size={14} className="text-gold shrink-0" />
                     <span className="text-gray-300">{route.from} → {route.to}</span>
                   </div>
                   <span className="text-gray-500 text-xs pl-5">{route.note}</span>
                 </div>
-                <span className="text-gold-primary font-bold text-sm shrink-0 ml-4">{route.price}</span>
+                <span className="text-gold font-bold text-sm shrink-0 ml-4">{route.price}</span>
               </div>
             ))}
           </div>
-          <div className="bg-gold-primary/10 border border-gold-primary/20 rounded-xl p-4 text-sm text-gray-300">
-            <strong className="text-gold-primary">Pricing tip:</strong> Prices are per vehicle, so larger groups get better value. A Hyundai Staria (11 seats) from Jeddah to Makkah works out to around £3–4 per person for a family group.
+          <div className="bg-gold/10 border border-gold/20 rounded-xl p-4 text-sm text-gray-300">
+            <strong className="text-gold">Pricing tip:</strong> Prices are per vehicle, so larger groups get better value. A Hyundai Staria (11 seats) from Jeddah to Makkah works out to around £3–4 per person for a family group.
           </div>
           <div className="mt-4 text-center">
-            <Link href="/pricing" className="text-gold-primary hover:underline font-semibold text-sm inline-flex items-center gap-1">
+            <Link href="/pricing" className="text-gold hover:underline font-semibold text-sm inline-flex items-center gap-1">
               View full pricing table with all vehicle options <ArrowRight size={14} />
             </Link>
           </div>
@@ -256,7 +256,7 @@ export default function UKPilgrimsPage() {
               { step: 3, title: "Meet Your Driver at Arrivals", desc: "Your English-speaking driver greets you with a name board at KAIA Terminal 1. Direct to your hotel, no stops." },
             ].map((s) => (
               <div key={s.step} className="text-center bg-white/5 rounded-2xl border border-white/10 p-6">
-                <div className="w-12 h-12 rounded-full bg-gold-primary/10 border border-gold-primary/30 flex items-center justify-center text-gold-primary mx-auto mb-4 font-bold text-lg">
+                <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold mx-auto mb-4 font-bold text-lg">
                   {s.step}
                 </div>
                 <h3 className="font-bold text-white mb-2">{s.title}</h3>
@@ -283,11 +283,11 @@ export default function UKPilgrimsPage() {
             </p>
             <h3 className="text-white font-bold text-lg mt-6">Best Vehicle for UK Pilgrim Families</h3>
             <p>
-              For families of 4–8 travelling together, the <Link href="/fleet/hyundai-staria" className="text-gold-primary hover:underline">Hyundai Staria</Link> is our most popular choice — spacious, air-conditioned, and able to carry large luggage. For couples or individuals, the <Link href="/fleet/toyota-camry" className="text-gold-primary hover:underline">Toyota Camry</Link> offers a comfortable, affordable option. Groups of 10 or more should consider the <Link href="/fleet/toyota-hiace" className="text-gold-primary hover:underline">Toyota Hiace</Link> minivan.
+              For families of 4–8 travelling together, the <Link href="/fleet/hyundai-staria" className="text-gold hover:underline">Hyundai Staria</Link> is our most popular choice — spacious, air-conditioned, and able to carry large luggage. For couples or individuals, the <Link href="/fleet/toyota-camry" className="text-gold hover:underline">Toyota Camry</Link> offers a comfortable, affordable option. Groups of 10 or more should consider the <Link href="/fleet/toyota-hiace" className="text-gold hover:underline">Toyota Hiace</Link> minivan.
             </p>
             <h3 className="text-white font-bold text-lg mt-6">Makkah to Madinah Transfer Tips</h3>
             <p>
-              The Makkah to Madinah intercity route is approximately 430 km and takes around 4.5–5 hours by road. This is a popular route for UK pilgrims doing the classic Umrah circuit. We recommend booking this leg in advance — especially during Ramadan when demand is very high. See our <Link href="/services/makkah-madinah-taxi" className="text-gold-primary hover:underline">Makkah to Madinah taxi</Link> service page for full details.
+              The Makkah to Madinah intercity route is approximately 430 km and takes around 4.5–5 hours by road. This is a popular route for UK pilgrims doing the classic Umrah circuit. We recommend booking this leg in advance — especially during Ramadan when demand is very high. See our <Link href="/services/makkah-madinah-taxi" className="text-gold hover:underline">Makkah to Madinah taxi</Link> service page for full details.
             </p>
           </div>
         </div>
@@ -300,11 +300,11 @@ export default function UKPilgrimsPage() {
               <div key={i} className="bg-white/5 rounded-2xl border border-white/10 p-6">
                 <div className="flex gap-1 mb-3">
                   {Array.from({ length: t.stars }).map((_, j) => (
-                    <Star key={j} size={14} className="fill-gold-primary text-gold-primary" />
+                    <Star key={j} size={14} className="fill-gold text-gold" />
                   ))}
                 </div>
                 <p className="text-gray-300 text-sm leading-relaxed mb-4">"{t.text}"</p>
-                <div className="text-sm font-semibold text-gold-primary">{t.name} <span className="text-gray-500 font-normal">— {t.city}</span></div>
+                <div className="text-sm font-semibold text-gold">{t.name} <span className="text-gray-500 font-normal">— {t.city}</span></div>
               </div>
             ))}
           </div>
@@ -335,8 +335,8 @@ export default function UKPilgrimsPage() {
               { href: "/services/makkah-madinah-taxi", label: "Makkah to Madinah Taxi", desc: "Intercity pilgrim transport" },
               { href: "/pricing", label: "Full Price List", desc: "All routes, all vehicles, all fares" },
             ].map((link, i) => (
-              <Link key={i} href={link.href} className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-gold-primary/30 rounded-xl p-4 transition-all group">
-                <div className="font-semibold text-white group-hover:text-gold-primary transition-colors text-sm">{link.label}</div>
+              <Link key={i} href={link.href} className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-gold/30 rounded-xl p-4 transition-all group">
+                <div className="font-semibold text-white group-hover:text-gold transition-colors text-sm">{link.label}</div>
                 <div className="text-gray-500 text-xs mt-1">{link.desc}</div>
               </Link>
             ))}
@@ -344,11 +344,11 @@ export default function UKPilgrimsPage() {
         </div>
 
         {/* CTA */}
-        <div className="text-center bg-gradient-to-r from-gold-primary/10 to-amber-500/10 rounded-2xl border border-gold-primary/30 p-10">
+        <div className="text-center bg-gradient-to-r from-gold/10 to-amber-500/10 rounded-2xl border border-gold/30 p-10">
           <h2 className="text-2xl font-bold mb-3">Ready to book your Umrah transfer?</h2>
           <p className="text-gray-400 mb-6">WhatsApp us or book online — we reply within minutes.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/booking" className="bg-gold-primary text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform">
+            <Link href="/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform">
               Book Online
             </Link>
             <a href="tel:+966548707332" className="flex items-center justify-center gap-2 border border-white/20 text-white font-bold px-8 py-4 rounded-full hover:bg-white/5 transition-colors">

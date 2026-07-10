@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState } from 'react';
 import { Check, X, TrendingDown, ArrowRight } from 'lucide-react';
@@ -91,7 +91,7 @@ export default function PriceComparisonTable() {
                         </span>
                         <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
                             We Supply Kiwi Taxi.{' '}
-                            <span className="text-gold-primary">Book From Us Directly.</span>
+                            <span className="text-gold">Book From Us Directly.</span>
                         </h2>
                         <p className="text-gray-400 max-w-2xl mx-auto text-lg">
                             Al Kiswah provides the actual transport for platforms like Kiwi Taxi and Booking.com.
@@ -102,10 +102,10 @@ export default function PriceComparisonTable() {
 
                     {/* Column legend */}
                     <div className="max-w-4xl mx-auto mb-6 grid grid-cols-2 gap-4">
-                        <div className="flex items-center gap-3 bg-gold-primary/10 border border-gold-primary/30 rounded-xl px-4 py-3">
-                            <Check size={20} className="text-gold-primary shrink-0" />
+                        <div className="flex items-center gap-3 bg-gold/10 border border-gold/30 rounded-xl px-4 py-3">
+                            <Check size={20} className="text-gold shrink-0" />
                             <div>
-                                <p className="text-gold-primary font-bold text-sm">Al Kiswah Direct Price (USD)</p>
+                                <p className="text-gold font-bold text-sm">Al Kiswah Direct Price (USD)</p>
                                 <p className="text-gray-400 text-xs">Book at alkiswahumrahtransport.com</p>
                             </div>
                         </div>
@@ -132,7 +132,7 @@ export default function PriceComparisonTable() {
                                     key={ri}
                                     className={`rounded-2xl border overflow-hidden transition-all duration-300 ${
                                         route.highlight
-                                            ? 'border-gold-primary/40 shadow-[0_0_20px_rgba(212,175,55,0.08)]'
+                                            ? 'border-gold/40 shadow-[0_0_20px_hsl(var(--gold-glow) / 0.08)]'
                                             : 'border-white/8'
                                     } ${isOpen ? 'bg-neutral-900/80' : 'bg-white/3 hover:bg-white/5'}`}
                                 >
@@ -143,7 +143,7 @@ export default function PriceComparisonTable() {
                                     >
                                         <div className="flex items-center gap-4">
                                             {route.highlight && (
-                                                <span className="shrink-0 bg-gold-primary text-black text-[10px] font-bold uppercase px-2 py-0.5 rounded-full">
+                                                <span className="shrink-0 bg-gold text-black text-[10px] font-bold uppercase px-2 py-0.5 rounded-full">
                                                     Popular
                                                 </span>
                                             )}
@@ -158,7 +158,7 @@ export default function PriceComparisonTable() {
                                         </div>
                                         <div className="flex items-center gap-6 shrink-0">
                                             <div className="hidden md:flex items-center gap-4 text-sm">
-                                                <span className="text-gold-primary font-black">
+                                                <span className="text-gold font-black">
                                                     from ${lowestOurs}
                                                 </span>
                                                 <span className="text-gray-600 line-through text-xs">
@@ -183,7 +183,7 @@ export default function PriceComparisonTable() {
                                                     <thead>
                                                         <tr className="border-b border-white/8 bg-black/30">
                                                             <th className="text-left px-4 py-3 text-gray-400 font-medium">Vehicle Class</th>
-                                                            <th className="text-center px-4 py-3 text-gold-primary font-bold">Direct (Us)</th>
+                                                            <th className="text-center px-4 py-3 text-gold font-bold">Direct (Us)</th>
                                                             <th className="text-center px-4 py-3 text-red-400 font-medium">Via Platform</th>
                                                             <th className="text-center px-4 py-3 text-emerald-400 font-medium hidden md:table-cell">You Save</th>
                                                         </tr>
@@ -199,7 +199,7 @@ export default function PriceComparisonTable() {
                                                                 >
                                                                     <td className="px-4 py-3 text-gray-300">{v.label}</td>
                                                                     <td className="px-4 py-3 text-center">
-                                                                        <span className="text-gold-primary font-black text-base">${v.ourPrice}</span>
+                                                                        <span className="text-gold font-black text-base">${v.ourPrice}</span>
                                                                     </td>
                                                                     <td className="px-4 py-3 text-center">
                                                                         <span className="text-red-400 line-through opacity-70">${v.kiwiPrice}</span>
@@ -217,7 +217,7 @@ export default function PriceComparisonTable() {
                                             <div className="mt-4 flex flex-col sm:flex-row gap-3">
                                                 <Link
                                                     href={`/booking?from=${encodeURIComponent(route.origin)}&to=${encodeURIComponent(route.destination)}`}
-                                                    className="flex-1 bg-gold-primary text-black font-bold py-3 px-6 rounded-xl text-center hover:bg-white transition-colors text-sm uppercase tracking-wider"
+                                                    className="flex-1 bg-gold text-black font-bold py-3 px-6 rounded-xl text-center hover:bg-white transition-colors text-sm uppercase tracking-wider"
                                                 >
                                                     Book This Route Direct
                                                 </Link>

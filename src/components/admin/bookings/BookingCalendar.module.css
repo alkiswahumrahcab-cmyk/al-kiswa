@@ -1,4 +1,4 @@
-.calendarWrapper :global(.rbc-calendar) {
+﻿.calendarWrapper :global(.rbc-calendar) {
     font-family: inherit;
 }
 
@@ -71,6 +71,6 @@
 }
 
 :global(.dark) .calendarWrapper :global(.rbc-show-more) {
-    color: #f59e0b;
+    color: hsl(var(--gold));
     /* Amber 500 */
 }

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 
 import { useState, useRef, useEffect } from 'react';
@@ -147,7 +147,7 @@ export default function AIChatBox({ contactPhone, contactEmail }: AIChatBoxProps
             {!isOpen && showWelcome && (
                 <div className={styles.welcomeBubble} onClick={toggleChat}>
                     <div className={styles.bubbleContent}>
-                        <Bot size={20} className="text-[#EFBF5B]" />
+                        <Bot size={20} className="text-gold" />
                         <span>Need help with your booking?</span>
                     </div>
                     <button 

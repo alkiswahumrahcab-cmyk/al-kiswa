@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
@@ -41,7 +41,7 @@ export default function AboutHero() {
                 <FadeIn>
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-sans text-white mb-6 drop-shadow-2xl">
                         Serving Pilgrims with <br className="hidden md:block" />
-                        <span className="text-gold-primary">Sincerity & Excellence</span>
+                        <span className="text-gold">Sincerity & Excellence</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-200 font-light max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
                         Your journey of faith deserves comfort, safety, and care.

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -39,7 +39,7 @@ export default function HiaceHero({ whatsappLink, phoneNumber }: Props) {
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="text-gold-primary font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-4"
+                    className="text-gold font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-4"
                 >
                     Toyota Hiace 2026
                 </motion.p>
@@ -50,7 +50,7 @@ export default function HiaceHero({ whatsappLink, phoneNumber }: Props) {
                     transition={{ delay: 0.45, duration: 0.7 }}
                     className="text-3xl sm:text-5xl md:text-6xl font-bold font-playfair text-white leading-tight mb-4"
                 >
-                    Reliable & Built for <span className="text-gold-primary">Saudi Roads</span>
+                    Reliable & Built for <span className="text-gold">Saudi Roads</span>
                 </motion.h1>
 
                 <motion.p
@@ -70,7 +70,7 @@ export default function HiaceHero({ whatsappLink, phoneNumber }: Props) {
                 >
                     <Link
                         href="/booking"
-                        className="inline-flex items-center justify-center bg-gold-primary hover:bg-white text-black font-bold px-8 py-3.5 rounded-xl transition-all duration-300 shadow-[0_0_30px_rgba(245,158,11,0.35)]"
+                        className="inline-flex items-center justify-center bg-gold hover:bg-white text-black font-bold px-8 py-3.5 rounded-xl transition-all duration-300 shadow-[0_0_30px_rgba(245,158,11,0.35)]"
                     >
                         Book Now
                     </Link>

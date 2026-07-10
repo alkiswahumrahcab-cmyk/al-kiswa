@@ -1,4 +1,4 @@
-import dbConnect from '@/lib/mongodb';
+﻿import dbConnect from '@/lib/mongodb';
 import { Settings as SettingsModel } from '@/models';
 import { Settings } from './validations';
 import { unstable_cache, revalidateTag } from 'next/cache';
@@ -35,7 +35,7 @@ const DEFAULT_SETTINGS: Settings = {
     },
     appearance: {
         darkMode: false,
-        primaryColor: '#EFBF5B', // Gold
+        primaryColor: 'hsl(var(--gold))', // Gold
     },
     discount: {
         enabled: false,

@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Hero from '@/components/common/Hero';
@@ -49,10 +49,10 @@ const ramadanPackages = [
     {
         title: "The First 20 Days",
         subtitle: "Feb 17 - Mar 8, 2026",
-        description: <>Avoid the peak crowds with our early Ramadan saver rates. <Link href="/pricing" className="text-gold-primary hover:underline">Cheap Umrah transport rates</Link> for early Ramadan bookings.</>,
+        description: <>Avoid the peak crowds with our early Ramadan saver rates. <Link href="/pricing" className="text-gold hover:underline">Cheap Umrah transport rates</Link> for early Ramadan bookings.</>,
         features: [
-            <span key="jed"><strong><Link href="/services/jeddah-airport-transfer" className="hover:text-gold-primary transition-colors">Jeddah Airport ➔ Makkah</Link></strong>: 200 SAR</span>,
-            <span key="mak"><strong><Link href="/services/makkah-madinah-taxi" className="hover:text-gold-primary transition-colors">Makkah ➔ Madinah</Link></strong>: 450 SAR</span>,
+            <span key="jed"><strong><Link href="/services/jeddah-airport-transfer" className="hover:text-gold transition-colors">Jeddah Airport ➔ Makkah</Link></strong>: 200 SAR</span>,
+            <span key="mak"><strong><Link href="/services/makkah-madinah-taxi" className="hover:text-gold transition-colors">Makkah ➔ Madinah</Link></strong>: 450 SAR</span>,
             "Available 24/7",
             "Standard Sedan or Family Van"
         ],
@@ -62,12 +62,12 @@ const ramadanPackages = [
     {
         title: "Last 10 Nights Special",
         subtitle: "Mar 9 - Mar 19, 2026",
-        description: <>Priority booking for Laylatul Qadr nights and Eid. <Link href="/fleet" className="text-gold-primary hover:underline">Premium family Umrah taxi packages</Link> for Laylatul Qadr.</>,
+        description: <>Priority booking for Laylatul Qadr nights and Eid. <Link href="/fleet" className="text-gold hover:underline">Premium family Umrah taxi packages</Link> for Laylatul Qadr.</>,
         features: [
             "Guaranteed Availability",
             "Taraweeh Pickup/Drop Service",
-            <span key="exp"><strong><Link href="/services/makkah-madinah-taxi" className="hover:text-gold-primary transition-colors">Makkah ➔ Madinah Express</Link></strong></span>,
-            <span key="vip">VIP <strong><Link href="/fleet/gmc-yukon-at4" className="hover:text-gold-primary transition-colors">GMC</Link></strong> / <strong><Link href="/fleet/hyundai-staria" className="hover:text-gold-primary transition-colors">Staria</Link></strong> Options</span>
+            <span key="exp"><strong><Link href="/services/makkah-madinah-taxi" className="hover:text-gold transition-colors">Makkah ➔ Madinah Express</Link></strong></span>,
+            <span key="vip">VIP <strong><Link href="/fleet/gmc-yukon-at4" className="hover:text-gold transition-colors">GMC</Link></strong> / <strong><Link href="/fleet/hyundai-staria" className="hover:text-gold transition-colors">Staria</Link></strong> Options</span>
         ],
         highlight: true,
         icon: <Star size={32} />
@@ -77,8 +77,8 @@ const ramadanPackages = [
         subtitle: "Flexible Schedule",
         description: "Complete spiritual tour of Makkah & Madinah.",
         features: [
-            <span key="ziy-mak">3 Hours <strong><Link href="/services/ziarah-makkah" className="hover:text-gold-primary transition-colors">Makkah Ziyarat</Link></strong></span>,
-            <span key="ziy-mad">3 Hours <strong><Link href="/services/ziarah-madinah" className="hover:text-gold-primary transition-colors">Madinah Ziyarat</Link></strong></span>,
+            <span key="ziy-mak">3 Hours <strong><Link href="/services/ziarah-makkah" className="hover:text-gold transition-colors">Makkah Ziyarat</Link></strong></span>,
+            <span key="ziy-mad">3 Hours <strong><Link href="/services/ziarah-madinah" className="hover:text-gold transition-colors">Madinah Ziyarat</Link></strong></span>,
             "Visit Badar & Taif (Optional)",
             "Experienced Historic Guide"
         ],
@@ -135,12 +135,12 @@ export default async function RamadanLandingPage() {
 
                 <div className="container relative z-10 text-center px-4 pt-20">
                     <FadeIn>
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-primary/20 text-gold-primary border border-gold-primary/30 mb-6 backdrop-blur-sm">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/20 text-gold border border-gold/30 mb-6 backdrop-blur-sm">
                             <Moon size={16} fill="currentColor" />
                             <span className="text-sm font-bold uppercase tracking-wider">Ramadan 1447H / 2026</span>
                         </div>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-sans text-white mb-6 leading-tight">
-                            Experience a <span className="text-gold-primary">Blessed Journey</span>
+                            Experience a <span className="text-gold">Blessed Journey</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
                             Focus on your worship while we handle your travel. Reliable, comfortable, and punctual transport for the Holy Month.
@@ -148,7 +148,7 @@ export default async function RamadanLandingPage() {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link
                                 href="/booking"
-                                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold-primary text-black font-bold text-lg rounded-full hover:bg-white transition-all hover:scale-105 shadow-[0_0_20px_rgba(212,175,55,0.4)]"
+                                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold text-black font-bold text-lg rounded-full hover:bg-white transition-all hover:scale-105 shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)]"
                             >
                                 Book Now for Ramadan
                                 <ArrowRight size={20} />
@@ -171,30 +171,30 @@ export default async function RamadanLandingPage() {
                     <FadeIn>
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Peace of Mind in the Holy Month</h2>
-                            <p className="text-gray-400 max-w-2xl mx-auto">Ramadan in Makkah is busy. Choose a transport partner that <Link href="/booking" className="text-gold-primary hover:underline">guarantees your arrival</Link>.</p>
+                            <p className="text-gray-400 max-w-2xl mx-auto">Ramadan in Makkah is busy. Choose a transport partner that <Link href="/booking" className="text-gold hover:underline">guarantees your arrival</Link>.</p>
                         </div>
 
                         <div className="grid md:grid-cols-3 gap-8">
-                            <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-gold-primary/50 transition-colors group">
-                                <div className="w-14 h-14 bg-gold-primary/10 rounded-full flex items-center justify-center text-gold-primary mb-6 group-hover:bg-gold-primary group-hover:text-black transition-all">
+                            <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-gold/50 transition-colors group">
+                                <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-black transition-all">
                                     <Clock size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3">Punctual for Prayers</h3>
                                 <p className="text-gray-400">We understand the importance of time. We plan routes to ensure you reach the Haram before Adhan.</p>
                             </div>
-                            <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-gold-primary/50 transition-colors group">
-                                <div className="w-14 h-14 bg-gold-primary/10 rounded-full flex items-center justify-center text-gold-primary mb-6 group-hover:bg-gold-primary group-hover:text-black transition-all">
+                            <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-gold/50 transition-colors group">
+                                <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-black transition-all">
                                     <Shield size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3">Guaranteed Booking</h3>
                                 <p className="text-gray-400">Once confirmed, your ride is locked. No cancellations, no last-minute "unavailable" excuses.</p>
                             </div>
-                            <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-gold-primary/50 transition-colors group">
-                                <div className="w-14 h-14 bg-gold-primary/10 rounded-full flex items-center justify-center text-gold-primary mb-6 group-hover:bg-gold-primary group-hover:text-black transition-all">
+                            <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-gold/50 transition-colors group">
+                                <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-black transition-all">
                                     <CheckCircle size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3">Fixed Ramadan Rates</h3>
-                                <p className="text-gray-400">No surge pricing when you book in advance. Bypassing the high <Link href="/pricing" className="text-gold-primary hover:underline">on-spot taxi fares</Link>.</p>
+                                <p className="text-gray-400">No surge pricing when you book in advance. Bypassing the high <Link href="/pricing" className="text-gold hover:underline">on-spot taxi fares</Link>.</p>
                             </div>
                         </div>
                     </FadeIn>
@@ -210,22 +210,22 @@ export default async function RamadanLandingPage() {
                             {ramadanPackages.map((pkg, idx) => (
                                 <div key={idx} className={`relative p-8 rounded-3xl border flex flex-col transition-all duration-300 hover:-translate-y-2
                                     ${pkg.highlight
-                                        ? 'bg-gradient-to-br from-neutral-900 to-black border-gold-primary shadow-[0_0_40px_rgba(212,175,55,0.1)]'
-                                        : 'bg-black/40 border-white/10 hover:border-gold-primary/30'
+                                        ? 'bg-gradient-to-br from-neutral-900 to-black border-gold shadow-[0_0_40px_hsl(var(--gold-glow) / 0.1)]'
+                                        : 'bg-black/40 border-white/10 hover:border-gold/30'
                                     }`}>
                                     {pkg.highlight && (
-                                        <div className="absolute top-0 right-0 bg-gold-primary text-black text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-2xl uppercase tracking-wider">
+                                        <div className="absolute top-0 right-0 bg-gold text-black text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-2xl uppercase tracking-wider">
                                             High Demand
                                         </div>
                                     )}
 
                                     <div className="mb-6 mt-2">
                                         <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 text-white
-                                            ${pkg.highlight ? 'bg-gold-primary text-black' : 'bg-white/10'}`}>
+                                            ${pkg.highlight ? 'bg-gold text-black' : 'bg-white/10'}`}>
                                             {pkg.icon}
                                         </div>
                                         <h3 className="text-2xl font-bold text-white mb-1">{pkg.title}</h3>
-                                        <p className="text-gold-primary text-sm font-medium uppercase tracking-wide">{pkg.subtitle}</p>
+                                        <p className="text-gold text-sm font-medium uppercase tracking-wide">{pkg.subtitle}</p>
                                     </div>
 
                                     <p className="text-gray-400 mb-8 min-h-[48px]">{pkg.description}</p>
@@ -233,7 +233,7 @@ export default async function RamadanLandingPage() {
                                     <ul className="space-y-4 mb-8 flex-grow">
                                         {pkg.features.map((feat, i) => (
                                             <li key={i} className="flex items-start gap-3 text-gray-300 text-sm">
-                                                <CheckCircle className="text-gold-primary shrink-0" size={18} />
+                                                <CheckCircle className="text-gold shrink-0" size={18} />
                                                 <span>{feat}</span>
                                             </li>
                                         ))}
@@ -243,8 +243,8 @@ export default async function RamadanLandingPage() {
                                         href={whatsappLink}
                                         className={`w-full py-4 rounded-xl font-bold text-center uppercase tracking-wider transition-all
                                             ${pkg.highlight
-                                                ? 'bg-gold-primary text-black hover:bg-white hover:shadow-lg'
-                                                : 'bg-white/10 text-white hover:bg-gold-primary hover:text-black'
+                                                ? 'bg-gold text-black hover:bg-white hover:shadow-lg'
+                                                : 'bg-white/10 text-white hover:bg-gold hover:text-black'
                                             }`}
                                     >
                                         Inquire Availability

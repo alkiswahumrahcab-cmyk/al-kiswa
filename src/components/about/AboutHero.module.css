@@ -1,4 +1,4 @@
-.hero {
+﻿.hero {
     position: relative;
     height: 90vh;
     min-height: 600px;
@@ -48,7 +48,7 @@
     letter-spacing: -0.02em;
     opacity: 0;
     animation: fadeInUp 0.8s ease-out forwards;
-    background: linear-gradient(to right, #fbbf24, #f59e0b, #d97706);
+    background: linear-gradient(to right, hsl(var(--gold)), hsl(var(--gold)), #d97706);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
 import Script from "next/script";
 import { Montserrat, Tajawal, Cormorant_Garamond } from "next/font/google"; // Elegant & Light + Arabic + Display serif
@@ -40,7 +40,7 @@ const cormorant = Cormorant_Garamond({
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#E2A336',
+  themeColor: 'hsl(var(--gold))',
 };
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -109,7 +109,7 @@ export async function generateMetadata(): Promise<Metadata> {
         {
           rel: 'mask-icon',
           url: '/favicon.svg',
-          color: '#E2A336'
+          color: 'hsl(var(--gold))'
         }
       ]
     },
@@ -236,7 +236,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                 <PricingProvider>
                   <Suspense fallback={null}>
                     <NextTopLoader
-                      color="#E2A336"
+                      color="hsl(var(--gold))"
                       initialPosition={0.08}
                       crawlSpeed={200}
                       height={4}

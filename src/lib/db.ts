@@ -1,4 +1,4 @@
-import dbConnect from '@/lib/mongodb';
+﻿import dbConnect from '@/lib/mongodb';
 import { Booking, Vehicle, IBooking, IVehicle, Route } from '@/models';
 import { unstable_cache, revalidateTag } from 'next/cache';
 
@@ -86,7 +86,7 @@ export async function getDashboardStats() {
 
     const statusMap: Record<string, string> = {
         confirmed: '#10b981',
-        pending: '#f59e0b',
+        pending: 'hsl(var(--gold))',
         completed: '#3b82f6',
         cancelled: '#ef4444'
     };

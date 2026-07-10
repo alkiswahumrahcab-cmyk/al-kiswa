@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -17,7 +17,7 @@ const NusukHeroBadges = () => {
                 Nusuk Registered
             </div>
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 border border-white/10 text-gray-300 text-[11px] font-bold tracking-wider uppercase backdrop-blur-md">
-                <Award size={14} className="text-gold-primary" />
+                <Award size={14} className="text-gold" />
                 Ministry Licensed
             </div>
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 border border-white/10 text-gray-300 text-[11px] font-bold tracking-wider uppercase backdrop-blur-md">

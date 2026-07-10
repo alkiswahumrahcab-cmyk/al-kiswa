@@ -1,4 +1,4 @@
-import { routeService, RouteWithPrices } from '@/services/routeService';
+﻿import { routeService, RouteWithPrices } from '@/services/routeService';
 import { vehicleService } from '@/services/vehicleService';
 import { settingsService } from '@/services/settingsService';
 import Link from 'next/link';
@@ -69,7 +69,7 @@ export default async function LivePricingTable({ exchangeRate }: Props) {
     if (routesWithPrices.length === 0) {
         return (
             <div className="text-center py-16 text-gray-500">
-                <p>Prices are being configured. Please check back shortly or <a href="/booking" className="text-gold-primary underline">get a custom quote</a>.</p>
+                <p>Prices are being configured. Please check back shortly or <a href="/booking" className="text-gold underline">get a custom quote</a>.</p>
             </div>
         );
     }

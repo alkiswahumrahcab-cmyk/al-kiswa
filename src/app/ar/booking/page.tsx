@@ -1,11 +1,11 @@
-import React, { Suspense } from 'react';
+﻿import React, { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 
 const BookingWizard = dynamic(() => import('@/components/booking/BookingWizard'), {
     ssr: true,
     loading: () => (
         <div className="max-w-4xl mx-auto h-[600px] w-full animate-pulse bg-white/5 rounded-[2rem] border border-white/10 flex items-center justify-center">
-            <div className="text-gold-primary/50 text-sm font-medium tracking-widest">جاري التحميل...</div>
+            <div className="text-gold/50 text-sm font-medium tracking-widest">جاري التحميل...</div>
         </div>
     )
 });
@@ -48,7 +48,7 @@ export default function ArabicBookingPage() {
         <main className="min-h-screen bg-primary-black relative overflow-hidden" dir="rtl" lang="ar">
             {/* Background */}
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none" />
-            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gold-primary/10 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[120px] pointer-events-none" />
             <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gold-secondary/5 rounded-full blur-[120px] pointer-events-none" />
 
             {/* SEO H1 - hidden visually but indexed by Google */}
@@ -56,11 +56,11 @@ export default function ArabicBookingPage() {
 
             {/* Arabic intro header */}
             <div className="relative z-10 text-center pt-28 pb-6 px-4">
-                <p className="text-gold-primary text-xs font-bold tracking-[0.3em] uppercase mb-3">
+                <p className="text-gold text-xs font-bold tracking-[0.3em] uppercase mb-3">
                     حجز فوري — ٢٤/٧
                 </p>
                 <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 font-sans">
-                    احجز <span className="text-gold-primary">رحلتك</span> الآن
+                    احجز <span className="text-gold">رحلتك</span> الآن
                 </h2>
                 <p className="text-slate-400 text-base max-w-xl mx-auto">
                     نقل خاص وموثوق من مطار جدة إلى مكة المكرمة والمدينة المنورة. أسعار شفافة بدون مفاجآت.

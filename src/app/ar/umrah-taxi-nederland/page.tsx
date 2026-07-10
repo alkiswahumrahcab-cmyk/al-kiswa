@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import Link from "next/link";
 import { CheckCircle, Phone, MapPin } from "lucide-react";
 
@@ -38,19 +38,19 @@ export default function NederlandPilgrimsArabicPage() {
       <div className="container relative z-10 mx-auto px-4 max-w-5xl">
 
         <div className="text-center mb-16">
-          <span className="text-gold-primary font-bold uppercase tracking-widest text-sm">🇳🇱 للحجاج من هولندا</span>
+          <span className="text-gold font-bold uppercase tracking-widest text-sm">🇳🇱 للحجاج من هولندا</span>
           <h1 className="text-4xl md:text-6xl font-bold mt-4 mb-6 leading-tight">
             مواصلات العمرة<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-primary to-amber-400">للحجاج من هولندا</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-amber-400">للحجاج من هولندا</span>
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             استمتع برحلة روحانية براحة تامة. من مطار جدة إلى الحرم، نقدم لكم خدمة نقل موثوقة وآمنة في خدمة الحجاج من أمستردام، روتردام وكل هولندا.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-            <Link href="/ar/booking" className="bg-gold-primary text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_rgba(212,175,55,0.4)] uppercase tracking-wider text-lg">
+            <Link href="/ar/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)] uppercase tracking-wider text-lg">
               احجز الآن
             </Link>
-            <a href="https://wa.me/966548707332" className="border border-gold-primary/50 text-gold-primary font-bold px-8 py-4 rounded-full hover:bg-gold-primary/10 transition-colors uppercase tracking-wider text-lg">
+            <a href="https://wa.me/966548707332" className="border border-gold/50 text-gold font-bold px-8 py-4 rounded-full hover:bg-gold/10 transition-colors uppercase tracking-wider text-lg">
               تواصل عبر واتساب
             </a>
           </div>
@@ -59,7 +59,7 @@ export default function NederlandPilgrimsArabicPage() {
         <div className="grid md:grid-cols-2 gap-4 mb-16">
           {features.map((f, i) => (
             <div key={i} className="flex items-center gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
-              <CheckCircle className="text-gold-primary shrink-0" size={20} />
+              <CheckCircle className="text-gold shrink-0" size={20} />
               <span className="text-gray-200">{f}</span>
             </div>
           ))}
@@ -76,20 +76,20 @@ export default function NederlandPilgrimsArabicPage() {
             ].map((route, i) => (
               <div key={i} className="flex items-center justify-between p-4 bg-black/30 rounded-xl border border-white/5">
                 <div className="flex items-center gap-2 text-sm">
-                  <MapPin size={14} className="text-gold-primary" />
+                  <MapPin size={14} className="text-gold" />
                   <span className="text-gray-300">{route.from} ← {route.to}</span>
                 </div>
-                <span className="text-gold-primary font-bold text-sm" dir="ltr">{route.price}</span>
+                <span className="text-gold font-bold text-sm" dir="ltr">{route.price}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="text-center bg-gradient-to-r from-gold-primary/10 to-amber-500/10 rounded-2xl border border-gold-primary/30 p-10">
+        <div className="text-center bg-gradient-to-r from-gold/10 to-amber-500/10 rounded-2xl border border-gold/30 p-10">
           <h2 className="text-2xl font-bold mb-3">ابدأ رحلتك الروحانية باطمئنان</h2>
           <p className="text-gray-400 mb-6">احجز بكل سهولة وسنكون بانتظارك عند الوصول.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/ar/booking" className="bg-gold-primary text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform text-lg">
+            <Link href="/ar/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform text-lg">
               احجز نقلك الآن
             </Link>
             <a href="tel:+966548707332" className="flex items-center justify-center gap-2 border border-white/20 text-white font-bold px-8 py-4 rounded-full hover:bg-white/5 transition-colors text-lg" dir="ltr">

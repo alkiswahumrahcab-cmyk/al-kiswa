@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -20,8 +20,8 @@ export default function CTAButton({
 }: CTAButtonProps) {
     const baseStyles = "inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all duration-300 transform hover:-translate-y-1 shadow-lg";
     const variants = {
-        primary: "bg-gradient-to-r from-gold-primary to-amber-500 text-white hover:shadow-gold-primary/30",
-        outline: "border-2 border-gold-primary text-gold-primary hover:bg-gold-primary hover:text-white"
+        primary: "bg-gradient-to-r from-gold to-amber-500 text-white hover:shadow-gold/30",
+        outline: "border-2 border-gold text-gold hover:bg-gold hover:text-white"
     };
 
     return (

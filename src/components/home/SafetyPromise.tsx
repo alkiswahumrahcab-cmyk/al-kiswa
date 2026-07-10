@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 import React from 'react';
 import { AlertTriangle, Clock, Phone, ShieldCheck, Zap } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
@@ -16,12 +16,12 @@ export default function SafetyPromise({ lang = 'en' }: Props) {
         title: isAr ? (
             <>
                 وعدنا: <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-primary via-gold-light to-gold-primary">"لن تتعطل رحلتك أبداً"</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-light to-gold">"لن تتعطل رحلتك أبداً"</span>
             </>
         ) : (
             <>
                 Our "Never Stranded" <br className="hidden md:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-primary via-gold-light to-gold-primary">Promise</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-light to-gold">Promise</span>
             </>
         ),
         subtitle: isAr ? (
@@ -68,8 +68,8 @@ export default function SafetyPromise({ lang = 'en' }: Props) {
             <div className="container mx-auto px-4">
                 <div className="glass-panel overflow-hidden relative">
                     {/* Decorative Background Effects */}
-                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-primary/5 rounded-full blur-[100px] -mr-48 -mt-48 pointer-events-none"></div>
-                    <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold-primary/5 rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none"></div>
+                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[100px] -mr-48 -mt-48 pointer-events-none"></div>
+                    <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none"></div>
                     <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.03] mix-blend-overlay pointer-events-none"></div>
 
                     <div className="relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-20 p-8 md:p-12 items-center">
@@ -78,10 +78,10 @@ export default function SafetyPromise({ lang = 'en' }: Props) {
                         <div className="order-2 lg:order-1 flex flex-col justify-center">
                             {/* Alert Banner */}
                             <FadeIn>
-                                <div className="inline-flex items-start md:items-center gap-3 px-4 py-3 rounded-2xl bg-gold-primary/10 border border-gold-primary/20 text-gold-primary text-sm md:text-base font-medium mb-8 max-w-xl group hover:bg-gold-primary/15 transition-colors cursor-default">
-                                    <AlertTriangle className="shrink-0 text-gold-primary animate-pulse" size={20} />
+                                <div className="inline-flex items-start md:items-center gap-3 px-4 py-3 rounded-2xl bg-gold/10 border border-gold/20 text-gold text-sm md:text-base font-medium mb-8 max-w-xl group hover:bg-gold/15 transition-colors cursor-default">
+                                    <AlertTriangle className="shrink-0 text-gold animate-pulse" size={20} />
                                     <span className="leading-snug text-gray-200" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
-                                        <strong className="text-gold-primary">{content.guaranteeLabel}</strong> {content.guaranteeText}
+                                        <strong className="text-gold">{content.guaranteeLabel}</strong> {content.guaranteeText}
                                     </span>
                                 </div>
                             </FadeIn>
@@ -100,11 +100,11 @@ export default function SafetyPromise({ lang = 'en' }: Props) {
                                 {/* Feature Card 1: 60 Min Target */}
                                 <FadeIn delay={0.2}>
                                     <div className="glass-card group flex items-center gap-4 p-4">
-                                        <div className="bg-gold-primary/10 rounded-lg p-3 text-gold-primary group-hover:scale-110 transition-transform border border-gold-primary/20 shrink-0">
+                                        <div className="bg-gold/10 rounded-lg p-3 text-gold group-hover:scale-110 transition-transform border border-gold/20 shrink-0">
                                             <Clock size={24} strokeWidth={2.5} />
                                         </div>
                                         <div>
-                                            <h4 className="text-white font-bold text-lg leading-none mb-1.5 group-hover:text-gold-primary transition-colors font-sans">{content.targetTitle}</h4>
+                                            <h4 className="text-white font-bold text-lg leading-none mb-1.5 group-hover:text-gold transition-colors font-sans">{content.targetTitle}</h4>
                                             <p className="text-gray-500 text-xs md:text-sm font-medium group-hover:text-gray-400" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>{content.targetDesc}</p>
                                         </div>
                                     </div>
@@ -113,11 +113,11 @@ export default function SafetyPromise({ lang = 'en' }: Props) {
                                 {/* Feature Card 2: 24/7 Command */}
                                 <FadeIn delay={0.3}>
                                     <div className="glass-card group flex items-center gap-4 p-4">
-                                        <div className="bg-gold-primary/10 rounded-lg p-3 text-gold-primary group-hover:scale-110 transition-transform border border-gold-primary/20 shrink-0">
+                                        <div className="bg-gold/10 rounded-lg p-3 text-gold group-hover:scale-110 transition-transform border border-gold/20 shrink-0">
                                             <Phone size={24} strokeWidth={2.5} />
                                         </div>
                                         <div>
-                                            <h4 className="text-white font-bold text-lg leading-none mb-1.5 group-hover:text-gold-primary transition-colors font-sans">{content.commandTitle}</h4>
+                                            <h4 className="text-white font-bold text-lg leading-none mb-1.5 group-hover:text-gold transition-colors font-sans">{content.commandTitle}</h4>
                                             <p className="text-gray-500 text-xs md:text-sm font-medium group-hover:text-gray-400" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>{content.commandDesc}</p>
                                         </div>
                                     </div>
@@ -134,11 +134,11 @@ export default function SafetyPromise({ lang = 'en' }: Props) {
                                         {/* Status Badge */}
                                         <div className="flex justify-between items-center mb-8 border-b border-white/5 pb-6">
                                             <div className="flex items-center gap-2">
-                                                <ShieldCheck className="text-gold-primary hidden md:block shrink-0" size={20} />
+                                                <ShieldCheck className="text-gold hidden md:block shrink-0" size={20} />
                                                 <span className="text-gray-400 text-xs font-mono uppercase tracking-widest">{content.statusLabel}</span>
                                             </div>
-                                            <div className="bg-gold-primary/10 border border-gold-primary/20 text-gold-primary text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-2 animate-pulse">
-                                                <span className="w-2 h-2 rounded-full bg-gold-primary shrink-0"></span>
+                                            <div className="bg-gold/10 border border-gold/20 text-gold text-[10px] md:text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-2 animate-pulse">
+                                                <span className="w-2 h-2 rounded-full bg-gold shrink-0"></span>
                                                 {content.statusActive}
                                             </div>
                                         </div>
@@ -149,13 +149,13 @@ export default function SafetyPromise({ lang = 'en' }: Props) {
                                             {content.sopSteps.map((item, idx) => (
                                                 <div key={idx} className="flex gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors group cursor-default border border-transparent hover:border-white/5">
                                                     <div className="flex-shrink-0 relative">
-                                                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-black border border-white/10 flex items-center justify-center text-gold-primary font-bold font-mono group-hover:border-gold-primary group-hover:bg-gold-primary group-hover:text-black transition-all duration-300 z-10 relative shadow-lg">
+                                                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-black border border-white/10 flex items-center justify-center text-gold font-bold font-mono group-hover:border-gold group-hover:bg-gold group-hover:text-black transition-all duration-300 z-10 relative shadow-lg">
                                                             {item.step}
                                                         </div>
                                                         {idx !== 2 && <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[1px] h-full bg-white/10 group-hover:bg-white/20 transition-colors -z-0"></div>}
                                                     </div>
                                                     <div>
-                                                        <h5 className="text-white font-bold text-sm md:text-base mb-1 group-hover:text-gold-primary transition-colors font-sans">{item.title}</h5>
+                                                        <h5 className="text-white font-bold text-sm md:text-base mb-1 group-hover:text-gold transition-colors font-sans">{item.title}</h5>
                                                         <p className="text-gray-400 text-xs md:text-sm leading-relaxed group-hover:text-gray-300 transition-colors font-light" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
                                                             {item.desc}
                                                         </p>
@@ -168,7 +168,7 @@ export default function SafetyPromise({ lang = 'en' }: Props) {
                                         <div className="mt-8 pt-6 border-t border-white/5 text-center">
                                             <a href={isAr ? "/ar/safety" : "/safety"} className="text-xs md:text-sm text-gray-400 hover:text-white transition-colors flex items-center justify-center gap-2 group" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
                                                 {content.documentationLink}
-                                                <Zap size={14} className="text-gold-primary group-hover:fill-gold-primary transition-all shrink-0" />
+                                                <Zap size={14} className="text-gold group-hover:fill-gold transition-all shrink-0" />
                                             </a>
                                         </div>
                                     </div>

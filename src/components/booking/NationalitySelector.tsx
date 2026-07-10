@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState, useMemo } from 'react';
 import MobileDrawer from '@/components/ui/MobileDrawer';
@@ -51,14 +51,14 @@ export default function NationalitySelector({ value, onChange, error }: National
 
     return (
         <div className="relative md:col-span-2">
-            <MapPin className="absolute left-0 top-4 text-gold-primary z-10 pointer-events-none" size={20} />
+            <MapPin className="absolute left-0 top-4 text-gold z-10 pointer-events-none" size={20} />
             <button
                 type="button"
                 role="combobox"
                 aria-expanded={isOpen}
                 aria-controls="nationality-listbox"
                 onClick={() => setIsOpen(true)}
-                className={`w-full flex items-center justify-between pl-8 pr-4 py-4 bg-[#0F172A] border-b-2 text-left outline-none transition-colors ${error ? 'border-red-500' : 'border-white/20 hover:border-gold-primary focus:border-gold-primary'}`}
+                className={`w-full flex items-center justify-between pl-8 pr-4 py-4 bg-[#0F172A] border-b-2 text-left outline-none transition-colors ${error ? 'border-red-500' : 'border-white/20 hover:border-gold focus:border-gold'}`}
             >
                 <span className={`text-base font-medium truncate ${value ? 'text-white' : 'text-gray-500'}`}>
                     {selectedCountry ? (
@@ -87,7 +87,7 @@ export default function NationalitySelector({ value, onChange, error }: National
                         value={searchStr}
                         onChange={(e) => setSearchStr(e.target.value)}
                         placeholder="Search country, code, or +1..."
-                        className="w-full pl-10 pr-4 py-2 bg-transparent border-b border-white/10 rounded-none text-base text-white placeholder-gray-500 outline-none focus:border-gold-primary transition-colors"
+                        className="w-full pl-10 pr-4 py-2 bg-transparent border-b border-white/10 rounded-none text-base text-white placeholder-gray-500 outline-none focus:border-gold transition-colors"
                     />
                 </div>
                 <div 
@@ -101,7 +101,7 @@ export default function NationalitySelector({ value, onChange, error }: National
                         <>
                             {topMarkets.length > 0 && (
                                 <div className="mb-2">
-                                    <div className="px-6 py-2 text-xs font-bold text-gold-primary uppercase tracking-widest bg-white/5">Top Markets</div>
+                                    <div className="px-6 py-2 text-xs font-bold text-gold uppercase tracking-widest bg-white/5">Top Markets</div>
                                     {topMarkets.map(country => (
                                         <button
                                             key={country.code}
@@ -109,7 +109,7 @@ export default function NationalitySelector({ value, onChange, error }: National
                                             aria-selected={value === country.name}
                                             type="button"
                                             onClick={() => handleSelect(country.name)}
-                                            className="w-full px-6 py-3 md:py-4 text-left hover:bg-gold-primary/10 text-gray-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex items-center justify-between group"
+                                            className="w-full px-6 py-3 md:py-4 text-left hover:bg-gold/10 text-gray-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex items-center justify-between group"
                                         >
                                             <div className="flex items-center gap-3">
                                                 <span className="text-2xl leading-none">{getFlagEmoji(country.code)}</span>
@@ -135,7 +135,7 @@ export default function NationalitySelector({ value, onChange, error }: National
                                             aria-selected={value === country.name}
                                             type="button"
                                             onClick={() => handleSelect(country.name)}
-                                            className="w-full px-6 py-3 md:py-4 text-left hover:bg-gold-primary/10 text-gray-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex items-center justify-between group"
+                                            className="w-full px-6 py-3 md:py-4 text-left hover:bg-gold/10 text-gray-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex items-center justify-between group"
                                         >
                                             <div className="flex items-center gap-3">
                                                 <span className="text-2xl leading-none">{getFlagEmoji(country.code)}</span>
