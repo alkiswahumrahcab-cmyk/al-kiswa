@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -7,7 +7,6 @@ import { usePathname } from 'next/navigation';
 
 import { Menu, X, ChevronDown, Phone, Mail, Instagram, Facebook, MessageCircle, Linkedin } from 'lucide-react';
 import { useMenu } from '@/context/MenuContext';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -188,7 +187,7 @@ export default function Navbar() {
                 </div>
 
                 <div className="hidden xl:flex items-center gap-4">
-                    <LanguageSwitcher />
+
                     <Link
                         href="/booking"
                         className="bg-gradient-to-r from-gold to-gold-dark text-black px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider hover:scale-105 transition-transform shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] flex items-center justify-center"
@@ -310,10 +309,7 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    {/* Language switcher — visible in mobile menu */}
-                    <div className="flex items-center justify-center">
-                        <LanguageSwitcher />
-                    </div>
+
 
                     <Link
                         href="/booking"
