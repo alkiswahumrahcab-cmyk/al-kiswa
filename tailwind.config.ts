@@ -13,65 +13,74 @@ const config: Config = {
             center: true,
         },
         fontFamily: {
-            sans: ["var(--font-montserrat)", "var(--font-tajawal)", "sans-serif"],
-            mono: ["var(--font-geist-mono)", "monospace"],
-            playfair: ["var(--font-montserrat)", "var(--font-tajawal)", "sans-serif"], // Replaced Playfair with Montserrat as requested
-            reem: ["var(--font-tajawal)", "sans-serif"], // Replaced Reem Kufi with Tajawal
+            sans:       ["var(--font-montserrat)", "var(--font-tajawal)", "sans-serif"],
+            mono:       ["var(--font-geist-mono)", "monospace"],
             montserrat: ["var(--font-montserrat)", "sans-serif"],
-            tajawal: ["var(--font-tajawal)", "sans-serif"],
+            tajawal:    ["var(--font-tajawal)", "sans-serif"],
+            reem:       ["var(--font-tajawal)", "sans-serif"],
+            // Cormorant Garamond display serif
+            cormorant:  ["var(--font-cormorant)", "serif"],
+            serif:      ["var(--font-cormorant)", "serif"],
+            display:    ["var(--font-cormorant)", "serif"],
+            playfair:   ["var(--font-cormorant)", "serif"],
         },
         extend: {
             colors: {
-                border: "hsl(var(--border))",
-                input: "hsl(var(--input))",
-                ring: "hsl(var(--ring))",
-                background: "hsl(var(--background))",
-                foreground: "hsl(var(--foreground))",
+                // === SHADCN / SEMANTIC TOKENS (with alpha support) ===
+                border:      "hsl(var(--border) / <alpha-value>)",
+                input:       "hsl(var(--input) / <alpha-value>)",
+                ring:        "hsl(var(--ring) / <alpha-value>)",
+                background:  "hsl(var(--background) / <alpha-value>)",
+                foreground:  "hsl(var(--foreground) / <alpha-value>)",
                 primary: {
-                    DEFAULT: "hsl(var(--primary))",
-                    foreground: "hsl(var(--primary-foreground))",
+                    DEFAULT:    "hsl(var(--primary) / <alpha-value>)",
+                    foreground: "hsl(var(--primary-foreground) / <alpha-value>)",
                 },
                 secondary: {
-                    DEFAULT: "hsl(var(--secondary))",
-                    foreground: "hsl(var(--secondary-foreground))",
+                    DEFAULT:    "hsl(var(--secondary) / <alpha-value>)",
+                    foreground: "hsl(var(--secondary-foreground) / <alpha-value>)",
                 },
                 destructive: {
-                    DEFAULT: "hsl(var(--destructive))",
-                    foreground: "hsl(var(--destructive-foreground))",
+                    DEFAULT:    "hsl(var(--destructive) / <alpha-value>)",
+                    foreground: "hsl(var(--destructive-foreground) / <alpha-value>)",
                 },
                 muted: {
-                    DEFAULT: "hsl(var(--muted))",
-                    foreground: "hsl(var(--muted-foreground))",
+                    DEFAULT:    "hsl(var(--muted) / <alpha-value>)",
+                    foreground: "hsl(var(--muted-foreground) / <alpha-value>)",
                 },
                 accent: {
-                    DEFAULT: "hsl(var(--accent))",
-                    foreground: "hsl(var(--accent-foreground))",
+                    DEFAULT:    "hsl(var(--accent) / <alpha-value>)",
+                    foreground: "hsl(var(--accent-foreground) / <alpha-value>)",
                 },
                 popover: {
-                    DEFAULT: "hsl(var(--popover))",
-                    foreground: "hsl(var(--popover-foreground))",
+                    DEFAULT:    "hsl(var(--popover) / <alpha-value>)",
+                    foreground: "hsl(var(--popover-foreground) / <alpha-value>)",
                 },
                 card: {
-                    DEFAULT: "hsl(var(--card))",
-                    foreground: "hsl(var(--card-foreground))",
+                    DEFAULT:    "hsl(var(--card) / <alpha-value>)",
+                    foreground: "hsl(var(--card-foreground) / <alpha-value>)",
                 },
-                // === NEW LUXURY THEME COLORS ===
-                "primary-black": "hsl(var(--primary-black))",  // #0F172A
-                "deep-black": "hsl(var(--deep-black))",        // #09090b
-                "charcoal": "hsl(var(--charcoal))",            // #F8F9FA
 
-                "gold-primary": "hsl(var(--gold-primary))",    // #F59E0B
-                "gold-light": "hsl(var(--gold-light))",        // #FEF3C7
-                "gold-dark": "hsl(var(--gold-dark))",          // #B45309
-                "gold-metallic": "hsl(var(--gold-metallic))",  // #D4AF37
+                // === BRAND TOKENS ===
+                gold:      "hsl(var(--gold) / <alpha-value>)",       // #E2A336 canonical
+                "gold-light": "hsl(var(--gold-light) / <alpha-value>)", // #E8C17D
+                "gold-dark":  "hsl(var(--gold-dark) / <alpha-value>)",  // #A7731B
+                charcoal:  "hsl(var(--charcoal) / <alpha-value>)",   // #15140F
+                ivory:     "hsl(var(--ivory) / <alpha-value>)",      // #FDFCF8
 
-                // Legacy Mapping (keeping to prevent crashes, but redirected to new theme)
-                // Removed to prevent overriding standard tailwind palettes
-                // emerald: "hsl(var(--primary-black))",
-                // mint: "hsl(var(--soft-mint))",
-                // gold: "hsl(var(--gold-primary))",
-                // slate: "hsl(var(--primary-black))",
-                // warm: "hsl(var(--charcoal))",
+                // === WARM NEUTRAL RAMP ===
+                n: {
+                    50:  "hsl(var(--n-50)  / <alpha-value>)",
+                    100: "hsl(var(--n-100) / <alpha-value>)",
+                    200: "hsl(var(--n-200) / <alpha-value>)",
+                    300: "hsl(var(--n-300) / <alpha-value>)",
+                    400: "hsl(var(--n-400) / <alpha-value>)",
+                    500: "hsl(var(--n-500) / <alpha-value>)",
+                    600: "hsl(var(--n-600) / <alpha-value>)",
+                    700: "hsl(var(--n-700) / <alpha-value>)",
+                    800: "hsl(var(--n-800) / <alpha-value>)",
+                    900: "hsl(var(--n-900) / <alpha-value>)",
+                },
             },
             borderRadius: {
                 lg: "var(--radius)",
