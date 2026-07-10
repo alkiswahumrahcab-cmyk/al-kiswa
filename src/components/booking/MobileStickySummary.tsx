@@ -41,7 +41,7 @@ export default function MobileStickySummary({
                     className="fixed bottom-0 left-0 right-0 z-[100] md:hidden"
                 >
                     {/* Floating Summary Bar */}
-                    <div className="bg-primary-black/95 backdrop-blur-xl border-t border-gold/30 p-3 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
+                    <div className="bg-charcoal/95 backdrop-blur-xl border-t border-gold/30 p-3 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]">
                         <div className="flex items-center justify-between mb-2">
                             <div className="flex flex-col">
                                 <span className="text-[10px] text-gray-400 font-medium uppercase tracking-wider">

@@ -1,6 +1,6 @@
 ﻿.section {
     padding: 8rem 0;
-    background: linear-gradient(135deg, #1e3a8a 0%, #111827 100%);
+    background: linear-gradient(135deg, #1e3a8a 0%, hsl(var(--n-900)) 100%);
     position: relative;
     overflow: hidden;
     color: white;

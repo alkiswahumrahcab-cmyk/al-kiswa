@@ -89,7 +89,7 @@ export default async function AirportTransfersPage() {
     };
 
     return (
-        <main className="bg-primary-black text-white relative">
+        <main className="bg-charcoal text-white relative">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

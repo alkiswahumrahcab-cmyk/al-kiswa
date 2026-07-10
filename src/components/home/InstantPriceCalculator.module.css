@@ -392,5 +392,5 @@
 }
 
 :global(.dark) .label {
-    color: #e2e8f0;
+    color: hsl(var(--n-200));
 }

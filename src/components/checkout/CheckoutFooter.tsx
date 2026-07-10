@@ -16,7 +16,7 @@ export default function CheckoutFooter({ contactSettings }: CheckoutFooterProps)
     const closePolicy = () => setActivePolicy(null);
 
     return (
-        <footer className="bg-primary-black border-t border-white/5 py-8 mt-auto">
+        <footer className="bg-charcoal border-t border-white/5 py-8 mt-auto">
             <div className="container mx-auto px-4 text-center">
                 
                 {/* Reassurance Line */}

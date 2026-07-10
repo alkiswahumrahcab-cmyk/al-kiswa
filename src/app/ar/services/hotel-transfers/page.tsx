@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function HotelTransferPage() {
     return (
-        <main className="bg-primary-black text-white min-h-screen relative">
+        <main className="bg-charcoal text-white min-h-screen relative">
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none fixed" />
 
             {/* Hero Section */}

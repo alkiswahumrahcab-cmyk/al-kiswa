@@ -41,7 +41,7 @@ export default function InstantPriceCalculator() {
     if (isLoading) return <div className="p-8 text-center text-gold animate-pulse">Loading rates...</div>;
 
     return (
-        <section className="py-24 bg-primary-black relative" id="booking-calculator">
+        <section className="py-24 bg-charcoal relative" id="booking-calculator">
             <div className="container mx-auto px-4 relative z-10">
                 <FadeIn>
                     <div className="text-center mb-16">

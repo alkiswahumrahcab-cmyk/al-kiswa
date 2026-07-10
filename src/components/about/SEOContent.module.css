@@ -1,6 +1,6 @@
 ﻿.section {
     padding: 6rem 0;
-    background: linear-gradient(to bottom, #ffffff, #f8fafc);
+    background: linear-gradient(to bottom, #ffffff, hsl(var(--n-50)));
     position: relative;
     overflow: hidden;
 }
@@ -39,7 +39,7 @@
     font-size: 3rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+    background: linear-gradient(135deg, hsl(var(--n-900)) 0%, hsl(var(--n-700)) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -48,7 +48,7 @@
 
 .subtitle {
     font-size: 1.2rem;
-    color: #64748b;
+    color: hsl(var(--n-500));
     line-height: 1.7;
 }
 
@@ -96,7 +96,7 @@
 .cardTitle {
     font-size: 1.35rem;
     font-weight: 700;
-    color: #0f172a;
+    color: hsl(var(--n-900));
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
@@ -112,7 +112,7 @@
 }
 
 .cardText {
-    color: #475569;
+    color: hsl(var(--n-600));
     line-height: 1.7;
     font-size: 1rem;
 }

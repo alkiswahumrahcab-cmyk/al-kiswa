@@ -69,7 +69,7 @@ export default function StariaGallery() {
     const displayedImages = showAll ? IMAGES : IMAGES.slice(0, 8);
 
     return (
-        <section className="py-24 bg-deep-black border-y border-primary-black">
+        <section className="py-24 bg-deep-black border-y border-charcoal">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair text-white mb-4">
@@ -89,7 +89,7 @@ export default function StariaGallery() {
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.05 }}
                             onClick={() => openLightbox(idx)}
-                            className="relative h-48 md:h-64 rounded-xl overflow-hidden cursor-pointer group bg-primary-black border border-gold/20"
+                            className="relative h-48 md:h-64 rounded-xl overflow-hidden cursor-pointer group bg-charcoal border border-gold/20"
                         >
                             <Image 
                                 src={src} 
@@ -98,7 +98,7 @@ export default function StariaGallery() {
                                 className="object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100" 
                             />
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <div className="bg-gold/90 p-3 rounded-full text-primary-black transform scale-50 group-hover:scale-100 transition-transform duration-300">
+                                <div className="bg-gold/90 p-3 rounded-full text-charcoal transform scale-50 group-hover:scale-100 transition-transform duration-300">
                                     <Maximize2 size={24} />
                                 </div>
                             </div>
@@ -110,7 +110,7 @@ export default function StariaGallery() {
                     <div className="text-center mt-12">
                         <button 
                             onClick={() => setShowAll(true)}
-                            className="px-8 py-3 border-2 border-gold text-gold rounded-full font-bold hover:bg-gold hover:text-primary-black transition-colors"
+                            className="px-8 py-3 border-2 border-gold text-gold rounded-full font-bold hover:bg-gold hover:text-charcoal transition-colors"
                         >
                             View All 25 Images
                         </button>

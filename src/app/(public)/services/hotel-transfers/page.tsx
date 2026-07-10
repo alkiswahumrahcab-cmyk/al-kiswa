@@ -55,7 +55,7 @@ const jsonLd = {
 
 export default function HotelTransferPage() {
     return (
-        <main className="bg-primary-black text-white min-h-screen relative">
+        <main className="bg-charcoal text-white min-h-screen relative">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

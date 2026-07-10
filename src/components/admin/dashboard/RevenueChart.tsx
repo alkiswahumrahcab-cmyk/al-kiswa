@@ -12,7 +12,7 @@ export default function RevenueChart({ data }: RevenueChartProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-primary-black/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-lg shadow-black/50"
+            className="bg-charcoal/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-lg shadow-black/50"
         >
             <div className="flex items-center justify-between mb-8">
                 <div>

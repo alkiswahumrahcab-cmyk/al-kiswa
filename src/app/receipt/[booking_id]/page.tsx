@@ -1,4 +1,4 @@
-import { getBookings } from '@/lib/db';
+﻿import { getBookings } from '@/lib/db';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CheckCircle, XCircle, Download, Printer, PlusCircle } from 'lucide-react';
@@ -22,7 +22,7 @@ export default async function ReceiptVerificationPage(props: { params: Promise<{
     const shortId = bookingId;
 
     return (
-        <div className="min-h-screen bg-primary-black text-white font-sans selection:bg-gold-primary/30">
+        <div className="min-h-screen bg-charcoal text-white font-sans selection:bg-gold-primary/30">
             {/* Header */}
             <header className="w-full bg-[#111111] border-b border-white/10 py-6 px-4 text-center">
                 <Link href="/">

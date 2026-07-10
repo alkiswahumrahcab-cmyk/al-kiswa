@@ -119,7 +119,7 @@ export default function BookingWizard() {
                             w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold text-lg transition-all duration-500 border-2
                             ${currentStep >= step.id
                                 ? 'bg-gold border-gold text-black shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)]'
-                                : 'bg-primary-black border-white/10 text-gray-500'}
+                                : 'bg-charcoal border-white/10 text-gray-500'}
                         `}>
                             {currentStep > step.id ? <Check size={24} strokeWidth={3} /> : step.id}
                         </div>
@@ -136,7 +136,7 @@ export default function BookingWizard() {
             </div>
 
             {/* ── Main Content Card ── */}
-            <div className="bg-primary-black/60 backdrop-blur-xl rounded-[1.5rem] md:rounded-[2rem] shadow-2xl border border-white/10 overflow-hidden relative">
+            <div className="bg-charcoal/60 backdrop-blur-xl rounded-[1.5rem] md:rounded-[2rem] shadow-2xl border border-white/10 overflow-hidden relative">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 blur-[100px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold-secondary/5 blur-[100px] pointer-events-none" />
 

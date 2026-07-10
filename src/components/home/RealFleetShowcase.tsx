@@ -31,7 +31,7 @@ const realPhotos = [
 
 export default function RealFleetShowcase() {
     return (
-        <section className="py-20 bg-primary-black relative border-t border-white/5">
+        <section className="py-20 bg-charcoal relative border-t border-white/5">
             <div className="container mx-auto px-4">
                 <FadeIn>
                     <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">

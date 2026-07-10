@@ -23,7 +23,7 @@ interface Props { lang?: 'ar' | 'en'; }
 export default function BookingGuide({ lang = 'en' }: Props) {
     const steps = STEPS[lang];
     return (
-        <section className="py-24 bg-primary-black overflow-hidden relative border-t border-white/5">
+        <section className="py-24 bg-charcoal overflow-hidden relative border-t border-white/5">
             {/* Elegant Background Patterns */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('/pattern.png')] mix-blend-overlay" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
@@ -90,7 +90,7 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                                     <div className="absolute inset-0 bg-gold/20 blur-xl rounded-full -z-10 transform scale-75 opacity-0 group-hover:opacity-100 transition-opacity" />
 
                                     {/* Step Number Badge */}
-                                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-gold text-black rounded-lg flex items-center justify-center font-bold text-sm shadow-md z-20 border-2 border-primary-black">
+                                    <div className="absolute -top-3 -right-3 w-8 h-8 bg-gold text-black rounded-lg flex items-center justify-center font-bold text-sm shadow-md z-20 border-2 border-charcoal">
                                         {step.id}
                                     </div>
                                 </div>

@@ -1,4 +1,4 @@
-.container {
+﻿.container {
     max-width: 800px;
     margin: 0 auto;
     padding: 4rem 1.5rem;
@@ -55,7 +55,7 @@
     font-family: var(--font-geist-sans), sans-serif;
     font-size: 1rem;
     line-height: 1.8;
-    color: #475569;
+    color: hsl(var(--n-600));
     /* Slate-600 */
     margin-bottom: 1rem;
 }
@@ -70,12 +70,12 @@
     font-family: var(--font-geist-sans), sans-serif;
     font-size: 1rem;
     line-height: 1.8;
-    color: #475569;
+    color: hsl(var(--n-600));
     margin-bottom: 0.5rem;
 }
 
 .contactInfo {
-    background-color: #f8fafc;
+    background-color: hsl(var(--n-50));
     padding: 1.5rem;
     border-radius: 0.5rem;
     border-left: 4px solid var(--primary);

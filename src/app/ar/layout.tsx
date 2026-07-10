@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Cairo } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import FooterAR from "@/components/layout/FooterAR";
@@ -32,7 +32,7 @@ export default async function ArabicLayout({
   const settings = await getSettings();
 
   return (
-    <div lang="ar" dir="rtl" className={`${cairo.variable} ${cairo.className} rtl bg-primary-black text-white`}>
+    <div lang="ar" dir="rtl" className={`${cairo.variable} ${cairo.className} rtl bg-charcoal text-white`}>
       {/* Navbar — shared component, already handles RTL gracefully */}
       <ClientLayoutWrapper>
         <Navbar />

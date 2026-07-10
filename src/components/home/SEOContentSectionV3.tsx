@@ -31,7 +31,7 @@ const seoFaqs = [
 export default function SEOContentSectionV3() {
     const [activeFaq, setActiveFaq] = useState<number | null>(null);
     return (
-        <section className="py-12 md:py-16 bg-primary-black relative overflow-hidden">
+        <section className="py-12 md:py-16 bg-charcoal relative overflow-hidden">
             {/* Ambient Background Glow */}
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.02] mix-blend-overlay pointer-events-none" />
             <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-[120px] -translate-y-1/2 pointer-events-none" />

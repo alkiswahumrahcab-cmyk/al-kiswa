@@ -87,7 +87,7 @@ export default async function ZiarahMakkahPage() {
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=أنا%20مهتم%20بزيارة%20مكة`;
 
     return (
-        <main className="min-h-screen bg-primary-black relative" dir="rtl">
+        <main className="min-h-screen bg-charcoal relative" dir="rtl">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <script

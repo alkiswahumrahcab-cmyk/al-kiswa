@@ -6,7 +6,7 @@ import Breadcrumbs from '@/components/common/Breadcrumbs';
 
 export default function TermsPage() {
     return (
-        <div className="bg-primary-black min-h-screen pb-20 relative text-gray-200">
+        <div className="bg-charcoal min-h-screen pb-20 relative text-gray-200">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <Hero

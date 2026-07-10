@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Hero from '@/components/common/Hero';
 import FadeIn from '@/components/common/FadeIn';
@@ -85,7 +85,7 @@ export default async function RegionalLandingPage({ params }: Params) {
     };
 
     return (
-        <main className="bg-primary-black text-white relative min-h-screen">
+        <main className="bg-charcoal text-white relative min-h-screen">
             <JsonLdScript schema={generateLocalBusinessSchema()} />
             <JsonLdScript schema={targetedServiceSchema} />
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />

@@ -112,7 +112,7 @@ export default async function RamadanLandingPage() {
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20want%20to%20book%20Ramadan%202026%20Transport`;
 
     return (
-        <main className="min-h-screen bg-primary-black relative">
+        <main className="min-h-screen bg-charcoal relative">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -130,7 +130,7 @@ export default async function RamadanLandingPage() {
                     className="object-cover opacity-60"
                     sizes="100vw"
                 />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary-black via-primary-black/60 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent" />
                 </div>
 
                 <div className="container relative z-10 text-center px-4 pt-20">

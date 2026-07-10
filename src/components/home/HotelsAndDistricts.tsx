@@ -60,7 +60,7 @@ export default function HotelsAndDistricts() {
     };
 
     return (
-        <section className="py-4 md:py-20 bg-primary-black border-t border-white/5 relative overflow-hidden">
+        <section className="py-4 md:py-20 bg-charcoal border-t border-white/5 relative overflow-hidden">
             {/* Ambient Background */}
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.02] pointer-events-none" />
             <div className={`absolute top-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] transition-all duration-1000 ${activeCity === 'makkah' ? 'translate-x-1/2 -translate-y-1/2' : 'translate-x-full opacity-50'}`} />

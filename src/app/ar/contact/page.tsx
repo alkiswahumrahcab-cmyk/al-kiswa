@@ -47,7 +47,7 @@ export default async function ArabicContactPage() {
     const address = settings?.contact.address || 'العزيزية، مكة المكرمة، المملكة العربية السعودية';
 
     return (
-        <div className="bg-primary-black min-h-screen relative text-white" dir="rtl" lang="ar">
+        <div className="bg-charcoal min-h-screen relative text-white" dir="rtl" lang="ar">
             <JsonLdScript schema={generateContactPageSchema()} />
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 

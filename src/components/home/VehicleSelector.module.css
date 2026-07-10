@@ -10,9 +10,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    background: #1e293b;
+    background: hsl(var(--n-800));
     /* Match RouteSelector Dark Mode */
-    border: 1px solid #334155;
+    border: 1px solid hsl(var(--n-700));
     border-radius: 16px;
     /* Match RouteSelector */
     cursor: pointer;
@@ -24,7 +24,7 @@
 }
 
 .trigger:hover {
-    border-color: #475569;
+    border-color: hsl(var(--n-600));
     transform: translateY(-1px);
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
 }
@@ -32,7 +32,7 @@
 .trigger.open {
     border-color: hsl(var(--gold));
     box-shadow: 0 0 0 3px hsl(var(--gold-glow) / 0.15);
-    background: #1e293b;
+    background: hsl(var(--n-800));
 }
 
 .triggerContent {
@@ -46,17 +46,17 @@
     height: 40px;
     border-radius: 12px;
     /* Match RouteSelector */
-    background: #0f172a;
+    background: hsl(var(--n-900));
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #94a3b8;
+    color: hsl(var(--n-400));
     transition: all 0.3s ease;
 }
 
 .trigger:hover .triggerIconWrapper {
-    background: #f1f5f9;
-    color: #475569;
+    background: hsl(var(--n-100));
+    color: hsl(var(--n-600));
 }
 
 .trigger.open .triggerIconWrapper {
@@ -73,19 +73,19 @@
 .label {
     font-size: 0.7rem;
     text-transform: uppercase;
-    color: #94a3b8;
+    color: hsl(var(--n-400));
     font-weight: 600;
     letter-spacing: 0.05em;
 }
 
 .value {
     font-weight: 600;
-    color: #f8fafc;
+    color: hsl(var(--n-50));
     font-size: 1rem;
 }
 
 .chevron {
-    color: #94a3b8;
+    color: hsl(var(--n-400));
     transition: transform 0.3s ease;
 }
 
@@ -99,8 +99,8 @@
     top: calc(100% + 0.5rem);
     left: 0;
     width: 100%;
-    background: #1e293b;
-    border: 1px solid #334155;
+    background: hsl(var(--n-800));
+    border: 1px solid hsl(var(--n-700));
     border-radius: 16px;
     box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.3);
     z-index: 50;
@@ -124,7 +124,7 @@
 }
 
 .list::-webkit-scrollbar-thumb {
-    background: #334155;
+    background: hsl(var(--n-700));
     border-radius: 3px;
 }
 
@@ -157,7 +157,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #94a3b8;
+    color: hsl(var(--n-400));
     background: rgba(255, 255, 255, 0.03);
     border-radius: 6px;
 }
@@ -173,7 +173,7 @@
 .optionName {
     display: block;
     font-weight: 500;
-    color: #f8fafc;
+    color: hsl(var(--n-50));
     font-size: 0.95rem;
     margin-bottom: 0.1rem;
 }
@@ -186,7 +186,7 @@
     display: flex;
     gap: 0.5rem;
     font-size: 0.75rem;
-    color: #94a3b8;
+    color: hsl(var(--n-400));
 }
 
 .selectedIndicator {

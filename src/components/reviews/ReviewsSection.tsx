@@ -66,7 +66,7 @@ export default function ReviewsSection() {
     // Skeleton Loader
     if (loading) {
         return (
-            <section className="py-24 relative overflow-hidden bg-primary-black">
+            <section className="py-24 relative overflow-hidden bg-charcoal">
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="text-center mb-12 space-y-4">
                         <div className="h-4 w-48 bg-white/10 rounded-full mx-auto animate-pulse" />
@@ -116,7 +116,7 @@ export default function ReviewsSection() {
     };
 
     return (
-        <section className="py-24 relative overflow-hidden bg-primary-black">
+        <section className="py-24 relative overflow-hidden bg-charcoal">
             {/* Subtle Background */}
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none" />
 

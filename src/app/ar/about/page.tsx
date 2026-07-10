@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import Hero from '@/components/common/Hero';
 import WelcomeSection from '@/components/about/WelcomeSection';
@@ -54,7 +54,7 @@ export default async function ArabicAboutPage() {
     const bgImage = getSectionImage(section, 'desktop') || "https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?q=80&w=2000&auto=format&fit=crop";
 
     return (
-        <main className="min-h-screen bg-primary-black relative" dir="rtl" lang="ar">
+        <main className="min-h-screen bg-charcoal relative" dir="rtl" lang="ar">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
             <JsonLdScript schema={generateAboutPageSchema()} />
             <div className="contents relative z-10">

@@ -1,4 +1,4 @@
-import { Metadata } from 'next';
+﻿import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Hero from '@/components/common/Hero';
 import FadeIn from '@/components/common/FadeIn';
@@ -80,7 +80,7 @@ export default async function ArabicRegionalLandingPage({ params }: Params) {
     };
 
     return (
-        <main className="bg-primary-black text-white relative min-h-screen" dir="rtl">
+        <main className="bg-charcoal text-white relative min-h-screen" dir="rtl">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

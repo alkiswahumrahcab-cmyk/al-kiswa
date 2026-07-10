@@ -118,7 +118,7 @@ export default function TransportServices({ lang = 'en' }: Props) {
         : { eyebrow: 'Our Core Services', title: <>Premium Transport for <span className="bg-gradient-to-r from-gold to-gold-metallic bg-clip-text text-transparent">Your Spiritual Journey</span></>, sub: 'Comprehensive travel solutions designed for the Guests of Allah. From airport arrivals to intercity travel, we ensure every mile is comfortable, safe, and dignified.' };
 
     return (
-        <section className="py-20 md:py-32 relative overflow-hidden bg-primary-black">
+        <section className="py-20 md:py-32 relative overflow-hidden bg-charcoal">
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gold-metallic/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />

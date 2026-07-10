@@ -7,7 +7,7 @@ import FadeIn from '@/components/common/FadeIn';
 
 export default function NotFound() {
     return (
-        <div className="min-h-screen bg-primary-black flex items-center justify-center relative overflow-hidden font-sans">
+        <div className="min-h-screen bg-charcoal flex items-center justify-center relative overflow-hidden font-sans">
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none" />
 

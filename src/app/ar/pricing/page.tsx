@@ -57,7 +57,7 @@ const pricingFAQs = [
 
 export default function PricingPage() {
     return (
-        <main className="min-h-screen bg-primary-black relative">
+        <main className="min-h-screen bg-charcoal relative">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <Hero

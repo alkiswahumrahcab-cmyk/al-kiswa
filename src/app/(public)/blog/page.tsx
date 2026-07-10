@@ -1,4 +1,4 @@
-import { generateMetadataAlternates } from "@/lib/hreflang";
+﻿import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import HadithCarousel from '@/components/blog/HadithCarousel';
 import Hero from '@/components/common/Hero';
@@ -59,7 +59,7 @@ export default async function BlogPage() {
 
 
     return (
-        <main className="min-h-screen bg-primary-black relative">
+        <main className="min-h-screen bg-charcoal relative">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <div className="relative z-10">

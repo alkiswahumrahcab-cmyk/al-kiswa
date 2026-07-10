@@ -46,7 +46,7 @@ export default async function ContactPage() {
     const address = settings?.contact.address || 'Al Aziziyah, Makkah, Saudi Arabia';
 
     return (
-        <div className="bg-primary-black min-h-screen relative text-white selection:bg-gold/30">
+        <div className="bg-charcoal min-h-screen relative text-white selection:bg-gold/30">
             <JsonLdScript schema={generateContactPageSchema()} />
             {/* Background Pattern */}
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />

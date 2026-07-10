@@ -102,7 +102,7 @@
 }
 
 .quoteIcon {
-    color: #e2e8f0;
+    color: hsl(var(--n-200));
     margin-bottom: 1.5rem;
     transition: color 0.3s ease;
 }
@@ -145,7 +145,7 @@
 
 .name {
     font-weight: 700;
-    color: #111827;
+    color: hsl(var(--n-900));
     font-size: 1.05rem;
 }
 

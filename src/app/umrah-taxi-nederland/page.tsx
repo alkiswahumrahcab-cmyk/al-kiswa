@@ -113,7 +113,7 @@ const faqs = [
 
 export default function NederlandPilgrimsPage() {
   return (
-    <main className="min-h-screen bg-primary-black text-white pt-24 pb-16">
+    <main className="min-h-screen bg-charcoal text-white pt-24 pb-16">
       <JsonLdScript schema={faqSchema} />
       <JsonLdScript schema={serviceSchema} />
       <JsonLdScript schema={breadcrumbSchema} />

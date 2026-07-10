@@ -43,7 +43,7 @@ export default function KPIGrid({
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
             {/* Revenue Card */}
-            <motion.div variants={item} className="relative group bg-primary-black/80 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:border-gold/50 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.1)] overflow-hidden">
+            <motion.div variants={item} className="relative group bg-charcoal/80 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:border-gold/50 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.1)] overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:bg-gold/10 transition-colors" />
                 <div className="flex justify-between items-start mb-4 relative z-10">
                     <div>
@@ -64,7 +64,7 @@ export default function KPIGrid({
             </motion.div>
 
             {/* Bookings Card */}
-            <motion.div variants={item} className="relative group bg-primary-black/80 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:border-blue-500/50 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] overflow-hidden">
+            <motion.div variants={item} className="relative group bg-charcoal/80 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:border-blue-500/50 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.1)] overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:bg-blue-500/10 transition-colors" />
                 <div className="flex justify-between items-start mb-4 relative z-10">
                     <div>
@@ -83,7 +83,7 @@ export default function KPIGrid({
             </motion.div>
 
             {/* Fleet Card */}
-            <motion.div variants={item} className="relative group bg-primary-black/80 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:border-purple-500/50 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.1)] overflow-hidden">
+            <motion.div variants={item} className="relative group bg-charcoal/80 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:border-purple-500/50 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.1)] overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:bg-purple-500/10 transition-colors" />
                 <div className="flex justify-between items-start mb-4 relative z-10">
                     <div>
@@ -101,7 +101,7 @@ export default function KPIGrid({
             </motion.div>
 
             {/* Routes Card */}
-            <motion.div variants={item} className="relative group bg-primary-black/80 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:border-rose-500/50 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(244,63,94,0.1)] overflow-hidden">
+            <motion.div variants={item} className="relative group bg-charcoal/80 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:border-rose-500/50 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(244,63,94,0.1)] overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-rose-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none group-hover:bg-rose-500/10 transition-colors" />
                 <div className="flex justify-between items-start mb-4 relative z-10">
                     <div>

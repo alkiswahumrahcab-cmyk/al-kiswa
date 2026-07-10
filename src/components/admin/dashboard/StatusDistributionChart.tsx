@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+﻿import { motion } from 'framer-motion';
 import { Activity } from 'lucide-react';
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
 
@@ -12,7 +12,7 @@ export default function StatusDistributionChart({ data }: StatusDistributionChar
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="bg-primary-black/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-lg shadow-black/50"
+            className="bg-charcoal/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-lg shadow-black/50"
         >
             <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
                 <Activity size={18} className="text-purple-400" />

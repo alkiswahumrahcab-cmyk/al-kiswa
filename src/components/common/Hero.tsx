@@ -79,7 +79,7 @@ const Hero: React.FC<HeroProps> = ({
     };
 
     return (
-        <section ref={ref} className="relative w-full min-h-[95vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-primary-black">
+        <section ref={ref} className="relative w-full min-h-[95vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-charcoal">
             {/* Parallax Background */}
             <motion.div className="absolute inset-0 z-0" style={{ y, opacity }}>
                 <div className="relative w-full h-full">
@@ -172,7 +172,7 @@ const Hero: React.FC<HeroProps> = ({
                         </>
                     )}
                     {!isSpiritual && (
-                        <div className="absolute inset-0 bg-gradient-to-b from-primary-black/80 via-primary-black/40 to-primary-black" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/80 via-charcoal/40 to-charcoal" />
                     )}
                     {!fleetImages && !isSpiritual && (
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold/10 via-transparent to-transparent opacity-60" />
@@ -315,7 +315,7 @@ const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Bottom Gradient Fade */}
-            <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-primary-black via-primary-black/80 to-transparent pointer-events-none z-[1]" />
+            <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-charcoal via-charcoal/80 to-transparent pointer-events-none z-[1]" />
         </section >
     );
 };

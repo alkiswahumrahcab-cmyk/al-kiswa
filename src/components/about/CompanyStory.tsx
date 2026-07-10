@@ -34,7 +34,7 @@ export default function CompanyStory() {
     ];
 
     return (
-        <section className="py-24 bg-primary-black relative overflow-hidden">
+        <section className="py-24 bg-charcoal relative overflow-hidden">
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none" />
 
             {/* Center Line Background */}

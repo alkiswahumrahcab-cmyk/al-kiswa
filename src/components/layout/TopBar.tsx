@@ -19,7 +19,7 @@ const TopBar = async () => {
     // }
 
     return (
-        <div className="hidden lg:block bg-primary-black text-gray-300 border-b border-white/5 relative z-50">
+        <div className="hidden lg:block bg-charcoal text-gray-300 border-b border-white/5 relative z-50">
             <div className="container mx-auto px-4 h-12 flex justify-between items-center text-xs font-medium tracking-wide">
 
                 {/* Left Side: Contact Info */}

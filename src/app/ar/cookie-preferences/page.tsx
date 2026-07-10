@@ -81,7 +81,7 @@ export default function CookiePreferences() {
     ];
 
     return (
-        <div className="min-h-screen bg-primary-black py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div className="min-h-screen bg-charcoal py-12 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             {/* Background Decoration */}

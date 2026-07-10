@@ -165,7 +165,7 @@ const ROUTES = [
 
 export default function RoutesPage() {
     return (
-        <main className="bg-primary-black min-h-screen pb-20 relative">
+        <main className="bg-charcoal min-h-screen pb-20 relative">
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none fixed" />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 

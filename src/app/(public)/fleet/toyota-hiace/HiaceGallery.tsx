@@ -105,7 +105,7 @@ export default function HiaceGallery() {
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.04 }}
                             onClick={() => setSelectedIndex(idx)}
-                            className={`relative overflow-hidden cursor-pointer group bg-primary-black border border-white/5 rounded-xl ${
+                            className={`relative overflow-hidden cursor-pointer group bg-charcoal border border-white/5 rounded-xl ${
                                 idx === 0 ? 'col-span-2 md:col-span-1 h-64 md:h-80' :
                                 idx === 3 ? 'col-span-2 h-56 md:h-72' : 'h-52 md:h-64'
                             }`}

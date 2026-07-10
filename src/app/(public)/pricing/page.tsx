@@ -193,7 +193,7 @@ export default async function PricingPage() {
     };
 
     return (
-        <main className="min-h-screen bg-primary-black relative">
+        <main className="min-h-screen bg-charcoal relative">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 

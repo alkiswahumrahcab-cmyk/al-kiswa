@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 export default function BookPage() {
     return (
-        <main className="min-h-screen bg-primary-black relative overflow-hidden">
+        <main className="min-h-screen bg-charcoal relative overflow-hidden">
             {/* Background Texture */}
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none" />
 

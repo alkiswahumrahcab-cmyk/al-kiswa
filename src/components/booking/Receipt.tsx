@@ -40,7 +40,7 @@ export default function Receipt({ bookingData, onClose }: ReceiptProps) {
     return (
         <div className="w-full max-w-2xl mx-auto bg-white text-gray-900 rounded-2xl shadow-2xl overflow-hidden relative" id="receipt-container">
             {/* Header / Brand */}
-            <div className="bg-primary-black p-6 flex items-center justify-between border-b-4 border-gold">
+            <div className="bg-charcoal p-6 flex items-center justify-between border-b-4 border-gold">
                 <div className="flex items-center gap-4">
                     <div className="relative w-16 h-16 bg-white rounded-xl p-2 border border-gold/30">
                         <Image 
@@ -136,7 +136,7 @@ export default function Receipt({ bookingData, onClose }: ReceiptProps) {
                             <p className="text-sm font-semibold text-gray-900">{bookingData.pickupLocation}</p>
                         </div>
                         <div className="relative">
-                            <div className="absolute -left-6 top-1 w-2.5 h-2.5 rounded-full bg-primary-black border-2 border-white shadow-sm" />
+                            <div className="absolute -left-6 top-1 w-2.5 h-2.5 rounded-full bg-charcoal border-2 border-white shadow-sm" />
                             <p className="text-xs text-gray-500 font-medium">Dropoff Location</p>
                             <p className="text-sm font-semibold text-gray-900">{bookingData.dropoffLocation}</p>
                         </div>

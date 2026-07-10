@@ -57,7 +57,7 @@ export default function CallbackWidget() {
                         initial={{ opacity: 0, y: 20, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.9 }}
-                        className="bg-primary-black/90 backdrop-blur-xl border border-gold/30 p-6 rounded-2xl shadow-2xl w-80 mb-4"
+                        className="bg-charcoal/90 backdrop-blur-xl border border-gold/30 p-6 rounded-2xl shadow-2xl w-80 mb-4"
                     >
                         <button
                             onClick={() => setIsOpen(false)}

@@ -107,7 +107,7 @@ export default function Navbar() {
         <>
             <nav
                 className={`fixed left-0 right-0 z-50 transition-all duration-500 ease-in-out ${scrolled
-                    ? 'bg-primary-black/90 backdrop-blur-xl border-b border-white/5 py-3 shadow-2xl top-0'
+                    ? 'bg-charcoal/90 backdrop-blur-xl border-b border-white/5 py-3 shadow-2xl top-0'
                     : 'bg-transparent py-4 top-0 lg:top-4'
                     }`}
             >
@@ -154,7 +154,7 @@ export default function Navbar() {
                             {/* Premium Dropdown Menu */}
                             {link.children && (
                                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-400 translate-y-3 group-hover:translate-y-0">
-                                    <div className={`bg-primary-black/95 backdrop-blur-2xl rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.9)] border border-white/10 p-3 relative overflow-hidden ${link.children.length > 4 ? 'w-[600px]' : 'w-[320px]'}`}>
+                                    <div className={`bg-charcoal/95 backdrop-blur-2xl rounded-2xl shadow-[0_20px_40px_-15px_rgba(0,0,0,0.9)] border border-white/10 p-3 relative overflow-hidden ${link.children.length > 4 ? 'w-[600px]' : 'w-[320px]'}`}>
                                         
                                         {/* Subtle elegant top highlight */}
                                         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent"></div>

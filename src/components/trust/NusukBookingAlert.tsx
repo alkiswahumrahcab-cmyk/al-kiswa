@@ -26,7 +26,7 @@ const NusukBookingAlert = () => {
                     <div className="flex-grow flex items-center">
                         <h4 className="text-white font-bold text-lg flex items-center gap-2">
                             Nusuk registered vehicles
-                            <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gold-dark text-primary-black">
+                            <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-gold-dark text-charcoal">
                                 <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
@@ -41,7 +41,7 @@ const NusukBookingAlert = () => {
                 <ShieldCheck size={16} className="text-gold-dark" />
                 <span className="text-xs font-semibold text-white flex items-center gap-1.5">
                     Nusuk Registered
-                    <span className="inline-flex items-center justify-center w-3 h-3 rounded-full bg-gold-dark text-primary-black">
+                    <span className="inline-flex items-center justify-center w-3 h-3 rounded-full bg-gold-dark text-charcoal">
                         <svg className="w-2 h-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>

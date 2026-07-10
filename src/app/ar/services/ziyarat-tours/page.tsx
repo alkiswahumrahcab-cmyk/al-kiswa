@@ -86,7 +86,7 @@ export default async function ZiyaratToursPage() {
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20a%20Ziyarat%20Tour`;
 
     return (
-        <main className="min-h-screen bg-primary-black relative">
+        <main className="min-h-screen bg-charcoal relative">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <script

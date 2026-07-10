@@ -106,7 +106,7 @@ export default async function IntercityTransferPage() {
     const effectiveRoutes = routes.length > 0 ? routes : (process.env.NODE_ENV === 'development' || routes.length === 0 ? MOCK_ROUTES : []) as unknown as RouteWithPrices[];
 
     return (
-        <main className="bg-primary-black text-white relative">
+        <main className="bg-charcoal text-white relative">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -523,8 +523,8 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                             </div>
                         </div>
                         <div className="bg-gray-50 border-t border-gray-100 p-4 relative">
-                            <div className="absolute -top-3 -left-3 w-6 h-6 bg-primary-black rounded-full" />
-                            <div className="absolute -top-3 -right-3 w-6 h-6 bg-primary-black rounded-full" />
+                            <div className="absolute -top-3 -left-3 w-6 h-6 bg-charcoal rounded-full" />
+                            <div className="absolute -top-3 -right-3 w-6 h-6 bg-charcoal rounded-full" />
                             <div className="flex items-center gap-3 text-gray-700 bg-white border border-gray-200 rounded-xl p-3 shadow-sm">
                                 <Wallet size={18} className="text-gold" />
                                 <div>

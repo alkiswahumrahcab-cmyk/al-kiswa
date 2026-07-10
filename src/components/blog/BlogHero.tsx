@@ -3,7 +3,7 @@ import FadeIn from '@/components/common/FadeIn';
 
 export default function BlogHero() {
     return (
-        <section className="relative py-32 md:py-40 flex items-center justify-center overflow-hidden bg-primary-black">
+        <section className="relative py-32 md:py-40 flex items-center justify-center overflow-hidden bg-charcoal">
             {/* Background Image/Gradient */}
             <div className="absolute inset-0 z-0">
                 {/* Texture Pattern */}

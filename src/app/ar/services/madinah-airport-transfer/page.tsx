@@ -81,7 +81,7 @@ export default async function MadinahAirportPage() {
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20need%20pickup%20from%20Madinah%20Airport`;
 
     return (
-        <main className="overflow-x-hidden bg-primary-black min-h-screen relative">
+        <main className="overflow-x-hidden bg-charcoal min-h-screen relative">
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none fixed" />
 
             <script

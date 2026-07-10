@@ -45,7 +45,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function ArabicBookingPage() {
     return (
-        <main className="min-h-screen bg-primary-black relative overflow-hidden" dir="rtl" lang="ar">
+        <main className="min-h-screen bg-charcoal relative overflow-hidden" dir="rtl" lang="ar">
             {/* Background */}
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none" />
             <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[120px] pointer-events-none" />

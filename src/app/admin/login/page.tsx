@@ -54,7 +54,7 @@ export default function LoginPage() {
     console.log('Rendering LoginPage');
 
     return (
-        <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-primary-black">
+        <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-charcoal">
             {/* Back to Home Button */}
             <Link
                 href="/"
@@ -77,14 +77,14 @@ export default function LoginPage() {
                 />
             </div>
 
-            <div className="absolute inset-0 z-0 bg-gradient-to-br from-primary-black via-primary-black to-emerald-950/20"></div>
+            <div className="absolute inset-0 z-0 bg-gradient-to-br from-charcoal via-charcoal to-emerald-950/20"></div>
 
             {/* Decorative Orbs */}
             <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-gold/10 rounded-full blur-[100px] animate-pulse-slow"></div>
             <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-gem-emerald/10 rounded-full blur-[100px]"></div>
 
             <div className="w-full max-w-md relative z-10 p-6">
-                <div className="bg-primary-black/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 overflow-hidden transition-all duration-500 hover:border-gold/30 hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.1)]">
+                <div className="bg-charcoal/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 overflow-hidden transition-all duration-500 hover:border-gold/30 hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.1)]">
                     {/* Top Accent Line */}
                     <div className="h-1 w-full bg-gradient-to-r from-transparent via-gold to-transparent opacity-50"></div>
 

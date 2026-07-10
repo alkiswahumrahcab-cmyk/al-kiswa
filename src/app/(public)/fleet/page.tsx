@@ -105,7 +105,7 @@ export default async function FleetPage() {
     const badge = getCustomField(section, 'badge_text') || "Premium Collection 2026";
 
     return (
-        <main className="min-h-screen bg-primary-black relative text-white">
+        <main className="min-h-screen bg-charcoal relative text-white">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(fleetJsonLd) }}

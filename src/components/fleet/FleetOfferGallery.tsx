@@ -128,7 +128,7 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
     if (displayVehicles.length === 0) return null;
 
     return (
-        <section className="py-16 bg-primary-black relative overflow-hidden">
+        <section className="py-16 bg-charcoal relative overflow-hidden">
             {/* Background Ambience */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[100px]" />

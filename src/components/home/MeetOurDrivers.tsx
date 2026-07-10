@@ -107,10 +107,10 @@ export default function MeetOurDrivers({ lang = 'en' }: Props) {
                 <div className="grid md:grid-cols-3 gap-8">
                     {drivers.map((driver, index) => (
                         <FadeIn key={index} delay={index * 0.1}>
-                            <div className="group relative bg-primary-black border border-white/10 rounded-3xl overflow-hidden hover:border-gold/40 transition-all duration-500">
+                            <div className="group relative bg-charcoal border border-white/10 rounded-3xl overflow-hidden hover:border-gold/40 transition-all duration-500">
                                 {/* Image Area */}
                                 <div className="relative h-80 overflow-hidden bg-neutral-800">
-                                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary-black/90 z-10" />
+                                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-charcoal/90 z-10" />
                                     <div className="w-full h-full flex items-center justify-center bg-neutral-800 group-hover:scale-105 transition-transform duration-700">
                                         <UserCheck size={64} className="text-neutral-700" />
                                     </div>

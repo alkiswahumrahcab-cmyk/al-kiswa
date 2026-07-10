@@ -33,7 +33,7 @@ const features = [
 
 export default function GermanyPilgrimsArabicPage() {
   return (
-    <main className="min-h-screen bg-primary-black text-white pt-24 pb-16 font-arabic" dir="rtl">
+    <main className="min-h-screen bg-charcoal text-white pt-24 pb-16 font-arabic" dir="rtl">
       <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none fixed" />
       <div className="container relative z-10 mx-auto px-4 max-w-5xl">
 

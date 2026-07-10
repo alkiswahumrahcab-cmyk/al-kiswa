@@ -17,7 +17,7 @@ export default function CheckoutHeader({ contactSettings }: CheckoutHeaderProps)
     const whatsappLink = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${whatsappMessage}`;
 
     return (
-        <header className="sticky top-0 z-50 bg-primary-black/95 backdrop-blur-xl border-b border-gold/20 shadow-xl">
+        <header className="sticky top-0 z-50 bg-charcoal/95 backdrop-blur-xl border-b border-gold/20 shadow-xl">
             <div className="container mx-auto px-4 h-20 flex items-center justify-between">
                 
                 {/* Left: Logo & Home Link */}

@@ -7,7 +7,7 @@ import FadeIn from '@/components/common/FadeIn';
 
 export default function SEOContent() {
     return (
-        <section className="py-24 bg-primary-black border-t border-white/5 relative">
+        <section className="py-24 bg-charcoal border-t border-white/5 relative">
             <div className="container mx-auto px-4">
                 <FadeIn>
                     <div className="text-center max-w-4xl mx-auto mb-20">
