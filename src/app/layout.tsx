@@ -1,4 +1,4 @@
-﻿import type { Metadata, Viewport } from "next";
+import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
 import Script from "next/script";
 import { Montserrat, Tajawal, Cormorant_Garamond } from "next/font/google"; // Elegant & Light + Arabic + Display serif
@@ -14,6 +14,7 @@ import { getSettings } from "@/lib/settings-storage";
 
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import HtmlLangUpdater from "@/components/seo/HtmlLangUpdater";
+import FloatingWhatsAppButton from "@/components/chat/FloatingWhatsAppButton";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -255,8 +256,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                   {children}
 
                   {/* Global Widgets */}
-                  {/* FloatingAssistanceButton removed to avoid overlap */}
-
+                  <FloatingWhatsAppButton />
                 </PricingProvider>
               </ThemeProvider>
             </CurrencyProvider>

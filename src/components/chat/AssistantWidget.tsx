@@ -9,10 +9,10 @@
  * The Kiswah aesthetic applied to a chat interface.
  *
  * Shells:
- *   Desktop ≥768px → floating panel, bottom-right, scale+fade open
- *   Mobile  <768px → native bottom-sheet with drag-to-dismiss
+ *   Desktop ≥768px → Right-docked side panel, vertically centered with small insets. Slides in from right.
+ *   Mobile  <768px → Bottom-sheet (drag down to dismiss) + Docked invite bar launcher.
  *
- * All colours from existing Tailwind theme tokens — zero hardcoded hex.
+ * All colours from existing Tailwind theme tokens — zero hardcoded hexes.
  */
 
 import {
@@ -22,7 +22,6 @@ import {
   useCallback,
   useReducer,
   KeyboardEvent,
-  FormEvent,
 } from 'react';
 import {
   AnimatePresence,
@@ -30,13 +29,14 @@ import {
   useMotionValue,
   useTransform,
   PanInfo,
+  useReducedMotion,
 } from 'framer-motion';
 import {
   X,
   Send,
   CheckCircle2,
-  MessageCircle,
   PhoneCall,
+  ArrowRight,
 } from 'lucide-react';
 import Image from 'next/image';
 import { v4 as uuidv4 } from 'uuid';
@@ -46,7 +46,6 @@ import { v4 as uuidv4 } from 'uuid';
 // ─────────────────────────────────────────────────────────────────────────────
 
 const WHATSAPP_URL = 'https://wa.me/966548707332';
-const WHATSAPP_NUM = '+966 54 870 7332';
 
 const QUICK_REPLIES = [
   { label: 'Airport → Makkah price', text: 'What is the price from Jeddah Airport to Makkah?' },
@@ -55,13 +54,12 @@ const QUICK_REPLIES = [
   { label: 'Chat on WhatsApp',       text: '__whatsapp__' },
 ] as const;
 
-// ts is set to Date.now() when loaded into reducer initial state (below)
 const WELCOME_MESSAGE_CONTENT = {
   id:      'welcome',
   role:    'assistant' as const,
   content:
     'As-salamu alaykum wa rahmatullahi wa barakatuh.\n\n' +
-    'I\'m **Sara**, your Al Kiswah journey companion. I can help you with routes and pricing, ' +
+    "I'm **Sara**, your Al Kiswah journey companion. I can help you with routes and pricing, " +
     'Ziyarat site guidance, and booking your transport — all grounded in our real services.\n\n' +
     'How may I assist your Umrah journey today?',
 };
@@ -80,7 +78,6 @@ interface ChatMessage {
 
 type WidgetState = {
   isOpen:         boolean;
-  bubbleDismissed:boolean;
   messages:       ChatMessage[];
   draft:          string;
   isStreaming:    boolean;
@@ -91,7 +88,6 @@ type WidgetState = {
 type WidgetAction =
   | { type: 'OPEN' }
   | { type: 'CLOSE' }
-  | { type: 'DISMISS_BUBBLE' }
   | { type: 'SET_DRAFT'; payload: string }
   | { type: 'SEND_USER'; payload: ChatMessage }
   | { type: 'ADD_ASSISTANT_PLACEHOLDER'; payload: ChatMessage }
@@ -104,11 +100,9 @@ type WidgetAction =
 function reducer(state: WidgetState, action: WidgetAction): WidgetState {
   switch (action.type) {
     case 'OPEN':
-      return { ...state, isOpen: true, bubbleDismissed: true };
+      return { ...state, isOpen: true };
     case 'CLOSE':
       return { ...state, isOpen: false };
-    case 'DISMISS_BUBBLE':
-      return { ...state, bubbleDismissed: true };
     case 'SET_DRAFT':
       return { ...state, draft: action.payload };
     case 'SEND_USER':
@@ -156,27 +150,58 @@ function reducer(state: WidgetState, action: WidgetAction): WidgetState {
 function renderMarkdown(text: string): string {
   return (
     text
-      // Bold
       .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-      // Italic
       .replace(/\*(.+?)\*/g, '<em>$1</em>')
-      // Inline code
       .replace(/`([^`]+)`/g, '<code class="ak-code">$1</code>')
-      // Links
       .replace(
         /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
         '<a href="$2" target="_blank" rel="noopener noreferrer" class="ak-link">$1</a>'
       )
-      // Line breaks
       .replace(/\n/g, '<br />')
   );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Hooks
+// ─────────────────────────────────────────────────────────────────────────────
+
+function useFocusTrap(ref: React.RefObject<HTMLElement | null>, isActive: boolean) {
+  useEffect(() => {
+    if (!isActive || !ref.current) return;
+    
+    const element = ref.current;
+    const focusableElements = element.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+
+    const handleKeyDown = (e: globalThis.KeyboardEvent) => {
+      if (e.key !== 'Tab') return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstFocusable) {
+          lastFocusable.focus();
+          e.preventDefault();
+        }
+      } else {
+        if (document.activeElement === lastFocusable) {
+          firstFocusable.focus();
+          e.preventDefault();
+        }
+      }
+    };
+
+    element.addEventListener('keydown', handleKeyDown);
+    return () => element.removeEventListener('keydown', handleKeyDown);
+  }, [isActive, ref]);
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Sub-components
 // ─────────────────────────────────────────────────────────────────────────────
 
-/** Three-dot typing indicator — slow, calm pulse */
 function TypingDots() {
   return (
     <div className="flex items-center gap-[5px] px-1 py-0.5" aria-label="Typing…">
@@ -194,40 +219,37 @@ function TypingDots() {
   );
 }
 
-/** Gold hairline separator — the Kiswah signature */
 function GoldHairline() {
   return (
     <div className="relative h-px mx-0 flex-shrink-0">
-      {/* Base line */}
+      {/* Base line using theme token with opacity */}
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-gold/60 to-transparent" />
       {/* Central embroidery detail */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-1"
         aria-hidden="true"
       >
-        <span className="block w-6 h-px bg-gold/80" />
-        <span className="block w-1 h-1 rotate-45 border border-gold/80 bg-transparent" />
-        <span className="block w-6 h-px bg-gold/80" />
+        <span className="block w-6 h-px bg-gold" />
+        <span className="block w-1 h-1 rotate-45 border border-gold bg-transparent" />
+        <span className="block w-6 h-px bg-gold" />
       </div>
     </div>
   );
 }
 
-/** Formatted timestamp */
 function Timestamp({ ts }: { ts: number }) {
   const d = new Date(ts);
   const t = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   return (
     <time
       dateTime={d.toISOString()}
-      className="block mt-1 text-[10px] text-n-400 select-none"
+      className="block mt-1 text-[10px] text-muted-foreground select-none"
     >
       {t}
     </time>
   );
 }
 
-/** Individual message bubble */
 function MessageBubble({ msg }: { msg: ChatMessage }) {
   const isUser = msg.role === 'user';
 
@@ -238,7 +260,6 @@ function MessageBubble({ msg }: { msg: ChatMessage }) {
       transition={{ duration: 0.15, ease: 'easeOut' }}
       className={`flex gap-2 ${isUser ? 'justify-end' : 'justify-start'}`}
     >
-      {/* Assistant avatar */}
       {!isUser && (
         <div
           className="w-7 h-7 rounded-full flex-shrink-0 mt-0.5 overflow-hidden
@@ -256,19 +277,16 @@ function MessageBubble({ msg }: { msg: ChatMessage }) {
       )}
 
       <div className={`max-w-[75%] ${isUser ? 'items-end' : 'items-start'} flex flex-col`}>
-        {/* Bubble */}
         <div
           className={`
-            rounded-2xl px-4 py-2.5 text-[14px] leading-[1.65]
+            rounded-2xl px-4 py-2.5 text-[14px] leading-[1.65] shadow-sm
             ${isUser
-              ? 'bg-gold text-charcoal rounded-br-[4px] font-medium shadow-sm'
-              : 'bg-card border border-border text-foreground rounded-bl-[4px] shadow-sm'
+              ? 'bg-gold text-charcoal rounded-br-[4px] font-medium'
+              : 'bg-card border border-border text-foreground rounded-bl-[4px]'
             }
           `}
-          // Announce new assistant messages to screen readers
           {...(!isUser ? { 'aria-live': 'polite' as const, 'aria-atomic': 'true' } : {})}
         >
-          {/* Show typing dots while waiting for first token */}
           {msg.isStreaming && msg.content === '' ? (
             <TypingDots />
           ) : (
@@ -277,10 +295,9 @@ function MessageBubble({ msg }: { msg: ChatMessage }) {
                 className="ak-prose"
                 dangerouslySetInnerHTML={{ __html: renderMarkdown(msg.content) }}
               />
-              {/* Blinking caret while streaming */}
               {msg.isStreaming && msg.content !== '' && (
                 <span
-                  className="inline-block w-[2px] h-[1em] ml-[2px] bg-gold/80 align-middle"
+                  className="inline-block w-[2px] h-[1em] ml-[2px] bg-gold align-middle"
                   style={{ animation: 'ak-caret 1s step-start infinite' }}
                   aria-hidden="true"
                 />
@@ -295,7 +312,7 @@ function MessageBubble({ msg }: { msg: ChatMessage }) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Desktop Panel
+// Desktop Panel (Docked to the right)
 // ─────────────────────────────────────────────────────────────────────────────
 
 interface PanelProps {
@@ -310,6 +327,10 @@ interface PanelProps {
 function DesktopPanel({ state, dispatch, onSend, onClose, messagesEndRef, textareaRef }: PanelProps) {
   const { messages, draft, isStreaming, bookingRef } = state;
   const showQuickReplies = messages.length <= 1 && !isStreaming;
+  const panelRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  useFocusTrap(panelRef, true);
 
   const handleKey = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -326,97 +347,103 @@ function DesktopPanel({ state, dispatch, onSend, onClose, messagesEndRef, textar
   };
 
   return (
-    <motion.div
-      role="dialog"
-      aria-label="Al Kiswah AI assistant"
-      aria-modal="true"
-      key="desktop-panel"
-      initial={{ opacity: 0, scale: 0.94, y: 12, transformOrigin: 'bottom right' }}
-      animate={{ opacity: 1, scale: 1,    y: 0  }}
-      exit={{   opacity: 0, scale: 0.94, y: 12  }}
-      transition={{ type: 'spring', stiffness: 380, damping: 32, mass: 0.8 }}
-      className="
-        w-[400px] flex flex-col overflow-hidden
-        bg-background border border-border
-        rounded-2xl
-        shadow-[0_24px_64px_hsl(var(--charcoal)/0.35),0_0_0_1px_hsl(var(--gold)/0.08)]
-      "
-      style={{ height: '568px' }}
-    >
-      {/* ── Header ── */}
-      <PanelHeader onClose={onClose} />
-
-      {/* ── Gold Hairline ── */}
-      <GoldHairline />
-
-      {/* ── Booking Confirmation ── */}
-      <AnimatePresence>
-        {bookingRef && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{   height: 0, opacity: 0 }}
-            className="overflow-hidden flex-shrink-0"
-          >
-            <BookingBanner ref_={bookingRef} />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* ── Messages ── */}
-      <MessageList
-        messages={messages}
-        isStreaming={isStreaming}
-        messagesEndRef={messagesEndRef}
+    <>
+      {/* Light Scrim */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-[9998] bg-charcoal/30 cursor-default"
+        onClick={onClose}
+        aria-hidden="true"
       />
+      <motion.div
+        ref={panelRef}
+        role="dialog"
+        aria-label="Al Kiswah AI assistant"
+        aria-modal="true"
+        key="desktop-panel"
+        initial={shouldReduceMotion ? { opacity: 0 } : { x: '100%', opacity: 0.5 }}
+        animate={shouldReduceMotion ? { opacity: 1 } : { x: 0, opacity: 1 }}
+        exit={shouldReduceMotion ? { opacity: 0 } : { x: '100%', opacity: 0.5 }}
+        transition={{ type: 'spring', stiffness: 380, damping: 32, mass: 0.8 }}
+        className="
+          fixed top-4 bottom-4 right-4 z-[9999]
+          w-[400px] flex flex-col overflow-hidden
+          bg-background border border-border
+          rounded-2xl
+          shadow-[0_24px_64px_hsl(var(--charcoal)/0.35),0_0_0_1px_hsl(var(--gold)/0.08)]
+        "
+      >
+        <PanelHeader onClose={onClose} />
+        <GoldHairline />
 
-      {/* ── Quick Replies ── */}
-      <AnimatePresence>
-        {showQuickReplies && (
-          <motion.div
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{   opacity: 0 }}
-            className="px-4 pt-2 pb-1 flex flex-wrap gap-1.5 flex-shrink-0 border-t border-border/60"
-          >
-            {QUICK_REPLIES.map((qr) => (
-              <QuickReplyChip
-                key={qr.label}
-                label={qr.label}
-                onSelect={() =>
-                  qr.text === '__whatsapp__'
-                    ? window.open(WHATSAPP_URL, '_blank')
-                    : onSend(qr.text)
-                }
-              />
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+        <AnimatePresence>
+          {bookingRef && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{   height: 0, opacity: 0 }}
+              className="overflow-hidden flex-shrink-0"
+            >
+              <BookingBanner ref_={bookingRef} />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-      {/* ── Input ── */}
-      <InputArea
-          value={draft}
-          onChange={(v) => {
-            dispatch({ type: 'SET_DRAFT', payload: v });
-            autoResize();
-          }}
-          onSend={() => onSend(draft)}
-          onKeyDown={handleKey}
-          disabled={isStreaming}
-          textareaRef={textareaRef}
+        <MessageList
+          messages={messages}
+          isStreaming={isStreaming}
+          messagesEndRef={messagesEndRef}
         />
-    </motion.div>
+
+        <AnimatePresence>
+          {showQuickReplies && (
+            <motion.div
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{   opacity: 0 }}
+              className="px-4 pt-2 pb-1 flex flex-wrap gap-1.5 flex-shrink-0 border-t border-border/60"
+            >
+              {QUICK_REPLIES.map((qr) => (
+                <QuickReplyChip
+                  key={qr.label}
+                  label={qr.label}
+                  onSelect={() =>
+                    qr.text === '__whatsapp__'
+                      ? window.open(WHATSAPP_URL, '_blank')
+                      : onSend(qr.text)
+                  }
+                />
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <InputArea
+            value={draft}
+            onChange={(v) => {
+              dispatch({ type: 'SET_DRAFT', payload: v });
+              autoResize();
+            }}
+            onSend={() => onSend(draft)}
+            onKeyDown={handleKey}
+            disabled={isStreaming}
+            textareaRef={textareaRef}
+          />
+      </motion.div>
+    </>
   );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Mobile Bottom Sheet
+// Mobile Bottom Sheet & Docked Invite Bar
 // ─────────────────────────────────────────────────────────────────────────────
 
 function MobileSheet({ state, dispatch, onSend, onClose, messagesEndRef, textareaRef }: PanelProps) {
   const y = useMotionValue(0);
   const opacity = useTransform(y, [0, 280], [1, 0]);
+  const shouldReduceMotion = useReducedMotion();
 
   const { messages, draft, isStreaming, bookingRef } = state;
   const showQuickReplies = messages.length <= 1 && !isStreaming;
@@ -443,12 +470,11 @@ function MobileSheet({ state, dispatch, onSend, onClose, messagesEndRef, textare
 
   return (
     <>
-      {/* Backdrop */}
       <motion.div
         key="mobile-backdrop"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        exit={{   opacity: 0 }}
+        exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
         className="fixed inset-0 bg-charcoal/60 z-[9998] touch-none"
         style={{ opacity }}
@@ -456,15 +482,14 @@ function MobileSheet({ state, dispatch, onSend, onClose, messagesEndRef, textare
         aria-hidden="true"
       />
 
-      {/* Sheet */}
       <motion.div
         key="mobile-sheet"
         role="dialog"
         aria-label="Al Kiswah AI assistant"
         aria-modal="true"
-        initial={{ y: '100%' }}
-        animate={{ y: 0 }}
-        exit={{   y: '100%' }}
+        initial={shouldReduceMotion ? { opacity: 0 } : { y: '100%' }}
+        animate={shouldReduceMotion ? { opacity: 1 } : { y: 0 }}
+        exit={shouldReduceMotion ? { opacity: 0 } : { y: '100%' }}
         transition={{ type: 'spring', stiffness: 340, damping: 38, mass: 0.9 }}
         drag="y"
         dragConstraints={{ top: 0 }}
@@ -484,18 +509,13 @@ function MobileSheet({ state, dispatch, onSend, onClose, messagesEndRef, textare
           paddingBottom: 'env(safe-area-inset-bottom)',
         }}
       >
-        {/* Drag Handle */}
         <div className="flex-shrink-0 flex justify-center pt-3 pb-2 cursor-grab active:cursor-grabbing touch-none">
           <div className="w-10 h-1 rounded-full bg-border" />
         </div>
 
-        {/* Header */}
         <PanelHeader onClose={onClose} />
-
-        {/* Hairline */}
         <GoldHairline />
 
-        {/* Booking Confirmation */}
         <AnimatePresence>
           {bookingRef && (
             <motion.div
@@ -509,14 +529,12 @@ function MobileSheet({ state, dispatch, onSend, onClose, messagesEndRef, textare
           )}
         </AnimatePresence>
 
-        {/* Messages */}
         <MessageList
           messages={messages}
           isStreaming={isStreaming}
           messagesEndRef={messagesEndRef}
         />
 
-        {/* Quick Replies */}
         <AnimatePresence>
           {showQuickReplies && (
             <motion.div
@@ -540,7 +558,6 @@ function MobileSheet({ state, dispatch, onSend, onClose, messagesEndRef, textare
           )}
         </AnimatePresence>
 
-        {/* Input — sits above keyboard */}
         <InputArea
           value={draft}
           onChange={(v) => {
@@ -565,7 +582,6 @@ function MobileSheet({ state, dispatch, onSend, onClose, messagesEndRef, textare
 function PanelHeader({ onClose }: { onClose: () => void }) {
   return (
     <div className="flex items-center gap-3 px-4 py-3.5 flex-shrink-0 bg-charcoal">
-      {/* Avatar */}
       <div
         className="
           w-10 h-10 rounded-full flex-shrink-0
@@ -584,38 +600,16 @@ function PanelHeader({ onClose }: { onClose: () => void }) {
         />
       </div>
 
-      {/* Identity */}
       <div className="flex-1 min-w-0">
-        <h2 className="text-base leading-tight font-display font-semibold text-gold tracking-wide">
+        <h2 className="text-base leading-tight font-cormorant font-semibold text-gold tracking-wide">
           Sara
         </h2>
-        <p className="text-[11px] text-n-400 tracking-wide flex items-center gap-1.5 mt-0.5">
+        <p className="text-[11px] text-muted-foreground tracking-wide flex items-center gap-1.5 mt-0.5">
           <span className="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" aria-hidden="true" />
           Al Kiswah Umrah Guide
         </p>
       </div>
 
-      {/* WhatsApp shortcut */}
-      <a
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="
-          flex items-center gap-1.5 flex-shrink-0
-          text-[11px] font-semibold uppercase tracking-wider
-          text-n-300 hover:text-gold
-          border border-n-600 hover:border-gold/40
-          px-2.5 py-1.5 rounded-full
-          transition-all duration-200
-          min-h-[36px]
-        "
-        aria-label="Chat on WhatsApp"
-      >
-        <PhoneCall size={12} />
-        <span className="hidden sm:inline">Live Agent</span>
-      </a>
-
-      {/* Close */}
       <button
         onClick={onClose}
         className="
@@ -637,10 +631,10 @@ function PanelHeader({ onClose }: { onClose: () => void }) {
 
 function BookingBanner({ ref_ }: { ref_: string }) {
   return (
-    <div className="flex items-center gap-3 px-4 py-2.5 bg-[hsl(var(--success)/0.08)] border-b border-[hsl(var(--success)/0.2)]">
-      <CheckCircle2 size={16} className="text-[hsl(var(--success))] flex-shrink-0" />
+    <div className="flex items-center gap-3 px-4 py-2.5 bg-green-50/10 border-b border-green-500/20">
+      <CheckCircle2 size={16} className="text-green-500 flex-shrink-0" />
       <div>
-        <p className="text-xs font-semibold text-[hsl(var(--success))]">Booking Confirmed</p>
+        <p className="text-xs font-semibold text-green-500">Booking Confirmed</p>
         <p className="text-[11px] text-muted-foreground">
           Ref: <span className="font-bold text-foreground">{ref_}</span>
           {' '}· Confirmation email sent with PDF receipt
@@ -672,7 +666,6 @@ function MessageList({
         <MessageBubble key={msg.id} msg={msg} />
       ))}
 
-      {/* Pre-stream typing indicator — only before first token arrives */}
       {isStreaming && lastRole === 'user' && (
         <motion.div
           initial={{ opacity: 0, y: 4 }}
@@ -780,27 +773,27 @@ function InputArea({ value, onChange, onSend, onKeyDown, disabled, textareaRef, 
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Launcher
+// Desktop Launcher
 // ─────────────────────────────────────────────────────────────────────────────
 
-function Launcher({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) {
+function DesktopLauncher({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) {
+  const shouldReduceMotion = useReducedMotion();
+  
+  if (isOpen) return null; // Hide launcher when panel is open on desktop
+
   return (
     <div className="relative flex-shrink-0">
-      {/* Slow attention pulse — respects reduced-motion via CSS */}
-      {!isOpen && (
+      {!shouldReduceMotion && (
         <span
-          className="
-            absolute inset-0 rounded-full border border-gold/50
-            ak-launcher-pulse
-          "
+          className="absolute inset-0 rounded-full border border-gold/50 ak-launcher-pulse"
           aria-hidden="true"
         />
       )}
       <motion.button
         onClick={onClick}
         whileHover={{ scale: 1.06 }}
-        whileTap={{   scale: 0.93 }}
-        aria-label={isOpen ? 'Close AI assistant' : 'Open Al Kiswah assistant — Sara your guide'}
+        whileTap={{ scale: 0.93 }}
+        aria-label="Open Al Kiswah assistant — Sara your guide"
         aria-expanded={isOpen}
         aria-haspopup="dialog"
         className="
@@ -815,101 +808,97 @@ function Launcher({ isOpen, onClick }: { isOpen: boolean; onClick: () => void })
           overflow-hidden
         "
       >
-        <AnimatePresence mode="wait">
-          {isOpen ? (
-            <motion.span
-              key="x"
-              initial={{ rotate: -45, opacity: 0 }}
-              animate={{ rotate: 0,   opacity: 1 }}
-              exit={{   rotate:  45, opacity: 0 }}
-              transition={{ duration: 0.16 }}
-              className="text-gold"
-            >
-              <X size={20} strokeWidth={2} />
-            </motion.span>
-          ) : (
-            <motion.span
-              key="icon"
-              initial={{ rotate: 15, opacity: 0, scale: 0.8 }}
-              animate={{ rotate: 0,  opacity: 1, scale: 1   }}
-              exit={{   rotate:-15, opacity: 0, scale: 0.8  }}
-              transition={{ duration: 0.16 }}
-              className="relative w-8 h-8"
-            >
-              <Image
-                src="/icon.svg"
-                alt=""
-                fill
-                sizes="32px"
-                className="object-contain"
-              />
-            </motion.span>
-          )}
-        </AnimatePresence>
+        <motion.span
+          key="icon"
+          initial={{ rotate: 15, opacity: 0, scale: 0.8 }}
+          animate={{ rotate: 0,  opacity: 1, scale: 1   }}
+          exit={{   rotate:-15, opacity: 0, scale: 0.8  }}
+          transition={{ duration: 0.16 }}
+          className="relative w-8 h-8"
+        >
+          <Image
+            src="/icon.svg"
+            alt=""
+            fill
+            sizes="32px"
+            className="object-contain"
+          />
+        </motion.span>
       </motion.button>
     </div>
   );
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// Welcome bubble
+// Mobile Docked Invite Bar
 // ─────────────────────────────────────────────────────────────────────────────
 
-function WelcomeBubble({ onOpen, onDismiss }: { onOpen: () => void; onDismiss: () => void }) {
+function MobileDockedBar({ isOpen, onClick }: { isOpen: boolean; onClick: () => void }) {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+    
+    const handleScroll = () => {
+      setIsScrolled(true);
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        setIsScrolled(false);
+      }, 500); // Expand back after 500ms of no scrolling
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
+  if (isOpen) return null;
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 8, scale: 0.95 }}
-      animate={{ opacity: 1, y: 0, scale: 1   }}
-      exit={{   opacity: 0, y: 8, scale: 0.95 }}
-      transition={{ type: 'spring', stiffness: 320, damping: 28 }}
-      className="
-        relative max-w-[230px] cursor-pointer
-        bg-card border border-border
-        rounded-2xl rounded-br-[4px]
-        shadow-[0_8px_32px_hsl(var(--charcoal)/0.18)]
-        px-4 py-3
-      "
-      onClick={onOpen}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => e.key === 'Enter' && onOpen()}
-      aria-label="Open Al Kiswah AI assistant"
+      layout={!shouldReduceMotion}
+      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+      className={`
+        fixed bottom-5 right-4 z-[9995]
+        bg-charcoal text-white rounded-full
+        border border-gold/30 shadow-[0_4px_24px_hsl(var(--charcoal)/0.4)]
+        overflow-hidden flex items-center
+        ${isScrolled ? 'w-[56px] h-[56px] justify-center' : 'left-4 w-auto px-1.5 py-1.5'}
+      `}
+      style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
     >
-      {/* Dismiss × */}
       <button
-        onClick={(e) => { e.stopPropagation(); onDismiss(); }}
-        className="
-          absolute -top-2 -right-2
-          w-5 h-5 rounded-full
-          bg-card border border-border
-          flex items-center justify-center
-          text-muted-foreground hover:text-foreground
-          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/40
-          transition-colors
-        "
-        aria-label="Dismiss suggestion"
+        onClick={onClick}
+        aria-label="Open Al Kiswah assistant"
+        className="flex items-center w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
       >
-        <X size={10} strokeWidth={2.5} />
+        {/* Avatar */}
+        <div className="w-11 h-11 rounded-full flex-shrink-0 bg-n-800 border border-gold/20 flex items-center justify-center p-1.5">
+          <Image src="/icon.svg" alt="" width={32} height={32} className="object-contain" />
+        </div>
+        
+        {/* Text and arrow (hidden when scrolled) */}
+        <AnimatePresence>
+          {!isScrolled && (
+            <motion.div
+              initial={{ opacity: 0, width: 0 }}
+              animate={{ opacity: 1, width: 'auto' }}
+              exit={{ opacity: 0, width: 0 }}
+              transition={{ duration: 0.2 }}
+              className="flex items-center justify-between flex-1 pl-3 pr-2"
+            >
+              <div className="flex flex-col text-left truncate">
+                <span className="text-[13px] font-semibold text-gold tracking-wide">As-salamu alaykum</span>
+                <span className="text-[11px] text-n-300 truncate opacity-90">Ask about routes or book a car</span>
+              </div>
+              <ArrowRight size={16} className="text-gold ml-2 flex-shrink-0" />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </button>
-
-      {/* Gold left accent bar */}
-      <div className="absolute left-0 top-3 bottom-3 w-[2px] bg-gradient-to-b from-gold/80 to-gold/20 rounded-full" />
-
-      <p className="text-[13px] text-foreground font-medium leading-snug pl-3">
-        Need help planning your Umrah journey?
-      </p>
-      <p className="text-[11px] text-muted-foreground mt-0.5 pl-3">
-        Ask Sara — routes, prices, ziyarat
-      </p>
-
-      {/* Pointer */}
-      <div
-        className="absolute bottom-[-7px] right-5
-          border-l-[7px] border-l-transparent
-          border-r-[7px] border-r-transparent
-          border-t-[7px] border-t-card"
-        aria-hidden="true"
-      />
     </motion.div>
   );
 }
@@ -921,7 +910,6 @@ function WelcomeBubble({ onOpen, onDismiss }: { onOpen: () => void; onDismiss: (
 export default function AssistantWidget() {
   const [state, dispatch] = useReducer(reducer, {
     isOpen:          false,
-    bubbleDismissed: false,
     messages:        [{ ...WELCOME_MESSAGE_CONTENT, ts: Date.now() }],
     draft:           '',
     isStreaming:     false,
@@ -932,12 +920,9 @@ export default function AssistantWidget() {
   const [isMobile, setIsMobile] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const inputRef       = useRef<HTMLTextAreaElement>(null);
   const textareaRef    = useRef<HTMLTextAreaElement>(null);
   const abortRef       = useRef<AbortController | null>(null);
-  const panelRef       = useRef<HTMLDivElement>(null);
 
-  // ── Detect mobile ──────────────────────────────────────────────────────────
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 767px)');
     const update = () => setIsMobile(mq.matches);
@@ -946,7 +931,6 @@ export default function AssistantWidget() {
     return () => mq.removeEventListener('change', update);
   }, []);
 
-  // ── Visual viewport: keep input above keyboard on mobile ──────────────────
   useEffect(() => {
     if (!isMobile) return;
     const setVH = () => {
@@ -962,7 +946,6 @@ export default function AssistantWidget() {
     };
   }, [isMobile]);
 
-  // ── Lock body scroll when sheet is open on mobile ─────────────────────────
   useEffect(() => {
     if (isMobile && state.isOpen) {
       document.body.style.overflow = 'hidden';
@@ -972,12 +955,10 @@ export default function AssistantWidget() {
     return () => { document.body.style.overflow = ''; };
   }, [isMobile, state.isOpen]);
 
-  // ── Auto-scroll ────────────────────────────────────────────────────────────
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [state.messages, state.isStreaming]);
 
-  // ── Focus input on open ────────────────────────────────────────────────────
   useEffect(() => {
     if (state.isOpen) {
       const t = setTimeout(() => textareaRef.current?.focus(), 320);
@@ -985,7 +966,6 @@ export default function AssistantWidget() {
     }
   }, [state.isOpen]);
 
-  // ── Keyboard: Escape closes, click outside closes (desktop) ───────────────
   useEffect(() => {
     if (!state.isOpen) return;
     const onKey = (e: globalThis.KeyboardEvent) => {
@@ -995,22 +975,6 @@ export default function AssistantWidget() {
     return () => window.removeEventListener('keydown', onKey);
   }, [state.isOpen]);
 
-  // Click outside (desktop only)
-  useEffect(() => {
-    if (!state.isOpen || isMobile) return;
-    const onPointer = (e: PointerEvent) => {
-      const panel = document.getElementById('ak-panel');
-      const launcher = document.getElementById('ak-launcher');
-      if (panel && !panel.contains(e.target as Node) &&
-          launcher && !launcher.contains(e.target as Node)) {
-        handleClose();
-      }
-    };
-    window.addEventListener('pointerdown', onPointer, { capture: true });
-    return () => window.removeEventListener('pointerdown', onPointer, { capture: true });
-  }, [state.isOpen, isMobile]);
-
-  // ── Send message ───────────────────────────────────────────────────────────
   const sendMessage = useCallback(async (text: string) => {
     if (!text.trim() || state.isStreaming) return;
 
@@ -1033,7 +997,6 @@ export default function AssistantWidget() {
     dispatch({ type: 'SET_STREAMING', payload: true });
     dispatch({ type: 'ADD_ASSISTANT_PLACEHOLDER', payload: assistantMsg });
 
-    // Build history excluding the empty placeholder
     const history = [...state.messages, userMsg].map((m) => ({
       role:    m.role,
       content: m.content,
@@ -1077,7 +1040,7 @@ export default function AssistantWidget() {
       dispatch({
         type: 'STREAM_ERROR',
         id:   assistantMsgId,
-        error: 'I\'m sorry, a connection issue occurred. Please try again or reach us on WhatsApp.',
+        error: "I'm sorry, a connection issue occurred. Please try again or reach us on WhatsApp.",
       });
     } finally {
       abortRef.current = null;
@@ -1099,12 +1062,8 @@ export default function AssistantWidget() {
     textareaRef,
   };
 
-  const showBubble = !state.isOpen && !state.bubbleDismissed;
-
-  // ── Render ─────────────────────────────────────────────────────────────────
   return (
     <>
-      {/* ── Keyframe styles injected once ── */}
       <style>{`
         @keyframes ak-dot-pulse {
           0%, 80%, 100% { opacity: 0.25; transform: scale(0.85); }
@@ -1145,63 +1104,19 @@ export default function AssistantWidget() {
         .ak-prose em { font-style: italic; }
       `}</style>
 
-      {/* ── Desktop: fixed bottom-right stack ── */}
-      <div
-        className="hidden md:flex fixed bottom-6 right-6 z-[9999] flex-col items-end gap-3"
-        aria-label="Al Kiswah AI assistant"
-      >
-        {/* Welcome bubble */}
+      {/* Desktop Shell (>=768px) */}
+      <div className="hidden md:block" aria-label="Al Kiswah AI assistant">
         <AnimatePresence>
-          {showBubble && (
-            <WelcomeBubble
-              onOpen={handleOpen}
-              onDismiss={() => dispatch({ type: 'DISMISS_BUBBLE' })}
-            />
-          )}
+          {state.isOpen && <DesktopPanel {...sharedProps} />}
         </AnimatePresence>
-
-        {/* Panel */}
-        <AnimatePresence>
-          {state.isOpen && (
-            <div id="ak-panel">
-              <DesktopPanel {...sharedProps} />
-            </div>
-          )}
-        </AnimatePresence>
-
-        {/* Launcher */}
-        <div id="ak-launcher">
-          <Launcher isOpen={state.isOpen} onClick={state.isOpen ? handleClose : handleOpen} />
+        <div className="fixed bottom-6 right-6 z-[9995]">
+          <DesktopLauncher isOpen={state.isOpen} onClick={handleOpen} />
         </div>
       </div>
 
-      {/* ── Mobile: bottom-sheet + launcher ── */}
-      <div
-        className="md:hidden"
-        aria-label="Al Kiswah AI assistant"
-      >
-        {/* Bubble — above the launcher */}
-        <div className="fixed bottom-[88px] right-4 z-[9997]">
-          <AnimatePresence>
-            {showBubble && (
-              <WelcomeBubble
-                onOpen={handleOpen}
-                onDismiss={() => dispatch({ type: 'DISMISS_BUBBLE' })}
-              />
-            )}
-          </AnimatePresence>
-        </div>
-
-        {/* Launcher FAB */}
-        <div
-          className="fixed bottom-5 right-4 z-[9999]"
-          style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
-          id="ak-launcher"
-        >
-          <Launcher isOpen={state.isOpen} onClick={state.isOpen ? handleClose : handleOpen} />
-        </div>
-
-        {/* Bottom sheet */}
+      {/* Mobile Shell (<768px) */}
+      <div className="md:hidden" aria-label="Al Kiswah AI assistant">
+        <MobileDockedBar isOpen={state.isOpen} onClick={handleOpen} />
         <AnimatePresence>
           {state.isOpen && <MobileSheet {...sharedProps} />}
         </AnimatePresence>
