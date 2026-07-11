@@ -45,14 +45,7 @@ import { v4 as uuidv4 } from 'uuid';
 // Constants
 // ─────────────────────────────────────────────────────────────────────────────
 
-const WHATSAPP_URL = 'https://wa.me/966548707332';
 
-const QUICK_REPLIES = [
-  { label: 'Airport → Makkah price', text: 'What is the price from Jeddah Airport to Makkah?' },
-  { label: 'Book a car',             text: 'I would like to book a car for my journey.' },
-  { label: 'Ziyarat tours',          text: 'Tell me about your Makkah and Madinah Ziyarat tours.' },
-  { label: 'Chat on WhatsApp',       text: '__whatsapp__' },
-] as const;
 
 const WELCOME_MESSAGE_CONTENT = {
   id:      'welcome',
@@ -326,7 +319,7 @@ interface PanelProps {
 
 function DesktopPanel({ state, dispatch, onSend, onClose, messagesEndRef, textareaRef }: PanelProps) {
   const { messages, draft, isStreaming, bookingRef } = state;
-  const showQuickReplies = messages.length <= 1 && !isStreaming;
+
   const panelRef = useRef<HTMLDivElement>(null);
   const shouldReduceMotion = useReducedMotion();
 
@@ -397,28 +390,7 @@ function DesktopPanel({ state, dispatch, onSend, onClose, messagesEndRef, textar
           messagesEndRef={messagesEndRef}
         />
 
-        <AnimatePresence>
-          {showQuickReplies && (
-            <motion.div
-              initial={{ opacity: 0, y: 4 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{   opacity: 0 }}
-              className="px-4 pt-2 pb-1 flex flex-wrap gap-1.5 flex-shrink-0 border-t border-border/60"
-            >
-              {QUICK_REPLIES.map((qr) => (
-                <QuickReplyChip
-                  key={qr.label}
-                  label={qr.label}
-                  onSelect={() =>
-                    qr.text === '__whatsapp__'
-                      ? window.open(WHATSAPP_URL, '_blank')
-                      : onSend(qr.text)
-                  }
-                />
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
+
 
         <InputArea
             value={draft}
@@ -446,7 +418,7 @@ function MobileSheet({ state, dispatch, onSend, onClose, messagesEndRef, textare
   const shouldReduceMotion = useReducedMotion();
 
   const { messages, draft, isStreaming, bookingRef } = state;
-  const showQuickReplies = messages.length <= 1 && !isStreaming;
+
 
   const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     if (info.offset.y > 120 || info.velocity.y > 400) {
@@ -535,28 +507,7 @@ function MobileSheet({ state, dispatch, onSend, onClose, messagesEndRef, textare
           messagesEndRef={messagesEndRef}
         />
 
-        <AnimatePresence>
-          {showQuickReplies && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{   opacity: 0 }}
-              className="px-4 pt-2 pb-1 flex flex-wrap gap-2 flex-shrink-0 border-t border-border/60"
-            >
-              {QUICK_REPLIES.map((qr) => (
-                <QuickReplyChip
-                  key={qr.label}
-                  label={qr.label}
-                  onSelect={() =>
-                    qr.text === '__whatsapp__'
-                      ? window.open(WHATSAPP_URL, '_blank')
-                      : onSend(qr.text)
-                  }
-                />
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
+
 
         <InputArea
           value={draft}
@@ -686,26 +637,7 @@ function MessageList({
   );
 }
 
-function QuickReplyChip({ label, onSelect }: { label: string; onSelect: () => void }) {
-  return (
-    <button
-      onClick={onSelect}
-      className="
-        text-[12px] font-medium
-        px-3 py-1.5 rounded-full
-        border border-border text-muted-foreground
-        bg-transparent
-        hover:border-gold/60 hover:text-gold hover:bg-gold/5
-        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50
-        transition-all duration-200
-        min-h-[32px]
-        active:scale-95
-      "
-    >
-      {label}
-    </button>
-  );
-}
+
 
 interface InputAreaProps {
   value:       string;
