@@ -396,7 +396,7 @@ export async function POST(request: NextRequest) {
           // Build the request with streaming
           const response = await anthropic.messages.create({
             model:      'claude-haiku-4-5',
-            max_tokens: 1024,
+            max_tokens: 220,
             system:     systemBlocks as any,
             messages:   currentMessages as any,
             tools:      ASSISTANT_TOOLS as any,

@@ -14,6 +14,7 @@
 
 import dbConnect from '@/lib/mongodb';
 import { Route, RoutePrice } from '@/models';
+import pricingJson from '@/data/pricing.json';
 
 // ---------------------------------------------------------------------------
 // Normalised types (shared between knowledge.ts and route.ts)
@@ -37,6 +38,36 @@ export interface LiveRouteEntry {
 export interface LivePricingData {
   routes: LiveRouteEntry[];
   fetchedAt: number; // ms timestamp
+}
+
+// ---------------------------------------------------------------------------
+// Static Fallback Mapper
+// ---------------------------------------------------------------------------
+function getStaticFallbackRoutes(): LiveRouteEntry[] {
+  return pricingJson.routes.map((r: any) => {
+    let origin = '';
+    let destination = '';
+    const parts = r.name.split(' to ');
+    if (parts.length === 2) {
+      origin = parts[0].trim();
+      destination = parts[1].replace(' and Return', '').trim();
+    } else {
+      origin = r.name;
+      destination = r.name;
+    }
+
+    return {
+      id: r.id,
+      name: r.name,
+      origin,
+      destination,
+      distance: r.distance || '—',
+      duration: r.time || '—',
+      category: 'Intercity',
+      customRates: r.customRates || {},
+      customRatesUSD: {},
+    };
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -96,6 +127,12 @@ async function fetchLivePricing(): Promise<LivePricingData> {
     };
   });
 
+  if (liveRoutes.length === 0) {
+    console.log('[livePricing] source: static-fallback');
+    return { routes: getStaticFallbackRoutes(), fetchedAt: Date.now() };
+  }
+
+  console.log('[livePricing] source: db');
   return { routes: liveRoutes, fetchedAt: Date.now() };
 }
 
@@ -119,7 +156,8 @@ export async function getLivePricing(): Promise<LivePricingData> {
       return _cache;
     }
 
-    // Last resort: return empty so the assistant can fall back gracefully
-    return { routes: [], fetchedAt: Date.now() };
+    // Last resort: return static fallback so the assistant can fall back gracefully
+    console.log('[livePricing] source: static-fallback (DB error)');
+    return { routes: getStaticFallbackRoutes(), fetchedAt: Date.now() };
   }
 }
