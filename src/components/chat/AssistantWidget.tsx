@@ -746,7 +746,7 @@ function DesktopLauncher({ isOpen, onClick }: { isOpen: boolean; onClick: () => 
           animate={{ rotate: 0,  opacity: 1, scale: 1   }}
           exit={{   rotate:-15, opacity: 0, scale: 0.8  }}
           transition={{ duration: 0.16 }}
-          className="relative w-8 h-8"
+          className="relative w-full h-full"
         >
           <Image
             src="/sara-avatar.png"
