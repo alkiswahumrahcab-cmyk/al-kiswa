@@ -353,7 +353,7 @@ function DesktopPanel({ state, dispatch, onSend, onClose, messagesEndRef, textar
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[9998] bg-charcoal/30 cursor-default"
+        className="fixed inset-0 z-[9998] bg-charcoal/15 cursor-default"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -368,11 +368,11 @@ function DesktopPanel({ state, dispatch, onSend, onClose, messagesEndRef, textar
         exit={shouldReduceMotion ? { opacity: 0 } : { x: '100%', opacity: 0.5 }}
         transition={{ type: 'spring', stiffness: 380, damping: 32, mass: 0.8 }}
         className="
-          fixed top-4 bottom-4 right-4 z-[9999]
-          w-[400px] flex flex-col overflow-hidden
-          bg-background border border-border
-          rounded-2xl
-          shadow-[0_24px_64px_hsl(var(--charcoal)/0.35),0_0_0_1px_hsl(var(--gold)/0.08)]
+          fixed top-0 bottom-0 right-0 z-[9999]
+          w-[400px] xl:w-[420px] max-w-[460px] flex flex-col overflow-hidden
+          bg-background border-y-0 border-l border-r-0 border-border
+          rounded-l-2xl
+          shadow-[-8px_0_40px_hsl(var(--charcoal)/0.25),-1px_0_0_hsl(var(--gold)/0.08)]
         "
       >
         <PanelHeader onClose={onClose} />
