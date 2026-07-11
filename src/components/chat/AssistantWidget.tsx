@@ -267,7 +267,7 @@ function MessageBubble({ msg }: { msg: ChatMessage }) {
           aria-hidden="true"
         >
           <Image
-            src="/icon.svg"
+            src="/sara-avatar.png"
             alt=""
             width={28}
             height={28}
@@ -592,7 +592,7 @@ function PanelHeader({ onClose }: { onClose: () => void }) {
         aria-hidden="true"
       >
         <Image
-          src="/icon.svg"
+          src="/sara-avatar.png"
           alt=""
           width={40}
           height={40}
@@ -673,7 +673,7 @@ function MessageList({
           className="flex gap-2 justify-start"
         >
           <div className="w-7 h-7 rounded-full flex-shrink-0 mt-0.5 overflow-hidden border border-gold/25 bg-charcoal">
-            <Image src="/icon.svg" alt="" width={28} height={28} className="w-full h-full object-contain p-1" />
+            <Image src="/sara-avatar.png" alt="" width={28} height={28} className="w-full h-full object-contain p-1" />
           </div>
           <div className="bg-card border border-border rounded-2xl rounded-bl-[4px] px-4 py-3 shadow-sm">
             <TypingDots />
@@ -817,7 +817,7 @@ function DesktopLauncher({ isOpen, onClick }: { isOpen: boolean; onClick: () => 
           className="relative w-8 h-8"
         >
           <Image
-            src="/icon.svg"
+            src="/sara-avatar.png"
             alt=""
             fill
             sizes="32px"
@@ -877,7 +877,7 @@ function MobileDockedBar({ isOpen, onClick }: { isOpen: boolean; onClick: () => 
       >
         {/* Avatar */}
         <div className="w-11 h-11 rounded-full flex-shrink-0 bg-n-800 border border-gold/20 flex items-center justify-center p-1.5">
-          <Image src="/icon.svg" alt="" width={32} height={32} className="object-contain" />
+          <Image src="/sara-avatar.png" alt="" width={32} height={32} className="object-contain" />
         </div>
         
         {/* Text and arrow (hidden when scrolled) */}
