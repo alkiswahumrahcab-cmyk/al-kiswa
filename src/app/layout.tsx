@@ -14,7 +14,6 @@ import { getSettings } from "@/lib/settings-storage";
 
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import HtmlLangUpdater from "@/components/seo/HtmlLangUpdater";
-import FloatingWhatsAppButton from "@/components/chat/FloatingWhatsAppButton";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -256,7 +255,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
                   {children}
 
                   {/* Global Widgets */}
-                  <FloatingWhatsAppButton />
                 </PricingProvider>
               </ThemeProvider>
             </CurrencyProvider>

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import { Mic, X } from 'lucide-react';
@@ -22,7 +22,7 @@ export default function WhatsAppVoiceButton({ phoneNumber = '966570000000' }: Wh
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}`;
 
     return (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 translate-x-3 4xl:translate-x-0">
+        <div className="fixed bottom-6 left-6 z-50 flex flex-col items-start gap-3 -translate-x-3 4xl:translate-x-0">
             {/* Helper Tooltip (Speech Bubble) */}
             <AnimatePresence>
                 {showTooltip && (
@@ -30,14 +30,14 @@ export default function WhatsAppVoiceButton({ phoneNumber = '966570000000' }: Wh
                         initial={{ opacity: 0, y: 10, scale: 0.9 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                        className="bg-white text-black px-4 py-3 rounded-2xl rounded-br-none shadow-xl max-w-[200px] relative border border-n-100 hidden md:block"
+                        className="bg-white text-black px-4 py-3 rounded-2xl rounded-bl-none shadow-xl max-w-[200px] relative border border-n-100 hidden md:block"
                     >
                         <button
                             onClick={(e) => {
                                 e.stopPropagation();
                                 setShowTooltip(false);
                             }}
-                            className="absolute -top-2 -left-2 bg-n-200 rounded-full p-0.5 hover:bg-red-100 hover:text-red-500 transition-colors"
+                            className="absolute -top-2 -right-2 bg-n-200 rounded-full p-0.5 hover:bg-red-100 hover:text-red-500 transition-colors"
                         >
                             <X size={12} />
                         </button>
