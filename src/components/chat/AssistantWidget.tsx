@@ -262,8 +262,8 @@ function MessageBubble({ msg }: { msg: ChatMessage }) {
           <Image
             src="/sara-avatar-v6.png"
             alt=""
-            width={28}
-            height={28}
+            width={56}
+            height={56}
             className="w-full h-full object-cover rounded-full"
           />
         </div>
@@ -545,8 +545,8 @@ function PanelHeader({ onClose }: { onClose: () => void }) {
         <Image
           src="/sara-avatar-v6.png"
           alt=""
-          width={40}
-          height={40}
+          width={80}
+          height={80}
           className="w-full h-full object-cover rounded-full"
         />
       </div>
@@ -624,7 +624,7 @@ function MessageList({
           className="flex gap-2 justify-start"
         >
           <div className="w-7 h-7 rounded-full flex-shrink-0 mt-0.5 overflow-hidden border border-gold/25 bg-charcoal">
-            <Image src="/sara-avatar-v6.png" alt="" width={28} height={28} className="w-full h-full object-cover rounded-full" />
+            <Image src="/sara-avatar-v6.png" alt="" width={56} height={56} className="w-full h-full object-cover rounded-full" />
           </div>
           <div className="bg-card border border-border rounded-2xl rounded-bl-[4px] px-4 py-3 shadow-sm">
             <TypingDots />
@@ -752,7 +752,7 @@ function DesktopLauncher({ isOpen, onClick }: { isOpen: boolean; onClick: () => 
             src="/sara-avatar-v6.png"
             alt=""
             fill
-            sizes="32px"
+            sizes="112px"
             className="object-cover rounded-full"
           />
         </motion.span>
@@ -809,7 +809,7 @@ function MobileDockedBar({ isOpen, onClick }: { isOpen: boolean; onClick: () => 
       >
         {/* Avatar */}
         <div className="w-11 h-11 rounded-full flex-shrink-0 bg-n-800 border border-gold/20 flex items-center justify-center overflow-hidden">
-          <Image src="/sara-avatar-v6.png" alt="" width={32} height={32} className="w-full h-full object-cover rounded-full" />
+          <Image src="/sara-avatar-v6.png" alt="" width={88} height={88} className="w-full h-full object-cover rounded-full" />
         </div>
         
         {/* Text and arrow (hidden when scrolled) */}
