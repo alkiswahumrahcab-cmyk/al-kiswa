@@ -260,7 +260,7 @@ function MessageBubble({ msg }: { msg: ChatMessage }) {
           aria-hidden="true"
         >
           <Image
-            src="/sara-avatar-v4.png"
+            src="/sara-avatar-v5.png"
             alt=""
             width={28}
             height={28}
@@ -543,7 +543,7 @@ function PanelHeader({ onClose }: { onClose: () => void }) {
         aria-hidden="true"
       >
         <Image
-          src="/sara-avatar-v4.png"
+          src="/sara-avatar-v5.png"
           alt=""
           width={40}
           height={40}
@@ -624,7 +624,7 @@ function MessageList({
           className="flex gap-2 justify-start"
         >
           <div className="w-7 h-7 rounded-full flex-shrink-0 mt-0.5 overflow-hidden border border-gold/25 bg-charcoal">
-            <Image src="/sara-avatar-v4.png" alt="" width={28} height={28} className="w-full h-full object-cover rounded-full" />
+            <Image src="/sara-avatar-v5.png" alt="" width={28} height={28} className="w-full h-full object-cover rounded-full" />
           </div>
           <div className="bg-card border border-border rounded-2xl rounded-bl-[4px] px-4 py-3 shadow-sm">
             <TypingDots />
@@ -749,7 +749,7 @@ function DesktopLauncher({ isOpen, onClick }: { isOpen: boolean; onClick: () => 
           className="relative w-full h-full"
         >
           <Image
-            src="/sara-avatar-v4.png"
+            src="/sara-avatar-v5.png"
             alt=""
             fill
             sizes="32px"
@@ -809,7 +809,7 @@ function MobileDockedBar({ isOpen, onClick }: { isOpen: boolean; onClick: () => 
       >
         {/* Avatar */}
         <div className="w-11 h-11 rounded-full flex-shrink-0 bg-n-800 border border-gold/20 flex items-center justify-center overflow-hidden">
-          <Image src="/sara-avatar-v4.png" alt="" width={32} height={32} className="w-full h-full object-cover rounded-full" />
+          <Image src="/sara-avatar-v5.png" alt="" width={32} height={32} className="w-full h-full object-cover rounded-full" />
         </div>
         
         {/* Text and arrow (hidden when scrolled) */}
