@@ -43,7 +43,7 @@ export interface LivePricingData {
 // ---------------------------------------------------------------------------
 // Static Fallback Mapper
 // ---------------------------------------------------------------------------
-function getStaticFallbackRoutes(): LiveRouteEntry[] {
+function staticRoutesFromJson(): LiveRouteEntry[] {
   return pricingJson.routes.map((r: any) => {
     let origin = '';
     let destination = '';
@@ -57,13 +57,13 @@ function getStaticFallbackRoutes(): LiveRouteEntry[] {
     }
 
     return {
-      id: r.id,
+      id: r.id || r.slug,
       name: r.name,
       origin,
       destination,
-      distance: r.distance || '—',
-      duration: r.time || '—',
-      category: 'Intercity',
+      distance: r.distance ?? '—',
+      duration: r.time ?? '—',
+      category: r.category ?? 'Intercity',
       customRates: r.customRates || {},
       customRatesUSD: {},
     };
@@ -127,12 +127,6 @@ async function fetchLivePricing(): Promise<LivePricingData> {
     };
   });
 
-  if (liveRoutes.length === 0) {
-    console.log('[livePricing] source: static-fallback');
-    return { routes: getStaticFallbackRoutes(), fetchedAt: Date.now() };
-  }
-
-  console.log('[livePricing] source: db');
   return { routes: liveRoutes, fetchedAt: Date.now() };
 }
 
@@ -145,7 +139,19 @@ export async function getLivePricing(): Promise<LivePricingData> {
   }
 
   try {
-    _cache = await fetchLivePricing();
+    const result = await fetchLivePricing();
+    
+    // Check if the DB is empty or no valid rates are configured
+    const hasAnyRates = result.routes.some(r => Object.keys(r.customRates).length > 0);
+    
+    if (result.routes.length === 0 || !hasAnyRates) {
+      console.log('[livePricing] source: static-fallback (pricing.json)');
+      _cache = { routes: staticRoutesFromJson(), fetchedAt: Date.now() };
+      return _cache;
+    }
+
+    console.log('[livePricing] source: db');
+    _cache = result;
     return _cache;
   } catch (err) {
     console.error('[livePricing] Failed to fetch live pricing from DB:', err);
@@ -157,7 +163,7 @@ export async function getLivePricing(): Promise<LivePricingData> {
     }
 
     // Last resort: return static fallback so the assistant can fall back gracefully
-    console.log('[livePricing] source: static-fallback (DB error)');
-    return { routes: getStaticFallbackRoutes(), fetchedAt: Date.now() };
+    console.log('[livePricing] source: static-fallback (pricing.json)');
+    return { routes: staticRoutesFromJson(), fetchedAt: Date.now() };
   }
 }

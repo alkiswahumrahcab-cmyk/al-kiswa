@@ -798,7 +798,7 @@ function MobileDockedBar({ isOpen, onClick }: { isOpen: boolean; onClick: () => 
         bg-charcoal text-white rounded-full
         border border-gold/30 shadow-[0_4px_24px_hsl(var(--charcoal)/0.4)]
         overflow-hidden flex items-center
-        ${isScrolled ? 'w-[56px] h-[56px] justify-center' : 'left-4 w-auto px-1.5 py-1.5'}
+        ${isScrolled ? 'w-[56px] h-[56px] justify-center' : 'w-auto px-1.5 py-1.5'}
       `}
       style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
     >
