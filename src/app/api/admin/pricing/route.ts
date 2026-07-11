@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { routeService } from '@/services/routeService';
 import { auditLogService } from '@/services/auditLogService';
 import { requireRole } from '@/lib/server-auth';
+import { clearLivePricingCache } from '@/lib/chat/livePricing';
 
 export async function GET() {
     const user = await requireRole(['ADMIN', 'MANAGER']);
@@ -63,6 +64,10 @@ export async function POST(request: Request) {
         revalidatePath('/admin/pricing');
         // @ts-expect-error: revalidateTag signature mismatch in this next version
         revalidateTag('routes');
+
+        // Immediately clear the AI assistant's live pricing cache so the next
+        // chat request reflects the updated price without waiting for the TTL.
+        clearLivePricingCache();
 
         return NextResponse.json(updatedPrice);
     } catch {
