@@ -271,7 +271,7 @@ function MessageBubble({ msg }: { msg: ChatMessage }) {
             alt=""
             width={28}
             height={28}
-            className="w-full h-full object-contain p-1"
+            className="w-full h-full object-cover rounded-full"
           />
         </div>
       )}
@@ -596,7 +596,7 @@ function PanelHeader({ onClose }: { onClose: () => void }) {
           alt=""
           width={40}
           height={40}
-          className="w-full h-full object-contain p-1.5"
+          className="w-full h-full object-cover rounded-full"
         />
       </div>
 
@@ -673,7 +673,7 @@ function MessageList({
           className="flex gap-2 justify-start"
         >
           <div className="w-7 h-7 rounded-full flex-shrink-0 mt-0.5 overflow-hidden border border-gold/25 bg-charcoal">
-            <Image src="/sara-avatar.png" alt="" width={28} height={28} className="w-full h-full object-contain p-1" />
+            <Image src="/sara-avatar.png" alt="" width={28} height={28} className="w-full h-full object-cover rounded-full" />
           </div>
           <div className="bg-card border border-border rounded-2xl rounded-bl-[4px] px-4 py-3 shadow-sm">
             <TypingDots />
@@ -821,7 +821,7 @@ function DesktopLauncher({ isOpen, onClick }: { isOpen: boolean; onClick: () => 
             alt=""
             fill
             sizes="32px"
-            className="object-contain"
+            className="object-cover rounded-full"
           />
         </motion.span>
       </motion.button>
@@ -876,8 +876,8 @@ function MobileDockedBar({ isOpen, onClick }: { isOpen: boolean; onClick: () => 
         className="flex items-center w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
       >
         {/* Avatar */}
-        <div className="w-11 h-11 rounded-full flex-shrink-0 bg-n-800 border border-gold/20 flex items-center justify-center p-1.5">
-          <Image src="/sara-avatar.png" alt="" width={32} height={32} className="object-contain" />
+        <div className="w-11 h-11 rounded-full flex-shrink-0 bg-n-800 border border-gold/20 flex items-center justify-center overflow-hidden">
+          <Image src="/sara-avatar.png" alt="" width={32} height={32} className="w-full h-full object-cover rounded-full" />
         </div>
         
         {/* Text and arrow (hidden when scrolled) */}
