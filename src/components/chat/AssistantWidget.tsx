@@ -140,18 +140,43 @@ function reducer(state: WidgetState, action: WidgetAction): WidgetState {
 // Markdown renderer — safe minimal subset
 // ─────────────────────────────────────────────────────────────────────────────
 
-function renderMarkdown(text: string): string {
-  return (
-    text
-      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\*(.+?)\*/g, '<em>$1</em>')
-      .replace(/`([^`]+)`/g, '<code class="ak-code">$1</code>')
-      .replace(
-        /\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g,
-        '<a href="$2" target="_blank" rel="noopener noreferrer" class="ak-link">$1</a>'
-      )
-      .replace(/\n/g, '<br />')
-  );
+const tokenRegex = /(\*\*[\s\S]*?\*\*|\*[\s\S]*?\*|`[\s\S]*?`|\[[\s\S]*?\]\(https?:\/\/[^)]+\)|https?:\/\/[a-zA-Z0-9\-._~:/?#\[\]@!$&'+,;=%]+|\n)/g;
+
+function renderMessageNodes(text: string) {
+  const parts = text.split(tokenRegex);
+  return parts.map((part, i) => {
+    if (!part) return null;
+    if (part === '\n') return <br key={i} />;
+    
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    if (part.startsWith('*') && part.endsWith('*')) {
+      return <em key={i}>{part.slice(1, -1)}</em>;
+    }
+    if (part.startsWith('`') && part.endsWith('`')) {
+      return <code key={i} className="ak-code">{part.slice(1, -1)}</code>;
+    }
+    
+    const mdLinkMatch = part.match(/^\[([\s\S]*?)\]\((https?:\/\/[^)]+)\)$/);
+    if (mdLinkMatch) {
+      return (
+        <a key={i} href={mdLinkMatch[2]} target="_blank" rel="noopener noreferrer" className="ak-link break-words">
+          {mdLinkMatch[1]}
+        </a>
+      );
+    }
+    
+    if (part.match(/^https?:\/\/[a-zA-Z0-9\-._~:/?#\[\]@!$&'+,;=%]+$/)) {
+      return (
+        <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="ak-link break-all">
+          {part}
+        </a>
+      );
+    }
+    
+    return <span key={i}>{part}</span>;
+  });
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -284,10 +309,9 @@ function MessageBubble({ msg }: { msg: ChatMessage }) {
             <TypingDots />
           ) : (
             <>
-              <span
-                className="ak-prose"
-                dangerouslySetInnerHTML={{ __html: renderMarkdown(msg.content) }}
-              />
+              <span className="ak-prose">
+                {renderMessageNodes(msg.content)}
+              </span>
               {msg.isStreaming && msg.content !== '' && (
                 <span
                   className="inline-block w-[2px] h-[1em] ml-[2px] bg-gold align-middle"
@@ -929,10 +953,12 @@ export default function AssistantWidget() {
     dispatch({ type: 'SET_STREAMING', payload: true });
     dispatch({ type: 'ADD_ASSISTANT_PLACEHOLDER', payload: assistantMsg });
 
-    const history = [...state.messages, userMsg].map((m) => ({
-      role:    m.role,
-      content: m.content,
-    }));
+    const history = [...state.messages, userMsg]
+      .filter((m) => m.id !== 'welcome')
+      .map((m) => ({
+        role:    m.role,
+        content: m.content,
+      }));
 
     const ctrl = new AbortController();
     abortRef.current = ctrl;
