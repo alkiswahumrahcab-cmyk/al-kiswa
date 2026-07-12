@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import {
@@ -385,7 +385,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                 placeholder="Enter Your Full Name"
                                 value={data.name}
                                 onChange={(e) => { updateData({ name: e.target.value }); clearError('name'); }}
-                                className={`w-full pl-11 pr-4 py-4 bg-white/5 border rounded-2xl outline-none transition-all focus:border-gold focus:bg-white/10 focus:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.1)] text-white placeholder-gray-500 font-medium ${errors.name ? 'border-red-500/50' : 'border-white/10'}`}
+                                className={`w-full pl-11 pr-4 py-4 bg-white/5 border rounded-2xl outline-none transition-all focus:border-gold focus:bg-white/10 focus:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.1)] text-white placeholder-gray-500 font-medium text-base ${errors.name ? 'border-red-500/50' : 'border-white/10'}`}
                             />
                         </div>
                         {errors.name && <p className="text-xs text-red-400 font-semibold ml-1">{errors.name}</p>}
@@ -403,7 +403,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                 placeholder="email@example.com"
                                 value={data.email}
                                 onChange={(e) => { updateData({ email: e.target.value }); clearError('email'); }}
-                                className={`w-full pl-11 pr-4 py-4 bg-white/5 border rounded-2xl outline-none transition-all focus:border-gold focus:bg-white/10 focus:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.1)] text-white placeholder-gray-500 font-medium ${errors.email ? 'border-red-500/50' : 'border-white/10'}`}
+                                className={`w-full pl-11 pr-4 py-4 bg-white/5 border rounded-2xl outline-none transition-all focus:border-gold focus:bg-white/10 focus:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.1)] text-white placeholder-gray-500 font-medium text-base ${errors.email ? 'border-red-500/50' : 'border-white/10'}`}
                             />
                         </div>
                         {errors.email && <p className="text-xs text-red-400 font-semibold ml-1">{errors.email}</p>}
@@ -450,7 +450,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                 placeholder="5xx xxx xxxx"
                                 value={data.phone}
                                 onChange={(e) => { updateData({ phone: e.target.value }); clearError('phone'); }}
-                                className="flex-1 px-3 py-4 bg-transparent outline-none text-white placeholder-gray-500 font-medium"
+                                className="flex-1 px-3 py-4 bg-transparent outline-none text-white placeholder-gray-500 font-medium text-base"
                             />
                         </div>
                         {errors.phone && <p className="text-xs text-red-400 font-semibold ml-1">{errors.phone}</p>}
@@ -467,7 +467,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                                 placeholder="Flight number, special requests..."
                                 value={data.notes}
                                 onChange={(e) => updateData({ notes: e.target.value })}
-                                className="w-full pl-11 pr-4 py-4 bg-white/5 border border-white/10 rounded-2xl outline-none transition-all focus:border-gold focus:bg-white/10 text-white placeholder-gray-500 font-medium min-h-[100px] resize-none"
+                                className="w-full pl-11 pr-4 py-4 bg-white/5 border border-white/10 rounded-2xl outline-none transition-all focus:border-gold focus:bg-white/10 text-white placeholder-gray-500 font-medium text-base min-h-[100px] resize-none"
                             />
                         </div>
                     </div>
@@ -559,7 +559,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                             placeholder="Enter Your Full Name"
                             value={data.name}
                             onChange={(e) => { updateData({ name: e.target.value }); clearError('name'); }}
-                            className={`w-full pl-10 pr-4 py-3.5 bg-white/5 border rounded-xl outline-none transition-all focus:border-gold focus:bg-white/10 text-white placeholder-gray-500 text-sm min-h-[52px] ${errors.name ? 'border-red-500/50' : 'border-white/10'}`}
+                            className={`w-full pl-10 pr-4 py-3.5 bg-white/5 border rounded-xl outline-none transition-all focus:border-gold focus:bg-white/10 text-white placeholder-gray-500 text-base min-h-[52px] ${errors.name ? 'border-red-500/50' : 'border-white/10'}`}
                         />
                     </div>
                     {errors.name && <p className="text-xs text-red-400 font-semibold ml-1">{errors.name}</p>}
@@ -577,7 +577,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                             placeholder="email@example.com"
                             value={data.email}
                             onChange={(e) => { updateData({ email: e.target.value }); clearError('email'); }}
-                            className={`w-full pl-10 pr-4 py-3.5 bg-white/5 border rounded-xl outline-none transition-all focus:border-gold focus:bg-white/10 text-white placeholder-gray-500 text-sm min-h-[52px] ${errors.email ? 'border-red-500/50' : 'border-white/10'}`}
+                            className={`w-full pl-10 pr-4 py-3.5 bg-white/5 border rounded-xl outline-none transition-all focus:border-gold focus:bg-white/10 text-white placeholder-gray-500 text-base min-h-[52px] ${errors.email ? 'border-red-500/50' : 'border-white/10'}`}
                         />
                     </div>
                     {errors.email && <p className="text-xs text-red-400 font-semibold ml-1">{errors.email}</p>}
@@ -626,7 +626,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                             placeholder="5xx xxx xxxx"
                             value={data.phone}
                             onChange={(e) => { updateData({ phone: e.target.value }); clearError('phone'); }}
-                            className="flex-1 px-3 py-3.5 bg-transparent outline-none text-white placeholder-gray-500 text-sm"
+                            className="flex-1 px-3 py-3.5 bg-transparent outline-none text-white placeholder-gray-500 text-base"
                         />
                     </div>
                     {errors.phone && <p className="text-xs text-red-400 font-semibold ml-1">{errors.phone}</p>}
@@ -639,7 +639,7 @@ export default function DetailsStep({ data, updateData, onBack }: DetailsStepPro
                         placeholder="Flight number, special requests..."
                         value={data.notes}
                         onChange={(e) => updateData({ notes: e.target.value })}
-                        className="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-xl outline-none transition-all focus:border-gold focus:bg-white/10 text-white placeholder-gray-500 text-sm min-h-[80px] resize-none"
+                        className="w-full px-4 py-3.5 bg-white/5 border border-white/10 rounded-xl outline-none transition-all focus:border-gold focus:bg-white/10 text-white placeholder-gray-500 text-base min-h-[80px] resize-none"
                     />
                 </div>
 

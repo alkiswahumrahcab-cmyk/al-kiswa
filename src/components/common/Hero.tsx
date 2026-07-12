@@ -278,7 +278,7 @@ const Hero: React.FC<HeroProps> = ({
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
-                            className="mt-12 grid grid-cols-3 gap-8 w-full max-w-2xl glass-panel p-6"
+                            className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-2xl glass-panel p-6"
                         >
                             {stats.map((stat, i) => (
                                 <div key={i} className="flex flex-col gap-1 items-center lg:items-start text-center lg:text-left">

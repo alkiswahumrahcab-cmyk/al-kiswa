@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -305,7 +305,7 @@ export default async function RamadanLandingPage() {
                                     </div>
 
                                     {/* Demand Stats */}
-                                    <div className="grid grid-cols-3 gap-4">
+                                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                                         {[
                                             { label: 'Demand Increase', value: '×3' },
                                             { label: 'Book By', value: '3 Weeks Prior' },

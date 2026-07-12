@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
 import {
@@ -97,7 +97,7 @@ export default function JourneyStep({ data, updateData, onNext }: JourneyStepPro
             </div>
 
             {/* Service Type Selector */}
-            <div className="grid grid-cols-3 gap-2 md:gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
                 {SERVICE_TYPES.map((type) => {
                     const isActive = data.serviceType === type.id;
                     return (

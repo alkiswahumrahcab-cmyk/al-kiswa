@@ -5,10 +5,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Users, Briefcase, ArrowRight, Star } from 'lucide-react';
+import PremiumFleetCard from '../fleet/PremiumFleetCard';
 
 const FLEET_IMAGES = [
     {
-        src: '/images/fleet/camry-hero-professional.webp',
+        src: '/images/fleet/camry-2025.webp',
         alt: 'Toyota Camry 2025 White Studio Shot',
         name: 'Toyota Camry',
         badge: 'Best Value',
@@ -18,7 +19,7 @@ const FLEET_IMAGES = [
         rating: 4.8
     },
     {
-        src: '/images/fleet/gmc-yukon-hero-professional.webp',
+        src: '/images/fleet/gmc-yukon-2025.webp',
         alt: 'GMC Yukon XL 2025 Black Studio Shot',
         name: 'GMC Yukon XL',
         badge: 'VIP Choice',
@@ -28,7 +29,7 @@ const FLEET_IMAGES = [
         rating: 5.0
     },
     {
-        src: '/images/fleet/hiace-hero-professional.webp',
+        src: '/images/fleet/toyota-hiace-2025.webp',
         alt: 'Toyota Hiace High Roof Studio Shot',
         name: 'Toyota Hiace',
         badge: 'Large Groups',
@@ -38,7 +39,7 @@ const FLEET_IMAGES = [
         rating: 4.9
     },
     {
-        src: '/images/fleet/staria-hero-professional.webp',
+        src: '/images/fleet/hyundai-staria-2025.webp',
         alt: 'Hyundai Staria 2025 Studio Shot',
         name: 'Hyundai Staria',
         badge: 'Family Favorite',
@@ -48,7 +49,7 @@ const FLEET_IMAGES = [
         rating: 4.9
     },
     {
-        src: '/images/fleet/starex-hero-professional.webp',
+        src: '/images/fleet/hyundai-h1.webp',
         alt: 'Hyundai H1 Starex Studio Shot',
         name: 'Hyundai H1 Starex',
         badge: 'Comfort',
@@ -73,7 +74,7 @@ export default function FleetGalleryV2() {
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const [isHovered, setIsHovered] = useState(false);
 
-    const displayImages = [...FLEET_IMAGES, ...FLEET_IMAGES];
+    const displayImages = FLEET_IMAGES;
 
     const scroll = (direction: 'left' | 'right') => {
         if (scrollContainerRef.current) {
@@ -151,92 +152,35 @@ export default function FleetGalleryV2() {
 
                 <motion.div
                     ref={scrollContainerRef}
-                    className="flex gap-8 overflow-x-auto px-4 md:px-16 pb-12 cursor-grab active:cursor-grabbing select-none no-scrollbar"
+                    className="flex gap-8 overflow-x-auto px-4 md:px-16 pb-12 cursor-grab active:cursor-grabbing select-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
                     style={{
                         scrollSnapType: 'x mandatory'
                     }}
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
                 >
-                    {displayImages.map((img, idx) => (
-                        <Link
-                            key={`${img.name}-${idx}`}
-                            href={img.url}
-                            className="group relative w-[340px] h-[480px] md:w-[400px] md:h-[520px] shrink-0 scroll-snap-align-start perspective-1000 block"
-                            draggable={false}
-                        >
-                            <article className="w-full h-full relative bg-card border border-border rounded-[2rem] overflow-hidden group hover:border-gold/30 transition-all duration-500 hover:shadow-2xl hover:shadow-gold/5 flex flex-col">
-                                {/* Image Area */}
-                                <div className="relative h-64 overflow-hidden">
-                                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent z-10 opacity-80" />
-                                    <Image
-                                        src={img.src}
-                                        alt={img.alt}
-                                        fill
-                                        className="object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out grayscale-[0.2] group-hover:grayscale-0"
-                                        sizes="(max-width: 768px) 320px, 400px"
-                                        draggable={false}
-                                    />
+                    {displayImages.map((img, idx) => {
+                        const vehicle = {
+                            id: img.url.replace('/fleet/', ''),
+                            name: img.name,
+                            image: img.src,
+                            passengers: parseInt(img.capacity) || 4,
+                            luggage: parseInt(img.luggage) || 2,
+                            features: ["Air Conditioned", "Leather Seats", "Professional Chauffeur", "Free Water", "Airport Meet & Greet"],
+                            price: img.name.includes("Hiace") || img.name.includes("Staria") ? "350" : img.name.includes("Yukon") ? "450" : "220",
+                            category: img.badge,
+                            rating: img.rating
+                        };
 
-                                    {/* Badge */}
-                                    <div className="absolute top-6 left-6 z-20">
-                                        <span className="bg-black/80 backdrop-blur-md border border-white/10 text-white px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest">
-                                            {img.badge}
-                                        </span>
-                                    </div>
-                                </div>
-
-                                {/* Content Area */}
-                                <div className="p-8 flex flex-col flex-1 relative z-10">
-                                    <div className="mb-6">
-                                        <div className="flex justify-between items-start mb-4">
-                                            <div>
-                                                <h3 className="text-2xl font-semibold text-foreground mb-2 font-display group-hover:text-gold transition-colors">{img.name}</h3>
-                                                <div className="flex items-center gap-1">
-                                                    {[1, 2, 3, 4, 5].map((star) => (
-                                                        <Star key={star} size={12} className="fill-gold text-gold" />
-                                                    ))}
-                                                    <span className="text-xs text-muted-foreground font-medium ml-2">({img.rating})</span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {/* Specs - Minimalist Row */}
-                                        <div className="flex items-center gap-6 py-4 border-t border-border border-b">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                                                    <Users size={14} />
-                                                </div>
-                                                <div className="flex flex-col">
-                                                    <span className="text-[10px] uppercase text-muted-foreground font-bold tracking-widest leading-none mb-1">Capacity</span>
-                                                    <span className="text-sm font-bold text-foreground leading-none">{img.capacity}</span>
-                                                </div>
-                                            </div>
-                                            <div className="w-px h-8 bg-border" />
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold">
-                                                    <Briefcase size={14} />
-                                                </div>
-                                                <div className="flex flex-col">
-                                                    <span className="text-[10px] uppercase text-muted-foreground font-bold tracking-widest leading-none mb-1">Luggage</span>
-                                                    <span className="text-sm font-bold text-foreground leading-none">{img.luggage}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div className="mt-auto pt-2 flex items-center justify-between group/btn">
-                                        <span className="font-bold text-xs uppercase tracking-[0.15em] text-gold group-hover:text-foreground transition-colors">
-                                            View Details
-                                        </span>
-                                        <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-all duration-300 transform group-hover:scale-110">
-                                            <ArrowRight size={18} />
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </Link>
-                    ))}
+                        return (
+                            <div 
+                                key={`${img.name}-${idx}`} 
+                                className="shrink-0 scroll-snap-align-start perspective-1000 block h-full flex"
+                            >
+                                <PremiumFleetCard vehicle={vehicle} badgeText={img.badge} reviewCount={112} />
+                            </div>
+                        );
+                    })}
                 </motion.div>
             </div>
         </section>

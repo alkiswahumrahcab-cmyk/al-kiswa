@@ -247,7 +247,7 @@ export default function Navbar() {
                                             <Link
                                                 key={child.href}
                                                 href={child.href}
-                                                className="text-base text-muted-foreground hover:text-gold transition-colors py-1 flex flex-col"
+                                                className="text-base text-muted-foreground hover:text-gold transition-colors py-3 flex flex-col"
                                                 onClick={() => setIsMenuOpen(false)}
                                             >
                                                 <span className="font-medium">{child.label}</span>
