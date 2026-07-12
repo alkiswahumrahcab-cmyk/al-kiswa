@@ -4,24 +4,24 @@
  * Assembles a token-efficient, plain-text knowledge base from real business data.
  * The result is memoized at module level so it stays stable between requests,
  * enabling Anthropic prompt caching (cache_control: ephemeral) to work effectively.
+ *
+ * GUIDE-ONLY MODE: The pricing table has been intentionally removed.
+ * Prices are not quoted in chat — the booking page is the single source of truth
+ * for pricing. Removing the table also eliminates the MongoDB dependency for the bot.
  */
 
-import { getLivePricing, LiveRouteEntry } from './livePricing';
 import settings from '@/data/settings.json';
 import { enFaqs } from '@/data/faqs';
 import { makkahSites, madinahSites, jeddahSites, taifSites } from '@/data/ziyarat-locations';
 import { tourPackages, vehicleLabels } from '@/data/ziyarat-packages';
 
 // ---------------------------------------------------------------------------
-// Types
+// Memoised knowledge base — built once per process lifetime
 // ---------------------------------------------------------------------------
+let _cachedKB: string | null = null;
 
-// ---------------------------------------------------------------------------
-// Note: per-request in-process caching is handled by livePricing.ts (5 min TTL)
-// ---------------------------------------------------------------------------
-
-export async function buildKnowledgeBase(): Promise<string> {
-  const { routes: liveRoutes } = await getLivePricing();
+export function buildKnowledgeBase(): string {
+  if (_cachedKB) return _cachedKB;
 
   const sections: string[] = [];
 
@@ -74,40 +74,7 @@ Features common to all: Air conditioning, USB charging, professional driver.
 Premium (GMC, Staria): Leather seats, dual AC, panoramic windows, extra legroom.
 `.trim());
 
-  // ── 4. Pricing Table (live from MongoDB — matches admin panel) ──────────
-  const vehicleHeaders = ['camry', 'gmc', 'staria', 'starex', 'hiace', 'coaster'];
-  const vehicleDisplayNames: Record<string, string> = {
-    camry:   'Camry',
-    gmc:     'GMC',
-    staria:  'Staria',
-    starex:  'H1/Starex',
-    hiace:   'HiAce',
-    coaster: 'Coaster',
-  };
-
-  const pricingRows = (liveRoutes as LiveRouteEntry[]).map((r) => {
-    const rates = vehicleHeaders
-      .map((v) => {
-        const rate = r.customRates?.[v];
-        return rate != null ? `${rate}` : '—';
-      })
-      .join(' | ');
-    return `| ${r.name} (${r.distance}, ${r.duration}) | ${rates} |`;
-  });
-
-  const vehicleHeaderRow = vehicleHeaders.map((v) => vehicleDisplayNames[v]).join(' | ');
-
-  sections.push(`
-=== PRICING TABLE (all prices in SAR) ===
-| Route (Distance, Est. Time)                       | ${vehicleHeaderRow} |
-|---------------------------------------------------|${vehicleHeaders.map(() => '--------').join('|')}|
-${pricingRows.join('\n')}
-
-NOTE: Hourly rental is per hour; minimum 1 hour. All other prices are fixed per trip.
-Multiple legs/transfers: 5% discount applies automatically when booking 3+ legs.
-`.trim());
-
-  // ── 5. Ziyarat Tours ────────────────────────────────────────────────────
+  // ── 4. Ziyarat Tours ────────────────────────────────────────────────────
   const packageSummaries = tourPackages.map((pkg) => {
     const priceStr = Object.entries(pkg.prices)
       .filter(([k]) => vehicleLabels[k])
@@ -127,7 +94,7 @@ Prices: ${priceStr}`.trim();
 ${packageSummaries.join('\n\n')}
 `.trim());
 
-  // ── 6. Makkah Ziyarat Sites ─────────────────────────────────────────────
+  // ── 5. Makkah Ziyarat Sites ─────────────────────────────────────────────
   const makkahSummary = makkahSites.map(
     (s) => `• ${s.name}: ${s.significance}. Best time: ${s.bestTime}. Accessibility: ${s.accessibility}.`
   );
@@ -137,7 +104,7 @@ ${packageSummaries.join('\n\n')}
 ${makkahSummary.join('\n')}
 `.trim());
 
-  // ── 7. Madinah Ziyarat Sites ────────────────────────────────────────────
+  // ── 6. Madinah Ziyarat Sites ────────────────────────────────────────────
   const madinahSummary = madinahSites.map(
     (s) => `• ${s.name}: ${s.significance}. Best time: ${s.bestTime}. Accessibility: ${s.accessibility}.`
   );
@@ -147,7 +114,7 @@ ${makkahSummary.join('\n')}
 ${madinahSummary.join('\n')}
 `.trim());
 
-  // ── 8. Jeddah & Taif Sites ──────────────────────────────────────────────
+  // ── 7. Jeddah & Taif Sites ──────────────────────────────────────────────
   const jeddahSummary = jeddahSites.map((s) => `• ${s.name}: ${s.significance}.`);
   const taifSummary   = taifSites.map((s)   => `• ${s.name}: ${s.significance}.`);
 
@@ -159,7 +126,7 @@ ${jeddahSummary.join('\n')}
 ${taifSummary.join('\n')}
 `.trim());
 
-  // ── 9. FAQs ─────────────────────────────────────────────────────────────
+  // ── 8. FAQs ─────────────────────────────────────────────────────────────
   const faqText = enFaqs
     .map((faq, i) => `Q${i + 1}: ${faq.question}\nA: ${faq.answer}`)
     .join('\n\n');
@@ -169,7 +136,7 @@ ${taifSummary.join('\n')}
 ${faqText}
 `.trim());
 
-  // ── 10. Booking Policies ────────────────────────────────────────────────
+  // ── 9. Booking Policies ────────────────────────────────────────────────
   sections.push(`
 === BOOKING POLICIES ===
 • Payment: Cash (SAR) to driver on arrival. No upfront payment needed.
@@ -181,5 +148,6 @@ ${faqText}
 • Miqat stop (Madinah to Makkah): Can be arranged. Mention in notes.
 `.trim());
 
-  return sections.join('\n\n' + '─'.repeat(70) + '\n\n');
+  _cachedKB = sections.join('\n\n' + '─'.repeat(70) + '\n\n');
+  return _cachedKB;
 }
