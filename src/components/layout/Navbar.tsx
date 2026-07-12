@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import ThemeLogo from '@/components/common/ThemeLogo';
 
 import { Menu, X, ChevronDown, Phone, Mail, Instagram, Facebook, MessageCircle, Linkedin } from 'lucide-react';
 import { useMenu } from '@/context/MenuContext';
@@ -112,18 +113,7 @@ export default function Navbar() {
             >
                 <div className="container mx-auto px-4 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-3 group relative z-50">
-                    <div className="relative flex items-center">
-                        <div className={`flex flex-col transition-all duration-500`}>
-                            <div className="flex items-center gap-3">
-                                <span className={`font-sans font-bold text-white tracking-wide leading-none transition-all duration-300 ${scrolled ? 'text-xl' : 'text-2xl'}`}>
-                                    Al Kiswah
-                                </span>
-                            </div>
-                            <span className="text-[0.65rem] font-bold text-gold tracking-[0.2em] uppercase leading-none mt-1.5">
-                                Umrah Transport
-                            </span>
-                        </div>
-                    </div>
+                    <ThemeLogo width={160} height={48} priority />
                 </Link>
 
                 {/* Desktop Nav */}
@@ -214,16 +204,7 @@ export default function Navbar() {
                 }`}
         >
                 <div className="flex items-center justify-between p-6 border-b border-white/5">
-                    <div className="flex flex-col gap-1">
-                        <div className="flex items-center gap-3">
-                            <span className="text-xl font-sans font-bold text-white tracking-widest uppercase">
-                                Al Kiswah
-                            </span>
-                        </div>
-                        <span className="text-[0.65rem] font-bold text-gold tracking-[0.2em] uppercase">
-                            Umrah Transport
-                        </span>
-                    </div>
+                    <ThemeLogo width={140} height={40} />
                     <button
                         className="p-2 text-n-400 hover:text-white hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-white/10"
                         onClick={() => setIsMenuOpen(false)}

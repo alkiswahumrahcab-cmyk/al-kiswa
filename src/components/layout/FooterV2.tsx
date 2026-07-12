@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
@@ -6,6 +6,7 @@ import { useSettings } from '@/context/SettingsContext';
 import { regions } from '@/data/regions';
 import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 import NusukFooterSeal from '@/components/trust/NusukFooterSeal';
+import ThemeLogo from '@/components/common/ThemeLogo';
 
 export default function Footer() {
     const { settings } = useSettings();
@@ -84,19 +85,8 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                     {/* Column 1 - Brand Block */}
                     <div className="space-y-6">
-                        <Link href="/" className="inline-block relative group">
-                            <div className="flex flex-col gap-1 mb-2">
-                                <div className="flex items-center gap-3">
-                                    <span className="text-2xl font-sans font-bold text-white tracking-wide uppercase transition-colors group-hover:text-gold">
-                                        Al Kiswah
-                                    </span>
-                                </div>
-                                <div className="flex items-center gap-3">
-                                    <span className="text-[0.7rem] font-bold text-gold tracking-[0.2em] uppercase">
-                                        Umrah Transport
-                                    </span>
-                                </div>
-                            </div>
+                        <Link href="/" className="inline-block relative group mb-4">
+                            <ThemeLogo width={160} height={48} />
                         </Link>
                         <div className="space-y-2">
                             <p className="text-n-300 text-sm leading-relaxed">

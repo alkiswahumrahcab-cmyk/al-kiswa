@@ -11,17 +11,17 @@
     --charcoal:   48 18%  7%;   /* #15140F */
     --ivory:      48 40% 98%;   /* #FDFCF8 */
 
-    /* === NEUTRAL RAMP (warm) === */
-    --n-50:  45 10% 97%;
-    --n-100: 44 8% 92%;
-    --n-200: 43 7% 82%;
-    --n-300: 42 6% 72%;
-    --n-400: 41 5% 58%;
-    --n-500: 40 5% 44%;
-    --n-600: 42 6% 33%;
-    --n-700: 43 7% 23%;
-    --n-800: 45 8% 15%;
-    --n-900: 48 10%  7%;
+    /* === NEUTRAL RAMP (warm) - LIGHT MODE (inverted) === */
+    --n-50:  48 10%  7%;
+    --n-100: 45 8% 15%;
+    --n-200: 43 7% 23%;
+    --n-300: 42 6% 33%;
+    --n-400: 40 5% 44%;
+    --n-500: 41 5% 58%;
+    --n-600: 42 6% 72%;
+    --n-700: 43 7% 82%;
+    --n-800: 44 8% 92%;
+    --n-900: 45 10% 97%;
 
     /* === STATUS === */
     --success:  142 71% 45%;
@@ -58,6 +58,18 @@
   }
 
   .dark {
+    /* === NEUTRAL RAMP (warm) - DARK MODE (original) === */
+    --n-50:  45 10% 97%;
+    --n-100: 44 8% 92%;
+    --n-200: 43 7% 82%;
+    --n-300: 42 6% 72%;
+    --n-400: 41 5% 58%;
+    --n-500: 40 5% 44%;
+    --n-600: 42 6% 33%;
+    --n-700: 43 7% 23%;
+    --n-800: 45 8% 15%;
+    --n-900: 48 10%  7%;
+
     --background:          48 18%  7%;
     --foreground:          46 30% 94%;
     --card:                45 17% 10%;
@@ -94,11 +106,18 @@
     @apply text-foreground;
     background-color: hsl(var(--background));
     background-image:
+      radial-gradient(circle at 15% 50%, hsl(var(--gold-glow) / 0.03), transparent 40%),
+      radial-gradient(circle at 85% 30%, hsl(var(--gold-glow) / 0.05), transparent 40%),
+      radial-gradient(circle at 50% 100%, hsl(var(--gold-glow) / 0.02), transparent 50%);
+    background-attachment: fixed;
+    font-weight: 400;
+  }
+
+  .dark body {
+    background-image:
       radial-gradient(circle at 15% 50%, hsl(var(--gold-glow) / 0.06), transparent 40%),
       radial-gradient(circle at 85% 30%, hsl(var(--gold-glow) / 0.10), transparent 40%),
       radial-gradient(circle at 50% 100%, hsl(var(--gold-glow) / 0.04), transparent 50%);
-    background-attachment: fixed;
-    font-weight: 400;
   }
 
   h1,
