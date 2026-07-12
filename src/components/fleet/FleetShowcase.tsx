@@ -70,7 +70,7 @@ export default function FleetShowcase({ vehicles }: FleetShowcaseProps) {
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
                     <FadeIn>
-                        <h2 className="text-4xl font-bold font-sans text-white mb-4">Our Premium Fleet</h2>
+                        <h2 className="text-4xl font-semibold font-display text-white mb-4">Our Premium Fleet</h2>
                         <p className="text-n-400 text-lg font-light">Choose from our wide range of luxury vehicles</p>
                     </FadeIn>
                 </div>
@@ -99,7 +99,7 @@ export default function FleetShowcase({ vehicles }: FleetShowcaseProps) {
                                         )}
 
                                         <div className="absolute bottom-4 left-4 z-20">
-                                            <h3 className="text-2xl font-bold font-sans text-white drop-shadow-md tracking-wide">{vehicle.name}</h3>
+                                            <h3 className="text-2xl font-semibold font-display text-white drop-shadow-md tracking-wide">{vehicle.name}</h3>
                                         </div>
                                     </div>
 

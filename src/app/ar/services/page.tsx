@@ -134,7 +134,7 @@ export default function ServicesPage() {
             <section className="py-24 relative z-10">
                 <div className="container">
                     <FadeIn>
-                        <h2 className="text-3xl md:text-5xl font-sans font-bold text-center text-white mb-20">
+                        <h2 className="text-3xl md:text-5xl font-display font-semibold text-center text-white mb-20">
                             Our Premium <span className="text-gold">Umrah Services</span>
                         </h2>
                     </FadeIn>
@@ -159,7 +159,7 @@ export default function ServicesPage() {
                                         {/* Content Side */}
                                         <div className={`w-full lg:w-1/2 flex flex-col justify-center ${isImageRight ? 'lg:order-1' : 'lg:order-2'}`}>
                                             <div className="mb-6">
-                                                <h3 className="text-3xl lg:text-4xl font-sans font-bold text-white mb-6 leading-tight group-hover:text-gold transition-colors duration-300">
+                                                <h3 className="text-3xl lg:text-4xl font-display font-semibold text-white mb-6 leading-tight group-hover:text-gold transition-colors duration-300">
                                                     {service.title}
                                                 </h3>
                                                 <div className="h-1.5 w-24 bg-gold rounded-full shadow-[0_0_15px_hsl(var(--gold-glow) / 0.4)]" />
@@ -201,7 +201,7 @@ export default function ServicesPage() {
             <section className="py-24 relative bg-deep-black border-y border-white/5">
                 <div className="container">
                     <FadeIn>
-                        <h2 className="text-3xl md:text-5xl font-sans font-bold text-center text-white mb-20">How It Works</h2>
+                        <h2 className="text-3xl md:text-5xl font-display font-semibold text-center text-white mb-20">How It Works</h2>
                     </FadeIn>
                     <div className="grid md:grid-cols-3 gap-12 relative px-4">
                         {/* Connecting Line (Desktop) */}
@@ -233,7 +233,7 @@ export default function ServicesPage() {
                 <FadeIn>
                     <div className="text-center mb-16">
                         <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm">Our Premium Fleet</span>
-                        <h2 className="text-3xl md:text-5xl font-sans font-bold text-white mt-4">Travel in Style</h2>
+                        <h2 className="text-3xl md:text-5xl font-display font-semibold text-white mt-4">Travel in Style</h2>
                     </div>
                     <Suspense fallback={<div className="h-[400px] w-full bg-white/5 animate-pulse rounded-3xl" />}>
                         <FleetSectionLoader />

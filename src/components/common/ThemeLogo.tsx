@@ -1,8 +1,6 @@
 'use client';
 
-import Image from 'next/image';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import React from 'react';
 
 interface ThemeLogoProps {
   className?: string;
@@ -11,27 +9,19 @@ interface ThemeLogoProps {
   priority?: boolean;
 }
 
-export default function ThemeLogo({ className = "", width = 160, height = 48, priority = false }: ThemeLogoProps) {
-  const { resolvedTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // To prevent hydration mismatch, default to the dark theme logo (logo-light.svg is for dark theme)
-  const logoSrc = mounted && resolvedTheme === 'light' ? '/logo-dark.svg' : '/logo-light.svg';
-
+export default function ThemeLogo({ className = "" }: ThemeLogoProps) {
   return (
-    <div className={`relative flex items-center justify-center ${className}`}>
-      <Image
-        src={logoSrc}
-        alt="Al Kiswah Umrah Transport"
-        width={width}
-        height={height}
-        className="object-contain"
-        priority={priority}
-      />
+    <div className={`flex flex-col gap-1 ${className}`}>
+        <div className="flex items-center gap-3">
+            <span className="text-xl md:text-2xl font-display font-semibold text-foreground tracking-wide uppercase transition-colors hover:text-gold">
+                Al Kiswah
+            </span>
+        </div>
+        <div className="flex items-center gap-3">
+            <span className="text-[0.65rem] md:text-[0.7rem] font-bold text-gold tracking-[0.2em] uppercase leading-none">
+                Umrah Transport
+            </span>
+        </div>
     </div>
   );
 }

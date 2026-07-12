@@ -34,7 +34,7 @@ export default function VehicleCapacityGuide() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
                     <FadeIn>
-                        <h2 className="text-3xl font-bold font-sans mb-4 text-white">Vehicle Capacity Guide</h2>
+                        <h2 className="text-3xl font-semibold font-display mb-4 text-white">Vehicle Capacity Guide</h2>
                         <p className="text-n-400 font-light text-lg">Choose the right vehicle for your group size and luggage.</p>
                     </FadeIn>
                 </div>
@@ -45,7 +45,7 @@ export default function VehicleCapacityGuide() {
                             <div className="w-20 h-20 mx-auto bg-black rounded-full flex items-center justify-center shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)] mb-6 group-hover:scale-110 transition-transform duration-500 border border-gold/20">
                                 {v.icon}
                             </div>
-                            <h3 className="font-bold font-sans text-xl mb-4 text-white group-hover:text-gold transition-colors">{v.name}</h3>
+                            <h3 className="font-semibold font-display text-xl mb-4 text-white group-hover:text-gold transition-colors">{v.name}</h3>
 
                             <div className="space-y-3 mb-6">
                                 <div className="flex items-center justify-center gap-3 text-n-300 bg-white/5 py-3 rounded-xl border border-white/5">

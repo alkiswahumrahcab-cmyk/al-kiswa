@@ -121,7 +121,7 @@ export default async function RamadanLandingPage() {
                             <Moon size={16} fill="currentColor" />
                             <span className="text-sm font-bold uppercase tracking-wider">Ramadan 1447H / 2026</span>
                         </div>
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-sans text-white mb-6 leading-tight">
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold font-display text-white mb-6 leading-tight">
                             Experience a <span className="text-gold">Blessed Journey</span>
                         </h1>
                         <p className="text-xl md:text-2xl text-n-200 max-w-3xl mx-auto mb-10 font-light leading-relaxed">

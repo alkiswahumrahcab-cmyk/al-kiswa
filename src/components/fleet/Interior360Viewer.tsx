@@ -89,7 +89,7 @@ export default function Interior360Viewer({ imageUrl, title = "360° Interior Ex
                         <Rotate3d className="w-4 h-4 text-gold" />
                         <span className="font-sans tracking-wide">Interactive 3D View</span>
                     </div>
-                    <h3 className="text-3xl font-bold text-white drop-shadow-md hidden md:block font-sans">{title}</h3>
+                    <h3 className="text-3xl font-semibold text-white drop-shadow-md hidden md:block font-display">{title}</h3>
                 </div>
                 <button
                     className="pointer-events-auto p-3 bg-black/40 hover:bg-gold hover:text-black backdrop-blur-md rounded-xl text-white transition-all duration-300 border border-white/10 hover:border-gold hover:shadow-[0_0_15px_hsl(var(--gold-glow) / 0.4)]"

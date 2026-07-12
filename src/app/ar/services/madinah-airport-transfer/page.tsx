@@ -105,7 +105,7 @@ export default async function MadinahAirportPage() {
                         <FadeIn>
                             <div>
                                 <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm border-b border-gold/30 pb-2 mb-4 block w-fit">Stress-Free Welcome</span>
-                                <h2 className="text-4xl md:text-5xl font-bold mb-8 font-sans text-white">
+                                <h2 className="text-4xl md:text-5xl font-semibold mb-8 font-display text-white">
                                     Seamless Arrival in <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Madinah</span>
                                 </h2>
                                 <p className="text-n-400 mb-8 leading-relaxed font-light text-lg">
@@ -119,7 +119,7 @@ export default async function MadinahAirportPage() {
                                             <Plane size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-xl mb-2 text-white group-hover:text-gold transition-colors font-sans">Flight Tracking</h4>
+                                            <h4 className="font-semibold text-xl mb-2 text-white group-hover:text-gold transition-colors font-display">Flight Tracking</h4>
                                             <p className="text-sm text-n-400 font-light leading-relaxed">We monitor your flight status to ensure we are there when you land, adjusting for any delays automatically.</p>
                                         </div>
                                     </div>
@@ -128,7 +128,7 @@ export default async function MadinahAirportPage() {
                                             <Hotel size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-xl mb-2 text-white group-hover:text-gold transition-colors font-sans">Hotel Drop-off</h4>
+                                            <h4 className="font-semibold text-xl mb-2 text-white group-hover:text-gold transition-colors font-display">Hotel Drop-off</h4>
                                             <p className="text-sm text-n-400 font-light leading-relaxed">Direct transfer to your hotel lobby in the Markazia District (near Masjid Nabawi) or any other location.</p>
                                         </div>
                                     </div>
@@ -137,7 +137,7 @@ export default async function MadinahAirportPage() {
                                             <Clock size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-xl mb-2 text-white group-hover:text-gold transition-colors font-sans">24/7 Availability</h4>
+                                            <h4 className="font-semibold text-xl mb-2 text-white group-hover:text-gold transition-colors font-display">24/7 Availability</h4>
                                             <p className="text-sm text-n-400 font-light leading-relaxed">Late night or early morning flight? We are always available to serve you at any hour.</p>
                                         </div>
                                     </div>
@@ -156,7 +156,7 @@ export default async function MadinahAirportPage() {
                             <div className="bg-neutral-900/50 p-8 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-md relative overflow-hidden">
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-[80px] pointer-events-none" />
 
-                                <h3 className="text-2xl font-bold mb-8 text-center text-white font-sans">Popular Routes from Madinah Airport</h3>
+                                <h3 className="text-2xl font-semibold mb-8 text-center text-white font-display">Popular Routes from Madinah Airport</h3>
 
                                 <div className="space-y-4 relative z-10">
                                     <div className="flex items-center justify-between p-5 bg-black/40 border border-white/5 rounded-2xl hover:border-gold/30 transition-all group">
@@ -217,7 +217,7 @@ export default async function MadinahAirportPage() {
 
                     <div className="mt-24">
                         <FadeIn>
-                            <h3 className="text-3xl font-bold mb-10 text-center font-sans text-white">Journey to Markazia</h3>
+                            <h3 className="text-3xl font-semibold mb-10 text-center font-display text-white">Journey to Markazia</h3>
                             <RouteVisual
                                 from="Madinah Airport (MED)"
                                 fromLabel="Arrival Terminal"
@@ -237,7 +237,7 @@ export default async function MadinahAirportPage() {
             <section className="py-24 bg-neutral-900/30 border-t border-white/5">
                 <div className="container max-w-4xl mx-auto px-4">
                     <FadeIn>
-                        <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 font-sans text-white">
+                        <h2 className="text-3xl md:text-5xl font-semibold text-center mb-16 font-display text-white">
                             Common <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Questions</span>
                         </h2>
                         <div className="space-y-4">
@@ -245,7 +245,7 @@ export default async function MadinahAirportPage() {
                                 <div key={i} className="group">
                                     <details className="group [&_summary::-webkit-details-marker]:hidden">
                                         <summary className="flex cursor-pointer items-center justify-between gap-1.5 rounded-2xl bg-neutral-900 border border-white/10 p-6 text-white hover:border-gold/50 transition-colors shadow-md">
-                                            <h3 className="font-bold font-sans text-lg group-open:text-gold transition-colors">{faq.question}</h3>
+                                            <h3 className="font-semibold font-display text-lg group-open:text-gold transition-colors">{faq.question}</h3>
                                             <span className="shrink-0 rounded-full bg-white/5 p-1.5 text-n-400 sm:p-3 group-open:bg-gold/10 group-open:text-gold transition-all">
                                                 <ChevronDown size={20} className="group-open:rotate-180 transition-transform duration-300" />
                                             </span>

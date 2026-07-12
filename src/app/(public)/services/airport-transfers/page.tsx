@@ -98,15 +98,15 @@ export default async function AirportTransfersPage() {
                         <div className="p-8 border-b border-white/5 flex flex-col md:flex-row justify-between items-end gap-6 bg-white/5">
                             <div>
                                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Real-time Connections</span>
-                                <h1 className="text-3xl md:text-4xl font-bold font-sans text-white">
+                                <h1 className="text-3xl md:text-4xl font-semibold font-display text-white">
                                     Airport Connectivity Network
                                 </h1>
-                                <p className="text-n-400 mt-3 max-w-xl font-light leading-relaxed">
+                                <p className="text-white/60 mt-3 max-w-xl font-light leading-relaxed">
                                     Visualize your journey from King Abdulaziz International Airport (KAIA).
                                     Select your destination to see route details, estimated time, and instant pricing.
                                 </p>
                             </div>
-                            <div className="flex items-center gap-6 text-xs font-bold text-n-300 uppercase tracking-wider">
+                            <div className="flex items-center gap-6 text-xs font-bold text-white/80 uppercase tracking-wider">
                                 <div className="flex items-center gap-2">
                                     <span className="w-2 h-2 rounded-full bg-gold animate-pulse shadow-[0_0_10px_#D4AF37]" />
                                     Live Flight Tracking
@@ -130,10 +130,10 @@ export default async function AirportTransfersPage() {
                     <FadeIn>
                         <div className="text-center mb-20">
                             <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm border-b border-gold/30 pb-2">Our Commitment</span>
-                            <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-6 font-sans text-white">
+                            <h2 className="text-4xl md:text-5xl font-semibold mt-6 mb-6 font-display text-white">
                                 Why Book Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Airport Transfer?</span>
                             </h2>
-                            <p className="text-n-400 max-w-2xl mx-auto font-light text-lg leading-relaxed">
+                            <p className="text-white/60 max-w-2xl mx-auto font-light text-lg leading-relaxed">
                                 We go beyond just transport. We offer comprehensive service ensuring your peace of mind from the moment you land.
                             </p>
                         </div>
@@ -150,8 +150,8 @@ export default async function AirportTransfersPage() {
                                 <div className="w-20 h-20 mx-auto bg-black/40 rounded-full flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 border border-white/10 shadow-inner group-hover:border-gold/30">
                                     <item.icon size={36} className="text-gold group-hover:text-gold-light transition-colors" />
                                 </div>
-                                <h3 className="font-bold text-xl mb-4 text-white font-sans">{item.title}</h3>
-                                <p className="text-sm text-n-400 leading-relaxed font-light group-hover:text-n-300 transition-colors">
+                                <h3 className="font-semibold text-xl mb-4 text-white font-display">{item.title}</h3>
+                                <p className="text-sm text-white/60 leading-relaxed font-light group-hover:text-white/80 transition-colors">
                                     {item.desc}
                                 </p>
                             </GlassCard>
@@ -165,7 +165,7 @@ export default async function AirportTransfersPage() {
                 <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none" />
                 <div className="container mx-auto px-4 relative z-10">
                     <FadeIn>
-                        <h2 className="text-4xl md:text-5xl font-bold text-center mb-24 font-sans text-white">
+                        <h2 className="text-4xl md:text-5xl font-semibold text-center mb-24 font-display text-white">
                             Seamless Journey in <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">4 Steps</span>
                         </h2>
                         <div className="grid md:grid-cols-4 gap-12 md:gap-8 relative">
@@ -187,8 +187,8 @@ export default async function AirportTransfersPage() {
                                             {idx + 1}
                                         </div>
                                     </div>
-                                    <h3 className="font-bold text-xl mt-8 mb-2 text-white group-hover:text-gold transition-colors font-sans">{step.title}</h3>
-                                    <p className="text-sm text-n-400 font-light max-w-[200px]">{step.desc}</p>
+                                    <h3 className="font-semibold text-xl mt-8 mb-2 text-white group-hover:text-gold transition-colors font-display">{step.title}</h3>
+                                    <p className="text-sm text-white/60 font-light max-w-[200px]">{step.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -201,8 +201,8 @@ export default async function AirportTransfersPage() {
                 <div className="container mx-auto px-4">
                     <FadeIn>
                         <div className="text-center mb-20">
-                            <h2 className="text-4xl md:text-5xl font-bold font-sans mb-6 text-white">Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Vehicle</span></h2>
-                            <p className="text-n-400 text-lg font-light">Select the perfect vehicle for your group size and comfort preferences.</p>
+                            <h2 className="text-4xl md:text-5xl font-semibold font-display mb-6 text-white">Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Vehicle</span></h2>
+                            <p className="text-white/60 text-lg font-light">Select the perfect vehicle for your group size and comfort preferences.</p>
                         </div>
                     </FadeIn>
                     <div className="grid md:grid-cols-3 gap-8">
@@ -220,9 +220,9 @@ export default async function AirportTransfersPage() {
                                     />
                                 </div>
                                 <div className="p-8 flex-1 flex flex-col border-t border-white/5 bg-black/20 backdrop-blur-sm">
-                                    <h3 className="text-2xl font-bold mb-2 text-white font-sans">Standard Sedan</h3>
-                                    <p className="text-n-400 text-sm mb-6 font-light">Perfect for couples or solo travelers with light luggage.</p>
-                                    <ul className="text-sm space-y-4 mb-8 mt-auto text-n-300">
+                                    <h3 className="text-2xl font-semibold mb-2 text-white font-display">Standard Sedan</h3>
+                                    <p className="text-white/60 text-sm mb-6 font-light">Perfect for couples or solo travelers with light luggage.</p>
+                                    <ul className="text-sm space-y-4 mb-8 mt-auto text-white/80">
                                         <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Comfortable for 2-3 Passengers</li>
                                         <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Space for 2 Standard Suitcases</li>
                                     </ul>
@@ -246,8 +246,8 @@ export default async function AirportTransfersPage() {
                                     />
                                 </div>
                                 <div className="p-8 flex-1 flex flex-col border-t border-white/10 bg-black/80 backdrop-blur-md">
-                                    <h3 className="text-2xl font-bold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold font-sans">VIP GMC Yukon</h3>
-                                    <p className="text-n-300 text-sm mb-6 font-light">Luxury and space for families. Travel like a VIP.</p>
+                                    <h3 className="text-2xl font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold font-display">VIP GMC Yukon</h3>
+                                    <p className="text-white/80 text-sm mb-6 font-light">Luxury and space for families. Travel like a VIP.</p>
                                     <ul className="text-sm space-y-4 mb-8 mt-auto text-white">
                                         <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Luxury seating for 7 Passengers</li>
                                         <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Large boot for 5-6 Suitcases</li>
@@ -269,9 +269,9 @@ export default async function AirportTransfersPage() {
                                     />
                                 </div>
                                 <div className="p-8 flex-1 flex flex-col border-t border-white/5 bg-black/20 backdrop-blur-sm">
-                                    <h3 className="text-2xl font-bold mb-2 text-white font-sans">Family Van (Hiace)</h3>
-                                    <p className="text-n-400 text-sm mb-6 font-light">Ideal for large groups or families with extra luggage.</p>
-                                    <ul className="text-sm space-y-4 mb-8 mt-auto text-n-300">
+                                    <h3 className="text-2xl font-semibold mb-2 text-white font-display">Family Van (Hiace)</h3>
+                                    <p className="text-white/60 text-sm mb-6 font-light">Ideal for large groups or families with extra luggage.</p>
+                                    <ul className="text-sm space-y-4 mb-8 mt-auto text-white/80">
                                         <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Spacious for 10 Passengers</li>
                                         <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Capacity for 8-10 Suitcases</li>
                                     </ul>
@@ -289,7 +289,7 @@ export default async function AirportTransfersPage() {
             <section className="py-24 relative z-10 bg-neutral-900/40 border-t border-white/5">
                 <div className="container max-w-4xl mx-auto px-4">
                     <FadeIn>
-                        <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 font-sans text-white">
+                        <h2 className="text-3xl md:text-5xl font-semibold text-center mb-16 font-display text-white">
                             Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Questions</span>
                         </h2>
                         <div className="space-y-6">
@@ -302,11 +302,11 @@ export default async function AirportTransfersPage() {
                                 { q: "Is the price per person or per vehicle?", a: "Our prices are per vehicle, not per person. The price you see is for the entire car including luggage spaces." }
                             ].map((faq, i) => (
                                 <div key={i} className="bg-black/40 border border-white/5 rounded-2xl p-8 hover:border-gold/30 transition-all duration-300 group">
-                                    <h3 className="font-bold text-lg mb-3 text-white flex items-start gap-4 font-sans">
+                                    <h3 className="font-semibold text-lg mb-3 text-white flex items-start gap-4 font-display">
                                         <span className="text-gold mt-1 p-1 bg-gold/10 rounded-full"><ChevronDown size={16} /></span>
                                         {faq.q}
                                     </h3>
-                                    <p className="text-n-400 font-light leading-relaxed pl-10 group-hover:text-n-300 transition-colors">{faq.a}</p>
+                                    <p className="text-white/60 font-light leading-relaxed pl-10 group-hover:text-white/80 transition-colors">{faq.a}</p>
                                 </div>
                             ))}
                         </div>
@@ -318,7 +318,7 @@ export default async function AirportTransfersPage() {
             <section className="py-24 relative overflow-hidden bg-gradient-to-r from-gold via-[#E5B842] to-gold">
                 <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-20 pointer-events-none mix-blend-multiply" />
                 <div className="container relative z-10 text-center">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6 font-sans text-black drop-shadow-sm">
+                    <h2 className="text-3xl md:text-5xl font-semibold mb-6 font-display text-black drop-shadow-sm">
                         Ready for a <span className="text-white drop-shadow-md">Comfortable Journey?</span>
                     </h2>
                     <p className="text-lg md:text-xl mb-12 text-black/80 max-w-2xl mx-auto font-medium">

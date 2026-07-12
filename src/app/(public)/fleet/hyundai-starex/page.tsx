@@ -158,7 +158,7 @@ export default async function HyundaiStarexPage() {
                             </div>
 
                             <div className="mt-10">
-                                <Link href="/booking" className="inline-flex items-center gap-2 bg-n-900 text-white hover:bg-n-800 dark:bg-white dark:text-n-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-teal-500/20">
+                                <Link href="/booking" className="inline-flex items-center gap-2 bg-neutral-900 text-white hover:bg-n-800 dark:bg-white dark:text-n-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-teal-500/20">
                                     Book Hyundai H1 Now <ArrowRight size={20} />
                                 </Link>
                             </div>
@@ -197,7 +197,7 @@ export default async function HyundaiStarexPage() {
             </section>
 
             {/* 360 Interior Preview (Placeholder) */}
-            <section className="py-16 bg-n-900 text-white overflow-hidden relative">
+            <section className="py-16 bg-neutral-900 text-white overflow-hidden relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <span className="text-teal-500 font-bold tracking-widest uppercase text-sm mb-4 block">Budget Friendly Comfort</span>
@@ -208,7 +208,7 @@ export default async function HyundaiStarexPage() {
                             imageUrl="/images/fleet/camry-interior-360.webp"
                             title="Hyundai H1 Starex Interior"
                         /> */}
-                        <div className="w-full h-[400px] flex items-center justify-center bg-n-800 rounded-2xl border border-n-700">
+                        <div className="w-full h-[400px] flex items-center justify-center bg-neutral-800 rounded-2xl border border-white/10">
                             <div className="text-center">
                                 <h3 className="text-2xl font-bold text-white mb-2">360° View Coming Soon</h3>
                                 <p className="text-n-400">We will upload the interior view later.</p>

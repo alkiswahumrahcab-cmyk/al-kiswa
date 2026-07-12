@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 
 import { Clock, ShieldCheck, Globe, Star } from 'lucide-react';
@@ -71,7 +71,7 @@ export default async function ContactPage() {
                             <div key={idx} className="bg-black/60 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/10 text-center transform hover:-translate-y-1 transition-all duration-300 hover:border-gold/30">
                                 <item.icon className="w-8 h-8 mx-auto mb-2 text-gold" />
                                 <h3 className="font-bold text-white text-sm md:text-base">{item.text}</h3>
-                                <p className="text-xs text-n-400 font-arabic">{item.sub}</p>
+                                <p className="text-xs text-white/70 font-arabic">{item.sub}</p>
                             </div>
                         ))}
                     </div>
@@ -108,11 +108,11 @@ export default async function ContactPage() {
                         <FadeIn direction="left" delay={0.3}>
                             <GlassCard className="p-8 md:p-10 border-t-4 border-t-gold bg-black/40 border-white/10">
                                 <div className="mb-8">
-                                    <h2 className="text-3xl font-bold text-white mb-2 font-sans">
+                                    <h2 className="text-3xl font-semibold text-white mb-2 font-display">
                                         Send Us a Message
                                         <span className="block text-xl font-arabic font-normal text-gold mt-1">أرسل لنا رسالة</span>
                                     </h2>
-                                    <p className="text-n-400 font-light">
+                                    <p className="text-white/70 font-light">
                                         Need a custom quote for your Umrah group? Have questions about our GMC Yukon fleet?
                                         Fill out the form below and our team will get back to you within minutes.
                                     </p>

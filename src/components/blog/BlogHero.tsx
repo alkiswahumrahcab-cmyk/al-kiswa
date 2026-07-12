@@ -20,7 +20,7 @@ export default function BlogHero() {
                         <span className="text-gold font-bold uppercase tracking-[0.25em] text-sm md:text-base mb-4 block animate-in fade-in slide-in-from-bottom-4 duration-1000">
                             Knowledge Center | المدونة
                         </span>
-                        <h1 className="text-5xl md:text-7xl font-bold font-sans text-white drop-shadow-2xl leading-[1.1] tracking-tight">
+                        <h1 className="text-5xl md:text-7xl font-semibold font-display text-white drop-shadow-2xl leading-[1.1] tracking-tight">
                             Pilgrim <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-gold-light italic font-serif">Insights</span>
                         </h1>
                     </FadeIn>

@@ -216,10 +216,10 @@ export default async function PricingPage() {
                             <span className="inline-block bg-gold/10 border border-gold/30 text-gold text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
                                 Live Prices — Updated from Admin
                             </span>
-                            <h2 className="text-3xl md:text-5xl font-bold font-sans text-white mb-6">
+                            <h2 className="text-3xl md:text-5xl font-semibold font-display text-white mb-6">
                                 All Routes &amp; <span className="text-gold">Exact Prices</span>
                             </h2>
-                            <p className="text-n-400 max-w-2xl mx-auto">
+                            <p className="text-white/60 max-w-2xl mx-auto">
                                 Prices below are set directly by our team and update in real time.
                                 Every fare includes all taxes, tolls, and fuel — no surprises.
                             </p>
@@ -236,7 +236,7 @@ export default async function PricingPage() {
             {/* ── COMPARE LINK STRIP ──────────────────────────────── */}
             <div className="relative z-10 py-4 border-b border-white/5 bg-white/2">
                 <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-center">
-                    <span className="text-n-400">We supply Kiwi Taxi, Telixo, 5Star &amp; Booking.com. Book direct and save 20–30%.</span>
+                    <span className="text-white/60">We supply Kiwi Taxi, Telixo, 5Star &amp; Booking.com. Book direct and save 20–30%.</span>
                     <Link href="/pricing/compare" className="text-gold font-bold hover:text-white transition-colors whitespace-nowrap">
                         See Full Comparison →
                     </Link>
@@ -264,7 +264,7 @@ export default async function PricingPage() {
                                     <Icon size={32} />
                                 </div>
                                 <h4 className="font-bold text-white">{title}</h4>
-                                <p className="text-xs text-n-400">{sub}</p>
+                                <p className="text-xs text-white/60">{sub}</p>
                             </div>
                         ))}
                     </div>
@@ -278,7 +278,7 @@ export default async function PricingPage() {
                         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
                             <div>
                                 <p className="text-3xl font-black text-white mb-1">10,000+</p>
-                                <p className="text-n-400 text-sm">Pilgrims transported</p>
+                                <p className="text-white/60 text-sm">Pilgrims transported</p>
                             </div>
                             <div className="hidden md:block w-px h-12 bg-white/10" />
                             <div>
@@ -286,17 +286,17 @@ export default async function PricingPage() {
                                     {[...Array(5)].map((_, i) => <Star key={i} size={18} className="text-gold fill-gold" />)}
                                     <span className="text-white font-bold ml-2">5.0</span>
                                 </div>
-                                <p className="text-n-400 text-sm">Google Reviews — Verified</p>
+                                <p className="text-white/60 text-sm">Google Reviews — Verified</p>
                             </div>
                             <div className="hidden md:block w-px h-12 bg-white/10" />
                             <div>
                                 <p className="text-3xl font-black text-white mb-1">0%</p>
-                                <p className="text-n-400 text-sm">Commission. Book direct.</p>
+                                <p className="text-white/60 text-sm">Commission. Book direct.</p>
                             </div>
                             <div className="hidden md:block w-px h-12 bg-white/10" />
                             <div>
                                 <p className="text-3xl font-black text-gold mb-1">SAR · USD</p>
-                                <p className="text-n-400 text-sm">Pay in your currency</p>
+                                <p className="text-white/60 text-sm">Pay in your currency</p>
                             </div>
                         </div>
                     </FadeIn>
@@ -317,7 +317,7 @@ export default async function PricingPage() {
                             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                                 Ready to Book Direct?
                             </h2>
-                            <p className="text-n-400 mb-8 text-lg">
+                            <p className="text-white/60 mb-8 text-lg">
                                 No platform fees. No broker markup. Just a fair price from Saudi Arabia's own Umrah fleet.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">

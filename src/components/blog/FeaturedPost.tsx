@@ -58,7 +58,7 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
                             </span>
                         </div>
 
-                        <h3 className="text-3xl lg:text-5xl font-bold font-sans text-white mb-6 leading-[1.1]">
+                        <h3 className="text-3xl lg:text-5xl font-semibold font-display text-white mb-6 leading-[1.1]">
                             {post.title}
                         </h3>
 

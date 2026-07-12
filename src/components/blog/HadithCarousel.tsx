@@ -48,7 +48,7 @@ export default function HadithCarousel() {
                                 <Moon size={28} className="text-gold" />
                             </div>
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-bold font-sans text-white mb-4">Sayings of Prophet Muhammad <span className="text-gold">(ﷺ)</span></h2>
+                        <h2 className="text-3xl md:text-5xl font-semibold font-display text-white mb-4">Sayings of Prophet Muhammad <span className="text-gold">(ﷺ)</span></h2>
                         <p className="text-n-400 font-light text-lg">Timeless wisdom to guide our character and daily lives.</p>
                     </div>
                 </FadeIn>

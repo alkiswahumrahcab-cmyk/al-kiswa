@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
 import Script from "next/script";
-import { Montserrat, Tajawal, Cormorant_Garamond } from "next/font/google"; // Elegant & Light + Arabic + Display serif
+import { Montserrat, Tajawal, Cormorant_Garamond, Manrope } from "next/font/google"; // Elegant & Light + Arabic + Display serif + Premium Body
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { MenuProvider } from "@/context/MenuContext";
 import { PricingProvider } from '@/context/PricingContext';
@@ -18,6 +18,13 @@ import "./globals.css";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: 'swap',
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   display: 'swap',
@@ -218,7 +225,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         />
         {/* TikTok Pixel Code End */}
       </head>
-      <body className={`${montserrat.variable} ${tajawal.variable} ${cormorant.variable}`}>
+      <body className={`${manrope.variable} ${montserrat.variable} ${tajawal.variable} ${cormorant.variable}`}>
         {settings.general.googleAnalyticsId && (
           <GoogleAnalytics gaId={settings.general.googleAnalyticsId} />
         )}
@@ -229,7 +236,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
               <ThemeProvider
                 attribute="class"
                 defaultTheme="dark"
-                forcedTheme="dark"
                 enableSystem={false}
                 disableTransitionOnChange
               >

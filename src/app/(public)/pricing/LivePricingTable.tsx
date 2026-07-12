@@ -68,7 +68,7 @@ export default async function LivePricingTable({ exchangeRate }: Props) {
 
     if (routesWithPrices.length === 0) {
         return (
-            <div className="text-center py-16 text-n-500">
+            <div className="text-center py-16 text-white/50">
                 <p>Prices are being configured. Please check back shortly or <a href="/booking" className="text-gold underline">get a custom quote</a>.</p>
             </div>
         );

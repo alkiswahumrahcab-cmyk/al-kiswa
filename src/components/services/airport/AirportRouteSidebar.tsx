@@ -23,7 +23,7 @@ export default function AirportRouteSidebar({ routes, activeRouteId, onSelectRou
                     </div>
                     <span className="text-xs font-bold text-gold uppercase tracking-widest">Airport Transfer</span>
                 </div>
-                <h2 className="text-2xl font-bold font-sans text-white">Select Destination</h2>
+                <h2 className="text-2xl font-semibold font-display text-white">Select Destination</h2>
                 <p className="text-n-400 text-sm mt-1 font-light">Reliable pickups from King Abdulaziz Int'l Airport</p>
             </div>
 

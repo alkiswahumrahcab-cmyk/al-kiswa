@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useMemo } from 'react';
 import { curatedTestimonials } from '@/data/testimonials';
@@ -84,11 +84,11 @@ export default function Testimonials() {
                         <span className="text-white text-sm font-semibold tracking-wide">5.0 Google Rating</span>
                     </div>
                     
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-sans text-white mb-6 tracking-tight drop-shadow-xl max-w-4xl">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-display text-white mb-6 tracking-tight drop-shadow-xl max-w-4xl">
                         Trusted by <span className="bg-gradient-to-r from-gold via-gold-light to-gold bg-clip-text text-transparent drop-shadow-[0_0_10px_hsl(var(--gold-glow) / 0.3)]">Pilgrims</span> Worldwide
                     </h2>
                     
-                    <p className="text-lg md:text-xl text-n-400 max-w-3xl mx-auto leading-relaxed font-light">
+                    <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed font-light">
                         Thousands of pilgrims from around the world trust Al Kiswah Umrah Cab for reliable airport transfers, Makkah–Madinah journeys, VIP chauffeur services, and comfortable transportation.
                     </p>
                 </motion.div>
@@ -110,7 +110,7 @@ export default function Testimonials() {
                         <div key={idx} className="glass-panel p-6 flex flex-col items-center justify-center text-center group hover:bg-[#14171c]/80 transition-all duration-300 hover:-translate-y-1">
                             <stat.icon size={28} className="text-gold/70 mb-3 group-hover:text-gold group-hover:scale-110 transition-all duration-300 drop-shadow-[0_0_15px_hsl(var(--gold-glow) / 0.2)]" />
                             <div className="text-3xl md:text-4xl font-bold text-white mb-1 drop-shadow-md">{stat.value}</div>
-                            <div className="text-sm font-medium text-n-400 uppercase tracking-wider">{stat.label}</div>
+                            <div className="text-sm font-medium text-white/70 uppercase tracking-wider">{stat.label}</div>
                         </div>
                     ))}
                 </motion.div>
@@ -124,7 +124,7 @@ export default function Testimonials() {
                             className={`snap-center whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-300 shadow-md ${
                                 activeFilter === filter 
                                 ? "bg-gradient-to-r from-gold to-gold-dark text-black shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] scale-105 font-bold" 
-                                : "glass-button text-n-300 hover:text-white border-white/10"
+                                : "glass-button text-white/80 hover:text-white border-white/10"
                             }`}
                         >
                             {filter}
@@ -171,7 +171,7 @@ export default function Testimonials() {
                                                     {testimonial.name}
                                                     <CheckCircle2 size={16} className="text-blue-400" />
                                                 </div>
-                                                <div className="text-sm font-medium text-n-400">
+                                                <div className="text-sm font-medium text-white/70">
                                                     {testimonial.origin} • Verified Customer
                                                 </div>
                                             </div>
@@ -179,11 +179,11 @@ export default function Testimonials() {
 
                                         {/* Journey Information Chips */}
                                         <div className="flex flex-wrap gap-2 mb-6">
-                                            <div className="flex items-center gap-1.5 px-3 py-1 rounded-md glass-panel !bg-white/5 !border-white/10 text-xs font-medium text-n-300">
+                                            <div className="flex items-center gap-1.5 px-3 py-1 rounded-md glass-panel !bg-white/5 !border-white/10 text-xs font-medium text-white/80">
                                                 <Navigation size={12} className="text-gold" />
                                                 {testimonial.trip}
                                             </div>
-                                            <div className="flex items-center gap-1.5 px-3 py-1 rounded-md glass-panel !bg-white/5 !border-white/10 text-xs font-medium text-n-300">
+                                            <div className="flex items-center gap-1.5 px-3 py-1 rounded-md glass-panel !bg-white/5 !border-white/10 text-xs font-medium text-white/80">
                                                 <Calendar size={12} className="text-gold" />
                                                 {testimonial.date}
                                             </div>
@@ -195,7 +195,7 @@ export default function Testimonials() {
                                                 <Star
                                                     key={i}
                                                     size={18}
-                                                    className={`drop-shadow-sm ${i < testimonial.rating ? "fill-gold text-gold" : "text-n-700"}`}
+                                                    className={`drop-shadow-sm ${i < testimonial.rating ? "fill-gold text-gold" : "text-white/30"}`}
                                                 />
                                             ))}
                                         </div>
@@ -205,7 +205,7 @@ export default function Testimonials() {
 
                                         {/* Review Body */}
                                         <blockquote className="mb-8 flex-1">
-                                            <p className={`text-base md:text-lg font-sans text-n-300 leading-relaxed font-light ${!isExpanded && shouldClamp ? 'line-clamp-4' : ''}`}>
+                                            <p className={`text-base md:text-lg font-sans text-white/80 leading-relaxed font-light ${!isExpanded && shouldClamp ? 'line-clamp-4' : ''}`}>
                                                 {testimonial.story}
                                             </p>
                                             {shouldClamp && (
@@ -219,7 +219,7 @@ export default function Testimonials() {
                                         </blockquote>
 
                                         {/* Footer */}
-                                        <div className="mt-auto pt-5 border-t border-white/10 flex items-center justify-between text-xs text-n-400">
+                                        <div className="mt-auto pt-5 border-t border-white/10 flex items-center justify-between text-xs text-white/70">
                                             <span className="flex items-center gap-1.5"><ShieldCheck size={14} className="text-gold" /> Google Verified</span>
                                             <span>Journey Completed</span>
                                         </div>
@@ -262,7 +262,7 @@ export default function Testimonials() {
                                         ))}
                                     </div>
                                 </div>
-                                <p className="text-n-400 font-medium tracking-wide">Based on 500+ verified reviews</p>
+                                <p className="text-white/70 font-medium tracking-wide">Based on 500+ verified reviews</p>
                             </div>
                         </div>
 

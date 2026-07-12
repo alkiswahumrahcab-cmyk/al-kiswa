@@ -20,20 +20,20 @@ export default function PrivacyPage() {
                 <FadeIn>
                     <div className="bg-neutral-900/90 rounded-3xl shadow-xl p-8 md:p-12 max-w-4xl mx-auto border border-white/10 backdrop-blur-md">
                         <div className="mb-8 pb-8 border-b border-white/10">
-                            <h1 className="text-3xl font-bold font-sans text-white mb-2">Privacy Policy</h1>
+                            <h1 className="text-3xl font-semibold font-display text-white mb-2">Privacy Policy</h1>
                             <p className="text-n-400 text-sm">Last Updated: November 2025</p>
                         </div>
 
                         <div className="space-y-8 text-n-300 leading-relaxed font-light">
                             <section>
-                                <h2 className="text-xl font-bold text-white mb-4 font-sans">1. Introduction</h2>
+                                <h2 className="text-xl font-semibold text-white mb-4 font-display">1. Introduction</h2>
                                 <p>
                                     Welcome to Al Kiswah Umrah Transport. We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you as to how we look after your personal data when you visit our website and tell you about your privacy rights and how the law protects you.
                                 </p>
                             </section>
 
                             <section>
-                                <h2 className="text-xl font-bold text-white mb-4 font-sans">2. Information We Collect</h2>
+                                <h2 className="text-xl font-semibold text-white mb-4 font-display">2. Information We Collect</h2>
                                 <p className="mb-4">
                                     We may collect, use, store and transfer different kinds of personal data about you which we have grouped together follows:
                                 </p>
@@ -46,7 +46,7 @@ export default function PrivacyPage() {
                             </section>
 
                             <section>
-                                <h2 className="text-xl font-bold text-white mb-4 font-sans">3. How We Use Your Information</h2>
+                                <h2 className="text-xl font-semibold text-white mb-4 font-display">3. How We Use Your Information</h2>
                                 <p className="mb-4">
                                     We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:
                                 </p>
@@ -59,14 +59,14 @@ export default function PrivacyPage() {
                             </section>
 
                             <section>
-                                <h2 className="text-xl font-bold text-white mb-4 font-sans">4. Data Security</h2>
+                                <h2 className="text-xl font-semibold text-white mb-4 font-display">4. Data Security</h2>
                                 <p>
                                     We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know.
                                 </p>
                             </section>
 
                             <section>
-                                <h2 className="text-xl font-bold text-white mb-4 font-sans">5. Contact Us</h2>
+                                <h2 className="text-xl font-semibold text-white mb-4 font-display">5. Contact Us</h2>
                                 <p className="mb-6">
                                     If you have any questions about this privacy policy or our privacy practices, please contact us using the details set out below:
                                 </p>

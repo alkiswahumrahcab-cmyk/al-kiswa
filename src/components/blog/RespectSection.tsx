@@ -22,7 +22,7 @@ export default function RespectSection() {
                                 {respectSectionData.verse.reference}
                             </cite>
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-bold font-sans text-white mb-6 leading-tight">{respectSectionData.title}</h2>
+                        <h2 className="text-3xl md:text-5xl font-semibold font-display text-white mb-6 leading-tight">{respectSectionData.title}</h2>
                         <p className="text-lg text-n-400 leading-relaxed max-w-2xl mx-auto font-light">{respectSectionData.intro}</p>
                     </FadeIn>
                 </div>

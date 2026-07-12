@@ -42,7 +42,7 @@ export default function RateBookingPage({ params }: { params: Promise<{ id: stri
                         <CheckCircle size={32} />
                     </div>
                     <h1 className="text-2xl font-bold text-n-800">Thank You!</h1>
-                    <p className="text-n-500">
+                    <p className="text-white/50">
                         Your feedback helps us improve our service. We hope to see you again soon.
                     </p>
                     <Link href="/" className="inline-block mt-4 px-6 py-2 bg-amber-500 text-white rounded-lg hover:bg-amber-600 transition-colors">
@@ -61,7 +61,7 @@ export default function RateBookingPage({ params }: { params: Promise<{ id: stri
                         <Car size={32} />
                     </div>
                     <h1 className="text-2xl font-bold text-n-800">Rate Your Trip</h1>
-                    <p className="text-n-500 mt-2">
+                    <p className="text-white/50 mt-2">
                         How was your experience with Al Kiswah Transport?
                     </p>
                 </div>

@@ -143,7 +143,7 @@ export default async function MakkahMadinahTaxiPage() {
                     <FadeIn>
                         <div className="grid md:grid-cols-2 gap-16 items-center">
                             <div>
-                                <h2 className="text-3xl md:text-5xl font-bold mb-8 font-sans text-white">
+                                <h2 className="text-3xl md:text-5xl font-semibold mb-8 font-display text-white">
                                     Why Choose Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Makkah-Madinah</span> Transfer?
                                 </h2>
                                 <p className="text-n-400 mb-8 leading-relaxed font-light text-lg">
@@ -178,12 +178,12 @@ export default async function MakkahMadinahTaxiPage() {
                             <GlassCard className="p-10 rounded-[2.5rem] bg-neutral-900/40 border border-gold/20 shadow-2xl backdrop-blur-md relative overflow-hidden group hover:border-gold/40 transition-all duration-300">
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full blur-[50px] pointer-events-none" />
 
-                                <h3 className="text-xl font-bold mb-4 flex items-center gap-3 text-white font-sans">
+                                <h3 className="text-xl font-semibold mb-4 flex items-center gap-3 text-white font-display">
                                     <Clock className="text-gold" size={24} /> Average Travel Time
                                 </h3>
-                                <p className="mb-8 text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold font-sans">4 Hours 30 Minutes</p>
+                                <p className="mb-8 text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold font-display">4 Hours 30 Minutes</p>
 
-                                <h3 className="text-xl font-bold mb-4 flex items-center gap-3 text-white font-sans">
+                                <h3 className="text-xl font-semibold mb-4 flex items-center gap-3 text-white font-display">
                                     <MapPin className="text-gold" size={24} /> Route Highlights
                                 </h3>
                                 <div className="space-y-4 text-base text-n-400 font-light">
@@ -205,7 +205,7 @@ export default async function MakkahMadinahTaxiPage() {
                     {/* Route Visualization - NEW */}
                     <div className="mt-24 relative z-10">
                         <FadeIn delay={0.2}>
-                            <h2 className="text-3xl font-bold text-center mb-12 font-sans text-white">Your Journey Map</h2>
+                            <h2 className="text-3xl font-semibold text-center mb-12 font-display text-white">Your Journey Map</h2>
                             <RouteVisual />
                         </FadeIn>
                     </div>
@@ -229,7 +229,7 @@ export default async function MakkahMadinahTaxiPage() {
             <section className="py-24 bg-transparent border-t border-white/5 relative z-10 bg-gradient-to-b from-transparent to-black/80">
                 <div className="container mx-auto px-4 max-w-4xl text-center">
                     <FadeIn delay={0.4}>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white">Compare: Taxi vs. Haramain Train</h2>
+                        <h2 className="text-3xl md:text-4xl font-semibold mb-6 font-display text-white">Compare: Taxi vs. Haramain Train</h2>
                         <p className="text-n-400 mb-10 leading-relaxed font-light text-lg">
                             While the train is fast, a private taxi offers unmatched convenience for families.
                             No need to travel to the station, handle luggage multiple times, or worry about ticket availability.

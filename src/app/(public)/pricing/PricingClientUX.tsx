@@ -125,19 +125,19 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
     const TrustIndicators = () => (
         <div className="flex flex-col gap-3 glass-panel p-5 mt-6">
             <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-2">Why Book Direct?</h4>
-            <div className="flex items-center gap-3 text-sm text-n-300">
+            <div className="flex items-center gap-3 text-sm text-white/80">
                 <CheckCircle2 size={16} className="text-gold shrink-0" />
                 <span>Ministry Licensed</span>
             </div>
-            <div className="flex items-center gap-3 text-sm text-n-300">
+            <div className="flex items-center gap-3 text-sm text-white/80">
                 <CheckCircle2 size={16} className="text-gold shrink-0" />
                 <span>Fixed Pricing</span>
             </div>
-            <div className="flex items-center gap-3 text-sm text-n-300">
+            <div className="flex items-center gap-3 text-sm text-white/80">
                 <CheckCircle2 size={16} className="text-gold shrink-0" />
                 <span>No Hidden Fees</span>
             </div>
-            <div className="flex items-center gap-3 text-sm text-n-300">
+            <div className="flex items-center gap-3 text-sm text-white/80">
                 <CheckCircle2 size={16} className="text-gold shrink-0" />
                 <span>Direct Operator</span>
             </div>
@@ -167,7 +167,7 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                         {searchQuery && (
                             <button 
                                 onClick={() => setSearchQuery("")}
-                                className="absolute inset-y-0 right-0 pr-4 flex items-center text-n-400 hover:text-white"
+                                className="absolute inset-y-0 right-0 pr-4 flex items-center text-white/60 hover:text-white"
                             >
                                 <X size={18} />
                             </button>
@@ -187,7 +187,7 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                                         activeCategory === cat 
                                         ? "bg-gradient-to-r from-gold to-gold-dark text-black shadow-[0_0_15px_hsl(var(--gold-glow) / 0.3)] font-bold" 
-                                        : "glass-button py-2 border-white/10 text-n-300 hover:text-white"
+                                        : "glass-button py-2 border-white/10 text-white/80 hover:text-white"
                                     }`}
                                 >
                                     {cat}
@@ -204,7 +204,7 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
 
                 {/* ── RIGHT COLUMN (Pricing Cards) ── */}
                 <div className="lg:col-span-8 space-y-6">
-                    <div className="flex justify-between items-center text-n-400 text-sm border-b border-white/10 pb-2 mb-4">
+                    <div className="flex justify-between items-center text-white/60 text-sm border-b border-white/10 pb-2 mb-4">
                         <span>Showing {filteredRoutes.length} routes</span>
                         <span>Prices include all taxes</span>
                     </div>
@@ -218,7 +218,7 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                             >
                                 <div className="text-gold/50 mb-4 flex justify-center"><Search size={48} /></div>
                                 <h3 className="text-2xl font-bold text-white mb-2">No Routes Found</h3>
-                                <p className="text-n-400 mb-6">Try adjusting your search or filters.</p>
+                                <p className="text-white/60 mb-6">Try adjusting your search or filters.</p>
                                 <button onClick={() => { setSearchQuery(""); setActiveCategory("All Routes"); }} className="btn-gold">
                                     Clear All Filters
                                 </button>
@@ -263,7 +263,7 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                                                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2 flex items-center gap-2">
                                                     {route.origin} <ArrowRight size={18} className="text-gold" /> {route.destination}
                                                 </h3>
-                                                <div className="flex flex-wrap gap-3 text-xs md:text-sm text-n-400">
+                                                <div className="flex flex-wrap gap-3 text-xs md:text-sm text-white/60">
                                                     {route.distance && (
                                                         <span className="flex items-center gap-1 bg-white/5 px-2 py-1 rounded-md">
                                                             <MapPin size={14} className="text-gold" /> {route.distance} km
@@ -279,10 +279,10 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
 
                                             <div className="flex flex-row md:flex-col items-center md:items-end justify-between md:justify-center border-t md:border-t-0 border-white/10 pt-4 md:pt-0">
                                                 <div className="text-left md:text-right">
-                                                    <p className="text-[10px] md:text-xs text-n-500 uppercase tracking-wider mb-0.5">From</p>
+                                                    <p className="text-[10px] md:text-xs text-white/50 uppercase tracking-wider mb-0.5">From</p>
                                                     <div className="flex items-baseline gap-1">
                                                         <span className="text-2xl md:text-3xl font-black text-gold">{formatSAR(lowestPrice)}</span>
-                                                        <span className="text-sm font-bold text-n-400">SAR</span>
+                                                        <span className="text-sm font-bold text-white/60">SAR</span>
                                                     </div>
                                                 </div>
                                                 
@@ -305,7 +305,7 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                                         {/* Desktop Expansion Toggle (Optional on mobile since they have Compare drawer) */}
                                         <button 
                                             onClick={() => toggleExpand(route.id)}
-                                            className="w-full py-2 bg-white/5 hover:bg-white/10 border-t border-white/10 flex items-center justify-center gap-2 text-xs font-semibold text-n-300 uppercase tracking-wider transition-colors focus:outline-none"
+                                            className="w-full py-2 bg-white/5 hover:bg-white/10 border-t border-white/10 flex items-center justify-center gap-2 text-xs font-semibold text-white/80 uppercase tracking-wider transition-colors focus:outline-none"
                                         >
                                             {isExpanded ? (
                                                 <><ChevronUp size={16} /> Hide Details</>
@@ -326,13 +326,13 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                                                     <div className="p-5 md:p-6 grid md:grid-cols-2 gap-6">
                                                         {/* Vehicle List */}
                                                         <div>
-                                                            <h5 className="text-xs text-n-500 uppercase font-bold mb-3">Vehicle Classes</h5>
+                                                            <h5 className="text-xs text-white/50 uppercase font-bold mb-3">Vehicle Classes</h5>
                                                             <div className="space-y-2">
                                                                 {priceRows.map((row: any, i: number) => row && (
                                                                     <div key={i} className="flex items-center justify-between p-3 rounded-lg bg-white/5 border border-white/10 hover:border-gold/30 transition-colors">
                                                                         <div>
                                                                             <span className="text-white font-medium text-sm block">{row.label}</span>
-                                                                            <span className="text-n-500 text-[10px]">{row.pax} • {row.bags}</span>
+                                                                            <span className="text-white/50 text-[10px]">{row.pax} • {row.bags}</span>
                                                                         </div>
                                                                         <div className="text-right">
                                                                             <span className="text-white font-bold">{formatSAR(row.priceSAR)}</span>
@@ -345,7 +345,7 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
 
                                                         {/* Included Services (Icon Chips) */}
                                                         <div>
-                                                            <h5 className="text-xs text-n-500 uppercase font-bold mb-3">Included Services</h5>
+                                                            <h5 className="text-xs text-white/50 uppercase font-bold mb-3">Included Services</h5>
                                                             <div className="flex flex-wrap gap-2">
                                                                 {features.map((f, i) => (
                                                                     <div key={i} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/20 text-gold-light text-xs font-medium">
@@ -424,15 +424,15 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                                                     {display.label}
                                                     {display.badge && <span className="bg-gold text-black text-[9px] px-1.5 py-0.5 rounded-full uppercase tracking-wider">{display.badge}</span>}
                                                 </div>
-                                                <div className="text-xs text-n-400 mt-1 flex gap-2">
-                                                    <span className="flex items-center gap-1"><Users size={12} className="text-n-500" /> {display.pax}</span>
-                                                    <span className="flex items-center gap-1"><Luggage size={12} className="text-n-500" /> {display.bags}</span>
+                                                <div className="text-xs text-white/60 mt-1 flex gap-2">
+                                                    <span className="flex items-center gap-1"><Users size={12} className="text-white/50" /> {display.pax}</span>
+                                                    <span className="flex items-center gap-1"><Luggage size={12} className="text-white/50" /> {display.bags}</span>
                                                 </div>
                                             </div>
                                             <div className="text-right flex flex-col items-end">
                                                 <div className="flex items-baseline gap-1">
                                                     <span className="text-xl font-black text-gold">{formatSAR(p.price)}</span>
-                                                    <span className="text-xs font-bold text-n-400">SAR</span>
+                                                    <span className="text-xs font-bold text-white/60">SAR</span>
                                                 </div>
                                                 <Link 
                                                     href={`/booking?route=${compareDrawerRoute.id}&vehicle=${p.vehicleId}`}

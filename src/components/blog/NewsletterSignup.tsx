@@ -54,7 +54,7 @@ export default function NewsletterSignup() {
                                     <Bell size={14} />
                                     <span>Stay Updated</span>
                                 </div>
-                                <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-sans">
+                                <h2 className="text-3xl md:text-5xl font-semibold text-white mb-6 font-display">
                                     Join Our Community
                                 </h2>
                                 <p className="text-n-400 text-lg leading-relaxed max-w-xl font-light">
@@ -71,7 +71,7 @@ export default function NewsletterSignup() {
                                         <div className="w-14 h-14 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4 text-green-400 border border-green-500/30">
                                             <CheckCircle size={28} />
                                         </div>
-                                        <h3 className="text-2xl font-bold text-white mb-2 font-sans">Subscribed!</h3>
+                                        <h3 className="text-2xl font-semibold text-white mb-2 font-display">Subscribed!</h3>
                                         <p className="text-green-300/80 text-sm">Thank you for joining our newsletter.</p>
                                         <button
                                             onClick={() => setStatus('idle')}

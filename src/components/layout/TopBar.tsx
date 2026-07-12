@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Phone, Facebook, Instagram, Twitter, Linkedin, Mail } from 'lucide-react';
 
 import { getSettings } from '@/lib/settings-storage';
@@ -19,7 +19,7 @@ const TopBar = async () => {
     // }
 
     return (
-        <div className="hidden lg:block bg-charcoal text-n-300 border-b border-white/5 relative z-50">
+        <div className="hidden lg:block bg-background text-muted-foreground border-b border-border relative z-50">
             <div className="container mx-auto px-4 h-12 flex justify-between items-center text-xs font-medium tracking-wide">
 
                 {/* Left Side: Contact Info */}
@@ -29,13 +29,13 @@ const TopBar = async () => {
                             href={`mailto:${contact.email}`}
                             className="flex items-center gap-2 group transition-colors duration-300"
                         >
-                            <div className="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-gold transition-colors duration-300">
-                                <Mail size={12} className="text-gold group-hover:text-black transition-colors duration-300" />
+                            <div className="w-6 h-6 rounded-full bg-foreground/5 flex items-center justify-center group-hover:bg-gold transition-colors duration-300">
+                                <Mail size={12} className="text-gold group-hover:text-primary-foreground transition-colors duration-300" />
                             </div>
-                            <span className="group-hover:text-white transition-colors duration-300">{contact.email}</span>
+                            <span className="group-hover:text-foreground transition-colors duration-300">{contact.email}</span>
                         </a>
                     )}
-                    <div className="h-4 w-px bg-white/10" />
+                    <div className="h-4 w-px bg-border" />
                     {contact.phone && (
                         <a
                             href={`https://wa.me/${contact.phone.replace(/\D/g, '')}`}
@@ -43,25 +43,25 @@ const TopBar = async () => {
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 group transition-colors duration-300"
                         >
-                            <div className="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#25D366] transition-colors duration-300">
+                            <div className="w-6 h-6 rounded-full bg-foreground/5 flex items-center justify-center group-hover:bg-[#25D366] transition-colors duration-300">
                                 <Phone size={12} className="text-gold group-hover:text-white transition-colors duration-300" />
                             </div>
-                            <span className="group-hover:text-white transition-colors duration-300">{contact.phone}</span>
+                            <span className="group-hover:text-foreground transition-colors duration-300">{contact.phone}</span>
                         </a>
                     )}
                     {contact.phone2 && (
                         <>
-                            <div className="h-4 w-px bg-white/10" />
+                            <div className="h-4 w-px bg-border" />
                             <a
                                 href={`https://wa.me/${contact.phone2.replace(/\D/g, '')}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="flex items-center gap-2 group transition-colors duration-300"
                             >
-                                <div className="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#25D366] transition-colors duration-300">
+                                <div className="w-6 h-6 rounded-full bg-foreground/5 flex items-center justify-center group-hover:bg-[#25D366] transition-colors duration-300">
                                     <Phone size={12} className="text-gold group-hover:text-white transition-colors duration-300" />
                                 </div>
-                                <span className="group-hover:text-white transition-colors duration-300">{contact.phone2}</span>
+                                <span className="group-hover:text-foreground transition-colors duration-300">{contact.phone2}</span>
                             </a>
                         </>
                     )}
@@ -69,7 +69,7 @@ const TopBar = async () => {
 
                 {/* Right Side: Socials & Extras */}
                 <div className="flex items-center gap-4">
-                    <span className="text-n-500">Follow us:</span>
+                    <span className="text-muted-foreground">Follow us:</span>
                     <div className="flex items-center gap-2">
                         {[
                             { icon: Facebook, href: contact.social.facebook, label: 'Facebook' },
@@ -104,7 +104,7 @@ const TopBar = async () => {
                                     target="_blank"
                                     rel="noreferrer"
                                     aria-label={social.label}
-                                    className="w-7 h-7 flex items-center justify-center rounded-full bg-white/5 text-n-400 hover:bg-gold hover:text-black hover:-translate-y-0.5 transition-all duration-300"
+                                    className="w-7 h-7 flex items-center justify-center rounded-full bg-foreground/5 text-muted-foreground hover:bg-gold hover:text-primary-foreground hover:-translate-y-0.5 transition-all duration-300"
                                 >
                                     <social.icon size={13} />
                                 </a>

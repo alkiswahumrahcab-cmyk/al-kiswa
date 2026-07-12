@@ -138,7 +138,7 @@ export default async function JeddahAirportTransferPage() {
                 <div className="container mx-auto px-4">
                     <FadeIn>
                         <div className="max-w-4xl mx-auto text-center mb-16">
-                            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-sans text-white">
+                            <h2 className="text-3xl md:text-4xl font-semibold mb-4 font-display text-white">
                                 Arrival Procedure: What to Expect
                             </h2>
                             <p className="text-n-300 text-lg font-light leading-relaxed">
@@ -171,7 +171,7 @@ export default async function JeddahAirportTransferPage() {
                             ].map((item, idx) => (
                                 <div key={idx} className="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-gold/30 transition-all text-center group hover:bg-black/60">
                                     <div className="flex justify-center mb-6 p-4 bg-gold/10 rounded-full w-fit mx-auto border border-gold/20 group-hover:bg-gold/20 transition-colors">{item.icon}</div>
-                                    <h3 className="text-xl font-bold mb-3 text-white font-sans">{item.title}</h3>
+                                    <h3 className="text-xl font-semibold mb-3 text-white font-display">{item.title}</h3>
                                     <p className="text-n-400 text-sm leading-relaxed font-light">{item.desc}</p>
                                 </div>
                             ))}
@@ -184,7 +184,7 @@ export default async function JeddahAirportTransferPage() {
             <section className="py-12 bg-neutral-900/30 border-y border-white/5 relative z-10 backdrop-blur-sm">
                 <div className="container mx-auto px-4">
                     <FadeIn delay={0.2}>
-                        <h2 className="text-2xl font-bold text-center mb-8 font-sans text-white">Your Journey to Makkah</h2>
+                        <h2 className="text-2xl font-semibold text-center mb-8 font-display text-white">Your Journey to Makkah</h2>
                         <RouteVisual
                             from="Jeddah Airport (JED)"
                             fromLabel="Arrival Hall (Meet & Greet)"
@@ -203,7 +203,7 @@ export default async function JeddahAirportTransferPage() {
                 <div className="container mx-auto px-4 text-center">
                     <FadeIn delay={0.3}>
                         <div className="max-w-3xl mx-auto p-8 rounded-3xl bg-gradient-to-br from-neutral-900 to-black border border-white/10 shadow-2xl">
-                            <h3 className="text-2xl font-bold mb-4 text-white font-sans">Which Terminal?</h3>
+                            <h3 className="text-2xl font-semibold mb-4 text-white font-display">Which Terminal?</h3>
                             <p className="text-n-300 mb-6 font-light leading-relaxed">
                                 Most international flights land at <strong className="font-bold text-gold">Terminal 1 (New Airport)</strong>.
                                 Some regional carriers use the North Terminal.

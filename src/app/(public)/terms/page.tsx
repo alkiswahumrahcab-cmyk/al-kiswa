@@ -6,7 +6,7 @@ import Breadcrumbs from '@/components/common/Breadcrumbs';
 
 export default function TermsPage() {
     return (
-        <div className="bg-charcoal min-h-screen pb-20 relative text-n-200">
+        <div className="bg-charcoal min-h-screen pb-20 relative text-white/90">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <Hero
@@ -20,20 +20,20 @@ export default function TermsPage() {
                 <FadeIn>
                     <div className="bg-neutral-900/90 rounded-3xl shadow-xl p-8 md:p-12 max-w-4xl mx-auto border border-white/10 backdrop-blur-md">
                         <div className="mb-8 pb-8 border-b border-white/10">
-                            <h1 className="text-3xl font-bold font-sans text-white mb-2">Terms and Conditions</h1>
-                            <p className="text-n-400 text-sm">Last Updated: November 2025</p>
+                            <h1 className="text-3xl font-semibold font-display text-white mb-2">Terms and Conditions</h1>
+                            <p className="text-white/60 text-sm">Last Updated: November 2025</p>
                         </div>
 
-                        <div className="space-y-8 text-n-300 leading-relaxed font-light">
+                        <div className="space-y-8 text-white/80 leading-relaxed font-light">
                             <section>
-                                <h2 className="text-xl font-bold text-white mb-4 font-sans">1. Introduction</h2>
+                                <h2 className="text-xl font-semibold text-white mb-4 font-display">1. Introduction</h2>
                                 <p>
                                     Welcome to Al Kiswah Umrah Transport. By accessing our website and using our services, you agree to be bound by these Terms and Conditions. Please read them carefully before making a booking.
                                 </p>
                             </section>
 
                             <section>
-                                <h2 className="text-xl font-bold text-white mb-4 font-sans">2. Bookings and Payments</h2>
+                                <h2 className="text-xl font-semibold text-white mb-4 font-display">2. Bookings and Payments</h2>
                                 <p className="mb-4">
                                     All bookings are subject to availability and confirmation. We reserve the right to decline any booking at our discretion.
                                 </p>
@@ -45,7 +45,7 @@ export default function TermsPage() {
                             </section>
 
                             <section>
-                                <h2 className="text-xl font-bold text-white mb-4 font-sans">3. Cancellations and Refunds</h2>
+                                <h2 className="text-xl font-semibold text-white mb-4 font-display">3. Cancellations and Refunds</h2>
                                 <p className="mb-4">
                                     We understand that plans can change. Our cancellation policy is designed to be fair to both parties.
                                 </p>
@@ -57,7 +57,7 @@ export default function TermsPage() {
                             </section>
 
                             <section>
-                                <h2 className="text-xl font-bold text-white mb-4 font-sans">4. User Responsibilities</h2>
+                                <h2 className="text-xl font-semibold text-white mb-4 font-display">4. User Responsibilities</h2>
                                 <p className="mb-4">
                                     As a user of our services, you agree to:
                                 </p>
@@ -70,14 +70,14 @@ export default function TermsPage() {
                             </section>
 
                             <section>
-                                <h2 className="text-xl font-bold text-white mb-4 font-sans">5. Limitation of Liability</h2>
+                                <h2 className="text-xl font-semibold text-white mb-4 font-display">5. Limitation of Liability</h2>
                                 <p>
                                     Al Kiswah Umrah Transport shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of our services.
                                 </p>
                             </section>
 
                             <section>
-                                <h2 className="text-xl font-bold text-white mb-4 font-sans">6. Contact Us</h2>
+                                <h2 className="text-xl font-semibold text-white mb-4 font-display">6. Contact Us</h2>
                                 <p className="mb-6">
                                     If you have any questions about these Terms and Conditions, please contact us:
                                 </p>

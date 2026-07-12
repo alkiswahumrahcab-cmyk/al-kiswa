@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -63,10 +63,10 @@ export default function CustomerGallery() {
                             </span>
                             <div className="h-px w-12 bg-gold"></div>
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 font-sans">
+                        <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4 font-display">
                             Our Happy <span className="text-gold italic font-serif">Pilgrims</span>
                         </h2>
-                        <p className="text-n-400 text-lg font-light max-w-2xl mx-auto">
+                        <p className="text-white/70 text-lg font-light max-w-2xl mx-auto">
                             Moments of spirituality and joy, captured forever.
                         </p>
                     </div>

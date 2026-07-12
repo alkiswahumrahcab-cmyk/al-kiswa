@@ -192,13 +192,13 @@ export default async function GmcYukonPage() {
             </section>
 
             {/* D. Interior Luxury Section */}
-            <section className="py-20 bg-n-900 text-white relative">
+            <section className="py-20 bg-neutral-900 text-white relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5"></div>
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <span className="text-amber-500 font-bold tracking-widest uppercase text-sm mb-4 block">Interior</span>
                         <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6">Unmatched Cabin Comfort</h2>
-                        <p className="text-n-300 text-lg">Experience first-class travel with premium leather seating, advanced climate control, and massive legroom for every passenger.</p>
+                        <p className="text-white/80 text-lg">Experience first-class travel with premium leather seating, advanced climate control, and massive legroom for every passenger.</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
@@ -212,7 +212,7 @@ export default async function GmcYukonPage() {
                         ))}
                     </div>
 
-                    <div className="max-w-5xl mx-auto mt-12 bg-n-800 rounded-2xl p-2 md:p-4 shadow-2xl border border-n-700">
+                    <div className="max-w-5xl mx-auto mt-12 bg-neutral-800 rounded-2xl p-2 md:p-4 shadow-2xl border border-white/10">
                         <Interior360Viewer
                             imageUrl="/images/fleet/gmc-yukon-interior-360.webp"
                             title="Interactive 360° Cabin View"
@@ -383,7 +383,7 @@ export default async function GmcYukonPage() {
                             <h2 className="text-3xl md:text-4xl font-bold font-playfair text-n-900 dark:text-white mt-3 mb-2">Reserve Your GMC Yukon</h2>
                             <p className="text-n-500 dark:text-n-400">Fill in your details and our team will confirm your booking within minutes.</p>
                         </div>
-                        <div className="bg-n-50 dark:bg-n-800 rounded-3xl p-8 shadow-xl border border-n-100 dark:border-n-700">
+                        <div className="bg-n-50 dark:bg-n-800 rounded-3xl p-8 shadow-xl border border-n-100 dark:border-white/10">
                             <div className="grid md:grid-cols-2 gap-5">
                                 {[
                                     { label: 'Full Name', placeholder: 'Your full name', type: 'text', id: 'gmc-name' },
@@ -430,12 +430,12 @@ export default async function GmcYukonPage() {
                         fill 
                         className="object-cover object-center"
                     />
-                    <div className="absolute inset-0 bg-n-900/80 backdrop-blur-sm"></div>
+                    <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
                 </div>
                 
                 <div className="relative z-10 text-center max-w-2xl mx-auto px-4">
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair text-white mb-6">Ready to Book Your VIP Ride?</h2>
-                    <p className="text-lg text-n-300 mb-10">Reserve your GMC Yukon XL instantly with our online booking system or chat with our support team via WhatsApp.</p>
+                    <p className="text-lg text-white/80 mb-10">Reserve your GMC Yukon XL instantly with our online booking system or chat with our support team via WhatsApp.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking?vehicle=gmc" className="bg-amber-500 hover:bg-amber-600 text-n-900 px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-lg shadow-amber-500/30 flex items-center justify-center gap-2">
                             Go to Booking Form <ArrowRight size={20} />

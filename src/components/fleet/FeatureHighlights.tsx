@@ -22,7 +22,7 @@ export default function FeatureHighlights() {
                             <div className="w-16 h-16 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center mb-6 text-gold group-hover:scale-110 group-hover:bg-gold group-hover:text-black transition-all duration-300 shadow-[0_0_15px_hsl(var(--gold-glow) / 0.15)]">
                                 <feature.icon size={32} />
                             </div>
-                            <h3 className="font-bold font-sans text-xl mb-3 text-white group-hover:text-gold transition-colors">{feature.title}</h3>
+                            <h3 className="font-semibold font-display text-xl mb-3 text-white group-hover:text-gold transition-colors">{feature.title}</h3>
                             <p className="text-n-400 text-sm leading-relaxed font-light">{feature.desc}</p>
                         </GlassCard>
                     ))}

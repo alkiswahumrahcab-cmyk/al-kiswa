@@ -115,7 +115,7 @@ export default function PolicyModal({ isOpen, type, onClose }: PolicyModalProps)
                         className="relative w-full max-w-lg bg-charcoal border border-white/10 rounded-2xl shadow-2xl flex flex-col max-h-[85vh] overflow-hidden"
                     >
                         <div className="flex items-center justify-between p-5 border-b border-white/10 bg-white/5">
-                            <h3 id="policy-modal-title" className="text-lg font-bold text-white font-sans tracking-wide">
+                            <h3 id="policy-modal-title" className="text-lg font-semibold text-white font-display tracking-wide">
                                 {title}
                             </h3>
                             <button

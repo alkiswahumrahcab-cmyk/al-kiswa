@@ -86,17 +86,17 @@ export default function PricingGrid() {
                         <div className="text-center mb-8">
                             <h3 className="text-xl font-bold text-white mb-4">{card.title}</h3>
                             <div className="flex justify-center items-end gap-1 mb-2">
-                                <span className="text-sm text-n-400 mb-2">from</span>
+                                <span className="text-sm text-white/60 mb-2">from</span>
                                 {currency === 'USD' && <span className="text-3xl font-bold text-gold mb-1">$</span>}
                                 <span className="text-5xl font-bold text-gold">{formatted.amount}</span>
-                                <span className="text-xl font-bold text-n-400 mb-2">{currency}</span>
+                                <span className="text-xl font-bold text-white/60 mb-2">{currency}</span>
                             </div>
-                            <p className="text-n-500 font-light text-sm">{card.duration} • Sedan Class</p>
+                            <p className="text-white/50 font-light text-sm">{card.duration} • Sedan Class</p>
                         </div>
 
                         <ul className="space-y-4 mb-8">
                             {card.features.map((feat, i) => (
-                                <li key={i} className="flex items-start gap-3 text-n-300 text-sm">
+                                <li key={i} className="flex items-start gap-3 text-white/80 text-sm">
                                     <Check className="text-gold shrink-0" size={18} />
                                     <span>{feat}</span>
                                 </li>

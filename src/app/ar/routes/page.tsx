@@ -187,7 +187,7 @@ export default function RoutesPage() {
                                         <div className="p-8 md:w-3/5 flex flex-col">
                                             <div className="flex items-start justify-between mb-4">
                                                 <div>
-                                                    <h3 className="text-2xl font-bold font-sans text-white group-hover:text-gold transition-colors">
+                                                    <h3 className="text-2xl font-semibold font-display text-white group-hover:text-gold transition-colors">
                                                         {route.title}
                                                     </h3>
                                                     <h4 className="text-lg font-bold text-gold font-reem-kufi mt-1">
@@ -260,7 +260,7 @@ export default function RoutesPage() {
                 <div className="container mx-auto px-4">
                     <div className="text-center max-w-2xl mx-auto mb-20">
                         <FadeIn>
-                            <h2 className="text-3xl lg:text-5xl font-bold font-sans text-white mb-6">Why Travel With Al Kiswah?</h2>
+                            <h2 className="text-3xl lg:text-5xl font-semibold font-display text-white mb-6">Why Travel With Al Kiswah?</h2>
                             <p className="text-n-400 font-light text-lg">More than just transport, we provide a seamless bridge between your spiritual destinations.</p>
                         </FadeIn>
                     </div>
@@ -294,7 +294,7 @@ export default function RoutesPage() {
                                     <div className="w-20 h-20 bg-black/50 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-8 text-gold shadow-inner">
                                         <feature.icon size={36} strokeWidth={1.5} />
                                     </div>
-                                    <h3 className="text-2xl font-bold mb-2 text-white font-sans">{feature.title}</h3>
+                                    <h3 className="text-2xl font-semibold mb-2 text-white font-display">{feature.title}</h3>
                                     <h4 className="text-xl font-bold text-gold font-reem-kufi mb-4">{feature.titleAr}</h4>
                                     <p className="text-n-400 text-sm mb-4 leading-relaxed font-light">{feature.desc}</p>
                                     <p className="text-n-500 text-sm font-arabic border-t border-white/10 pt-3">{feature.descAr}</p>

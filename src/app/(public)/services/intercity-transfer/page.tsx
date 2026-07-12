@@ -135,14 +135,14 @@ export default async function IntercityTransferPage() {
                         <FadeIn>
                             <div className="prose prose-invert max-w-none">
                                 <span className="text-gold font-bold tracking-[0.2em] text-sm uppercase mb-3 block border-l-4 border-gold pl-4">The Sacred Route</span>
-                                <h2 className="text-4xl md:text-5xl font-bold font-sans mb-8 text-white leading-tight">
+                                <h2 className="text-4xl md:text-5xl font-semibold font-display mb-8 text-white leading-tight">
                                     Journey with Peace <br />
                                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Between Haramains</span>
                                 </h2>
-                                <p className="text-lg text-n-300 leading-relaxed mb-6 font-light">
+                                <p className="text-lg text-white/80 leading-relaxed mb-6 font-light">
                                     The journey between Makkah and Madinah is more than just travel; it is a transition between two sacred sanctuaries. We honor this journey by providing a service that prioritizes your rest and reverence.
                                 </p>
-                                <p className="text-lg text-n-300 leading-relaxed mb-10 font-light">
+                                <p className="text-lg text-white/80 leading-relaxed mb-10 font-light">
                                     Forget the hassle of shared buses. Our <strong>private intercity taxis</strong> allow you to travel on your own schedule, stop at Miqats (Dhul Hulayfah) for intention, and enjoy the scenic Hijrah route in the privacy of a premium vehicle.
                                 </p>
 
@@ -158,8 +158,8 @@ export default async function IntercityTransferPage() {
                                                 <item.icon size={28} />
                                             </div>
                                             <div>
-                                                <h4 className="font-bold text-lg text-white mb-1 group-hover:text-gold transition-colors font-sans">{item.title}</h4>
-                                                <p className="text-sm text-n-400 font-light leading-relaxed">{item.desc}</p>
+                                                <h4 className="font-semibold text-lg text-white mb-1 group-hover:text-gold transition-colors font-display">{item.title}</h4>
+                                                <p className="text-sm text-white/60 font-light leading-relaxed">{item.desc}</p>
                                             </div>
                                         </GlassCard>
                                     ))}
@@ -182,7 +182,7 @@ export default async function IntercityTransferPage() {
                 <div className="container mx-auto px-4">
                     <FadeIn>
                         <div className="max-w-4xl mx-auto">
-                            <h3 className="text-2xl md:text-3xl font-bold font-sans text-center mb-8 text-white">
+                            <h3 className="text-2xl md:text-3xl font-semibold font-display text-center mb-8 text-white">
                                 Popular Intercity Routes: Distance & Estimated Time
                             </h3>
                             <div className="overflow-x-auto rounded-xl border border-white/10 shadow-2xl">
@@ -195,35 +195,35 @@ export default async function IntercityTransferPage() {
                                             <th className="p-4 md:p-6 font-sans">Vehicle Types</th>
                                         </tr>
                                     </thead>
-                                    <tbody className="bg-neutral-900/50 divide-y divide-white/5 text-n-300">
+                                    <tbody className="bg-neutral-900/50 divide-y divide-white/5 text-white/80">
                                         <tr className="hover:bg-white/5 transition-colors">
                                             <td className="p-4 md:p-6 font-medium text-white">Makkah ↔ Madinah</td>
                                             <td className="p-4 md:p-6">450 km</td>
                                             <td className="p-4 md:p-6">4 hrs 30 mins</td>
-                                            <td className="p-4 md:p-6 text-sm text-n-400">GMC Yukon, Hyundai Staria, Camry, Hiace</td>
+                                            <td className="p-4 md:p-6 text-sm text-white/60">GMC Yukon, Hyundai Staria, Camry, Hiace</td>
                                         </tr>
                                         <tr className="hover:bg-white/5 transition-colors">
                                             <td className="p-4 md:p-6 font-medium text-white">Jeddah Airport ↔ Makkah</td>
                                             <td className="p-4 md:p-6">100 km</td>
                                             <td className="p-4 md:p-6">1 hr 15 mins</td>
-                                            <td className="p-4 md:p-6 text-sm text-n-400">All Vehicles</td>
+                                            <td className="p-4 md:p-6 text-sm text-white/60">All Vehicles</td>
                                         </tr>
                                         <tr className="hover:bg-white/5 transition-colors">
                                             <td className="p-4 md:p-6 font-medium text-white">Jeddah Airport ↔ Madinah</td>
                                             <td className="p-4 md:p-6">410 km</td>
                                             <td className="p-4 md:p-6">4 hrs 10 mins</td>
-                                            <td className="p-4 md:p-6 text-sm text-n-400">GMC Yukon, Hyundai Staria, Camry, Hiace</td>
+                                            <td className="p-4 md:p-6 text-sm text-white/60">GMC Yukon, Hyundai Staria, Camry, Hiace</td>
                                         </tr>
                                         <tr className="hover:bg-white/5 transition-colors">
                                             <td className="p-4 md:p-6 font-medium text-white">Madinah Airport ↔ Madinah Hotel</td>
                                             <td className="p-4 md:p-6">25 km</td>
                                             <td className="p-4 md:p-6">30 mins</td>
-                                            <td className="p-4 md:p-6 text-sm text-n-400">All Vehicles</td>
+                                            <td className="p-4 md:p-6 text-sm text-white/60">All Vehicles</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <p className="text-center text-xs text-n-500 mt-4">
+                            <p className="text-center text-xs text-white/50 mt-4">
                                 * Times are estimates under normal traffic conditions. Journey may take longer during Hajj and Ramadan peaks.
                             </p>
                             <SeasonalPricingNote className="mt-4" />
@@ -244,17 +244,17 @@ export default async function IntercityTransferPage() {
             <section className="py-24 relative z-10 bg-neutral-900/30">
                 <div className="container max-w-4xl mx-auto px-4">
                     <FadeIn>
-                        <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 font-sans text-white">
+                        <h2 className="text-3xl md:text-5xl font-semibold text-center mb-16 font-display text-white">
                             Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Questions</span>
                         </h2>
                         <div className="space-y-6">
                             {intercityFAQs.map((faq, i) => (
                                 <div key={i} className="bg-black/40 border border-white/5 rounded-2xl p-8 hover:border-gold/30 transition-all duration-300">
-                                    <h3 className="font-bold text-lg mb-3 text-white flex items-start gap-4 font-sans">
+                                    <h3 className="font-semibold text-lg mb-3 text-white flex items-start gap-4 font-display">
                                         <span className="text-gold mt-1 p-1 bg-gold/10 rounded-full flex items-center justify-center"><ChevronDown size={16} /></span>
                                         {faq.question}
                                     </h3>
-                                    <p className="text-n-400 font-light leading-relaxed pl-10">{faq.answer}</p>
+                                    <p className="text-white/60 font-light leading-relaxed pl-10">{faq.answer}</p>
                                 </div>
                             ))}
                         </div>

@@ -1,9 +1,10 @@
-﻿import dynamic from 'next/dynamic';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
 import FadeIn from '@/components/common/FadeIn';
 import Hero from '@/components/common/Hero';
-import { ArrowRight, Clock, ShieldCheck, Star } from 'lucide-react';
+import { PremiumIcon } from '@/components/ui/PremiumIcon';
+import { ArrowRight } from 'lucide-react';
 import { getSectionContent, getSectionImage, getCustomField } from '@/lib/content-service';
 import AnimatedBackground from '@/components/ui/AnimatedBackgroundClient';
 import { generateMetadataAlternates } from '@/lib/hreflang';
@@ -97,9 +98,9 @@ export default async function ArabicHomePage() {
           label: "حاج سعيد"
         }}
         stats={[
-          { label: "الأمان أولاً", value: "١٠٠٪", icon: <ShieldCheck size={20} /> },
-          { label: "دعم مستمر", value: "٢٤/٧", icon: <Clock size={20} /> },
-          { label: "خدمة موثوقة", value: "+١٠ سنوات", icon: <Star size={20} /> }
+          { label: "الأمان أولاً", value: "١٠٠٪", icon: <PremiumIcon name="safety" size="default" /> },
+          { label: "دعم على مدار الساعة", value: "دائماً", icon: <PremiumIcon name="24-7-service" size="default" /> },
+          { label: "خدمة موثوقة", value: "+١٠ سنوات", icon: <PremiumIcon name="reviews" size="default" /> }
         ]}
       />
 
@@ -164,7 +165,7 @@ export default async function ArabicHomePage() {
 
         <div className="container relative z-10 text-center px-4">
           <FadeIn>
-            <h2 className="text-4xl md:text-6xl font-bold font-sans mb-6 drop-shadow-xl tracking-tight text-white">
+            <h2 className="text-4xl md:text-6xl font-semibold font-display mb-6 drop-shadow-xl tracking-tight text-white">
               ابدأ <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-light to-gold">رحلتك الروحانية</span> بسلام واطمئنان
             </h2>
             <p className="text-lg md:text-xl text-n-400 max-w-2xl mx-auto mb-12 leading-relaxed font-light">

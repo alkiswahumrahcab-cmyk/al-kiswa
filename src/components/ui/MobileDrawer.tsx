@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -40,7 +40,7 @@ export default function MobileDrawer({ isOpen, onClose, title, children }: Mobil
     return createPortal(
       <AnimatePresence>
         {isOpen && (
-          <div id="mobile-drawer-portal" className="fixed inset-0 z-[9999] flex flex-col justify-end pointer-events-auto">
+          <div id="mobile-drawer-portal" className="dark fixed inset-0 z-[9999] flex flex-col justify-end pointer-events-auto">
             <motion.div 
               key="backdrop"
               initial={{ opacity: 0 }} 

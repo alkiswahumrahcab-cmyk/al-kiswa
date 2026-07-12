@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
@@ -48,7 +48,7 @@ export default function FAQSection({ items = defaultFAQs, title = "Frequently As
 
             <div className="container max-w-4xl mx-auto px-4">
                 <FadeIn>
-                    <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 font-sans text-white">
+                    <h2 className="text-3xl md:text-5xl font-semibold text-center mb-16 font-display text-foreground">
                         {title}
                     </h2>
                 </FadeIn>
@@ -58,18 +58,18 @@ export default function FAQSection({ items = defaultFAQs, title = "Frequently As
                         <div
                             key={index}
                             className={`rounded-2xl border transition-all duration-300 overflow-hidden ${activeAccordion === index
-                                    ? 'bg-neutral-900 border-gold/50 shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)]'
-                                    : 'bg-neutral-900/50 border-white/10 hover:border-gold/30 hover:bg-neutral-900'
+                                    ? 'bg-card border-gold/50 shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)]'
+                                    : 'bg-muted/50 border-border hover:border-gold/30 hover:bg-card'
                                 }`}
                         >
                             <button
                                 className="w-full flex items-center justify-between p-6 text-left"
                                 onClick={() => toggleAccordion(index)}
                             >
-                                <span className={`text-lg font-bold font-sans transition-colors ${activeAccordion === index ? 'text-white' : 'text-n-200'}`}>
+                                <span className={`text-lg font-bold font-sans transition-colors ${activeAccordion === index ? 'text-foreground' : 'text-muted-foreground'}`}>
                                     {faq.question}
                                 </span>
-                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${activeAccordion === index ? 'bg-gold text-black rotate-180' : 'bg-white/10 text-n-400'}`}>
+                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${activeAccordion === index ? 'bg-gold text-black rotate-180' : 'bg-muted text-muted-foreground'}`}>
                                     <ChevronDown size={20} />
                                 </div>
                             </button>
@@ -78,7 +78,7 @@ export default function FAQSection({ items = defaultFAQs, title = "Frequently As
                                 className={`grid transition-all duration-300 ease-in-out ${activeAccordion === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
                             >
                                 <div className="overflow-hidden">
-                                    <p className="px-6 pb-6 text-n-400 leading-relaxed font-light">
+                                    <p className="px-6 pb-6 text-muted-foreground leading-relaxed font-light">
                                         {faq.answer}
                                     </p>
                                 </div>

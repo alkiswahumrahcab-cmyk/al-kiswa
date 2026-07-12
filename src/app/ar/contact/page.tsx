@@ -103,7 +103,7 @@ export default async function ArabicContactPage() {
                         <FadeIn direction="left" delay={0.3}>
                             <GlassCard className="p-8 md:p-10 border-t-4 border-t-gold bg-black/40 border-white/10">
                                 <div className="mb-8">
-                                    <h2 className="text-3xl font-bold text-white mb-2 font-sans">
+                                    <h2 className="text-3xl font-semibold text-white mb-2 font-display">
                                         أرسل لنا رسالة
                                         <span className="block text-xl font-normal text-gold mt-1">Send Us a Message</span>
                                     </h2>

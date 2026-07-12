@@ -90,14 +90,14 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
                                 <card.icon size={24} />
                             </div>
                             <div className="flex-1">
-                                <h3 className="font-bold font-sans text-lg text-white mb-1 flex items-center gap-2">
+                                <h3 className="font-semibold font-display text-lg text-white mb-1 flex items-center gap-2">
                                     {card.title}
                                     {card.type === 'whatsapp' && (
                                         <span className="text-[10px] uppercase tracking-wider bg-gold/20 text-gold px-2 py-0.5 rounded-full">Primary</span>
                                     )}
                                 </h3>
-                                <p className="font-medium text-n-200 mb-1">{card.value}</p>
-                                <p className="text-sm text-n-500 mb-3">{card.sub}</p>
+                                <p className="font-medium text-white/90 mb-1">{card.value}</p>
+                                <p className="text-sm text-white/50 mb-3">{card.sub}</p>
                                 <a
                                     href={card.action}
                                     target={card.action.startsWith('http') ? "_blank" : "_self"}

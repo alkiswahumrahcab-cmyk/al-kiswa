@@ -19,7 +19,7 @@ export default function ComparisonTable() {
         <section className="py-20 bg-transparent relative">
             <div className="container mx-auto px-4">
                 <FadeIn>
-                    <h2 className="text-3xl md:text-5xl font-bold font-sans text-center mb-12 text-white">
+                    <h2 className="text-3xl md:text-5xl font-semibold font-display text-center mb-12 text-white">
                         Compare All <span className="text-gold">Vehicles</span>
                     </h2>
                 </FadeIn>

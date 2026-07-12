@@ -84,7 +84,7 @@ export default function TrackBookingPage() {
             case 'confirmed': return 'text-blue-500 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800';
             case 'pending': return 'text-gold bg-amber-50 dark:bg-amber-900/20 border-gold/40 dark:border-gold/30';
             case 'cancelled': return 'text-red-500 bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800';
-            default: return 'text-n-500 bg-n-50 dark:bg-n-800 border-n-200 dark:border-n-700';
+            default: return 'text-white/50 bg-n-50 dark:bg-n-800 border-n-200 dark:border-n-700';
         }
     };
 
@@ -98,7 +98,7 @@ export default function TrackBookingPage() {
                 >
                     <div className="text-center mb-10">
                         <h1 className="text-4xl font-bold text-n-900 dark:text-white mb-4">Track Your Booking</h1>
-                        <p className="text-n-500 dark:text-n-400 text-lg">Enter your booking reference and email to see real-time updates.</p>
+                        <p className="text-white/50 dark:text-n-400 text-lg">Enter your booking reference and email to see real-time updates.</p>
                     </div>
 
                     <div className="bg-white dark:bg-n-900 rounded-3xl p-8 shadow-xl border border-n-100 dark:border-n-800 relative overflow-hidden">
@@ -107,7 +107,7 @@ export default function TrackBookingPage() {
 
                         <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
                             <div>
-                                <label className="block text-xs font-bold text-n-500 uppercase tracking-wider mb-2 ml-1">Booking Reference</label>
+                                <label className="block text-xs font-bold text-white/50 uppercase tracking-wider mb-2 ml-1">Booking Reference</label>
                                 <input
                                     type="text"
                                     placeholder="e.g. 64f8a..."
@@ -119,7 +119,7 @@ export default function TrackBookingPage() {
                             </div>
 
                             <div>
-                                <label className="block text-xs font-bold text-n-500 uppercase tracking-wider mb-2 ml-1">Email Address</label>
+                                <label className="block text-xs font-bold text-white/50 uppercase tracking-wider mb-2 ml-1">Email Address</label>
                                 <input
                                     type="email"
                                     placeholder="name@example.com"
@@ -169,7 +169,7 @@ export default function TrackBookingPage() {
                                 <div className="p-6 border-b border-n-100 dark:border-n-800 flex justify-between items-center">
                                     <div>
                                         <h3 className="font-bold text-n-900 dark:text-white mb-1">Booking Found</h3>
-                                        <p className="text-xs text-n-500 font-mono">ID: {booking.id}</p>
+                                        <p className="text-xs text-white/50 font-mono">ID: {booking.id}</p>
                                     </div>
                                     <div className={`px-4 py-1.5 rounded-full text-sm font-bold border ${getStatusColor(booking.status)} capitalize flex items-center gap-2`}>
                                         {booking.status === 'completed' && <CheckCircle size={14} />}
@@ -190,15 +190,15 @@ export default function TrackBookingPage() {
                                         </div>
                                         <div className="flex-1 space-y-4">
                                             <div>
-                                                <p className="text-xs font-bold text-n-400 uppercase tracking-wider mb-1">Pickup</p>
+                                                <p className="text-xs font-bold text-white/60 uppercase tracking-wider mb-1">Pickup</p>
                                                 <p className="font-bold text-n-900 dark:text-white">{booking.pickup}</p>
-                                                <div className="flex items-center gap-4 mt-1 text-sm text-n-500">
+                                                <div className="flex items-center gap-4 mt-1 text-sm text-white/50">
                                                     <span className="flex items-center gap-1"><Calendar size={14} /> {new Date(booking.date).toLocaleDateString()}</span>
                                                     <span className="flex items-center gap-1"><Clock size={14} /> {booking.time}</span>
                                                 </div>
                                             </div>
                                             <div>
-                                                <p className="text-xs font-bold text-n-400 uppercase tracking-wider mb-1">Destination</p>
+                                                <p className="text-xs font-bold text-white/60 uppercase tracking-wider mb-1">Destination</p>
                                                 <p className="font-bold text-n-900 dark:text-white">{booking.dropoff}</p>
                                             </div>
                                         </div>
@@ -206,13 +206,13 @@ export default function TrackBookingPage() {
 
                                     {/* Vehicle Info */}
                                     <div className="bg-n-50 dark:bg-n-800/50 rounded-xl p-4 flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-white dark:bg-n-800 rounded-full flex items-center justify-center shadow-sm text-n-400">
+                                        <div className="w-12 h-12 bg-white dark:bg-n-800 rounded-full flex items-center justify-center shadow-sm text-white/60">
                                             <Car size={24} />
                                         </div>
                                         <div>
-                                            <p className="text-xs font-bold text-n-400 uppercase tracking-wider mb-0.5">Vehicle Type</p>
+                                            <p className="text-xs font-bold text-white/60 uppercase tracking-wider mb-0.5">Vehicle Type</p>
                                             <p className="font-bold text-n-900 dark:text-white">{booking.vehicle}</p>
-                                            <p className="text-xs text-n-500">{booking.passengers} Passengers · {booking.luggage || 0} Luggage</p>
+                                            <p className="text-xs text-white/50">{booking.passengers} Passengers · {booking.luggage || 0} Luggage</p>
                                         </div>
                                     </div>
                                 </div>

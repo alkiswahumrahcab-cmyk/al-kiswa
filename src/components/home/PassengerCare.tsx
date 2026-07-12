@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -84,13 +84,13 @@ export default function PassengerCare({ lang = 'en' }: Props) {
     ] : careOptions;
 
     return (
-        <section className="bg-zinc-950 relative overflow-hidden">
+        <section className="bg-background relative overflow-hidden">
             <div className="container mx-auto px-4 py-24 text-center relative z-10">
                 <FadeIn>
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-sans">
+                    <h2 className="text-4xl md:text-5xl font-semibold text-foreground mb-6 font-display">
                         {lang === 'ar' ? <>مصمم لـ<span className="text-gold italic font-serif">كل معتمر</span></> : <>Tailored for <span className="text-gold italic font-serif">Every Pilgrim</span></>}
                     </h2>
-                    <p className="text-n-400 text-lg max-w-2xl mx-auto font-light">
+                    <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-light">
                         {lang === 'ar' ? 'رعاية متخصصة لكل فرد في عائلتكم.' : 'Specialized care for every member of your family.'}
                     </p>
                 </FadeIn>
@@ -116,7 +116,7 @@ export default function PassengerCare({ lang = 'en' }: Props) {
                             </div>
 
                             {/* Content - Conditional Order */}
-                            <div className={`bg-zinc-900 flex items-center p-8 lg:p-16 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
+                            <div className={`bg-muted flex items-center p-8 lg:p-16 ${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                                 <FadeIn className="w-full">
                                     <div className="glass-panel hidden lg:flex w-16 h-16 items-center justify-center text-gold mb-6">
                                         {option.icon}
@@ -129,24 +129,24 @@ export default function PassengerCare({ lang = 'en' }: Props) {
                                         </span>
                                     </div>
 
-                                    <h3 className="text-3xl font-bold text-white mb-4 font-sans">
+                                    <h3 className="text-3xl font-semibold text-foreground mb-4 font-display">
                                         {option.title}
                                     </h3>
 
-                                    <p className="text-n-400 text-base leading-relaxed mb-6 font-light">
+                                    <p className="text-muted-foreground text-base leading-relaxed mb-6 font-light">
                                         {option.description}
                                     </p>
 
                                     <ul className="space-y-3 mb-8">
                                         {option.features.map((feature, idx) => (
-                                            <li key={idx} className="flex items-center gap-4 text-n-300">
+                                            <li key={idx} className="flex items-center gap-4 text-muted-foreground">
                                                 <div className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
                                                 <span className="text-sm">{feature}</span>
                                             </li>
                                         ))}
                                     </ul>
 
-                                    <a href={option.link} className="inline-flex items-center gap-3 text-white font-bold uppercase tracking-widest group hover:text-gold transition-colors text-xs">
+                                    <a href={option.link} className="inline-flex items-center gap-3 text-foreground font-bold uppercase tracking-widest group hover:text-gold transition-colors text-xs">
                                         <span>{option.linkText}</span>
                                         <ArrowRight size={16} className="transform group-hover:translate-x-2 transition-transform" />
                                     </a>

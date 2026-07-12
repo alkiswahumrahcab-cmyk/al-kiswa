@@ -17,7 +17,7 @@
     font-weight: 700;
     color: hsl(var(--foreground));
     margin-bottom: 1rem;
-    font-family: var(--font-heading);
+    font-family: var(--font-cormorant);
 }
 
 .subtitle {

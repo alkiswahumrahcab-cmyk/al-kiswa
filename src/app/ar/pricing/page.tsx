@@ -76,7 +76,7 @@ export default function PricingPage() {
                 <div className="container mx-auto px-4">
                     <FadeIn>
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold font-sans text-white mb-6">Popular Routes from <span className="text-gold">Starting Rates</span></h2>
+                            <h2 className="text-3xl md:text-5xl font-semibold font-display text-white mb-6">Popular Routes from <span className="text-gold">Starting Rates</span></h2>
                             <p className="text-n-400 max-w-2xl mx-auto">
                                 Rates shown are for standard sedan booking. Upgrade options for GMC Yukon and Staria are available during booking.
                             </p>

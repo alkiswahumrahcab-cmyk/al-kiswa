@@ -219,7 +219,7 @@ const Hero: React.FC<HeroProps> = ({
 
                     {/* Title - Static for LCP Optimization */}
                     <div>
-                        <h1 className="font-sans font-bold text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight drop-shadow-2xl">
+                        <h1 className="font-display font-semibold text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight drop-shadow-2xl">
                             {title.split(' ').map((word, i) => (
                                 <span key={i} className={i === 1 || word.includes('VIP') ? 'text-gold-metallic drop-shadow-[0_0_15px_hsl(var(--gold-glow) / 0.3)]' : ''}>
                                     {word}{' '}

@@ -48,7 +48,7 @@ const PricingCard = ({ route, dbVehicleId }: { route: RouteProduct; dbVehicleId:
                 </div>
 
                 <div className="text-center space-y-2 mb-4">
-                    <h3 className="font-bold text-xs sm:text-sm leading-tight h-[2.5rem] flex items-center justify-center text-white group-hover:text-gold transition-colors line-clamp-2 font-sans">
+                    <h3 className="font-semibold text-xs sm:text-sm leading-tight h-[2.5rem] flex items-center justify-center text-white group-hover:text-gold transition-colors line-clamp-2 font-display">
                         {route.title}
                     </h3>
 
@@ -114,7 +114,7 @@ export default function FleetPricingGrid({
                 <FadeIn>
                     <div className="text-center mb-16">
                         <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Fixed Rates</span>
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6 font-sans text-white">
+                        <h2 className="text-3xl md:text-5xl font-semibold mb-6 font-display text-white">
                             {title || `Affordable ${vehicleType.toUpperCase()} Services`}
                         </h2>
                         <p className="text-n-400 max-w-2xl mx-auto font-light text-lg">

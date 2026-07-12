@@ -93,7 +93,7 @@ export default function LoginPage() {
                             <div className="w-20 h-20 bg-gradient-to-br from-white/5 to-white/10 rounded-2xl mx-auto flex items-center justify-center mb-6 shadow-inner border border-white/5 group transform transition-transform hover:scale-105">
                                 <Lock className="text-gold group-hover:text-gold-light transition-colors drop-shadow-md" size={32} />
                             </div>
-                            <h1 className="text-3xl font-bold text-white mb-2 tracking-tight font-sans">Welcome Back</h1>
+                            <h1 className="text-3xl font-semibold text-white mb-2 tracking-tight font-display">Welcome Back</h1>
                             <p className="text-gray-400 text-sm">Sign in to manage Al Kiswah Transport</p>
                         </div>
 

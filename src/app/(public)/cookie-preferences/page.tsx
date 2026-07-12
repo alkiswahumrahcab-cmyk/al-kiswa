@@ -97,7 +97,7 @@ export default function CookiePreferences() {
                 >
                     <Link
                         href="/"
-                        className="inline-flex items-center text-n-400 hover:text-gold transition-colors mb-6 group"
+                        className="inline-flex items-center text-white/60 hover:text-gold transition-colors mb-6 group"
                     >
                         <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" />
                         Back to Home
@@ -106,11 +106,11 @@ export default function CookiePreferences() {
                         <div className="p-3 bg-gold/10 rounded-2xl border border-gold/20">
                             <Shield className="w-8 h-8 text-gold" />
                         </div>
-                        <h1 className="text-4xl font-bold text-white tracking-tight font-sans">
+                        <h1 className="text-4xl font-semibold text-white tracking-tight font-display">
                             Cookie Preferences
                         </h1>
                     </div>
-                    <p className="text-lg text-n-400 max-w-2xl leading-relaxed font-light">
+                    <p className="text-lg text-white/60 max-w-2xl leading-relaxed font-light">
                         We value your privacy. Customize your cookie settings below to control how we collect and use your data.
                     </p>
                 </motion.div>
@@ -136,7 +136,7 @@ export default function CookiePreferences() {
                                 <div className="p-6 sm:p-8 flex items-start gap-6">
                                     <div className={`
                                         p-3 rounded-xl shrink-0 transition-colors duration-300
-                                        ${isEnabled ? 'bg-gold/10 text-gold border border-gold/20' : 'bg-white/5 text-n-500 border border-white/5'}
+                                        ${isEnabled ? 'bg-gold/10 text-gold border border-gold/20' : 'bg-white/5 text-white/50 border border-white/5'}
                                     `}>
                                         <Icon className="w-6 h-6" />
                                     </div>
@@ -147,7 +147,7 @@ export default function CookiePreferences() {
                                                 {section.title}
                                             </h3>
                                             {section.required ? (
-                                                <span className="text-xs font-medium px-2.5 py-1 bg-white/5 text-n-400 rounded-full uppercase tracking-wider border border-white/5">
+                                                <span className="text-xs font-medium px-2.5 py-1 bg-white/5 text-white/60 rounded-full uppercase tracking-wider border border-white/5">
                                                     Required
                                                 </span>
                                             ) : (
@@ -169,7 +169,7 @@ export default function CookiePreferences() {
                                                 </button>
                                             )}
                                         </div>
-                                        <p className="text-n-400 leading-relaxed font-light">
+                                        <p className="text-white/60 leading-relaxed font-light">
                                             {section.description}
                                         </p>
                                     </div>
@@ -188,7 +188,7 @@ export default function CookiePreferences() {
                     <div className="bg-black/80 backdrop-blur-xl p-2 rounded-2xl shadow-2xl border border-white/10 flex items-center gap-3">
                         <Link
                             href="/"
-                            className="px-6 py-3 text-n-400 hover:text-white font-medium transition-colors rounded-xl hover:bg-white/5"
+                            className="px-6 py-3 text-white/60 hover:text-white font-medium transition-colors rounded-xl hover:bg-white/5"
                         >
                             Cancel
                         </Link>

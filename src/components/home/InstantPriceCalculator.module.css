@@ -50,7 +50,7 @@
     margin-bottom: 1rem;
     color: hsl(var(--foreground));
     letter-spacing: -0.02em;
-    font-family: var(--font-playfair), serif;
+    font-family: var(--font-cormorant), serif;
 }
 
 .subtitle {
@@ -177,7 +177,7 @@
     align-items: flex-start;
     justify-content: center;
     gap: 0.5rem;
-    font-family: var(--font-playfair), serif;
+    font-family: var(--font-cormorant), serif;
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 

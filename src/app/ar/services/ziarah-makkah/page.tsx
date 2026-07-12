@@ -111,7 +111,7 @@ export default async function ZiarahMakkahPage() {
                     <FadeIn>
                         <div className="flex flex-col md:flex-row gap-12 items-start">
                             <div className="md:w-1/2">
-                                <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white border-r-4 border-gold pr-4">
+                                <h2 className="text-3xl md:text-4xl font-semibold mb-6 font-display text-white border-r-4 border-gold pr-4">
                                     المواقع المقدسة التي نزورها
                                 </h2>
                                 <p className="text-n-300 mb-8 leading-relaxed font-light text-lg">
@@ -168,7 +168,7 @@ export default async function ZiarahMakkahPage() {
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-8 z-20">
                                         <div>
                                             <span className="text-gold font-bold tracking-wider uppercase text-sm mb-2 block">وجهة مميزة</span>
-                                            <h3 className="text-white text-3xl font-bold font-sans">جبل النور</h3>
+                                            <h3 className="text-white text-3xl font-semibold font-display">جبل النور</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -182,7 +182,7 @@ export default async function ZiarahMakkahPage() {
             <section className="py-24 bg-white/5 relative z-10 border-y border-white/5">
                 <div className="container mx-auto px-4 text-center">
                     <FadeIn delay={0.2}>
-                        <h2 className="text-3xl md:text-5xl font-bold mb-16 font-sans text-white">جرب مكة براحة</h2>
+                        <h2 className="text-3xl md:text-5xl font-semibold mb-16 font-display text-white">جرب مكة براحة</h2>
                         <div className="grid md:grid-cols-3 gap-8">
                             <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold/30 transition-all group">
                                 <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">

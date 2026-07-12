@@ -103,7 +103,7 @@
   }
 
   body {
-    @apply text-foreground;
+    @apply text-foreground font-sans;
     background-color: hsl(var(--background));
     background-image:
       radial-gradient(circle at 15% 50%, hsl(var(--gold-glow) / 0.03), transparent 40%),
@@ -126,7 +126,7 @@
   h4,
   h5,
   h6 {
-    @apply font-sans;
+    @apply font-display;
   }
 }
 
@@ -207,5 +207,30 @@
   /* NOTE: renamed from .text-gold to avoid conflict with Tailwind's text-gold utility */
   .text-gold-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-gold via-gold-light to-gold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)];
+  }
+
+  /* === PREMIUM ICON SYSTEM (GLOBAL OVERRIDES) === */
+  .lucide {
+    stroke-width: 1.5px !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+    transition: all 250ms ease-out;
+  }
+
+  /* Interaction: Slight upward movement, gold color transition on hover */
+  button:hover .lucide, 
+  a:hover .lucide,
+  .group:hover .lucide,
+  .lucide-hoverable:hover {
+    transform: translateY(-1px);
+    stroke: hsl(var(--gold));
+    opacity: 1;
+  }
+
+  /* Specific override for icons on gold hover backgrounds */
+  .group:hover .hover-icon-black .lucide,
+  a:hover .hover-icon-black .lucide,
+  button:hover .hover-icon-black .lucide {
+    stroke: #000 !important;
   }
 }

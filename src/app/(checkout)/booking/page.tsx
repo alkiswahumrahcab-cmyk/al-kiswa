@@ -1,4 +1,4 @@
-﻿import React, { Suspense } from 'react';
+import React, { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import BookingFormSkeleton from '@/components/booking/BookingFormSkeleton';
 
@@ -45,7 +45,9 @@ export default function BookingPage() {
             <div className="container relative z-20 pt-8 md:pt-10 pb-10 px-4 max-w-5xl mx-auto">
 
                 {/* Booking Form */}
-                <BookingForm />
+                <div className="dark">
+                    <BookingForm />
+                </div>
 
                 {/* Pay on Arrival Guarantee Bar */}
                 <div className="mt-6 mb-8 p-5 rounded-2xl bg-white/5 border border-gold/30 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 shadow-xl">

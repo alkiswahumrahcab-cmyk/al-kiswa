@@ -148,10 +148,10 @@ export default async function RamadanLandingPage() {
                             <Moon size={16} fill="currentColor" />
                             <span className="text-sm font-bold uppercase tracking-wider">Ramadan — Every Year</span>
                         </div>
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-sans text-white mb-6 leading-tight">
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold font-display text-white mb-6 leading-tight">
                             Experience a <span className="text-gold">Blessed Journey</span>
                         </h1>
-                        <p className="text-xl md:text-2xl text-n-200 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
+                        <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-10 font-light leading-relaxed">
                             Focus on your worship while we handle your travel. Reliable, comfortable, and punctual transport for the Holy Month.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -180,7 +180,7 @@ export default async function RamadanLandingPage() {
                     <FadeIn>
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Peace of Mind in the Holy Month</h2>
-                            <p className="text-n-400 max-w-2xl mx-auto">Ramadan in Makkah is busy. Choose a transport partner that <Link href="/booking" className="text-gold hover:underline">guarantees your arrival</Link>.</p>
+                            <p className="text-white/60 max-w-2xl mx-auto">Ramadan in Makkah is busy. Choose a transport partner that <Link href="/booking" className="text-gold hover:underline">guarantees your arrival</Link>.</p>
                         </div>
 
                         <div className="grid md:grid-cols-3 gap-8">
@@ -189,21 +189,21 @@ export default async function RamadanLandingPage() {
                                     <Clock size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3">Punctual for Prayers</h3>
-                                <p className="text-n-400">We understand the importance of time. We plan routes to ensure you reach the Haram before Adhan.</p>
+                                <p className="text-white/60">We understand the importance of time. We plan routes to ensure you reach the Haram before Adhan.</p>
                             </div>
                             <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-gold/50 transition-colors group">
                                 <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-black transition-all">
                                     <Shield size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3">Guaranteed Booking</h3>
-                                <p className="text-n-400">Once confirmed, your ride is locked. No cancellations, no last-minute &ldquo;unavailable&rdquo; excuses.</p>
+                                <p className="text-white/60">Once confirmed, your ride is locked. No cancellations, no last-minute &ldquo;unavailable&rdquo; excuses.</p>
                             </div>
                             <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-gold/50 transition-colors group">
                                 <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-black transition-all">
                                     <CheckCircle size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3">Fixed Ramadan Rates</h3>
-                                <p className="text-n-400">No surge pricing when you book in advance. Bypass the high <Link href="/pricing" className="text-gold hover:underline">on-spot taxi fares</Link>.</p>
+                                <p className="text-white/60">No surge pricing when you book in advance. Bypass the high <Link href="/pricing" className="text-gold hover:underline">on-spot taxi fares</Link>.</p>
                             </div>
                         </div>
                     </FadeIn>
@@ -237,11 +237,11 @@ export default async function RamadanLandingPage() {
                                         <p className="text-gold text-sm font-medium uppercase tracking-wide">{pkg.subtitle}</p>
                                     </div>
 
-                                    <p className="text-n-400 mb-8 min-h-[48px]">{pkg.description}</p>
+                                    <p className="text-white/60 mb-8 min-h-[48px]">{pkg.description}</p>
 
                                     <ul className="space-y-4 mb-8 flex-grow">
                                         {pkg.features.map((feat, i) => (
-                                            <li key={i} className="flex items-start gap-3 text-n-300 text-sm">
+                                            <li key={i} className="flex items-start gap-3 text-white/80 text-sm">
                                                 <CheckCircle className="text-gold shrink-0" size={18} />
                                                 <span>{feat}</span>
                                             </li>
@@ -279,7 +279,7 @@ export default async function RamadanLandingPage() {
                                 <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
                                     The Last 10 Nights — <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Laylatul Qadr</span>
                                 </h2>
-                                <p className="text-n-300 text-lg leading-relaxed max-w-2xl mx-auto font-light">
+                                <p className="text-white/80 text-lg leading-relaxed max-w-2xl mx-auto font-light">
                                     The last 10 nights of Ramadan are the most sacred in the Islamic calendar.
                                     Transport demand increases <strong className="text-white">3× during this period</strong>.
                                     We recommend booking at least <strong className="text-white">2–3 weeks in advance</strong> to guarantee your vehicle.
@@ -296,7 +296,7 @@ export default async function RamadanLandingPage() {
                                         </div>
                                         <div>
                                             <h3 className="text-xl font-bold text-white mb-2">Night of the 27th — Critical Booking Alert</h3>
-                                            <p className="text-n-400 leading-relaxed">
+                                            <p className="text-white/60 leading-relaxed">
                                                 The night of the <strong className="text-amber-400">27th Ramadan</strong> sees the highest demand of the entire year.
                                                 Vehicles are typically <strong className="text-white">fully booked 1–2 weeks prior</strong>. If this night is important to you,
                                                 secure your transport immediately.
@@ -313,7 +313,7 @@ export default async function RamadanLandingPage() {
                                         ].map((stat, i) => (
                                             <div key={i} className="text-center p-4 bg-black/30 rounded-xl border border-amber-500/10">
                                                 <p className="text-amber-400 font-bold text-lg md:text-2xl mb-1">{stat.value}</p>
-                                                <p className="text-n-500 text-xs uppercase tracking-wider">{stat.label}</p>
+                                                <p className="text-white/50 text-xs uppercase tracking-wider">{stat.label}</p>
                                             </div>
                                         ))}
                                     </div>
@@ -322,12 +322,12 @@ export default async function RamadanLandingPage() {
 
                             {/* Key Nights Info */}
                             <div className="space-y-4 mb-10">
-                                <h3 className="text-xl font-bold text-white font-sans">What Happens During the Last 10 Nights?</h3>
-                                <p className="text-n-400 leading-relaxed">
+                                <h3 className="text-xl font-semibold text-white font-display">What Happens During the Last 10 Nights?</h3>
+                                <p className="text-white/60 leading-relaxed">
                                     Pilgrims begin Itikaf (seclusion for worship) in the Haram. Hundreds of thousands gather for Qiyam Al-Layl (night prayers).
                                     Streets around Masjid Al-Haram become restricted. Our drivers know the alternative access routes to get you as close as possible on time.
                                 </p>
-                                <p className="text-n-400 leading-relaxed">
+                                <p className="text-white/60 leading-relaxed">
                                     For <strong className="text-white">Laylatul Qadr transport</strong>, we recommend booking a <strong className="text-white">full-night vehicle</strong> —
                                     available from Isha until Fajr — so you can focus entirely on worship without worrying about return transport.
                                 </p>
@@ -342,7 +342,7 @@ export default async function RamadanLandingPage() {
                                     Secure Your Last 10 Nights Transfer
                                     <ArrowRight size={20} />
                                 </Link>
-                                <p className="mt-4 text-sm text-n-500">Limited availability — book early to guarantee standard rates</p>
+                                <p className="mt-4 text-sm text-white/50">Limited availability — book early to guarantee standard rates</p>
                             </div>
                         </div>
                     </FadeIn>

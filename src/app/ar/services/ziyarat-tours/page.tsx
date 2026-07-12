@@ -110,7 +110,7 @@ export default async function ZiyaratToursPage() {
                     <FadeIn>
                         <div className="flex flex-col md:flex-row gap-12 items-center">
                             <div className="md:w-1/2">
-                                <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white border-l-4 border-gold pl-4">
+                                <h2 className="text-3xl md:text-4xl font-semibold mb-6 font-display text-white border-l-4 border-gold pl-4">
                                     Makkah Ziyarat Sites
                                 </h2>
                                 <p className="text-n-300 mb-6 leading-relaxed font-light text-lg">
@@ -143,7 +143,7 @@ export default async function ZiyaratToursPage() {
                                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-8 z-20">
-                                    <span className="text-white text-2xl font-bold font-sans">Jabal Al-Nour</span>
+                                    <span className="text-white text-2xl font-semibold font-display">Jabal Al-Nour</span>
                                 </div>
                             </div>
                         </div>
@@ -157,7 +157,7 @@ export default async function ZiyaratToursPage() {
                     <FadeIn delay={0.2}>
                         <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
                             <div className="md:w-1/2">
-                                <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans text-white border-l-4 border-gold pl-4">
+                                <h2 className="text-3xl md:text-4xl font-semibold mb-6 font-display text-white border-l-4 border-gold pl-4">
                                     Madinah Ziyarat Sites
                                 </h2>
                                 <p className="text-n-300 mb-6 leading-relaxed font-light text-lg">
@@ -190,7 +190,7 @@ export default async function ZiyaratToursPage() {
                                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-8 z-20">
-                                    <span className="text-white text-2xl font-bold font-sans">Masjid Quba</span>
+                                    <span className="text-white text-2xl font-semibold font-display">Masjid Quba</span>
                                 </div>
                             </div>
                         </div>
@@ -202,7 +202,7 @@ export default async function ZiyaratToursPage() {
             <section className="py-24 bg-transparent relative z-10">
                 <div className="container mx-auto px-4 text-center">
                     <FadeIn delay={0.4}>
-                        <h2 className="text-3xl md:text-5xl font-bold mb-16 font-sans text-white">Enhance Your Spiritual Journey</h2>
+                        <h2 className="text-3xl md:text-5xl font-semibold mb-16 font-display text-white">Enhance Your Spiritual Journey</h2>
                         <div className="grid md:grid-cols-3 gap-8">
                             <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-gold/30 transition-all hover:bg-white/10 group">
                                 <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">

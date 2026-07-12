@@ -62,10 +62,10 @@ export default function SafetyPage() {
                 <section className="py-16 md:py-24">
                     <div className="container mx-auto px-4 text-center max-w-3xl">
                         <span className="text-gold font-bold uppercase tracking-widest text-sm mb-3 block">Peace of Mind</span>
-                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-sans">
+                        <h2 className="text-3xl md:text-5xl font-semibold text-white mb-6 font-display">
                             Traveling with Confidence
                         </h2>
-                        <p className="text-lg text-n-300 leading-relaxed font-light">
+                        <p className="text-lg text-white/80 leading-relaxed font-light">
                             At Al Kiswah Umrah Transport, we understand that strict safety measures are essential for you to focus on your Ibadah.
                             We go beyond the industry standards to ensure every aspect of your journey—from the driver's conduct to the vehicle's hygiene—is perfect.
                         </p>
@@ -76,8 +76,8 @@ export default function SafetyPage() {
                 <section className="py-16 bg-transparent">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl font-bold text-white mb-4 font-sans">Tailored Safety for Every Pilgrim</h2>
-                            <p className="text-n-400 max-w-2xl mx-auto">We understand that different guests have different needs. Our protocols are adapted to ensure everyone travels with dignity and security.</p>
+                            <h2 className="text-3xl font-semibold text-white mb-4 font-display">Tailored Safety for Every Pilgrim</h2>
+                            <p className="text-white/60 max-w-2xl mx-auto">We understand that different guests have different needs. Our protocols are adapted to ensure everyone travels with dignity and security.</p>
                         </div>
 
                         <div className="grid md:grid-cols-3 gap-8">
@@ -88,17 +88,17 @@ export default function SafetyPage() {
                                         <Heart size={24} />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Solo Sisters Safety</h3>
-                                    <p className="text-n-400 mb-6 text-sm leading-relaxed">Travel without worry. Our "Sisters Protocol" ensures complete privacy and respect.</p>
+                                    <p className="text-white/60 mb-6 text-sm leading-relaxed">Travel without worry. Our "Sisters Protocol" ensures complete privacy and respect.</p>
                                     <ul className="space-y-3">
-                                        <li className="flex gap-3 text-sm text-n-300">
+                                        <li className="flex gap-3 text-sm text-white/80">
                                             <CheckCircle size={16} className="text-pink-500 shrink-0 mt-0.5" />
                                             <span><strong>Strict Privacy:</strong> No shared rides, ever.</span>
                                         </li>
-                                        <li className="flex gap-3 text-sm text-n-300">
+                                        <li className="flex gap-3 text-sm text-white/80">
                                             <CheckCircle size={16} className="text-pink-500 shrink-0 mt-0.5" />
                                             <span><strong>Live Tracking:</strong> Shareable GPS link for family.</span>
                                         </li>
-                                        <li className="flex gap-3 text-sm text-n-300">
+                                        <li className="flex gap-3 text-sm text-white/80">
                                             <CheckCircle size={16} className="text-pink-500 shrink-0 mt-0.5" />
                                             <span><strong>Vetted Drivers:</strong> Trained in Islamic Adab.</span>
                                         </li>
@@ -113,17 +113,17 @@ export default function SafetyPage() {
                                         <Shield size={24} />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Family Protection</h3>
-                                    <p className="text-n-400 mb-6 text-sm leading-relaxed">Your children are our Amanah. We drive with extra care when little ones are on board.</p>
+                                    <p className="text-white/60 mb-6 text-sm leading-relaxed">Your children are our Amanah. We drive with extra care when little ones are on board.</p>
                                     <ul className="space-y-3">
-                                        <li className="flex gap-3 text-sm text-n-300">
+                                        <li className="flex gap-3 text-sm text-white/80">
                                             <CheckCircle size={16} className="text-blue-500 shrink-0 mt-0.5" />
                                             <span><strong>Child Seats:</strong> Available upon request.</span>
                                         </li>
-                                        <li className="flex gap-3 text-sm text-n-300">
+                                        <li className="flex gap-3 text-sm text-white/80">
                                             <CheckCircle size={16} className="text-blue-500 shrink-0 mt-0.5" />
                                             <span><strong>Door Logs:</strong> Child-lock checks before highway.</span>
                                         </li>
-                                        <li className="flex gap-3 text-sm text-n-300">
+                                        <li className="flex gap-3 text-sm text-white/80">
                                             <CheckCircle size={16} className="text-blue-500 shrink-0 mt-0.5" />
                                             <span><strong>Spacious Vans:</strong> Room for strollers & bags.</span>
                                         </li>
@@ -138,17 +138,17 @@ export default function SafetyPage() {
                                         <Activity size={24} />
                                     </div>
                                     <h3 className="text-xl font-bold text-white mb-3">Elderly Assistance</h3>
-                                    <p className="text-n-400 mb-6 text-sm leading-relaxed">We honor our elders with patience and physical assistance at every step.</p>
+                                    <p className="text-white/60 mb-6 text-sm leading-relaxed">We honor our elders with patience and physical assistance at every step.</p>
                                     <ul className="space-y-3">
-                                        <li className="flex gap-3 text-sm text-n-300">
+                                        <li className="flex gap-3 text-sm text-white/80">
                                             <CheckCircle size={16} className="text-green-500 shrink-0 mt-0.5" />
                                             <span><strong>Door-to-Door:</strong> Minimized walking distance.</span>
                                         </li>
-                                        <li className="flex gap-3 text-sm text-n-300">
+                                        <li className="flex gap-3 text-sm text-white/80">
                                             <CheckCircle size={16} className="text-green-500 shrink-0 mt-0.5" />
                                             <span><strong>Wheelchair:</strong> Assistance with loading/unloading.</span>
                                         </li>
-                                        <li className="flex gap-3 text-sm text-n-300">
+                                        <li className="flex gap-3 text-sm text-white/80">
                                             <CheckCircle size={16} className="text-green-500 shrink-0 mt-0.5" />
                                             <span><strong>Gentle Driving:</strong> Smooth acceleration & braking.</span>
                                         </li>
@@ -165,8 +165,8 @@ export default function SafetyPage() {
                         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                             <div>
                                 <span className="text-gold font-bold uppercase tracking-widest text-sm mb-3 block">Behind the Scenes</span>
-                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-sans">Rigorous Fleet Maintenance</h2>
-                                <p className="text-lg text-n-300 mb-8 font-light">
+                                <h2 className="text-3xl md:text-4xl font-semibold text-white mb-6 font-display">Rigorous Fleet Maintenance</h2>
+                                <p className="text-lg text-white/80 mb-8 font-light">
                                     A safe journey starts long before you enter the car. Our fleet undergoes a strict maintenance schedule to ensure 100% reliability in the Saudi climate.
                                 </p>
 
@@ -177,7 +177,7 @@ export default function SafetyPage() {
                                         </div>
                                         <div>
                                             <h4 className="font-bold text-white text-lg">Weekly Mechanical Audit</h4>
-                                            <p className="text-n-400 text-sm">Brakes, tires, and fluid levels checked every 7 days.</p>
+                                            <p className="text-white/60 text-sm">Brakes, tires, and fluid levels checked every 7 days.</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-4">
@@ -186,7 +186,7 @@ export default function SafetyPage() {
                                         </div>
                                         <div>
                                             <h4 className="font-bold text-white text-lg">Daily Hygiene Protocol</h4>
-                                            <p className="text-n-400 text-sm">Interior vacuum, surface disinfection, and scenting before every trip.</p>
+                                            <p className="text-white/60 text-sm">Interior vacuum, surface disinfection, and scenting before every trip.</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-4">
@@ -195,7 +195,7 @@ export default function SafetyPage() {
                                         </div>
                                         <div>
                                             <h4 className="font-bold text-white text-lg">Legal Compliance</h4>
-                                            <p className="text-n-400 text-sm">All vehicles fully insured and licensed by the Ministry of Transport.</p>
+                                            <p className="text-white/60 text-sm">All vehicles fully insured and licensed by the Ministry of Transport.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -213,24 +213,24 @@ export default function SafetyPage() {
                                     </div>
                                     <div className="p-6 space-y-4 font-mono text-sm">
                                         <div className="flex justify-between items-center border-b border-white/5 pb-2">
-                                            <span className="text-n-500">Check: <span className="text-white font-bold">Brake Pads</span></span>
+                                            <span className="text-white/50">Check: <span className="text-white font-bold">Brake Pads</span></span>
                                             <span className="text-green-500 bg-green-500/10 px-2 py-1 rounded">PASS</span>
                                         </div>
                                         <div className="flex justify-between items-center border-b border-white/5 pb-2">
-                                            <span className="text-n-500">Check: <span className="text-white font-bold">AC Coolant</span></span>
+                                            <span className="text-white/50">Check: <span className="text-white font-bold">AC Coolant</span></span>
                                             <span className="text-green-500 bg-green-500/10 px-2 py-1 rounded">PASS</span>
                                         </div>
                                         <div className="flex justify-between items-center border-b border-white/5 pb-2">
-                                            <span className="text-n-500">Check: <span className="text-white font-bold">Tire Pressure</span></span>
+                                            <span className="text-white/50">Check: <span className="text-white font-bold">Tire Pressure</span></span>
                                             <span className="text-green-500 bg-green-500/10 px-2 py-1 rounded">PASS</span>
                                         </div>
                                         <div className="flex justify-between items-center border-b border-white/5 pb-2">
-                                            <span className="text-n-500">Check: <span className="text-white font-bold">Seatbelts</span></span>
+                                            <span className="text-white/50">Check: <span className="text-white font-bold">Seatbelts</span></span>
                                             <span className="text-green-500 bg-green-500/10 px-2 py-1 rounded">PASS</span>
                                         </div>
                                         <div className="flex justify-between items-center pt-2">
-                                            <span className="text-n-500">Inspector: <span className="text-white font-bold">Ahmed Al-Sayed</span></span>
-                                            <span className="text-n-400">#8821</span>
+                                            <span className="text-white/50">Inspector: <span className="text-white font-bold">Ahmed Al-Sayed</span></span>
+                                            <span className="text-white/60">#8821</span>
                                         </div>
                                     </div>
                                 </div>
@@ -243,8 +243,8 @@ export default function SafetyPage() {
                 <section className="py-16 bg-transparent">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl font-bold text-white mb-4 font-sans">Only 1 in 10 Applicants Drive for Us</h2>
-                            <p className="text-n-400 max-w-2xl mx-auto">Our driver selection process is rigorous because we trust them with your life and your worship.</p>
+                            <h2 className="text-3xl font-semibold text-white mb-4 font-display">Only 1 in 10 Applicants Drive for Us</h2>
+                            <p className="text-white/60 max-w-2xl mx-auto">Our driver selection process is rigorous because we trust them with your life and your worship.</p>
                         </div>
 
                         <div className="grid md:grid-cols-4 gap-6">
@@ -261,7 +261,7 @@ export default function SafetyPage() {
                                             <item.icon size={24} />
                                         </div>
                                         <h3 className="font-bold text-lg text-white mb-2">{item.title}</h3>
-                                        <p className="text-sm text-n-400 font-light">{item.desc}</p>
+                                        <p className="text-sm text-white/60 font-light">{item.desc}</p>
                                     </div>
                                 </div>
                             ))}
@@ -283,10 +283,10 @@ export default function SafetyPage() {
                                         <AlertTriangle size={16} />
                                         <span>Emergency Protocol</span>
                                     </div>
-                                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 font-sans">
+                                    <h3 className="text-3xl md:text-4xl font-semibold text-white mb-6 font-display">
                                         Our "Never Stranded" Promise
                                     </h3>
-                                    <p className="text-n-300 text-lg mb-8 leading-relaxed font-light">
+                                    <p className="text-white/80 text-lg mb-8 leading-relaxed font-light">
                                         Breakdowns are rare, but our preparedness is absolute. In the unlikely event of any vehicle issue,
                                         we guarantee a replacement vehicle routed to your location immediately.
                                     </p>
@@ -297,7 +297,7 @@ export default function SafetyPage() {
                                             </div>
                                             <div>
                                                 <p className="text-white font-bold">60 Min Target</p>
-                                                <p className="text-n-400 text-sm">Replacement arrival time</p>
+                                                <p className="text-white/60 text-sm">Replacement arrival time</p>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-4 bg-black/20 p-4 rounded-xl backdrop-blur-sm border border-white/10">
@@ -306,7 +306,7 @@ export default function SafetyPage() {
                                             </div>
                                             <div>
                                                 <p className="text-white font-bold">24/7 Hotline</p>
-                                                <p className="text-n-400 text-sm">Always-on support channel</p>
+                                                <p className="text-white/60 text-sm">Always-on support channel</p>
                                             </div>
                                         </div>
                                     </div>
@@ -314,15 +314,15 @@ export default function SafetyPage() {
                                 <div className="bg-black/20 border border-white/10 rounded-2xl p-8 backdrop-blur-sm">
                                     <h4 className="text-white font-bold text-xl mb-4 border-b border-white/10 pb-4">Standard Operating Procedure</h4>
                                     <ul className="space-y-4">
-                                        <li className="flex gap-4 text-n-300">
+                                        <li className="flex gap-4 text-white/80">
                                             <span className="bg-gold/20 text-gold flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold shrink-0 border border-gold/30">1</span>
                                             <span>Driver secures vehicle in safe zone and ensures passenger comfort.</span>
                                         </li>
-                                        <li className="flex gap-4 text-n-300">
+                                        <li className="flex gap-4 text-white/80">
                                             <span className="bg-gold/20 text-gold flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold shrink-0 border border-gold/30">2</span>
                                             <span>Control room deploys nearest standby vehicle (GMC/Starex).</span>
                                         </li>
-                                        <li className="flex gap-4 text-n-300">
+                                        <li className="flex gap-4 text-white/80">
                                             <span className="bg-gold/20 text-gold flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold shrink-0 border border-gold/30">3</span>
                                             <span>Full trip refund or discount issued for the inconvenience.</span>
                                         </li>
@@ -337,8 +337,8 @@ export default function SafetyPage() {
                 <section className="py-16 bg-transparent border-t border-white/5">
                     <div className="container mx-auto px-4 max-w-4xl">
                         <div className="text-center mb-12">
-                            <h2 className="text-3xl font-bold text-white mb-4 font-sans">Common Safety Questions</h2>
-                            <p className="text-n-400">Answers to common concerns from our pilgrims</p>
+                            <h2 className="text-3xl font-semibold text-white mb-4 font-display">Common Safety Questions</h2>
+                            <p className="text-white/60">Answers to common concerns from our pilgrims</p>
                         </div>
 
                         <div className="space-y-4">
@@ -347,7 +347,7 @@ export default function SafetyPage() {
                                     <span>Is it safe for solo female travelers?</span>
                                     <span className="transform group-open:rotate-180 transition-transform duration-300 text-gold">▼</span>
                                 </summary>
-                                <div className="px-6 pb-6 text-n-300 leading-relaxed border-t border-white/5 pt-4 font-light">
+                                <div className="px-6 pb-6 text-white/80 leading-relaxed border-t border-white/5 pt-4 font-light">
                                     <p>Absolutely. We specialize in family and female-friendly transport. Our drivers are trained in Adab (respect/etiquette), and all trips are GPS tracked by our control room. You can also share your live trip link with family members for added peace of mind.</p>
                                 </div>
                             </details>
@@ -357,7 +357,7 @@ export default function SafetyPage() {
                                     <span>What if I leave something in the taxi?</span>
                                     <span className="transform group-open:rotate-180 transition-transform duration-300 text-gold">▼</span>
                                 </summary>
-                                <div className="px-6 pb-6 text-n-300 leading-relaxed border-t border-white/5 pt-4 font-light">
+                                <div className="px-6 pb-6 text-white/80 leading-relaxed border-t border-white/5 pt-4 font-light">
                                     <p>We have a strict "Lost & Found" protocol. Drivers check the vehicle after every drop-off. If you realize you've lost something, contact our 24/7 support immediately. We have a 98% recovery rate for items reported within 24 hours.</p>
                                 </div>
                             </details>
@@ -367,7 +367,7 @@ export default function SafetyPage() {
                                     <span>Are your vehicles insured?</span>
                                     <span className="transform group-open:rotate-180 transition-transform duration-300 text-gold">▼</span>
                                 </summary>
-                                <div className="px-6 pb-6 text-n-300 leading-relaxed border-t border-white/5 pt-4 font-light">
+                                <div className="px-6 pb-6 text-white/80 leading-relaxed border-t border-white/5 pt-4 font-light">
                                     <p>Yes, comprehensive insurance covers all vehicles, drivers, and passengers, fulfilling all Saudi Transport Authority regulations. Your ride is legally protected.</p>
                                 </div>
                             </details>

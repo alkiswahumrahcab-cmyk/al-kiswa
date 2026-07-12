@@ -106,7 +106,7 @@ export default function CookiePreferences() {
                         <div className="p-3 bg-gold/10 rounded-2xl border border-gold/20">
                             <Shield className="w-8 h-8 text-gold" />
                         </div>
-                        <h1 className="text-4xl font-bold text-white tracking-tight font-sans">
+                        <h1 className="text-4xl font-semibold text-white tracking-tight font-display">
                             Cookie Preferences
                         </h1>
                     </div>

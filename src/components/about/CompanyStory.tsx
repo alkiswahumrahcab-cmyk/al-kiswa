@@ -44,7 +44,7 @@ export default function CompanyStory() {
                 <div className="text-center max-w-3xl mx-auto mb-20">
                     <FadeIn>
                         <span className="text-gold font-bold uppercase tracking-[0.2em] text-sm mb-4 block">Our History</span>
-                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-sans">
+                        <h2 className="text-3xl md:text-5xl font-semibold text-white mb-6 font-display">
                             Our Sacred Journey
                         </h2>
                         <p className="text-lg text-n-400 leading-relaxed font-light">
@@ -74,9 +74,9 @@ export default function CompanyStory() {
                                             <div className="bg-gold/10 p-3 rounded-xl text-gold border border-gold/20 shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)]">
                                                 <item.icon size={24} />
                                             </div>
-                                            <span className="text-4xl font-bold font-sans text-white tracking-tight">{item.year}</span>
+                                            <span className="text-4xl font-semibold font-display text-white tracking-tight">{item.year}</span>
                                         </div>
-                                        <h3 className="text-xl font-bold text-white mb-3 font-sans tracking-wide">{item.title}</h3>
+                                        <h3 className="text-xl font-semibold text-white mb-3 font-display tracking-wide">{item.title}</h3>
                                         <p className="text-n-400 leading-relaxed font-light text-base">
                                             {item.desc}
                                         </p>

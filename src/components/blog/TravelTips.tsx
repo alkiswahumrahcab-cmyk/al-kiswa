@@ -31,7 +31,7 @@ export default function TravelTips() {
                 <FadeIn>
                     <div className="text-center max-w-3xl mx-auto mb-20">
                         <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Expert Advice</span>
-                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 font-sans">Essential Travel Tips</h2>
+                        <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 font-display">Essential Travel Tips</h2>
                         <p className="text-n-400 text-lg font-light leading-relaxed">
                             Maximize your spiritual experience with these key recommendations for a smooth and hassle-free journey.
                         </p>
@@ -63,7 +63,7 @@ export default function TravelTips() {
                                 </div>
 
                                 <div className="p-8 pt-10 flex-grow">
-                                    <h3 className="text-2xl font-bold font-sans text-white mb-4 group-hover:text-gold transition-colors">{tip.title}</h3>
+                                    <h3 className="text-2xl font-semibold font-display text-white mb-4 group-hover:text-gold transition-colors">{tip.title}</h3>
                                     <p className="text-n-400 text-sm leading-relaxed font-light">{tip.description}</p>
                                 </div>
                             </GlassCard>

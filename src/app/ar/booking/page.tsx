@@ -59,7 +59,7 @@ export default function ArabicBookingPage() {
                 <p className="text-gold text-xs font-bold tracking-[0.3em] uppercase mb-3">
                     حجز فوري — ٢٤/٧
                 </p>
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 font-sans">
+                <h2 className="text-3xl md:text-5xl font-semibold text-white mb-4 font-display">
                     احجز <span className="text-gold">رحلتك</span> الآن
                 </h2>
                 <p className="text-n-400 text-base max-w-xl mx-auto">

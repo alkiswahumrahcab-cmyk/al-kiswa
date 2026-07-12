@@ -65,7 +65,7 @@ export default function SafetyPage() {
                 <section className="py-16 md:py-24">
                     <div className="container mx-auto px-4 text-center max-w-3xl">
                         <span className="text-gold font-bold uppercase tracking-widest text-sm mb-3 block">Peace of Mind</span>
-                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 font-sans">
+                        <h2 className="text-3xl md:text-5xl font-semibold text-white mb-6 font-display">
                             Traveling with Confidence
                         </h2>
                         <p className="text-lg text-n-300 leading-relaxed font-light">
@@ -79,7 +79,7 @@ export default function SafetyPage() {
                 <section className="py-16 bg-transparent">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl font-bold text-white mb-4 font-sans">Tailored Safety for Every Pilgrim</h2>
+                            <h2 className="text-3xl font-semibold text-white mb-4 font-display">Tailored Safety for Every Pilgrim</h2>
                             <p className="text-n-400 max-w-2xl mx-auto">We understand that different guests have different needs. Our protocols are adapted to ensure everyone travels with dignity and security.</p>
                         </div>
 
@@ -168,7 +168,7 @@ export default function SafetyPage() {
                         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                             <div>
                                 <span className="text-gold font-bold uppercase tracking-widest text-sm mb-3 block">Behind the Scenes</span>
-                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 font-sans">Rigorous Fleet Maintenance</h2>
+                                <h2 className="text-3xl md:text-4xl font-semibold text-white mb-6 font-display">Rigorous Fleet Maintenance</h2>
                                 <p className="text-lg text-n-300 mb-8 font-light">
                                     A safe journey starts long before you enter the car. Our fleet undergoes a strict maintenance schedule to ensure 100% reliability in the Saudi climate.
                                 </p>
@@ -246,7 +246,7 @@ export default function SafetyPage() {
                 <section className="py-16 bg-transparent">
                     <div className="container mx-auto px-4">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl font-bold text-white mb-4 font-sans">Only 1 in 10 Applicants Drive for Us</h2>
+                            <h2 className="text-3xl font-semibold text-white mb-4 font-display">Only 1 in 10 Applicants Drive for Us</h2>
                             <p className="text-n-400 max-w-2xl mx-auto">Our driver selection process is rigorous because we trust them with your life and your worship.</p>
                         </div>
 
@@ -286,7 +286,7 @@ export default function SafetyPage() {
                                         <AlertTriangle size={16} />
                                         <span>Emergency Protocol</span>
                                     </div>
-                                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 font-sans">
+                                    <h3 className="text-3xl md:text-4xl font-semibold text-white mb-6 font-display">
                                         Our "Never Stranded" Promise
                                     </h3>
                                     <p className="text-n-300 text-lg mb-8 leading-relaxed font-light">
@@ -340,7 +340,7 @@ export default function SafetyPage() {
                 <section className="py-16 bg-transparent border-t border-white/5">
                     <div className="container mx-auto px-4 max-w-4xl">
                         <div className="text-center mb-12">
-                            <h2 className="text-3xl font-bold text-white mb-4 font-sans">Common Safety Questions</h2>
+                            <h2 className="text-3xl font-semibold text-white mb-4 font-display">Common Safety Questions</h2>
                             <p className="text-n-400">Answers to common concerns from our pilgrims</p>
                         </div>
 

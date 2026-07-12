@@ -17,14 +17,14 @@ interface ReviewProps {
 export default function ReviewItem({ review }: ReviewProps) {
     return (
         <GlassCard
-            className="h-full flex flex-col relative group border border-white/5 hover:border-gold/30 transition-all duration-500 bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden"
+            className="h-full flex flex-col relative group border border-border hover:border-gold/30 transition-all duration-500 bg-card backdrop-blur-sm rounded-2xl overflow-hidden"
             hoverEffect={true}
         >
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
 
             {/* Quote Icon Background */}
-            <div className="absolute top-6 right-6 text-white/5 group-hover:text-gold/10 transition-colors duration-500">
+            <div className="absolute top-6 right-6 text-foreground/5 group-hover:text-gold/10 transition-colors duration-500">
                 <Quote size={80} className="rotate-12" />
             </div>
 
@@ -37,7 +37,7 @@ export default function ReviewItem({ review }: ReviewProps) {
                             <Star
                                 key={i}
                                 size={16}
-                                className={`${i < review.rating ? 'fill-gold text-gold' : 'text-n-700'} transition-colors duration-300`}
+                                className={`${i < review.rating ? 'fill-gold text-gold' : 'text-muted'} transition-colors duration-300`}
                             />
                         ))}
                     </div>
@@ -51,14 +51,14 @@ export default function ReviewItem({ review }: ReviewProps) {
 
                 {/* Review Content */}
                 <blockquote className="flex-grow mb-8">
-                    <p className="text-n-300 group-hover:text-white transition-colors duration-300 leading-relaxed font-sans text-base lg:text-lg font-light">
+                    <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300 leading-relaxed font-sans text-base lg:text-lg font-light">
                         &quot;{review.comment}&quot;
                     </p>
                 </blockquote>
 
                 {/* Footer: Author Info */}
-                <div className="flex items-center gap-4 pt-6 border-t border-white/10 mt-auto">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden bg-white/10 border border-white/10 group-hover:border-gold/50 transition-colors duration-300">
+                <div className="flex items-center gap-4 pt-6 border-t border-border mt-auto">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden bg-muted border border-border group-hover:border-gold/50 transition-colors duration-300">
                         {review.avatar ? (
                             <Image src={review.avatar} alt={review.author} fill className="object-cover" unoptimized />
                         ) : (
@@ -69,10 +69,10 @@ export default function ReviewItem({ review }: ReviewProps) {
                     </div>
 
                     <div>
-                        <div className="font-bold text-white text-base font-sans tracking-wide group-hover:text-gold transition-colors">
+                        <div className="font-bold text-foreground text-base font-sans tracking-wide group-hover:text-gold transition-colors">
                             {review.author}
                         </div>
-                        <div className="flex items-center gap-2 text-xs text-n-500 font-medium mt-0.5">
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground font-medium mt-0.5">
                             <span className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4" />

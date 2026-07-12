@@ -39,7 +39,7 @@ export default function AboutHero() {
             {/* Content */}
             <div className="relative z-20 container mx-auto px-4 text-center">
                 <FadeIn>
-                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-sans text-white mb-6 drop-shadow-2xl">
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold font-display text-white mb-6 drop-shadow-2xl">
                         Serving Pilgrims with <br className="hidden md:block" />
                         <span className="text-gold">Sincerity & Excellence</span>
                     </h1>

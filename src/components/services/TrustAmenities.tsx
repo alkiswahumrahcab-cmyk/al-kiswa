@@ -38,7 +38,7 @@ export default function TrustAmenities() {
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
                     <FadeIn>
-                        <h2 className="text-3xl md:text-5xl font-bold font-sans text-white mb-6">
+                        <h2 className="text-3xl md:text-5xl font-semibold font-display text-white mb-6">
                             Why Choose <span className="text-gold">Al Kiswah Transport?</span>
                         </h2>
                         <p className="text-n-400 max-w-2xl mx-auto text-lg font-light leading-relaxed">
@@ -59,7 +59,7 @@ export default function TrustAmenities() {
                             <div className="mb-6 p-4 bg-black/40 rounded-full shadow-[0_0_15px_rgba(0,0,0,0.5)] border border-white/5 group-hover:scale-110 group-hover:border-gold/50 transition-all duration-300 relative z-10">
                                 {React.cloneElement(item.icon, { className: "w-8 h-8 text-gold" })}
                             </div>
-                            <h3 className="text-xl font-bold font-sans text-white mb-3 group-hover:text-gold transition-colors">
+                            <h3 className="text-xl font-semibold font-display text-white mb-3 group-hover:text-gold transition-colors">
                                 {item.title}
                             </h3>
                             <p className="text-n-400 leading-relaxed text-sm font-light">

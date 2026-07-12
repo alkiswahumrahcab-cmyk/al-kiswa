@@ -13,9 +13,11 @@ const config: Config = {
             center: true,
         },
         fontFamily: {
-            sans:       ["var(--font-montserrat)", "var(--font-tajawal)", "sans-serif"],
+            sans:       ["var(--font-manrope)", "var(--font-tajawal)", "sans-serif"],
+            body:       ["var(--font-manrope)", "sans-serif"],
             mono:       ["var(--font-geist-mono)", "monospace"],
             montserrat: ["var(--font-montserrat)", "sans-serif"],
+            manrope:    ["var(--font-manrope)", "sans-serif"],
             tajawal:    ["var(--font-tajawal)", "sans-serif"],
             reem:       ["var(--font-tajawal)", "sans-serif"],
             // Cormorant Garamond display serif

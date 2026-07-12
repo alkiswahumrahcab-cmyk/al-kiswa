@@ -432,7 +432,7 @@ export default async function HyundaiStariaPage() {
                             <h2 className="text-4xl md:text-5xl font-bold mb-6 font-playfair text-white">
                                 Ready to Experience the Future of Travel?
                             </h2>
-                            <p className="text-xl text-n-300 mb-10">
+                            <p className="text-xl text-white/80 mb-10">
                                 Book the Hyundai Staria 2026 today for your family's Umrah transport. Enjoy fixed pricing, professional chauffeurs, and ultimate comfort.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">

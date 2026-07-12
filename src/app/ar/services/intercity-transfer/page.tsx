@@ -130,7 +130,7 @@ export default async function IntercityTransferPage() {
                         <FadeIn>
                             <div className="prose prose-invert max-w-none">
                                 <span className="text-gold font-bold tracking-[0.2em] text-sm uppercase mb-3 block border-l-4 border-gold pl-4">The Sacred Route</span>
-                                <h2 className="text-4xl md:text-5xl font-bold font-sans mb-8 text-white leading-tight">
+                                <h2 className="text-4xl md:text-5xl font-semibold font-display mb-8 text-white leading-tight">
                                     Journey with Peace <br />
                                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Between Haramains</span>
                                 </h2>
@@ -153,7 +153,7 @@ export default async function IntercityTransferPage() {
                                                 <item.icon size={28} />
                                             </div>
                                             <div>
-                                                <h4 className="font-bold text-lg text-white mb-1 group-hover:text-gold transition-colors font-sans">{item.title}</h4>
+                                                <h4 className="font-semibold text-lg text-white mb-1 group-hover:text-gold transition-colors font-display">{item.title}</h4>
                                                 <p className="text-sm text-n-400 font-light leading-relaxed">{item.desc}</p>
                                             </div>
                                         </GlassCard>
@@ -184,7 +184,7 @@ export default async function IntercityTransferPage() {
             <section className="py-24 relative z-10 bg-neutral-900/30">
                 <div className="container max-w-4xl mx-auto px-4">
                     <FadeIn>
-                        <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 font-sans text-white">
+                        <h2 className="text-3xl md:text-5xl font-semibold text-center mb-16 font-display text-white">
                             Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Questions</span>
                         </h2>
                         <div className="space-y-6">
@@ -194,7 +194,7 @@ export default async function IntercityTransferPage() {
                                 { q: "Are there hidden fees?", a: "No. The price quoted is per vehicle, all-inclusive of fuel, driver, and taxes. No per-person charges." }
                             ].map((faq, i) => (
                                 <div key={i} className="bg-black/40 border border-white/5 rounded-2xl p-8 hover:border-gold/30 transition-all duration-300">
-                                    <h3 className="font-bold text-lg mb-3 text-white flex items-start gap-4 font-sans">
+                                    <h3 className="font-semibold text-lg mb-3 text-white flex items-start gap-4 font-display">
                                         <span className="text-gold mt-1 p-1 bg-gold/10 rounded-full flex items-center justify-center"><ChevronDown size={16} /></span>
                                         {faq.q}
                                     </h3>

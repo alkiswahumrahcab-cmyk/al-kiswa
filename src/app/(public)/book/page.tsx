@@ -29,7 +29,7 @@ export default function BookPage() {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.1 }}
-                        className="text-4xl md:text-5xl font-sans font-bold text-white mb-6 tracking-tight"
+                        className="text-4xl md:text-5xl font-display font-semibold text-white mb-6 tracking-tight"
                     >
                         Book Your <span className="text-gold">Premium</span> Journey
                     </motion.h1>
@@ -38,7 +38,7 @@ export default function BookPage() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-n-400 text-lg max-w-xl mx-auto font-light"
+                        className="text-white/60 text-lg max-w-xl mx-auto font-light"
                     >
                         Experience Makkah & Madinah with our luxury fleet.
                         Simple 3-step booking with instant confirmation.

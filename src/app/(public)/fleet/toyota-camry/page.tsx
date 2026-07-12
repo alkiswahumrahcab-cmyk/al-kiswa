@@ -125,7 +125,7 @@ export default async function ToyotaCamryPage() {
                         <span className="text-amber-400">Executive Comfort</span><br />
                         for Umrah Travel
                     </h1>
-                    <p className="text-lg md:text-xl text-n-300 mb-10 max-w-2xl">
+                    <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl">
                         Smooth, stylish, and perfect for couples, small families &amp; business travelers across Saudi Arabia.
                     </p>
                     <div className="flex flex-wrap gap-4">
@@ -158,7 +158,7 @@ export default async function ToyotaCamryPage() {
             </div>
 
             {/* B. Quick Stats Bar */}
-            <section className="bg-n-900 border-y border-n-700 py-6">
+            <section className="bg-neutral-900 border-y border-n-700 py-6">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                         {[
@@ -199,7 +199,7 @@ export default async function ToyotaCamryPage() {
             </section>
 
             {/* D. Interior Gallery */}
-            <section className="py-20 bg-n-900">
+            <section className="py-20 bg-neutral-900">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                         <span className="text-amber-500 font-bold tracking-widest uppercase text-sm">Interior Luxury</span>
@@ -348,7 +348,7 @@ export default async function ToyotaCamryPage() {
                             <h2 className="text-3xl md:text-4xl font-bold font-playfair text-n-900 dark:text-white mt-3 mb-2">Reserve Your Toyota Camry</h2>
                             <p className="text-n-500 dark:text-n-400">Fill in your details and our team will confirm your booking within minutes.</p>
                         </div>
-                        <div className="bg-n-50 dark:bg-n-800 rounded-3xl p-8 shadow-xl border border-n-100 dark:border-n-700">
+                        <div className="bg-n-50 dark:bg-n-800 rounded-3xl p-8 shadow-xl border border-n-100 dark:border-white/10">
                             <div className="grid md:grid-cols-2 gap-5">
                                 {[
                                     { label: 'Full Name', placeholder: 'Your full name', type: 'text', id: 'camry-name' },
@@ -395,11 +395,11 @@ export default async function ToyotaCamryPage() {
                         fill
                         className="object-cover object-center"
                     />
-                    <div className="absolute inset-0 bg-n-900/80 backdrop-blur-sm" />
+                    <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
                 </div>
                 <div className="relative z-10 text-center max-w-2xl mx-auto px-4">
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair text-white mb-6">Ready to Book Your Camry?</h2>
-                    <p className="text-lg text-n-300 mb-10">Reserve your Toyota Camry instantly with our online booking or chat with our support team on WhatsApp.</p>
+                    <p className="text-lg text-white/80 mb-10">Reserve your Toyota Camry instantly with our online booking or chat with our support team on WhatsApp.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/booking?vehicle=camry" className="bg-amber-500 hover:bg-amber-400 text-n-900 px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-amber-500/30 flex items-center justify-center gap-2">
                             Go to Booking Form <ArrowRight size={20} />

@@ -249,11 +249,11 @@ const QuickBookingForm = ({
 
             {(title || variant === 'fleet') && (
                 <div className="mb-6 border-b border-white/10 pb-4">
-                    <h3 className="text-2xl font-sans font-bold text-white mb-1 shadow-sm uppercase tracking-tight flex items-center gap-2">
+                    <h3 className="text-2xl font-display font-semibold text-white mb-1 shadow-sm uppercase tracking-tight flex items-center gap-2">
                         {title || 'Quick Booking'}
                         <div className="h-px flex-1 bg-gradient-to-r from-gold/50 to-transparent ml-4" />
                     </h3>
-                    <p className="text-sm text-n-400 font-medium tracking-wide">
+                    <p className="text-sm text-white/60 font-medium tracking-wide">
                         {subtitle || 'Premium Luxury Transport'}
                     </p>
                 </div>
@@ -280,7 +280,7 @@ const QuickBookingForm = ({
                         </div>
                         <div>
                             <h3 className="text-2xl font-bold text-white mb-2">Booking Received</h3>
-                            <p className="text-n-300 max-w-xs mx-auto text-sm">We will contact you shortly to confirm your VIP journey.</p>
+                            <p className="text-white/80 max-w-xs mx-auto text-sm">We will contact you shortly to confirm your VIP journey.</p>
                         </div>
                         <button
                             onClick={() => setIsSubmitted(false)}
@@ -312,7 +312,7 @@ const QuickBookingForm = ({
                                 </div>
                                 <div className="text-left">
                                     <h4 className="text-white font-bold text-sm">Prefer to book via Chat?</h4>
-                                    <p className="text-n-400 text-xs text-[10px]">Instant reply from our support team</p>
+                                    <p className="text-white/60 text-xs text-[10px]">Instant reply from our support team</p>
                                 </div>
                             </div>
                             <div className="bg-white/10 p-2 rounded-lg text-white group-hover:bg-white/20 transition-colors">
@@ -348,7 +348,7 @@ const QuickBookingForm = ({
                                                 flex items-center gap-2 px-4 py-3 rounded-xl text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 border
                                                 ${isActive
                                                     ? 'bg-gold text-black border-gold shadow-[0_0_15px_hsl(var(--gold-glow) / 0.4)] scale-105'
-                                                    : 'bg-white/5 border-white/10 text-n-400 hover:bg-white/10 hover:border-gold/50 hover:text-white'
+                                                    : 'bg-white/5 border-white/10 text-white/60 hover:bg-white/10 hover:border-gold/50 hover:text-white'
                                                 }
                                             `}
                                         >
@@ -366,7 +366,7 @@ const QuickBookingForm = ({
                             {/* Pickup & Dropoff */}
                             <div className="space-y-4">
                                 <div className="flex justify-between items-center mb-1">
-                                    <label className="text-[10px] uppercase font-bold text-n-400 tracking-widest hidden md:block">Pickup</label>
+                                    <label className="text-[10px] uppercase font-bold text-white/60 tracking-widest hidden md:block">Pickup</label>
                                     <button
                                         type="button"
                                         onClick={() => {
@@ -469,7 +469,7 @@ const QuickBookingForm = ({
                                             )}
                                             <div className="flex flex-col text-left">
                                                 <span className="font-bold text-sm text-n-800 dark:text-n-200">{option.label.split('(')[0]}</span>
-                                                <span className="text-[10px] text-n-500">{option.label.split('(')[1]?.replace(')', '')}</span>
+                                                <span className="text-[10px] text-white/50">{option.label.split('(')[1]?.replace(')', '')}</span>
                                             </div>
                                         </div>
                                         {option.price > 0 ? (
@@ -487,7 +487,7 @@ const QuickBookingForm = ({
                                 const selected = vehicleOptions.find(v => v.value === formData.vehicleId);
                                 if (selected) return (
                                     <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col items-end pointer-events-none">
-                                        <span className="text-[10px] text-n-400 uppercase tracking-wider">{selected.price > 0 ? 'Est. Fare' : 'Status'}</span>
+                                        <span className="text-[10px] text-white/60 uppercase tracking-wider">{selected.price > 0 ? 'Est. Fare' : 'Status'}</span>
                                         {selected.price > 0 ? (
                                             <span className="text-gold font-bold text-lg leading-none">{selected.price} <span className="text-xs">SAR</span></span>
                                         ) : (
@@ -543,7 +543,7 @@ const QuickBookingForm = ({
                                                 className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm font-light hover:bg-white/10"
                                             />
                                             {errors.email && <span className="text-red-400 text-xs ml-2">{errors.email}</span>}
-                                            <p className="text-n-400 text-[10px] mt-1 ml-2">We will send a confirmation mail to this email address.</p>
+                                            <p className="text-white/60 text-[10px] mt-1 ml-2">We will send a confirmation mail to this email address.</p>
                                         </div>
                                     </div>
                                 </motion.div>

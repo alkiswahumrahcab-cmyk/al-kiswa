@@ -1,4 +1,4 @@
-﻿'use client'; // Required for Next.js App Router
+'use client'; // Required for Next.js App Router
 
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -63,7 +63,7 @@ function SocialProofTicker({ lang = 'en' }: { lang?: 'ar' | 'en' }) {
 
   return (
     <div className="mt-12 flex justify-center items-center">
-      <div className="flex items-center space-x-2 bg-black/40 border border-white/5 px-6 py-2 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.1)]">
+      <div className="flex items-center space-x-2 bg-card border border-border px-6 py-2 rounded-full shadow-[0_0_15px_rgba(34,197,94,0.1)]">
         <span className="relative flex h-2.5 w-2.5">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
           <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
@@ -95,7 +95,7 @@ export default function ImpactStats({ lang = 'en' }: Props) {
   return (
     <section
       aria-label="Company statistics and trust signals"
-      className="py-20 md:py-24 relative overflow-hidden bg-neutral-900/30 border-y border-white/5 backdrop-blur-sm"
+      className="py-20 md:py-24 relative overflow-hidden bg-background border-y border-border backdrop-blur-sm"
     >
       <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
@@ -106,7 +106,7 @@ export default function ImpactStats({ lang = 'en' }: Props) {
             <GlassCard
               key={stat.id}
               delay={index * 0.1}
-              className="flex flex-col items-center justify-center text-center p-8 group hover:border-gold/50 transition-all duration-500 bg-black/60 border-white/10 hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.15)] h-full"
+              className="flex flex-col items-center justify-center text-center p-8 group hover:border-gold/50 transition-all duration-500 bg-card border-border hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.15)] h-full"
             >
               <div 
                 className="mb-6 text-2xl md:text-3xl text-gold p-4 bg-gold/10 rounded-full group-hover:scale-110 transition-transform duration-300 border border-gold/20 group-hover:bg-gold group-hover:text-black" 
@@ -116,7 +116,7 @@ export default function ImpactStats({ lang = 'en' }: Props) {
               </div>
 
               <div 
-                className="text-4xl md:text-5xl font-bold text-white mb-2 font-sans tracking-tight"
+                className="text-4xl md:text-5xl font-semibold text-foreground mb-2 font-display tracking-tight"
                 role="img"
                 aria-label={`${stat.value}${stat.suffix} ${lang === 'ar' ? stat.labelAr : stat.label}`}
               >
@@ -136,30 +136,30 @@ export default function ImpactStats({ lang = 'en' }: Props) {
 
               {lang === 'ar' ? (
                 <>
-                  <p className="text-n-300 text-sm font-medium uppercase tracking-[0.1em] mb-1" style={{ fontFamily: 'var(--font-tajawal)' }}>
+                  <p className="text-muted-foreground text-sm font-medium uppercase tracking-[0.1em] mb-1" style={{ fontFamily: 'var(--font-tajawal)' }}>
                     {stat.labelAr}
                   </p>
-                  <p className="text-n-500 text-xs mb-3 font-sans uppercase tracking-widest">
+                  <p className="text-muted-foreground text-xs mb-3 font-sans uppercase tracking-widest">
                     {stat.label}
                   </p>
-                  <p className="text-n-400 text-xs mb-4 opacity-0 h-0 overflow-hidden group-hover:h-auto group-hover:opacity-100 transition-all duration-300" style={{ fontFamily: 'var(--font-tajawal)' }}>
+                  <p className="text-muted-foreground text-xs mb-4 opacity-0 h-0 overflow-hidden group-hover:h-auto group-hover:opacity-100 transition-all duration-300" style={{ fontFamily: 'var(--font-tajawal)' }}>
                     {stat.descriptionAr || stat.description}
                   </p>
                 </>
               ) : (
                 <>
-                  <p className="text-n-300 text-sm font-medium uppercase tracking-[0.1em] mb-1">
+                  <p className="text-muted-foreground text-sm font-medium uppercase tracking-[0.1em] mb-1">
                     {stat.label}
                   </p>
                   <p
-                    className="text-n-500 text-xs mb-3"
+                    className="text-muted-foreground text-xs mb-3"
                     dir="rtl"
                     lang="ar"
                     style={{ fontFamily: 'var(--font-tajawal)' }}
                   >
                     {stat.labelAr}
                   </p>
-                  <p className="text-n-400 text-xs mb-4 opacity-0 h-0 overflow-hidden group-hover:h-auto group-hover:opacity-100 transition-all duration-300">
+                  <p className="text-muted-foreground text-xs mb-4 opacity-0 h-0 overflow-hidden group-hover:h-auto group-hover:opacity-100 transition-all duration-300">
                     {stat.description}
                   </p>
                 </>
@@ -178,7 +178,7 @@ export default function ImpactStats({ lang = 'en' }: Props) {
 
         <SocialProofTicker lang={lang} />
 
-        <p className="text-center text-n-500 text-sm mt-8 italic" style={{ fontFamily: 'var(--font-tajawal)' }}>
+        <p className="text-center text-muted-foreground text-sm mt-8 italic" style={{ fontFamily: 'var(--font-tajawal)' }}>
           {lang === 'ar' ? 'أرقام موثقة منذ 2014 · Figures reflect verified bookings and reviews since 2014' : 'Figures reflect verified bookings and reviews since 2014 · أرقام موثقة منذ 2014'}
         </p>
       </div>

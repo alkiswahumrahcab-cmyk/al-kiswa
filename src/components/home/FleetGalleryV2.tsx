@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useRef, useState } from 'react';
 import Image from 'next/image';
@@ -84,7 +84,7 @@ export default function FleetGalleryV2() {
     };
 
     return (
-        <section className="py-24 bg-zinc-950 relative overflow-hidden">
+        <section className="py-24 bg-background relative overflow-hidden">
             {/* Elegant Background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2" />
@@ -101,11 +101,11 @@ export default function FleetGalleryV2() {
                                 The Royal Fleet
                             </span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-white mb-6 leading-tight">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold font-display text-foreground mb-6 leading-tight">
                             Luxury Vehicles for <br />
                             <span className="text-gold italic font-serif">Every Journey</span>
                         </h2>
-                        <p className="text-n-400 text-lg leading-relaxed max-w-xl font-light">
+                        <p className="text-muted-foreground text-lg leading-relaxed max-w-xl font-light">
                             Meticulously maintained GMC Yukons, H1 Vans, and Buses.
                             Designed for the comfort of pilgrims in Makkah & Madinah.
                         </p>
@@ -115,14 +115,14 @@ export default function FleetGalleryV2() {
                     <div className="flex gap-4">
                         <button
                             onClick={() => scroll('left')}
-                            className="w-14 h-14 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-white hover:border-gold hover:text-gold transition-all duration-300 active:scale-95 group"
+                            className="w-14 h-14 rounded-full bg-card border border-border flex items-center justify-center text-foreground hover:border-gold hover:text-gold transition-all duration-300 active:scale-95 group"
                             aria-label="Previous"
                         >
                             <ChevronLeft size={24} className="group-hover:-translate-x-0.5 transition-transform" />
                         </button>
                         <button
                             onClick={() => scroll('right')}
-                            className="w-14 h-14 rounded-full bg-zinc-900 border border-white/10 flex items-center justify-center text-white hover:border-gold hover:text-gold transition-all duration-300 active:scale-95 group"
+                            className="w-14 h-14 rounded-full bg-card border border-border flex items-center justify-center text-foreground hover:border-gold hover:text-gold transition-all duration-300 active:scale-95 group"
                             aria-label="Next"
                         >
                             <ChevronRight size={24} className="group-hover:translate-x-0.5 transition-transform" />
@@ -165,10 +165,10 @@ export default function FleetGalleryV2() {
                             className="group relative w-[340px] h-[480px] md:w-[400px] md:h-[520px] shrink-0 scroll-snap-align-start perspective-1000 block"
                             draggable={false}
                         >
-                            <article className="w-full h-full relative bg-zinc-900 border border-white/5 rounded-[2rem] overflow-hidden group hover:border-gold/30 transition-all duration-500 hover:shadow-2xl hover:shadow-gold/5 flex flex-col">
+                            <article className="w-full h-full relative bg-card border border-border rounded-[2rem] overflow-hidden group hover:border-gold/30 transition-all duration-500 hover:shadow-2xl hover:shadow-gold/5 flex flex-col">
                                 {/* Image Area */}
                                 <div className="relative h-64 overflow-hidden">
-                                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent z-10 opacity-80" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent z-10 opacity-80" />
                                     <Image
                                         src={img.src}
                                         alt={img.alt}
@@ -191,42 +191,42 @@ export default function FleetGalleryV2() {
                                     <div className="mb-6">
                                         <div className="flex justify-between items-start mb-4">
                                             <div>
-                                                <h3 className="text-2xl font-bold text-white mb-2 font-sans group-hover:text-gold transition-colors">{img.name}</h3>
+                                                <h3 className="text-2xl font-semibold text-foreground mb-2 font-display group-hover:text-gold transition-colors">{img.name}</h3>
                                                 <div className="flex items-center gap-1">
                                                     {[1, 2, 3, 4, 5].map((star) => (
                                                         <Star key={star} size={12} className="fill-gold text-gold" />
                                                     ))}
-                                                    <span className="text-xs text-n-500 font-medium ml-2">({img.rating})</span>
+                                                    <span className="text-xs text-muted-foreground font-medium ml-2">({img.rating})</span>
                                                 </div>
                                             </div>
                                         </div>
 
                                         {/* Specs - Minimalist Row */}
-                                        <div className="flex items-center gap-6 py-4 border-t border-white/10 border-b">
+                                        <div className="flex items-center gap-6 py-4 border-t border-border border-b">
                                             <div className="flex items-center gap-3">
                                                 <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold">
                                                     <Users size={14} />
                                                 </div>
                                                 <div className="flex flex-col">
-                                                    <span className="text-[10px] uppercase text-n-500 font-bold tracking-widest leading-none mb-1">Capacity</span>
-                                                    <span className="text-sm font-bold text-white leading-none">{img.capacity}</span>
+                                                    <span className="text-[10px] uppercase text-muted-foreground font-bold tracking-widest leading-none mb-1">Capacity</span>
+                                                    <span className="text-sm font-bold text-foreground leading-none">{img.capacity}</span>
                                                 </div>
                                             </div>
-                                            <div className="w-px h-8 bg-white/10" />
+                                            <div className="w-px h-8 bg-border" />
                                             <div className="flex items-center gap-3">
                                                 <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center text-gold">
                                                     <Briefcase size={14} />
                                                 </div>
                                                 <div className="flex flex-col">
-                                                    <span className="text-[10px] uppercase text-n-500 font-bold tracking-widest leading-none mb-1">Luggage</span>
-                                                    <span className="text-sm font-bold text-white leading-none">{img.luggage}</span>
+                                                    <span className="text-[10px] uppercase text-muted-foreground font-bold tracking-widest leading-none mb-1">Luggage</span>
+                                                    <span className="text-sm font-bold text-foreground leading-none">{img.luggage}</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="mt-auto pt-2 flex items-center justify-between group/btn">
-                                        <span className="font-bold text-xs uppercase tracking-[0.15em] text-gold group-hover:text-white transition-colors">
+                                        <span className="font-bold text-xs uppercase tracking-[0.15em] text-gold group-hover:text-foreground transition-colors">
                                             View Details
                                         </span>
                                         <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-black transition-all duration-300 transform group-hover:scale-110">
