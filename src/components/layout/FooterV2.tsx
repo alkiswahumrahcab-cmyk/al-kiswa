@@ -81,7 +81,7 @@ export default function Footer() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
             />
             {/* Main 4-Column Grid */}
-            <div className="container mx-auto px-4 py-16">
+            <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12 py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                     {/* Column 1 - Brand Block */}
                     <div className="space-y-6">
@@ -219,7 +219,7 @@ export default function Footer() {
 
             {/* Full-Width Trust Bar */}
             <div className="border-y border-border py-6 bg-background/50">
-                <div className="container mx-auto px-4">
+                <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12">
                     <div className="flex flex-col md:flex-row flex-wrap justify-between items-center gap-4 text-[13px] text-muted-foreground font-medium">
                         <div className="flex items-center gap-2">
                             <span>🛡️</span>
@@ -245,7 +245,7 @@ export default function Footer() {
             </div>
 
             {/* Bottom Legal Bar */}
-            <div className="container mx-auto px-4 py-8">
+            <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12 py-8">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center text-center lg:text-left">
                     <div className="text-[13px] text-muted-foreground">
                         © 2026 Al Kiswah Umrah Transport. All rights reserved. | Jeddah · Makkah · Madinah

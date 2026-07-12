@@ -111,7 +111,7 @@ export default function Navbar() {
                     : 'bg-transparent py-4 top-0 lg:top-4'
                     }`}
             >
-                <div className="container mx-auto px-4 flex items-center justify-between">
+                <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-3 group relative z-50">
                     <ThemeLogo width={160} height={48} priority />
                 </Link>

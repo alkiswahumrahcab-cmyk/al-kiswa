@@ -20,7 +20,7 @@ const TopBar = async () => {
 
     return (
         <div className="hidden lg:block bg-background text-muted-foreground border-b border-border relative z-50">
-            <div className="container mx-auto px-4 h-12 flex justify-between items-center text-xs font-medium tracking-wide">
+            <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12 h-12 flex justify-between items-center text-xs font-medium tracking-wide">
 
                 {/* Left Side: Contact Info */}
                 <div className="flex items-center gap-6">
