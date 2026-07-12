@@ -236,6 +236,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
               <ThemeProvider
                 attribute="class"
                 defaultTheme="dark"
+                forcedTheme="dark"
                 enableSystem={false}
                 disableTransitionOnChange
               >
