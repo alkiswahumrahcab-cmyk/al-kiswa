@@ -90,7 +90,7 @@ export default function UserDetailsPage() {
             <div className="flex items-center gap-4">
                 <button
                     onClick={() => router.back()}
-                    className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors"
+                    className="p-2 hover:bg-slate-100 rounded-full transition-colors"
                 >
                     <ArrowLeft size={24} />
                 </button>
@@ -103,21 +103,21 @@ export default function UserDetailsPage() {
             {/* Profile Card */}
             <div className={adminStyles.glassCard + " p-6"}>
                 <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-                    <div className="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-full">
+                    <div className="p-4 bg-amber-50 rounded-full">
                         <User size={48} className="text-amber-500" />
                     </div>
                     <div className="space-y-2 flex-1">
-                        <h2 className="text-2xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">
+                        <h2 className="text-2xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
                             {user.name}
                         </h2>
-                        <div className="flex flex-wrap gap-4 text-sm text-slate-500 dark:text-slate-400">
+                        <div className="flex flex-wrap gap-4 text-sm text-slate-500">
                             <span className="flex items-center gap-2">
                                 <Mail size={16} /> {user.email}
                             </span>
                             <span className="flex items-center gap-2">
                                 <Calendar size={16} /> Joined {new Date(user.createdAt).toLocaleDateString()}
                             </span>
-                            <span className="flex items-center gap-2 capitalize px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium border border-slate-200 dark:border-slate-700">
+                            <span className="flex items-center gap-2 capitalize px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium border border-slate-200">
                                 <Shield size={14} /> {user.role}
                             </span>
                         </div>

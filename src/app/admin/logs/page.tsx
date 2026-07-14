@@ -103,7 +103,7 @@ function LogsContent() {
                 </div>
                 <button
                     onClick={fetchLogs}
-                    className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                    className="p-2 bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors"
                     title="Refresh Logs"
                 >
                     <RefreshCcw size={18} className={loading ? 'animate-spin' : ''} />
@@ -125,7 +125,7 @@ function LogsContent() {
                 </div>
 
                 {/* Toolbar */}
-                <div className="p-4 flex flex-col md:flex-row gap-4 border-b border-border bg-slate-50/50 dark:bg-slate-900/50">
+                <div className="p-4 flex flex-col md:flex-row gap-4 border-b border-border bg-slate-50/50">
                     <div className="relative flex-1">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
                         <input
@@ -154,11 +154,11 @@ function LogsContent() {
                             {loading && logs.length === 0 ? (
                                 Array.from({ length: 5 }).map((_, i) => (
                                     <tr key={i} className="animate-pulse">
-                                        <td><div className="h-4 bg-slate-200 dark:bg-slate-800 rounded w-24"></div></td>
-                                        <td><div className="h-4 bg-slate-200 dark:bg-slate-800 rounded w-20"></div></td>
-                                        <td><div className="h-6 bg-slate-200 dark:bg-slate-800 rounded w-24"></div></td>
-                                        <td><div className="h-4 bg-slate-200 dark:bg-slate-800 rounded w-48"></div></td>
-                                        <td><div className="h-4 bg-slate-200 dark:bg-slate-800 rounded w-16"></div></td>
+                                        <td><div className="h-4 bg-slate-200 rounded w-24"></div></td>
+                                        <td><div className="h-4 bg-slate-200 rounded w-20"></div></td>
+                                        <td><div className="h-6 bg-slate-200 rounded w-24"></div></td>
+                                        <td><div className="h-4 bg-slate-200 rounded w-48"></div></td>
+                                        <td><div className="h-4 bg-slate-200 rounded w-16"></div></td>
                                     </tr>
                                 ))
                             ) : logs.length === 0 ? (
@@ -169,13 +169,13 @@ function LogsContent() {
                                 </tr>
                             ) : (
                                 logs.map((log) => (
-                                    <tr key={log.id} className="group hover:bg-slate-50/50 dark:hover:bg-slate-800/50 transition-colors">
+                                    <tr key={log.id} className="group hover:bg-slate-50/50 transition-colors">
                                         <td className="text-sm text-muted-foreground font-mono">
                                             {format(new Date(log.timestamp), 'MMM d, HH:mm:ss')}
                                         </td>
                                         <td>
                                             <div className="flex items-center gap-2">
-                                                <div className="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-xs font-bold">
+                                                <div className="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold">
                                                     {log.user.charAt(0).toUpperCase()}
                                                 </div>
                                                 <span className="font-medium text-sm">{log.user}</span>
@@ -186,12 +186,12 @@ function LogsContent() {
                                                 {log.action}
                                             </span>
                                         </td>
-                                        <td className="text-sm text-slate-700 dark:text-slate-300 max-w-md truncate" title={log.details}>
+                                        <td className="text-sm text-slate-700 max-w-md truncate" title={log.details}>
                                             {log.details}
                                         </td>
                                         <td>
                                             {log.entity && (
-                                                <span className="text-xs font-mono bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded text-muted-foreground">
+                                                <span className="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-muted-foreground">
                                                     {log.entity}
                                                 </span>
                                             )}
@@ -204,7 +204,7 @@ function LogsContent() {
                 </div>
 
                 {/* Pagination */}
-                <div className="p-4 border-t border-border flex items-center justify-between bg-slate-50/50 dark:bg-slate-900/50">
+                <div className="p-4 border-t border-border flex items-center justify-between bg-slate-50/50">
                     <span className="text-sm text-muted-foreground">
                         Page {page} of {totalPages || 1}
                     </span>
@@ -212,14 +212,14 @@ function LogsContent() {
                         <button
                             onClick={() => handlePageChange(page - 1)}
                             disabled={page <= 1}
-                            className="p-2 rounded-lg border border-border bg-background hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                            className="p-2 rounded-lg border border-border bg-background hover:bg-slate-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                         >
                             <ChevronLeft size={16} />
                         </button>
                         <button
                             onClick={() => handlePageChange(page + 1)}
                             disabled={page >= totalPages}
-                            className="p-2 rounded-lg border border-border bg-background hover:bg-slate-100 dark:hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                            className="p-2 rounded-lg border border-border bg-background hover:bg-slate-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                         >
                             <ChevronRight size={16} />
                         </button>

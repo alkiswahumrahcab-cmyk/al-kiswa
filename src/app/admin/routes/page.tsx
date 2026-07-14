@@ -302,7 +302,7 @@ export default function RoutesPage() {
                         >
                             <button
                                 onClick={() => setShowModal(false)}
-                                className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                                className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-2 rounded-full hover:bg-slate-100 transition-colors"
                             >
                                 <X size={20} />
                             </button>
@@ -315,7 +315,7 @@ export default function RoutesPage() {
                             <form onSubmit={handleSaveRoute} className="space-y-4">
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Origin</label>
+                                        <label className="text-sm font-medium text-slate-700">Origin</label>
                                         <input
                                             required
                                             className="w-full p-2.5 rounded-lg border border-border bg-background focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
@@ -325,10 +325,10 @@ export default function RoutesPage() {
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Destination</label>
+                                        <label className="text-sm font-medium text-slate-700">Destination</label>
                                         <input
                                             required
-                                            className="w-full p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
                                             value={formData.destination}
                                             onChange={e => setFormData({ ...formData, destination: e.target.value })}
                                             placeholder="e.g. Madinah"
@@ -337,18 +337,18 @@ export default function RoutesPage() {
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Distance</label>
+                                        <label className="text-sm font-medium text-slate-700">Distance</label>
                                         <input
-                                            className="w-full p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
                                             value={formData.distance}
                                             onChange={e => setFormData({ ...formData, distance: e.target.value })}
                                             placeholder="e.g. 450 km"
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Duration</label>
+                                        <label className="text-sm font-medium text-slate-700">Duration</label>
                                         <input
-                                            className="w-full p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
                                             value={formData.duration}
                                             onChange={e => setFormData({ ...formData, duration: e.target.value })}
                                             placeholder="e.g. 4.5 hours"
@@ -356,9 +356,9 @@ export default function RoutesPage() {
                                     </div>
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Category</label>
+                                    <label className="text-sm font-medium text-slate-700">Category</label>
                                     <select
-                                        className="w-full p-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-amber-500/20 outline-none transition-all cursor-pointer"
+                                        className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all cursor-pointer"
                                         value={formData.category}
                                         onChange={e => setFormData({ ...formData, category: e.target.value })}
                                     >
@@ -368,11 +368,11 @@ export default function RoutesPage() {
                                         ))}
                                     </select>
                                 </div>
-                                <div className="flex justify-end gap-3 mt-6 pt-4 border-t border-slate-200 dark:border-slate-800">
+                                <div className="flex justify-end gap-3 mt-6 pt-4 border-t border-slate-200">
                                     <button
                                         type="button"
                                         onClick={() => setShowModal(false)}
-                                        className="px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+                                        className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
                                     >
                                         Cancel
                                     </button>

@@ -75,13 +75,13 @@ export default function Footer() {
     };
 
     return (
-        <footer className="bg-background border-t border-border text-foreground relative">
+        <footer className="bg-ink-bg text-on-ink relative">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
             />
             {/* Main 4-Column Grid */}
-            <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12 py-16">
+            <div className="container py-16">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                     {/* Column 1 - Brand Block */}
                     <div className="space-y-6">
@@ -89,10 +89,10 @@ export default function Footer() {
                             <ThemeLogo width={160} height={48} />
                         </Link>
                         <div className="space-y-2">
-                            <p className="text-muted-foreground text-sm leading-relaxed">
+                            <p className="text-on-ink-muted text-sm leading-relaxed">
                                 Your trusted companion for a blessed Umrah journey.
                             </p>
-                            <p className="text-muted-foreground text-xs leading-relaxed" dir="rtl">
+                            <p className="text-on-ink-muted text-xs leading-relaxed" dir="rtl">
                                 رفيقكم الأمين في رحلة العمرة المباركة
                             </p>
                         </div>
@@ -100,13 +100,13 @@ export default function Footer() {
                             href={settings?.contact?.social?.googleBusiness || "https://share.google/ARbbVaAackyOs8N7G"}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="block group w-fit hover:bg-foreground/5 rounded-lg border border-transparent hover:border-border transition-all p-2 -ml-2"
+                            className="block group w-fit hover:bg-on-ink/5 rounded-lg border border-transparent hover:border-ink-surface transition-all p-2 -ml-2"
                         >
                             <div className="flex items-center gap-2">
                                 <span className="text-yellow-400 text-sm tracking-widest group-hover:scale-105 transition-transform origin-left">⭐⭐⭐⭐⭐</span>
-                                <span className="text-[10px] font-bold text-foreground bg-blue-600/20 px-2 py-0.5 rounded border border-blue-500/30">Google Provider</span>
+                                <span className="text-[10px] font-bold text-on-ink bg-blue-600/20 px-2 py-0.5 rounded border border-blue-500/30">Google Provider</span>
                             </div>
-                            <span className="text-xs text-muted-foreground mt-1 block group-hover:text-foreground transition-colors">5.0 Rating — See our reviews</span>
+                            <span className="text-xs text-on-ink-muted mt-1 block group-hover:text-on-ink transition-colors">5.0 Rating — See our reviews</span>
                         </a>
                         <a
                             href={`https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}`}
@@ -117,39 +117,39 @@ export default function Footer() {
                             Book via WhatsApp
                         </a>
                         <div className="pt-2">
-                            <p className="text-xs text-muted-foreground mb-2 font-medium">ACCEPTED PAYMENTS:</p>
-                            <div className="flex flex-wrap gap-2 text-[10px] font-bold text-muted-foreground">
-                                <span className="bg-muted px-2 py-1 rounded">SAR</span>
-                                <span className="bg-muted px-2 py-1 rounded">USD</span>
-                                <span className="bg-muted px-2 py-1 rounded">GBP</span>
-                                <span className="bg-muted px-2 py-1 rounded">EUR</span>
+                            <p className="text-xs text-on-ink-muted mb-2 font-medium">ACCEPTED PAYMENTS:</p>
+                            <div className="flex flex-wrap gap-2 text-[10px] font-bold text-on-ink-muted">
+                                <span className="bg-ink-surface px-2 py-1 rounded">SAR</span>
+                                <span className="bg-ink-surface px-2 py-1 rounded">USD</span>
+                                <span className="bg-ink-surface px-2 py-1 rounded">GBP</span>
+                                <span className="bg-ink-surface px-2 py-1 rounded">EUR</span>
                             </div>
                         </div>
 
                         {/* Social Links */}
                         <div className="flex items-center gap-4 pt-2">
                             {settings?.contact?.social?.facebook && (
-                                <a href={settings.contact.social.facebook} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-blue-500 transition-colors" aria-label="Facebook">
+                                <a href={settings.contact.social.facebook} target="_blank" rel="noopener noreferrer" className="text-on-ink-muted hover:text-blue-500 transition-colors" aria-label="Facebook">
                                     <Facebook size={20} strokeWidth={1.5} />
                                 </a>
                             )}
                             {settings?.contact?.social?.instagram && (
-                                <a href={settings.contact.social.instagram} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-pink-500 transition-colors" aria-label="Instagram">
+                                <a href={settings.contact.social.instagram} target="_blank" rel="noopener noreferrer" className="text-on-ink-muted hover:text-pink-500 transition-colors" aria-label="Instagram">
                                     <Instagram size={20} strokeWidth={1.5} />
                                 </a>
                             )}
                             {settings?.contact?.social?.twitter && (
-                                <a href={settings.contact.social.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-blue-400 transition-colors" aria-label="Twitter">
+                                <a href={settings.contact.social.twitter} target="_blank" rel="noopener noreferrer" className="text-on-ink-muted hover:text-blue-400 transition-colors" aria-label="Twitter">
                                     <Twitter size={20} strokeWidth={1.5} />
                                 </a>
                             )}
                             {settings?.contact?.social?.linkedin && (
-                                <a href={settings.contact.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-blue-600 transition-colors" aria-label="LinkedIn">
+                                <a href={settings.contact.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-on-ink-muted hover:text-blue-600 transition-colors" aria-label="LinkedIn">
                                     <Linkedin size={20} strokeWidth={1.5} />
                                 </a>
                             )}
                             {settings?.contact?.social?.tiktok && (
-                                <a href={settings.contact.social.tiktok} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="TikTok">
+                                <a href={settings.contact.social.tiktok} target="_blank" rel="noopener noreferrer" className="text-on-ink-muted hover:text-on-ink transition-colors" aria-label="TikTok">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                                     </svg>
@@ -160,55 +160,55 @@ export default function Footer() {
 
                     {/* Column 2 - Popular Routes */}
                     <div>
-                        <h3 className="text-foreground font-semibold text-[14px] uppercase tracking-wider mb-6">
+                        <h3 className="text-on-ink font-semibold text-[14px] uppercase tracking-wider mb-6">
                             Popular Umrah Routes
                         </h3>
                         <ul className="space-y-3">
-                            <li><Link href="/services/jeddah-airport-transfer" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">Jeddah Airport to Makkah Taxi</Link></li>
-                            <li><Link href="/services/makkah-madinah-taxi" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">Makkah to Madinah Private Taxi</Link></li>
-                            <li><Link href="/services/madinah-airport-transfer" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">Madinah Airport to Hotel Transfer</Link></li>
-                            <li><Link href="/services/intercity-transfer" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">Jeddah to Madinah Direct Transfer</Link></li>
-                            <li><Link href="/services/ziyarat-tours" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">Makkah Ziyarat City Tours</Link></li>
-                            <li><Link href="/ramadan-2026" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">Ramadan 2026 Umrah Transport</Link></li>
+                            <li><Link href="/services/jeddah-airport-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">Jeddah Airport to Makkah Taxi</Link></li>
+                            <li><Link href="/services/makkah-madinah-taxi" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">Makkah to Madinah Private Taxi</Link></li>
+                            <li><Link href="/services/madinah-airport-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">Madinah Airport to Hotel Transfer</Link></li>
+                            <li><Link href="/services/intercity-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">Jeddah to Madinah Direct Transfer</Link></li>
+                            <li><Link href="/services/ziyarat-tours" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">Makkah Ziyarat City Tours</Link></li>
+                            <li><Link href="/ramadan-2026" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">Ramadan 2026 Umrah Transport</Link></li>
                         </ul>
                     </div>
 
                     {/* Column 3 - Services & Fleet */}
                     <div>
-                        <h3 className="text-foreground font-semibold text-[14px] uppercase tracking-wider mb-6">
+                        <h3 className="text-on-ink font-semibold text-[14px] uppercase tracking-wider mb-6">
                             Services & Fleet
                         </h3>
                         <ul className="space-y-3">
-                            <li><Link href="/services/airport-transfers" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">Airport Transfers</Link></li>
-                            <li><Link href="/services/hotel-transfers" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">Hotel Transfers</Link></li>
-                            <li><Link href="/services/intercity-transfer" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">Intercity Transport</Link></li>
-                            <li><Link href="/fleet/gmc-yukon-at4" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">GMC Yukon XL — VIP SUV</Link></li>
-                            <li><Link href="/fleet/hyundai-staria" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">Hyundai Staria — Family MPV</Link></li>
-                            <li><Link href="/fleet/toyota-hiace" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">Toyota Hiace — Group Bus</Link></li>
-                            <li><Link href="/pricing" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">Pricing & Rates</Link></li>
+                            <li><Link href="/services/airport-transfers" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">Airport Transfers</Link></li>
+                            <li><Link href="/services/hotel-transfers" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">Hotel Transfers</Link></li>
+                            <li><Link href="/services/intercity-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">Intercity Transport</Link></li>
+                            <li><Link href="/fleet/gmc-yukon-at4" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">GMC Yukon XL — VIP SUV</Link></li>
+                            <li><Link href="/fleet/hyundai-staria" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">Hyundai Staria — Family MPV</Link></li>
+                            <li><Link href="/fleet/toyota-hiace" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">Toyota Hiace — Group Bus</Link></li>
+                            <li><Link href="/pricing" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">Pricing & Rates</Link></li>
                             <li><Link href="/pricing/compare" className="text-gold/70 hover:text-gold transition-colors text-[15px]">Compare vs Kiwi · Telixo · 5Star</Link></li>
                         </ul>
                     </div>
 
                     {/* Column 4 - Company & Trust */}
                     <div>
-                        <h3 className="text-foreground font-semibold text-[14px] uppercase tracking-wider mb-6">
+                        <h3 className="text-on-ink font-semibold text-[14px] uppercase tracking-wider mb-6">
                             Al Kiswah Transport
                         </h3>
                         <ul className="space-y-3">
-                            <li><Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">About Us</Link></li>
-                            <li><Link href="/blog" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">Blog & Travel Guides</Link></li>
-                            <li><Link href="/contact" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">Contact Us</Link></li>
-                            <li><Link href="/safety" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">Safety Policy</Link></li>
-                            <li><Link href="/track-booking" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">Track My Booking</Link></li>
+                            <li><Link href="/about" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">About Us</Link></li>
+                            <li><Link href="/blog" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">Blog & Travel Guides</Link></li>
+                            <li><Link href="/contact" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">Contact Us</Link></li>
+                            <li><Link href="/safety" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">Safety Policy</Link></li>
+                            <li><Link href="/track-booking" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">Track My Booking</Link></li>
                             {regions.slice(0, 4).map((region) => (
                                 <li key={region.id}>
-                                    <Link href={`/pilgrims/${region.id}`} className="text-muted-foreground hover:text-foreground transition-colors text-[15px]">
+                                    <Link href={`/pilgrims/${region.id}`} className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">
                                         Umrah Taxi {region.name}
                                     </Link>
                                 </li>
                             ))}
-                            <li><Link href="/ar" className="text-muted-foreground hover:text-foreground transition-colors text-[15px]" dir="rtl">للمعتمرين العرب</Link></li>
+                            <li><Link href="/ar" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]" dir="rtl">للمعتمرين العرب</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -218,24 +218,24 @@ export default function Footer() {
             <NusukFooterSeal />
 
             {/* Full-Width Trust Bar */}
-            <div className="border-y border-border py-6 bg-background/50">
-                <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12">
-                    <div className="flex flex-col md:flex-row flex-wrap justify-between items-center gap-4 text-[13px] text-muted-foreground font-medium">
+            <div className="border-y border-ink-surface py-6 bg-white/5">
+                <div className="container">
+                    <div className="flex flex-col md:flex-row flex-wrap justify-between items-center gap-4 text-[13px] text-on-ink-muted font-medium">
                         <div className="flex items-center gap-2">
                             <span>🛡️</span>
                             <span>Ministry of Hajj Licensed</span>
                         </div>
-                        <div className="hidden md:block w-px h-4 bg-border" />
+                        <div className="hidden md:block w-px h-4 bg-ink-surface" />
                         <div className="flex items-center gap-2">
                             <span>✈️</span>
                             <span>Real-Time Flight Tracking</span>
                         </div>
-                        <div className="hidden md:block w-px h-4 bg-border" />
+                        <div className="hidden md:block w-px h-4 bg-ink-surface" />
                         <div className="flex items-center gap-2">
                             <span>💰</span>
                             <span>Fixed Prices — No Hidden Fees</span>
                         </div>
-                        <div className="hidden md:block w-px h-4 bg-border" />
+                        <div className="hidden md:block w-px h-4 bg-ink-surface" />
                         <div className="flex items-center gap-2">
                             <span>🕐</span>
                             <span>24/7 Support — Always Available</span>
@@ -245,17 +245,17 @@ export default function Footer() {
             </div>
 
             {/* Bottom Legal Bar */}
-            <div className="w-full max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-12 py-8">
+            <div className="container py-8">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-center text-center lg:text-left">
-                    <div className="text-[13px] text-muted-foreground">
+                    <div className="text-[13px] text-on-ink-muted">
                         © 2026 Al Kiswah Umrah Transport. All rights reserved. | Jeddah · Makkah · Madinah
                     </div>
                     
-                    <div className="text-[11px] text-muted-foreground/70 lg:text-center order-last lg:order-none flex flex-wrap justify-center gap-2">
+                    <div className="text-[11px] text-on-ink-muted/70 lg:text-center order-last lg:order-none flex flex-wrap justify-center gap-2">
                         <span>Serving pilgrims from:</span>
                         {regions.map((region, index) => (
                             <span key={region.id}>
-                                <Link href={`/pilgrims/${region.id}`} className="hover:text-muted-foreground transition-colors">
+                                <Link href={`/pilgrims/${region.id}`} className="hover:text-on-ink-muted transition-colors">
                                     {region.name}
                                 </Link>
                                 {index < regions.length - 1 && <span className="mx-1">·</span>}
@@ -263,10 +263,10 @@ export default function Footer() {
                         ))}
                     </div>
 
-                    <div className="flex items-center justify-center lg:justify-end gap-6 text-[13px] text-muted-foreground">
-                        <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
-                        <Link href="/terms" className="hover:text-foreground transition-colors">Terms of Service</Link>
-                        <Link href="/sitemap.xml" className="hover:text-foreground transition-colors">Sitemap</Link>
+                    <div className="flex items-center justify-center lg:justify-end gap-6 text-[13px] text-on-ink-muted">
+                        <Link href="/privacy" className="hover:text-on-ink transition-colors">Privacy Policy</Link>
+                        <Link href="/terms" className="hover:text-on-ink transition-colors">Terms of Service</Link>
+                        <Link href="/sitemap.xml" className="hover:text-on-ink transition-colors">Sitemap</Link>
                     </div>
                 </div>
             </div>

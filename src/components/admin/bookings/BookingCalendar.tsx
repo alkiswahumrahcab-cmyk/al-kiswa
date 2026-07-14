@@ -59,40 +59,40 @@ export default function BookingCalendar({ events, onSelectEvent }: BookingCalend
 
     const CustomToolbar = (toolbar: any) => {
         return (
-            <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 p-4 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div className="flex flex-col md:flex-row justify-between items-center mb-6 gap-4 p-4 bg-white rounded-xl border border-slate-200 shadow-sm">
                 <div className="flex items-center gap-2">
                     <button
                         onClick={() => handleNavigate('PREV')}
-                        className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                        className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
                     >
-                        <ChevronLeft size={20} className="text-slate-600 dark:text-slate-300" />
+                        <ChevronLeft size={20} className="text-slate-600" />
                     </button>
                     <button
                         onClick={() => handleNavigate('TODAY')}
-                        className="px-4 py-1.5 text-sm font-medium bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-500 rounded-md hover:bg-amber-100 dark:hover:bg-amber-900/30 transition-colors"
+                        className="px-4 py-1.5 text-sm font-medium bg-amber-50 text-amber-600 rounded-md hover:bg-amber-100 transition-colors"
                     >
                         Today
                     </button>
                     <button
                         onClick={() => handleNavigate('NEXT')}
-                        className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                        className="p-2 hover:bg-slate-100 rounded-lg transition-colors"
                     >
-                        <ChevronRight size={20} className="text-slate-600 dark:text-slate-300" />
+                        <ChevronRight size={20} className="text-slate-600" />
                     </button>
-                    <h3 className="text-xl font-bold ml-2 text-slate-800 dark:text-white flex items-center gap-2">
+                    <h3 className="text-xl font-bold ml-2 text-slate-800 flex items-center gap-2">
                         <CalendarIcon size={20} className="text-amber-500" />
                         {format(date, 'MMMM yyyy')}
                     </h3>
                 </div>
 
-                <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
+                <div className="flex bg-slate-100 p-1 rounded-lg">
                     {['month', 'week', 'day'].map((v) => (
                         <button
                             key={v}
                             onClick={() => setView(v as View)}
                             className={`px-4 py-1.5 rounded-md text-sm font-medium capitalize transition-all ${view === v
-                                ? 'bg-white dark:bg-slate-700 text-amber-600 dark:text-amber-500 shadow-sm'
-                                : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'
+                                ? 'bg-white text-amber-600 shadow-sm'
+                                : 'text-slate-500 hover:text-slate-700'
                                 }`}
                         >
                             {v}
@@ -104,7 +104,7 @@ export default function BookingCalendar({ events, onSelectEvent }: BookingCalend
     };
 
     return (
-        <div className={`h-[700px] w-full bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 p-2 ${styles.calendarWrapper}`}>
+        <div className={`h-[700px] w-full bg-white rounded-xl shadow-sm border border-slate-200 p-2 ${styles.calendarWrapper}`}>
             <Calendar
                 localizer={localizer}
                 events={events} // Cast to any if needed due to strict types

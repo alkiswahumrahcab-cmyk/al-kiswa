@@ -46,17 +46,17 @@ export default function DiscountManagement({ settings, onSave, isSaving }: Disco
     };
 
     return (
-        <div className="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
-            <div className="p-6 border-b border-slate-200 dark:border-slate-700">
+        <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+            <div className="p-6 border-b border-slate-200">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Discount Management</h2>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                        <h2 className="text-lg font-semibold text-slate-900">Discount Management</h2>
+                        <p className="text-sm text-slate-500 mt-1">
                             Configure site-wide discounts and promotional offers.
                         </p>
                     </div>
                     <div className="flex items-center gap-2">
-                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${formData.enabled ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-400'}`}>
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium ${formData.enabled ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-600'}`}>
                             {formData.enabled ? 'Active' : 'Inactive'}
                         </span>
                     </div>
@@ -65,16 +65,16 @@ export default function DiscountManagement({ settings, onSave, isSaving }: Disco
 
             <form onSubmit={handleSubmit} className="p-6 space-y-6">
                 {/* Enable Toggle */}
-                <div className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-700/30 rounded-lg border border-slate-200 dark:border-slate-700">
+                <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg border border-slate-200">
                     <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${formData.enabled ? 'bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400' : 'bg-slate-200 text-slate-500'}`}>
+                        <div className={`w-10 h-10 rounded-full flex items-center justify-center ${formData.enabled ? 'bg-amber-100 text-amber-600' : 'bg-slate-200 text-slate-500'}`}>
                             <Percent size={20} />
                         </div>
                         <div>
-                            <label htmlFor="discount-enabled" className="block text-sm font-medium text-slate-900 dark:text-white cursor-pointer">
+                            <label htmlFor="discount-enabled" className="block text-sm font-medium text-slate-900 cursor-pointer">
                                 Enable Discount
                             </label>
-                            <p className="text-xs text-slate-500 dark:text-slate-400">
+                            <p className="text-xs text-slate-500">
                                 Turn this on to activate the discount across the site.
                             </p>
                         </div>
@@ -87,14 +87,14 @@ export default function DiscountManagement({ settings, onSave, isSaving }: Disco
                             checked={formData.enabled}
                             onChange={(e) => handleChange('enabled', e.target.checked)}
                         />
-                        <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-amber-300 dark:peer-focus:ring-amber-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-amber-500"></div>
+                        <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-amber-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-amber-500"></div>
                     </label>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Discount Type */}
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">
                             Discount Type
                         </label>
                         <div className="grid grid-cols-2 gap-3">
@@ -102,8 +102,8 @@ export default function DiscountManagement({ settings, onSave, isSaving }: Disco
                                 type="button"
                                 onClick={() => handleChange('type', 'percentage')}
                                 className={`flex items-center justify-center gap-2 p-3 rounded-lg border transition-all ${formData.type === 'percentage'
-                                    ? 'bg-amber-50 border-amber-500 text-amber-700 dark:bg-amber-900/20 dark:border-amber-500 dark:text-amber-400'
-                                    : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700'
+                                    ? 'bg-amber-50 border-amber-500 text-amber-700'
+                                    : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
                                     }`}
                             >
                                 <Percent size={18} />
@@ -113,8 +113,8 @@ export default function DiscountManagement({ settings, onSave, isSaving }: Disco
                                 type="button"
                                 onClick={() => handleChange('type', 'fixed')}
                                 className={`flex items-center justify-center gap-2 p-3 rounded-lg border transition-all ${formData.type === 'fixed'
-                                    ? 'bg-amber-50 border-amber-500 text-amber-700 dark:bg-amber-900/20 dark:border-amber-500 dark:text-amber-400'
-                                    : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-700'
+                                    ? 'bg-amber-50 border-amber-500 text-amber-700'
+                                    : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
                                     }`}
                             >
                                 <DollarSign size={18} />
@@ -125,7 +125,7 @@ export default function DiscountManagement({ settings, onSave, isSaving }: Disco
 
                     {/* Discount Value */}
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">
                             Discount Value
                         </label>
                         <div className="relative">
@@ -142,7 +142,7 @@ export default function DiscountManagement({ settings, onSave, isSaving }: Disco
                                 max={formData.type === 'percentage' ? "100" : undefined}
                                 value={formData.value ?? 0}
                                 onChange={(e) => handleChange('value', Number(e.target.value))}
-                                className="pl-10 w-full px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
+                                className="pl-10 w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all"
                                 placeholder="0"
                             />
                         </div>
@@ -155,7 +155,7 @@ export default function DiscountManagement({ settings, onSave, isSaving }: Disco
 
                     {/* Start Date */}
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">
                             Start Date (Optional)
                         </label>
                         <div className="relative">
@@ -166,7 +166,7 @@ export default function DiscountManagement({ settings, onSave, isSaving }: Disco
                                 type="date"
                                 value={formData.startDate ? formData.startDate.split('T')[0] : ''}
                                 onChange={(e) => handleChange('startDate', e.target.value ? new Date(e.target.value).toISOString() : '')}
-                                className="pl-10 w-full px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all [color-scheme:light] dark:[color-scheme:dark]"
+                                className="pl-10 w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all [color-scheme:light]"
                                 placeholder="Select start date"
                             />
                         </div>
@@ -174,7 +174,7 @@ export default function DiscountManagement({ settings, onSave, isSaving }: Disco
 
                     {/* End Date */}
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                        <label className="block text-sm font-medium text-slate-700 mb-2">
                             End Date (Optional)
                         </label>
                         <div className="relative">
@@ -186,7 +186,7 @@ export default function DiscountManagement({ settings, onSave, isSaving }: Disco
                                 value={formData.endDate ? formData.endDate.split('T')[0] : ''}
                                 onChange={(e) => handleChange('endDate', e.target.value ? new Date(e.target.value).toISOString() : '')}
                                 min={formData.startDate ? formData.startDate.split('T')[0] : undefined}
-                                className="pl-10 w-full px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all [color-scheme:light] dark:[color-scheme:dark]"
+                                className="pl-10 w-full px-4 py-2.5 bg-white border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-all [color-scheme:light]"
                                 placeholder="Select end date"
                             />
                         </div>
@@ -194,11 +194,11 @@ export default function DiscountManagement({ settings, onSave, isSaving }: Disco
                 </div>
 
                 {formData.enabled && (
-                    <div className="p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg flex gap-3">
-                        <AlertCircle className="text-amber-600 dark:text-amber-400 shrink-0" size={20} />
+                    <div className="p-4 bg-amber-50 border border-amber-200 rounded-lg flex gap-3">
+                        <AlertCircle className="text-amber-600 shrink-0" size={20} />
                         <div>
-                            <h4 className="text-sm font-medium text-amber-800 dark:text-amber-300">Discount is Active</h4>
-                            <p className="text-xs text-amber-700 dark:text-amber-400 mt-1">
+                            <h4 className="text-sm font-medium text-amber-800">Discount is Active</h4>
+                            <p className="text-xs text-amber-700 mt-1">
                                 Users will see a banner and receive {formData.type === 'percentage' ? `${formData.value}%` : `${formData.value} SAR`} off on all bookings
                                 {formData.endDate ? ` until ${new Date(formData.endDate).toLocaleDateString()}` : ''}.
                             </p>
@@ -206,7 +206,7 @@ export default function DiscountManagement({ settings, onSave, isSaving }: Disco
                     </div>
                 )}
 
-                <div className="flex justify-end pt-4 border-t border-slate-200 dark:border-slate-700">
+                <div className="flex justify-end pt-4 border-t border-slate-200">
                     <button
                         type="submit"
                         disabled={isSaving}

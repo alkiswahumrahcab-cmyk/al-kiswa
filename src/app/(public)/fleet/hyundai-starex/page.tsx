@@ -98,7 +98,7 @@ export default async function HyundaiStarexPage() {
             />
 
             {/* Vehicle Highlights */}
-            <section className="py-16 bg-white dark:bg-n-900">
+            <section className="py-16 bg-surface">
                 <div className="container mx-auto px-4">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl">
@@ -108,57 +108,57 @@ export default async function HyundaiStarexPage() {
                                 fallbackSrc={starexImage}
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                             />
-                            <div className="absolute bottom-4 left-4 bg-gold text-black px-4 py-1 rounded-full text-sm font-bold">
+                            <div className="absolute bottom-4 left-4 bg-gold text-ink px-4 py-1 rounded-full text-sm font-bold">
                                 Value Choice
                             </div>
                         </div>
                         <div>
-                            <h2 className="text-3xl font-bold mb-6 font-playfair text-n-800 dark:text-n-100">
+                            <h2 className="text-3xl font-bold mb-6 font-playfair text-ink">
                                 Why Book Hyundai Starex for Makkah Travel?
                             </h2>
-                            <p className="text-n-600 dark:text-n-300 mb-6 leading-relaxed">
-                                The Hyundai H1 (Starex) is the top choice for families performing Umrah. It offers excellent value for trips from <Link href="/services/jeddah-airport-transfer" className="text-teal-600 hover:underline">Jeddah Airport</Link> to Makkah and
+                            <p className="text-ink-muted mb-6 leading-relaxed">
+                                The Hyundai H1 (Starex) is the top choice for families performing Umrah. It offers excellent value for trips from <Link href="/services/jeddah-airport-transfer" className="text-gold-strong hover:underline">Jeddah Airport</Link> to Makkah and
                                 provides a comfortable ride for Ziyarat tours in the Holy Cities.
                             </p>
 
-                            <div className="bg-teal-50 dark:bg-teal-900/20 border border-teal-200 dark:border-teal-800 p-4 rounded-xl mb-8">
-                                <h3 className="font-bold text-teal-800 dark:text-teal-400 mb-1 flex items-center gap-2">
+                            <div className="bg-gold/5 border border-gold/20 p-4 rounded-xl mb-8">
+                                <h3 className="font-bold text-gold-strong mb-1 flex items-center gap-2">
                                     <Star size={18} /> Who Should Choose This Vehicle?
                                 </h3>
-                                <p className="text-sm text-n-700 dark:text-n-300">
+                                <p className="text-sm text-ink-muted">
                                     Best for budget-conscious families and medium-sized groups (up to 7 passengers) who need more luggage space than a sedan but want a more affordable option than the Staria or Yukon.
                                 </p>
                             </div>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
-                                        <Users className="text-teal-500" size={20} /> 7 Passengers
+                                    <div className="flex items-center gap-2 font-bold text-ink">
+                                        <Users className="text-gold" size={20} /> 7 Passengers
                                     </div>
-                                    <p className="text-sm text-n-500">Ample room for full families</p>
+                                    <p className="text-sm text-ink-muted">Ample room for full families</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
-                                        <Briefcase className="text-teal-500" size={20} /> 6 Suitcases
+                                    <div className="flex items-center gap-2 font-bold text-ink">
+                                        <Briefcase className="text-gold" size={20} /> 6 Suitcases
                                     </div>
-                                    <p className="text-sm text-n-500">Large rear cargo capacity</p>
+                                    <p className="text-sm text-ink-muted">Large rear cargo capacity</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
-                                        <LayoutGrid className="text-teal-500" size={20} /> High Roof
+                                    <div className="flex items-center gap-2 font-bold text-ink">
+                                        <LayoutGrid className="text-gold" size={20} /> High Roof
                                     </div>
-                                    <p className="text-sm text-n-500">Easy movement inside cabin</p>
+                                    <p className="text-sm text-ink-muted">Easy movement inside cabin</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
-                                    <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
-                                        <Wifi className="text-teal-500" size={20} /> Dual AC
+                                    <div className="flex items-center gap-2 font-bold text-ink">
+                                        <Wifi className="text-gold" size={20} /> Dual AC
                                     </div>
-                                    <p className="text-sm text-n-500">Dedicated vents for rear seats</p>
+                                    <p className="text-sm text-ink-muted">Dedicated vents for rear seats</p>
                                 </div>
                             </div>
 
                             <div className="mt-10">
-                                <Link href="/booking" className="inline-flex items-center gap-2 bg-neutral-900 text-white hover:bg-n-800 dark:bg-white dark:text-n-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-teal-500/20">
+                                <Link href="/booking" className="inline-flex items-center gap-2 bg-gold hover:bg-gold-soft text-ink px-8 py-3 rounded-full font-bold transition-all shadow-lg shadow-gold/30">
                                     Book Hyundai H1 Now <ArrowRight size={20} />
                                 </Link>
                             </div>
@@ -168,61 +168,61 @@ export default async function HyundaiStarexPage() {
             </section>
 
             {/* Detailed Specifications */}
-            <section className="py-12 bg-n-50 dark:bg-n-950">
+            <section className="py-12 bg-surface-alt">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-n-900 dark:text-white">Technical Specifications</h2>
+                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-ink">Technical Specifications</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
-                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Engine & Power</h3>
-                            <p className="font-bold text-xl text-n-900 dark:text-white">2.4L MPi</p>
-                            <p className="text-sm text-n-400">Reliable Performance</p>
+                        <div className="bg-surface p-6 rounded-xl shadow-sm border border-border">
+                            <h3 className="font-bold text-ink-muted uppercase text-xs tracking-wider mb-2">Engine & Power</h3>
+                            <p className="font-bold text-xl text-ink">2.4L MPi</p>
+                            <p className="text-sm text-ink-muted/80">Reliable Performance</p>
                         </div>
-                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
-                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Climate Control</h3>
-                            <p className="font-bold text-xl text-n-900 dark:text-white">Dual AC System</p>
-                            <p className="text-sm text-n-400">Front & Rear Control</p>
+                        <div className="bg-surface p-6 rounded-xl shadow-sm border border-border">
+                            <h3 className="font-bold text-ink-muted uppercase text-xs tracking-wider mb-2">Climate Control</h3>
+                            <p className="font-bold text-xl text-ink">Dual AC System</p>
+                            <p className="text-sm text-ink-muted/80">Front & Rear Control</p>
                         </div>
-                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
-                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Space Layout</h3>
-                            <p className="font-bold text-xl text-n-900 dark:text-white">Swivel Seats</p>
-                            <p className="text-sm text-n-400">Flexible Configuration</p>
+                        <div className="bg-surface p-6 rounded-xl shadow-sm border border-border">
+                            <h3 className="font-bold text-ink-muted uppercase text-xs tracking-wider mb-2">Space Layout</h3>
+                            <p className="font-bold text-xl text-ink">Swivel Seats</p>
+                            <p className="text-sm text-ink-muted/80">Flexible Configuration</p>
                         </div>
-                        <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
-                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Convenience</h3>
-                            <p className="font-bold text-xl text-n-900 dark:text-white">Dual Sliding Doors</p>
-                            <p className="text-sm text-n-400">Easy Access</p>
+                        <div className="bg-surface p-6 rounded-xl shadow-sm border border-border">
+                            <h3 className="font-bold text-ink-muted uppercase text-xs tracking-wider mb-2">Convenience</h3>
+                            <p className="font-bold text-xl text-ink">Dual Sliding Doors</p>
+                            <p className="text-sm text-ink-muted/80">Easy Access</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* 360 Interior Preview (Placeholder) */}
-            <section className="py-16 bg-neutral-900 text-white overflow-hidden relative">
+            <section className="py-16 bg-ink text-surface overflow-hidden relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                 <div className="container mx-auto px-4 text-center relative z-10">
-                    <span className="text-teal-500 font-bold tracking-widest uppercase text-sm mb-4 block">Budget Friendly Comfort</span>
-                    <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>
+                    <span className="text-gold font-bold tracking-widest uppercase text-sm mb-4 block">Budget Friendly Comfort</span>
+                    <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8 text-surface">Step Inside</h2>
 
                     <div className="max-w-6xl mx-auto">
                         {/* <Interior360Viewer
                             imageUrl="/images/fleet/camry-interior-360.webp"
                             title="Hyundai H1 Starex Interior"
                         /> */}
-                        <div className="w-full h-[400px] flex items-center justify-center bg-neutral-800 rounded-2xl border border-white/10">
+                        <div className="w-full h-[400px] flex items-center justify-center bg-charcoal rounded-2xl border border-white/10">
                             <div className="text-center">
                                 <h3 className="text-2xl font-bold text-white mb-2">360° View Coming Soon</h3>
-                                <p className="text-n-400">We will upload the interior view later.</p>
+                                <p className="text-white/70">We will upload the interior view later.</p>
                             </div>
                         </div>
                     </div>
-                    <p className="text-n-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
+                    <p className="text-surface/60 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
                 </div>
             </section>
 
             {/* Popular Routes */}
-            <section className="py-16 bg-n-50 dark:bg-n-950">
+            <section className="py-16 bg-surface-alt">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-12 font-playfair">Popular Routes for Hyundai Starex</h2>
+                    <h2 className="text-3xl font-bold text-center mb-12 font-playfair text-ink">Popular Routes for Hyundai Starex</h2>
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
                             {
@@ -244,14 +244,14 @@ export default async function HyundaiStarexPage() {
                                 href: "/services/ziyarat-tours"
                             }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-md border-t-4 border-teal-500 transition-all hover:-translate-y-1">
-                                <item.icon className="w-10 h-10 text-teal-500 mb-4" />
-                                <h3 className="text-xl font-bold mb-2 text-n-800 dark:text-white">
-                                    <Link href={item.href} className="hover:text-teal-600 transition-colors">
+                            <div key={idx} className="bg-surface p-6 rounded-xl shadow-md border-t-4 border-gold transition-all hover:-translate-y-1">
+                                <item.icon className="w-10 h-10 text-gold mb-4" />
+                                <h3 className="text-xl font-bold mb-2 text-ink">
+                                    <Link href={item.href} className="hover:text-gold-strong transition-colors">
                                         {item.title}
                                     </Link>
                                 </h3>
-                                <p className="text-n-600 dark:text-n-400">{item.desc}</p>
+                                <p className="text-ink-muted">{item.desc}</p>
                             </div>
                         ))}
                     </div>

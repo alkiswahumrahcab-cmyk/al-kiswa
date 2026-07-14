@@ -1,4 +1,4 @@
-﻿import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Check, ChevronDown } from 'lucide-react';
 
@@ -96,7 +96,7 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
         <div className={`relative w-full ${disabled ? 'opacity-60 pointer-events-none' : ''}`} ref={containerRef}>
             <div className="relative">
                 {icon && (
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none z-10 text-n-500 dark:text-white/60">
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none z-10 text-muted">
                         {icon}
                     </div>
                 )}
@@ -111,7 +111,7 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
                     disabled={disabled}
                     className={`${className} ${icon ? 'pl-11' : ''}`}
                 />
-                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-n-400 dark:text-white/40">
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-muted">
                     <ChevronDown size={16} />
                 </div>
             </div>
@@ -124,18 +124,18 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
                         className="absolute top-full left-0 z-[100] w-full mt-2 max-h-60 overflow-y-auto 
-                                   bg-n-950/95 backdrop-blur-xl 
-                                   border border-white/10 
-                                   rounded-xl shadow-2xl scrollbar-thin scrollbar-thumb-slate-700 hover:scrollbar-thumb-slate-600"
+                                   bg-surface/95 backdrop-blur-xl 
+                                   border border-border 
+                                   rounded-xl shadow-lg scrollbar-thin scrollbar-thumb-border hover:scrollbar-thumb-muted"
                     >
                         {displayedOptions.map((option) => (
                             <li
                                 key={option.value}
                                 onClick={() => handleOptionClick(option)}
-                                className="px-4 py-3 cursor-pointer hover:bg-white/10 
-                                           text-n-200 
+                                className="px-4 py-3 cursor-pointer hover:bg-surface-alt 
+                                           text-ink 
                                            transition-colors duration-150 flex items-center justify-between
-                                           text-sm border-b border-white/5 last:border-0"
+                                           text-sm border-b border-border last:border-0"
                             >
                                 {renderOption ? renderOption(option) : (
                                     <>

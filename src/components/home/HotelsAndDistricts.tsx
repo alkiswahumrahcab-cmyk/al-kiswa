@@ -60,7 +60,7 @@ export default function HotelsAndDistricts() {
     };
 
     return (
-        <section className="py-4 md:py-20 bg-background border-t border-border relative overflow-hidden">
+        <section className="py-4 md:py-20 bg-bg border-t border-border relative overflow-hidden">
             {/* Ambient Background */}
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.02] pointer-events-none" />
             <div className={`absolute top-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] transition-all duration-1000 ${activeCity === 'makkah' ? 'translate-x-1/2 -translate-y-1/2' : 'translate-x-full opacity-50'}`} />
@@ -69,22 +69,22 @@ export default function HotelsAndDistricts() {
             <div className="container px-4 md:px-6 relative z-10">
                 <FadeIn>
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl md:text-4xl font-bold font-playfair text-foreground mb-4">
+                        <h2 className="text-3xl md:text-4xl font-bold font-playfair text-ink mb-4">
                             Premium Coverage Across Holy Cities
                         </h2>
-                        <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+                        <p className="text-ink-muted max-w-2xl mx-auto text-lg">
                             Select your destination city to explore our extensive service coverage.
                         </p>
                     </div>
 
                     {/* City Toggles */}
                     <div className="flex justify-center mb-12">
-                        <div className="bg-muted p-1 rounded-full inline-flex border border-border">
+                        <div className="bg-surface p-1 rounded-full inline-flex border border-border">
                             <button
                                 onClick={() => setActiveCity('makkah')}
                                 className={`px-8 py-3 rounded-full text-sm md:text-base font-bold transition-all duration-300 ${activeCity === 'makkah'
                                     ? 'bg-gold text-black shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)]'
-                                    : 'text-muted-foreground hover:text-foreground'
+                                    : 'text-ink-muted hover:text-ink'
                                     }`}
                             >
                                 Makkah Al Mukarramah
@@ -93,7 +93,7 @@ export default function HotelsAndDistricts() {
                                 onClick={() => setActiveCity('madinah')}
                                 className={`px-8 py-3 rounded-full text-sm md:text-base font-bold transition-all duration-300 ${activeCity === 'madinah'
                                     ? 'bg-gold text-black shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)]'
-                                    : 'text-muted-foreground hover:text-foreground'
+                                    : 'text-ink-muted hover:text-ink'
                                     }`}
                             >
                                 Madinah Al Munawwarah
@@ -111,7 +111,7 @@ export default function HotelsAndDistricts() {
                                     : 'opacity-0 translate-y-8 z-0 pointer-events-none'
                                     }`}
                             >
-                                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 border border-border rounded-2xl bg-card p-8 md:p-12 overflow-hidden relative">
+                                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 border border-border rounded-2xl bg-bg p-8 md:p-12 overflow-hidden relative">
                                     {/* Content Background */}
                                     <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-gold/10 to-transparent rounded-bl-full opacity-50 pointer-events-none" />
 
@@ -122,16 +122,16 @@ export default function HotelsAndDistricts() {
                                                 <MapPin size={20} />
                                                 <span className="uppercase tracking-widest text-xs font-bold">{cityData.subtitle}</span>
                                             </div>
-                                            <h3 className="text-3xl md:text-4xl font-bold text-foreground font-playfair mb-4">
+                                            <h3 className="text-3xl md:text-4xl font-bold text-ink font-playfair mb-4">
                                                 {cityData.title}
                                             </h3>
-                                            <p className="text-muted-foreground text-lg leading-relaxed">
+                                            <p className="text-ink-muted text-lg leading-relaxed">
                                                 {cityData.description}
                                             </p>
                                         </div>
 
                                         <div>
-                                            <h4 className="flex items-center gap-2 text-xl font-bold text-foreground mb-6">
+                                            <h4 className="flex items-center gap-2 text-xl font-bold text-ink mb-6">
                                                 <Hotel className="text-gold" size={22} />
                                                 Premier Hotel Transfers
                                             </h4>
@@ -140,7 +140,7 @@ export default function HotelsAndDistricts() {
                                                     <Link
                                                         key={idx}
                                                         href="/booking"
-                                                        className="group flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors p-2 rounded-lg hover:bg-muted"
+                                                        className="group flex items-center gap-3 text-sm text-ink-muted hover:text-ink transition-colors p-2 rounded-lg hover:bg-surface"
                                                     >
                                                         <span className="w-1.5 h-1.5 rounded-full bg-border group-hover:bg-gold transition-colors" />
                                                         <span className="group-hover:translate-x-1 transition-transform duration-300">
@@ -154,8 +154,8 @@ export default function HotelsAndDistricts() {
 
                                     {/* Right Panel: Districts & Zones */}
                                     <div className="lg:col-span-5 relative">
-                                        <div className="bg-muted rounded-xl p-8 h-full border border-border">
-                                            <h4 className="flex items-center gap-2 text-xl font-bold text-foreground mb-6">
+                                        <div className="bg-surface rounded-xl p-8 h-full border border-border">
+                                            <h4 className="flex items-center gap-2 text-xl font-bold text-ink mb-6">
                                                 <Navigation className="text-gold" size={22} />
                                                 Districts Covered
                                             </h4>
@@ -163,7 +163,7 @@ export default function HotelsAndDistricts() {
                                                 {cityData.districts.map((district, idx) => (
                                                     <span
                                                         key={idx}
-                                                        className="inline-flex items-center gap-1.5 bg-card hover:bg-gold text-foreground hover:text-black hover:font-bold px-4 py-2 rounded-lg text-sm transition-all duration-300 cursor-default border border-border hover:border-gold hover:shadow-[0_0_15px_hsl(var(--gold-glow) / 0.4)]"
+                                                        className="inline-flex items-center gap-1.5 bg-bg hover:bg-gold text-ink hover:text-black hover:font-bold px-4 py-2 rounded-lg text-sm transition-all duration-300 cursor-default border border-border hover:border-gold hover:shadow-[0_0_15px_hsl(var(--gold-glow) / 0.4)]"
                                                     >
                                                         {district}
                                                     </span>
@@ -171,12 +171,12 @@ export default function HotelsAndDistricts() {
                                             </div>
 
                                             <div className="mt-12 p-6 bg-gradient-to-br from-gold/20 to-transparent rounded-xl border border-gold/20 text-center">
-                                                <p className="text-foreground font-bold mb-4">
+                                                <p className="text-ink font-bold mb-4">
                                                     Need a ride to a specific location?
                                                 </p>
                                                 <Link
                                                     href="/booking"
-                                                    className="inline-flex items-center gap-2 bg-gold text-black font-bold px-6 py-3 rounded-full hover:bg-white transition-colors"
+                                                    className="inline-flex items-center gap-2 btn-primary hover:bg-white transition-colors"
                                                 >
                                                     Book Now
                                                     <ChevronRight size={18} />

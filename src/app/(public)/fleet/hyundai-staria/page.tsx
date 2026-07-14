@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Link from 'next/link';
 import Image from 'next/image';
@@ -135,7 +135,7 @@ export default async function HyundaiStariaPage() {
     const jsonLd = generateJsonLd(vehicleData);
 
     return (
-        <main className="overflow-x-hidden bg-charcoal dark:bg-deep-black font-sans">
+        <main className="overflow-x-hidden bg-surface font-sans">
             <TrackEvent event="ViewContent" params={{ content_name: 'Hyundai Staria' }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             
@@ -184,14 +184,14 @@ export default async function HyundaiStariaPage() {
             </section>
 
             {/* 2. Exterior Highlights & 360-style Scroll */}
-            <section id="features" className="py-24 bg-white dark:bg-charcoal">
+            <section id="features" className="py-24 bg-surface-alt">
                 <div className="container mx-auto px-4">
                     <StariaAnimations type="fade-up">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold font-playfair text-n-900 dark:text-white mb-4">
+                            <h2 className="text-3xl md:text-5xl font-bold font-playfair text-ink mb-4">
                                 Futuristic Exterior Design
                             </h2>
-                            <p className="text-n-600 dark:text-n-300 max-w-2xl mx-auto text-lg">
+                            <p className="text-ink-muted max-w-2xl mx-auto text-lg">
                                 Designed like a spaceship. Aerodynamic curves, an imposing parametric grille, and signature LED lighting define the Staria&apos;s unmistakable presence.
                             </p>
                         </div>
@@ -199,7 +199,7 @@ export default async function HyundaiStariaPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <StariaAnimations type="zoom-in" delay={0.1}>
-                            <div className="group relative h-[300px] rounded-2xl overflow-hidden shadow-xl border border-n-100 dark:border-n-800">
+                            <div className="group relative h-[300px] rounded-2xl overflow-hidden shadow-xl border border-border">
                                 <Image src="/images/fleet/staria/hyundai-staria-2026-exterior-led-headlight.jpeg" alt="LED Headlamps" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent"></div>
                                 <div className="absolute bottom-6 left-6">
@@ -210,7 +210,7 @@ export default async function HyundaiStariaPage() {
                         </StariaAnimations>
                         
                         <StariaAnimations type="zoom-in" delay={0.2}>
-                            <div className="group relative h-[300px] rounded-2xl overflow-hidden shadow-xl border border-n-100 dark:border-n-800">
+                            <div className="group relative h-[300px] rounded-2xl overflow-hidden shadow-xl border border-border">
                                 <Image src="/images/fleet/staria/hyundai-staria-2026-exterior-full-front.jpeg" alt="Parametric Grille" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent"></div>
                                 <div className="absolute bottom-6 left-6">
@@ -221,7 +221,7 @@ export default async function HyundaiStariaPage() {
                         </StariaAnimations>
 
                         <StariaAnimations type="zoom-in" delay={0.3}>
-                            <div className="group relative h-[300px] rounded-2xl overflow-hidden shadow-xl border border-n-100 dark:border-n-800">
+                            <div className="group relative h-[300px] rounded-2xl overflow-hidden shadow-xl border border-border">
                                 <Image src="/images/fleet/staria/hyundai-staria-2026-exterior-alloy-wheels.jpeg" alt="Alloy Wheels" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent"></div>
                                 <div className="absolute bottom-6 left-6">
@@ -232,7 +232,7 @@ export default async function HyundaiStariaPage() {
                         </StariaAnimations>
 
                         <StariaAnimations type="zoom-in" delay={0.4} className="md:col-span-2">
-                            <div className="group relative h-[300px] rounded-2xl overflow-hidden shadow-xl border border-n-100 dark:border-n-800">
+                            <div className="group relative h-[300px] rounded-2xl overflow-hidden shadow-xl border border-border">
                                 <Image src="/images/fleet/staria/hyundai-staria-2026-exterior-sliding-doors-open.jpeg" alt="Sliding Doors" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent"></div>
                                 <div className="absolute bottom-6 left-6">
@@ -243,7 +243,7 @@ export default async function HyundaiStariaPage() {
                         </StariaAnimations>
 
                         <StariaAnimations type="zoom-in" delay={0.5}>
-                            <div className="group relative h-[300px] rounded-2xl overflow-hidden shadow-xl border border-n-100 dark:border-n-800">
+                            <div className="group relative h-[300px] rounded-2xl overflow-hidden shadow-xl border border-border">
                                 <Image src="/images/fleet/staria/hyundai-staria-2026-exterior-rear-lights-combo.jpeg" alt="Aerodynamic Body" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent"></div>
                                 <div className="absolute bottom-6 left-6">
@@ -257,19 +257,19 @@ export default async function HyundaiStariaPage() {
             </section>
 
             {/* 3. Interior Luxury Showcase */}
-            <section className="py-24 bg-deep-black relative overflow-hidden">
+            <section className="py-24 bg-ink relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
                     <Image src="/images/fleet/staria/hyundai-staria-2026-interior-dashboard-main.jpeg" alt="Background" fill className="object-cover blur-sm" />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-b from-charcoal/90 via-charcoal/80 to-deep-black"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-ink/90 via-ink/80 to-ink"></div>
                 
                 <div className="container mx-auto px-4 relative z-10">
                     <StariaAnimations type="slide-up">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold font-playfair text-white mb-4">
+                            <h2 className="text-3xl md:text-5xl font-bold font-playfair text-surface mb-4">
                                 Interior Luxury & Comfort
                             </h2>
-                            <p className="text-n-300 max-w-2xl mx-auto text-lg">
+                            <p className="text-surface-alt/80 max-w-2xl mx-auto text-lg">
                                 A lounge-inspired cabin that transforms travel time into relaxation time. Featuring premium captain seats, panoramic windows, and advanced infotainment.
                             </p>
                         </div>
@@ -302,10 +302,10 @@ export default async function HyundaiStariaPage() {
             </section>
 
             {/* 4. Feature Blocks */}
-            <section className="py-24 bg-charcoal dark:bg-deep-black">
+            <section className="py-24 bg-surface-alt">
                 <div className="container mx-auto px-4">
                     <StariaAnimations type="fade-up">
-                        <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 font-playfair text-n-900 dark:text-white">
+                        <h2 className="text-3xl md:text-5xl font-bold text-center mb-16 font-playfair text-ink">
                             Technology & Features
                         </h2>
                     </StariaAnimations>
@@ -320,12 +320,12 @@ export default async function HyundaiStariaPage() {
                             { icon: Wifi, title: "Smart Connectivity", desc: "Wireless charging, multiple USB ports, and seamless smartphone integration." }
                         ].map((feature, idx) => (
                             <StariaAnimations key={idx} type="slide-up" delay={idx * 0.1}>
-                                <div className="bg-white dark:bg-charcoal p-8 rounded-2xl shadow-lg border border-n-100 dark:border-n-800 hover:-translate-y-2 transition-transform duration-300">
-                                    <div className="w-14 h-14 bg-gold-light/30 dark:bg-gold/10 rounded-xl flex items-center justify-center mb-6 text-gold-dark dark:text-gold">
+                                <div className="bg-surface p-8 rounded-2xl shadow-lg border border-border hover:-translate-y-2 transition-transform duration-300">
+                                    <div className="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mb-6 text-gold-strong">
                                         <feature.icon size={28} />
                                     </div>
-                                    <h3 className="text-xl font-bold text-n-900 dark:text-white mb-3">{feature.title}</h3>
-                                    <p className="text-n-600 dark:text-n-400 leading-relaxed">{feature.desc}</p>
+                                    <h3 className="text-xl font-bold text-ink mb-3">{feature.title}</h3>
+                                    <p className="text-ink-muted leading-relaxed">{feature.desc}</p>
                                 </div>
                             </StariaAnimations>
                         ))}
@@ -334,7 +334,7 @@ export default async function HyundaiStariaPage() {
             </section>
 
             {/* 5. Comparison Section */}
-            <section className="py-24 bg-white dark:bg-charcoal border-y border-n-100 dark:border-n-800">
+            <section className="py-24 bg-surface border-y border-border">
                 <div className="container mx-auto px-4">
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
                         <StariaAnimations type="fade-up">
@@ -345,10 +345,10 @@ export default async function HyundaiStariaPage() {
                         
                         <StariaAnimations type="slide-up" delay={0.2}>
                             <div>
-                                <h2 className="text-3xl md:text-5xl font-bold mb-6 font-playfair text-n-900 dark:text-white">
+                                <h2 className="text-3xl md:text-5xl font-bold mb-6 font-playfair text-ink">
                                     Hyundai Staria vs Competitors
                                 </h2>
-                                <p className="text-lg text-n-600 dark:text-n-300 mb-8">
+                                <p className="text-lg text-ink-muted mb-8">
                                     Why choose the Staria over the Toyota Hiace or Kia Carnival for your journey in Saudi Arabia?
                                 </p>
 
@@ -356,22 +356,22 @@ export default async function HyundaiStariaPage() {
                                     <div className="flex gap-4">
                                         <div className="mt-1 text-gold"><CheckCircle /></div>
                                         <div>
-                                            <h4 className="font-bold text-n-900 dark:text-white text-xl">Superior Aesthetics</h4>
-                                            <p className="text-n-600 dark:text-n-400">Unlike the commercial look of the Hiace, the Staria offers a premium, VIP appearance suitable for luxury transfers.</p>
+                                            <h4 className="font-bold text-ink text-xl">Superior Aesthetics</h4>
+                                            <p className="text-ink-muted">Unlike the commercial look of the Hiace, the Staria offers a premium, VIP appearance suitable for luxury transfers.</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-4">
                                         <div className="mt-1 text-gold"><CheckCircle /></div>
                                         <div>
-                                            <h4 className="font-bold text-n-900 dark:text-white text-xl">Lounge-Like Interior</h4>
-                                            <p className="text-n-600 dark:text-n-400">More spacious headroom and panoramic windows compared to the Carnival, offering breathtaking views of the Holy Lands.</p>
+                                            <h4 className="font-bold text-ink text-xl">Lounge-Like Interior</h4>
+                                            <p className="text-ink-muted">More spacious headroom and panoramic windows compared to the Carnival, offering breathtaking views of the Holy Lands.</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-4">
                                         <div className="mt-1 text-gold"><CheckCircle /></div>
                                         <div>
-                                            <h4 className="font-bold text-n-900 dark:text-white text-xl">Better Accessibility</h4>
-                                            <p className="text-n-600 dark:text-n-400">Lower step-in height and wider sliding doors make it the absolute best choice for elderly pilgrims.</p>
+                                            <h4 className="font-bold text-ink text-xl">Better Accessibility</h4>
+                                            <p className="text-ink-muted">Lower step-in height and wider sliding doors make it the absolute best choice for elderly pilgrims.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -382,35 +382,35 @@ export default async function HyundaiStariaPage() {
             </section>
 
             {/* 6. Variants & Details (Images) */}
-            <section className="py-24 bg-charcoal dark:bg-deep-black">
+            <section className="py-24 bg-surface-alt">
                 <div className="container mx-auto px-4 text-center">
                     <StariaAnimations type="fade-up">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-16 font-playfair text-n-900 dark:text-white">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-16 font-playfair text-ink">
                             Variants & Colors
                         </h2>
                     </StariaAnimations>
 
                     <div className="grid md:grid-cols-3 gap-8">
-                        <div className="bg-white dark:bg-charcoal p-4 rounded-2xl shadow border border-n-100 dark:border-n-800">
+                        <div className="bg-surface p-4 rounded-2xl shadow border border-border">
                             <div className="relative h-[250px] rounded-xl overflow-hidden mb-4">
                                 <Image src="/images/fleet/staria/hyundai-staria-2026-exterior-rear-view.jpeg" alt="Rear View" fill className="object-cover" />
                             </div>
-                            <h4 className="font-bold text-lg dark:text-white text-gold-dark dark:text-gold-light">Premium Trims</h4>
-                            <p className="text-n-500 text-sm">Tinted brass chrome accents and distinctive rear lighting.</p>
+                            <h4 className="font-bold text-lg text-gold-strong">Premium Trims</h4>
+                            <p className="text-ink-muted text-sm">Tinted brass chrome accents and distinctive rear lighting.</p>
                         </div>
-                        <div className="bg-white dark:bg-charcoal p-4 rounded-2xl shadow border border-n-100 dark:border-n-800">
+                        <div className="bg-surface p-4 rounded-2xl shadow border border-border">
                             <div className="relative h-[250px] rounded-xl overflow-hidden mb-4">
                                 <Image src="/images/fleet/staria/hyundai-staria-2026-exterior-roof-top.jpeg" alt="Roof View" fill className="object-cover" />
                             </div>
-                            <h4 className="font-bold text-lg dark:text-white text-gold-dark dark:text-gold-light">Panoramic Roof</h4>
-                            <p className="text-n-500 text-sm">Dual sunroof options for expansive sky views.</p>
+                            <h4 className="font-bold text-lg text-gold-strong">Panoramic Roof</h4>
+                            <p className="text-ink-muted text-sm">Dual sunroof options for expansive sky views.</p>
                         </div>
-                        <div className="bg-white dark:bg-charcoal p-4 rounded-2xl shadow border border-n-100 dark:border-n-800">
+                        <div className="bg-surface p-4 rounded-2xl shadow border border-border">
                             <div className="relative h-[250px] rounded-xl overflow-hidden mb-4">
                                 <Image src="/images/fleet/staria/hyundai-staria-2026-exterior-side-view.jpeg" alt="Side View" fill className="object-cover" />
                             </div>
-                            <h4 className="font-bold text-lg dark:text-white text-gold-dark dark:text-gold-light">Sleek Profile</h4>
-                            <p className="text-n-500 text-sm">Available in Abyss Black, Creamy White, and Shimmering Silver.</p>
+                            <h4 className="font-bold text-lg text-gold-strong">Sleek Profile</h4>
+                            <p className="text-ink-muted text-sm">Available in Abyss Black, Creamy White, and Shimmering Silver.</p>
                         </div>
                     </div>
                 </div>
@@ -452,19 +452,19 @@ export default async function HyundaiStariaPage() {
             </section>
 
             {/* Internal Links & FAQ */}
-            <section className="py-24 bg-white dark:bg-charcoal">
+            <section className="py-24 bg-surface">
                 <FAQSection items={stariaFAQs} title="Frequently Asked Questions" />
                 
-                <div className="container mx-auto px-4 mt-20 border-t border-n-200 dark:border-n-800 pt-10">
-                    <h3 className="font-bold text-xl mb-4 text-n-900 dark:text-white">Explore More</h3>
+                <div className="container mx-auto px-4 mt-20 border-t border-border pt-10">
+                    <h3 className="font-bold text-xl mb-4 text-ink">Explore More</h3>
                     <div className="flex flex-wrap gap-4">
-                        <Link href="/services/makkah-madinah-taxi" className="text-gold-dark dark:text-gold hover:underline">Makkah to Madinah Transport</Link>
-                        <span className="text-n-300">•</span>
-                        <Link href="/services/jeddah-airport-transfer" className="text-gold-dark dark:text-gold hover:underline">Jeddah Airport Taxi</Link>
-                        <span className="text-n-300">•</span>
-                        <Link href="/fleet/gmc-yukon-at4" className="text-gold-dark dark:text-gold hover:underline">GMC Yukon Fleet</Link>
-                        <span className="text-n-300">•</span>
-                        <Link href="/contact" className="text-gold-dark dark:text-gold hover:underline">Contact Support</Link>
+                        <Link href="/services/makkah-madinah-taxi" className="text-gold-strong hover:underline">Makkah to Madinah Transport</Link>
+                        <span className="text-ink-muted">•</span>
+                        <Link href="/services/jeddah-airport-transfer" className="text-gold-strong hover:underline">Jeddah Airport Taxi</Link>
+                        <span className="text-ink-muted">•</span>
+                        <Link href="/fleet/gmc-yukon-at4" className="text-gold-strong hover:underline">GMC Yukon Fleet</Link>
+                        <span className="text-ink-muted">•</span>
+                        <Link href="/contact" className="text-gold-strong hover:underline">Contact Support</Link>
                     </div>
                 </div>
             </section>

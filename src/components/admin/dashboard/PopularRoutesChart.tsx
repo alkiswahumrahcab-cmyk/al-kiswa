@@ -12,9 +12,9 @@ export default function PopularRoutesChart({ data }: PopularRoutesChartProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.45 }}
-            className="bg-white dark:bg-slate-900/50 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm shadow-slate-200/50 dark:shadow-xl"
+            className="bg-white backdrop-blur-xl border border-slate-200 rounded-2xl p-6 shadow-sm shadow-slate-200/50"
         >
-            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+            <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
                 <TrendingUp size={18} className="text-emerald-500" />
                 Popular Routes
             </h3>

@@ -66,7 +66,7 @@ export default function AdminLayout({
 
     if (loading) {
         return (
-            <div className="flex flex-col items-center justify-center h-screen bg-slate-50 dark:bg-slate-900 gap-4">
+            <div className="flex flex-col items-center justify-center h-screen bg-slate-50 gap-4">
                 <div className="w-12 h-12 border-4 border-amber-500/30 border-t-amber-500 rounded-full animate-spin"></div>
                 <div className="text-slate-500 font-medium animate-pulse">Verifying Session...</div>
             </div>
@@ -113,7 +113,7 @@ export default function AdminLayout({
     };
 
     return (
-        <div className="flex h-screen bg-slate-50 dark:bg-slate-950 overflow-hidden">
+        <div className="flex h-screen bg-slate-50 overflow-hidden">
             {/* Mobile Header */}
             <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-slate-900 text-white px-4 py-3 flex items-center justify-between shadow-md">
                 <div className="flex items-center gap-3">

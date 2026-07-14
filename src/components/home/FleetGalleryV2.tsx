@@ -85,7 +85,7 @@ export default function FleetGalleryV2() {
     };
 
     return (
-        <section className="py-24 bg-background relative overflow-hidden">
+        <section className="py-24 bg-bg relative overflow-hidden">
             {/* Elegant Background */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2" />
@@ -102,11 +102,11 @@ export default function FleetGalleryV2() {
                                 The Royal Fleet
                             </span>
                         </div>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold font-display text-foreground mb-6 leading-tight">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold font-display text-ink mb-6 leading-tight">
                             Luxury Vehicles for <br />
                             <span className="text-gold italic font-serif">Every Journey</span>
                         </h2>
-                        <p className="text-muted-foreground text-lg leading-relaxed max-w-xl font-light">
+                        <p className="text-ink-muted text-lg leading-relaxed max-w-xl font-light">
                             Meticulously maintained GMC Yukons, H1 Vans, and Buses.
                             Designed for the comfort of pilgrims in Makkah & Madinah.
                         </p>
@@ -116,14 +116,14 @@ export default function FleetGalleryV2() {
                     <div className="flex gap-4">
                         <button
                             onClick={() => scroll('left')}
-                            className="w-14 h-14 rounded-full bg-card border border-border flex items-center justify-center text-foreground hover:border-gold hover:text-gold transition-all duration-300 active:scale-95 group"
+                            className="w-14 h-14 rounded-full bg-surface border border-border flex items-center justify-center text-ink hover:border-gold hover:text-gold transition-all duration-300 active:scale-95 group"
                             aria-label="Previous"
                         >
                             <ChevronLeft size={24} className="group-hover:-translate-x-0.5 transition-transform" />
                         </button>
                         <button
                             onClick={() => scroll('right')}
-                            className="w-14 h-14 rounded-full bg-card border border-border flex items-center justify-center text-foreground hover:border-gold hover:text-gold transition-all duration-300 active:scale-95 group"
+                            className="w-14 h-14 rounded-full bg-surface border border-border flex items-center justify-center text-ink hover:border-gold hover:text-gold transition-all duration-300 active:scale-95 group"
                             aria-label="Next"
                         >
                             <ChevronRight size={24} className="group-hover:translate-x-0.5 transition-transform" />
@@ -137,14 +137,14 @@ export default function FleetGalleryV2() {
                 {/* Floating Navigation Buttons - Always visible on Desktop to prompt scrolling */}
                 <button
                     onClick={() => scroll('left')}
-                    className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-black/80 backdrop-blur-md border border-gold/30 text-gold flex items-center justify-center hover:bg-gold hover:text-black hover:scale-110 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hidden md:flex group"
+                    className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-ink/80 backdrop-blur-md border border-gold/30 text-gold flex items-center justify-center hover:bg-gold hover:text-ink hover:scale-110 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hidden md:flex group"
                     aria-label="Scroll Left"
                 >
                     <ChevronLeft size={32} className="group-hover:-translate-x-1 transition-transform" />
                 </button>
                 <button
                     onClick={() => scroll('right')}
-                    className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-black/80 backdrop-blur-md border border-gold/30 text-gold flex items-center justify-center hover:bg-gold hover:text-black hover:scale-110 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hidden md:flex group"
+                    className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-ink/80 backdrop-blur-md border border-gold/30 text-gold flex items-center justify-center hover:bg-gold hover:text-ink hover:scale-110 transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hidden md:flex group"
                     aria-label="Scroll Right"
                 >
                     <ChevronRight size={32} className="group-hover:translate-x-1 transition-transform" />

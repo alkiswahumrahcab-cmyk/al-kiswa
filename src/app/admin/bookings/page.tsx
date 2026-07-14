@@ -290,20 +290,20 @@ export default function BookingsPage() {
                     <h1 className={adminStyles.title}>Bookings</h1>
                     <p className="text-muted-foreground mt-1">Manage and track all your fleet reservations</p>
                 </div>
-                <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-lg">
+                <div className="flex bg-slate-100 p-1 rounded-lg">
                     <button
                         onClick={() => setViewMode('list')}
                         className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${viewMode === 'list'
-                            ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm'
-                            : 'text-slate-500 dark:text-slate-400 hover:text-slate-700'}`}
+                            ? 'bg-white text-slate-900 shadow-sm'
+                            : 'text-slate-500 hover:text-slate-700'}`}
                     >
                         <LayoutList size={18} /> List
                     </button>
                     <button
                         onClick={() => setViewMode('calendar')}
                         className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${viewMode === 'calendar'
-                            ? 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm'
-                            : 'text-slate-500 dark:text-slate-400 hover:text-slate-700'}`}
+                            ? 'bg-white text-slate-900 shadow-sm'
+                            : 'text-slate-500 hover:text-slate-700'}`}
                     >
                         <Calendar size={18} /> Calendar
                     </button>
@@ -418,7 +418,7 @@ export default function BookingsPage() {
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
                                                 exit={{ opacity: 0 }}
-                                                className="group transition-colors hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer"
+                                                className="group transition-colors hover:bg-slate-50 cursor-pointer"
                                                 onClick={() => setSelectedBooking(booking)}
                                             >
                                                 <td>
@@ -488,13 +488,13 @@ export default function BookingsPage() {
                                                             </span>
                                                         </div>
                                                         {booking.notes && (
-                                                            <div className="text-xs text-amber-600 bg-amber-50 dark:bg-amber-900/20 px-1.5 py-0.5 rounded mt-1 break-words max-w-[200px]">
+                                                            <div className="text-xs text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded mt-1 break-words max-w-[200px]">
                                                                 {booking.notes}
                                                             </div>
                                                         )}
                                                         {/* Display Country, Flight, Arrival if present */}
                                                         {(booking.country || booking.flightNumber || booking.arrivalDate) && (
-                                                            <div className="mt-1 pt-1 border-t border-slate-100 dark:border-slate-700 text-xs text-slate-500">
+                                                            <div className="mt-1 pt-1 border-t border-slate-100 text-xs text-slate-500">
                                                                 {booking.country && <div>Country: {booking.country}</div>}
                                                                 {booking.flightNumber && <div>Flight: {booking.flightNumber}</div>}
                                                                 {booking.arrivalDate && <div>Arrival: {booking.arrivalDate}</div>}
@@ -503,7 +503,7 @@ export default function BookingsPage() {
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <div className="font-bold text-slate-900 dark:text-white whitespace-nowrap">
+                                                    <div className="font-bold text-slate-900 whitespace-nowrap">
                                                         {booking.price || (booking.finalPrice ? `${booking.finalPrice} SAR` : 'N/A')}
                                                     </div>
                                                 </td>

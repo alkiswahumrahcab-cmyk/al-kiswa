@@ -36,13 +36,13 @@ export default function CoreValues() {
     ];
 
     return (
-        <section className="py-24 bg-transparent border-t border-white/5" ref={ref as unknown as React.RefObject<HTMLElement>}>
+        <section className="py-24 bg-surface-alt border-t border-border" ref={ref as unknown as React.RefObject<HTMLElement>}>
             <div className="container mx-auto px-4">
                 <div className="text-center max-w-3xl mx-auto mb-20">
-                    <h2 className={`text-3xl md:text-5xl font-semibold text-foreground mb-6 font-display transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <h2 className={`text-3xl md:text-5xl font-semibold text-ink mb-6 font-display transition-all duration-700 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         Our Core Values
                     </h2>
-                    <p className={`text-lg text-muted-foreground transition-all duration-700 delay-100 font-light ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+                    <p className={`text-lg text-ink-muted transition-all duration-700 delay-100 font-light ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
                         The guiding principles that define our service to the Guests of Allah.
                     </p>
                 </div>
@@ -51,14 +51,14 @@ export default function CoreValues() {
                     {values.map((value, index) => (
                         <GlassCard
                             key={value.id}
-                            className={`p-8 h-full flex flex-col items-center text-center transition-all duration-700 hover:-translate-y-2 hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.2)] border-t-4 border-t-gold bg-card border-white/10 dark:border-white/10 border-border hover:border-gold/50 group`}
+                            className={`p-8 h-full flex flex-col items-center text-center transition-all duration-700 hover:-translate-y-2 hover:shadow-gold border-t-4 border-t-gold bg-surface border-border hover:border-gold-soft group`}
                             delay={index * 0.1}
                         >
-                            <div className="w-16 h-16 rounded-2xl bg-background border border-border text-gold flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-inner group-hover:border-gold/30">
+                            <div className="w-16 h-16 rounded-2xl bg-surface-alt border border-border text-gold flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm group-hover:border-gold-soft">
                                 <value.icon size={32} strokeWidth={1.5} />
                             </div>
-                            <h3 className="text-xl font-semibold text-foreground mb-3 font-display group-hover:text-gold transition-colors">{value.title}</h3>
-                            <p className="text-muted-foreground leading-relaxed text-sm font-light">{value.desc}</p>
+                            <h3 className="text-xl font-semibold text-ink mb-3 font-display group-hover:text-gold transition-colors">{value.title}</h3>
+                            <p className="text-ink-muted leading-relaxed text-sm font-light">{value.desc}</p>
                         </GlassCard>
                     ))}
                 </div>

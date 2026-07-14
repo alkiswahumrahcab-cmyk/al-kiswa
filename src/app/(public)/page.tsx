@@ -2,7 +2,8 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 
 import FadeIn from '@/components/common/FadeIn';
-import Hero from '@/components/common/Hero';
+import HomeHero from '@/components/home/HomeHero';
+import HeroBookingWidget from '@/components/home/HeroBookingWidget';
 import { PremiumIcon } from '@/components/ui/PremiumIcon';
 import { ArrowRight } from 'lucide-react';
 import { getSectionContent, getSectionImage, getCustomField } from '@/lib/content-service';
@@ -117,27 +118,13 @@ export default async function Home() {
 
 
       {/* Hero Section */}
-      <Hero
+      <HomeHero
         title={heroTitle}
         subtitle={heroSubtitleContent}
-        badge={heroBadge as any}
-        bgImage={heroImage}
-        layout="center"
-        isSpiritual={true}
-        ctaText={ctaText}
-        ctaLink={ctaLink}
-        secondaryCtaText={secondaryCtaText}
-        secondaryCtaLink={secondaryCtaLink}
-        trustBadge={{
-          count: "50K+",
-          label: "Happy Pilgrims"
-        }}
-        stats={[
-          { label: "Safety First", value: "100%", icon: <PremiumIcon name="safety" size="default" /> },
-          { label: "24/7 Support", value: "Always", icon: <PremiumIcon name="24-7-service" size="default" /> },
-          { label: "Trusted Service", value: "10+ Yrs", icon: <PremiumIcon name="reviews" size="default" /> }
-        ]}
-      />
+        imageSrc={heroImage}
+      >
+        <HeroBookingWidget />
+      </HomeHero>
 
       {/* Transport Services Section */}
       <TransportServices />
@@ -192,22 +179,22 @@ export default async function Home() {
       <HotelsAndDistricts />
 
       {/* CTA Section */}
-      <section className="relative py-6 md:py-24 bg-charcoal border-t border-white/10 overflow-hidden">
+      <section className="relative py-6 md:py-24 bg-surface text-ink border-t border-border overflow-hidden">
         <div className="absolute inset-0 opacity-[0.03] bg-[url('/pattern.png')] pointer-events-none" />
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gold-metallic/5 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="container relative z-10 text-center px-4">
           <FadeIn>
-            <h2 className="text-4xl md:text-6xl font-semibold font-display mb-6 drop-shadow-xl tracking-tight text-white">
-              Start Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-light to-gold">Spiritual Journey</span> with Peace of Mind
+            <h2 className="text-4xl md:text-6xl font-semibold font-display mb-6 tracking-tight text-ink">
+              Start Your <span className="text-gold-strong">Spiritual Journey</span> with Peace of Mind
             </h2>
-            <p className="text-lg md:text-xl text-n-400 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+            <p className="text-lg md:text-xl text-ink-muted max-w-2xl mx-auto mb-12 leading-relaxed font-light">
               Don&apos;t worry about logistics. Book your private transfer now and let us serve you with the care you deserve.
             </p>
             <Link
               href="/booking"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-gold to-gold-dark text-black font-bold px-10 py-5 rounded-full text-lg shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.5)] hover:scale-105 transition-all duration-300 uppercase tracking-wider"
+              className="btn-primary text-lg px-10 py-5 uppercase tracking-wider gap-3 inline-flex items-center"
             >
               Book Your Ride Now <ArrowRight size={22} />
             </Link>

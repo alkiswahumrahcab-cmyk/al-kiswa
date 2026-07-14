@@ -151,7 +151,7 @@ export default function HomeFleetCarousel() {
 
 
     return (
-        <section className="py-24 bg-background relative overflow-hidden">
+        <section className="py-24 bg-bg relative overflow-hidden">
             {/* Background Ambience */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[150px]" />
@@ -162,10 +162,10 @@ export default function HomeFleetCarousel() {
                     <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-3 block">
                         Our Premium Fleet
                     </span>
-                    <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6">
+                    <h2 className="text-3xl md:text-5xl font-bold text-ink mb-6">
                         Travel in <span className="text-gold italic font-serif">Luxury & Comfort</span>
                     </h2>
-                    <p className="text-muted-foreground max-w-2xl mx-auto text-lg font-light">
+                    <p className="text-ink-muted max-w-2xl mx-auto text-lg font-light">
                         Choose from our exclusive selection of latest 2025 models, designed for your spiritual journey.
                     </p>
                 </div>
@@ -178,14 +178,14 @@ export default function HomeFleetCarousel() {
                     {/* Navigation Buttons */}
                     <button
                         onClick={prevSlide}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-16 z-30 p-3 rounded-full bg-foreground/5 border border-border text-foreground hover:bg-gold hover:text-black transition-all backdrop-blur-md group shadow-xl hidden md:block"
+                        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-16 z-30 p-3 rounded-full bg-ink/5 border border-border text-ink hover:bg-gold hover:text-black transition-all backdrop-blur-md group shadow-xl hidden md:block"
                         aria-label="Previous Vehicle"
                     >
                         <ChevronLeft className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" />
                     </button>
                     <button
                         onClick={nextSlide}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-16 z-30 p-3 rounded-full bg-foreground/5 border border-border text-foreground hover:bg-gold hover:text-black transition-all backdrop-blur-md group shadow-xl hidden md:block"
+                        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-16 z-30 p-3 rounded-full bg-ink/5 border border-border text-ink hover:bg-gold hover:text-black transition-all backdrop-blur-md group shadow-xl hidden md:block"
                         aria-label="Next Vehicle"
                     >
                         <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
@@ -240,22 +240,22 @@ export default function HomeFleetCarousel() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.2 }}
-                                    className="glass-panel relative z-30 mt-[-40px] md:mt-[-80px] px-8 py-6 flex flex-col md:flex-row items-center gap-6 max-w-2xl mx-auto"
+                                    className="card relative z-30 mt-[-40px] md:mt-[-80px] px-8 py-6 flex flex-col md:flex-row items-center gap-6 max-w-2xl mx-auto"
                                 >
                                     <div className="text-center md:text-left">
                                         <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-                                            <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest bg-muted px-2 py-0.5 rounded">{currentVehicle.category}</span>
+                                            <span className="text-[10px] font-bold text-ink-muted uppercase tracking-widest bg-muted px-2 py-0.5 rounded">{currentVehicle.category}</span>
                                             <div className="flex items-center gap-1">
                                                 <Star size={10} className="fill-gold text-gold" />
-                                                <span className="text-xs text-foreground">5.0</span>
+                                                <span className="text-xs text-ink">5.0</span>
                                             </div>
                                         </div>
-                                        <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-1">
+                                        <h3 className="text-2xl md:text-3xl font-bold text-ink mb-1">
                                             {currentVehicle.name}
                                         </h3>
                                         <div className="flex items-baseline justify-center md:justify-start gap-2">
                                             <span className="text-2xl font-bold text-gold">{currentVehicle.offerPrice || currentVehicle.price}</span>
-                                            <span className="text-xs text-muted-foreground">/ Trip</span>
+                                            <span className="text-xs text-ink-muted">/ Trip</span>
                                         </div>
                                     </div>
 
@@ -263,12 +263,12 @@ export default function HomeFleetCarousel() {
 
                                     <div className="flex gap-3">
                                         <Link href={`/fleet/${currentVehicle.slug}`} passHref>
-                                            <button className="glass-button text-xs font-bold uppercase tracking-wide px-6 py-3">
+                                            <button className="btn-secondary text-xs font-bold uppercase tracking-wide px-6 py-3">
                                                 Details
                                             </button>
                                         </Link>
                                         <Link href="/booking" passHref>
-                                            <button className="btn-gold text-xs font-bold uppercase tracking-wide px-6 py-3">
+                                            <button className="btn-primary text-xs font-bold uppercase tracking-wide px-6 py-3">
                                                 Book Now
                                             </button>
                                         </Link>
@@ -284,7 +284,7 @@ export default function HomeFleetCarousel() {
                             <button
                                 key={idx}
                                 onClick={() => setCurrentIndex(idx)}
-                                className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-10 bg-gold box-shadow-glow' : 'w-2 bg-foreground/20 hover:bg-foreground/40'
+                                className={`h-2 rounded-full transition-all duration-300 ${idx === currentIndex ? 'w-10 bg-gold box-shadow-glow' : 'w-2 bg-ink/20 hover:bg-ink/40'
                                     }`}
                                 aria-label={`Go to slide ${idx + 1}`}
                             />

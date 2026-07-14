@@ -50,7 +50,7 @@ export default function AnimatedMapBackground() {
     });
 
     return (
-        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20 dark:opacity-10">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
             <svg className="w-full h-full text-amber-500" width="100%" height="100%">
                 {/* Connections */}
                 {connections.map((conn, i) => (
@@ -100,7 +100,7 @@ export default function AnimatedMapBackground() {
             </svg>
 
             {/* Gradient Overlay to fade edges */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white dark:from-slate-950 dark:via-transparent dark:to-slate-950 opacity-80" />
+            <div className="absolute inset-0 bg-gradient-to-b from-surface via-transparent to-surface opacity-80" />
         </div>
     );
 }

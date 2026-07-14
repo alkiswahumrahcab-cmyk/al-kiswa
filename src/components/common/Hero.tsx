@@ -79,7 +79,7 @@ const Hero: React.FC<HeroProps> = ({
     };
 
     return (
-        <section ref={ref} className="relative w-full min-h-[95vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-charcoal">
+        <section ref={ref} className="relative w-full min-h-[95vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-surface">
             {/* Parallax Background */}
             <motion.div className="absolute inset-0 z-0" style={{ y, opacity }}>
                 <div className="relative w-full h-full">
@@ -141,7 +141,7 @@ const Hero: React.FC<HeroProps> = ({
                             )}
 
                             {/* Ambient Glow for Composition */}
-                            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black via-black/80 to-transparent z-20 pointer-events-none" />
+                            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-surface via-surface/80 to-transparent z-20 pointer-events-none" />
                         </div>
                     ) : (
                         <Image
@@ -155,24 +155,14 @@ const Hero: React.FC<HeroProps> = ({
                     )}
                     {isSpiritual && (
                         <>
-                            {/* Spiritual Gradient Overlay - Darker on left for text readability - Neutral Dark */}
-                            <div
-                                className="absolute inset-0 z-[1]"
-                                style={{
-                                    background: 'linear-gradient(105deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.60) 50%, rgba(0, 0, 0, 0.20) 100%)'
-                                }}
-                            />
-                            {/* Bottom fade for smooth section transition - Primary Black */}
-                            <div
-                                className="absolute bottom-0 left-0 right-0 h-[120px] z-[2]"
-                                style={{
-                                    background: 'linear-gradient(to bottom, transparent, #0f172a)'
-                                }}
-                            />
+                            {/* Premium Frosted Glass Overlay for perfect legibility */}
+                            <div className="absolute inset-0 z-[1] bg-surface/85 backdrop-blur-sm" />
+                            {/* Bottom fade for smooth section transition */}
+                            <div className="absolute bottom-0 left-0 right-0 h-[120px] z-[2] bg-gradient-to-t from-surface to-transparent" />
                         </>
                     )}
                     {!isSpiritual && (
-                        <div className="absolute inset-0 bg-gradient-to-b from-charcoal/80 via-charcoal/40 to-charcoal" />
+                        <div className="absolute inset-0 bg-gradient-to-b from-surface/80 via-surface/40 to-surface" />
                     )}
                     {!fleetImages && !isSpiritual && (
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold/10 via-transparent to-transparent opacity-60" />
@@ -194,8 +184,8 @@ const Hero: React.FC<HeroProps> = ({
                         className="flex flex-col justify-center lg:justify-start items-center lg:items-start gap-4 w-full"
                     >
                         {/* Bismillah Calligraphy - Text Version */}
-                        <div className="mb-2 w-full text-center">
-                            <div className="text-3xl md:text-4xl font-arabic text-white/90 drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] leading-relaxed" dir="rtl">
+                        <div className="mb-4 w-full text-center">
+                            <div className="text-2xl md:text-3xl font-arabic text-gold-strong leading-relaxed" dir="rtl">
                                 بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
                             </div>
                         </div>
@@ -209,8 +199,8 @@ const Hero: React.FC<HeroProps> = ({
                             ) : badge
                         ) : (
                             <div className="flex gap-3">
-                                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/15 border border-gold/30 text-gold text-xs font-bold tracking-widest uppercase backdrop-blur-sm shadow-[0_0_15px_rgba(16,185,129,0.2)]">
-                                    <Shield size={14} className="fill-gold-light/20" />
+                                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/10 border border-gold/30 text-gold-strong text-xs font-bold tracking-widest uppercase shadow-sm">
+                                    <Shield size={14} className="text-gold" />
                                     Ministry Licensed Operator
                                 </span>
                             </div>
@@ -219,9 +209,9 @@ const Hero: React.FC<HeroProps> = ({
 
                     {/* Title - Static for LCP Optimization */}
                     <div>
-                        <h1 className="font-display font-semibold text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] tracking-tight drop-shadow-2xl">
+                        <h1 className="font-display font-semibold text-5xl md:text-6xl lg:text-7xl text-ink leading-[1.1] tracking-tight">
                             {title.split(' ').map((word, i) => (
-                                <span key={i} className={i === 1 || word.includes('VIP') ? 'text-gold-metallic drop-shadow-[0_0_15px_hsl(var(--gold-glow) / 0.3)]' : ''}>
+                                <span key={i} className={i === 1 || word.includes('VIP') ? 'text-gold-strong' : ''}>
                                     {word}{' '}
                                 </span>
                             ))}
@@ -233,7 +223,7 @@ const Hero: React.FC<HeroProps> = ({
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                        className={`text-lg md:text-xl text-n-300 font-light leading-relaxed max-w-2xl ${layout === 'center' ? 'mx-auto' : 'mx-auto lg:mx-0 border-l-2 border-gold/30 pl-6'} ${isSpiritual ? 'text-white/90 drop-shadow-md' : ''}`}
+                        className={`text-lg md:text-xl text-ink-muted font-light leading-relaxed max-w-2xl ${layout === 'center' ? 'mx-auto' : 'mx-auto lg:mx-0 border-l-2 border-gold/30 pl-6'}`}
                     >
                         {subtitle}
                     </motion.div>
@@ -250,7 +240,7 @@ const Hero: React.FC<HeroProps> = ({
                                 href={ctaLink}
                                 variant="primary"
                                 size="lg"
-                                className="bg-gradient-to-r from-gold to-gold-dark text-black border-none font-bold shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.5)] hover:scale-105 transition-all duration-300"
+                                className="btn-primary"
                                 onClick={() => trackConversion('other', 'hero_cta_booking_start')}
                             >
                                 {ctaText}
@@ -262,7 +252,7 @@ const Hero: React.FC<HeroProps> = ({
                                 href={secondaryCtaLink}
                                 variant="outline"
                                 size="lg"
-                                className="border-white/20 text-white hover:bg-white/10 hover:border-gold/50 backdrop-blur-sm"
+                                className="btn-secondary border-border text-ink"
                             >
                                 {secondaryCtaText}
                             </GlassButton>
@@ -278,15 +268,15 @@ const Hero: React.FC<HeroProps> = ({
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
-                            className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-2xl glass-panel p-6"
+                            className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-2xl bg-surface-alt border border-border p-6 rounded-2xl shadow-sm"
                         >
                             {stats.map((stat, i) => (
                                 <div key={i} className="flex flex-col gap-1 items-center lg:items-start text-center lg:text-left">
-                                    <div className="flex items-center gap-2 text-gold mb-1">
+                                    <div className="flex items-center gap-2 text-gold-strong mb-1">
                                         {stat.icon || <CheckCircle size={16} />}
-                                        <span className="font-bold text-2xl text-white">{stat.value}</span>
+                                        <span className="font-bold text-2xl text-ink">{stat.value}</span>
                                     </div>
-                                    <span className="text-[10px] md:text-xs text-n-400 uppercase tracking-wider">{stat.label}</span>
+                                    <span className="text-[10px] md:text-xs text-ink-muted uppercase tracking-wider">{stat.label}</span>
                                 </div>
                             ))}
                         </motion.div>
@@ -302,9 +292,7 @@ const Hero: React.FC<HeroProps> = ({
                         transition={{ duration: 0.8, delay: 0.5 }}
                     >
                         <div className="relative">
-                            {/* Enhanced Glow Effect */}
-                            <div className="absolute -inset-1 bg-gradient-to-b from-gold/30 to-transparent blur-3xl opacity-40 rounded-[2.5rem] animate-pulse" />
-                            <div className="absolute inset-0 bg-black/40 backdrop-blur-xl rounded-[2rem] border border-white/10 shadow-2xl" />
+                            <div className="absolute inset-0 bg-surface rounded-[2rem] border border-border shadow-md" />
 
                             <div className="relative z-10">
                                 {children}
@@ -315,7 +303,7 @@ const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Bottom Gradient Fade */}
-            <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-charcoal via-charcoal/80 to-transparent pointer-events-none z-[1]" />
+            <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-surface via-surface/80 to-transparent pointer-events-none z-[1]" />
         </section >
     );
 };

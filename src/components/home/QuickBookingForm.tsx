@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -24,13 +24,13 @@ interface QuickBookingFormProps {
 
 const SkeletonLoader = () => (
     <div className="space-y-4 animate-pulse">
-        <div className="h-10 bg-white/5 rounded-xl w-full" />
+        <div className="h-10 bg-surface rounded-xl w-full" />
         <div className="grid grid-cols-2 gap-4">
-            <div className="h-12 bg-white/5 rounded-xl" />
-            <div className="h-12 bg-white/5 rounded-xl" />
+            <div className="h-12 bg-surface rounded-xl" />
+            <div className="h-12 bg-surface rounded-xl" />
         </div>
-        <div className="h-12 bg-white/5 rounded-xl w-full" />
-        <div className="h-14 bg-white/10 rounded-xl w-full" />
+        <div className="h-12 bg-surface rounded-xl w-full" />
+        <div className="h-14 bg-border rounded-xl w-full" />
     </div>
 );
 
@@ -239,7 +239,7 @@ const QuickBookingForm = ({
 
     return (
         <motion.div
-            className={`glass-panel p-6 lg:p-8 relative overflow-hidden ${className}`}
+            className={`card p-6 lg:p-8 relative overflow-hidden ${className}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
@@ -248,12 +248,12 @@ const QuickBookingForm = ({
             <div className="absolute top-0 right-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none" />
 
             {(title || variant === 'fleet') && (
-                <div className="mb-6 border-b border-white/10 pb-4">
-                    <h3 className="text-2xl font-display font-semibold text-white mb-1 shadow-sm uppercase tracking-tight flex items-center gap-2">
+                <div className="mb-6 border-b border-border pb-4">
+                    <h3 className="text-2xl font-display font-semibold text-ink mb-1 shadow-sm uppercase tracking-tight flex items-center gap-2">
                         {title || 'Quick Booking'}
                         <div className="h-px flex-1 bg-gradient-to-r from-gold/50 to-transparent ml-4" />
                     </h3>
-                    <p className="text-sm text-white/60 font-medium tracking-wide">
+                    <p className="text-sm text-ink-muted font-medium tracking-wide">
                         {subtitle || 'Premium Luxury Transport'}
                     </p>
                 </div>
@@ -279,12 +279,12 @@ const QuickBookingForm = ({
                             <CheckCircle size={40} className="text-white" />
                         </div>
                         <div>
-                            <h3 className="text-2xl font-bold text-white mb-2">Booking Received</h3>
-                            <p className="text-white/80 max-w-xs mx-auto text-sm">We will contact you shortly to confirm your VIP journey.</p>
+                            <h3 className="text-2xl font-bold text-ink mb-2">Booking Received</h3>
+                            <p className="text-ink-muted max-w-xs mx-auto text-sm">We will contact you shortly to confirm your VIP journey.</p>
                         </div>
                         <button
                             onClick={() => setIsSubmitted(false)}
-                            className="btn-gold py-3 px-8 text-sm uppercase tracking-wider"
+                            className="btn-primary py-3 px-8 text-sm uppercase tracking-wider"
                         >
                             Book Another Trip
                         </button>
@@ -300,7 +300,7 @@ const QuickBookingForm = ({
                     >
                         {/* WhatsApp Fast Track - Accessibility Feature */}
                         <div 
-                            className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-center justify-between gap-4 mb-6 hover:bg-white/10 transition-all duration-300 group cursor-pointer hover:border-gold/30" 
+                            className="bg-surface border border-border rounded-xl p-4 flex items-center justify-between gap-4 mb-6 hover:border-gold/30 transition-all duration-300 group cursor-pointer" 
                             onClick={() => {
                                 const waNum = settings?.contact?.whatsapp?.replace(/\D/g, '') || '966548707332';
                                 window.open(`https://wa.me/${waNum}`, '_blank');
@@ -311,11 +311,11 @@ const QuickBookingForm = ({
                                     <MessageCircle size={20} className="fill-white" />
                                 </div>
                                 <div className="text-left">
-                                    <h4 className="text-white font-bold text-sm">Prefer to book via Chat?</h4>
-                                    <p className="text-white/60 text-xs text-[10px]">Instant reply from our support team</p>
+                                    <h4 className="text-ink font-bold text-sm">Prefer to book via Chat?</h4>
+                                    <p className="text-ink-muted text-xs text-[10px]">Instant reply from our support team</p>
                                 </div>
                             </div>
-                            <div className="bg-white/10 p-2 rounded-lg text-white group-hover:bg-white/20 transition-colors">
+                            <div className="bg-border p-2 rounded-lg text-ink group-hover:bg-gold/20 group-hover:text-gold transition-colors">
                                 <ArrowRight size={16} />
                             </div>
                         </div>
@@ -348,7 +348,7 @@ const QuickBookingForm = ({
                                                 flex items-center gap-2 px-4 py-3 rounded-xl text-[10px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 border
                                                 ${isActive
                                                     ? 'bg-gold text-black border-gold shadow-[0_0_15px_hsl(var(--gold-glow) / 0.4)] scale-105'
-                                                    : 'bg-white/5 border-white/10 text-white/60 hover:bg-white/10 hover:border-gold/50 hover:text-white'
+                                                    : 'bg-surface border-border text-ink-muted hover:border-gold hover:text-ink'
                                                 }
                                             `}
                                         >
@@ -366,7 +366,7 @@ const QuickBookingForm = ({
                             {/* Pickup & Dropoff */}
                             <div className="space-y-4">
                                 <div className="flex justify-between items-center mb-1">
-                                    <label className="text-[10px] uppercase font-bold text-white/60 tracking-widest hidden md:block">Pickup</label>
+                                    <label className="text-[10px] uppercase font-bold text-ink-muted tracking-widest hidden md:block">Pickup</label>
                                     <button
                                         type="button"
                                         onClick={() => {
@@ -382,7 +382,7 @@ const QuickBookingForm = ({
                                                 });
                                             }
                                         }}
-                                        className="text-[10px] flex items-center gap-1 text-gold hover:text-white transition-colors cursor-pointer ml-auto"
+                                        className="text-[10px] flex items-center gap-1 text-gold hover:text-ink transition-colors cursor-pointer ml-auto"
                                     >
                                         <MapPin size={10} /> Use My Location
                                     </button>
@@ -393,7 +393,7 @@ const QuickBookingForm = ({
                                     onChange={(e: any) => setFormData({ ...formData, pickup: e.target.value })}
                                     options={allLocations.map(l => ({ value: l, label: l }))}
                                     placeholder="Pickup Location"
-                                    className="w-full !bg-white/5 !border-white/10 !text-white !placeholder-gray-500 rounded-xl focus:!border-gold focus:!ring-gold/20 hover:!bg-white/10 transition-all font-light"
+                                    className="w-full !bg-surface !border-border !text-ink !placeholder-ink/40 rounded-xl focus:!border-gold focus:!ring-gold/20 hover:!bg-white transition-all font-light"
                                     icon={<MapPin size={16} className="text-gold" />}
                                 />
                                 {errors.pickup && <span className="text-red-400 text-xs ml-2">{errors.pickup}</span>}
@@ -404,7 +404,7 @@ const QuickBookingForm = ({
                                     onChange={(e: any) => setFormData({ ...formData, dropoff: e.target.value })}
                                     options={allLocations.map(l => ({ value: l, label: l }))}
                                     placeholder="Dropoff Location"
-                                    className="w-full !bg-white/5 !border-white/10 !text-white !placeholder-gray-500 rounded-xl focus:!border-gold focus:!ring-gold/20 hover:!bg-white/10 transition-all font-light"
+                                    className="w-full !bg-surface !border-border !text-ink !placeholder-ink/40 rounded-xl focus:!border-gold focus:!ring-gold/20 hover:!bg-white transition-all font-light"
                                     icon={<MapPin size={16} className="text-gold" />}
                                 />
                                 {errors.dropoff && <span className="text-red-400 text-xs ml-2">{errors.dropoff}</span>}
@@ -419,7 +419,7 @@ const QuickBookingForm = ({
                                         value={formData.date ? formData.date.toISOString().split('T')[0] : ''}
                                         onChange={(e) => handleDateChange(e.target.value ? new Date(e.target.value) : null)}
                                         min={new Date().toISOString().split('T')[0]}
-                                        className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm font-light hover:bg-white/10"
+                                        className="w-full pl-10 pr-4 py-3 bg-surface border border-border rounded-xl text-ink placeholder-ink/40 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm font-light hover:bg-white"
                                     />
                                     {errors.date && <span className="text-red-400 text-xs ml-2 absolute -bottom-5">{errors.date}</span>}
                                 </div>
@@ -434,7 +434,7 @@ const QuickBookingForm = ({
                                             const t = new Date(); t.setHours(h); t.setMinutes(m);
                                             handleTimeChange(t);
                                         }}
-                                        className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm font-light hover:bg-white/10"
+                                        className="w-full pl-10 pr-4 py-3 bg-surface border border-border rounded-xl text-ink placeholder-ink/40 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm font-light hover:bg-white"
                                     />
                                     {errors.time && <span className="text-red-400 text-xs ml-2 absolute -bottom-5">{errors.time}</span>}
                                 </div>
@@ -450,7 +450,7 @@ const QuickBookingForm = ({
                                 // @ts-ignore
                                 options={vehicleOptions}
                                 placeholder="Select Vehicle Class"
-                                className="w-full !bg-white/5 !border-gold/30 !text-white !py-3.5 focus:!border-gold hover:!bg-white/10 transition-all"
+                                className="w-full !bg-surface !border-gold/30 !text-ink !py-3.5 focus:!border-gold hover:!bg-white transition-all"
                                 icon={<Car size={18} className="text-gold" />}
                                 renderOption={(option: any) => (
                                     <div className="flex items-center justify-between w-full p-1">
@@ -469,7 +469,7 @@ const QuickBookingForm = ({
                                             )}
                                             <div className="flex flex-col text-left">
                                                 <span className="font-bold text-sm text-n-800 dark:text-n-200">{option.label.split('(')[0]}</span>
-                                                <span className="text-[10px] text-white/50">{option.label.split('(')[1]?.replace(')', '')}</span>
+                                                <span className="text-[10px] text-ink-muted">{option.label.split('(')[1]?.replace(')', '')}</span>
                                             </div>
                                         </div>
                                         {option.price > 0 ? (
@@ -487,7 +487,7 @@ const QuickBookingForm = ({
                                 const selected = vehicleOptions.find(v => v.value === formData.vehicleId);
                                 if (selected) return (
                                     <div className="absolute right-4 top-1/2 -translate-y-1/2 flex flex-col items-end pointer-events-none">
-                                        <span className="text-[10px] text-white/60 uppercase tracking-wider">{selected.price > 0 ? 'Est. Fare' : 'Status'}</span>
+                                        <span className="text-[10px] text-ink-muted uppercase tracking-wider">{selected.price > 0 ? 'Est. Fare' : 'Status'}</span>
                                         {selected.price > 0 ? (
                                             <span className="text-gold font-bold text-lg leading-none">{selected.price} <span className="text-xs">SAR</span></span>
                                         ) : (
@@ -516,7 +516,7 @@ const QuickBookingForm = ({
                                                 placeholder="Full Name"
                                                 value={formData.name}
                                                 onChange={handleChange}
-                                                className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm font-light hover:bg-white/10"
+                                                className="w-full pl-10 pr-4 py-3 bg-surface border border-border rounded-xl text-ink placeholder-ink/40 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm font-light hover:bg-white"
                                             />
                                             {errors.name && <span className="text-red-400 text-xs ml-2">{errors.name}</span>}
                                         </div>
@@ -528,7 +528,7 @@ const QuickBookingForm = ({
                                                 placeholder="Phone (+966...)"
                                                 value={formData.phone}
                                                 onChange={handleChange}
-                                                className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm font-light hover:bg-white/10"
+                                                className="w-full pl-10 pr-4 py-3 bg-surface border border-border rounded-xl text-ink placeholder-ink/40 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm font-light hover:bg-white"
                                             />
                                             {errors.phone && <span className="text-red-400 text-xs ml-2">{errors.phone}</span>}
                                         </div>
@@ -540,10 +540,10 @@ const QuickBookingForm = ({
                                                 placeholder="Email Address *"
                                                 value={formData.email}
                                                 onChange={handleChange}
-                                                className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm font-light hover:bg-white/10"
+                                                className="w-full pl-10 pr-4 py-3 bg-surface border border-border rounded-xl text-ink placeholder-ink/40 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 transition-all text-sm font-light hover:bg-white"
                                             />
                                             {errors.email && <span className="text-red-400 text-xs ml-2">{errors.email}</span>}
-                                            <p className="text-white/60 text-[10px] mt-1 ml-2">We will send a confirmation mail to this email address.</p>
+                                            <p className="text-ink-muted text-[10px] mt-1 ml-2">We will send a confirmation mail to this email address.</p>
                                         </div>
                                     </div>
                                 </motion.div>
@@ -568,7 +568,7 @@ const QuickBookingForm = ({
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="btn-gold w-full py-4 uppercase tracking-widest flex items-center justify-center gap-3 group disabled:opacity-70 disabled:cursor-not-allowed"
+                            className="btn-primary w-full py-4 uppercase tracking-widest flex items-center justify-center gap-3 group disabled:opacity-70 disabled:cursor-not-allowed"
                         >
                             {isSubmitting ? 'Processing...' : 'Reserve Now'}
                             {!isSubmitting && <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />}
@@ -576,9 +576,9 @@ const QuickBookingForm = ({
 
                         {/* Trust Badges */}
                         <div className="flex justify-center gap-6 pt-2 opacity-60">
-                            <span className="flex items-center gap-1.5 text-[10px] text-white uppercase tracking-wider font-medium"><ShieldCheck size={12} className="text-gold" /> Secure</span>
-                            <span className="flex items-center gap-1.5 text-[10px] text-white uppercase tracking-wider font-medium"><CreditCard size={12} className="text-gold" /> Pay Later</span>
-                            <span className="flex items-center gap-1.5 text-[10px] text-white uppercase tracking-wider font-medium"><HeartHandshake size={12} className="text-gold" /> 24/7 Support</span>
+                            <span className="flex items-center gap-1.5 text-[10px] text-ink uppercase tracking-wider font-medium"><ShieldCheck size={12} className="text-gold" /> Secure</span>
+                            <span className="flex items-center gap-1.5 text-[10px] text-ink uppercase tracking-wider font-medium"><CreditCard size={12} className="text-gold" /> Pay Later</span>
+                            <span className="flex items-center gap-1.5 text-[10px] text-ink uppercase tracking-wider font-medium"><HeartHandshake size={12} className="text-gold" /> 24/7 Support</span>
                         </div>
                     </motion.form>
                 )}

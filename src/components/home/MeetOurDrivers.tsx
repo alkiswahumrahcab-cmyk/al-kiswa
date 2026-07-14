@@ -84,7 +84,7 @@ export default function MeetOurDrivers({ lang = 'en' }: Props) {
     };
 
     return (
-        <section className={`py-20 bg-background border-t border-border relative overflow-hidden ${isAr ? 'rtl font-cairo' : 'ltr'}`} dir={isAr ? 'rtl' : 'ltr'}>
+        <section className={`py-20 bg-bg border-t border-border relative overflow-hidden ${isAr ? 'rtl font-cairo' : 'ltr'}`} dir={isAr ? 'rtl' : 'ltr'}>
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
 
@@ -95,10 +95,10 @@ export default function MeetOurDrivers({ lang = 'en' }: Props) {
                             <ShieldCheck size={18} />
                             <span className="text-sm font-bold uppercase tracking-wider" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>{content.badgeTitle}</span>
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 font-serif">
+                        <h2 className="text-3xl md:text-5xl font-bold text-ink mb-6 font-serif">
                             {content.title}
                         </h2>
-                        <p className="text-muted-foreground text-lg font-light leading-relaxed" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
+                        <p className="text-ink-muted text-lg font-light leading-relaxed" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
                             {content.subtitle}
                         </p>
                     </div>
@@ -107,12 +107,12 @@ export default function MeetOurDrivers({ lang = 'en' }: Props) {
                 <div className="grid md:grid-cols-3 gap-8">
                     {drivers.map((driver, index) => (
                         <FadeIn key={index} delay={index * 0.1}>
-                            <div className="group relative bg-card border border-border rounded-3xl overflow-hidden hover:border-gold/40 transition-all duration-500">
+                            <div className="group relative bg-surface border border-border rounded-3xl overflow-hidden hover:border-gold/40 transition-all duration-500">
                                 {/* Image Area */}
-                                <div className="relative h-80 overflow-hidden bg-muted">
-                                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-card/90 z-10" />
-                                    <div className="w-full h-full flex items-center justify-center bg-muted group-hover:scale-105 transition-transform duration-700">
-                                        <UserCheck size={64} className="text-muted-foreground" />
+                                <div className="relative h-80 overflow-hidden bg-bg">
+                                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-surface/90 z-10" />
+                                    <div className="w-full h-full flex items-center justify-center bg-bg group-hover:scale-105 transition-transform duration-700">
+                                        <UserCheck size={64} className="text-ink-muted" />
                                     </div>
 
                                     <div className={`absolute bottom-4 ${isAr ? 'right-4' : 'left-4'} z-20`}>
@@ -124,20 +124,20 @@ export default function MeetOurDrivers({ lang = 'en' }: Props) {
 
                                 {/* Content */}
                                 <div className="p-8 relative">
-                                    <h3 className="text-2xl font-semibold text-foreground mb-1 group-hover:text-gold transition-colors font-display">{driver.name}</h3>
+                                    <h3 className="text-2xl font-semibold text-ink mb-1 group-hover:text-gold transition-colors font-display">{driver.name}</h3>
                                     <p className="text-gold/80 mb-6" style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>{driver.role}</p>
 
                                     <div className="space-y-3">
-                                        <div className="flex items-center gap-3 text-muted-foreground text-sm">
-                                            <div className="bg-foreground/5 p-2 rounded-lg shrink-0">
+                                        <div className="flex items-center gap-3 text-ink-muted text-sm">
+                                            <div className="bg-ink/5 p-2 rounded-lg shrink-0">
                                                 <ShieldCheck size={16} className="text-gold" />
                                             </div>
                                             <span style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>
                                                 {isAr ? `${driver.experience} ${content.expLabel}` : `${driver.experience} ${content.expLabel}`}
                                             </span>
                                         </div>
-                                        <div className="flex items-center gap-3 text-muted-foreground text-sm">
-                                            <div className="bg-foreground/5 p-2 rounded-lg shrink-0">
+                                        <div className="flex items-center gap-3 text-ink-muted text-sm">
+                                            <div className="bg-ink/5 p-2 rounded-lg shrink-0">
                                                 <Languages size={16} className="text-gold" />
                                             </div>
                                             <span style={isAr ? { fontFamily: 'var(--font-tajawal)' } : {}}>

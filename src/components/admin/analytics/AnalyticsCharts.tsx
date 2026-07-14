@@ -101,21 +101,21 @@ export default function AnalyticsDashboard({ revenueData, statusData, routeData 
     return (
         <div className="space-y-8">
             {/* Revenue */}
-            <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
-                <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-6">Revenue Trend (Last 6 Months)</h3>
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <h3 className="text-lg font-bold text-slate-800 mb-6">Revenue Trend (Last 6 Months)</h3>
                 <RevenueChart data={revenueData || []} />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Status Distribution */}
-                <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
-                    <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-6">Booking Status Distribution</h3>
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 className="text-lg font-bold text-slate-800 mb-6">Booking Status Distribution</h3>
                     <StatusPieChart data={statusData || []} />
                 </div>
 
                 {/* Top Routes */}
-                <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
-                    <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-6">Top Routes</h3>
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 className="text-lg font-bold text-slate-800 mb-6">Top Routes</h3>
                     <RouteBarChart data={routeData || []} />
                 </div>
             </div>

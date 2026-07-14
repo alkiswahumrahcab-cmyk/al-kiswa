@@ -136,9 +136,9 @@ export default function EmailTemplateManager({ settings, onChange }: EmailTempla
                         </div>
                     </div>
 
-                    <div className="mt-4 p-4 bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-800/30 rounded-lg">
-                        <h4 className="text-sm font-medium text-amber-700 dark:text-amber-500 mb-2">Tips</h4>
-                        <ul className="text-xs text-amber-600/90 dark:text-amber-500/80 space-y-1 list-disc pl-4">
+                    <div className="mt-4 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                        <h4 className="text-sm font-medium text-amber-700 mb-2">Tips</h4>
+                        <ul className="text-xs text-amber-600/90 space-y-1 list-disc pl-4">
                             <li>Use inline CSS for styling (e.g., style="color: red;")</li>
                             <li>Images must be hosted publicly (use full URLs)</li>
                             <li>{`{{ vehicle_details }}`} renders a list or single name automatically</li>
@@ -151,7 +151,7 @@ export default function EmailTemplateManager({ settings, onChange }: EmailTempla
             {/* Preview Modal */}
             {previewOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
-                    <div className="bg-white dark:bg-slate-900 w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+                    <div className="bg-white w-full max-w-4xl max-h-[90vh] rounded-2xl shadow-2xl flex flex-col overflow-hidden">
                         <div className="flex items-center justify-between p-4 border-b border-border bg-muted/10">
                             <h3 className="font-bold text-lg flex items-center gap-2">
                                 <Eye size={20} className="text-secondary" />
@@ -164,7 +164,7 @@ export default function EmailTemplateManager({ settings, onChange }: EmailTempla
                                 <X size={20} />
                             </button>
                         </div>
-                        <div className="flex-1 overflow-auto p-8 bg-slate-100 dark:bg-slate-950">
+                        <div className="flex-1 overflow-auto p-8 bg-slate-100">
                             <div className="max-w-[600px] mx-auto bg-white shadow-sm min-h-[400px]">
                                 <div dangerouslySetInnerHTML={{
                                     __html: getPreviewHtml(activeTab === 'customer' ? bookingTemplate : adminTemplate)

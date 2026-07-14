@@ -119,7 +119,7 @@ export default function TransportServices({ lang = 'en' }: Props) {
         : { eyebrow: 'Our Core Services', title: <>Premium Transport for <span className="bg-gradient-to-r from-gold to-gold-metallic bg-clip-text text-transparent">Your Spiritual Journey</span></>, sub: 'Comprehensive travel solutions designed for the Guests of Allah. From airport arrivals to intercity travel, we ensure every mile is comfortable, safe, and dignified.' };
 
     return (
-        <section className="py-20 md:py-32 relative overflow-hidden bg-background">
+        <section className="py-20 md:py-32 relative overflow-hidden bg-bg">
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gold-metallic/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
@@ -128,10 +128,10 @@ export default function TransportServices({ lang = 'en' }: Props) {
                 <FadeIn>
                     <div className="text-center max-w-4xl mx-auto mb-20">
                         <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs md:text-sm mb-4 block">{heading.eyebrow}</span>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-display text-foreground mb-8 tracking-tight leading-tight">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-display text-ink mb-8 tracking-tight leading-tight">
                             {heading.title}
                         </h2>
-                        <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto font-light">
+                        <p className="text-lg md:text-xl text-ink-muted leading-relaxed max-w-2xl mx-auto font-light">
                             {heading.sub}
                         </p>
                     </div>
@@ -140,7 +140,7 @@ export default function TransportServices({ lang = 'en' }: Props) {
                 <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
                     {services.map((service, index) => (
                         <FadeIn key={service.id} delay={index * 0.15}>
-                            <article className="group h-full relative border border-border hover:border-gold/50 rounded-[2.5rem] transition-all duration-500 hover:shadow-[0_20px_40px_-15px_hsl(var(--gold-glow) / 0.15)] hover:-translate-y-2 bg-card overflow-hidden flex flex-col">
+                            <article className="card group h-full relative hover:border-gold/50 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col">
                                 <Link href={service.link} className="relative h-72 md:h-80 overflow-hidden block">
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
                                     <Image
@@ -165,8 +165,8 @@ export default function TransportServices({ lang = 'en' }: Props) {
                                     </div>
                                 </Link>
                                 <div className="p-8 pt-6 flex flex-col flex-1">
-                                    <p className="text-muted-foreground leading-relaxed mb-8 flex-1">{service.description}</p>
-                                    <Link href={service.link} className="inline-flex items-center gap-3 text-foreground font-bold uppercase tracking-wider text-sm group/btn group-hover:text-gold transition-colors mt-auto">
+                                    <p className="text-ink-muted leading-relaxed mb-8 flex-1">{service.description}</p>
+                                    <Link href={service.link} className="inline-flex items-center gap-3 text-ink font-bold uppercase tracking-wider text-sm group/btn group-hover:text-gold transition-colors mt-auto">
                                         <span className="border-b-2 border-border group-hover:border-gold transition-colors py-1">
                                             {lang === 'ar' ? 'عرض التفاصيل' : 'View Details'}
                                         </span>

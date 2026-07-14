@@ -1,4 +1,4 @@
-﻿.container {
+.container {
     position: relative;
     width: 100%;
 }
@@ -10,9 +10,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    background: hsl(var(--n-800));
-    /* Match RouteSelector Dark Mode */
-    border: 1px solid hsl(var(--n-700));
+    background: var(--color-surface);
+    /* Match RouteSelector */
+    border: 1px solid var(--color-border);
     border-radius: 16px;
     /* Match RouteSelector */
     cursor: pointer;
@@ -21,18 +21,19 @@
     height: auto;
     /* Remove fixed height constraint */
     min-height: 72px;
+    box-shadow: var(--shadow-sm);
 }
 
 .trigger:hover {
-    border-color: hsl(var(--n-600));
+    border-color: var(--color-gold-line);
     transform: translateY(-1px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-md);
 }
 
 .trigger.open {
-    border-color: hsl(var(--gold));
-    box-shadow: 0 0 0 3px hsl(var(--gold-glow) / 0.15);
-    background: hsl(var(--n-800));
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 3px rgba(226,163,54,0.15);
+    background: var(--color-surface);
 }
 
 .triggerContent {
@@ -46,22 +47,22 @@
     height: 40px;
     border-radius: 12px;
     /* Match RouteSelector */
-    background: hsl(var(--n-900));
+    background: var(--color-bg);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: hsl(var(--n-400));
+    color: var(--color-muted);
     transition: all 0.3s ease;
 }
 
 .trigger:hover .triggerIconWrapper {
-    background: hsl(var(--n-100));
-    color: hsl(var(--n-600));
+    background: var(--color-border);
+    color: var(--color-ink);
 }
 
 .trigger.open .triggerIconWrapper {
-    background: hsl(var(--gold-glow) / 0.1);
-    color: hsl(var(--gold));
+    background: var(--color-gold-soft);
+    color: var(--color-gold-strong);
 }
 
 .vehicleInfo {
@@ -73,19 +74,19 @@
 .label {
     font-size: 0.7rem;
     text-transform: uppercase;
-    color: hsl(var(--n-400));
+    color: var(--color-muted);
     font-weight: 600;
     letter-spacing: 0.05em;
 }
 
 .value {
     font-weight: 600;
-    color: hsl(var(--n-50));
+    color: var(--color-ink);
     font-size: 1rem;
 }
 
 .chevron {
-    color: hsl(var(--n-400));
+    color: var(--color-muted);
     transition: transform 0.3s ease;
 }
 
@@ -99,10 +100,10 @@
     top: calc(100% + 0.5rem);
     left: 0;
     width: 100%;
-    background: hsl(var(--n-800));
-    border: 1px solid hsl(var(--n-700));
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
     border-radius: 16px;
-    box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.3);
+    box-shadow: var(--shadow-lg);
     z-index: 50;
     padding: 0.5rem;
     overflow: hidden;
@@ -124,7 +125,7 @@
 }
 
 .list::-webkit-scrollbar-thumb {
-    background: hsl(var(--n-700));
+    background: var(--color-border);
     border-radius: 3px;
 }
 
@@ -144,11 +145,11 @@
 }
 
 .option:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--color-bg);
 }
 
 .selectedOption {
-    background: hsl(var(--gold-glow) / 0.15);
+    background: var(--color-gold-soft);
 }
 
 .optionIcon {
@@ -157,13 +158,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: hsl(var(--n-400));
-    background: rgba(255, 255, 255, 0.03);
+    color: var(--color-muted);
+    background: var(--color-bg);
     border-radius: 6px;
 }
 
 .selectedOption .optionIcon {
-    color: hsl(var(--gold));
+    color: var(--color-gold-strong);
 }
 
 .optionContent {
@@ -173,24 +174,24 @@
 .optionName {
     display: block;
     font-weight: 500;
-    color: hsl(var(--n-50));
+    color: var(--color-ink);
     font-size: 0.95rem;
     margin-bottom: 0.1rem;
 }
 
 .selectedOption .optionName {
-    color: hsl(var(--gold));
+    color: var(--color-gold-strong);
 }
 
 .optionMeta {
     display: flex;
     gap: 0.5rem;
     font-size: 0.75rem;
-    color: hsl(var(--n-400));
+    color: var(--color-muted);
 }
 
 .selectedIndicator {
-    color: hsl(var(--gold));
+    color: var(--color-gold-strong);
     display: flex;
     align-items: center;
     justify-content: center;

@@ -145,8 +145,8 @@ export default function UsersPage() {
         <div className="p-6 max-w-7xl mx-auto space-y-8">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-slate-800 dark:text-white mb-2">User Management</h1>
-                    <p className="text-slate-500 dark:text-slate-400">Manage system access and roles</p>
+                    <h1 className="text-3xl font-bold text-slate-800 mb-2">User Management</h1>
+                    <p className="text-slate-500">Manage system access and roles</p>
                 </div>
                 <button
                     onClick={openCreateModal}
@@ -158,7 +158,7 @@ export default function UsersPage() {
             </div>
 
             {/* Search and Filter Bar */}
-            <div className="flex flex-col md:flex-row gap-4 bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div className="flex flex-col md:flex-row gap-4 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
                 <div className="relative flex-1">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
                     <input
@@ -166,14 +166,14 @@ export default function UsersPage() {
                         placeholder="Search by name or email..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-amber-500 outline-none transition-all"
+                        className="w-full pl-10 pr-4 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-amber-500 outline-none transition-all"
                     />
                 </div>
                 <div className="flex gap-2">
                     <select
                         value={filterRole}
                         onChange={(e) => setFilterRole(e.target.value)}
-                        className="px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-amber-500 outline-none cursor-pointer"
+                        className="px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-amber-500 outline-none cursor-pointer"
                     >
                         <option value="all">All Roles</option>
                         <option value="manager">Managers</option>
@@ -215,12 +215,12 @@ export default function UsersPage() {
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
-                                className="bg-white dark:bg-slate-900 rounded-xl p-6 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow"
+                                className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow"
                             >
                                 <div className="flex justify-between items-start mb-4">
-                                    <div className={`p-3 rounded-full ${user.role === 'admin' ? 'bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400' :
-                                        user.role === 'operational_manager' ? 'bg-orange-100 text-orange-600 dark:bg-orange-900/30 dark:text-orange-400' :
-                                            'bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400'
+                                    <div className={`p-3 rounded-full ${user.role === 'admin' ? 'bg-purple-100 text-purple-600' :
+                                        user.role === 'operational_manager' ? 'bg-orange-100 text-orange-600' :
+                                            'bg-blue-100 text-blue-600'
                                         }`}>
                                         {user.role === 'admin' ? <Shield size={24} /> :
                                             user.role === 'operational_manager' ? <HardHat size={24} /> :
@@ -247,12 +247,12 @@ export default function UsersPage() {
                                         </button>
                                     </div>
                                 </div>
-                                <h3 className="font-bold text-lg text-slate-800 dark:text-white mb-1">{user.name}</h3>
-                                <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">{user.email}</p>
-                                <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
-                                    <span className={`text-xs font-bold px-2 py-1 rounded-full ${user.role === 'admin' ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300' :
-                                        user.role === 'operational_manager' ? 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300' :
-                                            'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'
+                                <h3 className="font-bold text-lg text-slate-800 mb-1">{user.name}</h3>
+                                <p className="text-sm text-slate-500 mb-4">{user.email}</p>
+                                <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                                    <span className={`text-xs font-bold px-2 py-1 rounded-full ${user.role === 'admin' ? 'bg-purple-100 text-purple-700' :
+                                        user.role === 'operational_manager' ? 'bg-orange-100 text-orange-700' :
+                                            'bg-blue-100 text-blue-700'
                                         }`}>
                                         {user.role}
                                     </span>
@@ -279,34 +279,34 @@ export default function UsersPage() {
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
-                            className="relative bg-white dark:bg-slate-900 rounded-2xl w-full max-w-md p-6 shadow-2xl border border-slate-200 dark:border-slate-800"
+                            className="relative bg-white rounded-2xl w-full max-w-md p-6 shadow-2xl border border-slate-200"
                         >
-                            <h2 className="text-xl font-bold text-slate-800 dark:text-white mb-6">
+                            <h2 className="text-xl font-bold text-slate-800 mb-6">
                                 {editingId ? 'Edit User' : 'Add New User'}
                             </h2>
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Name</label>
+                                    <label className="block text-sm font-medium text-slate-700 mb-1">Name</label>
                                     <input
                                         type="text"
                                         required
                                         value={formData.name}
                                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                        className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-amber-500 outline-none transition-all"
+                                        className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-amber-500 outline-none transition-all"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Email</label>
+                                    <label className="block text-sm font-medium text-slate-700 mb-1">Email</label>
                                     <input
                                         type="email"
                                         required
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                        className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-amber-500 outline-none transition-all"
+                                        className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-amber-500 outline-none transition-all"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
+                                    <label className="block text-sm font-medium text-slate-700 mb-1">
                                         {editingId ? 'New Password (leave blank to keep current)' : 'Password'}
                                     </label>
                                     <input
@@ -314,16 +314,16 @@ export default function UsersPage() {
                                         required={!editingId}
                                         value={formData.password}
                                         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
-                                        className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-amber-500 outline-none transition-all"
+                                        className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-amber-500 outline-none transition-all"
                                         placeholder={editingId ? "••••••••" : ""}
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Role</label>
+                                    <label className="block text-sm font-medium text-slate-700 mb-1">Role</label>
                                     <select
                                         value={formData.role}
                                         onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                                        className="w-full px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-amber-500 outline-none transition-all"
+                                        className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-amber-500 outline-none transition-all"
                                     >
                                         <option value="manager">Manager</option>
                                         <option value="operational_manager">Operational Manager</option>
@@ -335,7 +335,7 @@ export default function UsersPage() {
                                     <button
                                         type="button"
                                         onClick={() => setIsModalOpen(false)}
-                                        className="flex-1 px-4 py-2 rounded-lg border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                                        className="flex-1 px-4 py-2 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors"
                                     >
                                         Cancel
                                     </button>

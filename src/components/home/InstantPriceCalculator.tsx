@@ -41,17 +41,17 @@ export default function InstantPriceCalculator() {
     if (isLoading) return <div className="p-8 text-center text-gold animate-pulse">Loading rates...</div>;
 
     return (
-        <section className="py-24 bg-background relative" id="booking-calculator">
+        <section className="py-24 bg-bg relative" id="booking-calculator">
             <div className="container mx-auto px-4 relative z-10">
                 <FadeIn>
                     <div className="text-center mb-16">
                         <span className="text-gold text-xs font-bold tracking-[0.3em] uppercase mb-4 block">
                             Premium Chauffeur Services
                         </span>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-semibold text-foreground mb-6">
+                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-semibold text-ink mb-6">
                             Plan Your <span className="text-gold">Royal Journey</span>
                         </h2>
-                        <p className="text-muted-foreground max-w-2xl mx-auto text-lg font-light leading-relaxed">
+                        <p className="text-ink-muted max-w-2xl mx-auto text-lg font-light leading-relaxed">
                             Get an instant quote for your spiritual journey. Transparent pricing, premium vehicles.
                         </p>
                     </div>
@@ -69,7 +69,7 @@ export default function InstantPriceCalculator() {
                                         <div className="w-8 h-8 rounded-full border border-gold text-gold flex items-center justify-center font-bold text-sm">
                                             1
                                         </div>
-                                        <h3 className="text-xl font-bold text-foreground">Choose Route</h3>
+                                        <h3 className="text-xl font-bold text-ink">Choose Route</h3>
                                     </div>
                                     <div>
                                         <RouteSelector
@@ -86,7 +86,7 @@ export default function InstantPriceCalculator() {
                                         <div className="w-8 h-8 rounded-full border border-gold text-gold flex items-center justify-center font-bold text-sm">
                                             2
                                         </div>
-                                        <h3 className="text-xl font-bold text-foreground">Select Vehicle</h3>
+                                        <h3 className="text-xl font-bold text-ink">Select Vehicle</h3>
                                     </div>
                                     <div>
                                         <VehicleSelector
@@ -100,10 +100,10 @@ export default function InstantPriceCalculator() {
 
                             {/* Right Panel: Pricing & Action */}
                             <div className="lg:col-span-5">
-                                <div className="glass-panel p-6 sticky top-24">
+                                <div className="card p-6 sticky top-24">
                                     <div className="mb-6 text-center">
-                                        <span className="text-muted-foreground text-xs font-medium uppercase tracking-widest block mb-1">Total Estimate</span>
-                                        <div className="flex items-center justify-center gap-1.5 text-foreground">
+                                        <span className="text-ink-muted text-xs font-medium uppercase tracking-widest block mb-1">Total Estimate</span>
+                                        <div className="flex items-center justify-center gap-1.5 text-ink">
                                             <span className="text-lg text-gold font-medium">SAR</span>
                                             <span className="text-5xl font-bold tracking-tight">
                                                 {priceDetails ? priceDetails.price.toLocaleString() : 0}
@@ -113,26 +113,25 @@ export default function InstantPriceCalculator() {
 
                                     <div className="space-y-3 mb-6">
                                         <div className="flex justify-between text-sm py-2 border-b border-border">
-                                            <span className="text-muted-foreground">Distance</span>
-                                            <span className="text-foreground/80 font-medium">{currentRoute?.distance || '-'}</span>
+                                            <span className="text-ink-muted">Distance</span>
+                                            <span className="text-ink/80 font-medium">{currentRoute?.distance || '-'}</span>
                                         </div>
                                         <div className="flex justify-between text-sm py-2 border-b border-border">
-                                            <span className="text-muted-foreground">Duration</span>
-                                            <span className="text-foreground/80 font-medium">{currentRoute?.time || '-'}</span>
+                                            <span className="text-ink-muted">Duration</span>
+                                            <span className="text-ink/80 font-medium">{currentRoute?.time || '-'}</span>
                                         </div>
                                         <div className="flex justify-between text-sm py-2 border-b border-border">
-                                            <span className="text-muted-foreground">Vehicle</span>
+                                            <span className="text-ink-muted">Vehicle</span>
                                             <span className="text-gold font-medium">{currentVehicle?.name || '-'}</span>
                                         </div>
                                     </div>
-
                                     <Link
                                         href={`/booking?route=${selectedRoute}&vehicle=${selectedVehicle}`}
-                                        className="btn-gold w-full text-sm uppercase tracking-wider mt-4"
+                                        className="btn-primary w-full text-sm uppercase tracking-wider mt-4"
                                     >
                                         Book Now
                                     </Link>
-                                    <p className="text-center text-muted-foreground text-[10px] mt-3 mb-4">
+                                    <p className="text-center text-ink-muted text-[10px] mt-3 mb-4">
                                         All taxes included. No hidden fees.
                                     </p>
                                     <SeasonalPricingNote />

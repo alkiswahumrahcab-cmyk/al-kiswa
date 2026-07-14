@@ -4,233 +4,135 @@
 
 @layer base {
   :root {
-    /* === BRAND TOKENS === */
-    --gold:       38 75% 55%;   /* hsl(var(--gold)) — canonical brand gold */
-    --gold-light: 38 70% 70%;   /* #E8C17D */
-    --gold-dark:  38 72% 38%;   /* #A7731B */
-    --charcoal:   48 18%  7%;   /* #15140F */
-    --ivory:      48 40% 98%;   /* #FDFCF8 */
+    /* surfaces */
+    --color-bg: #FDFCF8;
+    --color-surface: #FFFEFB;
+    --color-surface-alt: #F5F0E6;
+    --color-surface-sunken: #F1EADB;
+    --color-border: #EAE2D1;
+    --color-border-strong: #D9CEB6;
 
-    /* === NEUTRAL RAMP (warm) - LIGHT MODE (inverted) === */
-    --n-50:  48 10%  7%;
-    --n-100: 45 8% 15%;
-    --n-200: 43 7% 23%;
-    --n-300: 42 6% 33%;
-    --n-400: 40 5% 44%;
-    --n-500: 41 5% 58%;
-    --n-600: 42 6% 72%;
-    --n-700: 43 7% 82%;
-    --n-800: 44 8% 92%;
-    --n-900: 45 10% 97%;
+    /* text */
+    --color-ink: #15140F;
+    --color-body: #413D35;
+    --color-muted: #726C60;
 
-    /* === STATUS === */
-    --success:  142 71% 45%;
-    --warning:   38 92% 50%;
-    --whatsapp: 142 70% 49%;   /* #25D366 — never change */
+    /* gold */
+    --color-gold: #E2A336;
+    --color-gold-strong: #C4881F;
+    --color-gold-soft: #F7E7C4;
+    --color-gold-line: #EBD8AD;
 
-    /* === LIGHT PALETTE (design-system reference; not activated with forcedTheme=dark) === */
-    --background:          48 40% 98%;
-    --foreground:          48 18%  7%;
-    --card:                 0  0% 100%;
-    --card-foreground:     48 18%  7%;
-    --popover:              0  0% 100%;
-    --popover-foreground:  48 18%  7%;
-    --muted:               45 30% 94%;
-    --muted-foreground:    42 11% 38%;
-    --border:              44 26% 88%;
-    --input:               44 26% 88%;
-    --primary:             38 72% 38%;
-    --primary-foreground:  48 40% 98%;
-    --secondary:           45 30% 94%;
-    --secondary-foreground:48 18%  7%;
-    --accent:              38 72% 38%;
-    --accent-foreground:   48 40% 98%;
-    --destructive:          0 72% 45%;
-    --destructive-foreground: 48 40% 98%;
-    --ring:                38 75% 55%;
-    --radius: 0.5rem;
+    /* dark anchor */
+    --color-ink-bg: #15140F;
+    --color-ink-surface: #211F17;
+    --color-on-ink: #F3EEE2;
+    --color-on-ink-muted: #A79F8C;
 
-    /* === GLASS TOKENS (light) === */
-    --glass-bg:     48 40% 98%;
-    --glass-border: 38 72% 38%;
-    --gold-glow:    38 75% 55%;
-    --glass-blur:   12px;
+    /* semantic */
+    --color-success: #2E7D5B;
+    --color-success-soft: #E2F0E8;
+    --color-warning: #B8791E;
+    --color-error: #B4442F;
+    --color-error-soft: #F6E3DD;
+    --color-info: #2A6F7A;
+
+    /* radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-pill: 9999px;
+
+    /* elevation (warm, low-spread) */
+    --shadow-xs: 0 1px 2px rgba(21,20,15,0.04);
+    --shadow-sm: 0 2px 8px rgba(21,20,15,0.05);
+    --shadow-md: 0 8px 24px rgba(21,20,15,0.07);
+    --shadow-lg: 0 16px 48px rgba(21,20,15,0.10);
+    --shadow-gold: 0 8px 24px rgba(226,163,54,0.22);
+
+    /* motion */
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --dur: 320ms;
   }
 
-  .dark {
-    /* === NEUTRAL RAMP (warm) - DARK MODE (original) === */
-    --n-50:  45 10% 97%;
-    --n-100: 44 8% 92%;
-    --n-200: 43 7% 82%;
-    --n-300: 42 6% 72%;
-    --n-400: 41 5% 58%;
-    --n-500: 40 5% 44%;
-    --n-600: 42 6% 33%;
-    --n-700: 43 7% 23%;
-    --n-800: 45 8% 15%;
-    --n-900: 48 10%  7%;
-
-    --background:          48 18%  7%;
-    --foreground:          46 30% 94%;
-    --card:                45 17% 10%;
-    --card-foreground:     46 30% 94%;
-    --popover:             45 17% 10%;
-    --popover-foreground:  46 30% 94%;
-    --muted:               44 12% 15%;
-    --muted-foreground:    42 10% 62%;
-    --border:              44 14% 16%;
-    --input:               44 14% 16%;
-    --primary:             38 75% 55%;
-    --primary-foreground:  48 18%  7%;
-    --secondary:           44 12% 15%;
-    --secondary-foreground:46 30% 94%;
-    --accent:              38 75% 55%;
-    --accent-foreground:   48 18%  7%;
-    --destructive:          0 72% 51%;
-    --destructive-foreground: 46 30% 94%;
-    --ring:                38 75% 55%;
-
-    /* === GLASS TOKENS (dark) === */
-    --glass-bg:     45 17%  8%;
-    --glass-border: 38 75% 55%;
-    --gold-glow:    38 75% 55%;
-  }
-}
-
-@layer base {
   * {
-    @apply border-border;
+    @apply border-[var(--color-border)];
   }
 
   body {
-    @apply text-foreground font-sans;
-    background-color: hsl(var(--background));
-    background-image:
-      radial-gradient(circle at 15% 50%, hsl(var(--gold-glow) / 0.03), transparent 40%),
-      radial-gradient(circle at 85% 30%, hsl(var(--gold-glow) / 0.05), transparent 40%),
-      radial-gradient(circle at 50% 100%, hsl(var(--gold-glow) / 0.02), transparent 50%);
-    background-attachment: fixed;
+    background-color: var(--color-bg);
+    color: var(--color-body);
+    font-family: var(--font-body);
     font-weight: 400;
   }
 
-  .dark body {
-    background-image:
-      radial-gradient(circle at 15% 50%, hsl(var(--gold-glow) / 0.06), transparent 40%),
-      radial-gradient(circle at 85% 30%, hsl(var(--gold-glow) / 0.10), transparent 40%),
-      radial-gradient(circle at 50% 100%, hsl(var(--gold-glow) / 0.04), transparent 50%);
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
   }
+}
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-display;
+@layer utilities {
+  .container {
+    width: 100%;
+    max-width: 1280px;   /* content ceiling */
+    margin-inline: auto; /* centers on any monitor width, incl. 1920/2560 */
+    padding-inline: 24px;
+  }
+  @media (min-width: 1536px) { 
+    .container { 
+      padding-inline: 32px; 
+    } 
   }
 }
 
 @layer components {
-
-  /* === PREMIUM GLASSMORPHISM SURFACES === */
-  .glass-panel {
-    @apply bg-[hsl(var(--glass-bg)/0.6)] backdrop-blur-[40px] border border-[hsl(var(--glass-border)/0.3)] rounded-2xl shadow-[0_8px_32px_hsl(var(--gold-glow)/0.1)] transition-all duration-500 relative overflow-hidden;
-  }
-
-  .glass-panel::before {
-    content: '';
-    @apply absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent pointer-events-none;
-  }
-
-  .glass-panel:hover {
-    @apply bg-[hsl(var(--glass-bg)/0.7)] border-[hsl(var(--glass-border)/0.5)] shadow-[0_16px_64px_hsl(var(--gold-glow)/0.25)] transform -translate-y-1;
-  }
-
-  .glass-card {
-    @apply bg-[hsl(var(--glass-bg)/0.5)] backdrop-blur-[30px] border border-[hsl(var(--glass-border)/0.2)] rounded-xl shadow-[0_4px_24px_hsl(var(--charcoal)/0.4)] transition-all duration-500 relative overflow-hidden;
-  }
-
-  .glass-card::before {
-    content: '';
-    @apply absolute inset-0 bg-gradient-to-br from-[hsl(var(--gold)/0.1)] via-transparent to-transparent opacity-50 transition-opacity duration-500 pointer-events-none;
-  }
-
-  .glass-card:hover {
-    @apply bg-[hsl(var(--glass-bg)/0.6)] border-[hsl(var(--glass-border)/0.4)] shadow-[0_12px_40px_hsl(var(--gold-glow)/0.2)] transform -translate-y-2;
-  }
-
-  .glass-card:hover::before {
-    @apply opacity-100;
-  }
-
-  /* Support for legacy .card */
-  .card {
-    @apply glass-card;
-  }
-
   /* === PREMIUM BUTTONS === */
-  .btn-primary {
-    @apply glass-button-gold text-center inline-flex items-center justify-center;
+  .btn-primary, .btn-gold {
+    @apply inline-flex items-center justify-center bg-gold text-ink font-semibold rounded-full px-7 py-3.5 transition-all duration-150 ease-out;
+  }
+  .btn-primary:hover, .btn-gold:hover {
+    @apply bg-gold-strong shadow-gold;
+  }
+  
+  .btn-secondary, .btn-outline {
+    @apply inline-flex items-center justify-center bg-transparent text-ink font-semibold border-[1.5px] border-border-strong rounded-full px-7 py-3.5 transition-all duration-150 ease-out;
+  }
+  .btn-secondary:hover, .btn-outline:hover {
+    @apply bg-gold-soft;
+  }
+  
+  .btn-ghost {
+    @apply inline-flex items-center justify-center bg-transparent text-gold-strong font-semibold transition-colors duration-150 ease-out;
+  }
+  
+  .btn-on-dark {
+    @apply inline-flex items-center justify-center bg-gold text-ink font-semibold rounded-full px-7 py-3.5 transition-all duration-150 ease-out;
   }
 
-  .btn-gold {
-    @apply relative overflow-hidden bg-gradient-to-r from-gold to-gold-dark text-black font-bold py-3 px-6 rounded-lg shadow-[0_0_20px_hsl(var(--gold-glow)/0.3)] hover:shadow-[0_0_40px_hsl(var(--gold-glow)/0.5)] transition-all duration-300 text-center inline-flex items-center justify-center;
+  /* === SURFACES & CARDS === */
+  .card, .glass-card, .glass-panel {
+    @apply bg-surface rounded-xl border border-border shadow-sm transition-shadow duration-150 ease-out;
+  }
+  .card:hover, .glass-card:hover, .glass-panel:hover {
+    @apply shadow-md;
   }
 
-  .btn-gold::after {
-    content: '';
-    @apply absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full transition-transform duration-700 ease-in-out;
-  }
-
-  .btn-gold:hover::after {
-    @apply translate-x-full;
-  }
-
-  .btn-outline {
-    @apply glass-button text-center inline-flex items-center justify-center;
-  }
-
-  .glass-button {
-    @apply relative overflow-hidden bg-white/5 backdrop-blur-md border border-white/20 rounded-lg font-medium text-white shadow-[0_4px_16px_rgba(0,0,0,0.2)] transition-all duration-300 hover:bg-white/10 hover:border-white/40 hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)] py-3 px-6;
-  }
-
-  .glass-button-gold {
-    @apply relative overflow-hidden bg-[hsl(var(--gold)/0.1)] backdrop-blur-md border border-[hsl(var(--gold)/0.3)] rounded-lg font-medium text-gold-light shadow-[0_4px_20px_hsl(var(--gold-glow)/0.1)] transition-all duration-300 hover:bg-[hsl(var(--gold)/0.2)] hover:border-[hsl(var(--gold)/0.5)] hover:shadow-[0_8px_32px_hsl(var(--gold-glow)/0.25)] hover:text-white py-3 px-6;
-  }
-
-  /* === PREMIUM INPUTS === */
+  /* === INPUTS === */
   .input-field, .glass-input {
-    @apply w-full px-4 py-3 rounded-lg border border-white/10 bg-black/40 backdrop-blur-md text-white placeholder-gray-400 focus:bg-black/60 focus:border-gold focus:ring-1 focus:ring-gold transition-all duration-200 outline-none shadow-inner;
+    @apply w-full px-4 py-3 rounded-md border border-border-strong bg-surface text-[16px] text-body outline-none transition-all duration-150 focus:border-gold focus:ring-2 focus:ring-gold;
   }
-
-  /* === TEXT GRADIENTS === */
-  /* NOTE: renamed from .text-gold to avoid conflict with Tailwind's text-gold utility */
+  
+  /* Text gradient fallback */
   .text-gold-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-gold via-gold-light to-gold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)];
+    @apply text-gold;
   }
 
-  /* === PREMIUM ICON SYSTEM (GLOBAL OVERRIDES) === */
+  /* === ICONS === */
   .lucide {
     stroke-width: 1.5px !important;
     stroke-linecap: round !important;
     stroke-linejoin: round !important;
-    transition: all 250ms ease-out;
-  }
-
-  /* Interaction: Slight upward movement, gold color transition on hover */
-  button:hover .lucide, 
-  a:hover .lucide,
-  .group:hover .lucide,
-  .lucide-hoverable:hover {
-    transform: translateY(-1px);
-    stroke: hsl(var(--gold));
-    opacity: 1;
-  }
-
-  /* Specific override for icons on gold hover backgrounds */
-  .group:hover .hover-icon-black .lucide,
-  a:hover .hover-icon-black .lucide,
-  button:hover .hover-icon-black .lucide {
-    stroke: #000 !important;
   }
 }

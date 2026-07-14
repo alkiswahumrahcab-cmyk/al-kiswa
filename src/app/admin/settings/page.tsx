@@ -664,16 +664,16 @@ export default function SettingsPage() {
                                         
                                         <div className="space-y-6">
                                         {/* Hajj Terminal Fee */}
-                                        <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 border border-slate-200 dark:border-slate-700">
+                                        <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
                                             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
                                                 <div>
                                                     <div className="flex items-center gap-3 mb-1">
-                                                        <div className="p-2 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-lg">
+                                                        <div className="p-2 bg-emerald-100 text-emerald-600 rounded-lg">
                                                             <MapPin size={20} />
                                                         </div>
                                                         <h3 className="text-lg font-bold">Jeddah Airport Hajj Terminal Parking Fee</h3>
                                                     </div>
-                                                    <p className="text-sm text-slate-500 dark:text-slate-400">Apply a mandatory parking fee when customers select Hajj Terminal for Jeddah Airport pickups.</p>
+                                                    <p className="text-sm text-slate-500">Apply a mandatory parking fee when customers select Hajj Terminal for Jeddah Airport pickups.</p>
                                                 </div>
                                                 <label className="relative inline-flex items-center cursor-pointer">
                                                     <input
@@ -682,12 +682,12 @@ export default function SettingsPage() {
                                                         checked={settings.fees.enableHajjTerminalFee}
                                                         onChange={(e) => setSettings(s => ({ ...s, fees: { ...s.fees, enableHajjTerminalFee: e.target.checked } }))}
                                                     />
-                                                        <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-slate-600 peer-checked:bg-emerald-500"></div>
+                                                        <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-500"></div>
                                                     </label>
                                                 </div>
 
                                                 <div className="relative">
-                                                    <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
+                                                    <label className="block text-sm font-bold text-slate-700 mb-2">
                                                         Parking Fee Amount (SAR)
                                                     </label>
                                                     <input
@@ -703,7 +703,7 @@ export default function SettingsPage() {
                                                     <button
                                                         type="button"
                                                         onClick={() => handleSectionSave('fees', settings.fees)}
-                                                        className="px-4 py-2 bg-slate-900 dark:bg-slate-700 text-white rounded-lg hover:bg-slate-800 dark:hover:bg-slate-600 transition-colors flex items-center gap-2 text-sm font-medium"
+                                                        className="px-4 py-2 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors flex items-center gap-2 text-sm font-medium"
                                                     >
                                                         <Save size={16} /> Save Fee Settings
                                                     </button>
@@ -731,14 +731,14 @@ export default function SettingsPage() {
                                         <p className="text-muted-foreground">Manage data retention and optimization.</p>
                                     </div>
 
-                                    <div className="bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-800 rounded-2xl p-6">
+                                    <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
                                         <div className="flex items-start gap-4">
-                                            <div className="p-3 bg-amber-100 dark:bg-amber-800/30 rounded-xl text-amber-600 dark:text-amber-400">
+                                            <div className="p-3 bg-amber-100 rounded-xl text-amber-600">
                                                 <Trash2 size={24} />
                                             </div>
                                             <div className="flex-1">
-                                                <h3 className="text-lg font-bold text-slate-800 dark:text-white mb-2">Clean Up Old Data</h3>
-                                                <p className="text-slate-600 dark:text-slate-300 mb-4 text-sm leading-relaxed">
+                                                <h3 className="text-lg font-bold text-slate-800 mb-2">Clean Up Old Data</h3>
+                                                <p className="text-slate-600 mb-4 text-sm leading-relaxed">
                                                     Permanently remove <strong>Completed</strong> and <strong>Cancelled</strong> bookings that are older than the selected period.
                                                     This action removes booking records and their associated driver assignments.
                                                     <br /><span className="font-semibold text-red-500">Warning: This action cannot be undone.</span>
@@ -750,7 +750,7 @@ export default function SettingsPage() {
                                                         <select
                                                             value={retentionMonths}
                                                             onChange={(e) => setRetentionMonths(e.target.value)}
-                                                            className="w-full p-2.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-amber-500 outline-none font-medium"
+                                                            className="w-full p-2.5 rounded-lg border border-slate-300 bg-white focus:ring-2 focus:ring-amber-500 outline-none font-medium"
                                                         >
                                                             <option value="1">1 Month</option>
                                                             <option value="3">3 Months</option>
@@ -799,36 +799,36 @@ export default function SettingsPage() {
                                         <p className="text-muted-foreground">Manage your account security and password.</p>
                                     </div>
 
-                                    <div className="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700">
+                                    <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200">
                                         <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
                                             <Lock size={20} className="text-slate-500" />
                                             Change Password
                                         </h3>
                                         <form onSubmit={handlePasswordSubmit} className="space-y-4 max-w-md">
                                             <div className="space-y-2">
-                                                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">Current Password</label>
+                                                <label className="text-sm font-semibold text-slate-700 ml-1">Current Password</label>
                                                 <input
                                                     type="password"
                                                     name="currentPassword"
                                                     value={passwordForm.currentPassword}
                                                     onChange={handlePasswordChange}
                                                     required
-                                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
+                                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
                                                     placeholder="Enter current password"
                                                 />
                                             </div>
                                             <div className="space-y-2">
-                                                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">New Password</label>
+                                                <label className="text-sm font-semibold text-slate-700 ml-1">New Password</label>
                                                 <input
                                                     type="password"
                                                     name="newPassword"
                                                     value={passwordForm.newPassword}
                                                     onChange={handlePasswordChange}
                                                     required
-                                                    className={`w-full px-4 py-3 rounded-xl border bg-white dark:bg-slate-900 focus:ring-2 focus:ring-amber-500/20 transition-all outline-none ${
+                                                    className={`w-full px-4 py-3 rounded-xl border bg-white focus:ring-2 focus:ring-amber-500/20 transition-all outline-none ${
                                                         passwordForm.newPassword
                                                             ? pwStrong ? 'border-green-400 focus:border-green-500' : 'border-red-300 focus:border-red-400'
-                                                            : 'border-slate-200 dark:border-slate-700 focus:border-amber-500'
+                                                            : 'border-slate-200 focus:border-amber-500'
                                                     }`}
                                                     placeholder="Enter new password"
                                                 />
@@ -850,17 +850,17 @@ export default function SettingsPage() {
                                                 )}
                                             </div>
                                             <div className="space-y-2">
-                                                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">Confirm New Password</label>
+                                                <label className="text-sm font-semibold text-slate-700 ml-1">Confirm New Password</label>
                                                 <input
                                                     type="password"
                                                     name="confirmPassword"
                                                     value={passwordForm.confirmPassword}
                                                     onChange={handlePasswordChange}
                                                     required
-                                                    className={`w-full px-4 py-3 rounded-xl border bg-white dark:bg-slate-900 focus:ring-2 focus:ring-amber-500/20 transition-all outline-none ${
+                                                    className={`w-full px-4 py-3 rounded-xl border bg-white focus:ring-2 focus:ring-amber-500/20 transition-all outline-none ${
                                                         passwordForm.confirmPassword
                                                             ? passwordForm.newPassword === passwordForm.confirmPassword ? 'border-green-400' : 'border-red-300'
-                                                            : 'border-slate-200 dark:border-slate-700 focus:border-amber-500'
+                                                            : 'border-slate-200 focus:border-amber-500'
                                                     }`}
                                                     placeholder="Confirm new password"
                                                 />
@@ -872,7 +872,7 @@ export default function SettingsPage() {
                                                 <button
                                                     type="submit"
                                                     disabled={passwordLoading || !pwStrong || passwordForm.newPassword !== passwordForm.confirmPassword}
-                                                    className="px-6 py-2.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-lg font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                                                    className="px-6 py-2.5 bg-slate-900 text-white rounded-lg font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
                                                 >
                                                     {passwordLoading ? 'Updating...' : 'Update Password'}
                                                 </button>

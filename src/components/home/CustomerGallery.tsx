@@ -49,7 +49,7 @@ export default function CustomerGallery() {
     const currentItem = galleryItems[currentIndex];
 
     return (
-        <section id="visitor-gallery" className="py-24 bg-zinc-950 relative overflow-hidden">
+        <section id="visitor-gallery" className="py-24 bg-bg relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
 
@@ -63,17 +63,17 @@ export default function CustomerGallery() {
                             </span>
                             <div className="h-px w-12 bg-gold"></div>
                         </div>
-                        <h2 className="text-4xl md:text-5xl font-semibold text-white mb-4 font-display">
+                        <h2 className="text-4xl md:text-5xl font-semibold text-ink mb-4 font-display">
                             Our Happy <span className="text-gold italic font-serif">Pilgrims</span>
                         </h2>
-                        <p className="text-white/70 text-lg font-light max-w-2xl mx-auto">
+                        <p className="text-ink-muted text-lg font-light max-w-2xl mx-auto">
                             Moments of spirituality and joy, captured forever.
                         </p>
                     </div>
                 </FadeIn>
 
                 {/* Slideshow Container */}
-                <div className="relative max-w-5xl mx-auto aspect-video rounded-[2rem] overflow-hidden bg-zinc-900 border border-white/10 shadow-2xl">
+                <div className="relative max-w-5xl mx-auto aspect-video rounded-[2rem] overflow-hidden bg-surface border border-border shadow-2xl">
                     <AnimatePresence initial={false} custom={direction} mode="wait">
                         <motion.div
                             key={currentIndex}
