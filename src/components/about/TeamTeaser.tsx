@@ -48,7 +48,7 @@ export default function TeamTeaser() {
                 <FadeIn delay={0.4}>
                     <Link
                         href="/about"
-                        className="inline-flex items-center gap-3 bg-ink text-surface px-10 py-4 rounded-full font-bold hover:bg-gold transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105"
+                        className="inline-flex items-center gap-3 bg-ink text-surface px-10 py-4 rounded-btn font-bold hover:bg-gold transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105"
                     >
                         <span className="uppercase tracking-widest text-sm">Learn More About Us</span>
                         <ArrowRight size={20} />

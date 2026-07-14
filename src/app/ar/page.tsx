@@ -173,7 +173,7 @@ export default async function ArabicHomePage() {
             </p>
             <Link
               href="/ar/booking"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-gold to-gold-dark text-black font-bold px-10 py-5 rounded-full text-lg shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.5)] hover:scale-105 transition-all duration-300 uppercase tracking-wider"
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-gold to-gold-dark text-black font-bold px-10 py-5 rounded-btn text-lg shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.5)] hover:scale-105 transition-all duration-300 uppercase tracking-wider"
             >
               احجز الآن <ArrowRight size={22} className="rotate-180" />
             </Link>

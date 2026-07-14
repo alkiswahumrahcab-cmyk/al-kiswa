@@ -157,7 +157,7 @@ export default async function RamadanLandingPage() {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link
                                 href="/booking"
-                                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold text-black font-bold text-lg rounded-full hover:bg-white transition-all hover:scale-105 shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)]"
+                                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gold text-black font-bold text-lg rounded-btn hover:bg-white transition-all hover:scale-105 shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)]"
                             >
                                 Book Now for Ramadan
                                 <ArrowRight size={20} />
@@ -185,21 +185,21 @@ export default async function RamadanLandingPage() {
 
                         <div className="grid md:grid-cols-3 gap-8">
                             <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-gold/50 transition-colors group">
-                                <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-black transition-all">
+                                <div className="w-14 h-14 bg-gold/10 rounded-btn flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-black transition-all">
                                     <Clock size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3">Punctual for Prayers</h3>
                                 <p className="text-white/60">We understand the importance of time. We plan routes to ensure you reach the Haram before Adhan.</p>
                             </div>
                             <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-gold/50 transition-colors group">
-                                <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-black transition-all">
+                                <div className="w-14 h-14 bg-gold/10 rounded-btn flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-black transition-all">
                                     <Shield size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3">Guaranteed Booking</h3>
                                 <p className="text-white/60">Once confirmed, your ride is locked. No cancellations, no last-minute &ldquo;unavailable&rdquo; excuses.</p>
                             </div>
                             <div className="bg-white/5 border border-white/10 p-8 rounded-3xl hover:border-gold/50 transition-colors group">
-                                <div className="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-black transition-all">
+                                <div className="w-14 h-14 bg-gold/10 rounded-btn flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-black transition-all">
                                     <CheckCircle size={32} />
                                 </div>
                                 <h3 className="text-xl font-bold text-white mb-3">Fixed Ramadan Rates</h3>
@@ -337,7 +337,7 @@ export default async function RamadanLandingPage() {
                             <div className="text-center">
                                 <Link
                                     href="/booking"
-                                    className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-gold to-gold-dark text-black px-10 py-5 rounded-full font-bold text-lg transition-all shadow-[0_0_30px_hsl(var(--gold-glow) / 0.4)] hover:shadow-[0_0_50px_hsl(var(--gold-glow) / 0.6)] hover:scale-105 uppercase tracking-wider"
+                                    className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-gold to-gold-dark text-black px-10 py-5 rounded-btn font-bold text-lg transition-all shadow-[0_0_30px_hsl(var(--gold-glow) / 0.4)] hover:shadow-[0_0_50px_hsl(var(--gold-glow) / 0.6)] hover:scale-105 uppercase tracking-wider"
                                 >
                                     Secure Your Last 10 Nights Transfer
                                     <ArrowRight size={20} />

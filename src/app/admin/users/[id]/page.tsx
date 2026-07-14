@@ -90,7 +90,7 @@ export default function UserDetailsPage() {
             <div className="flex items-center gap-4">
                 <button
                     onClick={() => router.back()}
-                    className="p-2 hover:bg-slate-100 rounded-full transition-colors"
+                    className="p-2 hover:bg-slate-100 rounded-btn transition-colors"
                 >
                     <ArrowLeft size={24} />
                 </button>

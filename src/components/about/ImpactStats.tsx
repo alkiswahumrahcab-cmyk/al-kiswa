@@ -109,7 +109,7 @@ export default function ImpactStats({ lang = 'en' }: Props) {
               className="flex flex-col items-center justify-center text-center p-8 group hover:border-gold/50 transition-all duration-500 bg-card border-border hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.15)] h-full"
             >
               <div 
-                className="mb-6 text-2xl md:text-3xl text-gold p-4 bg-gold/10 rounded-full group-hover:scale-110 transition-transform duration-300 border border-gold/20 group-hover:bg-gold group-hover:text-black" 
+                className="mb-6 text-2xl md:text-3xl text-gold p-4 bg-gold/10 rounded-btn group-hover:scale-110 transition-transform duration-300 border border-gold/20 group-hover:bg-gold group-hover:text-black" 
                 aria-hidden="true"
               >
                 {stat.icon}

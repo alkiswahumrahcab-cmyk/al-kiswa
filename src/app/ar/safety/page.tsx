@@ -377,7 +377,7 @@ export default function SafetyPage() {
                         </div>
 
                         <div className="text-center mt-12">
-                            <Link href="/ar/contact" className="inline-flex items-center justify-center gap-2 bg-gold text-black px-8 py-3 rounded-full font-bold hover:bg-gold/90 transition-opacity shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)]">
+                            <Link href="/ar/contact" className="inline-flex items-center justify-center gap-2 bg-gold text-black px-8 py-3 rounded-btn font-bold hover:bg-gold/90 transition-opacity shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)]">
                                 <Heart size={18} className="text-red-600" />
                                 <span>Contact Safety Team</span>
                             </Link>

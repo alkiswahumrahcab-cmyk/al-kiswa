@@ -58,7 +58,7 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
 
                         <button
                             onClick={onClose}
-                            className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-colors"
+                            className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-btn transition-colors"
                         >
                             <X size={20} />
                         </button>

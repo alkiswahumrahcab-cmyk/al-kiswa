@@ -159,7 +159,7 @@ export default function EmailTemplateManager({ settings, onChange }: EmailTempla
                             </h3>
                             <button
                                 onClick={() => setPreviewOpen(false)}
-                                className="p-2 hover:bg-red-50 hover:text-red-500 rounded-full transition-colors"
+                                className="p-2 hover:bg-red-50 hover:text-red-500 rounded-btn transition-colors"
                             >
                                 <X size={20} />
                             </button>

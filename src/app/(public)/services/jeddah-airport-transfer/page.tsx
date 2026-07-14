@@ -322,7 +322,7 @@ export default async function JeddahAirportTransferPage() {
             <section className="py-24 bg-transparent border-t border-white/10 relative z-10">
                 <div className="container mx-auto px-4 text-center">
                     <FadeIn delay={0.4}>
-                        <Link href={whatsappLink} className="inline-flex items-center btn-gold px-12 py-5 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] text-black hover:scale-105">
+                        <Link href={whatsappLink} className="inline-flex items-center btn-gold px-12 py-5 rounded-btn font-bold text-lg transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] text-black hover:scale-105">
                             Book Your Transfer Now <ArrowRight size={20} className="ml-2" />
                         </Link>
                     </FadeIn>

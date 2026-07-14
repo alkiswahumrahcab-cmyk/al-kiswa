@@ -158,7 +158,7 @@ export default async function HyundaiStarexPage() {
                             </div>
 
                             <div className="mt-10">
-                                <Link href="/booking" className="inline-flex items-center gap-2 bg-gold hover:bg-gold-soft text-ink px-8 py-3 rounded-full font-bold transition-all shadow-lg shadow-gold/30">
+                                <Link href="/booking" className="inline-flex items-center gap-2 bg-gold hover:bg-gold-soft text-ink px-8 py-3 rounded-btn font-bold transition-all shadow-lg shadow-gold/30">
                                     Book Hyundai H1 Now <ArrowRight size={20} />
                                 </Link>
                             </div>

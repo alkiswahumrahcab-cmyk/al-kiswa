@@ -38,6 +38,7 @@
     --color-info: #2A6F7A;
 
     /* radius */
+    --radius-btn: 8px;   /* rectangular buttons, never pill */
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;
@@ -90,14 +91,14 @@
 @layer components {
   /* === PREMIUM BUTTONS === */
   .btn-primary, .btn-gold {
-    @apply inline-flex items-center justify-center bg-gold text-ink font-semibold rounded-full px-7 py-3.5 transition-all duration-150 ease-out;
+    @apply inline-flex items-center justify-center bg-gold text-ink font-semibold rounded-btn px-7 py-3.5 transition-all duration-150 ease-out;
   }
   .btn-primary:hover, .btn-gold:hover {
     @apply bg-gold-strong shadow-gold;
   }
   
   .btn-secondary, .btn-outline {
-    @apply inline-flex items-center justify-center bg-transparent text-ink font-semibold border-[1.5px] border-border-strong rounded-full px-7 py-3.5 transition-all duration-150 ease-out;
+    @apply inline-flex items-center justify-center bg-transparent text-ink font-semibold border-[1.5px] border-border-strong rounded-btn px-7 py-3.5 transition-all duration-150 ease-out;
   }
   .btn-secondary:hover, .btn-outline:hover {
     @apply bg-gold-soft;

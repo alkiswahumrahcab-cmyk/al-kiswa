@@ -37,7 +37,7 @@ export default function WhatsAppVoiceButton({ phoneNumber = '966570000000' }: Wh
                                 e.stopPropagation();
                                 setShowTooltip(false);
                             }}
-                            className="absolute -top-2 -right-2 bg-n-200 rounded-full p-0.5 hover:bg-red-100 hover:text-red-500 transition-colors"
+                            className="absolute -top-2 -right-2 bg-n-200 rounded-btn p-0.5 hover:bg-red-100 hover:text-red-500 transition-colors"
                         >
                             <X size={12} />
                         </button>

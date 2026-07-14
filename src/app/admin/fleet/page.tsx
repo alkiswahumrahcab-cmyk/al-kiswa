@@ -198,7 +198,7 @@ export default function FleetPage() {
                 </div>
                 <button
                     onClick={() => { resetForm(); setShowModal(true); }}
-                    className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
+                    className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2.5 rounded-btn font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
                 >
                     <Plus size={20} />
                     Add Vehicle
@@ -350,7 +350,7 @@ export default function FleetPage() {
                         >
                             <button
                                 onClick={() => setShowModal(false)}
-                                className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-2 rounded-full hover:bg-slate-100 transition-colors"
+                                className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-2 rounded-btn hover:bg-slate-100 transition-colors"
                             >
                                 <X size={20} />
                             </button>
@@ -458,7 +458,7 @@ export default function FleetPage() {
                                                             }
                                                         }
                                                     }}
-                                                    className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100 transition-all"
+                                                    className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 file:mr-4 file:py-2 file:px-4 file:rounded-btn file:border-0 file:text-sm file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100 transition-all"
                                                 />
                                             </div>
                                         </div>

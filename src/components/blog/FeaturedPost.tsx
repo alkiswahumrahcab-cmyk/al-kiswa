@@ -81,7 +81,7 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
 
                         <div className="flex items-center gap-3 text-gold font-bold uppercase tracking-widest text-sm group/btn">
                             Read Full Article
-                            <span className="bg-gold/10 p-2 rounded-full transition-all duration-300 group-hover/btn:bg-gold group-hover/btn:text-black group-hover/btn:translate-x-2">
+                            <span className="bg-gold/10 p-2 rounded-btn transition-all duration-300 group-hover/btn:bg-gold group-hover/btn:text-black group-hover/btn:translate-x-2">
                                 <ArrowRight size={18} />
                             </span>
                         </div>

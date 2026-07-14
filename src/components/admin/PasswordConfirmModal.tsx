@@ -64,7 +64,7 @@ export default function PasswordConfirmModal({
                     </div>
                     <button
                         onClick={onClose}
-                        className="p-1 hover:bg-slate-100 rounded-full transition-colors"
+                        className="p-1 hover:bg-slate-100 rounded-btn transition-colors"
                     >
                         <X className="w-5 h-5 text-slate-400" />
                     </button>

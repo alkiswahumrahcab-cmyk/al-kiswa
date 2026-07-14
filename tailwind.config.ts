@@ -38,6 +38,8 @@ const config: Config = {
                 body: ['var(--font-body)'],
             },
             borderRadius: {
+                btn: 'var(--radius-btn)',
+                sm: 'var(--radius-sm)',
                 md: 'var(--radius-md)',
                 lg: 'var(--radius-lg)',
                 xl: 'var(--radius-xl)',

@@ -146,7 +146,7 @@ export default async function ZiarahMakkahPage() {
                                         }
                                     ].map((site, idx) => (
                                         <li key={idx} className="bg-white/5 border border-white/10 p-6 rounded-xl flex gap-6 hover:border-gold/30 transition-all hover:bg-white/10 group">
-                                            <div className="bg-gold/10 p-4 rounded-full h-fit text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-colors">
+                                            <div className="bg-gold/10 p-4 rounded-btn h-fit text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-colors">
                                                 {site.icon}
                                             </div>
                                             <div>
@@ -207,7 +207,7 @@ export default async function ZiarahMakkahPage() {
                             </div>
                         </div>
                         <div className="mt-16">
-                            <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] tracking-wider text-sm text-black hover:scale-105">
+                            <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-btn font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] tracking-wider text-sm text-black hover:scale-105">
                                 احجز زيارتك لمكة <ArrowLeft size={20} className="mr-2" />
                             </Link>
                         </div>

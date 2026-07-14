@@ -47,10 +47,10 @@ export default function FrancePilgrimsArabicPage() {
             من مطار جدة إلى الحرم — نقل خاص ومريح بأسعار ثابتة. في خدمة الحجاج من باريس، ليون، مارسيليا وجميع أنحاء فرنسا.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-            <Link href="/ar/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)] uppercase tracking-wider text-lg">
+            <Link href="/ar/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-btn hover:scale-105 transition-transform shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)] uppercase tracking-wider text-lg">
               احجز الآن
             </Link>
-            <a href="https://wa.me/966548707332" className="border border-gold/50 text-gold font-bold px-8 py-4 rounded-full hover:bg-gold/10 transition-colors uppercase tracking-wider text-lg">
+            <a href="https://wa.me/966548707332" className="border border-gold/50 text-gold font-bold px-8 py-4 rounded-btn hover:bg-gold/10 transition-colors uppercase tracking-wider text-lg">
               تواصل عبر واتساب
             </a>
           </div>
@@ -89,10 +89,10 @@ export default function FrancePilgrimsArabicPage() {
           <h2 className="text-2xl font-bold mb-3">هل أنت مستعد لحجز نقلك؟</h2>
           <p className="text-n-400 mb-6">تواصل معنا عبر واتساب — وسنرد عليك في دقائق.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/ar/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform text-lg">
+            <Link href="/ar/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-btn hover:scale-105 transition-transform text-lg">
               احجز عبر الإنترنت
             </Link>
-            <a href="tel:+966548707332" className="flex items-center justify-center gap-2 border border-white/20 text-white font-bold px-8 py-4 rounded-full hover:bg-white/5 transition-colors text-lg" dir="ltr">
+            <a href="tel:+966548707332" className="flex items-center justify-center gap-2 border border-white/20 text-white font-bold px-8 py-4 rounded-btn hover:bg-white/5 transition-colors text-lg" dir="ltr">
               <Phone size={18} /> +966 54 870 7332
             </a>
           </div>

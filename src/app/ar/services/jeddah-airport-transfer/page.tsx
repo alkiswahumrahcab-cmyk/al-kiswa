@@ -170,7 +170,7 @@ export default async function JeddahAirportTransferPage() {
                                 }
                             ].map((item, idx) => (
                                 <div key={idx} className="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-gold/30 transition-all text-center group hover:bg-black/60">
-                                    <div className="flex justify-center mb-6 p-4 bg-gold/10 rounded-full w-fit mx-auto border border-gold/20 group-hover:bg-gold/20 transition-colors">{item.icon}</div>
+                                    <div className="flex justify-center mb-6 p-4 bg-gold/10 rounded-btn w-fit mx-auto border border-gold/20 group-hover:bg-gold/20 transition-colors">{item.icon}</div>
                                     <h3 className="text-xl font-semibold mb-3 text-white font-display">{item.title}</h3>
                                     <p className="text-n-400 text-sm leading-relaxed font-light">{item.desc}</p>
                                 </div>
@@ -234,7 +234,7 @@ export default async function JeddahAirportTransferPage() {
             <section className="py-24 bg-transparent border-t border-white/10 relative z-10">
                 <div className="container mx-auto px-4 text-center">
                     <FadeIn delay={0.4}>
-                        <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-5 rounded-full font-bold text-lg transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] text-black hover:scale-105">
+                        <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-5 rounded-btn font-bold text-lg transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] text-black hover:scale-105">
                             Check Taxi Fares <ArrowRight size={20} className="ml-2" />
                         </Link>
                         <p className="mt-8 text-sm text-n-400 font-light">

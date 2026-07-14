@@ -486,7 +486,7 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
             <p>May 2026 be the year your heart finds peace in the Haram. We are here to carry you on that journey.</p>
             
             <p class="mt-8 font-bold text-center">
-                <a href="/booking" class="inline-block bg-gold text-white px-8 py-3 rounded-full hover:bg-gold transition-colors shadow-lg">Plan Your 2026 Journey Now</a>
+                <a href="/booking" class="inline-block bg-gold text-white px-8 py-3 rounded-btn hover:bg-gold transition-colors shadow-lg">Plan Your 2026 Journey Now</a>
             </p>
         `,
         category: 'Spiritual',
@@ -545,7 +545,7 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
             <p>Don't compromise on your family's comfort. For a few riyals more than a van, you get the safety, silence, and speed of the GMC Yukon XL.</p>
             
             <p class="mt-8 font-bold text-center">
-                <a href="/booking" class="inline-block bg-amber-600 text-white px-8 py-3 rounded-full hover:bg-amber-700 transition-colors shadow-lg">Check GMC Yukon Availability & Price</a>
+                <a href="/booking" class="inline-block bg-amber-600 text-white px-8 py-3 rounded-btn hover:bg-amber-700 transition-colors shadow-lg">Check GMC Yukon Availability & Price</a>
             </p>
         `,
         category: 'Vehicle Spotlight',
@@ -1077,7 +1077,7 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
             <p>If you value <strong>peace of mind</strong>, book a private transfer. It bridges the gap between the airport and your spiritual intent, allowing you to focus on your Niyyah, not the map.</p>
 
             <p class="mt-8 font-bold text-center">
-                <a href="/booking" class="inline-block bg-amber-600 text-white px-8 py-3 rounded-full hover:bg-amber-700 transition-colors shadow-lg">Check 2025 Transport Rates</a>
+                <a href="/booking" class="inline-block bg-amber-600 text-white px-8 py-3 rounded-btn hover:bg-amber-700 transition-colors shadow-lg">Check 2025 Transport Rates</a>
             </p>
         `,
         category: 'Guide',

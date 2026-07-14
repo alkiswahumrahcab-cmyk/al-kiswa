@@ -114,7 +114,7 @@ export default function AnnouncementBanner({ discount }: AnnouncementBannerProps
                         {/* Close Button (Optional, but good for UX) */}
                         <button
                             onClick={() => setIsVisible(false)}
-                            className="absolute right-2 top-1/2 -translate-y-1/2 p-1 hover:bg-black/10 rounded-full transition-colors sm:static sm:translate-y-0 sm:ml-auto md:ml-0"
+                            className="absolute right-2 top-1/2 -translate-y-1/2 p-1 hover:bg-black/10 rounded-btn transition-colors sm:static sm:translate-y-0 sm:ml-auto md:ml-0"
                             aria-label="Close"
                         >
                             <X size={16} />

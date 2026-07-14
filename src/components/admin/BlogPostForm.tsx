@@ -158,7 +158,7 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                     <div className="flex items-center gap-4">
                         <Link
                             href="/admin/blog"
-                            className="p-2 hover:bg-slate-200 rounded-full transition-colors"
+                            className="p-2 hover:bg-slate-200 rounded-btn transition-colors"
                         >
                             <ArrowLeft size={20} />
                         </Link>
@@ -483,7 +483,7 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                                                     }
                                                 }
                                             }}
-                                            className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100 transition-all text-sm"
+                                            className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 file:mr-4 file:py-2 file:px-4 file:rounded-btn file:border-0 file:text-sm file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100 transition-all text-sm"
                                         />
                                     </div>
                                 </div>

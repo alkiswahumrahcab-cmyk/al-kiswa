@@ -298,7 +298,7 @@ export default function SettingsPage() {
                 <button
                     onClick={handleSubmit}
                     disabled={saving}
-                    className="flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 px-8 py-3 rounded-full font-bold shadow-lg shadow-amber-500/20 hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100"
+                    className="flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 px-8 py-3 rounded-btn font-bold shadow-lg shadow-amber-500/20 hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100"
                 >
                     <Save size={20} />
                     {saving ? 'Saving...' : 'Save Changes'}

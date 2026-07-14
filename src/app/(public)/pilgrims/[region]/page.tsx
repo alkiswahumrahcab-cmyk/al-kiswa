@@ -176,13 +176,13 @@ export default async function RegionalLandingPage({ params }: Params) {
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <Link
                             href="/booking?service=airport"
-                            className="bg-gold-primary text-black font-bold uppercase tracking-wider px-8 py-4 rounded-full w-full sm:w-auto hover:bg-white hover:scale-105 transition-all text-sm"
+                            className="bg-gold-primary text-black font-bold uppercase tracking-wider px-8 py-4 rounded-btn w-full sm:w-auto hover:bg-white hover:scale-105 transition-all text-sm"
                         >
                             Book Transfer Now
                         </Link>
                         <Link
                             href="/pricing"
-                            className="bg-transparent border border-white/20 text-white font-bold uppercase tracking-wider px-8 py-4 rounded-full w-full sm:w-auto hover:border-white hover:bg-white/5 transition-all text-sm"
+                            className="bg-transparent border border-white/20 text-white font-bold uppercase tracking-wider px-8 py-4 rounded-btn w-full sm:w-auto hover:border-white hover:bg-white/5 transition-all text-sm"
                         >
                             View Our Fleet & Rates
                         </Link>

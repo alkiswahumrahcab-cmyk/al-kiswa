@@ -196,7 +196,7 @@ export default async function ToyotaHiacePage() {
                             </div>
 
                             <div className="mt-10">
-                                <Link href="/ar/booking" className="inline-flex items-center gap-2 bg-n-900 text-white hover:bg-n-800 dark:bg-white dark:text-n-900 px-8 py-3 rounded-full font-bold transition-all shadow-lg hover:shadow-gold/20">
+                                <Link href="/ar/booking" className="inline-flex items-center gap-2 bg-n-900 text-white hover:bg-n-800 dark:bg-white dark:text-n-900 px-8 py-3 rounded-btn font-bold transition-all shadow-lg hover:shadow-gold/20">
                                     Book Toyota Hiace <ArrowRight size={20} />
                                 </Link>
                             </div>

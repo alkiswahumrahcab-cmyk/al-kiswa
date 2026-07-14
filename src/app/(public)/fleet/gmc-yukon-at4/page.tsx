@@ -163,7 +163,7 @@ export default async function GmcYukonPage() {
                 breadcrumbs={<Breadcrumbs />}
             >
                 <div className="mt-4 flex justify-center gap-4">
-                    <a href={whatsappLink} className="inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-full font-bold hover:bg-green-600 transition-colors">
+                    <a href={whatsappLink} className="inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-btn font-bold hover:bg-green-600 transition-colors">
                         WhatsApp Inquiry
                     </a>
                 </div>
@@ -409,10 +409,10 @@ export default async function GmcYukonPage() {
                                 </div>
                             </div>
                             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                                <Link href="/booking?vehicle=gmc" className="flex-1 bg-gold hover:bg-gold-soft text-ink px-8 py-4 rounded-full font-bold text-lg text-center transition-all hover:scale-105 shadow-lg shadow-gold/30 flex items-center justify-center gap-2">
+                                <Link href="/booking?vehicle=gmc" className="flex-1 bg-gold hover:bg-gold-soft text-ink px-8 py-4 rounded-btn font-bold text-lg text-center transition-all hover:scale-105 shadow-lg shadow-gold/30 flex items-center justify-center gap-2">
                                     Go to Full Booking Form <ArrowRight size={20} />
                                 </Link>
-                                <a href={whatsappLink} className="flex-1 bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg text-center transition-all hover:scale-105 flex items-center justify-center gap-2">
+                                <a href={whatsappLink} className="flex-1 bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-btn font-bold text-lg text-center transition-all hover:scale-105 flex items-center justify-center gap-2">
                                     Book via WhatsApp
                                 </a>
                             </div>
@@ -437,10 +437,10 @@ export default async function GmcYukonPage() {
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair text-white mb-6">Ready to Book Your VIP Ride?</h2>
                     <p className="text-lg text-white/80 mb-10">Reserve your GMC Yukon XL instantly with our online booking system or chat with our support team via WhatsApp.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking?vehicle=gmc" className="bg-gold hover:bg-gold-soft text-ink px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-lg shadow-gold/30 flex items-center justify-center gap-2">
+                        <Link href="/booking?vehicle=gmc" className="bg-gold hover:bg-gold-soft text-ink px-8 py-4 rounded-btn font-bold text-lg transition-transform hover:scale-105 shadow-lg shadow-gold/30 flex items-center justify-center gap-2">
                             Go to Booking Form <ArrowRight size={20} />
                         </Link>
-                        <a href={whatsappLink} className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-bold text-lg transition-transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
+                        <a href={whatsappLink} className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-btn font-bold text-lg transition-transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
                             Book via WhatsApp
                         </a>
                     </div>

@@ -166,7 +166,7 @@ export default async function MakkahMadinahTaxiPage() {
                                         "New Model Vehicles (2024-2025)"
                                     ].map((item, index) => (
                                         <li key={index} className="flex items-center gap-4 group">
-                                            <div className="bg-gold/10 rounded-full p-1.5 border border-gold/20 group-hover:bg-gold transition-colors">
+                                            <div className="bg-gold/10 rounded-btn p-1.5 border border-gold/20 group-hover:bg-gold transition-colors">
                                                 <CheckCircle2 className="text-gold group-hover:text-black flex-shrink-0 transition-colors" size={18} />
                                             </div>
                                             <span className="text-n-300 font-light text-lg">{item}</span>
@@ -235,7 +235,7 @@ export default async function MakkahMadinahTaxiPage() {
                             No need to travel to the station, handle luggage multiple times, or worry about ticket availability.
                             Our service picks you up directly from your lobby.
                         </p>
-                        <Link href="/ar/booking" className="inline-flex items-center bg-gradient-to-r from-gold to-gold-dark px-12 py-5 rounded-full font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105 hover:bg-white hover:text-black border border-transparent hover:border-black/10">
+                        <Link href="/ar/booking" className="inline-flex items-center bg-gradient-to-r from-gold to-gold-dark px-12 py-5 rounded-btn font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105 hover:bg-white hover:text-black border border-transparent hover:border-black/10">
                             Check Prices & Book Now <ArrowRight size={20} className="ml-2" />
                         </Link>
                     </FadeIn>

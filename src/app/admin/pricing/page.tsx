@@ -349,7 +349,7 @@ export default function PricingPage() {
                     {(Object.keys(modified).length > 0 || Object.keys(modifiedUSD).length > 0) && (
                         <button
                             onClick={handleReset}
-                            className="flex items-center gap-2 bg-slate-100 text-slate-600 px-4 py-2.5 rounded-full font-bold hover:bg-slate-200 transition-colors"
+                            className="flex items-center gap-2 bg-slate-100 text-slate-600 px-4 py-2.5 rounded-btn font-bold hover:bg-slate-200 transition-colors"
                         >
                             <RotateCcw size={18} />
                             Reset Changes
@@ -359,7 +359,7 @@ export default function PricingPage() {
                     <button
                         onClick={handleSaveAll}
                         disabled={saving || (Object.keys(modified).length === 0 && Object.keys(modifiedUSD).length === 0)}
-                        className="flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 px-6 py-2.5 rounded-full font-bold shadow-lg shadow-amber-500/20 hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100 whitespace-nowrap"
+                        className="flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 px-6 py-2.5 rounded-btn font-bold shadow-lg shadow-amber-500/20 hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100 whitespace-nowrap"
                     >
                         <Save size={20} />
                         {saving ? 'Saving...' : 'Save Table Changes'}

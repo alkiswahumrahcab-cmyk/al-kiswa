@@ -56,7 +56,7 @@ export default function TrustAmenities() {
                         >
                             <div className="absolute -right-10 -top-10 w-24 h-24 bg-gold/10 rounded-full blur-2xl group-hover:bg-gold/20 transition-all" />
 
-                            <div className="mb-6 p-4 bg-black/40 rounded-full shadow-[0_0_15px_rgba(0,0,0,0.5)] border border-white/5 group-hover:scale-110 group-hover:border-gold/50 transition-all duration-300 relative z-10">
+                            <div className="mb-6 p-4 bg-black/40 rounded-btn shadow-[0_0_15px_rgba(0,0,0,0.5)] border border-white/5 group-hover:scale-110 group-hover:border-gold/50 transition-all duration-300 relative z-10">
                                 {React.cloneElement(item.icon, { className: "w-8 h-8 text-gold" })}
                             </div>
                             <h3 className="text-xl font-semibold font-display text-white mb-3 group-hover:text-gold transition-colors">

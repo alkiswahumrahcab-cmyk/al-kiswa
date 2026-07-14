@@ -131,7 +131,7 @@ function ConfirmationContent() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.48 }}
                             onClick={copyBookingId}
-                            className="mt-6 inline-flex items-center gap-2 bg-white/5 border border-gold/25 hover:border-gold/60 hover:bg-gold/10 text-gold px-5 py-2.5 rounded-full text-sm font-mono font-bold transition-all duration-200 group"
+                            className="mt-6 inline-flex items-center gap-2 bg-white/5 border border-gold/25 hover:border-gold/60 hover:bg-gold/10 text-gold px-5 py-2.5 rounded-btn text-sm font-mono font-bold transition-all duration-200 group"
                         >
                             <span className="text-n-400 text-xs font-sans font-normal">ID</span>
                             <span>#{id}</span>

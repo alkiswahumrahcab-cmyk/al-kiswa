@@ -406,7 +406,7 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                                     <h3 className="text-xl font-bold text-white leading-tight">Compare Vehicles</h3>
                                     <p className="text-sm text-gold font-medium">{compareDrawerRoute.origin} → {compareDrawerRoute.destination}</p>
                                 </div>
-                                <button onClick={() => setCompareDrawerRoute(null)} className="p-2 bg-white/10 rounded-full text-white">
+                                <button onClick={() => setCompareDrawerRoute(null)} className="p-2 bg-white/10 rounded-btn text-white">
                                     <X size={20} />
                                 </button>
                             </div>

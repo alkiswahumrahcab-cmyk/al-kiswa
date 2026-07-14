@@ -98,7 +98,7 @@ export default function StariaGallery() {
                                 className="object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100" 
                             />
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <div className="bg-gold/90 p-3 rounded-full text-charcoal transform scale-50 group-hover:scale-100 transition-transform duration-300">
+                                <div className="bg-gold/90 p-3 rounded-btn text-charcoal transform scale-50 group-hover:scale-100 transition-transform duration-300">
                                     <Maximize2 size={24} />
                                 </div>
                             </div>
@@ -110,7 +110,7 @@ export default function StariaGallery() {
                     <div className="text-center mt-12">
                         <button 
                             onClick={() => setShowAll(true)}
-                            className="px-8 py-3 border-2 border-gold text-gold rounded-full font-bold hover:bg-gold hover:text-charcoal transition-colors"
+                            className="px-8 py-3 border-2 border-gold text-gold rounded-btn font-bold hover:bg-gold hover:text-charcoal transition-colors"
                         >
                             View All 25 Images
                         </button>
@@ -130,14 +130,14 @@ export default function StariaGallery() {
                     >
                         <button 
                             onClick={closeLightbox}
-                            className="absolute top-6 right-6 md:top-10 md:right-10 text-white/50 hover:text-white transition-colors z-[110] bg-black/50 p-2 rounded-full"
+                            className="absolute top-6 right-6 md:top-10 md:right-10 text-white/50 hover:text-white transition-colors z-[110] bg-black/50 p-2 rounded-btn"
                         >
                             <X size={32} />
                         </button>
 
                         <button 
                             onClick={prevImage}
-                            className="absolute left-4 md:left-10 text-white/50 hover:text-white transition-colors z-[110] bg-black/50 p-3 rounded-full"
+                            className="absolute left-4 md:left-10 text-white/50 hover:text-white transition-colors z-[110] bg-black/50 p-3 rounded-btn"
                         >
                             <ChevronLeft size={36} />
                         </button>
@@ -157,7 +157,7 @@ export default function StariaGallery() {
 
                         <button 
                             onClick={nextImage}
-                            className="absolute right-4 md:right-10 text-white/50 hover:text-white transition-colors z-[110] bg-black/50 p-3 rounded-full"
+                            className="absolute right-4 md:right-10 text-white/50 hover:text-white transition-colors z-[110] bg-black/50 p-3 rounded-btn"
                         >
                             <ChevronRight size={36} />
                         </button>

@@ -189,7 +189,7 @@ export default function ServicesPage() {
 
                                             <Link
                                                 href={service.link}
-                                                className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 hover:bg-gold hover:text-black border border-white/10 hover:border-gold text-white font-bold uppercase tracking-widest rounded-full transition-all duration-300 group/link self-start"
+                                                className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 hover:bg-gold hover:text-black border border-white/10 hover:border-gold text-white font-bold uppercase tracking-widest rounded-btn transition-all duration-300 group/link self-start"
                                             >
                                                 Explore Details
                                                 <ArrowRight size={18} className="group-hover/link:translate-x-1 transition-transform" />
@@ -216,8 +216,8 @@ export default function ServicesPage() {
                         {processSteps.map((step, index) => (
                             <FadeIn key={index} delay={index * 0.2} direction="up">
                                 <div className="flex flex-col items-center text-center relative z-10 group">
-                                    <div className="w-32 h-32 rounded-full bg-neutral-900 border border-white/10 flex items-center justify-center mb-8 relative group-hover:border-gold/50 transition-colors duration-300">
-                                        <div className="absolute inset-2 rounded-full border border-dashed border-white/10 group-hover:border-gold/30 animate-spin-slow" />
+                                    <div className="w-32 h-32 rounded-btn bg-neutral-900 border border-white/10 flex items-center justify-center mb-8 relative group-hover:border-gold/50 transition-colors duration-300">
+                                        <div className="absolute inset-2 rounded-btn border border-dashed border-white/10 group-hover:border-gold/30 animate-spin-slow" />
                                         <div className="w-16 h-16 rounded-full bg-gold/10 flex items-center justify-center text-gold shadow-[0_0_20px_hsl(var(--gold-glow) / 0.2)]">
                                             {step.icon}
                                         </div>
@@ -269,7 +269,7 @@ export default function ServicesPage() {
                             </p>
                             <Link 
                                 href="/blog/hajj-2026-guidance-taxi-service-pilgrims"
-                                className="inline-flex items-center gap-2 text-white bg-gold/20 hover:bg-gold hover:text-black transition-all px-6 py-3 rounded-full font-semibold border border-gold"
+                                className="inline-flex items-center gap-2 text-white bg-gold/20 hover:bg-gold hover:text-black transition-all px-6 py-3 rounded-btn font-semibold border border-gold"
                             >
                                 Read Hajj 2026 Guide <ArrowRight size={18} />
                             </Link>
@@ -289,7 +289,7 @@ export default function ServicesPage() {
                         </blockquote>
                         <Link
                             href="/booking"
-                            className="inline-flex items-center gap-3 px-10 py-5 bg-black text-gold hover:bg-neutral-900 font-bold uppercase tracking-widest rounded-full shadow-2xl hover:scale-105 transition-all duration-300"
+                            className="inline-flex items-center gap-3 px-10 py-5 bg-black text-gold hover:bg-neutral-900 font-bold uppercase tracking-widest rounded-btn shadow-2xl hover:scale-105 transition-all duration-300"
                         >
                             Book Your Ride Now
                             <ArrowRight size={20} />

@@ -124,7 +124,7 @@ export default async function ZiyaratToursPage() {
                                         { name: "Jannat al-Mu'alla", desc: "The cemetery where Khadijah (RA) is buried." }
                                     ].map((site, idx) => (
                                         <li key={idx} className="bg-white/5 border border-white/10 p-4 rounded-xl flex gap-4 hover:border-gold/30 transition-all hover:bg-white/10 group">
-                                            <div className="bg-gold/10 p-3 rounded-full h-fit text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-colors">
+                                            <div className="bg-gold/10 p-3 rounded-btn h-fit text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-colors">
                                                 <MapPin size={24} />
                                             </div>
                                             <div>
@@ -171,7 +171,7 @@ export default async function ZiyaratToursPage() {
                                         { name: "The Seven Mosques", desc: "Site of the Battle of the Trench." }
                                     ].map((site, idx) => (
                                         <li key={idx} className="bg-white/5 border border-white/10 p-4 rounded-xl flex gap-4 hover:border-gold/30 transition-all hover:bg-white/10 group">
-                                            <div className="bg-gold/10 p-3 rounded-full h-fit text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-colors">
+                                            <div className="bg-gold/10 p-3 rounded-btn h-fit text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-colors">
                                                 <Heart size={24} />
                                             </div>
                                             <div>
@@ -227,7 +227,7 @@ export default async function ZiyaratToursPage() {
                             </div>
                         </div>
                         <div className="mt-16">
-                            <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105">
+                            <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-btn font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105">
                                 Book Your Private Ziyarat Tour <ArrowRight size={20} className="ml-2" />
                             </Link>
                             <p className="mt-8 text-sm text-n-500 font-light">

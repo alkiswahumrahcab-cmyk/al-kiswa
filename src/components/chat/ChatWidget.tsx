@@ -156,7 +156,7 @@ export default function ChatWidget({ channelId, currentUserId, currentUserRole, 
                 <button
                     type="submit"
                     disabled={isSending || !newMessage.trim()}
-                    className="bg-n-900 text-white p-2 rounded-full hover:bg-n-800 disabled:opacity-50 disabled:cursor-not-allowed transition"
+                    className="bg-n-900 text-white p-2 rounded-btn hover:bg-n-800 disabled:opacity-50 disabled:cursor-not-allowed transition"
                 >
                     {isSending ? <Loader2 size={18} className="animate-spin" /> : <Send size={18} />}
                 </button>

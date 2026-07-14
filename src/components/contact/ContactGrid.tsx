@@ -105,7 +105,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
                                     onClick={() => trackConversion(card.type as any, 'contact_page')}
                                     className={`inline-flex items-center text-sm font-bold transition-colors ${
                                         card.type === 'whatsapp'
-                                            ? 'bg-gold hover:bg-gold text-black px-4 py-2 rounded-full mt-2'
+                                            ? 'bg-gold hover:bg-gold text-black px-4 py-2 rounded-btn mt-2'
                                             : 'text-gold hover:text-white'
                                     }`}
                                 >

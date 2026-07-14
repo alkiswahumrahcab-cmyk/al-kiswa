@@ -141,7 +141,7 @@ export default async function ReceiptVerificationPage(props: { params: Promise<{
                     <div className="flex justify-center mt-8">
                         <Link 
                             href="/"
-                            className="inline-flex items-center gap-2 bg-gold-primary hover:bg-gold-light text-black font-bold py-3 px-8 rounded-full transition-colors"
+                            className="inline-flex items-center gap-2 bg-gold-primary hover:bg-gold-light text-black font-bold py-3 px-8 rounded-btn transition-colors"
                         >
                             Return to Homepage
                         </Link>

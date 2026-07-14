@@ -165,7 +165,7 @@ export default function RoutesPage() {
                 </div>
                 <button
                     onClick={() => { resetForm(); setShowModal(true); }}
-                    className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
+                    className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2.5 rounded-btn font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
                 >
                     <Plus size={20} />
                     Add Route
@@ -302,7 +302,7 @@ export default function RoutesPage() {
                         >
                             <button
                                 onClick={() => setShowModal(false)}
-                                className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-2 rounded-full hover:bg-slate-100 transition-colors"
+                                className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-2 rounded-btn hover:bg-slate-100 transition-colors"
                             >
                                 <X size={20} />
                             </button>

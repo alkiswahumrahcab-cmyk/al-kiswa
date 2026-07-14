@@ -172,10 +172,10 @@ export default async function HyundaiStariaPage() {
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <a href="#features" className="px-8 py-4 bg-transparent border-2 border-gold text-white rounded-full font-bold hover:bg-gold hover:text-charcoal transition-colors shadow-[0_0_20px_rgba(245,158,11,0.2)]">
+                            <a href="#features" className="px-8 py-4 bg-transparent border-2 border-gold text-white rounded-btn font-bold hover:bg-gold hover:text-charcoal transition-colors shadow-[0_0_20px_rgba(245,158,11,0.2)]">
                                 Explore Features
                             </a>
-                            <Link href="/booking" className="px-8 py-4 bg-gold text-charcoal rounded-full font-bold hover:bg-gold-metallic transition-colors shadow-[0_0_20px_rgba(245,158,11,0.4)] flex items-center gap-2">
+                            <Link href="/booking" className="px-8 py-4 bg-gold text-charcoal rounded-btn font-bold hover:bg-gold-metallic transition-colors shadow-[0_0_20px_rgba(245,158,11,0.4)] flex items-center gap-2">
                                 Book Now <ArrowRight size={20} />
                             </Link>
                         </div>
@@ -436,10 +436,10 @@ export default async function HyundaiStariaPage() {
                                 Book the Hyundai Staria 2026 today for your family's Umrah transport. Enjoy fixed pricing, professional chauffeurs, and ultimate comfort.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <Link href="/booking" className="px-8 py-4 bg-gold text-charcoal text-center rounded-full font-bold hover:bg-gold-metallic transition-colors shadow-lg shadow-gold/20 text-lg">
+                                <Link href="/booking" className="px-8 py-4 bg-gold text-charcoal text-center rounded-btn font-bold hover:bg-gold-metallic transition-colors shadow-lg shadow-gold/20 text-lg">
                                     Book a Ride Now
                                 </Link>
-                                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-[#25D366] text-white text-center rounded-full font-bold hover:bg-[#20bd5a] transition-colors shadow-lg shadow-[#25D366]/20 text-lg flex items-center justify-center gap-2">
+                                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-[#25D366] text-white text-center rounded-btn font-bold hover:bg-[#20bd5a] transition-colors shadow-lg shadow-[#25D366]/20 text-lg flex items-center justify-center gap-2">
                                     Contact via WhatsApp
                                 </a>
                             </div>

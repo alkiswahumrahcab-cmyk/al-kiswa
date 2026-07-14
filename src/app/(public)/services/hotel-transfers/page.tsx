@@ -148,7 +148,7 @@ export default function HotelTransferPage() {
                                 </h3>
                                 <div className="space-y-8 mt-6">
                                     <div className="flex items-start gap-6 group">
-                                        <div className="mt-1 bg-neutral-900 border border-white/10 p-3 rounded-full shadow-lg group-hover:border-gold/50 transition-colors">
+                                        <div className="mt-1 bg-neutral-900 border border-white/10 p-3 rounded-btn shadow-lg group-hover:border-gold/50 transition-colors">
                                             <Building2 className="text-gold" size={24} />
                                         </div>
                                         <div>
@@ -157,7 +157,7 @@ export default function HotelTransferPage() {
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-6 group">
-                                        <div className="mt-1 bg-neutral-900 border border-white/10 p-3 rounded-full shadow-lg group-hover:border-gold/50 transition-colors">
+                                        <div className="mt-1 bg-neutral-900 border border-white/10 p-3 rounded-btn shadow-lg group-hover:border-gold/50 transition-colors">
                                             <Building2 className="text-gold" size={24} />
                                         </div>
                                         <div>
@@ -166,7 +166,7 @@ export default function HotelTransferPage() {
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-6 group">
-                                        <div className="mt-1 bg-neutral-900 border border-white/10 p-3 rounded-full shadow-lg group-hover:border-gold/50 transition-colors">
+                                        <div className="mt-1 bg-neutral-900 border border-white/10 p-3 rounded-btn shadow-lg group-hover:border-gold/50 transition-colors">
                                             <ShieldCheck className="text-gold" size={24} />
                                         </div>
                                         <div>
@@ -179,7 +179,7 @@ export default function HotelTransferPage() {
                                     <SeasonalPricingNote className="mb-6" />
                                     <Link
                                         href="/booking"
-                                        className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-gold to-gold-dark hover:bg-white hover:text-black text-black px-10 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] uppercase tracking-wider text-sm transform hover:-translate-y-1"
+                                        className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-gold to-gold-dark hover:bg-white hover:text-black text-black px-10 py-4 rounded-btn font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] uppercase tracking-wider text-sm transform hover:-translate-y-1"
                                     >
                                         Book Your Hotel Transfer
                                         <ArrowRight size={20} />

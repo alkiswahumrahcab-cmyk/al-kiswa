@@ -116,7 +116,7 @@ export default function CallbackWidget() {
                     animate={{ opacity: 1, scale: 1 }}
                     whileHover={{ scale: 1.05 }}
                     onClick={() => setIsOpen(true)}
-                    className="group flex items-center gap-3 bg-white text-black px-4 py-3 rounded-full shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_hsl(var(--gold-glow) / 0.4)] border border-transparent hover:border-gold transition-all duration-300"
+                    className="group flex items-center gap-3 bg-white text-black px-4 py-3 rounded-btn shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:shadow-[0_0_25px_hsl(var(--gold-glow) / 0.4)] border border-transparent hover:border-gold transition-all duration-300"
                 >
                     <div className="bg-black text-white p-2 rounded-full relative">
                         <Phone size={18} className="fill-current" />

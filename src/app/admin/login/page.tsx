@@ -60,7 +60,7 @@ export default function LoginPage() {
                 href="/"
                 className="absolute top-6 left-6 z-50 flex items-center gap-2 text-gray-400 hover:text-gold transition-colors group"
             >
-                <div className="p-2 rounded-full bg-white/5 border border-white/10 group-hover:border-gold/50 transition-colors shadow-sm">
+                <div className="p-2 rounded-btn bg-white/5 border border-white/10 group-hover:border-gold/50 transition-colors shadow-sm">
                     <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
                 </div>
                 <span className="font-medium text-sm">Back to Home</span>

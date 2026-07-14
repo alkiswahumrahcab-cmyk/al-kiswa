@@ -119,7 +119,7 @@ export default function HiaceGallery() {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
-                                <div className="bg-gold/90 p-3 rounded-full transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                                <div className="bg-gold/90 p-3 rounded-btn transform scale-75 group-hover:scale-100 transition-transform duration-300">
                                     <Maximize2 size={22} className="text-black" />
                                 </div>
                             </div>
@@ -135,7 +135,7 @@ export default function HiaceGallery() {
                     <div className="text-center mt-10">
                         <button
                             onClick={() => setShowAll(true)}
-                            className="inline-flex items-center gap-2 px-8 py-3 border-2 border-gold text-gold rounded-full font-bold hover:bg-gold hover:text-black transition-all duration-300"
+                            className="inline-flex items-center gap-2 px-8 py-3 border-2 border-gold text-gold rounded-btn font-bold hover:bg-gold hover:text-black transition-all duration-300"
                         >
                             <Grid3X3 size={18} />
                             View All {filtered.length} Images
@@ -155,14 +155,14 @@ export default function HiaceGallery() {
                         className="fixed inset-0 z-[100] bg-black/97 backdrop-blur-md flex items-center justify-center p-4"
                     >
                         {/* Close */}
-                        <button onClick={() => setSelectedIndex(null)} className="absolute top-6 right-6 z-[110] text-white/50 hover:text-white bg-white/10 p-2.5 rounded-full transition-colors">
+                        <button onClick={() => setSelectedIndex(null)} className="absolute top-6 right-6 z-[110] text-white/50 hover:text-white bg-white/10 p-2.5 rounded-btn transition-colors">
                             <X size={28} />
                         </button>
 
                         {/* Prev */}
                         <button
                             onClick={(e) => { e.stopPropagation(); setSelectedIndex((selectedIndex - 1 + filtered.length) % filtered.length); }}
-                            className="absolute left-4 md:left-8 z-[110] text-white/60 hover:text-white bg-white/10 hover:bg-gold/80 p-3 rounded-full transition-all"
+                            className="absolute left-4 md:left-8 z-[110] text-white/60 hover:text-white bg-white/10 hover:bg-gold/80 p-3 rounded-btn transition-all"
                         >
                             <ChevronLeft size={32} />
                         </button>
@@ -186,7 +186,7 @@ export default function HiaceGallery() {
                         {/* Next */}
                         <button
                             onClick={(e) => { e.stopPropagation(); setSelectedIndex((selectedIndex + 1) % filtered.length); }}
-                            className="absolute right-4 md:right-8 z-[110] text-white/60 hover:text-white bg-white/10 hover:bg-gold/80 p-3 rounded-full transition-all"
+                            className="absolute right-4 md:right-8 z-[110] text-white/60 hover:text-white bg-white/10 hover:bg-gold/80 p-3 rounded-btn transition-all"
                         >
                             <ChevronRight size={32} />
                         </button>

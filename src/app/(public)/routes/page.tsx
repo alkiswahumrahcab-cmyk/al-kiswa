@@ -221,7 +221,7 @@ export default function RoutesPage() {
                                                 </div>
                                                 <div className="flex gap-4 relative z-20 items-center">
                                                     <Link href="/fleet" className="hidden md:flex items-center text-xs font-medium text-white/60 hover:text-white transition-colors uppercase tracking-wider">View Fleet</Link>
-                                                    <span className="flex items-center gap-2 text-sm font-bold text-black bg-gold px-4 py-2 rounded-full hover:bg-white transition-colors shadow-lg shadow-gold/20">Book Now <ArrowRight size={16} /></span>
+                                                    <span className="flex items-center gap-2 text-sm font-bold text-black bg-gold px-4 py-2 rounded-btn hover:bg-white transition-colors shadow-lg shadow-gold/20">Book Now <ArrowRight size={16} /></span>
                                                 </div>
                                             </div>
                                         </div>

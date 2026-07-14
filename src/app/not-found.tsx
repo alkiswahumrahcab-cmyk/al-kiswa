@@ -65,7 +65,7 @@ export default function NotFound() {
 
                     <Link
                         href="/booking"
-                        className="inline-flex items-center gap-3 bg-gold text-black hover:bg-white px-10 py-4 rounded-full font-bold uppercase tracking-wider transition-all shadow-lg hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:-translate-y-1"
+                        className="inline-flex items-center gap-3 bg-gold text-black hover:bg-white px-10 py-4 rounded-btn font-bold uppercase tracking-wider transition-all shadow-lg hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:-translate-y-1"
                     >
                         Book a Ride Instead <ArrowRight size={20} />
                     </Link>

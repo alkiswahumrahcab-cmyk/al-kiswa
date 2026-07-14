@@ -241,7 +241,7 @@ export default function RoutesPage() {
                                                     >
                                                         View Fleet
                                                     </Link>
-                                                    <span className="flex items-center gap-2 text-sm font-bold text-black bg-gold px-4 py-2 rounded-full hover:bg-white transition-colors shadow-lg shadow-gold/20">
+                                                    <span className="flex items-center gap-2 text-sm font-bold text-black bg-gold px-4 py-2 rounded-btn hover:bg-white transition-colors shadow-lg shadow-gold/20">
                                                         Book Now <ArrowRight size={16} />
                                                     </span>
                                                 </div>

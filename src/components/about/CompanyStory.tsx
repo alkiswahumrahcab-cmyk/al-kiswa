@@ -62,7 +62,7 @@ export default function CompanyStory() {
                             <div key={item.year} className={`relative md:flex items-center justify-between ${index % 2 === 0 ? 'md:flex-row-reverse' : ''} group`}>
 
                                 {/* Center Dot */}
-                                <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-gold rounded-full border-4 border-black shadow-[0_0_15px_hsl(var(--gold-glow) / 0.5)] -translate-x-1/2 z-10 group-hover:scale-150 transition-transform duration-300" />
+                                <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-gold rounded-btn border-4 border-black shadow-[0_0_15px_hsl(var(--gold-glow) / 0.5)] -translate-x-1/2 z-10 group-hover:scale-150 transition-transform duration-300" />
 
                                 {/* Empty space for the other side */}
                                 <div className="hidden md:block w-5/12" />

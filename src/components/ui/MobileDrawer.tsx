@@ -61,7 +61,7 @@ export default function MobileDrawer({ isOpen, onClose, title, children }: Mobil
               <div className="p-4 border-b border-white/10 flex flex-col items-center sticky top-0 z-10">
                 <div className="w-12 h-1.5 bg-n-600/50 rounded-full mb-3" />
                 {title && <h3 className="text-white font-bold text-lg w-full text-center pr-8">{title}</h3>}
-                <button onClick={onClose} className="absolute right-4 top-4 text-n-400 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors">
+                <button onClick={onClose} className="absolute right-4 top-4 text-n-400 hover:text-white p-2 rounded-btn hover:bg-white/10 transition-colors">
                    <X size={20} />
                 </button>
               </div>

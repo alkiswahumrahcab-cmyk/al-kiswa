@@ -171,7 +171,7 @@ export default async function ToyotaCoasterPage() {
                             </div>
 
                             <div className="mt-10">
-                                <Link href="/booking" className="inline-flex items-center gap-2 bg-gold hover:bg-gold-soft text-ink px-8 py-3 rounded-full font-bold transition-all shadow-lg shadow-gold/30">
+                                <Link href="/booking" className="inline-flex items-center gap-2 bg-gold hover:bg-gold-soft text-ink px-8 py-3 rounded-btn font-bold transition-all shadow-lg shadow-gold/30">
                                     Book Toyota Coaster <ArrowRight size={20} />
                                 </Link>
                             </div>

@@ -43,7 +43,7 @@ export const Toast = ({ message, type, isVisible, onClose }: ToastProps) => {
                     <p className="font-medium text-sm">{message}</p>
                     <button
                         onClick={onClose}
-                        className="ml-2 p-1 hover:bg-ink/5 rounded-full transition-colors"
+                        className="ml-2 p-1 hover:bg-ink/5 rounded-btn transition-colors"
                     >
                         <X size={16} />
                     </button>

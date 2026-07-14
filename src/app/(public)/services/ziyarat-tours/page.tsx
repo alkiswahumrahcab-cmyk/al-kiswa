@@ -256,7 +256,7 @@ export default async function ZiyaratToursPage() {
                                 { icon: <Users size={26} />, title: "All Group Sizes", desc: "Sedan, SUV, van, and bus — from couples to groups of 21 passengers." },
                             ].map((f, i) => (
                                 <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-gold/30 transition-all hover:bg-white/10 group">
-                                    <div className="bg-gold/10 w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
+                                    <div className="bg-gold/10 w-14 h-14 rounded-btn flex items-center justify-center mx-auto mb-4 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                         {f.icon}
                                     </div>
                                     <h3 className="text-base font-bold mb-2 text-white">{f.title}</h3>
@@ -265,7 +265,7 @@ export default async function ZiyaratToursPage() {
                             ))}
                         </div>
                         <div className="mt-12">
-                            <Link href="/booking" className="inline-flex items-center btn-gold px-10 py-4 rounded-full font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] uppercase tracking-[0.15em] text-sm text-black hover:scale-105">
+                            <Link href="/booking" className="inline-flex items-center btn-gold px-10 py-4 rounded-btn font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] uppercase tracking-[0.15em] text-sm text-black hover:scale-105">
                                 Book Your Private Tour <ArrowRight size={18} className="ml-2" />
                             </Link>
                         </div>

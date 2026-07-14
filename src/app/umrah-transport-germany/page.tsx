@@ -138,10 +138,10 @@ export default function GermanyPilgrimsPage() {
             Im Dienst von Pilgern aus Berlin, Hamburg, München, Frankfurt und ganz Deutschland seit 2014.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
-            <Link href="/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)] uppercase tracking-wider">
+            <Link href="/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-btn hover:scale-105 transition-transform shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)] uppercase tracking-wider">
               Jetzt Buchen
             </Link>
-            <a href="https://wa.me/966548707332" className="border border-gold/50 text-gold font-bold px-8 py-4 rounded-full hover:bg-gold/10 transition-colors uppercase tracking-wider">
+            <a href="https://wa.me/966548707332" className="border border-gold/50 text-gold font-bold px-8 py-4 rounded-btn hover:bg-gold/10 transition-colors uppercase tracking-wider">
               WhatsApp
             </a>
           </div>
@@ -282,8 +282,8 @@ export default function GermanyPilgrimsPage() {
           <h2 className="text-2xl font-bold mb-3">Bereit zur Buchung Ihres Umrah-Transfers?</h2>
           <p className="text-n-400 mb-6">Kontaktieren Sie uns per WhatsApp oder buchen Sie online — Antwort in Minuten.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-full hover:scale-105 transition-transform">Online Buchen</Link>
-            <a href="tel:+966548707332" className="flex items-center justify-center gap-2 border border-white/20 text-white font-bold px-8 py-4 rounded-full hover:bg-white/5 transition-colors">
+            <Link href="/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-btn hover:scale-105 transition-transform">Online Buchen</Link>
+            <a href="tel:+966548707332" className="flex items-center justify-center gap-2 border border-white/20 text-white font-bold px-8 py-4 rounded-btn hover:bg-white/5 transition-colors">
               <Phone size={18} /> +966 54 870 7332
             </a>
           </div>

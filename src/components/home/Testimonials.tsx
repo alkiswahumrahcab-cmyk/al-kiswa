@@ -75,7 +75,7 @@ export default function Testimonials() {
                     className="text-center mb-12 flex flex-col items-center"
                 >
                     {/* Glowing Glass Badge */}
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full card border border-gold/30 shadow-[0_0_20px_hsl(var(--gold-glow) / 0.15)] mb-6 hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.3)] transition-all duration-300">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-btn card border border-gold/30 shadow-[0_0_20px_hsl(var(--gold-glow) / 0.15)] mb-6 hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.3)] transition-all duration-300">
                         <div className="flex gap-0.5">
                             {[1, 2, 3, 4, 5].map((star) => (
                                 <Star key={star} size={14} className="fill-gold text-gold drop-shadow-[0_0_8px_hsl(var(--gold-glow) / 0.5)]" />

@@ -120,7 +120,7 @@ export default function PolicyModal({ isOpen, type, onClose }: PolicyModalProps)
                             </h3>
                             <button
                                 onClick={onClose}
-                                className="text-n-400 hover:text-white transition-colors p-1 rounded-full hover:bg-white/10"
+                                className="text-n-400 hover:text-white transition-colors p-1 rounded-btn hover:bg-white/10"
                                 aria-label="Close modal"
                             >
                                 <X size={20} />

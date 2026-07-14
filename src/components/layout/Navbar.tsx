@@ -122,7 +122,7 @@ export default function Navbar() {
                         <div key={link.href} className="relative group">
                             {link.href === '#' ? (
                                 <span
-                                    className={`relative text-xs font-medium transition-all duration-300 px-4 py-2.5 rounded-full flex items-center gap-1 cursor-default text-ink-muted hover:text-ink group-hover:bg-ink/5`}
+                                    className={`relative text-xs font-medium transition-all duration-300 px-4 py-2.5 rounded-btn flex items-center gap-1 cursor-default text-ink-muted hover:text-ink group-hover:bg-ink/5`}
                                 >
                                     {link.label}
                                     {link.children && <ChevronDown size={12} className="group-hover:rotate-180 transition-transform duration-300 text-gold" />}
@@ -207,7 +207,7 @@ export default function Navbar() {
                 <div className="flex items-center justify-between p-6 border-b border-border">
                     <ThemeLogo width={140} height={40} />
                     <button
-                        className="p-2 text-ink-muted hover:text-ink hover:rotate-90 transition-transform duration-300 rounded-full hover:bg-ink/10"
+                        className="p-2 text-ink-muted hover:text-ink hover:rotate-90 transition-transform duration-300 rounded-btn hover:bg-ink/10"
                         onClick={() => setIsMenuOpen(false)}
                     >
                         <X size={28} strokeWidth={1.5} />

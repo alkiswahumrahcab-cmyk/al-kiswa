@@ -67,7 +67,7 @@ export default function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
                 <button
                     onClick={prevSlide}
                     disabled={currentIndex === 0}
-                    className="p-4 rounded-full bg-card border border-border text-foreground hover:bg-gold hover:border-gold hover:text-black transition-all duration-300 disabled:opacity-30 disabled:hover:bg-muted disabled:hover:border-border disabled:cursor-not-allowed group"
+                    className="p-4 rounded-btn bg-card border border-border text-foreground hover:bg-gold hover:border-gold hover:text-black transition-all duration-300 disabled:opacity-30 disabled:hover:bg-muted disabled:hover:border-border disabled:cursor-not-allowed group"
                     aria-label="Previous review"
                 >
                     <ChevronLeft size={24} className="group-hover:-translate-x-0.5 transition-transform" />
@@ -75,7 +75,7 @@ export default function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
                 <button
                     onClick={nextSlide}
                     disabled={currentIndex >= reviews.length - visibleItems}
-                    className="p-4 rounded-full bg-card border border-border text-foreground hover:bg-gold hover:border-gold hover:text-black transition-all duration-300 disabled:opacity-30 disabled:hover:bg-muted disabled:hover:border-border disabled:cursor-not-allowed group"
+                    className="p-4 rounded-btn bg-card border border-border text-foreground hover:bg-gold hover:border-gold hover:text-black transition-all duration-300 disabled:opacity-30 disabled:hover:bg-muted disabled:hover:border-border disabled:cursor-not-allowed group"
                     aria-label="Next review"
                 >
                     <ChevronRight size={24} className="group-hover:translate-x-0.5 transition-transform" />

@@ -129,10 +129,10 @@ export default async function ToyotaCamryPage() {
                         Smooth, stylish, and perfect for couples, small families &amp; business travelers across Saudi Arabia.
                     </p>
                     <div className="flex flex-wrap gap-4">
-                        <Link href="/booking?vehicle=camry" className="bg-gold hover:bg-gold-soft text-ink px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-gold/30 flex items-center gap-2">
+                        <Link href="/booking?vehicle=camry" className="bg-gold hover:bg-gold-soft text-ink px-8 py-4 rounded-btn font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-gold/30 flex items-center gap-2">
                             Book Now <ArrowRight size={20} />
                         </Link>
-                        <a href={whatsappLink} className="bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 flex items-center gap-2">
+                        <a href={whatsappLink} className="bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-btn font-bold text-lg transition-all hover:scale-105 flex items-center gap-2">
                             WhatsApp
                         </a>
                         <a href="tel:+966548707332" className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center gap-2">
@@ -374,10 +374,10 @@ export default async function ToyotaCamryPage() {
                                 </div>
                             </div>
                             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                                <Link href="/booking?vehicle=camry" className="flex-1 bg-gold hover:bg-gold-soft text-ink px-8 py-4 rounded-full font-bold text-lg text-center transition-all hover:scale-105 shadow-lg shadow-gold/30 flex items-center justify-center gap-2">
+                                <Link href="/booking?vehicle=camry" className="flex-1 bg-gold hover:bg-gold-soft text-ink px-8 py-4 rounded-btn font-bold text-lg text-center transition-all hover:scale-105 shadow-lg shadow-gold/30 flex items-center justify-center gap-2">
                                     Go to Full Booking Form <ArrowRight size={20} />
                                 </Link>
-                                <a href={whatsappLink} className="flex-1 bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg text-center transition-all hover:scale-105 flex items-center justify-center gap-2">
+                                <a href={whatsappLink} className="flex-1 bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-btn font-bold text-lg text-center transition-all hover:scale-105 flex items-center justify-center gap-2">
                                     Book via WhatsApp
                                 </a>
                             </div>
@@ -401,10 +401,10 @@ export default async function ToyotaCamryPage() {
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair text-white mb-6">Ready to Book Your Camry?</h2>
                     <p className="text-lg text-white/80 mb-10">Reserve your Toyota Camry instantly with our online booking or chat with our support team on WhatsApp.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking?vehicle=camry" className="bg-gold hover:bg-gold-soft text-ink px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-gold/30 flex items-center justify-center gap-2">
+                        <Link href="/booking?vehicle=camry" className="bg-gold hover:bg-gold-soft text-ink px-8 py-4 rounded-btn font-bold text-lg transition-all hover:scale-105 shadow-lg shadow-gold/30 flex items-center justify-center gap-2">
                             Go to Booking Form <ArrowRight size={20} />
                         </Link>
-                        <a href={whatsappLink} className="bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105 flex items-center justify-center gap-2">
+                        <a href={whatsappLink} className="bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-btn font-bold text-lg transition-all hover:scale-105 flex items-center justify-center gap-2">
                             Book via WhatsApp
                         </a>
                     </div>

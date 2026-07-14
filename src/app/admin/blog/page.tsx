@@ -97,7 +97,7 @@ export default function BlogAdminPage() {
                 </div>
                 <Link
                     href="/admin/blog/new"
-                    className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
+                    className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2.5 rounded-btn font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
                 >
                     <Plus size={20} />
                     <span>New Post</span>

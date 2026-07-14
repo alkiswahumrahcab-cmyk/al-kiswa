@@ -195,7 +195,7 @@ export default async function AirportTransfersPage() {
                             ].map((step, idx) => (
                                 <div key={idx} className="flex flex-col items-center text-center group">
                                     <div className="w-24 h-24 bg-neutral-900 border border-white/10 p-1.5 rounded-full relative z-10 shadow-[0_0_30px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:-translate-y-2">
-                                        <div className="w-full h-full rounded-full border border-dashed border-white/20 flex items-center justify-center bg-black/40 group-hover:border-gold/50 transition-colors duration-500">
+                                        <div className="w-full h-full rounded-btn border border-dashed border-white/20 flex items-center justify-center bg-black/40 group-hover:border-gold/50 transition-colors duration-500">
                                             <step.icon size={36} className="text-gold" />
                                         </div>
                                         <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center text-black font-bold text-sm shadow-lg border border-white/10">
@@ -329,7 +329,7 @@ export default async function AirportTransfersPage() {
                     </p>
                     <Link
                         href="/booking?service=airport"
-                        className="inline-flex items-center gap-3 bg-black text-gold hover:bg-white hover:text-black px-12 py-5 rounded-full font-bold uppercase tracking-[0.15em] text-sm shadow-2xl transition-all transform hover:-translate-y-1 border border-black/20"
+                        className="inline-flex items-center gap-3 bg-black text-gold hover:bg-white hover:text-black px-12 py-5 rounded-btn font-bold uppercase tracking-[0.15em] text-sm shadow-2xl transition-all transform hover:-translate-y-1 border border-black/20"
                     >
                         Book Your Transfer Now
                         <Plane className="w-5 h-5" />
