@@ -973,8 +973,8 @@ export default function AssistantWidget() {
           } catch { /* malformed chunk */ }
         }
       }
-    } catch (err: any) {
-      if (err?.name === 'AbortError') return;
+    } catch (err: unknown) {
+      if (err instanceof Error && err.name === 'AbortError') return;
       dispatch({
         type: 'STREAM_ERROR',
         id:   assistantMsgId,
