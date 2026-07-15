@@ -180,7 +180,7 @@ export default function FleetCarousel({ vehicles, discount }: FleetCarouselProps
                                     <div className="mt-auto">
                                         <GlassButton
                                             href="/booking"
-                                            className="w-full !bg-bg !text-ink font-bold text-sm tracking-wider uppercase hover:!bg-gold hover:!text-white !border-border group-hover:!border-gold/50 transition-all py-4"
+                                            className="w-full !bg-bg !text-ink font-bold text-sm tracking-wider uppercase hover:!bg-gold hover:!text-ink !border-border group-hover:!border-gold/50 transition-all py-4"
                                         >
                                             Book Vehicle
                                         </GlassButton>

@@ -117,26 +117,26 @@ export default function Navbar() {
                 </Link>
 
                 {/* Desktop Nav */}
-                <div className="hidden xl:flex items-center gap-1 bg-surface/40 backdrop-blur-md px-2 py-1.5 rounded-full border border-border shadow-md">
+                <div className="hidden xl:flex items-center gap-2">
                     {links.map((link) => (
                         <div key={link.href} className="relative group">
                             {link.href === '#' ? (
                                 <span
-                                    className={`relative text-xs font-medium transition-all duration-300 px-4 py-2.5 rounded-btn flex items-center gap-1 cursor-default text-ink-muted hover:text-ink group-hover:bg-ink/5`}
+                                    className={`relative text-sm font-medium transition-all duration-300 px-4 py-2 flex items-center gap-1 cursor-default text-ink-muted hover:text-ink`}
                                 >
                                     {link.label}
-                                    {link.children && <ChevronDown size={12} className="group-hover:rotate-180 transition-transform duration-300 text-gold" />}
+                                    {link.children && <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300 text-gold" />}
                                 </span>
                             ) : (
                                 <Link
                                     href={link.href}
-                                    className={`relative text-xs font-medium transition-all duration-300 px-4 py-2.5 rounded-full flex items-center gap-1 ${pathname === link.href
-                                        ? 'bg-gold text-ink font-bold shadow-gold'
-                                        : 'text-ink-muted hover:text-ink hover:bg-ink/5'
+                                    className={`relative text-sm font-medium transition-all duration-300 px-4 py-2 flex items-center gap-1 ${pathname === link.href
+                                        ? 'text-gold font-bold underline decoration-gold decoration-2 underline-offset-8'
+                                        : 'text-ink-muted hover:text-ink hover:text-gold'
                                         }`}
                                 >
                                     {link.label}
-                                    {link.children && <ChevronDown size={12} className="group-hover:rotate-180 transition-transform duration-300 text-gold" />}
+                                    {link.children && <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300 text-gold" />}
                                 </Link>
                             )}
 

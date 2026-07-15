@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState } from 'react';
 import { Check, X, TrendingDown, ArrowRight } from 'lucide-react';
@@ -225,7 +225,7 @@ export default function PriceComparisonTable() {
                                                     href="https://wa.me/966548707332"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="sm:w-auto bg-gold/20 border border-gold text-gold font-bold py-3 px-6 rounded-xl text-center hover:bg-gold hover:text-white transition-colors text-sm"
+                                                    className="sm:w-auto bg-gold/20 border border-gold text-gold font-bold py-3 px-6 rounded-btn text-center hover:bg-gold hover:text-ink transition-colors text-sm"
                                                 >
                                                     WhatsApp Quote
                                                 </a>

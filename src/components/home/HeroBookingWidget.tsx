@@ -94,7 +94,7 @@ export default function HeroBookingWidget() {
                 </div>
 
                 {/* Submit */}
-                <button type="submit" className="w-full lg:w-auto h-12 px-8 bg-gold hover:bg-gold-strong text-ink font-semibold rounded-md shadow-sm hover:shadow-gold transition-all flex-shrink-0">
+                <button type="submit" className="w-full lg:w-auto h-12 px-8 bg-gold hover:bg-gold-strong text-ink font-semibold rounded-btn shadow-sm hover:shadow-gold transition-all flex-shrink-0">
                     Get Prices
                 </button>
             </form>
