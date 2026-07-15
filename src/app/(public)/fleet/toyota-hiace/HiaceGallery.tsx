@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
@@ -65,15 +65,15 @@ export default function HiaceGallery() {
     }, [handleKey]);
 
     return (
-        <section className="py-24 bg-[#0a0a0a] border-y border-white/5" id="gallery">
+        <section className="py-24 bg-surface-alt border-y border-border" id="gallery">
             <div className="container mx-auto px-4">
                 {/* Header */}
                 <div className="text-center mb-12">
                     <span className="text-gold text-sm font-bold tracking-[0.3em] uppercase mb-3 block">Visual Gallery</span>
-                    <h2 className="text-4xl md:text-5xl font-bold font-playfair text-white mb-4">
+                    <h2 className="text-4xl md:text-5xl font-bold font-playfair text-ink mb-4">
                         Toyota Hiace 2026 in Abha
                     </h2>
-                    <p className="text-n-400 max-w-2xl mx-auto">
+                    <p className="text-ink-muted max-w-2xl mx-auto">
                         Real photography from Abha's mountains, roads and fog. Click any image to view in full-screen high resolution.
                     </p>
                 </div>
@@ -86,8 +86,8 @@ export default function HiaceGallery() {
                             onClick={() => { setActiveCategory(cat); setShowAll(false); }}
                             className={`px-5 py-2 rounded-full text-sm font-bold transition-all duration-300 border ${
                                 activeCategory === cat
-                                    ? 'bg-gold border-gold text-black'
-                                    : 'border-white/20 text-n-400 hover:border-gold/60 hover:text-white'
+                                    ? 'bg-gold border-gold text-ink'
+                                    : 'border-border text-ink-muted hover:border-gold/60 hover:text-ink'
                             }`}
                         >
                             {cat}
@@ -98,14 +98,10 @@ export default function HiaceGallery() {
                 {/* Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
                     {displayed.map((img, idx) => (
-                        <motion.div
+                        <div
                             key={img.src}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: idx * 0.04 }}
                             onClick={() => setSelectedIndex(idx)}
-                            className={`relative overflow-hidden cursor-pointer group bg-charcoal border border-white/5 rounded-xl ${
+                            className={`relative overflow-hidden cursor-pointer group bg-surface border border-border rounded-xl ${
                                 idx === 0 ? 'col-span-2 md:col-span-1 h-64 md:h-80' :
                                 idx === 3 ? 'col-span-2 h-56 md:h-72' : 'h-52 md:h-64'
                             }`}
@@ -126,7 +122,7 @@ export default function HiaceGallery() {
                             <span className="absolute top-3 left-3 bg-black/60 backdrop-blur-sm text-gold text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
                                 {img.category}
                             </span>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 
@@ -135,7 +131,7 @@ export default function HiaceGallery() {
                     <div className="text-center mt-10">
                         <button
                             onClick={() => setShowAll(true)}
-                            className="inline-flex items-center gap-2 px-8 py-3 border-2 border-gold text-gold rounded-btn font-bold hover:bg-gold hover:text-black transition-all duration-300"
+                            className="inline-flex items-center gap-2 px-8 py-3 border-2 border-gold text-gold rounded-btn font-bold hover:bg-gold hover:text-ink transition-all duration-300"
                         >
                             <Grid3X3 size={18} />
                             View All {filtered.length} Images

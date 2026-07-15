@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 import ReviewsCarousel from './ReviewsCarousel';
 import { Star, MessageSquarePlus, ChevronRight } from 'lucide-react';
-import { motion } from 'framer-motion';
 import settings from '@/data/settings.json';
 
 interface Review {
@@ -122,44 +121,29 @@ export default function ReviewsSection() {
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                    <div
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 mb-6"
                     >
                         <Star size={14} className="fill-gold text-gold" />
                         <span className="text-sm font-bold text-gold uppercase tracking-widest">
                             <span className="text-foreground">{averageRating}/5</span> Average Rating
                         </span>
-                    </motion.div>
+                    </div>
 
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
+                    <h2
                         className="text-3xl md:text-5xl font-semibold font-display text-foreground mb-6"
                     >
                         Trusted by <span className="text-gold">Pilgrims</span>
-                    </motion.h2>
+                    </h2>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
+                    <p
                         className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light mb-12"
                     >
                         Join the community of pilgrims who trust Al Kiswah Transport for their spiritual journey.
-                    </motion.p>
+                    </p>
 
                     {/* Simplified Rating Summary */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 }}
+                    <div
                         className="flex flex-col lg:flex-row items-center justify-between gap-12 mb-16 p-10 bg-gradient-to-br from-foreground/5 to-transparent backdrop-blur-sm rounded-2xl border border-border max-w-5xl mx-auto relative overflow-hidden"
                     >
                         {/* Subtle Top Shine */}
@@ -222,16 +206,12 @@ export default function ReviewsSection() {
                                 <MessageSquarePlus size={16} className="group-hover:translate-x-1 transition-transform" />
                             </a>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
 
                 <ReviewsCarousel reviews={reviews} />
 
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4 }}
+                <div
                     className="text-center mt-12"
                 >
                     <a
@@ -243,7 +223,7 @@ export default function ReviewsSection() {
                         <span>Read all reviews on Google</span>
                         <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     </a>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

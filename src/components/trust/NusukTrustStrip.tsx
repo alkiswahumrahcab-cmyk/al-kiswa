@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { ShieldCheck, CheckCircle2, Navigation, Clock } from 'lucide-react';
@@ -29,14 +29,14 @@ const features = [
 
 const NusukTrustStrip = () => {
     return (
-        <section className="bg-[#0a0a0a] border-y border-white/5 py-16 relative overflow-hidden">
+        <section className="bg-surface-alt border-y border-border py-16 relative overflow-hidden">
             {/* Background Glows */}
             <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-[hsl(var(--gold))]/5 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
             
             <div className="container mx-auto px-4 relative z-10">
                 <div className="max-w-3xl mx-auto text-center mb-12">
-                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Government Verified Transport</h2>
+                    <h2 className="text-2xl md:text-3xl font-bold text-ink mb-4">Government Verified Transport</h2>
                     <p className="text-n-400 text-sm md:text-base leading-relaxed">
                         All Al Kiswah Umrah Cab vehicles are officially registered on the Nusuk platform — the Ministry of Hajj & Umrah's government-verified system for licensed pilgrim transport in Saudi Arabia.
                     </p>
@@ -45,11 +45,11 @@ const NusukTrustStrip = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {features.map((feature, idx) => (
                         <FadeIn key={idx} delay={idx * 0.1}>
-                            <div className="bg-[#111] border border-white/5 p-6 rounded-2xl hover:border-white/10 transition-colors h-full flex flex-col items-center text-center">
-                                <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-6 shadow-inner">
+                            <div className="bg-surface border border-border p-6 rounded-2xl hover:border-gold/30 transition-colors h-full flex flex-col items-center text-center">
+                                <div className="w-16 h-16 rounded-2xl bg-gold/5 flex items-center justify-center mb-6 shadow-inner">
                                     {feature.icon}
                                 </div>
-                                <h3 className="text-white font-bold text-lg mb-3">{feature.title}</h3>
+                                <h3 className="text-ink font-bold text-lg mb-3">{feature.title}</h3>
                                 <p className="text-n-400 text-sm leading-relaxed flex-grow">
                                     {feature.description}
                                 </p>

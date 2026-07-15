@@ -818,42 +818,22 @@ function MobileDockedBar({ isOpen, onClick }: { isOpen: boolean; onClick: () => 
       layout={!shouldReduceMotion}
       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
       className={`
-        fixed bottom-5 right-4 z-[9995]
-        bg-charcoal text-white rounded-full
-        border border-gold/30 shadow-[0_4px_24px_hsl(var(--charcoal)/0.4)]
-        overflow-hidden flex items-center
-        ${isScrolled ? 'w-[56px] h-[56px] justify-center' : 'w-auto px-1.5 py-1.5'}
+        fixed bottom-[110px] md:bottom-5 right-4 z-[9995]
+        bg-surface-alt rounded-full
+        border border-border shadow-xl
+        overflow-hidden flex items-center justify-center
+        w-[56px] h-[56px]
       `}
       style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
     >
       <button
         onClick={onClick}
         aria-label="Open Al Kiswah assistant"
-        className="flex items-center w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+        className="flex items-center justify-center w-full h-full focus:outline-none focus-visible:ring-2 focus-visible:ring-gold"
       >
-        {/* Avatar */}
-        <div className="w-11 h-11 rounded-full flex-shrink-0 bg-n-800 border border-gold/20 flex items-center justify-center overflow-hidden">
+        <div className="w-12 h-12 rounded-full flex-shrink-0 bg-surface border border-gold/20 flex items-center justify-center overflow-hidden">
           <Image src="/sara-avatar-v6.png" alt="" width={88} height={88} className="w-full h-full object-cover rounded-full" />
         </div>
-        
-        {/* Text and arrow (hidden when scrolled) */}
-        <AnimatePresence>
-          {!isScrolled && (
-            <motion.div
-              initial={{ opacity: 0, width: 0 }}
-              animate={{ opacity: 1, width: 'auto' }}
-              exit={{ opacity: 0, width: 0 }}
-              transition={{ duration: 0.2 }}
-              className="flex items-center justify-between flex-1 pl-3 pr-2"
-            >
-              <div className="flex flex-col text-left truncate">
-                <span className="text-[13px] font-semibold text-gold tracking-wide">As-salamu alaykum</span>
-                <span className="text-[11px] text-n-300 truncate opacity-90">Ask about routes or book a car</span>
-              </div>
-              <ArrowRight size={16} className="text-gold ml-2 flex-shrink-0" />
-            </motion.div>
-          )}
-        </AnimatePresence>
       </button>
     </motion.div>
   );

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import Link from 'next/link';
@@ -17,16 +17,15 @@ export default function CheckoutHeader({ contactSettings }: CheckoutHeaderProps)
     const whatsappLink = `https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}?text=${whatsappMessage}`;
 
     return (
-        <header className="sticky top-0 z-50 bg-charcoal/95 backdrop-blur-xl border-b border-gold/20 shadow-xl">
+        <header className="sticky top-0 z-50 bg-surface/95 backdrop-blur-xl border-b border-border shadow-sm">
             <div className="container mx-auto px-4 h-20 flex items-center justify-between">
                 
                 {/* Left: Logo & Home Link */}
-                {/* Left: Logo & Home Link */}
                 <Link href="/" className="flex items-center gap-2 group transition-opacity hover:opacity-80">
-                    <span className="font-sans font-bold text-white tracking-wide text-xl leading-none">
+                    <span className="font-display font-bold text-ink tracking-wide text-xl leading-none">
                         Al Kiswah
                     </span>
-                    <span className="text-[0.60rem] font-bold text-gold tracking-[0.2em] uppercase leading-none border-l border-white/20 pl-2">
+                    <span className="text-[0.60rem] font-bold text-gold tracking-[0.2em] uppercase leading-none border-l border-border pl-2">
                         Checkout
                     </span>
                 </Link>

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -585,12 +585,12 @@ export default function BookingForm() {
                                                 onClose={() => setActiveDropdownIndex(null)}
                                                 title="Select Route"
                                             >
-                                                <div className="p-4 border-b border-border relative sticky top-0 bg-[#0B0F19] z-10">
+                                                <div className="p-4 border-b border-border relative sticky top-0 bg-surface z-10">
                                                     <Search size={18} className="absolute left-7 top-1/2 -translate-y-1/2 text-muted" />
                                                     <input
                                                         type="text" value={searchStr} onChange={(e) => setRouteSearches(prev => ({ ...prev, [index]: e.target.value }))}
                                                         placeholder="Search city or airport..."
-                                                        className="w-full pl-10 pr-4 py-2 bg-transparent border-b border-border rounded-none text-base text-ink placeholder-gray-500 outline-none focus:border-gold transition-colors"
+                                                        className="w-full pl-10 pr-4 py-2 bg-transparent border-b border-border rounded-none text-base text-ink placeholder-muted outline-none focus:border-gold transition-colors"
                                                     />
                                                 </div>
                                                 <div className="max-h-64 overflow-y-auto custom-scrollbar">
@@ -599,7 +599,7 @@ export default function BookingForm() {
                                                             key={route.id} type="button" onClick={() => selectRoute(index, route)}
                                                             className="w-full px-6 py-4 text-left hover:bg-gold/10 text-muted hover:text-ink border-b border-border last:border-0 transition-colors flex flex-col"
                                                         >
-                                                            <span className="font-semibold text-lg">{route.origin} <span className="text-gold mx-2">→</span> {route.destination}</span>
+                                                            <span className="font-semibold text-lg text-ink">{route.origin} <span className="text-gold mx-2">→</span> {route.destination}</span>
                                                             <span className="text-xs text-muted mt-1 uppercase tracking-wider">{route.category || 'Intercity'}</span>
                                                         </button>
                                                     )) : (
@@ -914,7 +914,7 @@ export default function BookingForm() {
                                                     placeholder="Number of Hours"
                                                     value={leg.hours || ''}
                                                     onChange={(e) => updateLeg(index, { hours: parseInt(e.target.value) || undefined })}
-                                                    className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 border-border focus:border-gold text-ink outline-none transition-colors placeholder-gray-600"
+                                                    className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 border-border focus:border-gold text-ink outline-none transition-colors placeholder-muted"
                                                 />
                                                 <p className="text-muted text-xs mt-1 absolute pl-8">Enter number of hours (e.g., 3)</p>
                                             </div>
@@ -1247,11 +1247,21 @@ export default function BookingForm() {
 
             {/* Mobile Sticky Summary */}
             <MobileStickySummary 
-                isVisible={selectedVehicleCount > 0 && activeSection === 'details'}
+                isVisible={selectedVehicleCount > 0}
                 vehicleName={vehicleSummary || null}
                 totalAmount={summaryDisplayPrice.amount}
                 currency={currency}
-                onConfirm={handleSubmit}
+                onConfirm={() => {
+                    if (activeSection !== 'details') {
+                        setActiveSection('details');
+                        setTimeout(() => {
+                            detailsSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 100);
+                    } else {
+                        handleSubmit();
+                    }
+                }}
+                buttonText={activeSection === 'details' ? 'Confirm Booking' : 'Continue Booking'}
                 isSubmitting={isSubmitting}
             />
 

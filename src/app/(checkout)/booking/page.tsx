@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import BookingFormSkeleton from '@/components/booking/BookingFormSkeleton';
 
-const QuickBookingForm = dynamic(() => import('@/components/booking/QuickBookingForm'), {
+const BookingForm = dynamic(() => import('@/components/booking/BookingForm'), {
     loading: () => <BookingFormSkeleton />
 });
 import { Star, Shield, CreditCard, MessageCircle, CheckCircle2 } from 'lucide-react';
@@ -44,7 +44,7 @@ export default function BookingPage() {
                 {/* Booking Form */}
                 <div className="booking-container">
                     <Suspense fallback={<BookingFormSkeleton />}>
-                        <QuickBookingForm />
+                        <BookingForm />
                     </Suspense>
                 </div>
 

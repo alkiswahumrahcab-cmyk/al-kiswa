@@ -27,7 +27,7 @@ export default function FleetCarouselWrapper() {
     }, []);
 
     if (loading) {
-        return <div className="h-[600px] bg-zinc-900/50 animate-pulse rounded-3xl mx-4 md:mx-8 border border-white/5" />;
+        return <div className="h-[600px] bg-surface shadow-sm animate-pulse rounded-3xl mx-4 md:mx-8 border border-border" />;
     }
 
     if (!data || data.vehicles.length === 0) return null;

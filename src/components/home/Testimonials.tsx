@@ -3,7 +3,6 @@
 import React, { useState, useMemo } from 'react';
 import { curatedTestimonials } from '@/data/testimonials';
 import { Quote, Star, CheckCircle2, Navigation, Calendar, Car, ArrowRight, ShieldCheck, Clock, Users, MapPin } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useSettings } from '@/context/SettingsContext';
 
 // Filters available
@@ -67,11 +66,7 @@ export default function Testimonials() {
             <div className="container mx-auto px-4 md:px-8 relative z-10">
                 
                 {/* PHASE 2: Premium Section Header */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
+                <div 
                     className="text-center mb-12 flex flex-col items-center"
                 >
                     {/* Glowing Glass Badge */}
@@ -91,14 +86,10 @@ export default function Testimonials() {
                     <p className="text-lg md:text-xl text-ink-muted max-w-3xl mx-auto leading-relaxed font-light">
                         Thousands of pilgrims from around the world trust Al Kiswah Umrah Cab for reliable airport transfers, Makkah–Madinah journeys, VIP chauffeur services, and comfortable transportation.
                     </p>
-                </motion.div>
+                </div>
 
                 {/* PHASE 3: Trust Dashboard */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, delay: 0.2 }}
+                <div 
                     className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-16"
                 >
                     {[
@@ -113,7 +104,7 @@ export default function Testimonials() {
                             <div className="text-sm font-medium text-ink-muted uppercase tracking-wider">{stat.label}</div>
                         </div>
                     ))}
-                </motion.div>
+                </div>
 
                 {/* PHASE 6: Review Filters */}
                 <div className="flex overflow-x-auto pb-6 mb-8 gap-3 snap-x scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0 md:flex-wrap md:justify-center">
@@ -133,19 +124,14 @@ export default function Testimonials() {
                 </div>
 
                 {/* PHASE 4 & 5: Redesigned Testimonial Cards & Mobile Experience (Phase 10) */}
-                <motion.div layout className="flex overflow-x-auto pb-12 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 snap-x snap-mandatory scrollbar-hide md:overflow-visible items-stretch">
-                    <AnimatePresence mode='popLayout'>
+                <div className="flex overflow-x-auto pb-12 -mx-4 px-4 md:mx-0 md:px-0 md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 snap-x snap-mandatory scrollbar-hide md:overflow-visible items-stretch">
+                    <>
                         {filteredTestimonials.map((testimonial, index) => {
                             const isExpanded = expandedCards[testimonial.id];
                             const shouldClamp = testimonial.story.length > 150;
                             
                             return (
-                                <motion.article 
-                                    layout
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.4 }}
+                                <article 
                                     key={testimonial.id}
                                     className="snap-center w-[90vw] md:w-auto flex-shrink-0 card p-6 md:p-8 group flex flex-col h-full border border-gold/20 hover:border-gold/50 relative overflow-hidden"
                                 >
@@ -224,18 +210,14 @@ export default function Testimonials() {
                                             <span>Journey Completed</span>
                                         </div>
                                     </div>
-                                </motion.article>
+                                </article>
                             );
                         })}
-                    </AnimatePresence>
-                </motion.div>
+                    </>
+                </div>
 
                 {/* PHASE 7: Google Reviews Panel CTA */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
+                <div 
                     className="mt-4 md:mt-12 card p-8 md:p-12 text-center relative overflow-hidden group"
                 >
                     {/* Inner gold glow */}
@@ -285,7 +267,7 @@ export default function Testimonials() {
                             </a>
                         </div>
                     </div>
-                </motion.div>
+                </div>
 
             </div>
         </section>

@@ -1,40 +1,26 @@
 import dynamic from 'next/dynamic';
-import Link from 'next/link';
-
-import FadeIn from '@/components/common/FadeIn';
 import HomeHero from '@/components/home/HomeHero';
 import HeroBookingWidget from '@/components/home/HeroBookingWidget';
-import { PremiumIcon } from '@/components/ui/PremiumIcon';
-import { ArrowRight } from 'lucide-react';
-import { getSectionContent, getSectionImage, getCustomField } from '@/lib/content-service';
+import TrustBar from '@/components/trust/TrustBar';
+import { getSectionContent, getCustomField } from '@/lib/content-service';
 import { generateMetadataAlternates } from '@/lib/hreflang';
 
 // Lazy load heavy components
 import {
-  InstantPriceCalculator,
-  FleetCarouselWrapper,
-  ReviewsSection,
-  GallerySection,
   HomeFleetCarousel,
-  HotelsAndDistricts,
-  RealFleetShowcase,
-  FleetGallery
+  ReviewsSection
 } from '@/components/home/LazyHomeSections';
 
-const Features = dynamic(() => import('@/components/home/Features'));
-const SafetyPromise = dynamic(() => import('@/components/home/SafetyPromise'));
-const PassengerCare = dynamic(() => import('@/components/home/PassengerCare'));
-const LatestArticles = dynamic(() => import('@/components/home/LatestArticles'));
-const SEOContentSectionFixed = dynamic(() => import('@/components/home/SEOContentSectionV3'));
-const TransportServices = dynamic(() => import('@/components/home/TransportServices'));
-const Testimonials = dynamic(() => import('@/components/home/Testimonials'));
 const BookingGuide = dynamic(() => import('@/components/home/BookingGuide'));
-
-const ImpactStats = dynamic(() => import('@/components/about/ImpactStats'));
+const TransportServices = dynamic(() => import('@/components/home/TransportServices'));
+const Features = dynamic(() => import('@/components/home/Features'));
 const FAQSection = dynamic(() => import('@/components/blog/FAQSection'));
+const SEOContentSectionFixed = dynamic(() => import('@/components/home/SEOContentSectionV3'));
+const LatestArticles = dynamic(() => import('@/components/home/LatestArticles'));
+const CtaBand = dynamic(() => import('@/components/home/CtaBand'));
+
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { generateServiceSchema, generateLocalBusinessSchema } from "@/components/seo/schema-generator";
-import { metaKeywords } from '@/data/seo-keywords';
 
 export async function generateMetadata() {
   return {
@@ -77,35 +63,15 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
-  const heroSection = await getSectionContent('home-hero');
   const heroTitle = "Your Trusted Umrah Taxi in Jeddah, Makkah & Madinah";
   const heroSubtitleText = "Private, licensed drivers. Fixed-price transfers from Jeddah Airport to your hotel in Makkah or Madinah.";
   const heroSubtitleContent = (
     <>
       <span className="block opacity-90">{heroSubtitleText}</span>
-
     </>
   );
 
-  const heroBadge = (
-    <div className="flex flex-col items-center">
-      <div className="w-12 h-[1px] bg-gold/50 mb-4" />
-      <h2
-        className="block text-2xl md:text-3xl text-gold font-bold tracking-[0.1em] mb-4"
-        style={{ fontFamily: 'var(--font-reem-kufi)' }}
-        lang="ar"
-        dir="rtl"
-      >
-        رفيقكم الأمين في رحلة العمرة
-      </h2>
-    </div>
-  );
-
   const heroImage = "/images/haram-hero.webp";
-  const ctaText = getCustomField(heroSection, 'cta_text') || "Book Your Ride";
-  const ctaLink = getCustomField(heroSection, 'cta_link') || "/booking";
-  const secondaryCtaText = "See Our Fleet";
-  const secondaryCtaLink = "/fleet";
 
   return (
     <main className="overflow-x-hidden">
@@ -117,8 +83,7 @@ export default async function Home() {
         heroImage
       )} />
 
-
-      {/* Hero Section */}
+      {/* 1. Hero Section */}
       <HomeHero
         title={heroTitle}
         subtitle={heroSubtitleContent}
@@ -127,81 +92,36 @@ export default async function Home() {
         <HeroBookingWidget />
       </HomeHero>
 
-      {/* Transport Services Section */}
-      <TransportServices />
+      {/* 2. Trust Bar */}
+      <TrustBar />
 
-      {/* Fleet Carousel */}
-      <HomeFleetCarousel />
-
-      {/* Instant Price Calculator Section */}
-      <InstantPriceCalculator />
-
-      {/* Booking Guide Section */}
+      {/* 3. How it works */}
       <BookingGuide />
 
-      {/* Features Section */}
+      {/* 4. Fleet */}
+      <HomeFleetCarousel />
+
+      {/* 5. Popular Routes */}
+      <TransportServices />
+
+      {/* 6. Why Al Kiswah */}
       <Features />
 
-      {/* Passenger Care Section */}
-      <PassengerCare />
-
-
-
-      {/* Real Fleet Showcase */}
-      <RealFleetShowcase />
-
-      {/* Fleet Gallery - List View */}
-      <FleetGallery />
-
-      {/* Impact Stats - Authority */}
-      <ImpactStats />
-
-      {/* Gallery Section */}
-      <GallerySection />
-
-      {/* Reviews Section */}
+      {/* 7. Testimonials */}
       <ReviewsSection />
 
-      {/* SEO Content Section */}
-      <SEOContentSectionFixed />
-
-      {/* Latest Articles Section */}
-      <LatestArticles />
-
-      {/* FAQ Section - Trust */}
+      {/* 8. FAQ */}
       <FAQSection />
 
-      {/* Safety Promise Section */}
-      <FadeIn>
-        <SafetyPromise />
-      </FadeIn>
+      {/* 9. SEO Content Section */}
+      <SEOContentSectionFixed />
 
-      {/* Hotels and Districts Covered */}
-      <HotelsAndDistricts />
+      {/* 10. Latest Articles */}
+      <LatestArticles />
 
-      {/* CTA Section */}
-      <section className="relative py-6 md:py-24 bg-surface text-ink border-t border-border overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03] bg-[url('/pattern.png')] pointer-events-none" />
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
+      {/* 11. CTA Band */}
+      <CtaBand />
 
-        <div className="container relative z-10 text-center px-4">
-          <FadeIn>
-            <h2 className="text-4xl md:text-6xl font-semibold font-display mb-6 tracking-tight text-ink">
-              Start Your <span className="text-gold-strong">Spiritual Journey</span> with Peace of Mind
-            </h2>
-            <p className="text-lg md:text-xl text-ink-muted max-w-2xl mx-auto mb-12 leading-relaxed font-light">
-              Don&apos;t worry about logistics. Book your private transfer now and let us serve you with the care you deserve.
-            </p>
-            <Link
-              href="/booking"
-              className="btn-primary text-lg px-10 py-5 uppercase tracking-wider gap-3 inline-flex items-center"
-            >
-              Book Your Ride Now <ArrowRight size={22} />
-            </Link>
-          </FadeIn>
-        </div>
-      </section>
     </main>
   );
 }

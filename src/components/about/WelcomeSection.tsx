@@ -10,7 +10,7 @@ export default function WelcomeSection() {
         const parts = text.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
         return parts.map((part, index) => {
             if (part && part.startsWith('**') && part.endsWith('**')) {
-                return <strong key={index} className="font-bold text-foreground">{part.slice(2, -2)}</strong>;
+                return <strong key={index} className="font-bold text-ink">{part.slice(2, -2)}</strong>;
             }
             const linkMatch = part.match(/\[(.*?)\]\((.*?)\)/);
             if (linkMatch) {
@@ -42,12 +42,12 @@ export default function WelcomeSection() {
                         <span className="text-gold font-bold uppercase tracking-[0.2em] text-sm mb-4 block">
                             Welcome | أهلاً بك
                         </span>
-                        <h2 className="text-4xl md:text-6xl font-semibold text-foreground mb-6 font-display leading-tight">
+                        <h2 className="text-4xl md:text-6xl font-semibold text-ink mb-6 font-display leading-tight">
                             Welcome to Al Kiswah <br />
                             <span className="text-gold italic font-serif">Umrah Transport</span>
-                            <span className="block text-3xl md:text-5xl mt-4 font-reem-kufi text-foreground/90">الكسوة لنقل المعتمرين</span>
+                            <span className="block text-3xl md:text-5xl mt-4 font-reem-kufi text-ink/90">الكسوة لنقل المعتمرين</span>
                         </h2>
-                        <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-xl text-ink-muted font-light max-w-2xl mx-auto leading-relaxed">
                             Your trusted partner in pilgrim travel across Saudi Arabia.
                             <span className="block font-arabic text-lg mt-2 text-gold/80">شريكك الموثوق في رحلات العمرة عبر المملكة العربية السعودية.</span>
                         </p>
@@ -59,12 +59,12 @@ export default function WelcomeSection() {
                     {/* Intro Content */}
                     <div className="space-y-8">
                         <FadeIn delay={0.2}>
-                            <p className="text-lg leading-relaxed text-muted-foreground">
+                            <p className="text-lg leading-relaxed text-ink-muted">
                                 {parseMarkdown("We specialize in providing **safe, comfortable, and affordable [Umrah transport services](/services)** for pilgrims traveling to Makkah, Madinah, and beyond.")}
                             </p>
 
                             <div className="bg-gradient-to-r from-gold/10 to-transparent border-l-4 border-gold p-8 rounded-r-2xl my-8">
-                                <p className="text-2xl font-serif italic text-foreground mb-3">
+                                <p className="text-2xl font-serif italic text-ink mb-3">
                                     &quot;Serving the Guests of Allah with comfort and care is our mission.&quot;
                                 </p>
                                 <p className="text-xl font-arabic text-gold" dir="rtl">
@@ -72,7 +72,7 @@ export default function WelcomeSection() {
                                 </p>
                             </div>
 
-                            <p className="text-lg leading-relaxed text-muted-foreground">
+                            <p className="text-lg leading-relaxed text-ink-muted">
                                 {parseMarkdown("Our fleet of [modern buses and vans](/fleet) ensures **stress‑free [Jeddah Airport transfers](/services/jeddah-airport-transfer) and [Makkah to Madinah journeys](/services/makkah-madinah-taxi)**. We provide professional drivers dedicated to hospitality and punctuality. Whether you are traveling solo, with family, or in large groups, Al Kiswah Umrah Transport offers **[customized packages](/booking)** to meet your needs.")}
                             </p>
                         </FadeIn>
@@ -83,7 +83,7 @@ export default function WelcomeSection() {
                         {/* Features Box */}
                         <FadeIn delay={0.4}>
                             <div className="glass-card p-8 md:p-10">
-                                <h3 className="text-2xl font-semibold text-foreground mb-8 font-display flex justify-between items-center border-b border-border pb-4">
+                                <h3 className="text-2xl font-semibold text-ink mb-8 font-display flex justify-between items-center border-b border-border pb-4">
                                     Why Choose Us?
                                     <span className="font-reem-kufi text-2xl text-gold">لماذا نحن؟</span>
                                 </h3>
@@ -91,7 +91,7 @@ export default function WelcomeSection() {
                                     {whyChooseUsItems.map((item, index) => (
                                         <li key={index} className="flex items-start gap-4 group">
                                             <CheckCircle2 className="text-gold shrink-0 mt-1 bg-gold/10 rounded-full p-0.5" size={24} />
-                                            <span className="text-muted-foreground group-hover:text-foreground transition-colors">{parseMarkdown(item)}</span>
+                                            <span className="text-ink-muted group-hover:text-ink transition-colors">{parseMarkdown(item)}</span>
                                         </li>
                                     ))}
                                 </ul>

@@ -16,6 +16,10 @@ export default function Navbar() {
     const [mounted, setMounted] = useState(false);
     const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
 
+    const noHeroPages = ['/pricing', '/booking', '/track-booking', '/privacy', '/terms', '/cookie-preferences'];
+    const hasDarkHero = !noHeroPages.some(p => pathname === p || pathname.startsWith(p + '/'));
+    const useWhiteText = !scrolled && hasDarkHero;
+
     const toggleAccordion = (label: string) => {
         setExpandedMenu(expandedMenu === label ? null : label);
     };
@@ -107,22 +111,22 @@ export default function Navbar() {
         <>
             <nav
                 className={`fixed left-0 right-0 z-50 transition-all duration-300 ease-[var(--ease)] ${scrolled
-                    ? 'bg-surface/95 backdrop-blur-xl border-b border-border py-3 shadow-sm top-0'
-                    : 'bg-bg/50 backdrop-blur-md py-4 top-0 lg:top-4'
+                    ? 'bg-surface backdrop-blur-xl border-b border-border py-3 shadow-sm top-0'
+                    : 'bg-transparent py-4 top-0 lg:top-4'
                     }`}
             >
                 <div className="container flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-3 group relative z-50">
-                    <ThemeLogo width={160} height={48} priority />
+                    <ThemeLogo width={160} height={48} priority useWhiteText={useWhiteText} />
                 </Link>
 
                 {/* Desktop Nav */}
-                <div className="hidden xl:flex items-center gap-2">
+        <div className="hidden xl:flex items-center gap-2">
                     {links.map((link) => (
                         <div key={link.href} className="relative group">
                             {link.href === '#' ? (
                                 <span
-                                    className={`relative text-sm font-medium transition-all duration-300 px-4 py-2 flex items-center gap-1 cursor-default text-ink-muted hover:text-ink`}
+                                    className={`relative text-sm font-medium transition-all duration-300 px-4 py-2 flex items-center gap-1 cursor-default ${useWhiteText ? 'text-white/90 hover:text-white' : 'text-muted hover:text-ink'}`}
                                 >
                                     {link.label}
                                     {link.children && <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300 text-gold" />}
@@ -132,7 +136,7 @@ export default function Navbar() {
                                     href={link.href}
                                     className={`relative text-sm font-medium transition-all duration-300 px-4 py-2 flex items-center gap-1 ${pathname === link.href
                                         ? 'text-gold font-bold underline decoration-gold decoration-2 underline-offset-8'
-                                        : 'text-ink-muted hover:text-ink hover:text-gold'
+                                        : useWhiteText ? 'text-white/90 hover:text-white' : 'text-muted hover:text-ink hover:text-gold'
                                         }`}
                                 >
                                     {link.label}
@@ -143,7 +147,7 @@ export default function Navbar() {
                             {/* Premium Dropdown Menu */}
                             {link.children && (
                                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-6 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-400 translate-y-3 group-hover:translate-y-0">
-                                    <div className={`bg-surface/95 backdrop-blur-2xl rounded-2xl shadow-md border border-border p-3 relative overflow-hidden ${link.children.length > 4 ? 'w-[600px]' : 'w-[320px]'}`}>
+                                    <div className={`bg-surface backdrop-blur-2xl rounded-2xl shadow-xl border border-border p-3 relative overflow-hidden ${link.children.length > 4 ? 'w-[600px]' : 'w-[320px]'}`}>
                                         
                                         {/* Subtle elegant top highlight */}
                                         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-gold/50 to-transparent"></div>
@@ -162,7 +166,7 @@ export default function Navbar() {
                                                         {child.label}
                                                     </div>
                                                     {child.description && (
-                                                        <div className="text-[11px] text-ink-muted mt-1.5 leading-relaxed tracking-wider transition-all duration-300 group-hover/link:text-ink group-hover/link:translate-x-1 transform">
+                                                        <div className="text-[11px] text-muted mt-1.5 leading-relaxed tracking-wider transition-all duration-300 group-hover/link:text-ink group-hover/link:translate-x-1 transform">
                                                             {child.description}
                                                         </div>
                                                     )}
@@ -188,7 +192,7 @@ export default function Navbar() {
                 <div className="xl:hidden flex items-center gap-2">
                     {/* Mobile Menu Button */}
                     <button
-                        className={`p-2 transition-all relative z-50 text-ink hover:text-gold bg-ink/5 rounded-lg border border-border`}
+                        className={`p-2 transition-all relative z-50 rounded-lg border ${useWhiteText ? 'text-white hover:text-gold border-white/20 bg-white/10' : 'text-ink hover:text-gold bg-ink/5 border-border'}`}
                         onClick={toggleMenu}
                         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                         aria-expanded={isMenuOpen}
@@ -207,7 +211,7 @@ export default function Navbar() {
                 <div className="flex items-center justify-between p-6 border-b border-border">
                     <ThemeLogo width={140} height={40} />
                     <button
-                        className="p-2 text-ink-muted hover:text-ink hover:rotate-90 transition-transform duration-300 rounded-btn hover:bg-ink/10"
+                        className="p-2 text-muted hover:text-ink hover:rotate-90 transition-transform duration-300 rounded-btn hover:bg-ink/10"
                         onClick={() => setIsMenuOpen(false)}
                     >
                         <X size={28} strokeWidth={1.5} />
@@ -247,12 +251,12 @@ export default function Navbar() {
                                             <Link
                                                 key={child.href}
                                                 href={child.href}
-                                                className="text-base text-ink-muted hover:text-gold transition-colors py-3 flex flex-col"
+                                                className="text-base text-muted hover:text-gold transition-colors py-3 flex flex-col"
                                                 onClick={() => setIsMenuOpen(false)}
                                             >
                                                 <span className="font-medium">{child.label}</span>
                                                 {child.description && (
-                                                    <span className="text-xs text-ink-muted/70 mt-0.5">{child.description}</span>
+                                                    <span className="text-xs text-muted/70 mt-0.5">{child.description}</span>
                                                 )}
                                             </Link>
                                         ))}
@@ -264,7 +268,7 @@ export default function Navbar() {
                 </div>
 
                 <div className="p-6 bg-gradient-to-t from-bg via-bg/80 to-transparent mt-auto pt-12 pb-8 flex flex-col gap-6 border-t border-border">
-                    <div className="flex items-center justify-between text-ink-muted px-2">
+                    <div className="flex items-center justify-between text-muted px-2">
                         <a href="tel:+966548707332" className="flex items-center gap-3 hover:text-gold transition-colors font-medium group/phone">
                             <div className="w-10 h-10 rounded-full bg-ink/5 flex items-center justify-center border border-border group-hover/phone:bg-gold group-hover/phone:text-ink group-hover/phone:border-gold transition-all duration-300">
                                 <Phone size={18} />

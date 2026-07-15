@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { ArrowRight, ChevronDown, CheckCircle, Shield, Clock } from 'lucide-react';
-import { motion, useScroll, useTransform, useSpring, Variants } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import GlassButton from '@/components/ui/GlassButton';
 import { trackConversion } from '@/lib/analytics';
 import NusukHeroBadges from '@/components/trust/NusukHeroBadges';
@@ -56,15 +56,6 @@ const Hero: React.FC<HeroProps> = ({
     isSpiritual = false
 }) => {
     const ref = useRef<HTMLElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ["start start", "end start"]
-    });
-
-    const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
-    const y = useSpring(useTransform(scrollYProgress, [0, 1], ["0%", "30%"]), springConfig);
-    const opacity = useSpring(useTransform(scrollYProgress, [0, 0.5], [1, 0]), springConfig);
-
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
@@ -80,8 +71,8 @@ const Hero: React.FC<HeroProps> = ({
 
     return (
         <section ref={ref} className="relative w-full min-h-[95vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-surface">
-            {/* Parallax Background */}
-            <motion.div className="absolute inset-0 z-0" style={{ y, opacity }}>
+            {/* Static Background */}
+            <div className="absolute inset-0 z-0">
                 <div className="relative w-full h-full">
                     {fleetImages && fleetImages.length > 0 ? (
                         <div className="relative w-full h-full flex items-end justify-center pb-0 lg:pb-12 overflow-hidden">
@@ -157,18 +148,16 @@ const Hero: React.FC<HeroProps> = ({
                         <>
                             {/* Premium Frosted Glass Overlay for perfect legibility */}
                             <div className="absolute inset-0 z-[1] bg-surface/85 backdrop-blur-sm" />
-                            {/* Bottom fade for smooth section transition */}
-                            <div className="absolute bottom-0 left-0 right-0 h-[120px] z-[2] bg-gradient-to-t from-surface to-transparent" />
                         </>
                     )}
                     {!isSpiritual && (
-                        <div className="absolute inset-0 bg-gradient-to-b from-surface/80 via-surface/40 to-surface" />
+                        <div className="absolute inset-0 bg-surface/60 backdrop-blur-sm" />
                     )}
                     {!fleetImages && !isSpiritual && (
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold/10 via-transparent to-transparent opacity-60" />
                     )}
                 </div>
-            </motion.div>
+            </div>
 
             {/* Content Container */}
             <div className={`container relative z-10 px-4 pt-24 md:pt-28 lg:pt-32 pb-24 ${layout === 'two-column' ? 'grid lg:grid-cols-2 gap-12 lg:gap-24 items-center' : 'flex flex-col items-center text-center'} ${isSpiritual && layout === 'two-column' ? 'lg:grid-cols-[1.2fr,0.8fr]' : ''}`}>
@@ -223,7 +212,7 @@ const Hero: React.FC<HeroProps> = ({
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                        className={`text-lg md:text-xl text-ink-muted font-light leading-relaxed max-w-2xl ${layout === 'center' ? 'mx-auto' : 'mx-auto lg:mx-0 border-l-2 border-gold/30 pl-6'}`}
+                        className={`text-lg md:text-xl text-muted font-light leading-relaxed max-w-2xl ${layout === 'center' ? 'mx-auto' : 'mx-auto lg:mx-0 border-l-2 border-gold/30 pl-6'}`}
                     >
                         {subtitle}
                     </motion.div>
@@ -276,7 +265,7 @@ const Hero: React.FC<HeroProps> = ({
                                         {stat.icon || <CheckCircle size={16} />}
                                         <span className="font-bold text-2xl text-ink">{stat.value}</span>
                                     </div>
-                                    <span className="text-[10px] md:text-xs text-ink-muted uppercase tracking-wider">{stat.label}</span>
+                                    <span className="text-[10px] md:text-xs text-muted uppercase tracking-wider">{stat.label}</span>
                                 </div>
                             ))}
                         </motion.div>

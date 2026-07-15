@@ -7,13 +7,14 @@ interface ThemeLogoProps {
   width?: number;
   height?: number;
   priority?: boolean;
+  useWhiteText?: boolean;
 }
 
-export default function ThemeLogo({ className = "" }: ThemeLogoProps) {
+export default function ThemeLogo({ className = "", useWhiteText = false }: ThemeLogoProps) {
   return (
     <div className={`flex flex-col gap-1 ${className}`}>
         <div className="flex items-center gap-3">
-            <span className="text-xl md:text-2xl font-display font-semibold text-foreground tracking-wide uppercase transition-colors hover:text-gold">
+            <span className={`text-xl md:text-2xl font-display font-semibold tracking-wide uppercase transition-colors hover:text-gold ${useWhiteText ? 'text-white' : 'text-ink'}`}>
                 Al Kiswah
             </span>
         </div>

@@ -5,7 +5,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { usePricing } from '@/context/PricingContext';
 import { useCurrency } from '@/context/CurrencyContext';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Car, Users, Briefcase, MapPin, Calendar, CreditCard, ChevronRight, CheckCircle2, MessageCircle, AlertCircle, Plane, User, Phone, Mail, Building, FileText, Loader2 } from 'lucide-react';
+import { Car, Users, Briefcase, MapPin, Calendar, CreditCard, ChevronRight, CheckCircle2, MessageCircle, AlertCircle, Plane, User, Phone, Mail, Building, FileText, Loader2, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 
 export default function QuickBookingForm() {

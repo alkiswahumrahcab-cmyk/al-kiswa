@@ -8,6 +8,7 @@ import FeatureHighlights from '@/components/fleet/FeatureHighlights';
 import QuickBookingForm from '@/components/home/QuickBookingForm';
 import FadeIn from '@/components/common/FadeIn';
 import NusukTrustStrip from '@/components/trust/NusukTrustStrip';
+import CustomerGallery from '@/components/home/CustomerGallery';
 import { getSectionContent, getSectionImage, getCustomField } from '@/lib/content-service';
 
 export async function generateMetadata() {
@@ -148,6 +149,8 @@ export default async function FleetPage() {
                 <FadeIn>
                     <ComparisonTable />
                 </FadeIn>
+
+                <CustomerGallery />
 
                 <section className="py-20 bg-gradient-to-t from-surface-alt to-surface">
                     <div className="container mx-auto px-4">

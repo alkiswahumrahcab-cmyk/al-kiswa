@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { ShieldCheck, Award, MapPin } from 'lucide-react';
@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const NusukSidebarCard = () => {
     return (
-        <div className="bg-[#111] border border-[#1b5e43]/50 rounded-2xl overflow-hidden shadow-xl sticky top-24">
+        <div className="bg-surface border border-gold/20 rounded-2xl overflow-hidden shadow-sm sticky top-24">
             {/* Header Area */}
             <div className="bg-gradient-to-br from-[#0f3d2b] to-[#0a2015] p-6 text-center relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10 mix-blend-overlay" />
@@ -21,16 +21,16 @@ const NusukSidebarCard = () => {
 
             {/* Body Area */}
             <div className="p-6">
-                <p className="text-n-400 text-sm leading-relaxed text-center mb-6">
+                <p className="text-ink-muted text-sm leading-relaxed text-center mb-6">
                     All Al Kiswah vehicles are officially registered on the Ministry of Hajj & Umrah's government-verified system.
                 </p>
 
                 <ul className="space-y-4 mb-6">
-                    <li className="flex gap-3 text-sm text-n-300">
+                    <li className="flex gap-3 text-sm text-ink">
                         <Award size={18} className="text-gold shrink-0 mt-0.5" />
                         <span>Ministry Licensed Operator</span>
                     </li>
-                    <li className="flex gap-3 text-sm text-n-300">
+                    <li className="flex gap-3 text-sm text-ink">
                         <MapPin size={18} className="text-blue-400 shrink-0 mt-0.5" />
                         <span>Live GPS Tracking Systems</span>
                     </li>

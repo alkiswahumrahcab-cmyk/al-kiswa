@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from 'next';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -193,7 +193,7 @@ export default async function PricingPage() {
     };
 
     return (
-        <main className="min-h-screen bg-charcoal relative">
+        <main className="min-h-screen bg-surface-alt relative">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
@@ -216,10 +216,10 @@ export default async function PricingPage() {
                             <span className="inline-block bg-gold/10 border border-gold/30 text-gold text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
                                 Live Prices — Updated from Admin
                             </span>
-                            <h2 className="text-3xl md:text-5xl font-semibold font-display text-white mb-6">
+                            <h2 className="text-3xl md:text-5xl font-semibold font-display text-ink mb-6">
                                 All Routes &amp; <span className="text-gold">Exact Prices</span>
                             </h2>
-                            <p className="text-white/60 max-w-2xl mx-auto">
+                            <p className="text-ink-muted max-w-2xl mx-auto">
                                 Prices below are set directly by our team and update in real time.
                                 Every fare includes all taxes, tolls, and fuel — no surprises.
                             </p>
@@ -236,8 +236,8 @@ export default async function PricingPage() {
             {/* ── COMPARE LINK STRIP ──────────────────────────────── */}
             <div className="relative z-10 py-4 border-b border-white/5 bg-white/2">
                 <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-center">
-                    <span className="text-white/60">We supply Kiwi Taxi, Telixo, 5Star &amp; Booking.com. Book direct and save 20–30%.</span>
-                    <Link href="/pricing/compare" className="text-gold font-bold hover:text-white transition-colors whitespace-nowrap">
+                    <span className="text-ink-muted">We supply Kiwi Taxi, Telixo, 5Star &amp; Booking.com. Book direct and save 20–30%.</span>
+                    <Link href="/pricing/compare" className="text-gold font-bold hover:text-ink transition-colors whitespace-nowrap">
                         See Full Comparison →
                     </Link>
                 </div>

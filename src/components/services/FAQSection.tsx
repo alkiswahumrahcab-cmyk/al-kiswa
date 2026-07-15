@@ -48,7 +48,7 @@ export default function FAQSection({ items = defaultFAQs, title = "Frequently As
 
             <div className="container max-w-4xl mx-auto px-4">
                 <FadeIn>
-                    <h2 className="text-3xl md:text-5xl font-semibold text-center mb-16 font-display text-foreground">
+                    <h2 className="text-3xl md:text-5xl font-semibold text-center mb-16 font-display text-ink">
                         {title}
                     </h2>
                 </FadeIn>
@@ -57,20 +57,20 @@ export default function FAQSection({ items = defaultFAQs, title = "Frequently As
                     {items.map((faq, index) => (
                         <div
                             key={index}
-                            className={`rounded-2xl border transition-all duration-300 overflow-hidden ${activeAccordion === index
-                                    ? 'bg-card border-gold/50 shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)]'
-                                    : 'bg-muted/50 border-border hover:border-gold/30 hover:bg-card'
+                            className={`rounded-2xl border transition-all duration-300 overflow-hidden group ${activeAccordion === index
+                                    ? 'bg-surface border-gold shadow-sm'
+                                    : 'bg-surface border-border hover:border-gold/30 hover:shadow-sm'
                                 }`}
                         >
                             <button
-                                className="w-full flex items-center justify-between p-6 text-left"
+                                className="w-full flex items-center justify-between p-6 md:p-8 text-left"
                                 onClick={() => toggleAccordion(index)}
                             >
-                                <span className={`text-lg font-bold font-sans transition-colors ${activeAccordion === index ? 'text-foreground' : 'text-muted-foreground'}`}>
+                                <span className={`text-lg md:text-xl font-display font-semibold transition-colors pr-4 ${activeAccordion === index ? 'text-gold-strong' : 'text-ink group-hover:text-gold-strong'}`}>
                                     {faq.question}
                                 </span>
-                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${activeAccordion === index ? 'bg-gold text-black rotate-180' : 'bg-muted text-muted-foreground'}`}>
-                                    <ChevronDown size={20} />
+                                <div className={`w-10 h-10 shrink-0 rounded-full flex items-center justify-center transition-all duration-300 ${activeAccordion === index ? 'bg-gold text-ink rotate-180' : 'bg-surface-alt border border-border text-muted group-hover:bg-gold/10 group-hover:text-gold group-hover:border-gold/20'}`}>
+                                    <ChevronDown size={20} strokeWidth={2.5} />
                                 </div>
                             </button>
 
@@ -78,7 +78,7 @@ export default function FAQSection({ items = defaultFAQs, title = "Frequently As
                                 className={`grid transition-all duration-300 ease-in-out ${activeAccordion === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
                             >
                                 <div className="overflow-hidden">
-                                    <p className="px-6 pb-6 text-muted-foreground leading-relaxed font-light">
+                                    <p className="px-6 md:px-8 pb-6 md:pb-8 text-body leading-relaxed font-light">
                                         {faq.answer}
                                     </p>
                                 </div>

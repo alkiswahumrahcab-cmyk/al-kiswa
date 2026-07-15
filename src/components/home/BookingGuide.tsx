@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
+
 import { MapPin, Calendar, Car, ArrowRight, ShieldCheck, MousePointerClick } from 'lucide-react';
 import Link from 'next/link';
 
@@ -31,21 +31,14 @@ export default function BookingGuide({ lang = 'en' }: Props) {
             <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-20">
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                    <div
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/10 text-gold dark:text-gold text-xs font-bold uppercase tracking-widest border border-gold/20 mb-6"
                     >
                         <span className="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
                         {lang === 'ar' ? 'بسيط واحترافي' : 'Simple & Professional'}
-                    </motion.div>
+                    </div>
 
-                    <motion.h2
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
+                    <h2
                         className="text-4xl md:text-5xl font-black text-ink mb-6 leading-tight tracking-tight"
                     >
                         {lang === 'ar' ? (
@@ -53,16 +46,12 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                         ) : (
                             <>Your Journey in <br className="hidden md:block" /><span className="relative inline-block"><span className="relative z-10 text-gradient-gold">3 Simple Steps</span><span className="absolute bottom-2 left-0 w-full h-3 bg-gold/10 -rotate-1 z-0 rounded-full blur-sm"></span></span></>
                         )}
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
+                    </h2>
+                    <p
                         className="text-ink-muted text-lg leading-relaxed font-medium font-light"
                     >
                         {lang === 'ar' ? 'اختبر أعلى معايير نقل العمرة. سلاسة تامة لراحتكم وطمأنينتكم.' : 'Experience the gold standard of Umrah transport. Streamlined for your comfort and peace of mind.'}
-                    </motion.p>
+                    </p>
                 </div>
 
                 {/* Steps Grid */}
@@ -71,12 +60,8 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                     <div className="hidden md:block absolute top-[60px] left-[15%] right-[15%] border-t-2 border-dashed border-border z-0"></div>
 
                     {steps.map((step, idx) => (
-                        <motion.div
+                        <div
                             key={step.id}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: step.delay }}
                             className="relative z-10 group"
                         >
                             <div className="flex flex-col items-center text-center">
@@ -102,16 +87,12 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                                     {step.description}
                                 </p>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 
                 {/* CTA */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4 }}
+                <div
                     className="mt-20 text-center"
                 >
                     <Link
@@ -126,7 +107,7 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                         <MousePointerClick size={16} className="text-gold" />
                         {lang === 'ar' ? 'لا دفع مسبق مطلوب • الدفع عند الوصول' : 'No prepayment required • Pay upon arrival'}
                     </p>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

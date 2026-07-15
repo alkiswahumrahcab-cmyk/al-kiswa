@@ -1,8 +1,7 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { Users, Briefcase, Check, ArrowRight, Star } from 'lucide-react';
 import GlassButton from '@/components/ui/GlassButton';
 
@@ -147,12 +146,8 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {displayVehicles.map((vehicle, idx) => (
-                        <motion.div
+                        <div
                             key={vehicle.id || idx}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: idx * 0.1 }}
                             className="group h-full"
                         >
                             <div className="relative h-full flex flex-col bg-zinc-900/40 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden hover:border-gold/30 transition-all duration-300 hover:shadow-xl hover:shadow-gold/5">
@@ -247,7 +242,7 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
                                     </div>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>

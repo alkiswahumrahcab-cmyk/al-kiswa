@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -69,27 +69,23 @@ export default function StariaGallery() {
     const displayedImages = showAll ? IMAGES : IMAGES.slice(0, 8);
 
     return (
-        <section className="py-24 bg-deep-black border-y border-charcoal">
+        <section className="py-24 bg-surface-alt border-y border-border">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-5xl font-bold font-playfair text-white mb-4">
+                    <h2 className="text-3xl md:text-5xl font-bold font-playfair text-ink mb-4">
                         Full Gallery Experience
                     </h2>
-                    <p className="text-n-400 max-w-2xl mx-auto">
+                    <p className="text-ink-muted max-w-2xl mx-auto">
                         Explore every angle of the Hyundai Staria 2026. Click any image to view in high-resolution full screen.
                     </p>
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {displayedImages.map((src, idx) => (
-                        <motion.div 
+                        <div 
                             key={idx}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: idx * 0.05 }}
                             onClick={() => openLightbox(idx)}
-                            className="relative h-48 md:h-64 rounded-xl overflow-hidden cursor-pointer group bg-charcoal border border-gold/20"
+                            className="relative h-48 md:h-64 rounded-xl overflow-hidden cursor-pointer group bg-surface border border-border"
                         >
                             <Image 
                                 src={src} 
@@ -98,11 +94,11 @@ export default function StariaGallery() {
                                 className="object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100" 
                             />
                             <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                <div className="bg-gold/90 p-3 rounded-btn text-charcoal transform scale-50 group-hover:scale-100 transition-transform duration-300">
+                                <div className="bg-gold/90 p-3 rounded-btn text-ink transform scale-50 group-hover:scale-100 transition-transform duration-300">
                                     <Maximize2 size={24} />
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 
@@ -110,7 +106,7 @@ export default function StariaGallery() {
                     <div className="text-center mt-12">
                         <button 
                             onClick={() => setShowAll(true)}
-                            className="px-8 py-3 border-2 border-gold text-gold rounded-btn font-bold hover:bg-gold hover:text-charcoal transition-colors"
+                            className="px-8 py-3 border-2 border-gold text-gold rounded-btn font-bold hover:bg-gold hover:text-ink transition-colors"
                         >
                             View All 25 Images
                         </button>

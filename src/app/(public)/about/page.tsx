@@ -52,7 +52,7 @@ export default async function AboutPage() {
     const bgImage = getSectionImage(section, 'desktop') || "https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?q=80&w=2000&auto=format&fit=crop";
 
     return (
-        <main className="min-h-screen bg-background text-foreground relative">
+        <main className="min-h-screen bg-bg text-ink relative">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-[0.03] dark:opacity-5 mix-blend-overlay pointer-events-none z-0" />
             <JsonLdScript schema={generateAboutPageSchema()} />
             <div className="contents relative z-10">

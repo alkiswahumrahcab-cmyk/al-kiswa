@@ -89,11 +89,11 @@ export default function PriceComparisonTable() {
                         <span className="inline-block bg-gold/10 border border-gold/30 text-gold text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
                             Real Price Comparison
                         </span>
-                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+                        <h2 className="text-3xl md:text-5xl font-bold text-ink mb-4">
                             We Supply Kiwi Taxi.{' '}
                             <span className="text-gold">Book From Us Directly.</span>
                         </h2>
-                        <p className="text-n-400 max-w-2xl mx-auto text-lg">
+                        <p className="text-ink-muted max-w-2xl mx-auto text-lg">
                             Al Kiswah provides the actual transport for platforms like Kiwi Taxi and Booking.com.
                             Those platforms add <strong className="text-red-400">20–30% commission</strong> before showing customers.
                             Book direct — pay the operator price.
@@ -133,8 +133,8 @@ export default function PriceComparisonTable() {
                                     className={`rounded-2xl border overflow-hidden transition-all duration-300 ${
                                         route.highlight
                                             ? 'border-gold/40 shadow-[0_0_20px_hsl(var(--gold-glow) / 0.08)]'
-                                            : 'border-white/8'
-                                    } ${isOpen ? 'bg-neutral-900/80' : 'bg-white/3 hover:bg-white/5'}`}
+                                            : 'border-border'
+                                    } ${isOpen ? 'bg-surface-alt' : 'bg-surface hover:bg-surface-alt'}`}
                                 >
                                     {/* Route header — click to expand */}
                                     <button
@@ -148,7 +148,7 @@ export default function PriceComparisonTable() {
                                                 </span>
                                             )}
                                             <div>
-                                                <h3 className="text-white font-bold flex items-center gap-2">
+                                                <h3 className="text-ink font-bold flex items-center gap-2">
                                                     {route.origin}
                                                     <ArrowRight size={14} className="text-n-500" />
                                                     {route.destination}
@@ -181,7 +181,7 @@ export default function PriceComparisonTable() {
                                             <div className="rounded-xl overflow-hidden border border-white/8">
                                                 <table className="w-full text-sm">
                                                     <thead>
-                                                        <tr className="border-b border-white/8 bg-black/30">
+                                                        <tr className="border-b border-border bg-surface-alt">
                                                             <th className="text-left px-4 py-3 text-n-400 font-medium">Vehicle Class</th>
                                                             <th className="text-center px-4 py-3 text-gold font-bold">Direct (Us)</th>
                                                             <th className="text-center px-4 py-3 text-red-400 font-medium">Via Platform</th>
