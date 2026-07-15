@@ -117,11 +117,12 @@ The design is bright, but a few bands need a dark anchor for contrast and drama 
   --color-info: #2A6F7A;
 
   /* radius */
+  --radius-btn: 8px;   /* buttons: rectangular with a small radius — corporate/premium, NOT pill */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 20px;
-  --radius-pill: 9999px;
+  --radius-pill: 9999px; /* reserved for tags/badges/avatars only — never buttons */
 
   /* elevation (warm, low-spread) */
   --shadow-xs: 0 1px 2px rgba(21,20,15,0.04);
@@ -238,7 +239,7 @@ The current Navbar/Footer cap at `1536px` causes float/misalignment on 1920px mo
 
 ## 6. Elevation, Radius & Borders
 
-- **Radius:** cards `--radius-xl` (20px) or `--radius-lg` (16px); inputs & small elements `--radius-md` (12px); buttons **pill** (`--radius-pill`) for primary CTAs, `--radius-md` acceptable for compact/utility buttons; images `--radius-lg`.
+- **Radius:** cards `--radius-xl` (20px) or `--radius-lg` (16px); inputs `--radius-md` (12px); **buttons `--radius-btn` (8px) — rectangular with a small corner radius, never pill/fully-rounded**; images `--radius-lg`. Pill (`--radius-pill`) is reserved for tags, badges, and avatars only.
 - **Shadows:** always warm and low-spread (see tokens). The **booking widget** gets `--shadow-lg`; standard cards get `--shadow-sm` at rest → `--shadow-md` on hover. Never use black/blue-tinted shadows.
 - **Borders:** `1px solid var(--color-border)` for hairlines. Cards may use border *or* shadow, rarely both heavily — pick one as the primary lift.
 
@@ -250,11 +251,12 @@ The current Navbar/Footer cap at `1536px` causes float/misalignment on 1920px mo
 
 | Variant | Background | Text | Border | Radius | Use |
 |---|---|---|---|---|---|
-| **Primary** | `--color-gold` → hover `--color-gold-strong` | `--color-ink` (charcoal) | none | pill | The one main action per view (Book / Get Prices) |
-| **Secondary** | transparent → hover `--color-gold-soft` | `--color-ink` | `1.5px --color-border-strong` | pill | Alternate action |
+| **Primary** | `--color-gold` → hover `--color-gold-strong` | `--color-ink` (charcoal) | none | `--radius-btn` (8px) | The one main action per view (Book / Get Prices) |
+| **Secondary** | transparent → hover `--color-gold-soft` | `--color-ink` | `1.5px --color-border-strong` | `--radius-btn` (8px) | Alternate action |
 | **Ghost / text** | transparent | `--color-gold-strong` | none | — | Low-priority links, "Learn more →" |
-| **On-dark** | `--color-gold` | `--color-ink` | none | pill | Primary inside dark CTA band |
+| **On-dark** | `--color-gold` | `--color-ink` | none | `--radius-btn` (8px) | Primary inside dark CTA band |
 
+- **Corner radius: `--radius-btn` (8px) — rectangular with a small radius. Never pill, never fully-rounded.** This is a deliberate corporate/premium choice; the soft rectangle reads more professional and B2B-appropriate than a rounded pill. Apply the same 8px to every button variant and size for consistency.
 - Padding: `14px 28px` (default), `12px 20px` (compact).
 - Hover: darken + gain `--shadow-gold` (primary only), `150ms`. No movement needed.
 - Focus-visible: `2px` gold outline, `2px` offset — always visible.
@@ -286,7 +288,7 @@ The most important element on the site. A floating elevated card holding the who
 
 - Full-bleed background; inner content in `.container`.
 - **Over hero:** transparent with `--color-on-ink` text (if hero image is dark enough) OR ivory-tinted glass. **On scroll:** solid `--color-surface` + hairline bottom border + `--shadow-sm`, text switches to `--color-ink`.
-- Logo left; nav links center/right (Manrope 500); primary CTA far right (pill gold "Book now"); language switcher (EN/AR/ID/UR — RTL aware).
+- Logo left; nav links center/right (Manrope 500); primary CTA far right (rectangular 8px gold "Book now"); language switcher (EN/AR/ID/UR — RTL aware).
 - Mobile: hamburger → full-height ivory drawer, generous spacing, CTA pinned.
 - Active link: gold underline or gold text.
 
@@ -319,6 +321,44 @@ Ivory cards or hairline-divided rows; question in Manrope 600, chevron (gold) ro
 ### 7.10 CTA band (dark anchor)
 
 Full-bleed `--color-ink-bg`, centered: eyebrow (gold) → H2 (Cormorant, `--color-on-ink`) → lead → primary gold button + WhatsApp secondary. This is the one deliberately dramatic dark moment before the footer.
+
+### 7.11 Hero section (detailed) — the flagship
+
+The hero does three jobs at once: it makes the first impression, states the promise, and starts the booking. It is also the **LCP element**, so it must render fast and shift nothing. Treat it as the most carefully-built section on the site.
+
+**Layout (desktop): asymmetric two-column, content-led.**
+- **Structure:** a `~7 / 5` split inside the `.container`. Left column = message; right column = imagery. The **booking widget spans the full width beneath both columns**, overlapping the hero's bottom edge so it sits on the fold (the reference's signature "book immediately" pattern).
+- **Height:** content-driven, not `100vh` (forced full-viewport heroes hurt UX and LCP). Aim `min-height ~640–720px` desktop, with top padding that clears the fixed navbar. Never let the widget push below the fold on a standard laptop.
+- **Background:** `--color-bg` ivory with an optional *very subtle* warm wash (a soft radial from `--color-gold-soft` at ~6% opacity in one corner, or a faint gold hairline motif). Restraint is mandatory — the background must never compete with the text. No busy patterns.
+
+**Left column (the message), top to bottom:**
+1. **Eyebrow** — Manrope 600, 13px, uppercase, `0.14em` tracking, gold. e.g. `PRIVATE UMRAH & HAJJ TRANSPORT`.
+2. **H1** — Cormorant Garamond 600, 68px desktop / 40px mobile, line-height 1.04, `--color-ink`. Benefit-led and calm. Direction: *ease, comfort, reliability, arrival*. e.g. "Arrive in comfort, from the moment you land." One gold-accented word is allowed for emphasis, no more.
+3. **Subhead** — Manrope 400, 19px, `--color-body`, max-width `~48ch`. One or two sentences: fixed prices, Nusuk-approved drivers, door-to-door across Makkah, Madinah, Jeddah, Taif.
+4. **Trust microcopy row** — inline: 5 gold stars + rating, a divider dot, "10,000+ pilgrims served," a divider dot, "Nusuk-approved." Manrope 14px, muted. Small, quiet, credible.
+
+**Right column (the imagery):**
+- A single warm, human, golden-hour photograph — a driver welcoming a family, a spotless vehicle, or Makkah/Madinah at dawn. `--radius-lg`, `--shadow-md`.
+- Optional depth touch: one small floating "trust card" overlapping a corner of the image (e.g. a rating chip or "Nusuk-approved" badge) on `--color-surface`, `--radius-md`, `--shadow-sm`. Use once, keep it subtle.
+- **Text never sits on the image** — all copy lives on ivory in the left column, guaranteeing AA contrast regardless of the photo.
+
+**Booking widget:** the hero's functional anchor — see §7.2. Full-width elevated card, overlapping the hero's bottom edge, always in the first viewport.
+
+**Mobile (single column, stacked):**
+`Eyebrow → H1 (40px) → subhead → trust row → image (rounded, full-width) → booking widget (fields stacked).` Keep vertical spacing generous but ensure the widget's top edge is reachable with minimal scroll.
+
+**Performance rules (this section is the LCP):**
+- The hero image is the LCP candidate: `next/image` with `priority`, explicit `width`/`height`, AVIF/WebP, and a preload hint. Serve a correctly-sized image per breakpoint — never a 2000px file to a phone.
+- H1 text must paint immediately: fonts via `next/font` with `display: swap`, preloaded, so the headline is never invisible.
+- **Reserve space** for the image and the booking widget so nothing shifts after load (protects CLS). The widget's height is fixed/known before its JS hydrates.
+- **No entrance animation** on the hero (per §10) — content is simply present on first paint.
+
+**Accessibility & RTL:**
+- Exactly one `<h1>` on the page, and it lives here.
+- Hero image needs a meaningful `alt` (or empty `alt` if purely decorative and the message is fully in text).
+- RTL (Arabic/Urdu): the `7/5` split mirrors — message column moves to the right, image to the left — via logical properties. Verify the widget and trust row mirror cleanly.
+
+**Copy voice:** calm, reassuring, pilgrim-first. Speak to the worry it removes ("no haggling at the airport, no waiting, a driver who speaks your language"). Never salesy, never loud.
 
 ---
 
@@ -435,10 +475,12 @@ module.exports = {
         body: ['var(--font-body)'],
       },
       borderRadius: {
+        btn: 'var(--radius-btn)',  // rectangular buttons (8px)
+        sm: 'var(--radius-sm)',
         md: 'var(--radius-md)',
         lg: 'var(--radius-lg)',
         xl: 'var(--radius-xl)',
-        pill: 'var(--radius-pill)',
+        pill: 'var(--radius-pill)', // tags/badges/avatars only
       },
       boxShadow: {
         xs: 'var(--shadow-xs)',
@@ -469,7 +511,7 @@ module.exports = {
 
 **Do:** lean on whitespace · keep gold rare and intentional · charcoal text on gold · warm shadows · Cormorant for headings/quotes only · one primary CTA per view · alternate ivory/sand bands · center content on wide monitors · keep the page still and fast · CSS-only micro-feedback · reserve space for all media (no CLS).
 
-**Don't:** pure `#FFFFFF` page backgrounds · white text on gold · cramped sections · body copy in Cormorant · harsh/cold shadows · more than one competing CTA · hardcoded hex in components · hardcoded left/right (breaks RTL) · reintroduce dark mode · scroll reveals / staggered / ambient animation · animation libraries · anything that delays or shifts first paint.
+**Don't:** pure `#FFFFFF` page backgrounds · white text on gold · cramped sections · body copy in Cormorant · harsh/cold shadows · more than one competing CTA · hardcoded hex in components · hardcoded left/right (breaks RTL) · reintroduce dark mode · scroll reveals / staggered / ambient animation · animation libraries · anything that delays or shifts first paint · **pill / fully-rounded buttons** (buttons are rectangular, 8px).
 
 ---
 
