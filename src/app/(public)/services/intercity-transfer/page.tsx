@@ -84,7 +84,7 @@ export default function IntercityTransferPage() {
             />
 
             {/* 1. HERO SECTION */}
-            <section className="relative w-full min-h-[620px] max-md:min-h-[500px] flex flex-col pt-32 pb-24 md:pb-32 bg-surface-alt">
+            <section className="relative w-full min-h-[600px] md:min-h-[720px] flex flex-col pt-32 md:pt-40 pb-40 md:pb-56 bg-surface-alt">
                 <div className="absolute inset-0 z-0">
                     <Image 
                         src="/images/hero/desert-highway-makkah-tower.jpg" 
@@ -96,10 +96,10 @@ export default function IntercityTransferPage() {
                     />
                     {/* Scrim for text readability */}
                     <div className="absolute inset-0 bg-gradient-to-r from-ink/80 to-ink/20" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
                 </div>
 
-                <div className="container relative z-10 flex-grow flex flex-col justify-center">
+                <div className="container relative z-10 flex-grow flex flex-col justify-center mt-8 md:mt-0">
                     <div className="max-w-[640px]">
                         <div className="flex items-center gap-2 text-sm text-surface-sunken mb-6">
                             <Link href="/" className="hover:text-gold transition-colors">Home</Link>
@@ -136,11 +136,10 @@ export default function IntercityTransferPage() {
                         </div>
                     </div>
                 </div>
-
             </section>
 
             {/* Booking Widget Floating Over Fold */}
-            <div className="container relative z-20 -mt-32 md:-mt-48 mb-16 flex justify-center">
+            <div className="container relative z-20 -mt-24 md:-mt-32 mb-16 flex justify-center">
                 <div className="w-full max-w-5xl">
                     <BookingFormWrapper />
                     <div className="mt-4 flex items-center justify-center gap-2 text-sm text-muted font-body text-center flex-wrap">
