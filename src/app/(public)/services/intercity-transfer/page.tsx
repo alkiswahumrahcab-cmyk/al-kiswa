@@ -137,23 +137,21 @@ export default function IntercityTransferPage() {
                     </div>
                 </div>
 
-                {/* Booking Widget Floating Over Fold */}
-                <div className="absolute left-0 right-0 -bottom-16 md:-bottom-12 z-20 container flex justify-center">
-                    <div className="w-full max-w-5xl bg-surface rounded-[20px] shadow-lg border border-border p-6 md:p-8">
-                        <BookingFormWrapper />
-                        <div className="mt-4 flex items-center justify-center gap-2 text-sm text-muted font-body text-center flex-wrap">
-                            <span className="flex items-center gap-1"><Check size={14} className="text-gold" /> Fixed prices</span>
-                            <span className="hidden sm:inline">·</span>
-                            <span className="flex items-center gap-1"><Check size={14} className="text-gold" /> Free cancellation</span>
-                            <span className="hidden sm:inline">·</span>
-                            <span className="flex items-center gap-1"><Check size={14} className="text-gold" /> Nusuk-approved drivers</span>
-                        </div>
-                    </div>
-                </div>
             </section>
 
-            {/* SPACER for floating widget */}
-            <div className="h-24 md:h-20 bg-bg" />
+            {/* Booking Widget Floating Over Fold */}
+            <div className="container relative z-20 -mt-32 md:-mt-48 mb-16 flex justify-center">
+                <div className="w-full max-w-5xl">
+                    <BookingFormWrapper />
+                    <div className="mt-4 flex items-center justify-center gap-2 text-sm text-muted font-body text-center flex-wrap">
+                        <span className="flex items-center gap-1"><Check size={14} className="text-gold" /> Fixed prices</span>
+                        <span className="hidden sm:inline">·</span>
+                        <span className="flex items-center gap-1"><Check size={14} className="text-gold" /> Free cancellation</span>
+                        <span className="hidden sm:inline">·</span>
+                        <span className="flex items-center gap-1"><Check size={14} className="text-gold" /> Nusuk-approved drivers</span>
+                    </div>
+                </div>
+            </div>
 
             {/* 2. INTRO PARAGRAPH (SEO) */}
             <section className="py-[64px] md:py-[120px] bg-bg">
