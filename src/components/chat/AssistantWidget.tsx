@@ -261,7 +261,7 @@ function Timestamp({ ts }: { ts: number }) {
   return (
     <time
       dateTime={d.toISOString()}
-      className="block mt-1 text-[10px] text-muted-foreground select-none"
+      className="block mt-1 text-[10px] text-muted select-none"
     >
       {t}
     </time>
@@ -281,7 +281,7 @@ function MessageBubble({ msg }: { msg: ChatMessage }) {
       {!isUser && (
         <div
           className="w-7 h-7 rounded-full flex-shrink-0 mt-0.5 overflow-hidden
-                     border border-gold/25 bg-charcoal"
+                     border border-gold/25 bg-ink"
           aria-hidden="true"
         >
           <Image
@@ -299,8 +299,8 @@ function MessageBubble({ msg }: { msg: ChatMessage }) {
           className={`
             rounded-2xl px-4 py-2.5 text-[14px] leading-[1.65] shadow-sm
             ${isUser
-              ? 'bg-gold text-charcoal rounded-br-[4px] font-medium'
-              : 'bg-card border border-border text-foreground rounded-bl-[4px]'
+              ? 'bg-gold text-surface rounded-br-[4px] font-medium'
+              : 'bg-surface-alt border border-border text-ink rounded-bl-[4px]'
             }
           `}
           {...(!isUser ? { 'aria-live': 'polite' as const, 'aria-atomic': 'true' } : {})}
@@ -370,7 +370,7 @@ function DesktopPanel({ state, dispatch, onSend, onClose, messagesEndRef, textar
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[9998] bg-charcoal/15 cursor-default"
+        className="fixed inset-0 z-[9998] bg-ink/15 cursor-default"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -387,9 +387,9 @@ function DesktopPanel({ state, dispatch, onSend, onClose, messagesEndRef, textar
         className="
           fixed top-0 bottom-0 right-0 z-[9999]
           w-[400px] xl:w-[420px] max-w-[460px] flex flex-col overflow-hidden
-          bg-background border-y-0 border-l border-r-0 border-border
+          bg-surface border-y-0 border-l border-r-0 border-border
           rounded-l-2xl
-          shadow-[-8px_0_40px_hsl(var(--charcoal)/0.25),-1px_0_0_hsl(var(--gold)/0.08)]
+          shadow-[-8px_0_40px_rgba(21,20,15,),-1px_0_0_rgba(226,163,54,)]
         "
       >
         <PanelHeader onClose={onClose} />
@@ -472,7 +472,7 @@ function MobileSheet({ state, dispatch, onSend, onClose, messagesEndRef, textare
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
-        className="fixed inset-0 bg-charcoal/60 z-[9998] touch-none"
+        className="fixed inset-0 bg-ink/60 z-[9998] touch-none"
         style={{ opacity }}
         onClick={onClose}
         aria-hidden="true"
@@ -494,9 +494,9 @@ function MobileSheet({ state, dispatch, onSend, onClose, messagesEndRef, textare
         className="
           fixed inset-x-0 bottom-0 z-[9999]
           flex flex-col
-          bg-background
+          bg-surface
           rounded-t-[20px]
-          shadow-[0_-8px_40px_hsl(var(--charcoal)/0.3)]
+          shadow-[0_-8px_40px_rgba(21,20,15,)]
           overflow-hidden
           touch-none
         "
@@ -556,13 +556,13 @@ function MobileSheet({ state, dispatch, onSend, onClose, messagesEndRef, textare
 
 function PanelHeader({ onClose }: { onClose: () => void }) {
   return (
-    <div className="flex items-center gap-3 px-4 py-3.5 flex-shrink-0 bg-charcoal">
+    <div className="flex items-center gap-3 px-4 py-3.5 flex-shrink-0 bg-ink">
       <div
         className="
           w-10 h-10 rounded-full flex-shrink-0
-          border border-gold/30 bg-n-800
+          border border-gold/30 bg-ink-surface
           overflow-hidden
-          shadow-[0_0_0_2px_hsl(var(--gold)/0.12)]
+          shadow-[0_0_0_2px_rgba(226,163,54,)]
         "
         aria-hidden="true"
       >
@@ -579,7 +579,7 @@ function PanelHeader({ onClose }: { onClose: () => void }) {
         <h2 className="text-base leading-tight font-cormorant font-semibold text-gold tracking-wide">
           Sara
         </h2>
-        <p className="text-[11px] text-muted-foreground tracking-wide flex items-center gap-1.5 mt-0.5">
+        <p className="text-[11px] text-muted tracking-wide flex items-center gap-1.5 mt-0.5">
           <span className="w-1.5 h-1.5 rounded-full bg-green-400 flex-shrink-0" aria-hidden="true" />
           Al Kiswah Umrah Guide
         </p>
@@ -589,7 +589,7 @@ function PanelHeader({ onClose }: { onClose: () => void }) {
         onClick={onClose}
         className="
           w-8 h-8 flex items-center justify-center
-          rounded-full text-n-400
+          rounded-full text-muted
           hover:text-gold hover:bg-gold/10
           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50
           transition-all duration-150
@@ -610,8 +610,8 @@ function BookingBanner({ ref_ }: { ref_: string }) {
       <CheckCircle2 size={16} className="text-green-500 flex-shrink-0" />
       <div>
         <p className="text-xs font-semibold text-green-500">Booking Confirmed</p>
-        <p className="text-[11px] text-muted-foreground">
-          Ref: <span className="font-bold text-foreground">{ref_}</span>
+        <p className="text-[11px] text-muted">
+          Ref: <span className="font-bold text-ink">{ref_}</span>
           {' '}· Confirmation email sent with PDF receipt
         </p>
       </div>
@@ -647,10 +647,10 @@ function MessageList({
           animate={{ opacity: 1, y: 0 }}
           className="flex gap-2 justify-start"
         >
-          <div className="w-7 h-7 rounded-full flex-shrink-0 mt-0.5 overflow-hidden border border-gold/25 bg-charcoal">
+          <div className="w-7 h-7 rounded-full flex-shrink-0 mt-0.5 overflow-hidden border border-gold/25 bg-ink">
             <Image src="/sara-avatar-v6.png" alt="" width={56} height={56} className="w-full h-full object-cover rounded-full" />
           </div>
-          <div className="bg-card border border-border rounded-2xl rounded-bl-[4px] px-4 py-3 shadow-sm">
+          <div className="bg-surface-alt border border-border rounded-2xl rounded-bl-[4px] px-4 py-3 shadow-sm">
             <TypingDots />
           </div>
         </motion.div>
@@ -680,7 +680,7 @@ function InputArea({ value, onChange, onSend, onKeyDown, disabled, textareaRef, 
     <div
       className={`
         flex-shrink-0 flex items-end gap-2 px-3 py-3
-        border-t border-border bg-card
+        border-t border-border bg-surface-alt
         ${mobile ? 'pb-[env(safe-area-inset-bottom,12px)]' : ''}
       `}
     >
@@ -696,9 +696,9 @@ function InputArea({ value, onChange, onSend, onKeyDown, disabled, textareaRef, 
         className="
           flex-1 min-w-0 resize-none overflow-hidden
           text-[16px] leading-[1.5]
-          bg-muted border border-border
+          bg-bg border border-border
           rounded-xl px-3.5 py-2.5
-          text-foreground placeholder:text-muted-foreground
+          text-ink placeholder:text-muted
           focus:outline-none focus:ring-2 focus:ring-gold/35 focus:border-gold/50
           disabled:opacity-50 disabled:cursor-not-allowed
           transition-all duration-200
@@ -713,7 +713,7 @@ function InputArea({ value, onChange, onSend, onKeyDown, disabled, textareaRef, 
         aria-label="Send message"
         className="
           w-11 h-11 flex-shrink-0 flex items-center justify-center
-          bg-gold text-charcoal rounded-xl
+          bg-gold text-surface rounded-xl
           hover:bg-gold-dark
           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50 focus-visible:ring-offset-2
           disabled:opacity-35 disabled:cursor-not-allowed
@@ -755,9 +755,9 @@ function DesktopLauncher({ isOpen, onClick }: { isOpen: boolean; onClick: () => 
         className="
           relative z-10
           w-14 h-14 rounded-full
-          bg-charcoal border border-gold/35
+          bg-ink border border-gold/35
           flex items-center justify-center
-          shadow-[0_4px_24px_hsl(var(--charcoal)/0.5),0_0_0_1px_hsl(var(--gold)/0.1)]
+          shadow-[0_4px_24px_rgba(21,20,15,),0_0_0_1px_rgba(226,163,54,)]
           hover:border-gold/60
           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 focus-visible:ring-offset-2
           transition-all duration-200
