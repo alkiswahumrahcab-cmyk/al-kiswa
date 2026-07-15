@@ -1,54 +1,46 @@
-﻿'use client';
 import { MapPin, Clock, Users, Accessibility } from 'lucide-react';
-import { useState } from 'react';
 import type { ZiyaratSite } from '@/data/ziyarat-locations';
 
-export function LocationGrid({ sites, city }: { sites: ZiyaratSite[]; city: string }) {
-  const [expanded, setExpanded] = useState<string | null>(null);
-
+export function LocationGrid({ sites }: { sites: ZiyaratSite[] }) {
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {sites.map((site) => (
-        <button
+        <details
           key={site.id}
-          onClick={() => setExpanded(expanded === site.id ? null : site.id)}
-          className={`text-left p-5 rounded-2xl border transition-all duration-300 group ${
-            expanded === site.id
-              ? 'bg-gold/5 border-gold/40 col-span-1 md:col-span-2 lg:col-span-3'
-              : 'bg-white/5 border-white/10 hover:border-gold/30 hover:bg-white/10'
-          }`}
+          className="group p-5 rounded-[20px] border border-border bg-surface transition-all duration-300 hover:shadow-md hover:border-gold/30 open:bg-gold/5 open:border-gold/40 open:shadow-sm"
         >
-          <div className="flex items-start gap-3">
-            <div className="bg-gold/10 p-2.5 rounded-xl text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-colors shrink-0">
-              <MapPin size={18} />
+          <summary className="flex items-start gap-3 cursor-pointer outline-none marker:hidden list-none [&::-webkit-details-marker]:hidden">
+            <div className="bg-gold/10 p-2.5 rounded-xl text-gold border border-gold/20 group-hover:bg-gold group-hover:text-white transition-colors shrink-0 mt-0.5">
+              <MapPin size={20} />
             </div>
             <div className="flex-1 min-w-0">
-              <h4 className="font-bold text-white text-base mb-1">{site.name}</h4>
-              <p className="text-xs text-gold/80 font-medium mb-1">{site.significance}</p>
-              {expanded === site.id ? (
-                <div className="mt-3 space-y-3 animate-in fade-in duration-300">
-                  <p className="text-sm text-n-300 leading-relaxed font-light">{site.desc}</p>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 pt-2">
-                    <div className="flex items-center gap-2 text-xs text-n-400">
-                      <Clock size={14} className="text-gold" />
-                      <span>{site.bestTime}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-xs text-n-400">
-                      <Accessibility size={14} className="text-gold" />
-                      <span>{site.accessibility}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-xs text-n-400">
-                      <Users size={14} className="text-gold" />
-                      <span>{site.familyFriendly ? 'Family friendly' : 'Adults recommended'}</span>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <p className="text-xs text-n-500 mt-1">Tap to read more →</p>
-              )}
+              <h4 className="font-body font-bold text-ink text-[17px] leading-tight mb-1 group-open:text-gold transition-colors">{site.name}</h4>
+              <p className="text-[13px] text-body-light font-medium leading-relaxed">{site.significance}</p>
+              <p className="text-[13px] text-gold font-semibold mt-3 group-open:hidden flex items-center">
+                Tap to read more <span className="ml-1">&rarr;</span>
+              </p>
+            </div>
+          </summary>
+          
+          <div className="mt-5 pt-4 pl-[52px] border-t border-border/50 space-y-4 animate-in fade-in duration-300">
+            <p className="text-[15px] text-body leading-relaxed font-light">{site.desc}</p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+              <div className="flex items-start gap-2 text-[13px] text-body-light">
+                <Clock size={16} className="text-gold shrink-0 mt-0.5" />
+                <span className="leading-tight">{site.bestTime}</span>
+              </div>
+              <div className="flex items-start gap-2 text-[13px] text-body-light">
+                <Accessibility size={16} className="text-gold shrink-0 mt-0.5" />
+                <span className="leading-tight">{site.accessibility}</span>
+              </div>
+              <div className="flex items-start gap-2 text-[13px] text-body-light">
+                <Users size={16} className="text-gold shrink-0 mt-0.5" />
+                <span className="leading-tight">{site.familyFriendly ? 'Family friendly' : 'Adults recommended'}</span>
+              </div>
             </div>
           </div>
-        </button>
+        </details>
       ))}
     </div>
   );

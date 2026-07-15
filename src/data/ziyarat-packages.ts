@@ -49,7 +49,7 @@ export const tourPackages: TourPackage[] = [
     name: "Taif Mountain Day Trip",
     city: "Taif",
     duration: "8–10 hours",
-    distance: "180 km (from Makkah)",
+    distance: "90 km (from Makkah)",
     description: "Escape the heat with a full-day trip to the mountain city of Taif. Visit rose gardens, cable cars, traditional markets, and scenic viewpoints.",
     locations: ["Al Hada Mountain & Cable Car", "Taif Rose Gardens", "Al Shafa Mountain", "Taif Traditional Souq", "Al Rudaf Park"],
     familyNotes: "Excellent for families and children. Cooler temperatures. Cable car is a highlight for kids.",
@@ -63,6 +63,6 @@ export const vehicleLabels: Record<string, { name: string; capacity: string }> =
   gmc: { name: "GMC Yukon", capacity: "7 pax" },
   staria: { name: "Hyundai Staria", capacity: "7 pax" },
   starex: { name: "Hyundai H1", capacity: "7 pax" },
-  hiace: { name: "Toyota Hiace", capacity: "10 pax" },
-  coaster: { name: "Toyota Coaster", capacity: "21 pax" },
+  hiace: { name: "Toyota Hiace", capacity: "11 pax" },
+  coaster: { name: "Toyota Coaster", capacity: "19 pax" },
 };

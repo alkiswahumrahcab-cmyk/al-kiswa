@@ -13,10 +13,9 @@ export default function Navbar() {
     const pathname = usePathname();
     const { isMenuOpen, setIsMenuOpen, toggleMenu } = useMenu();
     const [scrolled, setScrolled] = useState(false);
-    const [mounted, setMounted] = useState(false);
     const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
 
-    const noHeroPages = ['/pricing', '/booking', '/track-booking', '/privacy', '/terms', '/cookie-preferences'];
+    const noHeroPages = ['/pricing', '/booking', '/track-booking', '/privacy', '/terms', '/cookie-preferences', '/services/ziyarat-tours'];
     const hasDarkHero = !noHeroPages.some(p => pathname === p || pathname.startsWith(p + '/'));
     const useWhiteText = !scrolled && hasDarkHero;
 
@@ -25,7 +24,6 @@ export default function Navbar() {
     };
 
     useEffect(() => {
-        setMounted(true);
         let ticking = false;
 
         const handleScroll = () => {

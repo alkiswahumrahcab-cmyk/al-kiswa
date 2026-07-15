@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -133,7 +133,7 @@ export default async function ZiarahMadinahPage() {
                         <p className="text-white/60 font-light mb-8 ml-6">
                             Our private Madinah Ziyarat covers every significant Islamic site in the Prophet&apos;s city. Tap any location to read its full history and significance.
                         </p>
-                        <LocationGrid sites={madinahSites} city="madinah" />
+                        <LocationGrid sites={madinahSites} />
                     </FadeIn>
                 </div>
             </section>

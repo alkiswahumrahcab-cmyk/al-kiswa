@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -133,7 +133,7 @@ export default async function ZiarahMakkahPage() {
                         <p className="text-white/60 font-light mb-8 ml-6">
                             Our private Makkah Ziyarat covers every significant Islamic historical site outside the Haram. Tap any location to read its full history.
                         </p>
-                        <LocationGrid sites={makkahSites} city="makkah" />
+                        <LocationGrid sites={makkahSites} />
                     </FadeIn>
                 </div>
             </section>
