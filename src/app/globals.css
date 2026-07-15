@@ -37,6 +37,18 @@
     --color-error-soft: #F6E3DD;
     --color-info: #2A6F7A;
 
+    /* Ivory Light Theme */
+    --theme-ivory: #FDFCF8;
+    --theme-surface: #FFFFFF;
+    --theme-surface-warm: #FBF8F1;
+    --theme-charcoal: #15140F;
+    --theme-charcoal-soft: #57534A;
+    --theme-muted: #8A8578;
+    --theme-gold: #E2A336;
+    --theme-gold-deep: #C6871F;
+    --theme-gold-tint: #F3E7CC;
+    --theme-hairline: #EAE4D6;
+
     /* radius */
     --radius-btn: 8px;   /* rectangular buttons, never pill */
     --radius-sm: 8px;

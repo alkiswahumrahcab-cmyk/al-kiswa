@@ -178,14 +178,14 @@ export default function HomeFleetCarousel() {
                     {/* Navigation Buttons */}
                     <button
                         onClick={prevSlide}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-16 z-30 p-3 rounded-full bg-ink/5 border border-border text-ink hover:bg-gold hover:text-black transition-all backdrop-blur-md group shadow-xl hidden md:block"
+                        className="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-40 p-3 rounded-full bg-surface border border-border text-ink hover:bg-gold hover:text-black hover:border-gold transition-all backdrop-blur-md group shadow-lg hidden md:flex items-center justify-center"
                         aria-label="Previous Vehicle"
                     >
                         <ChevronLeft className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" />
                     </button>
                     <button
                         onClick={nextSlide}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-16 z-30 p-3 rounded-full bg-ink/5 border border-border text-ink hover:bg-gold hover:text-black transition-all backdrop-blur-md group shadow-xl hidden md:block"
+                        className="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-40 p-3 rounded-full bg-surface border border-border text-ink hover:bg-gold hover:text-black hover:border-gold transition-all backdrop-blur-md group shadow-lg hidden md:flex items-center justify-center"
                         aria-label="Next Vehicle"
                     >
                         <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
@@ -204,7 +204,7 @@ export default function HomeFleetCarousel() {
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }}
-                                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                                 className="w-full relative flex flex-col items-center justify-center"
                             >
                                 {/* Central Huge Image */}
@@ -230,7 +230,7 @@ export default function HomeFleetCarousel() {
                                         alt={`${currentVehicle.name} - Umrah Taxi Makkah`}
                                         width={1000}
                                         height={600}
-                                        className="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-20"
+                                        className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)] z-20"
                                         priority
                                     />
                                 </div>
@@ -240,35 +240,37 @@ export default function HomeFleetCarousel() {
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.2 }}
-                                    className="card relative z-30 mt-[-40px] md:mt-[-80px] px-8 py-6 flex flex-col md:flex-row items-center gap-6 max-w-2xl mx-auto"
+                                    className="relative z-30 mt-[-40px] md:mt-[-80px] bg-surface/95 backdrop-blur-xl border border-gold/20 shadow-xl shadow-gold/5 rounded-3xl px-8 py-6 flex flex-col md:flex-row items-center gap-6 max-w-2xl mx-auto"
                                 >
-                                    <div className="text-center md:text-left">
-                                        <div className="flex items-center justify-center md:justify-start gap-2 mb-1">
-                                            <span className="text-[10px] font-bold text-ink-muted uppercase tracking-widest bg-muted px-2 py-0.5 rounded">{currentVehicle.category}</span>
-                                            <div className="flex items-center gap-1">
+                                    <div className="text-center md:text-left flex-1">
+                                        <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
+                                            <span className="text-[10px] font-bold text-gold-deep uppercase tracking-widest bg-gold/10 border border-gold/20 px-3 py-1 rounded-full">
+                                                {currentVehicle.category}
+                                            </span>
+                                            <div className="flex items-center gap-1 bg-surface-alt px-2 py-1 rounded-full border border-border">
                                                 <Star size={10} className="fill-gold text-gold" />
-                                                <span className="text-xs text-ink">5.0</span>
+                                                <span className="text-xs font-medium text-ink">5.0</span>
                                             </div>
                                         </div>
-                                        <h3 className="text-2xl md:text-3xl font-bold text-ink mb-1">
+                                        <h3 className="text-2xl md:text-3xl font-black font-display text-ink mb-1 tracking-tight">
                                             {currentVehicle.name}
                                         </h3>
                                         <div className="flex items-baseline justify-center md:justify-start gap-2">
-                                            <span className="text-2xl font-bold text-gold">{currentVehicle.offerPrice || currentVehicle.price}</span>
-                                            <span className="text-xs text-ink-muted">/ Trip</span>
+                                            <span className="text-2xl font-bold text-gold-deep">{currentVehicle.offerPrice || currentVehicle.price}</span>
+                                            <span className="text-xs font-medium text-ink-muted uppercase tracking-wider">/ Trip</span>
                                         </div>
                                     </div>
 
-                                    <div className="h-8 w-[1px] bg-border hidden md:block" />
+                                    <div className="h-12 w-[1px] bg-border hidden md:block" />
 
-                                    <div className="flex gap-3">
-                                        <Link href={`/fleet/${currentVehicle.slug}`} passHref>
-                                            <button className="btn-secondary text-xs font-bold uppercase tracking-wide px-6 py-3">
+                                    <div className="flex gap-3 w-full md:w-auto">
+                                        <Link href={`/fleet/${currentVehicle.slug}`} className="flex-1 md:flex-none">
+                                            <button className="w-full bg-surface border border-border text-ink text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-full hover:border-gold hover:text-gold-strong transition-colors">
                                                 Details
                                             </button>
                                         </Link>
-                                        <Link href="/booking" passHref>
-                                            <button className="btn-primary text-xs font-bold uppercase tracking-wide px-6 py-3">
+                                        <Link href="/booking" className="flex-1 md:flex-none">
+                                            <button className="w-full bg-gold text-ink text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-full hover:bg-gold-soft hover:shadow-lg hover:shadow-gold/20 transition-all">
                                                 Book Now
                                             </button>
                                         </Link>

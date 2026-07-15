@@ -115,14 +115,14 @@ interface Props {
 export default function TransportServices({ lang = 'en' }: Props) {
     const services = lang === 'ar' ? arServices : enServices;
     const heading = lang === 'ar'
-        ? { eyebrow: 'خدماتنا الأساسية', title: <>نقل فاخر لـ<span className="bg-gradient-to-r from-gold to-gold-metallic bg-clip-text text-transparent"> رحلتكم الروحانية</span></>, sub: 'حلول سفر شاملة مصممة لضيوف الرحمن. من استقبال المطارات إلى النقل البيني، نضمن كل ميل مريح وآمن وكريم.' }
-        : { eyebrow: 'Our Core Services', title: <>Premium Transport for <span className="bg-gradient-to-r from-gold to-gold-metallic bg-clip-text text-transparent">Your Spiritual Journey</span></>, sub: 'Comprehensive travel solutions designed for the Guests of Allah. From airport arrivals to intercity travel, we ensure every mile is comfortable, safe, and dignified.' };
+        ? { eyebrow: 'خدماتنا الأساسية', title: <>نقل فاخر لـ<span className="bg-gradient-to-r from-gold-deep to-gold bg-clip-text text-transparent"> رحلتكم الروحانية</span></>, sub: 'حلول سفر شاملة مصممة لضيوف الرحمن. من استقبال المطارات إلى النقل البيني، نضمن كل ميل مريح وآمن وكريم.' }
+        : { eyebrow: 'Our Core Services', title: <>Premium Transport for <span className="bg-gradient-to-r from-gold-deep to-gold bg-clip-text text-transparent">Your Spiritual Journey</span></>, sub: 'Comprehensive travel solutions designed for the Guests of Allah. From airport arrivals to intercity travel, we ensure every mile is comfortable, safe, and dignified.' };
 
     return (
-        <section className="py-20 md:py-32 relative overflow-hidden bg-bg">
+        <section className="pt-20 md:pt-32 pb-10 md:pb-16 relative overflow-hidden bg-bg">
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gold-metallic/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gold-deep/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
             <div className="container relative z-10 px-4 md:px-8">
                 <FadeIn>
@@ -141,7 +141,7 @@ export default function TransportServices({ lang = 'en' }: Props) {
                     {services.map((service, index) => (
                         <FadeIn key={service.id} delay={index * 0.15}>
                             <article className="card group h-full relative hover:border-gold/50 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col">
-                                <Link href={service.link} className="relative h-72 md:h-80 overflow-hidden block">
+                                <Link href={service.link} className="relative h-64 md:h-72 overflow-hidden block">
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
                                     <Image
                                         src={service.image}
@@ -151,22 +151,20 @@ export default function TransportServices({ lang = 'en' }: Props) {
                                         className="transform group-hover:scale-110 transition-transform duration-1000 ease-out"
                                         style={{ objectFit: 'cover' }}
                                     />
-                                    <div className="absolute top-4 right-4 md:top-6 md:right-6 z-20 bg-black/40 backdrop-blur-md p-3 md:p-4 rounded-xl border border-white/10 text-white shadow-xl group-hover:scale-110 group-hover:bg-gold group-hover:text-black hover-icon-black transition-all duration-300">
-                                        <PremiumIcon name={service.iconName} size="large" className="group-hover:!text-black" />
-                                    </div>
+
                                     <div className="absolute top-6 left-6 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-100">
                                         <ArrowRight size={18} />
                                     </div>
-                                    <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
-                                        <p className="text-gold text-xs font-bold uppercase tracking-widest mb-2 opacity-90">{service.subtitle}</p>
-                                        <h3 className="text-3xl font-semibold font-display text-white leading-tight group-hover:text-gold transition-colors duration-300">
+                                    <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-20">
+                                        <p className="text-gold text-[10px] md:text-xs font-bold uppercase tracking-widest mb-2 opacity-90">{service.subtitle}</p>
+                                        <h3 className="text-2xl md:text-3xl font-semibold font-display text-white leading-tight group-hover:text-gold transition-colors duration-300">
                                             {service.title}
                                         </h3>
                                     </div>
                                 </Link>
-                                <div className="p-8 pt-6 flex flex-col flex-1">
-                                    <p className="text-ink-muted leading-relaxed mb-8 flex-1">{service.description}</p>
-                                    <Link href={service.link} className="inline-flex items-center gap-3 text-ink font-bold uppercase tracking-wider text-sm group/btn group-hover:text-gold transition-colors mt-auto">
+                                <div className="p-6 md:p-8 pt-6 flex flex-col flex-1">
+                                    <p className="text-ink-muted leading-relaxed mb-6 text-sm md:text-base">{service.description}</p>
+                                    <Link href={service.link} className="inline-flex items-center gap-3 text-ink font-bold uppercase tracking-wider text-xs md:text-sm group/btn group-hover:text-gold transition-colors mt-auto">
                                         <span className="border-b-2 border-border group-hover:border-gold transition-colors py-1">
                                             {lang === 'ar' ? 'عرض التفاصيل' : 'View Details'}
                                         </span>

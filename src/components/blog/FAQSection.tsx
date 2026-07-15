@@ -42,14 +42,14 @@ export default function FAQSection({ lang = 'en' }: Props) {
                                     }`}
                             >
                                 <button
-                                    className={`w-full flex items-center justify-between p-6 ${lang === 'ar' ? 'text-right' : 'text-left'}`}
+                                    className={`w-full flex items-center justify-between p-6 group ${lang === 'ar' ? 'text-right' : 'text-left'}`}
                                     onClick={() => toggleAccordion(index)}
                                 >
-                                     <span className={`font-semibold text-lg transition-colors font-sans ${activeAccordion === index ? 'text-foreground' : 'text-muted-foreground hover:text-gold'
+                                     <span className={`font-semibold text-lg transition-colors font-sans ${activeAccordion === index ? 'text-foreground' : 'text-muted-foreground group-hover:text-gold'
                                         }`} style={lang === 'ar' ? { fontFamily: 'var(--font-tajawal)' } : {}}>
                                         {faq.question}
                                     </span>
-                                     <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${lang === 'ar' ? 'mr-4' : ''} ${activeAccordion === index ? 'bg-gold text-black rotate-180' : 'bg-muted text-muted-foreground'}`}>
+                                     <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${lang === 'ar' ? 'mr-4' : ''} ${activeAccordion === index ? 'bg-gold text-black rotate-180' : 'bg-gold/10 text-gold group-hover:bg-gold group-hover:text-black'}`}>
                                         <ChevronDown size={20} />
                                     </div>
                                 </button>

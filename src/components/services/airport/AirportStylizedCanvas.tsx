@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useMemo, useRef } from 'react';
 import { motion } from 'framer-motion';
@@ -13,19 +13,23 @@ interface AirportStylizedCanvasProps {
 }
 
 // Custom nodes for Airport Context
-// KAIA (Jeddah Airport) is the Hub at top-left/center
 const AIRPORT_NODES: Record<string, { x: number; y: number; label: string; icon?: string }> = {
-    'Jeddah Airport': { x: 30, y: 30, label: 'Jeddah (KAIA)' },
-    'Jeddah': { x: 30, y: 30, label: 'Jeddah (KAIA)' }, // Fallback
-    'Makkah': { x: 70, y: 70, label: 'Makkah' },
-    'Madinah': { x: 80, y: 20, label: 'Madinah' },
+    'Jeddah Airport': { x: 25, y: 40, label: 'Jeddah (KAIA)' },
+    'Madinah Airport': { x: 70, y: 20, label: 'Madinah (PMIA)' },
+    'Jeddah City': { x: 20, y: 55, label: 'Jeddah City' },
+    'Makkah': { x: 50, y: 75, label: 'Makkah' },
+    'Madinah City': { x: 80, y: 25, label: 'Madinah City' },
+    'Taif': { x: 85, y: 85, label: 'Taif' },
 };
 
 const getAirportCoords = (name: string) => {
-    // Simple robust matching
-    if (name.toLowerCase().includes('airport') || name.toLowerCase().includes('jeddah')) return AIRPORT_NODES['Jeddah Airport'];
-    if (name.toLowerCase().includes('makkah')) return AIRPORT_NODES['Makkah'];
-    if (name.toLowerCase().includes('madinah')) return AIRPORT_NODES['Madinah'];
+    // Exact or robust matching based on static route names
+    if (name.includes('Jeddah Airport')) return AIRPORT_NODES['Jeddah Airport'];
+    if (name.includes('Madinah Airport')) return AIRPORT_NODES['Madinah Airport'];
+    if (name.includes('Jeddah City')) return AIRPORT_NODES['Jeddah City'];
+    if (name.includes('Makkah')) return AIRPORT_NODES['Makkah'];
+    if (name.includes('Madinah City') || name === 'Madinah') return AIRPORT_NODES['Madinah City'];
+    if (name.includes('Taif')) return AIRPORT_NODES['Taif'];
     return { x: 50, y: 50, label: name };
 };
 

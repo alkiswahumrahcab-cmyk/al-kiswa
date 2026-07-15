@@ -6,7 +6,6 @@ import { ArrowRight, Shield, Star, Briefcase, Users, Fuel, MapPin, Wifi } from '
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
-import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
 
@@ -136,13 +135,7 @@ export default async function ToyotaHiacePage() {
                 layout="center"
             />
 
-            <FleetPricingGrid
-                vehicleId={hiaceId}
-                vehicleImage="/images/fleet/toyota-hiace-2025.webp"
-                vehicleType="hiace"
-                title="Toyota Hiace Rates | Jeddah, Makkah, Madinah"
-                subtitle="Spacious seating for up to 10 passengers. Perfect for large families and groups."
-            />
+            
 
             {/* Vehicle Highlights */}
             <section className="py-16 bg-white dark:bg-n-900">

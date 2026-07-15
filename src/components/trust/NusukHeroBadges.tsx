@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
 import { motion } from 'framer-motion';
@@ -12,16 +12,16 @@ const NusukHeroBadges = () => {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mt-8"
         >
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#0f3d2b]/60 border border-[hsl(var(--gold-light))]/30 text-[hsl(var(--gold-light))] text-[11px] font-bold tracking-wider uppercase backdrop-blur-md shadow-[0_0_15px_rgba(16,185,129,0.15)]">
-                <Shield size={14} className="fill-[hsl(var(--gold-light))]/20" />
+            <div className="flex items-center gap-2 px-4 py-2 rounded-btn bg-success/20 border border-success/40 text-surface text-xs font-bold tracking-wider uppercase backdrop-blur-md shadow-sm">
+                <Shield size={14} className="text-[#4ADE80]" /> {/* Bright green for dark mode contrast */}
                 Nusuk Registered
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 border border-white/10 text-n-300 text-[11px] font-bold tracking-wider uppercase backdrop-blur-md">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-btn bg-gold/15 border border-gold/40 text-surface text-xs font-bold tracking-wider uppercase backdrop-blur-md shadow-sm">
                 <Award size={14} className="text-gold" />
                 Ministry Licensed
             </div>
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 border border-white/10 text-n-300 text-[11px] font-bold tracking-wider uppercase backdrop-blur-md">
-                <CheckCircle size={14} className="text-[hsl(var(--gold-light))]" />
+            <div className="flex items-center gap-2 px-4 py-2 rounded-btn bg-ink-surface/60 border border-border/20 text-surface text-xs font-bold tracking-wider uppercase backdrop-blur-md shadow-sm">
+                <CheckCircle size={14} className="text-on-ink-muted" />
                 Verified Transport
             </div>
         </motion.div>

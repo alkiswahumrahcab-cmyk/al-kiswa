@@ -2,7 +2,6 @@ import { generateMetadataAlternates } from '@/lib/hreflang';
 import type { Metadata } from 'next';
 import { getSettings } from '@/lib/settings-storage';
 import { vehicleService } from '@/services/vehicleService';
-import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FAQSection from '@/components/services/FAQSection';
 import Image from 'next/image';
@@ -285,13 +284,7 @@ export default async function ToyotaCamryPage() {
             </section>
 
             {/* G. Pricing Grid */}
-            <FleetPricingGrid
-                vehicleId={camryId}
-                vehicleImage="/images/fleet/toyota-camry/toyota-camry-front-view-executive-sedan-al-kiswah-cab.jpeg"
-                vehicleType="camry"
-                title="Toyota Camry Umrah Packages & Pricing"
-                subtitle="Transparent, fixed pricing for Jeddah, Makkah, and Madinah journeys."
-            />
+            
 
             {/* H. Route Packages */}
             <section className="py-20 bg-surface">

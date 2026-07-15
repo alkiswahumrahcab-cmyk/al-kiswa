@@ -1,54 +1,39 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import Image from 'next/image';
 import Hero from '@/components/common/Hero';
 import FadeIn from '@/components/common/FadeIn';
-import { Plane, Clock, ShieldCheck, MapPin, UserCheck, Smartphone, CheckCircle2, Star, ChevronDown, Award } from 'lucide-react';
+import { Plane, Clock, ShieldCheck, MapPin, UserCheck, Smartphone, CheckCircle2, Star, ChevronDown, Award, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { routeService } from '@/services/routeService';
-import AirportInteractiveMap from '@/components/services/airport/AirportInteractiveMap';
+import AirportQuoteWidget from '@/components/services/airport/AirportQuoteWidget';
 import { Metadata } from 'next';
 import GlassCard from '@/components/ui/GlassCard';
 import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 
 export const metadata: Metadata = {
-    title: "Jeddah & Madinah Airport VIP Transfers 2026 | Al Kiswah",
-    description: "Book VIP Jeddah and Madinah airport taxi transfers. Meet & greet, fixed prices, and professional drivers. Book your airport pickup online now.",
-    keywords: [
-        "jeddah airport to makkah taxi",
-        "madinah airport taxi",
-        "umrah airport private transfer",
-        "vip airport transfer jeddah",
-        "kaia transport to makkah"
-    ],
+    title: "Jeddah & Madinah Airport Transfers 2026 | Al Kiswah",
+    description: "Private airport transfers from Jeddah (KAIA) and Madinah (PMIA) to your hotel in Makkah or Madinah. We track your flight and meet you at arrivals.",
     alternates: generateMetadataAlternates("/services/airport-transfers"),
     openGraph: {
-        title: "Jeddah & Madinah Airport VIP Transfers 2026 | Al Kiswah",
-        description: "Book VIP Jeddah and Madinah airport taxi transfers. Meet & greet, fixed prices, and professional drivers.",
-        images: ["/images/fleet/gmc.webp"],
+        title: "Jeddah & Madinah Airport Transfers 2026 | Al Kiswah",
+        description: "Private airport transfers from Jeddah (KAIA) and Madinah (PMIA) to your hotel in Makkah or Madinah.",
+        images: ["/images/real-fleet/hotel-pickup.jpg"],
         type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Jeddah & Madinah Airport VIP Transfers 2026 | Al Kiswah",
-        description: "Book VIP Jeddah and Madinah airport taxi transfers. Meet & greet, fixed prices, and professional drivers.",
-        images: ["/images/fleet/gmc.webp"],
+        title: "Jeddah & Madinah Airport Transfers 2026 | Al Kiswah",
+        description: "Private airport transfers from Jeddah (KAIA) and Madinah (PMIA) to your hotel in Makkah or Madinah.",
+        images: ["/images/real-fleet/hotel-pickup.jpg"],
     }
 };
 
-export default async function AirportTransfersPage() {
-    const allRoutes = await routeService.getActiveRoutes();
-    const airportRoutes = allRoutes.filter(r =>
-        r.origin.toLowerCase().includes('airport') ||
-        r.destination.toLowerCase().includes('airport') ||
-        r.origin.toLowerCase().includes('jeddah')
-    );
-
+export default function AirportTransfersPage() {
     // Schema.org Structured Data
-    const jsonLd = {
+    const jsonLdService = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Airport VIP Transfers",
+        "name": "Jeddah & Madinah Airport Transfers",
         "provider": {
             "@type": "LocalBusiness",
             "name": "Al Kiswah",
@@ -73,85 +58,158 @@ export default async function AirportTransfersPage() {
         }
     };
 
+    const jsonLdFaq = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Where will I meet the driver at Jeddah Airport (KAIA)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our driver will be waiting for you at the arrival terminal holding a sign with your name. We also share the driver's contact details via WhatsApp before you land."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where do I meet my driver at Madinah Airport (PMIA)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For PMIA, your driver will wait outside the main arrivals hall with a name board. Madinah airport is smaller, making meet-and-greets very fast."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you serve both airports equally?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, we provide full 24/7 VIP transfer coverage from both King Abdulaziz International Airport (JED) and Prince Mohammad Bin Abdulaziz International Airport (MED)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which vehicle should I choose for my family and luggage?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "For 2-4 passengers with light luggage, a Camry is perfect. For up to 7 passengers, the Staria or GMC is ideal. For larger groups up to 11 with heavy luggage, the HiAce is required."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is the price per person or per vehicle?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Our prices are per vehicle, not per person. The price you see is for the entire car including luggage spaces."
+                }
+            }
+        ]
+    };
+
+    const jsonLdBreadcrumb = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kiswahumrahcab.com" },
+            { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://kiswahumrahcab.com/services" },
+            { "@type": "ListItem", "position": 3, "name": "Airport Transfers", "item": "https://kiswahumrahcab.com/services/airport-transfers" }
+        ]
+    };
+
     return (
-        <main className="bg-charcoal text-white relative">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
-            {/* Background Texture*/}
-            <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
+        <main className="bg-bg text-body relative selection:bg-gold/20">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdService) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaq) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }} />
 
             <Hero
-                title="VIP Jeddah Airport Transfers"
-                subtitle="Experience a seamless arrival with our premium chauffeur service. We track your flight and wait for you at KAIA, ensuring a stress-free journey to Makkah."
-                bgImage="/images/hero/masjid-nabawi-sunset-umbrellas.jpg"
+                title="Jeddah & Madinah Airport Transfers"
+                subtitle="Private airport transfers from Jeddah (KAIA) and Madinah (PMIA) to your hotel in Makkah or Madinah. We track your flight and meet you at arrivals."
+                bgImage="/images/real-fleet/hotel-pickup.jpg"
                 ctaText="Book Transfer Now"
                 ctaLink="/booking?service=airport"
-                alt="Jeddah Airport Arrival Lounge Private Chauffeur Transfer"
+                alt="Jeddah and Madinah Airport Transfers"
             />
 
-            {/* Interactive Map Section */}
+            {/* Instant Quote Section */}
             <section className="relative z-10 -mt-20 mb-24 px-4">
-                <div className="container mx-auto">
-                    <div className="bg-neutral-900/95 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-white/10">
-                        <div className="p-8 border-b border-white/5 flex flex-col md:flex-row justify-between items-end gap-6 bg-white/5">
-                            <div>
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold font-bold tracking-[0.2em] uppercase text-xs mb-3 block">Real-time Connections</span>
-                                <h1 className="text-3xl md:text-4xl font-semibold font-display text-white">
-                                    Airport Connectivity Network
-                                </h1>
-                                <p className="text-white/60 mt-3 max-w-xl font-light leading-relaxed">
-                                    Visualize your journey from King Abdulaziz International Airport (KAIA).
-                                    Select your destination to see route details, estimated time, and instant pricing.
-                                </p>
-                            </div>
-                            <div className="flex items-center gap-6 text-xs font-bold text-white/80 uppercase tracking-wider">
-                                <div className="flex items-center gap-2">
-                                    <span className="w-2 h-2 rounded-full bg-gold animate-pulse shadow-[0_0_10px_#D4AF37]" />
-                                    Live Flight Tracking
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <span className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_10px_#22c55e]" />
-                                    24/7 Availability
-                                </div>
-                            </div>
-                        </div>
+                <div className="container mx-auto flex justify-center">
+                    <AirportQuoteWidget />
+                </div>
+            </section>
 
-                        {/* The Map Component */}
-                        <AirportInteractiveMap routes={airportRoutes} />
+            {/* JED and MED Indexable Sections */}
+            <section className="py-24 bg-surface-alt border-y border-border">
+                <div className="container mx-auto px-4">
+                    <div className="grid md:grid-cols-2 gap-16">
+                        {/* Jeddah (KAIA) */}
+                        <FadeIn>
+                            <div className="flex flex-col h-full bg-surface p-8 lg:p-12 rounded-2xl border border-border shadow-sm">
+                                <span className="text-gold font-bold tracking-widest uppercase text-xs mb-4">King Abdulaziz Int'l</span>
+                                <h2 className="text-3xl font-display font-semibold text-ink mb-6">Jeddah Airport Transfer (JED)</h2>
+                                <p className="text-body leading-relaxed mb-6">
+                                    As the main gateway for pilgrims, KAIA requires efficient navigation. Our chauffeurs meet you right at the designated arrival areas across all terminals (North, South, Terminal 1, and Hajj Terminal). 
+                                </p>
+                                <ul className="space-y-4 mb-8 text-sm">
+                                    <li className="flex items-center gap-3"><MapPin className="text-gold" size={18} /> <strong>Jeddah to Makkah:</strong> ~90 KM (1.5 Hours)</li>
+                                    <li className="flex items-center gap-3"><MapPin className="text-gold" size={18} /> <strong>Jeddah to Madinah:</strong> ~420 KM (4.5 Hours)</li>
+                                    <li className="flex items-center gap-3"><MapPin className="text-gold" size={18} /> <strong>Jeddah to Taif:</strong> ~150 KM (2 Hours)</li>
+                                </ul>
+                                <div className="mt-auto pt-6 border-t border-border">
+                                    <Link href="/booking?from=Jeddah+Airport&service=transfer" className="text-gold-strong font-bold hover:text-gold flex items-center gap-2">
+                                        Book from Jeddah <ArrowRight size={16} />
+                                    </Link>
+                                </div>
+                            </div>
+                        </FadeIn>
+
+                        {/* Madinah (PMIA) */}
+                        <FadeIn delay={0.2}>
+                            <div className="flex flex-col h-full bg-surface p-8 lg:p-12 rounded-2xl border border-border shadow-sm">
+                                <span className="text-gold font-bold tracking-widest uppercase text-xs mb-4">Prince Mohammad Bin Abdulaziz</span>
+                                <h2 className="text-3xl font-display font-semibold text-ink mb-6">Madinah Airport Transfer (MED)</h2>
+                                <p className="text-body leading-relaxed mb-6">
+                                    Arriving in Madinah is calm and serene. Our drivers wait just outside the main arrivals hall at PMIA with a name board, providing a direct, comfortable journey straight to your hotel in the Markazia or onward to Makkah.
+                                </p>
+                                <ul className="space-y-4 mb-8 text-sm">
+                                    <li className="flex items-center gap-3"><MapPin className="text-gold" size={18} /> <strong>Madinah Airport to City:</strong> ~20 KM (25 Mins)</li>
+                                    <li className="flex items-center gap-3"><MapPin className="text-gold" size={18} /> <strong>Madinah to Makkah:</strong> ~450 KM (4.5 Hours)</li>
+                                </ul>
+                                <div className="mt-auto pt-6 border-t border-border">
+                                    <Link href="/booking?from=Madinah+Airport&service=transfer" className="text-gold-strong font-bold hover:text-gold flex items-center gap-2">
+                                        Book from Madinah <ArrowRight size={16} />
+                                    </Link>
+                                </div>
+                            </div>
+                        </FadeIn>
                     </div>
                 </div>
             </section>
 
-            {/* Why Choose Us - Enhanced */}
-            <section className="py-24 relative z-10">
+            {/* Why Choose Us */}
+            <section className="py-24 bg-bg">
                 <div className="container mx-auto px-4">
                     <FadeIn>
-                        <div className="text-center mb-20">
-                            <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm border-b border-gold/30 pb-2">Our Commitment</span>
-                            <h2 className="text-4xl md:text-5xl font-semibold mt-6 mb-6 font-display text-white">
-                                Why Book Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Airport Transfer?</span>
+                        <div className="text-center mb-16">
+                            <span className="text-gold font-bold tracking-[0.14em] uppercase text-xs">Our Commitment</span>
+                            <h2 className="text-4xl font-semibold mt-4 mb-6 font-display text-ink">
+                                Why Book Your Airport Transfer?
                             </h2>
-                            <p className="text-white/60 max-w-2xl mx-auto font-light text-lg leading-relaxed">
-                                We go beyond just transport. We offer comprehensive service ensuring your peace of mind from the moment you land.
-                            </p>
                         </div>
                     </FadeIn>
 
-                    <div className="grid md:grid-cols-4 gap-8">
+                    <div className="grid md:grid-cols-4 gap-6">
                         {[
                             { icon: Clock, title: "Flight Tracking", desc: "We monitor your flight status. Delayed? We wait for free." },
                             { icon: UserCheck, title: "Meet & Greet", desc: "Professional driver waiting with a name sign at arrivals." },
                             { icon: ShieldCheck, title: "Secure & Safe", desc: "Fully licensed vehicles and vetted professional drivers." },
                             { icon: Award, title: "Fixed Pricing", desc: "No hidden fees. Steps are clear and prices are all-inclusive." }
                         ].map((item, idx) => (
-                            <GlassCard key={idx} delay={idx * 0.1} className="text-center p-10 bg-neutral-900/50 border-white/10 hover:border-gold/50 hover:bg-neutral-900 transition-all duration-500 group">
-                                <div className="w-20 h-20 mx-auto bg-black/40 rounded-full flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 border border-white/10 shadow-inner group-hover:border-gold/30">
-                                    <item.icon size={36} className="text-gold group-hover:text-gold-light transition-colors" />
+                            <GlassCard key={idx} delay={idx * 0.1} className="p-8 bg-surface border-border hover:shadow-md transition-shadow">
+                                <div className="w-12 h-12 rounded-full bg-gold-soft flex items-center justify-center mb-6 text-gold">
+                                    <item.icon size={24} />
                                 </div>
-                                <h3 className="font-semibold text-xl mb-4 text-white font-display">{item.title}</h3>
-                                <p className="text-sm text-white/60 leading-relaxed font-light group-hover:text-white/80 transition-colors">
+                                <h3 className="font-bold text-lg mb-3 text-ink font-body">{item.title}</h3>
+                                <p className="text-sm text-muted leading-relaxed">
                                     {item.desc}
                                 </p>
                             </GlassCard>
@@ -161,34 +219,33 @@ export default async function AirportTransfersPage() {
             </section>
 
             {/* How It Works Section */}
-            <section className="py-24 relative overflow-hidden bg-neutral-900/30 border-y border-white/5 backdrop-blur-sm">
-                <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none" />
-                <div className="container mx-auto px-4 relative z-10">
+            <section className="py-24 bg-surface-alt border-y border-border">
+                <div className="container mx-auto px-4">
                     <FadeIn>
-                        <h2 className="text-4xl md:text-5xl font-semibold text-center mb-24 font-display text-white">
-                            Seamless Journey in <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">4 Steps</span>
-                        </h2>
-                        <div className="grid md:grid-cols-4 gap-12 md:gap-8 relative">
+                        <div className="text-center mb-16">
+                            <h2 className="text-4xl font-semibold font-display text-ink">
+                                Seamless Journey in 4 Steps
+                            </h2>
+                        </div>
+                        <div className="grid md:grid-cols-4 gap-8 relative max-w-5xl mx-auto">
                             {/* Connector Line (Desktop) */}
-                            <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent border-t border-dashed border-white/10 -z-10" />
+                            <div className="hidden md:block absolute top-6 left-[10%] right-[10%] h-px bg-border-strong -z-10" />
 
                             {[
-                                { icon: Smartphone, title: "1. Book Online", desc: "Select your ride and enter flight details." },
-                                { icon: CheckCircle2, title: "2. Confirmation", desc: "Receive instant confirmation details." },
-                                { icon: Plane, title: "3. We Track", desc: "We allow for flight delays and track arrival." },
-                                { icon: UserCheck, title: "4. Meet & Ride", desc: "Driver meets you at arrivals for a smooth ride." }
+                                { icon: Smartphone, title: "Book Online", desc: "Select your ride and enter flight details." },
+                                { icon: CheckCircle2, title: "Confirmation", desc: "Receive instant confirmation details." },
+                                { icon: Plane, title: "We Track", desc: "We allow for flight delays and track arrival." },
+                                { icon: UserCheck, title: "Meet & Ride", desc: "Driver meets you at arrivals for a smooth ride." }
                             ].map((step, idx) => (
-                                <div key={idx} className="flex flex-col items-center text-center group">
-                                    <div className="w-24 h-24 bg-neutral-900 border border-white/10 p-1.5 rounded-full relative z-10 shadow-[0_0_30px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:-translate-y-2">
-                                        <div className="w-full h-full rounded-btn border border-dashed border-white/20 flex items-center justify-center bg-black/40 group-hover:border-gold/50 transition-colors duration-500">
-                                            <step.icon size={36} className="text-gold" />
-                                        </div>
-                                        <div className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center text-black font-bold text-sm shadow-lg border border-white/10">
+                                <div key={idx} className="flex flex-col items-center text-center">
+                                    <div className="w-12 h-12 bg-surface border border-border rounded-full flex items-center justify-center shadow-sm mb-6 relative">
+                                        <step.icon size={20} className="text-gold" />
+                                        <div className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-gold text-ink font-bold text-xs flex items-center justify-center">
                                             {idx + 1}
                                         </div>
                                     </div>
-                                    <h3 className="font-semibold text-xl mt-8 mb-2 text-white group-hover:text-gold transition-colors font-display">{step.title}</h3>
-                                    <p className="text-sm text-white/60 font-light max-w-[200px]">{step.desc}</p>
+                                    <h3 className="font-bold text-lg mb-2 text-ink font-body">{step.title}</h3>
+                                    <p className="text-sm text-muted">{step.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -196,84 +253,76 @@ export default async function AirportTransfersPage() {
                 </div>
             </section>
 
-            {/* Vehicle Options */}
-            <section className="py-24 relative z-10">
+            {/* Vehicle Options - Canonical Fleet */}
+            <section className="py-24 bg-bg">
                 <div className="container mx-auto px-4">
                     <FadeIn>
-                        <div className="text-center mb-20">
-                            <h2 className="text-4xl md:text-5xl font-semibold font-display mb-6 text-white">Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Vehicle</span></h2>
-                            <p className="text-white/60 text-lg font-light">Select the perfect vehicle for your group size and comfort preferences.</p>
+                        <div className="text-center mb-16">
+                            <h2 className="text-4xl font-semibold font-display mb-4 text-ink">Choose Your Vehicle</h2>
+                            <p className="text-muted text-lg">Select the perfect vehicle for your group size and comfort preferences.</p>
                         </div>
                     </FadeIn>
                     <div className="grid md:grid-cols-3 gap-8">
+                        {/* Staria */}
                         <FadeIn delay={0.1}>
-                            <div className="bg-neutral-900/50 rounded-[2rem] overflow-hidden shadow-lg border border-white/10 h-full flex flex-col group hover:border-gold/30 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]">
-                                <div className="h-72 relative overflow-hidden group bg-gradient-to-br from-white/5 to-transparent flex items-center justify-center p-6">
+                            <div className="bg-surface rounded-xl overflow-hidden shadow-sm border border-border flex flex-col h-full hover:shadow-md transition-shadow">
+                                <div className="h-56 relative bg-surface-alt p-6">
                                     <Image
-                                        src="/images/fleet/camry-2025.webp"
-                                        alt="Toyota Camry Standard Sedan for Affordable Makkah Airport Transfer"
-                                        width={480}
-                                        height={288}
-                                        className="w-auto h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-2xl"
-                                        loading="lazy"
-                                        sizes="(max-width: 768px) 90vw, 33vw"
+                                        src="/images/fleet/hyundai-staria.webp"
+                                        alt="Hyundai Staria VIP 7-Seater"
+                                        fill
+                                        className="object-contain p-4"
                                     />
                                 </div>
-                                <div className="p-8 flex-1 flex flex-col border-t border-white/5 bg-black/20 backdrop-blur-sm">
-                                    <h3 className="text-2xl font-semibold mb-2 text-white font-display">Standard Sedan</h3>
-                                    <p className="text-white/60 text-sm mb-6 font-light">Perfect for couples or solo travelers with light luggage.</p>
-                                    <ul className="text-sm space-y-4 mb-8 mt-auto text-white/80">
-                                        <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Comfortable for 2-3 Passengers</li>
-                                        <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Space for 2 Standard Suitcases</li>
+                                <div className="p-8 flex flex-col flex-1 border-t border-border">
+                                    <h3 className="text-2xl font-bold mb-2 text-ink font-display">Hyundai Staria</h3>
+                                    <p className="text-muted text-sm mb-6">Premium comfort for families and groups.</p>
+                                    <ul className="text-sm space-y-4 mb-8 text-body flex-1">
+                                        <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> 5-7 Passengers</li>
+                                        <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> 5-7 Suitcases</li>
                                     </ul>
                                 </div>
                             </div>
                         </FadeIn>
+                        {/* GMC */}
                         <FadeIn delay={0.2}>
-                            <div className="bg-black/60 rounded-[2rem] overflow-hidden shadow-[0_0_40px_-10px_hsl(var(--gold-glow) / 0.15)] border border-gold/50 relative h-full flex flex-col transform md:-translate-y-6 scale-[1.02] z-20">
-                                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-gold via-[#F3D383] to-gold" />
-                                <div className="absolute top-6 right-6 bg-gradient-to-r from-gold to-gold-dark text-black text-xs font-bold px-4 py-2 rounded-full uppercase tracking-widest z-10 shadow-lg">Most Popular</div>
-                                <div className="h-72 relative overflow-hidden group bg-gradient-to-br from-gold/5 to-transparent flex items-center justify-center p-6">
-                                    <div className="absolute inset-0 bg-gold/5 blur-3xl rounded-full" />
+                            <div className="bg-surface rounded-xl overflow-hidden shadow-sm border border-border flex flex-col h-full hover:shadow-md transition-shadow relative">
+                                <div className="absolute top-4 right-4 bg-gold text-ink text-[10px] font-bold px-3 py-1 rounded-sm uppercase tracking-widest z-10">Popular</div>
+                                <div className="h-56 relative bg-surface-alt p-6">
                                     <Image
                                         src="/images/fleet/gmc.webp"
-                                        alt="GMC Yukon XL VIP Luxury SUV for Jeddah Airport Pickup"
-                                        width={480}
-                                        height={288}
-                                        className="relative z-10 w-auto h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-2xl"
-                                        loading="lazy"
-                                        sizes="(max-width: 768px) 90vw, 33vw"
+                                        alt="GMC Yukon XL VIP Luxury SUV"
+                                        fill
+                                        className="object-contain p-4"
                                     />
                                 </div>
-                                <div className="p-8 flex-1 flex flex-col border-t border-white/10 bg-black/80 backdrop-blur-md">
-                                    <h3 className="text-2xl font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold font-display">VIP GMC Yukon</h3>
-                                    <p className="text-white/80 text-sm mb-6 font-light">Luxury and space for families. Travel like a VIP.</p>
-                                    <ul className="text-sm space-y-4 mb-8 mt-auto text-white">
-                                        <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Luxury seating for 7 Passengers</li>
-                                        <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Large boot for 5-6 Suitcases</li>
+                                <div className="p-8 flex flex-col flex-1 border-t border-border">
+                                    <h3 className="text-2xl font-bold mb-2 text-ink font-display">VIP GMC Yukon</h3>
+                                    <p className="text-muted text-sm mb-6">Luxury and space for VIP travel.</p>
+                                    <ul className="text-sm space-y-4 mb-8 text-body flex-1">
+                                        <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Up to 7 Passengers</li>
+                                        <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> 5-6 Suitcases</li>
                                     </ul>
                                 </div>
                             </div>
                         </FadeIn>
+                        {/* HiAce */}
                         <FadeIn delay={0.3}>
-                            <div className="bg-neutral-900/50 rounded-[2rem] overflow-hidden shadow-lg border border-white/10 h-full flex flex-col group hover:border-gold/30 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,0,0,0.3)]">
-                                <div className="h-72 relative overflow-hidden group bg-gradient-to-br from-white/5 to-transparent flex items-center justify-center p-6">
+                            <div className="bg-surface rounded-xl overflow-hidden shadow-sm border border-border flex flex-col h-full hover:shadow-md transition-shadow">
+                                <div className="h-56 relative bg-surface-alt p-6">
                                     <Image
                                         src="/images/fleet/toyota-hiace-2025.webp"
-                                        alt="Toyota Hiace 10-Seater Family Van for Airport Group Transport"
-                                        width={480}
-                                        height={288}
-                                        className="w-auto h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-2xl"
-                                        loading="lazy"
-                                        sizes="(max-width: 768px) 90vw, 33vw"
+                                        alt="Toyota HiAce 11-Seater Van"
+                                        fill
+                                        className="object-contain p-4"
                                     />
                                 </div>
-                                <div className="p-8 flex-1 flex flex-col border-t border-white/5 bg-black/20 backdrop-blur-sm">
-                                    <h3 className="text-2xl font-semibold mb-2 text-white font-display">Family Van (Hiace)</h3>
-                                    <p className="text-white/60 text-sm mb-6 font-light">Ideal for large groups or families with extra luggage.</p>
-                                    <ul className="text-sm space-y-4 mb-8 mt-auto text-white/80">
-                                        <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Spacious for 10 Passengers</li>
-                                        <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> Capacity for 8-10 Suitcases</li>
+                                <div className="p-8 flex flex-col flex-1 border-t border-border">
+                                    <h3 className="text-2xl font-bold mb-2 text-ink font-display">Toyota HiAce</h3>
+                                    <p className="text-muted text-sm mb-6">Ideal for large groups with extra luggage.</p>
+                                    <ul className="text-sm space-y-4 mb-8 text-body flex-1">
+                                        <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> 11 Passengers</li>
+                                        <li className="flex items-center gap-3"><MapPin size={16} className="text-gold" /> 10-12 Suitcases</li>
                                     </ul>
                                 </div>
                             </div>
@@ -286,27 +335,20 @@ export default async function AirportTransfersPage() {
             </section>
 
             {/* FAQ Section */}
-            <section className="py-24 relative z-10 bg-neutral-900/40 border-t border-white/5">
+            <section className="py-24 bg-surface-alt border-t border-border">
                 <div className="container max-w-4xl mx-auto px-4">
                     <FadeIn>
-                        <h2 className="text-3xl md:text-5xl font-semibold text-center mb-16 font-display text-white">
-                            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Questions</span>
+                        <h2 className="text-4xl font-semibold text-center mb-16 font-display text-ink">
+                            Frequently Asked Questions
                         </h2>
-                        <div className="space-y-6">
-                            {[
-                                { q: "Where will I meet the driver?", a: "Our driver will be waiting for you at the arrival terminal holding a sign with your name. We also share the driver's contact details via WhatsApp before you land." },
-                                { q: "What if my flight is delayed?", a: "We monitor flight schedules in real-time. If your flight is delayed, our driver will adjust the pickup time accordingly, free of charge." },
-                                { q: "Do you provide child seats?", a: "Yes, child seats are available upon request. Please mention this requirement in the booking notes so we can arrange it for you." },
-                                { q: "How long does the journey take?", a: "The journey from Jeddah Airport to Makkah typically takes about 60-90 minutes, depending on traffic conditions." },
-                                { q: "Can I pay in cash?", a: "Yes, you can pay the driver in cash (SAR) upon arrival. We also accept online payments if you prefer to prepay." },
-                                { q: "Is the price per person or per vehicle?", a: "Our prices are per vehicle, not per person. The price you see is for the entire car including luggage spaces." }
-                            ].map((faq, i) => (
-                                <div key={i} className="bg-black/40 border border-white/5 rounded-2xl p-8 hover:border-gold/30 transition-all duration-300 group">
-                                    <h3 className="font-semibold text-lg mb-3 text-white flex items-start gap-4 font-display">
-                                        <span className="text-gold mt-1 p-1 bg-gold/10 rounded-full"><ChevronDown size={16} /></span>
-                                        {faq.q}
+                        <div className="space-y-4">
+                            {jsonLdFaq.mainEntity.map((faq, i) => (
+                                <div key={i} className="bg-surface border border-border rounded-xl p-6 shadow-sm">
+                                    <h3 className="font-bold text-lg mb-2 text-ink flex items-start gap-4">
+                                        <span className="text-gold mt-1"><ChevronDown size={18} /></span>
+                                        {faq.name}
                                     </h3>
-                                    <p className="text-white/60 font-light leading-relaxed pl-10 group-hover:text-white/80 transition-colors">{faq.a}</p>
+                                    <p className="text-body pl-8">{faq.acceptedAnswer.text}</p>
                                 </div>
                             ))}
                         </div>
@@ -314,19 +356,19 @@ export default async function AirportTransfersPage() {
                 </div>
             </section>
 
-            {/* Final CTA */}
-            <section className="py-24 relative overflow-hidden bg-gradient-to-r from-gold via-[#E5B842] to-gold">
-                <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-20 pointer-events-none mix-blend-multiply" />
-                <div className="container relative z-10 text-center">
-                    <h2 className="text-3xl md:text-5xl font-semibold mb-6 font-display text-black drop-shadow-sm">
-                        Ready for a <span className="text-white drop-shadow-md">Comfortable Journey?</span>
+            {/* Final CTA Band */}
+            <section className="py-24 bg-ink-bg text-on-ink text-center">
+                <div className="container max-w-3xl">
+                    <span className="text-gold font-bold tracking-[0.14em] uppercase text-xs block mb-4">Secure Your Ride</span>
+                    <h2 className="text-4xl md:text-5xl font-semibold mb-6 font-display">
+                        Ready for a Comfortable Journey?
                     </h2>
-                    <p className="text-lg md:text-xl mb-12 text-black/80 max-w-2xl mx-auto font-medium">
-                        Book your trusted Makkah transport today and let us handle the logistics while you focus on your worship.
+                    <p className="text-lg mb-10 text-on-ink-muted">
+                        Book your trusted airport transport today and let us handle the logistics while you focus on your worship.
                     </p>
                     <Link
                         href="/booking?service=airport"
-                        className="inline-flex items-center gap-3 bg-black text-gold hover:bg-white hover:text-black px-12 py-5 rounded-btn font-bold uppercase tracking-[0.15em] text-sm shadow-2xl transition-all transform hover:-translate-y-1 border border-black/20"
+                        className="inline-flex items-center gap-3 bg-gold hover:bg-gold-strong text-ink px-10 py-4 rounded-btn font-bold transition-all shadow-gold"
                     >
                         Book Your Transfer Now
                         <Plane className="w-5 h-5" />

@@ -34,6 +34,7 @@ interface HeroProps {
     }>;
     fleetImages?: string[];
     isSpiritual?: boolean;
+    theme?: 'dark' | 'light';
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -53,8 +54,12 @@ const Hero: React.FC<HeroProps> = ({
     trustBadge,
     stats,
     fleetImages,
-    isSpiritual = false
+    isSpiritual = false,
+    theme
 }) => {
+    // Default to dark theme unless explicitly set to light or if it's a spiritual hero
+    const isDark = theme === 'dark' || (!isSpiritual && theme !== 'light');
+
     const ref = useRef<HTMLElement>(null);
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
@@ -70,7 +75,7 @@ const Hero: React.FC<HeroProps> = ({
     };
 
     return (
-        <section ref={ref} className="relative w-full min-h-[95vh] lg:min-h-screen flex items-center justify-center overflow-hidden bg-surface">
+        <section ref={ref} className={`relative w-full min-h-[95vh] lg:min-h-screen flex items-center justify-center overflow-hidden ${isDark ? 'bg-ink' : 'bg-surface'}`}>
             {/* Static Background */}
             <div className="absolute inset-0 z-0">
                 <div className="relative w-full h-full">
@@ -108,8 +113,8 @@ const Hero: React.FC<HeroProps> = ({
                                         alt="Fleet Right"
                                         width={800}
                                         height={600}
-                                        className="w-full h-auto object-contain" // Flip if needed, but studio shots usually front 3/4
-                                        style={{ transform: 'scaleX(-1)' }} // Assuming standard front-left angle, flip for symmetry
+                                        className="w-full h-auto object-contain"
+                                        style={{ transform: 'scaleX(-1)' }}
                                     />
                                 </motion.div>
                             )}
@@ -132,29 +137,27 @@ const Hero: React.FC<HeroProps> = ({
                             )}
 
                             {/* Ambient Glow for Composition */}
-                            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-surface via-surface/80 to-transparent z-20 pointer-events-none" />
+                            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink via-ink/80 to-transparent z-20 pointer-events-none" />
                         </div>
                     ) : (
                         <Image
                             src={bgImage}
-                            alt={alt || "Al Kiswah Umrah Taxi Fleet at Jeddah Airport"}
+                            alt={alt || "Al Kiswah Umrah Taxi Fleet"}
                             fill
                             priority
-                            className="object-cover object-bottom opacity-60"
+                            className="object-cover object-center opacity-80"
                             sizes="100vw"
                         />
                     )}
-                    {isSpiritual && (
+                    
+                    {/* Dark vs Light Overlays */}
+                    {isDark ? (
                         <>
-                            {/* Premium Frosted Glass Overlay for perfect legibility */}
-                            <div className="absolute inset-0 z-[1] bg-surface/85 backdrop-blur-sm" />
+                            <div className="absolute inset-0 bg-ink/50 backdrop-blur-[2px] z-[1]" />
+                            <div className="absolute inset-0 bg-gradient-to-b from-ink/90 via-ink/20 to-ink/90 z-[1]" />
                         </>
-                    )}
-                    {!isSpiritual && (
-                        <div className="absolute inset-0 bg-surface/60 backdrop-blur-sm" />
-                    )}
-                    {!fleetImages && !isSpiritual && (
-                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gold/10 via-transparent to-transparent opacity-60" />
+                    ) : (
+                        <div className="absolute inset-0 bg-surface/85 backdrop-blur-md z-[1]" />
                     )}
                 </div>
             </div>
@@ -163,7 +166,6 @@ const Hero: React.FC<HeroProps> = ({
             <div className={`container relative z-10 px-4 pt-24 md:pt-28 lg:pt-32 pb-24 ${layout === 'two-column' ? 'grid lg:grid-cols-2 gap-12 lg:gap-24 items-center' : 'flex flex-col items-center text-center'} ${isSpiritual && layout === 'two-column' ? 'lg:grid-cols-[1.2fr,0.8fr]' : ''}`}>
 
                 {/* Text Content */}
-                {/* Text Content - Refactored for LCP (H1 is static) */}
                 <div className={`flex flex-col gap-8 ${layout === 'center' ? 'items-center text-center max-w-4xl' : 'max-w-3xl'}`}>
                     {/* Badge */}
                     <motion.div
@@ -172,23 +174,23 @@ const Hero: React.FC<HeroProps> = ({
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
                         className="flex flex-col justify-center lg:justify-start items-center lg:items-start gap-4 w-full"
                     >
-                        {/* Bismillah Calligraphy - Text Version */}
+                        {/* Bismillah Calligraphy */}
                         <div className="mb-4 w-full text-center">
-                            <div className="text-2xl md:text-3xl font-arabic text-gold-strong leading-relaxed" dir="rtl">
+                            <div className={`text-2xl md:text-3xl font-arabic ${isDark ? 'text-gold drop-shadow-[0_0_15px_rgba(239,191,91,0.3)]' : 'text-gold-strong'} leading-relaxed`} dir="rtl">
                                 بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
                             </div>
                         </div>
 
                         {badge ? (
                             typeof badge === 'string' ? (
-                                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/10 border border-gold/30 text-gold text-xs font-bold tracking-widest uppercase shadow-lg shadow-gold/5">
+                                <span className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full ${isDark ? 'bg-gold/20 border-gold/40 text-gold shadow-[0_0_15px_rgba(239,191,91,0.2)]' : 'bg-gold/10 border-gold/30 text-gold-strong'} text-xs font-bold tracking-widest uppercase`}>
                                     <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
                                     {badge}
                                 </span>
                             ) : badge
                         ) : (
                             <div className="flex gap-3">
-                                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold/10 border border-gold/30 text-gold-strong text-xs font-bold tracking-widest uppercase shadow-sm">
+                                <span className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full ${isDark ? 'bg-gold/20 border-gold/40 text-gold shadow-[0_0_15px_rgba(239,191,91,0.2)]' : 'bg-gold/10 border-gold/30 text-gold-strong'} text-xs font-bold tracking-widest uppercase`}>
                                     <Shield size={14} className="text-gold" />
                                     Ministry Licensed Operator
                                 </span>
@@ -196,14 +198,18 @@ const Hero: React.FC<HeroProps> = ({
                         )}
                     </motion.div>
 
-                    {/* Title - Static for LCP Optimization */}
+                    {/* Title */}
                     <div>
-                        <h1 className="font-display font-semibold text-5xl md:text-6xl lg:text-7xl text-ink leading-[1.1] tracking-tight">
-                            {title.split(' ').map((word, i) => (
-                                <span key={i} className={i === 1 || word.includes('VIP') ? 'text-gold-strong' : ''}>
-                                    {word}{' '}
-                                </span>
-                            ))}
+                        <h1 className={`font-display font-semibold text-5xl md:text-6xl lg:text-7xl ${isDark ? 'text-surface drop-shadow-md' : 'text-ink'} leading-[1.1] tracking-tight`}>
+                            {title.split(' ').map((word, i) => {
+                                const highlightWords = ['VIP', 'Umrah', 'Makkah', 'Madinah', 'Jeddah', 'Premium', 'Taxi', 'Transfers'];
+                                const isHighlighted = highlightWords.some(hw => word.includes(hw)) && word.length > 3;
+                                return (
+                                    <span key={i} className={isHighlighted ? 'text-gold' : ''}>
+                                        {word}{' '}
+                                    </span>
+                                );
+                            })}
                         </h1>
                     </div>
 
@@ -212,7 +218,7 @@ const Hero: React.FC<HeroProps> = ({
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                        className={`text-lg md:text-xl text-muted font-light leading-relaxed max-w-2xl ${layout === 'center' ? 'mx-auto' : 'mx-auto lg:mx-0 border-l-2 border-gold/30 pl-6'}`}
+                        className={`text-lg md:text-xl font-light leading-relaxed max-w-2xl ${isDark ? 'text-surface/90' : 'text-muted'} ${layout === 'center' ? 'mx-auto' : 'mx-auto lg:mx-0 border-l-2 border-gold/30 pl-6'}`}
                     >
                         {subtitle}
                     </motion.div>
@@ -241,7 +247,7 @@ const Hero: React.FC<HeroProps> = ({
                                 href={secondaryCtaLink}
                                 variant="outline"
                                 size="lg"
-                                className="btn-secondary border-border text-ink"
+                                className={`btn-secondary ${isDark ? 'border-surface/30 text-surface hover:bg-surface/10' : 'border-border text-ink'}`}
                             >
                                 {secondaryCtaText}
                             </GlassButton>
@@ -257,15 +263,15 @@ const Hero: React.FC<HeroProps> = ({
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
-                            className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-2xl bg-surface-alt border border-border p-6 rounded-2xl shadow-sm"
+                            className={`mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-2xl p-6 rounded-2xl shadow-sm ${isDark ? 'bg-ink-surface/40 border border-border/10 backdrop-blur-md' : 'bg-surface-alt border border-border'}`}
                         >
                             {stats.map((stat, i) => (
                                 <div key={i} className="flex flex-col gap-1 items-center lg:items-start text-center lg:text-left">
                                     <div className="flex items-center gap-2 text-gold-strong mb-1">
                                         {stat.icon || <CheckCircle size={16} />}
-                                        <span className="font-bold text-2xl text-ink">{stat.value}</span>
+                                        <span className={`font-bold text-2xl ${isDark ? 'text-surface' : 'text-ink'}`}>{stat.value}</span>
                                     </div>
-                                    <span className="text-[10px] md:text-xs text-muted uppercase tracking-wider">{stat.label}</span>
+                                    <span className={`text-[10px] md:text-xs uppercase tracking-wider ${isDark ? 'text-surface/70' : 'text-muted'}`}>{stat.label}</span>
                                 </div>
                             ))}
                         </motion.div>
@@ -290,9 +296,6 @@ const Hero: React.FC<HeroProps> = ({
                     </motion.div>
                 )}
             </div>
-
-            {/* Bottom Gradient Fade */}
-            <div className="absolute bottom-0 w-full h-40 bg-gradient-to-t from-surface via-surface/80 to-transparent pointer-events-none z-[1]" />
         </section >
     );
 };

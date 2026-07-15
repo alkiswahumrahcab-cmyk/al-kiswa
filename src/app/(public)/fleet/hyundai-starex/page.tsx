@@ -6,7 +6,6 @@ import { ArrowRight, Shield, Star, Briefcase, Users, Wifi, LayoutGrid, MapPin } 
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
-import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
 
@@ -89,13 +88,7 @@ export default async function HyundaiStarexPage() {
                 layout="center"
             />
 
-            <FleetPricingGrid
-                vehicleId={starexId}
-                vehicleImage="/images/fleet/hyundai-h1.webp"
-                vehicleType="starex"
-                title="Hyundai Starex Rates | Jeddah, Makkah, Madinah"
-                subtitle="Affordable comfort for up to 7 passengers. Great value for group travel."
-            />
+            
 
             {/* Vehicle Highlights */}
             <section className="py-16 bg-surface">

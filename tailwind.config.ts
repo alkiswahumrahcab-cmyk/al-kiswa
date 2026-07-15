@@ -32,6 +32,15 @@ const config: Config = {
                 error: 'var(--color-error)',
                 warning: 'var(--color-warning)',
                 info: 'var(--color-info)',
+                
+                // Ivory Light Theme Redesign
+                ivory: 'var(--theme-ivory)',
+                'surface-warm': 'var(--theme-surface-warm)',
+                charcoal: 'var(--theme-charcoal)',
+                'charcoal-soft': 'var(--theme-charcoal-soft)',
+                'gold-deep': 'var(--theme-gold-deep)',
+                'gold-tint': 'var(--theme-gold-tint)',
+                hairline: 'var(--theme-hairline)',
             },
             fontFamily: {
                 display: ['var(--font-display)'],
@@ -54,6 +63,23 @@ const config: Config = {
             },
             maxWidth: { container: '1280px' },
             transitionTimingFunction: { brand: 'cubic-bezier(0.22,1,0.36,1)' },
+        },
+        container: {
+            center: true,
+            padding: {
+                DEFAULT: '1rem',
+                sm: '2rem',
+                lg: '4rem',
+                xl: '5rem',
+                '2xl': '6rem',
+            },
+            screens: {
+                sm: '640px',
+                md: '768px',
+                lg: '1024px',
+                xl: '1280px',
+                '2xl': '1280px', // Forces container to max out at 1280px
+            },
         },
     },
     plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],

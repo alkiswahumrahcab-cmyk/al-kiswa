@@ -282,7 +282,11 @@ The most important element on the site. A floating elevated card holding the who
   - Confirmed capacities: **Hyundai Staria 5–7 · Toyota HiAce 11 seats · Toyota Coaster 19 seats.**
 - **Route card:** route line (Jeddah → Makkah) with an arrow/pin motif, distance/time, "from" price, book link.
 - **Feature card:** gold line-icon in a `--color-gold-soft` circle, H4 title, body-sm description. Used for value props (fixed pricing, English-speaking drivers, 24/7, Nusuk-approved).
-- **Testimonial card:** 5 gold stars, pilgrim quote (Cormorant, italic, feels editorial), avatar + name + country flag/label.
+- **Testimonial card:** Standardized globally. 
+  - **Container**: Minimal glass/flat `bg-ivory`, `rounded-[16px]`, `border border-hairline`, `shadow-sm`, relative flex layout.
+  - **Stars**: 5 solid gold stars (`size={16}`), flush left, spaced with `mb-6`. No backgrounds behind stars.
+  - **Quote text**: `text-charcoal-soft`, `italic`, `font-display`, `text-lg` with `leading-[1.7]`. No giant quote icons.
+  - **Footer**: Pushed to bottom with `mt-auto`, separated by top `border-hairline` and `pt-4`. Left side holds the reviewer's name (`font-semibold text-charcoal`), right side holds their location/date (`text-muted text-sm`). NO avatar images.
 
 ### 7.4 Navbar
 

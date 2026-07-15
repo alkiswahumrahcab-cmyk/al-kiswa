@@ -7,7 +7,6 @@ import { ArrowRight, Shield, Star, Briefcase, Users, Wifi, MapPin } from 'lucide
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
-import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
 
@@ -144,13 +143,7 @@ export default async function GmcYukonPage() {
                 breadcrumbs={<Breadcrumbs />}
             />
 
-            <FleetPricingGrid
-                vehicleId={gmcId}
-                vehicleImage="/images/fleet/gmc-yukon-2025.webp"
-                vehicleType="gmc"
-                title="VIP GMC Yukon Rates | Jeddah, Makkah & Madinah"
-                subtitle="The pinnacle of comfort for your spiritual journey. Transparent VIP pricing for all routes."
-            />
+            
 
             {/* Vehicle Highlights */}
             <section className="py-16 bg-white dark:bg-n-900">

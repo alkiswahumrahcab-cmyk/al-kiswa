@@ -127,7 +127,6 @@ export default function Navbar() {
                                     className={`relative text-sm font-medium transition-all duration-300 px-4 py-2 flex items-center gap-1 cursor-default ${useWhiteText ? 'text-white/90 hover:text-white' : 'text-muted hover:text-ink'}`}
                                 >
                                     {link.label}
-                                    {link.children && <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300 text-gold" />}
                                 </span>
                             ) : (
                                 <Link
@@ -138,7 +137,6 @@ export default function Navbar() {
                                         }`}
                                 >
                                     {link.label}
-                                    {link.children && <ChevronDown size={14} className="group-hover:rotate-180 transition-transform duration-300 text-gold" />}
                                 </Link>
                             )}
 

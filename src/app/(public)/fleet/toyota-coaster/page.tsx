@@ -6,7 +6,6 @@ import { ArrowRight, Shield, Star, Briefcase, Users, Fuel, MapPin, Wifi } from '
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
-import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
 
@@ -111,13 +110,7 @@ export default async function ToyotaCoasterPage() {
                 layout="center"
             />
 
-            <FleetPricingGrid
-                vehicleId={coasterId}
-                vehicleImage={coasterImage}
-                vehicleType="coaster"
-                title="Toyota Coaster Rates | Jeddah, Makkah, Madinah"
-                subtitle="Comfortable seating for up to 19 passengers. Ideal for organized group travel."
-            />
+            
 
             {/* Vehicle Highlights */}
             <section className="py-16 bg-surface">

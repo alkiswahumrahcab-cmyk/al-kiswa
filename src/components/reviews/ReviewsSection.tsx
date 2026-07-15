@@ -144,13 +144,13 @@ export default function ReviewsSection() {
 
                     {/* Simplified Rating Summary */}
                     <div
-                        className="flex flex-col lg:flex-row items-center justify-between gap-12 mb-16 p-10 bg-gradient-to-br from-foreground/5 to-transparent backdrop-blur-sm rounded-2xl border border-border max-w-5xl mx-auto relative overflow-hidden"
+                        className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 mb-16 p-8 lg:px-12 lg:py-10 bg-gradient-to-br from-foreground/5 to-transparent backdrop-blur-sm rounded-[2rem] border border-border w-fit mx-auto relative overflow-hidden shadow-sm"
                     >
                         {/* Subtle Top Shine */}
                         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/20 to-transparent" />
 
                         {/* Rating Stats - Left */}
-                        <div className="flex flex-col sm:flex-row items-center gap-8 lg:gap-12 flex-1">
+                        <div className="flex flex-col sm:flex-row items-center gap-8 lg:gap-12">
                             {/* Big Score */}
                             <div className="text-center min-w-[140px]">
                                 <div className="text-6xl font-serif font-medium text-foreground tracking-tight">{averageRating}</div>
@@ -166,7 +166,7 @@ export default function ReviewsSection() {
                             <div className="h-px w-24 sm:w-px sm:h-20 bg-border" />
 
                             {/* Rating Bars */}
-                            <div className="space-y-2 w-full max-w-xs px-2">
+                            <div className="space-y-2 w-48 sm:w-64 px-2 shrink-0">
                                 {[5, 4, 3, 2, 1].map((star) => (
                                     <div key={star} className="flex items-center gap-4 text-[11px] font-medium text-muted-foreground">
                                         <span className="w-2">{star}</span>

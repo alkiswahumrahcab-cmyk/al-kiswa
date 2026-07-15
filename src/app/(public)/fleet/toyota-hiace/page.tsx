@@ -6,7 +6,6 @@ import { ArrowRight, Shield, Star, Users, Fuel, Phone, MessageCircle, CheckCircl
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
-import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import { vehicleService } from '@/services/vehicleService';
 import HiaceGallery from './HiaceGallery';
 import HiaceHero from './HiaceHero';
@@ -330,13 +329,7 @@ export default async function ToyotaHiacePage() {
 
             {/* ── PRICING ── */}
             <div className="bg-surface">
-                <FleetPricingGrid
-                    vehicleId={hiaceId}
-                    vehicleImage="/images/fleet/toyota-hiace-2025.webp"
-                    vehicleType="hiace"
-                    title="Toyota Hiace 2026 – Route Pricing"
-                    subtitle="Fixed, transparent pricing. No hidden fees. Your entire group, one vehicle."
-                />
+                
             </div>
 
             <FleetCarouselWrapper />

@@ -7,7 +7,6 @@ import { ArrowRight, Shield, Star, Briefcase, Users, Wifi, Fuel } from 'lucide-r
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
-import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
 
@@ -138,13 +137,7 @@ export default async function HyundaiStariaPage() {
                 breadcrumbs={<Breadcrumbs />}
             />
 
-            <FleetPricingGrid
-                vehicleId={stariaId}
-                vehicleImage="/images/fleet/hyundai-staria-2025.webp"
-                vehicleType="staria"
-                title="Hyundai Staria Rates | Jeddah, Makkah, Madinah"
-                subtitle="The perfect balance of modern luxury and group capacity. Ideal for families and small groups."
-            />
+            
 
             {/* Vehicle Highlights */}
             <section className="py-16 bg-white dark:bg-n-900">

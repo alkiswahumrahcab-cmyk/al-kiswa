@@ -7,7 +7,6 @@ import { ArrowRight, Shield, Star, Briefcase, Users, Wifi, Fuel } from 'lucide-r
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
-import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
 
@@ -137,13 +136,7 @@ export default async function ToyotaCamryPage() {
                 breadcrumbs={<Breadcrumbs />}
             />
 
-            <FleetPricingGrid
-                vehicleId={camryId}
-                vehicleImage="/images/fleet/camry-2025.webp"
-                vehicleType="camry"
-                title="Toyota Camry Rates | Jeddah, Makkah, Madinah"
-                subtitle="Reliable, comfortable, and economical. The smart choice for small families and couples."
-            />
+            
 
             {/* Vehicle Highlights */}
             <section className="py-16 bg-white dark:bg-n-900">

@@ -7,7 +7,6 @@ import { ArrowRight, Shield, Star, Briefcase, Users, Wifi, MapPin, CheckCircle }
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
-import FleetPricingGrid from '@/components/fleet/FleetPricingGrid';
 import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
 import { vehicleService } from '@/services/vehicleService';
 import Image from 'next/image';
@@ -320,13 +319,7 @@ export default async function GmcYukonPage() {
             </section>
 
             {/* G. Pricing & Packages */}
-            <FleetPricingGrid
-                vehicleId={gmcId}
-                vehicleImage="/images/fleet/gmc-yukon-hero-professional.webp"
-                vehicleType="gmc"
-                title="GMC Yukon Umrah Packages & Pricing"
-                subtitle="Transparent, VIP pricing for your journey between Jeddah, Makkah, and Madinah."
-            />
+            
 
             {/* H. Route Packages */}
             <section className="py-20 bg-surface-alt">

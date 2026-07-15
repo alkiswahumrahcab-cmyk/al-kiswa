@@ -13,7 +13,7 @@ export default function CtaBand() {
             <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gold/10 rounded-full blur-[100px] pointer-events-none" />
 
             <div className="container relative z-10 text-center px-4">
-                <h2 className="text-4xl md:text-5xl font-semibold font-display mb-6 tracking-tight">
+                <h2 className="text-4xl md:text-5xl font-semibold font-display text-white mb-6 tracking-tight">
                     Start Your <span className="text-gold-strong">Spiritual Journey</span> with Peace of Mind
                 </h2>
                 <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
