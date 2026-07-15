@@ -326,37 +326,32 @@ Full-bleed `--color-ink-bg`, centered: eyebrow (gold) → H2 (Cormorant, `--colo
 
 The hero does three jobs at once: it makes the first impression, states the promise, and starts the booking. It is also the **LCP element**, so it must render fast and shift nothing. Treat it as the most carefully-built section on the site.
 
-**Layout (desktop): asymmetric two-column, content-led.**
-- **Structure:** a `~7 / 5` split inside the `.container`. Left column = message; right column = imagery. The **booking widget spans the full width beneath both columns**, overlapping the hero's bottom edge so it sits on the fold (the reference's signature "book immediately" pattern).
-- **Height:** content-driven, not `100vh` (forced full-viewport heroes hurt UX and LCP). Aim `min-height ~640–720px` desktop, with top padding that clears the fixed navbar. Never let the widget push below the fold on a standard laptop.
-- **Background:** `--color-bg` ivory with an optional *very subtle* warm wash (a soft radial from `--color-gold-soft` at ~6% opacity in one corner, or a faint gold hairline motif). Restraint is mandatory — the background must never compete with the text. No busy patterns.
+**Layout: Full-bleed, image-led structure.**
+- **Structure:** A single full-bleed section. The hero image fills the entire width and height. Content and widget overlay the image. The **booking widget spans the full width**, overlapping the hero's bottom edge so it sits on the fold (the reference's signature "book immediately" pattern).
+- **Height:** content-driven, not `100vh`. Aim `min-height ~620px` desktop / `~460px` mobile, with top padding that clears the fixed navbar. Never let the widget push below the fold on a standard laptop.
+- **Scrim:** A two-layer gradient scrim over the image (dark-to-transparent left-to-right, and bottom-up darkening) ensures AA-readability for the ivory text against any photo.
 
-**Left column (the message), top to bottom:**
-1. **Eyebrow** — Manrope 600, 13px, uppercase, `0.14em` tracking, gold. e.g. `PRIVATE UMRAH & HAJJ TRANSPORT`.
-2. **H1** — Cormorant Garamond 600, 68px desktop / 40px mobile, line-height 1.04, `--color-ink`. Benefit-led and calm. Direction: *ease, comfort, reliability, arrival*. e.g. "Arrive in comfort, from the moment you land." One gold-accented word is allowed for emphasis, no more.
-3. **Subhead** — Manrope 400, 19px, `--color-body`, max-width `~48ch`. One or two sentences: fixed prices, Nusuk-approved drivers, door-to-door across Makkah, Madinah, Jeddah, Taif.
-4. **Trust microcopy row** — inline: 5 gold stars + rating, a divider dot, "10,000+ pilgrims served," a divider dot, "Nusuk-approved." Manrope 14px, muted. Small, quiet, credible.
+**Overlaid content (left-aligned, max-width ~640px), top to bottom:**
+1. **Eyebrow** — Gold, uppercase, tracked (`0.14em`): "PRIVATE UMRAH & HAJJ TRANSPORT".
+2. **H1** — Cormorant Garamond 600, 58px desktop / 33px mobile, line-height 1.04, Ivory (`#fff` on image). One gold accented word is allowed.
+3. **Subhead** — Manrope 400, light text, max-width `~44ch`. 
+4. **Trust microcopy row** — inline: 5 gold stars + 4.9 · "10,000+ pilgrims served" · "Nusuk-approved". Light text.
 
-**Right column (the imagery):**
-- A single warm, human, golden-hour photograph — a driver welcoming a family, a spotless vehicle, or Makkah/Madinah at dawn. `--radius-lg`, `--shadow-md`.
-- Optional depth touch: one small floating "trust card" overlapping a corner of the image (e.g. a rating chip or "Nusuk-approved" badge) on `--color-surface`, `--radius-md`, `--shadow-sm`. Use once, keep it subtle.
-- **Text never sits on the image** — all copy lives on ivory in the left column, guaranteeing AA contrast regardless of the photo.
-
-**Booking widget:** the hero's functional anchor — see §7.2. Full-width elevated card, overlapping the hero's bottom edge, always in the first viewport.
-
-**Mobile (single column, stacked):**
-`Eyebrow → H1 (40px) → subhead → trust row → image (rounded, full-width) → booking widget (fields stacked).` Keep vertical spacing generous but ensure the widget's top edge is reachable with minimal scroll.
+**Booking widget:** the hero's functional anchor — see §7.2. A white card (`--surface`, `--radius-xl`, `--shadow-lg`) pulled up via negative margin (e.g. `-96px`) so it breaks the fold. 
+- **Desktop:** One horizontal row [From · To · Date · Passengers · Get Prices].
+- **Mobile:** Stacked fields, full-width button.
+- **Get Prices Button:** Rectangular 8px, gold background, charcoal text (`text-ink`).
 
 **Performance rules (this section is the LCP):**
-- The hero image is the LCP candidate: `next/image` with `priority`, explicit `width`/`height`, AVIF/WebP, and a preload hint. Serve a correctly-sized image per breakpoint — never a 2000px file to a phone.
+- The hero image is the LCP candidate: `next/image` with `priority`, explicit `width`/`height` or `fill`, AVIF/WebP, and a preload hint. Serve a correctly-sized image per breakpoint.
 - H1 text must paint immediately: fonts via `next/font` with `display: swap`, preloaded, so the headline is never invisible.
-- **Reserve space** for the image and the booking widget so nothing shifts after load (protects CLS). The widget's height is fixed/known before its JS hydrates.
+- **Reserve space** for the image and the booking widget so nothing shifts after load (protects CLS).
 - **No entrance animation** on the hero (per §10) — content is simply present on first paint.
 
 **Accessibility & RTL:**
 - Exactly one `<h1>` on the page, and it lives here.
 - Hero image needs a meaningful `alt` (or empty `alt` if purely decorative and the message is fully in text).
-- RTL (Arabic/Urdu): the `7/5` split mirrors — message column moves to the right, image to the left — via logical properties. Verify the widget and trust row mirror cleanly.
+- RTL (Arabic/Urdu): the content mirrors cleanly via logical properties.
 
 **Copy voice:** calm, reassuring, pilgrim-first. Speak to the worry it removes ("no haggling at the airport, no waiting, a driver who speaks your language"). Never salesy, never loud.
 
