@@ -179,7 +179,7 @@ export default function Navbar() {
                 <div className="hidden xl:flex items-center gap-4">
                     <Link
                         href="/booking"
-                        className="btn-primary"
+                        className="btn-primary !px-5 !py-2 !font-medium !text-sm"
                     >
                         Book Now
                     </Link>

@@ -103,17 +103,17 @@
 @layer components {
   /* === PREMIUM BUTTONS === */
   .btn-primary, .btn-gold {
-    @apply inline-flex items-center justify-center bg-gold text-ink font-semibold rounded-btn px-7 py-3.5 transition-all duration-150 ease-out;
+    @apply inline-flex items-center justify-center bg-gold text-ink font-semibold rounded-btn px-7 py-3.5 transition-all duration-300 ease-out shadow-md hover:shadow-lg;
   }
   .btn-primary:hover, .btn-gold:hover {
-    @apply bg-gold-strong shadow-gold;
+    @apply bg-gold-soft text-ink border-transparent -translate-y-0.5;
   }
   
   .btn-secondary, .btn-outline {
-    @apply inline-flex items-center justify-center bg-transparent text-ink font-semibold border-[1.5px] border-border-strong rounded-btn px-7 py-3.5 transition-all duration-150 ease-out;
+    @apply inline-flex items-center justify-center bg-transparent text-ink font-semibold border-[1.5px] border-border-strong rounded-btn px-7 py-3.5 transition-all duration-300 ease-out;
   }
   .btn-secondary:hover, .btn-outline:hover {
-    @apply bg-gold-soft;
+    @apply bg-gold-soft border-transparent -translate-y-0.5;
   }
   
   .btn-ghost {

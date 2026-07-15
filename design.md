@@ -122,7 +122,7 @@ The design is bright, but a few bands need a dark anchor for contrast and drama 
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 20px;
-  --radius-pill: 9999px; /* reserved for tags/badges/avatars only — never buttons */
+  --radius-pill: 9999px; 
 
   /* elevation (warm, low-spread) */
   --shadow-xs: 0 1px 2px rgba(21,20,15,0.04);
@@ -251,14 +251,14 @@ The current Navbar/Footer cap at `1536px` causes float/misalignment on 1920px mo
 
 | Variant | Background | Text | Border | Radius | Use |
 |---|---|---|---|---|---|
-| **Primary** | `--color-gold` → hover `--color-gold-strong` | `--color-ink` (charcoal) | none | `--radius-btn` (8px) | The one main action per view (Book / Get Prices) |
-| **Secondary** | transparent → hover `--color-gold-soft` | `--color-ink` | `1.5px --color-border-strong` | `--radius-btn` (8px) | Alternate action |
+| **Primary** | `--color-gold` → hover `--color-gold-soft` | `--color-ink` (charcoal), Semibold | none | `--radius-btn` (8px) | The one main action per view (Book / Get Prices) |
+| **Secondary** | transparent → hover `--color-gold-soft` | `--color-ink`, Semibold | `1.5px --color-border-strong` → hover `transparent` | `--radius-btn` (8px) | Alternate action |
 | **Ghost / text** | transparent | `--color-gold-strong` | none | — | Low-priority links, "Learn more →" |
 | **On-dark** | `--color-gold` | `--color-ink` | none | `--radius-btn` (8px) | Primary inside dark CTA band |
 
 - **Corner radius: `--radius-btn` (8px) — rectangular with a small radius. Never pill, never fully-rounded.** This is a deliberate corporate/premium choice; the soft rectangle reads more professional and B2B-appropriate than a rounded pill. Apply the same 8px to every button variant and size for consistency.
 - Padding: `14px 28px` (default), `12px 20px` (compact).
-- Hover: darken + gain `--shadow-gold` (primary only), `150ms`. No movement needed.
+- Hover: Primary button shifts to `--color-gold-soft`, lifts slightly (`-translate-y-0.5`), and gains a softer shadow. Secondary buttons fill with `--color-gold-soft` and lose their border.
 - Focus-visible: `2px` gold outline, `2px` offset — always visible.
 - Min height 48px (44px absolute floor) for tap targets.
 - Label in Manrope 600, sentence case, active-voice verbs ("Get prices", not "Submit").
