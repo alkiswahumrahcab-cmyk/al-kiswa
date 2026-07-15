@@ -779,54 +779,44 @@ export default function BookingForm() {
                                         )}
 
                                         {/* Date */}
-                                        <div className="relative">
-                                            <Calendar className="absolute left-0 top-4 text-gold transition-colors z-10" size={20} />
+                                        <div className="relative group">
+                                            <Calendar className="absolute left-0 top-4 text-gold transition-colors z-10 pointer-events-none" size={20} />
+                                            {!leg.date && (
+                                                <div className="absolute left-8 top-4 text-gray-600 pointer-events-none">
+                                                    {leg.pickup?.toLowerCase().includes('airport') ? 'Landing Date *' : 'Pickup Date *'}
+                                                </div>
+                                            )}
                                             <input
-                                                type={leg.date ? "date" : "text"}
-                                                placeholder={leg.pickup?.toLowerCase().includes('airport') ? 'Landing Date *' : 'Pickup Date *'}
-                                                onFocus={(e) => e.target.type = 'date'}
-                                                onBlur={(e) => { if (!e.target.value) e.target.type = 'text'; }}
-                                                onClick={(e) => {
-                                                    e.currentTarget.type = 'date';
-                                                    try {
-                                                        if ('showPicker' in HTMLInputElement.prototype) {
-                                                            e.currentTarget.showPicker();
-                                                        }
-                                                    } catch (err) {}
-                                                }}
+                                                type="date"
                                                 value={leg.date}
                                                 min={new Date().toISOString().split('T')[0]}
                                                 onChange={(e) => updateLeg(index, { date: e.target.value })}
-                                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-ink outline-none cursor-pointer transition-colors placeholder-gray-600
-                                                    ${errors[`leg_${index}_date`] ? 'border-red-500' : 'border-border hover:border-gold focus:border-gold'}
-                                                    [color-scheme:dark]`}
+                                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-ink outline-none cursor-pointer transition-colors relative z-20
+                                                    ${!leg.date ? 'text-transparent' : ''} 
+                                                    [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:h-full [&::-webkit-calendar-picker-indicator]:opacity-0 [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-datetime-edit]:pl-0
+                                                    ${errors[`leg_${index}_date`] ? 'border-red-500' : 'border-border hover:border-gold focus:border-gold'}`}
                                             />
-                                            {errors[`leg_${index}_date`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_date`]}</p>}
+                                            {errors[`leg_${index}_date`] && <p className="text-red-500 text-xs mt-1 absolute top-full">{errors[`leg_${index}_date`]}</p>}
                                         </div>
 
                                         {/* Time */}
-                                        <div className="relative">
-                                            <Clock className="absolute left-0 top-4 text-gold transition-colors z-10" size={20} />
+                                        <div className="relative group">
+                                            <Clock className="absolute left-0 top-4 text-gold transition-colors z-10 pointer-events-none" size={20} />
+                                            {!leg.time && (
+                                                <div className="absolute left-8 top-4 text-gray-600 pointer-events-none">
+                                                    {leg.pickup?.toLowerCase().includes('airport') ? 'Landing Time (Local) *' : 'Pickup Time *'}
+                                                </div>
+                                            )}
                                             <input
-                                                type={leg.time ? "time" : "text"}
-                                                placeholder={leg.pickup?.toLowerCase().includes('airport') ? 'Landing Time (Local) *' : 'Pickup Time *'}
-                                                onFocus={(e) => e.target.type = 'time'}
-                                                onBlur={(e) => { if (!e.target.value) e.target.type = 'text'; }}
-                                                onClick={(e) => {
-                                                    e.currentTarget.type = 'time';
-                                                    try {
-                                                        if ('showPicker' in HTMLInputElement.prototype) {
-                                                            e.currentTarget.showPicker();
-                                                        }
-                                                    } catch (err) {}
-                                                }}
+                                                type="time"
                                                 value={leg.time}
                                                 onChange={(e) => updateLeg(index, { time: e.target.value })}
-                                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-ink outline-none cursor-pointer transition-colors placeholder-gray-600
-                                                    ${errors[`leg_${index}_time`] ? 'border-red-500' : 'border-border hover:border-gold focus:border-gold'}
-                                                    [color-scheme:dark]`}
+                                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-ink outline-none cursor-pointer transition-colors relative z-20
+                                                    ${!leg.time ? 'text-transparent' : ''} 
+                                                    [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:h-full [&::-webkit-calendar-picker-indicator]:opacity-0 [&::-webkit-calendar-picker-indicator]:cursor-pointer [&::-webkit-datetime-edit]:pl-0
+                                                    ${errors[`leg_${index}_time`] ? 'border-red-500' : 'border-border hover:border-gold focus:border-gold'}`}
                                             />
-                                            {errors[`leg_${index}_time`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_time`]}</p>}
+                                            {errors[`leg_${index}_time`] && <p className="text-red-500 text-xs mt-1 absolute top-full">{errors[`leg_${index}_time`]}</p>}
                                         </div>
 
                                         {/* Flight Number */}
