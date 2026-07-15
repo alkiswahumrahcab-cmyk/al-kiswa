@@ -77,9 +77,9 @@ export default function BookingWizard() {
                         <p className="text-[10px] font-bold text-gold uppercase tracking-[0.25em]">
                             Step {currentStep} of {STEPS.length}
                         </p>
-                        <p className="text-base font-bold text-white leading-tight">
+                        <p className="text-base font-bold text-ink leading-tight">
                             {STEPS[currentStep - 1].title}
-                            <span className="text-n-500 font-normal text-sm ml-2">— {STEPS[currentStep - 1].description}</span>
+                            <span className="text-muted font-normal text-sm ml-2">— {STEPS[currentStep - 1].description}</span>
                         </p>
                     </div>
                     {/* Circle steps mini */}
@@ -92,7 +92,7 @@ export default function BookingWizard() {
                                         ? 'w-6 h-6 bg-gold text-black'
                                         : currentStep === step.id
                                             ? 'w-7 h-7 bg-gold text-black ring-2 ring-gold/30 ring-offset-1 ring-offset-black'
-                                            : 'w-6 h-6 bg-white/10 text-n-500'
+                                            : 'w-6 h-6 bg-surface-sunken text-muted'
                                     }`}
                             >
                                 {currentStep > step.id ? <Check size={10} strokeWidth={3} /> : step.id}
@@ -101,7 +101,7 @@ export default function BookingWizard() {
                     </div>
                 </div>
                 {/* Segmented progress bar */}
-                <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+                <div className="h-1 bg-surface-sunken rounded-full overflow-hidden">
                     <motion.div
                         className="h-full bg-gradient-to-r from-gold to-amber-400 rounded-full"
                         animate={{ width: `${progressPercent === 0 ? 8 : progressPercent}%` }}
@@ -112,22 +112,22 @@ export default function BookingWizard() {
 
             {/* ── Desktop Progress Header ── */}
             <div className="hidden md:flex justify-between items-center mb-12 relative">
-                <div className="absolute top-5 left-0 w-full h-0.5 bg-white/10 -z-10" />
+                <div className="absolute top-5 left-0 w-full h-0.5 bg-surface-sunken -z-10" />
                 {STEPS.map((step) => (
                     <div key={step.id} className="flex flex-col items-center gap-4 group flex-1 relative z-10">
                         <div className={`
                             w-12 h-12 md:w-14 md:h-14 rounded-full flex items-center justify-center font-bold text-lg transition-all duration-500 border-2
                             ${currentStep >= step.id
                                 ? 'bg-gold border-gold text-black shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)]'
-                                : 'bg-charcoal border-white/10 text-n-500'}
+                                : 'bg-surface-alt border-border text-muted'}
                         `}>
                             {currentStep > step.id ? <Check size={24} strokeWidth={3} /> : step.id}
                         </div>
                         <div className="text-center">
-                            <span className={`text-xs uppercase font-bold tracking-[0.2em] mb-1.5 block ${currentStep >= step.id ? 'text-gold' : 'text-n-600'}`}>
+                            <span className={`text-xs uppercase font-bold tracking-[0.2em] mb-1.5 block ${currentStep >= step.id ? 'text-gold' : 'text-muted'}`}>
                                 Step 0{step.id}
                             </span>
-                            <h3 className={`text-sm md:text-base font-bold uppercase tracking-wider ${currentStep >= step.id ? 'text-white' : 'text-n-600'}`}>
+                            <h3 className={`text-sm md:text-base font-bold uppercase tracking-wider ${currentStep >= step.id ? 'text-ink' : 'text-muted'}`}>
                                 {step.title}
                             </h3>
                         </div>
@@ -136,7 +136,7 @@ export default function BookingWizard() {
             </div>
 
             {/* ── Main Content Card ── */}
-            <div className="bg-charcoal/60 backdrop-blur-xl rounded-[1.5rem] md:rounded-[2rem] shadow-2xl border border-white/10 overflow-hidden relative">
+            <div className="bg-surface-alt/60 backdrop-blur-xl rounded-[1.5rem] md:rounded-[2rem] shadow-2xl border border-border overflow-hidden relative">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 blur-[100px] pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold-secondary/5 blur-[100px] pointer-events-none" />
 
@@ -157,16 +157,16 @@ export default function BookingWizard() {
                 </div>
 
                 {/* Trust Footer */}
-                <div className="bg-black/40 border-t border-white/5 py-4 px-4 md:px-10 flex flex-wrap justify-center md:justify-between items-center gap-4 md:gap-8">
-                    <div className="flex items-center gap-2 text-n-400 text-[10px] font-bold uppercase tracking-widest">
+                <div className="bg-black/40 border-t border-border py-4 px-4 md:px-10 flex flex-wrap justify-center md:justify-between items-center gap-4 md:gap-8">
+                    <div className="flex items-center gap-2 text-muted text-[10px] font-bold uppercase tracking-widest">
                         <ShieldCheck size={13} className="text-gold" />
                         Safe & Secure
                     </div>
-                    <div className="flex items-center gap-2 text-n-400 text-[10px] font-bold uppercase tracking-widest">
+                    <div className="flex items-center gap-2 text-muted text-[10px] font-bold uppercase tracking-widest">
                         <Headphones size={13} className="text-gold" />
                         24/7 Support
                     </div>
-                    <div className="flex items-center gap-2 text-n-400 text-[10px] font-bold uppercase tracking-widest">
+                    <div className="flex items-center gap-2 text-muted text-[10px] font-bold uppercase tracking-widest">
                         <CreditCard size={13} className="text-gold" />
                         Pay on Arrival
                     </div>

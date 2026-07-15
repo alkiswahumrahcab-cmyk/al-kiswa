@@ -475,14 +475,14 @@ export default function BookingForm() {
         <div className="w-full max-w-4xl mx-auto px-4 pt-0 pb-16 relative">
             
             {/* Currency Toggle placed at the absolute top right */}
-            <div className="absolute top-2 right-4 md:top-[-20px] md:right-4 flex items-center gap-3 bg-[#0B0F19]/90 p-1.5 rounded-full border border-gold/30 backdrop-blur-md z-30 shadow-xl">
-                <span className="text-xs font-medium text-[#C9D4E0] pl-4 uppercase tracking-wider">Currency</span>
+            <div className="absolute top-2 right-4 md:top-[-20px] md:right-4 flex items-center gap-3 bg-surface/90 p-1.5 rounded-full border border-gold/30 backdrop-blur-md z-30 shadow-xl">
+                <span className="text-xs font-medium text-muted pl-4 uppercase tracking-wider">Currency</span>
                 <CurrencyToggle />
             </div>
 
             <div className="mb-10 pt-16 md:pt-0">
-                <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">Book Your Transfer</h1>
-                <p className="text-[#C9D4E0] text-base md:text-lg">Experience premium travel across Saudi Arabia.</p>
+                <h1 className="text-3xl md:text-5xl font-bold text-ink mb-4">Book Your Transfer</h1>
+                <p className="text-muted text-base md:text-lg">Experience premium travel across Saudi Arabia.</p>
             </div>
 
             <NusukBookingAlert />
@@ -501,7 +501,7 @@ export default function BookingForm() {
                                 <MessageCircle size={24} className="text-gold" />
                             </div>
                             <div>
-                                <h3 className="text-white font-bold text-lg">Experiencing connection issues?</h3>
+                                <h3 className="text-ink font-bold text-lg">Experiencing connection issues?</h3>
                                 <p className="text-gold text-sm">Our live pricing engine is taking longer than expected to load. You can easily book your trip via WhatsApp right now.</p>
                             </div>
                         </div>
@@ -509,7 +509,7 @@ export default function BookingForm() {
                             href={`https://wa.me/966548707332?text=Hello%2C%20I%20would%20like%20to%20book%20a%20taxi%20transfer.%20My%20connection%20is%20slow.`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="whitespace-nowrap px-6 py-3 bg-[#25D366] hover:bg-[#1ebd5c] text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-[#25D366]/20 flex items-center gap-2"
+                            className="whitespace-nowrap px-6 py-3 bg-[#25D366] hover:bg-[#1ebd5c] text-ink font-bold rounded-xl transition-all shadow-lg hover:shadow-[#25D366]/20 flex items-center gap-2"
                         >
                             <MessageCircle size={20} />
                             Book via WhatsApp
@@ -524,7 +524,7 @@ export default function BookingForm() {
                 <section className={`transition-opacity duration-500 ${activeSection !== 'route' && data.legs[0].routeId ? 'opacity-60 hover:opacity-100' : 'opacity-100'}`}>
                     <div className="flex items-center gap-3 mb-6">
                         <div className="w-8 h-8 rounded-full bg-gold text-black flex items-center justify-center font-bold">1</div>
-                        <h2 className="text-xl md:text-2xl font-bold text-white">Build Your Itinerary</h2>
+                        <h2 className="text-xl md:text-2xl font-bold text-ink">Build Your Itinerary</h2>
                     </div>
                     
                     <div className="pl-0 md:pl-11 space-y-8" ref={dropdownRef}>
@@ -558,7 +558,7 @@ export default function BookingForm() {
                                     <div className="flex justify-between items-center mb-4">
                                         <h3 className="text-gold font-bold">Transfer {index + 1}</h3>
                                         {data.legs.length > 1 && (
-                                            <button onClick={() => removeLeg(index)} className="text-n-500 hover:text-red-500 transition-colors">
+                                            <button onClick={() => removeLeg(index)} className="text-muted hover:text-red-500 transition-colors">
                                                 <Trash2 size={18} />
                                             </button>
                                         )}
@@ -571,12 +571,12 @@ export default function BookingForm() {
                                             <button
                                                 type="button"
                                                 onClick={() => setActiveDropdownIndex(activeDropdownIndex === index ? null : index)}
-                                                className={`w-full flex items-center justify-between pl-8 pr-4 py-4 bg-transparent border-b-2 text-left outline-none transition-colors ${errors[`leg_${index}_route`] ? 'border-red-500' : 'border-white/20 hover:border-gold focus:border-gold'}`}
+                                                className={`w-full flex items-center justify-between pl-8 pr-4 py-4 bg-transparent border-b-2 text-left outline-none transition-colors ${errors[`leg_${index}_route`] ? 'border-red-500' : 'border-border hover:border-gold focus:border-gold'}`}
                                             >
-                                                <span className={`text-base font-medium truncate ${leg.pickup ? 'text-white' : 'text-n-600'}`}>
+                                                <span className={`text-base font-medium truncate ${leg.pickup ? 'text-ink' : 'text-muted'}`}>
                                                     {currentLabel}
                                                 </span>
-                                                <ChevronDown size={20} className={`text-n-400 transition-transform ${activeDropdownIndex === index ? 'rotate-180' : ''}`} />
+                                                <ChevronDown size={20} className={`text-muted transition-transform ${activeDropdownIndex === index ? 'rotate-180' : ''}`} />
                                             </button>
                                             {errors[`leg_${index}_route`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_route`]}</p>}
                                             
@@ -585,25 +585,25 @@ export default function BookingForm() {
                                                 onClose={() => setActiveDropdownIndex(null)}
                                                 title="Select Route"
                                             >
-                                                <div className="p-4 border-b border-white/10 relative sticky top-0 bg-[#0B0F19] z-10">
-                                                    <Search size={18} className="absolute left-7 top-1/2 -translate-y-1/2 text-n-400" />
+                                                <div className="p-4 border-b border-border relative sticky top-0 bg-[#0B0F19] z-10">
+                                                    <Search size={18} className="absolute left-7 top-1/2 -translate-y-1/2 text-muted" />
                                                     <input
                                                         type="text" value={searchStr} onChange={(e) => setRouteSearches(prev => ({ ...prev, [index]: e.target.value }))}
                                                         placeholder="Search city or airport..."
-                                                        className="w-full pl-10 pr-4 py-2 bg-transparent border-b border-white/10 rounded-none text-base text-white placeholder-gray-500 outline-none focus:border-gold transition-colors"
+                                                        className="w-full pl-10 pr-4 py-2 bg-transparent border-b border-border rounded-none text-base text-ink placeholder-gray-500 outline-none focus:border-gold transition-colors"
                                                     />
                                                 </div>
                                                 <div className="max-h-64 overflow-y-auto custom-scrollbar">
                                                     {filteredRoutes.length > 0 ? filteredRoutes.map((route) => (
                                                         <button
                                                             key={route.id} type="button" onClick={() => selectRoute(index, route)}
-                                                            className="w-full px-6 py-4 text-left hover:bg-gold/10 text-n-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex flex-col"
+                                                            className="w-full px-6 py-4 text-left hover:bg-gold/10 text-muted hover:text-ink border-b border-border last:border-0 transition-colors flex flex-col"
                                                         >
                                                             <span className="font-semibold text-lg">{route.origin} <span className="text-gold mx-2">→</span> {route.destination}</span>
-                                                            <span className="text-xs text-n-500 mt-1 uppercase tracking-wider">{route.category || 'Intercity'}</span>
+                                                            <span className="text-xs text-muted mt-1 uppercase tracking-wider">{route.category || 'Intercity'}</span>
                                                         </button>
                                                     )) : (
-                                                        <div className="p-6 text-center text-n-500">No routes found matching your search.</div>
+                                                        <div className="p-6 text-center text-muted">No routes found matching your search.</div>
                                                     )}
                                                 </div>
                                             </MobileDrawer>
@@ -611,11 +611,11 @@ export default function BookingForm() {
 
                                         {/* Ziyarah Tour Included Places Panel */}
                                         {ziyarahTour && (
-                                            <div className="md:col-span-2 mt-4 bg-[#111] border border-white/10 rounded-2xl overflow-hidden shadow-lg mb-2">
-                                                <div className="p-4 md:p-5 border-b border-white/5 flex flex-col md:flex-row justify-between items-start md:items-center gap-3 bg-[#151515]">
+                                            <div className="md:col-span-2 mt-4 bg-surface border border-border rounded-2xl overflow-hidden shadow-lg mb-2">
+                                                <div className="p-4 md:p-5 border-b border-border flex flex-col md:flex-row justify-between items-start md:items-center gap-3 bg-surface-alt">
                                                     <div>
-                                                        <h4 className="text-white font-bold font-cormorant text-xl md:text-2xl tracking-wide">{ziyarahTour.displayName}</h4>
-                                                        <p className="text-n-400 text-xs mt-1 font-montserrat">Guided ziyarah by private vehicle — your driver waits at each stop.</p>
+                                                        <h4 className="text-ink font-bold font-cormorant text-xl md:text-2xl tracking-wide">{ziyarahTour.displayName}</h4>
+                                                        <p className="text-muted text-xs mt-1 font-montserrat">Guided ziyarah by private vehicle — your driver waits at each stop.</p>
                                                     </div>
                                                     <div className="flex items-center gap-1.5 bg-gold/10 text-gold border border-gold/30 px-3 py-1.5 rounded-full font-semibold text-sm shrink-0">
                                                         <Clock size={14} />
@@ -623,31 +623,31 @@ export default function BookingForm() {
                                                     </div>
                                                 </div>
                                                 
-                                                <div className="bg-[#111] p-3 flex items-center gap-3 border-b border-white/5">
+                                                <div className="bg-surface p-3 flex items-center gap-3 border-b border-border">
                                                     <div className="w-7 h-7 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
                                                         <MapPin size={14} className="text-gold" />
                                                     </div>
-                                                    <p className="text-n-300 text-xs font-medium">{ZIYARAH_PICKUP_NOTE}</p>
+                                                    <p className="text-muted text-xs font-medium">{ZIYARAH_PICKUP_NOTE}</p>
                                                 </div>
 
-                                                <div className="p-4 md:p-5 bg-[#111]">
+                                                <div className="p-4 md:p-5 bg-surface">
                                                     <h5 className="text-gold text-xs uppercase tracking-widest font-bold mb-3 font-montserrat">Included Stops</h5>
                                                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                                                         {ziyarahTour.stops.map((stop: any, stopIdx: number) => (
-                                                            <div key={stopIdx} className="bg-white/5 border border-white/5 rounded-xl p-3 flex items-start gap-2.5 hover:bg-white/10 hover:border-gold/30 transition-colors">
+                                                            <div key={stopIdx} className="bg-surface-alt border border-border rounded-xl p-3 flex items-start gap-2.5 hover:bg-surface-sunken hover:border-gold/30 transition-colors">
                                                                 <div className="w-5 h-5 rounded-full bg-gold text-black flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">
                                                                     {stopIdx + 1}
                                                                 </div>
                                                                 <div>
-                                                                    <p className="text-white text-sm font-medium font-montserrat leading-tight">{stop.name}</p>
+                                                                    <p className="text-ink text-sm font-medium font-montserrat leading-tight">{stop.name}</p>
                                                                     {stop.note && (
-                                                                        <p className="text-n-400 text-[11px] mt-1 leading-snug">{stop.note}</p>
+                                                                        <p className="text-muted text-[11px] mt-1 leading-snug">{stop.note}</p>
                                                                     )}
                                                                 </div>
                                                             </div>
                                                         ))}
                                                     </div>
-                                                    <p className="text-n-500 text-[11px] text-center mt-4 italic">
+                                                    <p className="text-muted text-[11px] text-center mt-4 italic">
                                                         Total trip duration: {ziyarahTour.durationHours} hours. Timings are approximate and may vary with traffic and crowd levels.
                                                     </p>
                                                 </div>
@@ -656,8 +656,8 @@ export default function BookingForm() {
 
                                         {/* Badr Detour Selector */}
                                         {(selectedRoute?.id === '692db09934f15bc89b45a600' || selectedRoute?.name?.toLowerCase() === 'madinah hotel to makkah hotel' || selectedRoute?.name?.toLowerCase() === 'madinah hotel → makkah hotel' || (selectedRoute?.origin?.toLowerCase() === 'madinah hotel' && selectedRoute?.destination?.toLowerCase() === 'makkah hotel')) && (
-                                            <div className="md:col-span-2 mt-2 bg-[#04162B]/50 border border-gold/30 rounded-xl p-4">
-                                                <h4 className="text-white font-bold mb-3 font-cormorant text-xl">Route Variant</h4>
+                                            <div className="md:col-span-2 mt-2 bg-surface-sunken border border-gold/30 rounded-xl p-4">
+                                                <h4 className="text-ink font-bold mb-3 font-cormorant text-xl">Route Variant</h4>
                                                 <div className="space-y-4">
                                                     <label className="flex items-start gap-3 cursor-pointer group">
                                                         <div className="relative flex items-center justify-center mt-1">
@@ -673,8 +673,8 @@ export default function BookingForm() {
                                                             <div className="absolute w-2.5 h-2.5 rounded-full bg-gold scale-0 peer-checked:scale-100 transition-transform"></div>
                                                         </div>
                                                         <div>
-                                                            <p className="text-white font-medium">Direct Route</p>
-                                                            <p className="text-n-400 text-sm">No extra charge</p>
+                                                            <p className="text-ink font-medium">Direct Route</p>
+                                                            <p className="text-muted text-sm">No extra charge</p>
                                                         </div>
                                                     </label>
                                                     <label className="flex items-start gap-3 cursor-pointer group">
@@ -691,8 +691,8 @@ export default function BookingForm() {
                                                             <div className="absolute w-2.5 h-2.5 rounded-full bg-gold scale-0 peer-checked:scale-100 transition-transform"></div>
                                                         </div>
                                                         <div className="flex-1">
-                                                            <p className="text-white font-medium">Via Badr Detour</p>
-                                                            <p className="text-n-400 text-sm mb-1">Includes Jabal al-Malaika / Battle of Badr ziyarat.</p>
+                                                            <p className="text-ink font-medium">Via Badr Detour</p>
+                                                            <p className="text-muted text-sm mb-1">Includes Jabal al-Malaika / Battle of Badr ziyarat.</p>
                                                             {(() => {
                                                                 const activeVehicle = data.selectedVehicles.length > 0 ? data.selectedVehicles[0].vehicleId : null;
                                                                 if (activeVehicle) {
@@ -710,8 +710,8 @@ export default function BookingForm() {
 
                                         {/* Badr Detour Line Item Breakdown */}
                                         {leg.routeVariant === 'via_badr' && (selectedRoute?.id === '692db09934f15bc89b45a600' || selectedRoute?.name?.toLowerCase() === 'madinah hotel to makkah hotel' || selectedRoute?.name?.toLowerCase() === 'madinah hotel → makkah hotel' || (selectedRoute?.origin?.toLowerCase() === 'madinah hotel' && selectedRoute?.destination?.toLowerCase() === 'makkah hotel')) && (
-                                            <div className="md:col-span-2 mt-1 mb-2 px-4 py-3 bg-transparent border border-white/10 rounded-lg flex justify-between items-center text-sm">
-                                                <span className="text-n-300">Badr detour — Jabal al-Malaika ziyarat</span>
+                                            <div className="md:col-span-2 mt-1 mb-2 px-4 py-3 bg-transparent border border-border rounded-lg flex justify-between items-center text-sm">
+                                                <span className="text-muted">Badr detour — Jabal al-Malaika ziyarat</span>
                                                 <span className="text-gold font-bold">
                                                     {(() => {
                                                         const activeVehicle = data.selectedVehicles.length > 0 ? data.selectedVehicles[0].vehicleId : null;
@@ -728,11 +728,11 @@ export default function BookingForm() {
 
                                         {/* Wadi Jinn Add-on Selector */}
                                         {(selectedRoute?.id === '6949b367a41f6410e88ed72e' || selectedRoute?.name?.toLowerCase().includes('madinah ziyarat')) && (
-                                            <div className="md:col-span-2 mt-2 bg-[#04162B]/50 border border-gold/30 rounded-xl p-4">
+                                            <div className="md:col-span-2 mt-2 bg-surface-sunken border border-gold/30 rounded-xl p-4">
                                                 <div className="flex items-start justify-between gap-4">
                                                     <div>
-                                                        <h4 className="text-white font-bold mb-1 font-cormorant text-xl">Include Wadi Jinn</h4>
-                                                        <p className="text-n-400 text-sm mb-2">Valley of the Jinn — extended ziyarat stop</p>
+                                                        <h4 className="text-ink font-bold mb-1 font-cormorant text-xl">Include Wadi Jinn</h4>
+                                                        <p className="text-muted text-sm mb-2">Valley of the Jinn — extended ziyarat stop</p>
                                                         {(() => {
                                                             const activeVehicle = data.selectedVehicles.length > 0 ? data.selectedVehicles[0].vehicleId : null;
                                                             if (activeVehicle) {
@@ -762,8 +762,8 @@ export default function BookingForm() {
 
                                         {/* Wadi Jinn Detour Line Item Breakdown */}
                                         {leg.includeWadiJinn && (selectedRoute?.id === '6949b367a41f6410e88ed72e' || selectedRoute?.name?.toLowerCase().includes('madinah ziyarat')) && (
-                                            <div className="md:col-span-2 mt-1 mb-2 px-4 py-3 bg-transparent border border-white/10 rounded-lg flex justify-between items-center text-sm">
-                                                <span className="text-n-300">Wadi Jinn — Valley of the Jinn ziyarat</span>
+                                            <div className="md:col-span-2 mt-1 mb-2 px-4 py-3 bg-transparent border border-border rounded-lg flex justify-between items-center text-sm">
+                                                <span className="text-muted">Wadi Jinn — Valley of the Jinn ziyarat</span>
                                                 <span className="text-gold font-bold">
                                                     {(() => {
                                                         const activeVehicle = data.selectedVehicles.length > 0 ? data.selectedVehicles[0].vehicleId : null;
@@ -797,8 +797,8 @@ export default function BookingForm() {
                                                 value={leg.date}
                                                 min={new Date().toISOString().split('T')[0]}
                                                 onChange={(e) => updateLeg(index, { date: e.target.value })}
-                                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none cursor-pointer transition-colors placeholder-gray-600
-                                                    ${errors[`leg_${index}_date`] ? 'border-red-500' : 'border-white/20 hover:border-gold focus:border-gold'}
+                                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-ink outline-none cursor-pointer transition-colors placeholder-gray-600
+                                                    ${errors[`leg_${index}_date`] ? 'border-red-500' : 'border-border hover:border-gold focus:border-gold'}
                                                     [color-scheme:dark]`}
                                             />
                                             {errors[`leg_${index}_date`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_date`]}</p>}
@@ -822,8 +822,8 @@ export default function BookingForm() {
                                                 }}
                                                 value={leg.time}
                                                 onChange={(e) => updateLeg(index, { time: e.target.value })}
-                                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none cursor-pointer transition-colors placeholder-gray-600
-                                                    ${errors[`leg_${index}_time`] ? 'border-red-500' : 'border-white/20 hover:border-gold focus:border-gold'}
+                                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-ink outline-none cursor-pointer transition-colors placeholder-gray-600
+                                                    ${errors[`leg_${index}_time`] ? 'border-red-500' : 'border-border hover:border-gold focus:border-gold'}
                                                     [color-scheme:dark]`}
                                             />
                                             {errors[`leg_${index}_time`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_time`]}</p>}
@@ -838,8 +838,8 @@ export default function BookingForm() {
                                                     placeholder="Flight Number (Required)"
                                                     value={leg.flightNumber}
                                                     onChange={(e) => updateLeg(index, { flightNumber: e.target.value })}
-                                                    className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors placeholder-gray-600
-                                                        ${errors[`leg_${index}_flightNumber`] ? 'border-red-500' : 'border-white/20 hover:border-gold focus:border-gold'}`}
+                                                    className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-ink outline-none transition-colors placeholder-gray-600
+                                                        ${errors[`leg_${index}_flightNumber`] ? 'border-red-500' : 'border-border hover:border-gold focus:border-gold'}`}
                                                 />
                                                 {errors[`leg_${index}_flight`] && <p className="text-red-500 text-xs mt-1 absolute">{errors[`leg_${index}_flight`]}</p>}
                                             </div>
@@ -853,12 +853,12 @@ export default function BookingForm() {
                                                     <button
                                                         type="button"
                                                         onClick={() => setActiveTerminalDropdown(activeTerminalDropdown === index ? null : index)}
-                                                        className={`w-full flex items-center justify-between pl-8 pr-4 py-4 border-b-2 bg-transparent transition-colors text-left outline-none ${errors.airportTerminal ? 'border-red-500' : 'border-white/20 hover:border-gold focus:border-gold'}`}
+                                                        className={`w-full flex items-center justify-between pl-8 pr-4 py-4 border-b-2 bg-transparent transition-colors text-left outline-none ${errors.airportTerminal ? 'border-red-500' : 'border-border hover:border-gold focus:border-gold'}`}
                                                     >
-                                                        <span className={`text-base truncate ${data.airportTerminal ? 'text-white' : 'text-n-400'}`}>
+                                                        <span className={`text-base truncate ${data.airportTerminal ? 'text-ink' : 'text-muted'}`}>
                                                             {data.airportTerminal || 'Select Arrival Terminal'}
                                                         </span>
-                                                        <ChevronDown size={20} className={`text-n-400 transition-transform ${activeTerminalDropdown === index ? 'rotate-180' : ''}`} />
+                                                        <ChevronDown size={20} className={`text-muted transition-transform ${activeTerminalDropdown === index ? 'rotate-180' : ''}`} />
                                                     </button>
                                                     
                                                     <MobileDrawer 
@@ -876,7 +876,7 @@ export default function BookingForm() {
                                                                         if (errors.airportTerminal) setErrors(err => ({ ...err, airportTerminal: '' }));
                                                                         setActiveTerminalDropdown(null);
                                                                     }}
-                                                                    className="w-full px-6 py-4 text-left hover:bg-gold/10 text-n-300 hover:text-white border-b border-white/5 last:border-0 transition-colors flex items-center justify-between"
+                                                                    className="w-full px-6 py-4 text-left hover:bg-gold/10 text-muted hover:text-ink border-b border-border last:border-0 transition-colors flex items-center justify-between"
                                                                 >
                                                                     <span className="font-medium text-lg">{terminal}</span>
                                                                     {data.airportTerminal === terminal && <div className="w-2 h-2 rounded-full bg-gold" />}
@@ -914,9 +914,9 @@ export default function BookingForm() {
                                                     placeholder="Number of Hours"
                                                     value={leg.hours || ''}
                                                     onChange={(e) => updateLeg(index, { hours: parseInt(e.target.value) || undefined })}
-                                                    className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 border-white/20 focus:border-gold text-white outline-none transition-colors placeholder-gray-600"
+                                                    className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 border-border focus:border-gold text-ink outline-none transition-colors placeholder-gray-600"
                                                 />
-                                                <p className="text-n-400 text-xs mt-1 absolute pl-8">Enter number of hours (e.g., 3)</p>
+                                                <p className="text-muted text-xs mt-1 absolute pl-8">Enter number of hours (e.g., 3)</p>
                                             </div>
                                         )}
                                     </div>
@@ -926,7 +926,7 @@ export default function BookingForm() {
 
                         <button 
                             onClick={() => { addLeg(); setActiveSection('route'); }}
-                            className="w-full py-4 border-2 border-dashed border-white/20 hover:border-gold rounded-xl text-gold font-medium flex justify-center items-center gap-2 transition-colors"
+                            className="w-full py-4 border-2 border-dashed border-border hover:border-gold rounded-xl text-gold font-medium flex justify-center items-center gap-2 transition-colors"
                         >
                             <Plus size={20} /> Add Another Transfer
                         </button>
@@ -937,8 +937,8 @@ export default function BookingForm() {
                 {/* 2. VEHICLE SELECTION */}
                 <section ref={vehicleSectionRef} className={`transition-all duration-500 ${!data.legs.every(l => l.routeId) ? 'opacity-30 pointer-events-none' : activeSection !== 'vehicle' && (data.selectedVehicles && data.selectedVehicles.length > 0) ? 'opacity-60 hover:opacity-100' : 'opacity-100'}`}>
                     <div className="flex items-center gap-3 mb-6">
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${data.legs.every(l => l.routeId) ? 'bg-gold text-black' : 'bg-white/10 text-n-500'}`}>2</div>
-                        <h2 className={`text-xl md:text-2xl font-bold ${data.legs.every(l => l.routeId) ? 'text-white' : 'text-n-500'}`}>Select your vehicle</h2>
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${data.legs.every(l => l.routeId) ? 'bg-gold text-black' : 'bg-surface-sunken text-muted'}`}>2</div>
+                        <h2 className={`text-xl md:text-2xl font-bold ${data.legs.every(l => l.routeId) ? 'text-ink' : 'text-muted'}`}>Select your vehicle</h2>
                     </div>
 
                     <div className="pl-0 md:pl-11 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
@@ -962,7 +962,7 @@ export default function BookingForm() {
                                     key={vehicle.id}
                                     onClick={() => updateVehicleQuantity(vehicle.id, selectedCount === 0 ? 1 : selectedCount)}
                                     className={`relative cursor-pointer rounded-2xl p-5 md:p-6 transition-all duration-300 border-2 overflow-hidden group
-                                        ${isSelected ? 'bg-gold/5 border-gold shadow-[0_0_30px_hsl(var(--gold-glow) / 0.2)] scale-[1.02]' : 'bg-[#111] border-white/5 hover:border-gold/50 hover:bg-[#151515]'}
+                                        ${isSelected ? 'bg-gold/5 border-gold shadow-[0_0_30px_hsl(var(--gold-glow) / 0.2)] scale-[1.02]' : 'bg-surface border-border hover:border-gold/50 hover:bg-surface-alt'}
                                     `}
                                 >
                                     <div className="relative w-full h-56 sm:h-48 md:h-40 mb-6 rounded-xl overflow-hidden bg-gradient-to-b from-white/5 to-transparent group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
@@ -975,20 +975,20 @@ export default function BookingForm() {
                                     </div>
                                     
                                     <div className="flex justify-between items-start mb-2">
-                                        <h3 className={`text-lg font-bold ${isSelected ? 'text-gold' : 'text-white'}`}>{vehicle.name}</h3>
+                                        <h3 className={`text-lg font-bold ${isSelected ? 'text-gold' : 'text-ink'}`}>{vehicle.name}</h3>
                                         {dispPrice && (
                                             <div className="text-right">
                                                 {Number(dispPrice.amount) > 0 ? (
                                                     <>
-                                                        <span className="text-sm text-n-400">Total</span>
-                                                        <p className={`text-lg font-bold text-white ${isLoading ? 'animate-pulse text-gold/70' : ''}`}>
+                                                        <span className="text-sm text-muted">Total</span>
+                                                        <p className={`text-lg font-bold text-ink ${isLoading ? 'animate-pulse text-gold/70' : ''}`}>
                                                             {currency === 'USD' ? '$' : ''}{dispPrice.amount}
                                                             {currency === 'SAR' ? ' SAR' : ''}
                                                         </p>
                                                     </>
                                                 ) : (
                                                     <>
-                                                        <span className="text-sm text-n-400">Status</span>
+                                                        <span className="text-sm text-muted">Status</span>
                                                         <p className="text-sm font-bold text-red-400 uppercase tracking-wider mt-1">Not Available</p>
                                                     </>
                                                 )}
@@ -996,14 +996,14 @@ export default function BookingForm() {
                                         )}
                                     </div>
                                     
-                                    <div className="flex flex-wrap gap-3 text-xs text-n-400">
+                                    <div className="flex flex-wrap gap-3 text-xs text-muted">
                                         <span className="flex items-center gap-1"><Users size={14} /> {vehicle.capacity}</span>
                                         <span className="flex items-center gap-1"><Briefcase size={14} /> {vehicle.luggage}</span>
                                     </div>
                                     
                                     {dispPrice && Number(dispPrice.amount) > 0 && data.legs.length > 1 && (
-                                        <div className="mt-4 pt-3 border-t border-white/10 space-y-2">
-                                            <p className="text-xs text-n-500 uppercase tracking-wider mb-1">Price Breakdown</p>
+                                        <div className="mt-4 pt-3 border-t border-border space-y-2">
+                                            <p className="text-xs text-muted uppercase tracking-wider mb-1">Price Breakdown</p>
                                             {data.legs.map((leg, idx) => {
                                                 const legSAR = getLegPrice(leg, vehicle.id);
                                                 const legUSD = getLegPriceUSD(leg, vehicle.id) || 0;
@@ -1018,8 +1018,8 @@ export default function BookingForm() {
 
                                                 return (
                                                     <div key={idx} className="flex justify-between items-center text-xs">
-                                                        <span className="text-n-400 truncate pr-2 max-w-[75%]" title={leg.pickup && leg.dropoff ? `${leg.pickup} → ${leg.dropoff}` : routeName}>{routeName}</span>
-                                                        <span className="text-n-300 font-medium whitespace-nowrap">
+                                                        <span className="text-muted truncate pr-2 max-w-[75%]" title={leg.pickup && leg.dropoff ? `${leg.pickup} → ${leg.dropoff}` : routeName}>{routeName}</span>
+                                                        <span className="text-muted font-medium whitespace-nowrap">
                                                             {currency === 'USD' ? '$' : ''}{legDisp.amount} {currency === 'SAR' ? 'SAR' : ''}
                                                         </span>
                                                     </div>
@@ -1035,17 +1035,17 @@ export default function BookingForm() {
                                     )}
                                     
                                     {dispPrice && Number(dispPrice.amount) > 0 && (
-                                        <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
-                                            <span className="text-sm font-medium text-n-300">Quantity</span>
-                                            <div className="flex items-center gap-3 bg-white/5 rounded-lg p-1 border border-white/10">
+                                        <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
+                                            <span className="text-sm font-medium text-muted">Quantity</span>
+                                            <div className="flex items-center gap-3 bg-surface-alt rounded-lg p-1 border border-border">
                                                 <button 
                                                     onClick={(e) => { e.stopPropagation(); updateVehicleQuantity(vehicle.id, selectedCount - 1); }}
-                                                    className={`w-8 h-8 rounded flex items-center justify-center transition-colors ${selectedCount > 0 ? 'bg-white/10 hover:bg-white/20 text-white' : 'text-n-600 cursor-not-allowed'}`}
+                                                    className={`w-8 h-8 rounded flex items-center justify-center transition-colors ${selectedCount > 0 ? 'bg-surface-sunken hover:bg-white/20 text-ink' : 'text-muted cursor-not-allowed'}`}
                                                     disabled={selectedCount === 0}
                                                 >
                                                     <Minus size={16} />
                                                 </button>
-                                                <span className="w-4 text-center font-bold text-white">{selectedCount}</span>
+                                                <span className="w-4 text-center font-bold text-ink">{selectedCount}</span>
                                                 <button 
                                                     onClick={(e) => { e.stopPropagation(); updateVehicleQuantity(vehicle.id, selectedCount + 1); }}
                                                     className="w-8 h-8 rounded bg-gold/20 hover:bg-gold/40 text-gold flex items-center justify-center transition-colors"
@@ -1065,29 +1065,29 @@ export default function BookingForm() {
                 {/* 3. TRIP DETAILS */}
                 <section ref={detailsSectionRef} className={`transition-all duration-500 ${(!data.selectedVehicles || data.selectedVehicles.length === 0) ? 'opacity-30 pointer-events-none' : 'opacity-100'}`}>
                     <div className="flex items-center gap-3 mb-6">
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${(data.selectedVehicles && data.selectedVehicles.length > 0) ? 'bg-gold text-black' : 'bg-white/10 text-n-500'}`}>3</div>
-                        <h2 className={`text-xl md:text-2xl font-bold ${(data.selectedVehicles && data.selectedVehicles.length > 0) ? 'text-white' : 'text-n-500'}`}>Guest Details</h2>
+                        <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${(data.selectedVehicles && data.selectedVehicles.length > 0) ? 'bg-gold text-black' : 'bg-surface-sunken text-muted'}`}>3</div>
+                        <h2 className={`text-xl md:text-2xl font-bold ${(data.selectedVehicles && data.selectedVehicles.length > 0) ? 'text-ink' : 'text-muted'}`}>Guest Details</h2>
                     </div>
 
                     <div className="pl-0 md:pl-11 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                         {/* Passengers */}
                         <div className="relative md:col-span-2 lg:col-span-1">
                             <Users className="absolute left-0 top-4 text-gold" size={20} />
-                            <div className="flex items-center justify-between w-full pl-8 pr-4 py-3 bg-transparent border-b-2 border-white/20">
-                                <span className="text-n-400">Number of Passengers</span>
+                            <div className="flex items-center justify-between w-full pl-8 pr-4 py-3 bg-transparent border-b-2 border-border">
+                                <span className="text-muted">Number of Passengers</span>
                                 <div className="flex items-center gap-4">
                                     <button 
                                         type="button" 
                                         onClick={() => updateData({ passengers: Math.max(1, data.passengers - 1) })}
-                                        className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+                                        className="w-8 h-8 rounded-full border border-border flex items-center justify-center text-ink hover:bg-surface-sunken transition-colors"
                                     >
                                         -
                                     </button>
-                                    <span className="text-white font-bold w-4 text-center">{data.passengers}</span>
+                                    <span className="text-ink font-bold w-4 text-center">{data.passengers}</span>
                                     <button 
                                         type="button" 
                                         onClick={() => updateData({ passengers: Math.min(50, data.passengers + 1) })}
-                                        className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+                                        className="w-8 h-8 rounded-full border border-border flex items-center justify-center text-ink hover:bg-surface-sunken transition-colors"
                                     >
                                         +
                                     </button>
@@ -1098,12 +1098,12 @@ export default function BookingForm() {
                         {/* Child Seat Toggle */}
                         <div className="relative md:col-span-2 lg:col-span-1">
                             <Baby className="absolute left-0 top-4 text-gold" size={20} />
-                            <div className="flex items-center justify-between w-full pl-8 pr-4 py-3 bg-transparent border-b-2 border-white/20">
-                                <span className="text-n-400">Child Seat Required?</span>
+                            <div className="flex items-center justify-between w-full pl-8 pr-4 py-3 bg-transparent border-b-2 border-border">
+                                <span className="text-muted">Child Seat Required?</span>
                                 <button
                                     type="button"
                                     onClick={() => updateData({ childSeats: !data.childSeats })}
-                                    className={`relative w-14 h-8 rounded-full transition-colors duration-300 focus:outline-none ${data.childSeats ? 'bg-gold' : 'bg-white/10'}`}
+                                    className={`relative w-14 h-8 rounded-full transition-colors duration-300 focus:outline-none ${data.childSeats ? 'bg-gold' : 'bg-surface-sunken'}`}
                                 >
                                     <span className="sr-only">Toggle Child Seat</span>
                                     <motion.div
@@ -1119,7 +1119,7 @@ export default function BookingForm() {
                         </div>
 
                         <div className="md:col-span-2 mt-8 mb-4">
-                            <h3 className="text-lg font-bold text-white mb-2">Contact Information</h3>
+                            <h3 className="text-lg font-bold text-ink mb-2">Contact Information</h3>
                         </div>
 
                         <div className="relative">
@@ -1129,8 +1129,8 @@ export default function BookingForm() {
                                 placeholder="Full Name *"
                                 value={data.name}
                                 onChange={(e) => updateData({ name: e.target.value })}
-                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors placeholder-gray-600
-                                    ${errors.name ? 'border-red-500' : 'border-white/20 focus:border-gold'}`}
+                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-ink outline-none transition-colors placeholder-gray-600
+                                    ${errors.name ? 'border-red-500' : 'border-border focus:border-gold'}`}
                             />
                             {errors.name && <p className="text-red-500 text-xs mt-1 absolute">{errors.name}</p>}
                         </div>
@@ -1142,8 +1142,8 @@ export default function BookingForm() {
                                 placeholder="WhatsApp Number *"
                                 value={data.phone}
                                 onChange={(e) => updateData({ phone: e.target.value })}
-                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors placeholder-gray-600
-                                    ${errors.phone ? 'border-red-500' : 'border-white/20 focus:border-gold'}`}
+                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-ink outline-none transition-colors placeholder-gray-600
+                                    ${errors.phone ? 'border-red-500' : 'border-border focus:border-gold'}`}
                             />
                             {errors.phone && <p className="text-red-500 text-xs mt-1 absolute">{errors.phone}</p>}
                         </div>
@@ -1155,18 +1155,18 @@ export default function BookingForm() {
                                 placeholder="Email Address *"
                                 value={data.email}
                                 onChange={(e) => updateData({ email: e.target.value })}
-                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors placeholder-gray-600
-                                    ${errors.email ? 'border-red-500' : 'border-white/20 focus:border-gold'}`}
+                                className={`w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-ink outline-none transition-colors placeholder-gray-600
+                                    ${errors.email ? 'border-red-500' : 'border-border focus:border-gold'}`}
                             />
                             {errors.email && <p className="text-red-500 text-xs mt-1 absolute">{errors.email}</p>}
-                            <p className="text-n-400 text-xs mt-2 pl-8">We will send a confirmation mail to this email address.</p>
+                            <p className="text-muted text-xs mt-2 pl-8">We will send a confirmation mail to this email address.</p>
                         </div>
 
                         {/* Visa Type */}
                         <div className="md:col-span-2 mt-4 relative">
                             <Briefcase className="absolute left-0 top-4 text-gold" size={20} />
-                            <div className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-white outline-none transition-colors border-white/20">
-                                <span className="text-n-400 block mb-3">Visa Type *</span>
+                            <div className="w-full pl-8 pr-4 py-4 bg-transparent border-b-2 text-ink outline-none transition-colors border-border">
+                                <span className="text-muted block mb-3">Visa Type *</span>
                                 <div className="flex flex-wrap gap-4">
                                     {VISA_TYPES.map(vt => (
                                         <label key={vt.value} className="flex items-center gap-2 cursor-pointer">
@@ -1181,7 +1181,7 @@ export default function BookingForm() {
                                                 }}
                                                 className="accent-gold w-4 h-4"
                                             />
-                                            <span className="text-white text-sm">{vt.label}</span>
+                                            <span className="text-ink text-sm">{vt.label}</span>
                                         </label>
                                     ))}
                                 </div>
@@ -1191,11 +1191,11 @@ export default function BookingForm() {
                                         placeholder="Please specify *"
                                         value={data.visaOther}
                                         onChange={(e) => updateData({ visaOther: e.target.value })}
-                                        className={`w-full mt-3 pl-4 pr-4 py-2 bg-white/5 border rounded-lg text-white outline-none transition-colors placeholder-gray-500 ${errors.visaOther ? 'border-red-500' : 'border-white/20 focus:border-gold'}`}
+                                        className={`w-full mt-3 pl-4 pr-4 py-2 bg-surface-alt border rounded-lg text-ink outline-none transition-colors placeholder-gray-500 ${errors.visaOther ? 'border-red-500' : 'border-border focus:border-gold'}`}
                                     />
                                 )}
                             </div>
-                            <p className="text-n-400 text-xs mt-2 pl-8">Helps our team prepare the right route and documents for your trip.</p>
+                            <p className="text-muted text-xs mt-2 pl-8">Helps our team prepare the right route and documents for your trip.</p>
                             {errors.visaType && <p className="text-red-500 text-xs mt-1 absolute pl-8">{errors.visaType}</p>}
                         </div>
 

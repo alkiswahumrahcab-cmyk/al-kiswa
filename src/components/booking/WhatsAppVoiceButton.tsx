@@ -17,18 +17,18 @@ export default function WhatsAppVoiceButton() {
             href={`https://wa.me/${cleanPhone}?text=Salam,%20I%20would%20like%20to%20book%20a%20ride.%20Sending%20voice%20note...`}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full bg-[#25D366] hover:bg-[#1dbf57] text-white p-4 rounded-xl flex items-center justify-between gap-4 group transition-all shadow-lg shadow-[#25D366]/20 border border-white/10"
+            className="w-full bg-[#25D366] hover:bg-[#1dbf57] text-ink p-4 rounded-xl flex items-center justify-between gap-4 group transition-all shadow-lg shadow-[#25D366]/20 border border-border"
         >
             <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center animate-pulse">
-                    <Mic size={24} className="text-white" />
+                    <Mic size={24} className="text-ink" />
                 </div>
                 <div className="flex flex-col text-left">
                     <span className="font-bold text-lg leading-tight">Trouble Typing?</span>
                     <span className="text-sm text-green-50 font-medium">Send us a Voice Note instead</span>
                 </div>
             </div>
-            <MessageCircle size={28} className="text-white/80 group-hover:scale-110 transition-transform" />
+            <MessageCircle size={28} className="text-ink/80 group-hover:scale-110 transition-transform" />
         </a>
     );
 }
