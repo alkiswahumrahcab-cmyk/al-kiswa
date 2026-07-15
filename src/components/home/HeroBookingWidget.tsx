@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { MapPin, Calendar, Users, ChevronDown } from 'lucide-react';
+import { MapPin, Calendar, Users, ChevronDown, Briefcase, Plus, Minus } from 'lucide-react';
 
 export default function HeroBookingWidget() {
     const router = useRouter();
@@ -11,11 +11,29 @@ export default function HeroBookingWidget() {
     const [pickup, setPickup] = useState('Jeddah Airport');
     const [dropoff, setDropoff] = useState('Makkah Hotel');
     const [date, setDate] = useState('');
-    const [passengers, setPassengers] = useState('2');
+    const [passengers, setPassengers] = useState(2);
+    const [luggage, setLuggage] = useState(2);
 
     const handleSearch = (e: React.FormEvent) => {
         e.preventDefault();
-        router.push(`/booking?pickup=${encodeURIComponent(pickup)}&dropoff=${encodeURIComponent(dropoff)}&passengers=${passengers}&date=${date}`);
+        router.push(`/booking?from=${encodeURIComponent(pickup)}&to=${encodeURIComponent(dropoff)}&passengers=${passengers}&luggage=${luggage}&date=${date}`);
+    };
+
+    const updatePassengers = (increment: number) => {
+        setPassengers(prev => {
+            const newVal = prev + increment;
+            if (newVal < 1) return 1;
+            if (newVal > 19) return 19;
+            return newVal;
+        });
+    };
+
+    const updateLuggage = (increment: number) => {
+        setLuggage(prev => {
+            const newVal = prev + increment;
+            if (newVal < 0) return 0;
+            return newVal;
+        });
     };
 
     return (
@@ -75,26 +93,42 @@ export default function HeroBookingWidget() {
                     </div>
                 </div>
 
-                {/* Passengers */}
+                {/* Passengers Stepper */}
                 <div className="w-full lg:w-32 relative">
                     <label className="block text-[13px] font-semibold text-muted mb-2">Passengers</label>
-                    <div className="relative">
-                        <Users size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-gold" />
-                        <select 
-                            value={passengers} 
-                            onChange={(e) => setPassengers(e.target.value)}
-                            className="w-full h-12 pl-10 pr-8 rounded-md border border-border-strong bg-surface focus:outline-none focus:ring-2 focus:ring-gold focus:border-gold appearance-none font-body text-ink"
-                        >
-                            {[1,2,3,4,5,6,7,8,9,10,15,20].map(n => (
-                                <option key={n} value={n}>{n}</option>
-                            ))}
-                        </select>
-                        <ChevronDown size={16} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted pointer-events-none" />
+                    <div className="flex items-center justify-between w-full h-12 rounded-md border border-border-strong bg-surface px-3">
+                        <button type="button" onClick={() => updatePassengers(-1)} className="text-muted hover:text-gold p-1" aria-label="Decrease passengers">
+                            <Minus size={16} />
+                        </button>
+                        <div className="flex items-center gap-2 text-ink font-semibold">
+                            <Users size={16} className="text-gold" />
+                            {passengers}
+                        </div>
+                        <button type="button" onClick={() => updatePassengers(1)} className="text-muted hover:text-gold p-1" aria-label="Increase passengers">
+                            <Plus size={16} />
+                        </button>
+                    </div>
+                </div>
+
+                {/* Luggage Stepper */}
+                <div className="w-full lg:w-32 relative">
+                    <label className="block text-[13px] font-semibold text-muted mb-2">Luggage</label>
+                    <div className="flex items-center justify-between w-full h-12 rounded-md border border-border-strong bg-surface px-3">
+                        <button type="button" onClick={() => updateLuggage(-1)} className="text-muted hover:text-gold p-1" aria-label="Decrease luggage">
+                            <Minus size={16} />
+                        </button>
+                        <div className="flex items-center gap-2 text-ink font-semibold">
+                            <Briefcase size={16} className="text-gold" />
+                            {luggage}
+                        </div>
+                        <button type="button" onClick={() => updateLuggage(1)} className="text-muted hover:text-gold p-1" aria-label="Increase luggage">
+                            <Plus size={16} />
+                        </button>
                     </div>
                 </div>
 
                 {/* Submit */}
-                <button type="submit" className="w-full lg:w-auto h-12 px-8 bg-gold hover:bg-gold-strong text-ink font-semibold rounded-btn shadow-sm hover:shadow-gold transition-all flex-shrink-0">
+                <button type="submit" className="w-full lg:w-auto h-12 px-8 bg-gold hover:bg-gold-strong text-ink font-semibold rounded-btn shadow-sm transition-all flex-shrink-0">
                     Get Prices
                 </button>
             </form>

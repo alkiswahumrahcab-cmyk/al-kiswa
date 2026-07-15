@@ -21,7 +21,7 @@ const HomeHero: React.FC<HomeHeroProps> = ({
     children
 }) => {
     return (
-        <section className="relative w-full min-h-[460px] lg:min-h-[620px] flex items-center justify-start pt-28 pb-32 lg:pt-36 lg:pb-40 mb-24">
+        <section className="relative w-full min-h-[460px] lg:min-h-[620px] flex items-center justify-start pt-36 pb-32 lg:pt-48 lg:pb-40 mb-24">
             {/* Full-bleed background image */}
             <div className="absolute inset-0 w-full h-full">
                 <Image

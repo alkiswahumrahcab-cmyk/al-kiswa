@@ -19,10 +19,11 @@ export default function QuickBookingForm() {
     const [bookingRef, setBookingRef] = useState<string>('');
 
     // Booking Params
-    const [pickup, setPickup] = useState(searchParams?.get('pickup') || 'Jeddah Airport');
-    const [dropoff, setDropoff] = useState(searchParams?.get('dropoff') || 'Makkah Hotel');
+    const [pickup, setPickup] = useState(searchParams?.get('from') || searchParams?.get('pickup') || 'Jeddah Airport');
+    const [dropoff, setDropoff] = useState(searchParams?.get('to') || searchParams?.get('dropoff') || 'Makkah Hotel');
     const [date, setDate] = useState(searchParams?.get('date') || '');
     const [passengers, setPassengers] = useState(parseInt(searchParams?.get('passengers') || '2', 10));
+    const luggageParam = searchParams?.get('luggage');
 
     // Form Data
     const [formData, setFormData] = useState({
@@ -31,7 +32,7 @@ export default function QuickBookingForm() {
         email: '',
         flightNumber: '',
         hotelName: '',
-        bags: '2',
+        bags: luggageParam ? luggageParam : '2',
         notes: ''
     });
 
