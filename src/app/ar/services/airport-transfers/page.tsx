@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import Hero from '@/components/common/Hero';
 import FadeIn from '@/components/common/FadeIn';
@@ -134,7 +134,7 @@ export default async function AirportTransfersPage() {
                         </div>
 
                         {/* The Map Component */}
-                        <AirportInteractiveMap routes={airportRoutes} />
+                        <AirportInteractiveMap />
                     </div>
                 </div>
             </section>
