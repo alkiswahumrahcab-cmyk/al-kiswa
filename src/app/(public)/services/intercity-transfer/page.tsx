@@ -56,9 +56,9 @@ const popularRoutes = [
 ];
 
 const vehicleOptions = [
-    { name: 'Hyundai Staria / GMC Yukon', seats: '5-7', luggage: '4-5 Bags', bestFor: 'Families & small groups', desc: 'Premium comfort with ample legroom for the 4-hour highway journey.' },
-    { name: 'Toyota HiAce', seats: '11', luggage: '10 Bags', bestFor: 'Extended families', desc: 'Spacious van ensuring everyone travels together with all luggage secured.' },
-    { name: 'Toyota Coaster', seats: '19', luggage: '15 Bags', bestFor: 'Large groups', desc: 'Mini-bus designed for group travel without compromising on air-conditioned comfort.' }
+    { name: 'Hyundai Staria / GMC Yukon', seats: '5-7', luggage: '4-5 Bags', bestFor: 'Families & small groups', desc: 'Premium comfort with ample legroom for the 4-hour highway journey.', image: '/images/fleet/staria/hyundai-staria-2026-exterior-front-view.jpeg' },
+    { name: 'Toyota HiAce', seats: '11', luggage: '10 Bags', bestFor: 'Extended families', desc: 'Spacious van ensuring everyone travels together with all luggage secured.', image: '/images/fleet/hiace/toyota-hiace-2026-exterior-front-view.jpeg' },
+    { name: 'Toyota Coaster', seats: '19', luggage: '15 Bags', bestFor: 'Large groups', desc: 'Mini-bus designed for group travel without compromising on air-conditioned comfort.', image: '/images/fleet/toyota-coaster-2025.webp' }
 ];
 
 export default function IntercityTransferPage() {
@@ -234,10 +234,19 @@ export default function IntercityTransferPage() {
                         {vehicleOptions.map((vehicle, i) => (
                             <div key={i} className="bg-surface rounded-[20px] border border-border overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-150">
                                 <div className="aspect-[4/3] bg-surface-alt relative border-b border-border">
-                                    {/* Placeholder for actual vehicle image */}
-                                    <div className="absolute inset-0 flex items-center justify-center text-muted">
-                                        <CarFront size={48} opacity={0.2} />
-                                    </div>
+                                    {vehicle.image ? (
+                                        <Image
+                                            src={vehicle.image}
+                                            alt={vehicle.name}
+                                            fill
+                                            className="object-cover"
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        />
+                                    ) : (
+                                        <div className="absolute inset-0 flex items-center justify-center text-muted">
+                                            <CarFront size={48} opacity={0.2} />
+                                        </div>
+                                    )}
                                 </div>
                                 <div className="p-6 md:p-8">
                                     <h3 className="font-body font-bold text-[19px] md:text-[22px] text-ink mb-2">
