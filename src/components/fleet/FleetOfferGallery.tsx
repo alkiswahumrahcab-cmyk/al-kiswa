@@ -127,19 +127,13 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
     if (displayVehicles.length === 0) return null;
 
     return (
-        <section className="py-16 bg-charcoal relative overflow-hidden">
-            {/* Background Ambience */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[100px]" />
-                <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-gold rounded-full blur-[100px]" />
-            </div>
-
+        <section className="py-24 bg-surface-alt relative overflow-hidden">
             <div className="container mx-auto px-4 relative z-10">
-                <div className="text-center mb-10">
-                    <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-2 block">
+                <div className="text-center mb-16">
+                    <span className="text-gold-strong font-bold tracking-[0.2em] uppercase text-xs mb-3 block">
                         Limited Time Offers
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
+                    <h2 className="text-4xl md:text-5xl font-bold font-display text-ink mb-4">
                         Exclusive <span className="text-gold italic font-serif">Fleet Deals</span>
                     </h2>
                 </div>
@@ -150,12 +144,12 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
                             key={vehicle.id || idx}
                             className="group h-full"
                         >
-                            <div className="relative h-full flex flex-col bg-zinc-900/40 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden hover:border-gold/30 transition-all duration-300 hover:shadow-xl hover:shadow-gold/5">
+                            <div className="relative h-full flex flex-col bg-surface border border-border shadow-sm rounded-xl overflow-hidden hover:shadow-md hover:border-border-strong transition-all duration-300">
 
                                 {/* Discount Badge */}
                                 {(vehicle.discountLabel || vehicle.discount) && (
                                     <div className="absolute top-4 left-4 z-20">
-                                        <div className="bg-gold text-black font-bold px-3 py-1 rounded-full text-[10px] uppercase tracking-wide shadow-lg shadow-gold/20 animate-pulse">
+                                        <div className="bg-gold-soft text-gold-strong font-bold px-3 py-1 rounded-full text-[10px] uppercase tracking-wide">
                                             {vehicle.discountLabel || vehicle.discount}
                                         </div>
                                     </div>
@@ -163,21 +157,20 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
 
                                 {/* Rating */}
                                 {vehicle.rating && (
-                                    <div className="absolute top-4 right-4 z-20 bg-black/40 backdrop-blur-md px-2 py-1 rounded-full border border-white/10 flex items-center gap-1">
+                                    <div className="absolute top-4 right-4 z-20 bg-surface-alt px-2 py-1 rounded-full border border-border flex items-center gap-1 shadow-xs">
                                         <Star size={10} className="fill-gold text-gold" />
-                                        <span className="text-xs text-white font-bold">{vehicle.rating}</span>
+                                        <span className="text-xs text-ink font-bold">{vehicle.rating}</span>
                                     </div>
                                 )}
 
                                 {/* Image Container - Maximum Size */}
-                                <div className="relative w-full h-64 bg-gradient-to-b from-white/5 to-transparent flex items-center justify-center overflow-visible group-hover:bg-white/5 transition-colors duration-500">
-                                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                                    <div className="relative w-full h-full transform group-hover:scale-110 transition-transform duration-700 ease-out">
+                                <div className="relative w-full h-64 bg-surface-sunken flex items-center justify-center overflow-visible group-hover:bg-surface-alt transition-colors duration-500">
+                                    <div className="relative w-full h-full transform group-hover:scale-105 transition-transform duration-700 ease-out">
                                         <Image
                                             src={vehicle.image}
                                             alt={vehicle.name}
                                             fill
-                                            className="object-contain drop-shadow-2xl"
+                                            className="object-contain drop-shadow-xl"
                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                             priority={idx < 3}
                                         />
@@ -185,60 +178,58 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
                                 </div>
 
                                 {/* Content - Flex 1 to push footer down */}
-                                <div className="flex flex-col flex-1 p-5 bg-[#121212]">
+                                <div className="flex flex-col flex-1 p-6 bg-surface">
 
                                     {/* Header */}
                                     <div className="mb-4">
-                                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1 block">
+                                        <span className="text-[10px] font-bold text-muted uppercase tracking-widest mb-2 block">
                                             {vehicle.category || vehicle.type}
                                         </span>
-                                        <h3 className="text-xl font-bold text-white group-hover:text-gold transition-colors leading-tight">
+                                        <h3 className="text-2xl font-bold font-display text-ink group-hover:text-gold-strong transition-colors leading-tight">
                                             {vehicle.name}
                                         </h3>
                                     </div>
 
                                     {/* Specs Grid */}
-                                    <div className="grid grid-cols-2 gap-3 mb-4 py-3 border-t border-b border-white/5">
+                                    <div className="grid grid-cols-2 gap-3 mb-6 py-4 border-t border-b border-border">
                                         <div className="flex items-center gap-2">
-                                            <div className="p-1.5 bg-white/5 rounded text-gold">
+                                            <div className="p-1.5 bg-gold-soft rounded-md text-gold-strong">
                                                 <Users size={14} />
                                             </div>
-                                            <span className="text-xs text-n-400 font-medium">{vehicle.capacity || vehicle.passengers} Pax</span>
+                                            <span className="text-xs text-muted font-medium">{vehicle.capacity || vehicle.passengers} Pax</span>
                                         </div>
                                         <div className="flex items-center gap-2">
-                                            <div className="p-1.5 bg-white/5 rounded text-gold">
+                                            <div className="p-1.5 bg-gold-soft rounded-md text-gold-strong">
                                                 <Briefcase size={14} />
                                             </div>
-                                            <span className="text-xs text-n-400 font-medium">{vehicle.luggage} Bags</span>
+                                            <span className="text-xs text-muted font-medium">{vehicle.luggage} Bags</span>
                                         </div>
                                     </div>
 
                                     {/* Footer: Price & Button */}
-                                    <div className="mt-auto flex items-end justify-between pt-2">
+                                    <div className="mt-auto flex flex-col sm:flex-row sm:items-end justify-between gap-4">
                                         <div>
                                             {(vehicle.offerPrice || vehicle.originalPrice) && (
-                                                <span className="block text-[10px] text-n-600 line-through mb-1">
+                                                <span className="block text-[10px] text-muted line-through mb-1">
                                                     {vehicle.originalPrice || vehicle.price}
                                                 </span>
                                             )}
                                             <div className="flex items-baseline gap-1">
-                                                <span className="text-2xl font-bold text-white leading-none">
+                                                <span className="text-2xl font-bold font-display text-ink leading-none">
                                                     {vehicle.offerPrice || vehicle.price}
                                                 </span>
                                                 {!String(vehicle.price || '').toLowerCase().includes('trip') && (
-                                                    <span className="text-[10px] text-n-500 uppercase font-medium">/ Trip</span>
+                                                    <span className="text-[10px] text-muted uppercase font-medium">/ Trip</span>
                                                 )}
                                             </div>
                                         </div>
 
-                                        <GlassButton
+                                        <a
                                             href="/booking"
-                                            variant="primary"
-                                            size="sm"
-                                            className="!px-5 !py-2 !text-xs !font-bold rounded-lg group-hover:bg-gold group-hover:text-black hover:scale-105 transition-all"
+                                            className="btn-primary !py-2.5 !px-6 text-sm whitespace-nowrap"
                                         >
                                             Book Now
-                                        </GlassButton>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

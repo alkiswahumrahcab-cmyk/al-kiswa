@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Mail, MapPin, Phone, MessageCircle, Star } from 'lucide-react';
+import { Mail, MapPin, Phone, MessageCircle, Star, ArrowRight } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
 import { trackConversion } from '@/lib/analytics';
 import FadeIn from '@/components/common/FadeIn';
@@ -24,7 +24,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
     const contactCards = [
         {
             icon: MessageCircle,
-            title: "WhatsApp Support (??????)",
+            title: "WhatsApp Support (دعم واتساب)",
             value: "Instant replies for bookings",
             sub: "Average response: < 5 mins",
             action: `https://wa.me/${whatsapp.replace(/\D/g, '')}`,
@@ -33,7 +33,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
         },
         {
             icon: Phone,
-            title: "Call Us 24/7 (???? ???)",
+            title: "Call Us 24/7 (اتصل بنا)",
             value: phone,
             sub: "Support in English, Arabic, Urdu",
             action: `tel:${phone.replace(/\s/g, '')}`,
@@ -42,8 +42,14 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
         },
         {
             icon: Mail,
-            title: "Email Us (?????? ??????????)",
-            value: email,
+            title: "Email Us (راسلنا)",
+            value: (
+                <div className="flex flex-col gap-1 py-1">
+                    <a href="mailto:booking@kiswahumrahcab.com" className="hover:text-gold-strong transition-colors truncate">booking@kiswahumrahcab.com</a>
+                    <a href="mailto:info@kiswahumrahcab.com" className="hover:text-gold-strong transition-colors truncate">info@kiswahumrahcab.com</a>
+                    <a href="mailto:partnership@kiswahumrahcab.com" className="hover:text-gold-strong transition-colors truncate">partnership@kiswahumrahcab.com</a>
+                </div>
+            ),
             sub: "For quote requests & inquiries",
             action: `mailto:${email}`,
             btnText: "Send Email",
@@ -51,7 +57,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
         },
         {
             icon: MapPin,
-            title: "Visit Our Office (??????)",
+            title: "Visit Our Office (مكتبنا)",
             value: address,
             sub: "Open Daily: 9 AM - 10 PM",
             action: "#map",
@@ -61,7 +67,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
         {
             icon: Star,
             title: "Google Verified Business",
-            value: "5.0 Rating \u2B50\u2B50\u2B50\u2B50\u2B50",
+            value: "5.0 Rating ⭐⭐⭐⭐⭐",
             sub: "Read our verified pilgrim reviews",
             action: googleBusiness,
             btnText: "View on Google",
@@ -75,41 +81,37 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
                 {contactCards.map((card, index) => (
                     <GlassCard 
                         key={index} 
-                        className={`p-6 transition-all duration-300 group border-white/10 ${
+                        className={`p-8 transition-all duration-300 group border-border rounded-[20px] ${
                             card.type === 'whatsapp' 
-                                ? 'bg-gold-dark/30 border-gold/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]' 
-                                : 'bg-black/40 hover:border-gold/50 hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.15)]'
+                                ? 'bg-surface-alt border-gold-line shadow-sm hover:shadow-md' 
+                                : 'bg-surface shadow-sm hover:shadow-md'
                         }`}
                     >
-                        <div className="flex items-start gap-4">
-                            <div className={`p-4 rounded-2xl group-hover:scale-110 transition-transform ${
-                                card.type === 'whatsapp'
-                                    ? 'bg-gold/20 text-gold shadow-[0_0_10px_rgba(16,185,129,0.2)]'
-                                    : 'bg-gold/10 text-gold shadow-[0_0_10px_hsl(var(--gold-glow) / 0.2)]'
-                            }`}>
-                                <card.icon size={24} />
+                        <div className="flex items-start gap-5">
+                            <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gold-soft text-gold shrink-0 transition-transform group-hover:scale-110">
+                                <card.icon size={22} />
                             </div>
                             <div className="flex-1">
-                                <h3 className="font-semibold font-display text-lg text-white mb-1 flex items-center gap-2">
+                                <h3 className="font-semibold font-display text-lg text-ink mb-1 flex items-center gap-2">
                                     {card.title}
                                     {card.type === 'whatsapp' && (
-                                        <span className="text-[10px] uppercase tracking-wider bg-gold/20 text-gold px-2 py-0.5 rounded-full">Primary</span>
+                                        <span className="text-[10px] uppercase tracking-wider bg-gold text-white px-2 py-0.5 rounded-full">Primary</span>
                                     )}
                                 </h3>
-                                <p className="font-medium text-white/90 mb-1">{card.value}</p>
-                                <p className="text-sm text-white/50 mb-3">{card.sub}</p>
+                                <div className="font-medium text-body mb-1">{card.value}</div>
+                                <p className="text-sm text-muted mb-4">{card.sub}</p>
                                 <a
                                     href={card.action}
                                     target={card.action.startsWith('http') ? "_blank" : "_self"}
                                     rel="noopener noreferrer"
                                     onClick={() => trackConversion(card.type as any, 'contact_page')}
-                                    className={`inline-flex items-center text-sm font-bold transition-colors ${
+                                    className={`inline-flex items-center gap-1.5 text-sm font-bold transition-colors ${
                                         card.type === 'whatsapp'
-                                            ? 'bg-gold hover:bg-gold text-black px-4 py-2 rounded-btn mt-2'
-                                            : 'text-gold hover:text-white'
+                                            ? 'btn-primary px-5 py-2.5 rounded-[12px]'
+                                            : 'text-gold-strong hover:text-gold-deep'
                                     }`}
                                 >
-                                    {card.btnText} ?
+                                    {card.btnText} <ArrowRight size={16} className={card.type === 'whatsapp' ? "" : "transition-transform group-hover:translate-x-1"} />
                                 </a>
                             </div>
                         </div>

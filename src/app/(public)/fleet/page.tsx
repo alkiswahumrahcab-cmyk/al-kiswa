@@ -106,7 +106,7 @@ export default async function FleetPage() {
     const badge = getCustomField(section, 'badge_text') || "Premium Collection 2026";
 
     return (
-        <main className="min-h-screen bg-surface relative text-ink">
+        <main className="min-h-screen bg-bg relative text-ink">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(fleetJsonLd) }}
@@ -130,7 +130,7 @@ export default async function FleetPage() {
                 />
 
                 {/* Hajj 2026 Contextual Link */}
-                <div className="bg-gold/5 border-y border-gold/20 py-3 text-center">
+                <div className="bg-surface-alt border-y border-border py-3 text-center">
                     <p className="text-gold-strong font-medium flex items-center justify-center gap-2">
                         <span className="animate-pulse">🕋</span> Planning Hajj 2026? <a href="/blog/hajj-2026-guidance-taxi-service-pilgrims" className="underline hover:text-gold transition-colors">Read our complete guidance & transport options &rarr;</a>
                     </p>
@@ -152,7 +152,7 @@ export default async function FleetPage() {
 
                 <CustomerGallery />
 
-                <section className="py-20 bg-gradient-to-t from-surface-alt to-surface">
+                <section className="py-24 bg-surface-alt">
                     <div className="container mx-auto px-4">
                         <FadeIn direction="up">
                             <div className="max-w-4xl mx-auto">

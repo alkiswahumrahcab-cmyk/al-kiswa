@@ -35,6 +35,9 @@ interface HeroProps {
     fleetImages?: string[];
     isSpiritual?: boolean;
     theme?: 'dark' | 'light';
+    imageQuality?: number;
+    removeBlur?: boolean;
+    leftOverlay?: boolean;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -55,7 +58,10 @@ const Hero: React.FC<HeroProps> = ({
     stats,
     fleetImages,
     isSpiritual = false,
-    theme
+    theme,
+    imageQuality,
+    removeBlur,
+    leftOverlay
 }) => {
     // Default to dark theme unless explicitly set to light or if it's a spiritual hero
     const isDark = theme === 'dark' || (!isSpiritual && theme !== 'light');
@@ -145,7 +151,8 @@ const Hero: React.FC<HeroProps> = ({
                             alt={alt || "Al Kiswah Umrah Taxi Fleet"}
                             fill
                             priority
-                            className="object-cover object-center opacity-80"
+                            quality={imageQuality || 75}
+                            className={`object-cover object-center ${removeBlur ? '' : 'opacity-80'}`}
                             sizes="100vw"
                         />
                     )}
@@ -153,11 +160,20 @@ const Hero: React.FC<HeroProps> = ({
                     {/* Dark vs Light Overlays */}
                     {isDark ? (
                         <>
-                            <div className="absolute inset-0 bg-ink/50 backdrop-blur-[2px] z-[1]" />
-                            <div className="absolute inset-0 bg-gradient-to-b from-ink/90 via-ink/20 to-ink/90 z-[1]" />
+                            {leftOverlay ? (
+                                <>
+                                    <div className={`absolute left-0 top-0 bottom-0 w-full lg:w-[65%] bg-gradient-to-r from-black/95 via-black/70 to-transparent ${removeBlur ? '' : 'backdrop-blur-[1px]'} z-[1]`} />
+                                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 z-[1]" />
+                                </>
+                            ) : (
+                                <>
+                                    <div className={`absolute inset-0 bg-black/50 ${removeBlur ? '' : 'backdrop-blur-[2px]'} z-[1]`} />
+                                    <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/20 to-black/90 z-[1]" />
+                                </>
+                            )}
                         </>
                     ) : (
-                        <div className="absolute inset-0 bg-surface/85 backdrop-blur-md z-[1]" />
+                        <div className={`absolute inset-0 bg-white/85 ${removeBlur ? '' : 'backdrop-blur-md'} z-[1]`} />
                     )}
                 </div>
             </div>
@@ -218,7 +234,7 @@ const Hero: React.FC<HeroProps> = ({
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                        className={`text-lg md:text-xl font-light leading-relaxed max-w-2xl ${isDark ? 'text-surface/90' : 'text-muted'} ${layout === 'center' ? 'mx-auto' : 'mx-auto lg:mx-0 border-l-2 border-gold/30 pl-6'}`}
+                        className={`text-lg md:text-xl font-light leading-relaxed max-w-2xl ${isDark ? 'text-white/90' : 'text-muted'} ${layout === 'center' ? 'mx-auto' : 'mx-auto lg:mx-0 border-l-2 border-gold/30 pl-6'}`}
                     >
                         {subtitle}
                     </motion.div>
@@ -247,7 +263,7 @@ const Hero: React.FC<HeroProps> = ({
                                 href={secondaryCtaLink}
                                 variant="outline"
                                 size="lg"
-                                className={`btn-secondary ${isDark ? 'border-surface/30 text-surface hover:bg-surface/10' : 'border-border text-ink'}`}
+                                className={`btn-secondary ${isDark ? 'border-white/30 text-white hover:bg-white/10' : 'border-border text-ink'}`}
                             >
                                 {secondaryCtaText}
                             </GlassButton>
@@ -263,7 +279,7 @@ const Hero: React.FC<HeroProps> = ({
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
-                            className={`mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-2xl p-6 rounded-2xl shadow-sm ${isDark ? 'bg-ink-surface/40 border border-border/10 backdrop-blur-md' : 'bg-surface-alt border border-border'}`}
+                            className={`mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-2xl p-6 rounded-2xl shadow-sm ${isDark ? 'bg-black/40 border border-white/10 backdrop-blur-md' : 'bg-surface-alt border border-border'}`}
                         >
                             {stats.map((stat, i) => (
                                 <div key={i} className="flex flex-col gap-1 items-center lg:items-start text-center lg:text-left">
@@ -271,7 +287,7 @@ const Hero: React.FC<HeroProps> = ({
                                         {stat.icon || <CheckCircle size={16} />}
                                         <span className={`font-bold text-2xl ${isDark ? 'text-surface' : 'text-ink'}`}>{stat.value}</span>
                                     </div>
-                                    <span className={`text-[10px] md:text-xs uppercase tracking-wider ${isDark ? 'text-surface/70' : 'text-muted'}`}>{stat.label}</span>
+                                    <span className={`text-[10px] md:text-xs uppercase tracking-wider ${isDark ? 'text-white/70' : 'text-muted'}`}>{stat.label}</span>
                                 </div>
                             ))}
                         </motion.div>

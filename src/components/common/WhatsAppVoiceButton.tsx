@@ -23,31 +23,7 @@ export default function WhatsAppVoiceButton({ phoneNumber = '966570000000' }: Wh
 
     return (
         <div className="fixed bottom-[180px] md:bottom-24 right-4 md:right-6 z-50 flex flex-col items-end gap-3">
-            {/* Helper Tooltip (Speech Bubble) */}
-            <AnimatePresence>
-                {showTooltip && (
-                    <motion.div
-                        initial={{ opacity: 0, y: 10, scale: 0.9 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                        className="bg-white text-black px-4 py-3 rounded-2xl rounded-br-none shadow-xl max-w-[200px] relative border border-n-100 hidden md:block"
-                    >
-                        <button
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                setShowTooltip(false);
-                            }}
-                            className="absolute -top-2 -right-2 bg-n-200 rounded-btn p-0.5 hover:bg-red-100 hover:text-red-500 transition-colors"
-                        >
-                            <X size={12} />
-                        </button>
-                        <p className="text-sm font-bold leading-tight">
-                            Difficult to type?
-                            <span className="block text-xs font-normal text-n-600 mt-1">Send us a voice note on WhatsApp! 🎙️</span>
-                        </p>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+
 
             <a
                 href={whatsappLink}

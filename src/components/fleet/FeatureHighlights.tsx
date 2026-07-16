@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { Shield, Star, Clock, HeartHandshake } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
@@ -14,16 +14,16 @@ export default function FeatureHighlights() {
     ];
 
     return (
-        <section className="py-20 relative bg-transparent">
+        <section className="py-24 relative bg-transparent">
             <div className="container mx-auto px-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {features.map((feature, index) => (
-                        <GlassCard key={feature.id} delay={index * 0.1} className="bg-black/60 border-white/10 p-8 flex flex-col items-center text-center group hover:-translate-y-1 transition-transform duration-300 hover:border-gold/30 hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.1)]">
-                            <div className="w-16 h-16 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center mb-6 text-gold group-hover:scale-110 group-hover:bg-gold group-hover:text-black transition-all duration-300 shadow-[0_0_15px_hsl(var(--gold-glow) / 0.15)]">
+                        <GlassCard key={feature.id} delay={index * 0.1} className="bg-surface border-border shadow-sm p-8 flex flex-col items-center text-center group hover:-translate-y-1 transition-all duration-300 hover:border-border-strong hover:shadow-md">
+                            <div className="w-16 h-16 rounded-full bg-gold-soft flex items-center justify-center mb-6 text-gold-strong transition-transform duration-300">
                                 <feature.icon size={32} />
                             </div>
-                            <h3 className="font-semibold font-display text-xl mb-3 text-white group-hover:text-gold transition-colors">{feature.title}</h3>
-                            <p className="text-n-400 text-sm leading-relaxed font-light">{feature.desc}</p>
+                            <h3 className="font-semibold font-display text-xl mb-3 text-ink group-hover:text-gold-strong transition-colors">{feature.title}</h3>
+                            <p className="text-body text-sm leading-relaxed font-light">{feature.desc}</p>
                         </GlassCard>
                     ))}
                 </div>

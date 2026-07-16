@@ -51,17 +51,17 @@ export default function ContactForm() {
     return (
         <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-                <label className="text-sm font-bold text-white/90 flex items-center justify-between" htmlFor="name">
+                <label className="text-sm font-bold text-muted flex items-center justify-between" htmlFor="name">
                     <span>Full Name</span>
-                    <span className="text-xs text-gold font-arabic">الاسم الكامل</span>
+                    <span className="text-xs text-gold-strong font-arabic">الاسم الكامل</span>
                 </label>
                 <div className="relative">
-                    <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gold/50 h-5 w-5" />
+                    <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gold h-5 w-5" />
                     <input
                         type="text"
                         id="name"
                         name="name"
-                        className="w-full bg-black/40 border border-white/10 rounded-xl pl-10 pr-4 py-3 focus:ring-1 focus:ring-gold/50 focus:border-gold outline-none transition-all placeholder:text-white/40 text-white"
+                        className="w-full bg-surface border border-border-strong rounded-[12px] pl-10 pr-4 h-12 focus:ring-1 focus:ring-gold focus:border-gold outline-none transition-all placeholder:text-muted text-ink"
                         placeholder="e.g. Abdullah Ahmed"
                         required
                     />
@@ -69,53 +69,51 @@ export default function ContactForm() {
             </div>
 
             <div className="space-y-2">
-                <label className="text-sm font-bold text-white/90 flex items-center justify-between" htmlFor="email">
+                <label className="text-sm font-bold text-muted flex items-center justify-between" htmlFor="email">
                     <span>Email Address</span>
-                    <span className="text-xs text-gold font-arabic">البريد الإلكتروني</span>
+                    <span className="text-xs text-gold-strong font-arabic">البريد الإلكتروني</span>
                 </label>
                 <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gold/50 h-5 w-5" />
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gold h-5 w-5" />
                     <input
                         type="email"
                         id="email"
                         name="email"
-                        className={`w-full bg-black/40 border rounded-xl pl-10 pr-4 py-3 outline-none transition-all placeholder:text-white/40 text-white ${emailError ? 'border-red-500 focus:ring-red-500/50' : 'border-white/10 focus:ring-1 focus:ring-gold/50 focus:border-gold'}`}
+                        className={`w-full bg-surface border rounded-[12px] pl-10 pr-4 h-12 outline-none transition-all placeholder:text-muted text-ink ${emailError ? 'border-error focus:ring-error/50' : 'border-border-strong focus:ring-1 focus:ring-gold focus:border-gold'}`}
                         placeholder="your@email.com"
                         required
                         onChange={() => setEmailError('')}
                     />
                 </div>
-                {emailError && <p className="text-red-500 text-xs mt-1 animate-pulse">{emailError}</p>}
+                {emailError && <p className="text-error text-xs mt-1 animate-pulse">{emailError}</p>}
             </div>
 
             <div className="space-y-2">
-                <label className="text-sm font-bold text-white/90 flex items-center justify-between" htmlFor="message">
+                <label className="text-sm font-bold text-muted flex items-center justify-between" htmlFor="message">
                     <span>Message</span>
-                    <span className="text-xs text-gold font-arabic">الرسالة</span>
+                    <span className="text-xs text-gold-strong font-arabic">الرسالة</span>
                 </label>
                 <div className="relative">
-                    <MessageSquare className="absolute left-3 top-4 text-gold/50 h-5 w-5" />
+                    <MessageSquare className="absolute left-3 top-4 text-gold h-5 w-5" />
                     <textarea
                         id="message"
                         name="message"
-                        className="w-full bg-black/40 border border-white/10 rounded-xl pl-10 pr-4 py-3 h-32 resize-none focus:ring-1 focus:ring-gold/50 focus:border-gold outline-none transition-all placeholder:text-white/40 text-white"
+                        className="w-full bg-surface border border-border-strong rounded-[12px] pl-10 pr-4 py-3 h-32 resize-none focus:ring-1 focus:ring-gold focus:border-gold outline-none transition-all placeholder:text-muted text-ink"
                         placeholder="How can we help you? (كيف يمكننا مساعدتك؟)"
                         required
                     ></textarea>
                 </div>
             </div>
 
-            <GlassButton
+            <button
                 type="submit"
-                variant="primary"
-                size="lg"
-                className="w-full relative overflow-hidden group bg-gradient-to-r from-gold to-gold-dark border-none text-black font-bold shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] !rounded-xl"
+                className="w-full btn-primary !rounded-xl relative overflow-hidden group flex items-center justify-center gap-2"
                 disabled={status === 'submitting'}
             >
                 <div className="relative z-10 flex items-center justify-center gap-2">
                     {status === 'submitting' ? (
                         <>
-                            <span className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin"></span>
+                            <span className="w-5 h-5 border-2 border-ink/30 border-t-ink rounded-full animate-spin"></span>
                             <span>Sending...</span>
                         </>
                     ) : (
@@ -125,10 +123,10 @@ export default function ContactForm() {
                         </>
                     )}
                 </div>
-            </GlassButton>
+            </button>
 
             {status === 'success' && (
-                <div className="p-4 bg-green-500/10 border border-green-500/20 rounded-xl text-green-400 text-center text-sm animate-in fade-in slide-in-from-bottom-2">
+                <div className="p-4 bg-success-soft border border-success/20 rounded-xl text-success text-center text-sm animate-in fade-in slide-in-from-bottom-2">
                     Message sent successfully! We will contact you soon.
                     <br />
                     <span className="font-arabic text-xs opacity-75">تم الإرسال بنجاح! سنتواصل معك قريباً.</span>
@@ -136,7 +134,7 @@ export default function ContactForm() {
             )}
 
             {status === 'error' && (
-                <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-center text-sm animate-in fade-in slide-in-from-bottom-2">
+                <div className="p-4 bg-error-soft border border-error/20 rounded-xl text-error text-center text-sm animate-in fade-in slide-in-from-bottom-2">
                     Failed to send message. Please try again.
                     <br />
                     <span className="font-arabic text-xs opacity-75">فشل الإرسال. يرجى المحاولة مرة أخرى.</span>

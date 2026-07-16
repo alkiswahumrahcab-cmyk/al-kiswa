@@ -46,38 +46,43 @@ export default async function ContactPage() {
     const address = settings?.contact.address || 'Al Aziziyah, Makkah, Saudi Arabia';
 
     return (
-        <div className="bg-charcoal min-h-screen relative text-white selection:bg-gold/30">
+        <div className="bg-bg min-h-screen relative text-body selection:bg-gold-soft">
             <JsonLdScript schema={generateContactPageSchema()} />
-            {/* Background Pattern */}
-            <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <Hero
                 title="Get in Touch | تواصل معنا"
                 subtitle="Reliable Booking & 24/7 Support for Your Umrah Journey. Premium Transport Services from Makkah to Madinah."
-                bgImage="/images/contact-hero.png"
+                bgImage="/images/hero/contact page.jpeg"
                 breadcrumbs={<Breadcrumbs />}
+                imageQuality={100}
+                removeBlur={true}
+                theme="dark"
+                layout="two-column"
+                leftOverlay={true}
             />
 
-            <div className="container mx-auto px-4 -mt-16 relative z-10 pb-20">
+            <div className="container mx-auto px-4 pt-12 relative z-10 pb-20">
                 {/* Intro Trust Strip */}
                 <FadeIn direction="up" delay={0.1}>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-16 max-w-5xl mx-auto">
                         {[
                             { icon: Clock, text: "24/7 Service", sub: "خدمة على مدار الساعة" },
                             { icon: ShieldCheck, text: "Licensed & Safe", sub: "مرخص ومؤمن" },
                             { icon: Globe, text: "Multilingual", sub: "دعم متعدد اللغات" },
                             { icon: Star, text: "Top Rated", sub: "أعلى تقييم" }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-black/60 backdrop-blur-md p-4 rounded-xl shadow-lg border border-white/10 text-center transform hover:-translate-y-1 transition-all duration-300 hover:border-gold/30">
-                                <item.icon className="w-8 h-8 mx-auto mb-2 text-gold" />
-                                <h3 className="font-bold text-white text-sm md:text-base">{item.text}</h3>
-                                <p className="text-xs text-white/70 font-arabic">{item.sub}</p>
+                            <div key={idx} className="flex flex-col items-center text-center">
+                                <div className="w-14 h-14 rounded-full bg-gold-soft flex items-center justify-center mb-4">
+                                    <item.icon className="w-6 h-6 text-gold-strong" />
+                                </div>
+                                <h4 className="text-[17px] md:text-[19px] font-bold text-ink mb-1">{item.text}</h4>
+                                <p className="text-[13px] md:text-[14px] text-muted font-arabic">{item.sub}</p>
                             </div>
                         ))}
                     </div>
                 </FadeIn>
 
-                <div className="grid lg:grid-cols-12 gap-8 items-start">
+                <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
                     {/* Contact Info Column */}
                     <div className="lg:col-span-5 space-y-6">
                         <ContactGrid contactSettings={{
@@ -88,14 +93,14 @@ export default async function ContactPage() {
 
                         {/* Map Placeholder */}
                         <FadeIn direction="up" delay={0.4}>
-                            <GlassCard className="p-0 overflow-hidden min-h-[400px] relative flex items-center justify-center bg-black/40 border-white/10" id="map">
+                            <GlassCard className="p-0 overflow-hidden min-h-[400px] relative flex items-center justify-center bg-surface border-border shadow-sm rounded-[20px]" id="map">
                                 <div className="absolute inset-0 bg-gold/5 pointer-events-none z-10 mix-blend-overlay" />
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3713.526883410923!2d39.8126588!3d21.447833599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c21d9da1e4d599%3A0xb8a485c3949902cc!2zQWwgS2lzd2FoIFVtyoNoIFRyYW5zcG9ydA!5e0!3m2!1sen!2s"
                                     width="100%"
                                     height="100%"
                                     loading="lazy"
-                                    className="w-full h-full min-h-[400px] border-0 opacity-80 hover:opacity-100 transition-opacity grayscale hover:grayscale-0"
+                                    className="w-full h-full min-h-[400px] border-0 opacity-90 hover:opacity-100 transition-opacity"
                                     title="Al Kiswah Umrah Transport Map"
                                     allowFullScreen
                                 />
@@ -106,13 +111,13 @@ export default async function ContactPage() {
                     {/* Contact Form Column */}
                     <div className="lg:col-span-7">
                         <FadeIn direction="left" delay={0.3}>
-                            <GlassCard className="p-8 md:p-10 border-t-4 border-t-gold bg-black/40 border-white/10">
+                            <GlassCard className="p-8 md:p-12 bg-surface border-border shadow-lg rounded-[20px]">
                                 <div className="mb-8">
-                                    <h2 className="text-3xl font-semibold text-white mb-2 font-display">
+                                    <h2 className="text-3xl font-semibold text-ink mb-2 font-display">
                                         Send Us a Message
-                                        <span className="block text-xl font-arabic font-normal text-gold mt-1">أرسل لنا رسالة</span>
+                                        <span className="block text-xl font-arabic font-normal text-gold-strong mt-1">أرسل لنا رسالة</span>
                                     </h2>
-                                    <p className="text-white/70 font-light">
+                                    <p className="text-muted font-light">
                                         Need a custom quote for your Umrah group? Have questions about our GMC Yukon fleet?
                                         Fill out the form below and our team will get back to you within minutes.
                                     </p>
