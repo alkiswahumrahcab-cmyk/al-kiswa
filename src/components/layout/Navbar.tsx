@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import ThemeLogo from '@/components/common/ThemeLogo';
+import { Link001 } from '@/components/ui/skiper-ui/skiper40';
 
 import { Menu, X, ChevronDown, Phone, Mail, Instagram, Facebook, MessageCircle, Linkedin } from 'lucide-react';
 import { useMenu } from '@/context/MenuContext';
@@ -129,15 +130,15 @@ export default function Navbar() {
                                     {link.label}
                                 </span>
                             ) : (
-                                <Link
+                                <Link001
                                     href={link.href}
-                                    className={`relative text-sm font-medium transition-all duration-300 px-4 py-2 flex items-center gap-1 ${pathname === link.href
+                                    className={`px-4 py-2 ${pathname === link.href
                                         ? 'text-gold font-bold underline decoration-gold decoration-2 underline-offset-8'
                                         : useWhiteText ? 'text-white/90 hover:text-white' : 'text-muted hover:text-ink hover:text-gold'
                                         }`}
                                 >
                                     {link.label}
-                                </Link>
+                                </Link001>
                             )}
 
                             {/* Premium Dropdown Menu */}

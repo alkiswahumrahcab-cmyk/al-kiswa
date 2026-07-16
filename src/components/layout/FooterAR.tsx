@@ -6,6 +6,7 @@ import { regions } from '@/data/regions';
 import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 import NusukFooterSeal from '@/components/trust/NusukFooterSeal';
 import ThemeLogo from '@/components/common/ThemeLogo';
+import { Link003 } from '@/components/ui/skiper-ui/skiper40';
 
 export default function FooterAR() {
     const { settings } = useSettings();
@@ -115,12 +116,12 @@ export default function FooterAR() {
                             مسارات العمرة الشائعة
                         </h3>
                         <ul className="space-y-3">
-                            <li><Link href="/ar/services/jeddah-airport-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">تاكسي مطار جدة إلى مكة</Link></li>
-                            <li><Link href="/ar/services/makkah-madinah-taxi" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">تاكسي خاص من مكة للمدينة</Link></li>
-                            <li><Link href="/ar/services/madinah-airport-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">مطار المدينة إلى الفندق</Link></li>
-                            <li><Link href="/ar/services/intercity-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">نقل مباشر من جدة للمدينة</Link></li>
-                            <li><Link href="/ar/services/ziyarat-tours" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">جولات المزارات في مكة</Link></li>
-                            <li><Link href="/ar/ramadan-2026" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">نقل العمرة رمضان 2026</Link></li>
+                            <li><Link003 href="/ar/services/jeddah-airport-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">تاكسي مطار جدة إلى مكة</Link003></li>
+                            <li><Link003 href="/ar/services/makkah-madinah-taxi" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">تاكسي خاص من مكة للمدينة</Link003></li>
+                            <li><Link003 href="/ar/services/madinah-airport-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">مطار المدينة إلى الفندق</Link003></li>
+                            <li><Link003 href="/ar/services/intercity-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">نقل مباشر من جدة للمدينة</Link003></li>
+                            <li><Link003 href="/ar/services/ziyarat-tours" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">جولات المزارات في مكة</Link003></li>
+                            <li><Link003 href="/ar/ramadan-2026" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">نقل العمرة رمضان 2026</Link003></li>
                         </ul>
                     </div>
 
@@ -130,13 +131,13 @@ export default function FooterAR() {
                             الخدمات والأسطول
                         </h3>
                         <ul className="space-y-3">
-                            <li><Link href="/ar/services/airport-transfers" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">نقل المطارات</Link></li>
-                            <li><Link href="/ar/services/hotel-transfers" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">نقل الفنادق</Link></li>
-                            <li><Link href="/ar/services/intercity-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">النقل بين المدن</Link></li>
-                            <li><Link href="/ar/fleet/gmc-yukon-at4" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">جي إم سي يوكن XL — سيارة كبار الشخصيات</Link></li>
-                            <li><Link href="/ar/fleet/hyundai-staria" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">هيونداي ستاريا — سيارة عائلية</Link></li>
-                            <li><Link href="/ar/fleet/toyota-hiace" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">تويوتا هايس — حافلة جماعية</Link></li>
-                            <li><Link href="/ar/pricing" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">الأسعار والتسعيرة</Link></li>
+                            <li><Link003 href="/ar/services/airport-transfers" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">نقل المطارات</Link003></li>
+                            <li><Link003 href="/ar/services/hotel-transfers" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">نقل الفنادق</Link003></li>
+                            <li><Link003 href="/ar/services/intercity-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">النقل بين المدن</Link003></li>
+                            <li><Link003 href="/ar/fleet/gmc-yukon-at4" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">جي إم سي يوكن XL — سيارة كبار الشخصيات</Link003></li>
+                            <li><Link003 href="/ar/fleet/hyundai-staria" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">هيونداي ستاريا — سيارة عائلية</Link003></li>
+                            <li><Link003 href="/ar/fleet/toyota-hiace" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">تويوتا هايس — حافلة جماعية</Link003></li>
+                            <li><Link003 href="/ar/pricing" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">الأسعار والتسعيرة</Link003></li>
                         </ul>
                     </div>
 
@@ -146,12 +147,12 @@ export default function FooterAR() {
                             شركة الكسوة للنقل
                         </h3>
                         <ul className="space-y-3">
-                            <li><Link href="/ar/about" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">معلومات عنا</Link></li>
-                            <li><Link href="/ar/blog" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">المدونة ودلائل السفر</Link></li>
-                            <li><Link href="/ar/contact" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">اتصل بنا</Link></li>
-                            <li><Link href="/ar/safety" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">سياسة الأمان</Link></li>
-                            <li><Link href="/ar/track-booking" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">تتبع حجزك</Link></li>
-                            <li><Link href="/" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]" dir="ltr">English Version</Link></li>
+                            <li><Link003 href="/ar/about" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">معلومات عنا</Link003></li>
+                            <li><Link003 href="/ar/blog" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">المدونة ودلائل السفر</Link003></li>
+                            <li><Link003 href="/ar/contact" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">اتصل بنا</Link003></li>
+                            <li><Link003 href="/ar/safety" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">سياسة الأمان</Link003></li>
+                            <li><Link003 href="/ar/track-booking" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">تتبع حجزك</Link003></li>
+                            <li><Link003 href="/" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]" dir="ltr">English Version</Link003></li>
                         </ul>
                     </div>
                 </div>

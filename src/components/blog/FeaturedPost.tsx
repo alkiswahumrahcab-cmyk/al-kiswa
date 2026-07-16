@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Calendar, Clock, Sparkles } from 'lucide-react';
@@ -27,70 +27,61 @@ export default function FeaturedPost({ post }: FeaturedPostProps) {
 
     return (
         <section className="mb-24 relative group">
-            <GlassCard delay={0.2} className="p-0 overflow-hidden rounded-[2.5rem] border border-white/10 shadow-2xl relative isolate bg-black/40 backdrop-blur-md">
-                <Link href={`/blog/${post.slug}`} className="grid grid-cols-1 lg:grid-cols-2 relative min-h-[500px]">
+            <div className="p-0 overflow-hidden rounded-xl border border-border shadow-md bg-surface transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5">
+                <Link href={`/blog/${post.slug}`} className="grid grid-cols-1 lg:grid-cols-5 min-h-[500px]">
 
-                    {/* Image Section */}
-                    <div className="relative h-[300px] lg:h-full overflow-hidden">
+                    {/* Image Section (60%) */}
+                    <div className="relative h-[300px] lg:h-full lg:col-span-3 overflow-hidden bg-surface-alt">
                         <Image
                             src={post.image}
                             alt={post.alt}
                             fill
-                            className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                            className="object-cover"
                             priority
-                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            sizes="(max-width: 1024px) 100vw, 60vw"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent lg:hidden" />
                     </div>
 
-                    {/* Content Section */}
-                    <div className="relative p-8 lg:p-16 flex flex-col justify-center bg-transparent lg:border-l border-white/10">
-                        {/* Decorative Background Glow */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-[80px] -z-10" />
-
+                    {/* Content Section (40%) */}
+                    <div className="relative p-8 lg:p-12 lg:col-span-2 flex flex-col justify-center bg-surface border-t lg:border-t-0 lg:border-l border-border">
                         <div className="flex items-center gap-3 mb-6">
-                            <span className="px-4 py-1.5 bg-gold text-black text-xs font-bold uppercase tracking-widest rounded-full shadow-[0_0_15px_hsl(var(--gold-glow) / 0.3)] flex items-center gap-2">
+                            <span className="px-4 py-1 bg-gold text-ink text-xs font-semibold uppercase tracking-widest rounded-pill flex items-center gap-2">
                                 <Sparkles size={12} />
                                 Featured
                             </span>
-                            <span className="text-sm font-bold text-gold uppercase tracking-widest">
+                            <span className="text-sm font-semibold text-gold-strong uppercase tracking-widest">
                                 {post.category}
                             </span>
                         </div>
 
-                        <h3 className="text-3xl lg:text-5xl font-semibold font-display text-white mb-6 leading-[1.1]">
+                        <h3 className="text-3xl lg:text-4xl font-semibold font-display text-ink mb-4 leading-tight">
                             {post.title}
                         </h3>
 
-                        <p className="text-lg text-n-300 mb-8 leading-relaxed font-light">
+                        <p className="text-lg text-body mb-8 leading-relaxed font-body">
                             {post.excerpt}
                         </p>
 
                         {/* Meta Info */}
-                        <div className="flex items-center gap-4 text-sm font-medium text-n-400 mb-6">
+                        <div className="flex items-center gap-4 text-sm font-medium text-muted mb-8">
                             <span className="flex items-center gap-1.5">
-                                <Calendar size={14} className="text-gold" />
+                                <Calendar size={14} className="text-gold-strong" />
                                 {formattedDate}
                             </span>
-                            <span className="w-1 h-1 rounded-full bg-white/20" />
+                            <span className="w-1 h-1 rounded-pill bg-border-strong" />
                             <span className="flex items-center gap-1.5">
-                                <Clock size={14} className="text-gold" />
+                                <Clock size={14} className="text-gold-strong" />
                                 {post.readTime}
                             </span>
                         </div>
 
-                        <div className="flex items-center gap-3 text-gold font-bold uppercase tracking-widest text-sm group/btn">
+                        <div className="inline-flex items-center gap-2 text-gold-strong font-semibold uppercase tracking-widest text-sm group/btn">
                             Read Full Article
-                            <span className="bg-gold/10 p-2 rounded-btn transition-all duration-300 group-hover/btn:bg-gold group-hover/btn:text-black group-hover/btn:translate-x-2">
-                                <ArrowRight size={18} />
-                            </span>
+                            <ArrowRight size={18} className="transition-transform duration-200 group-hover/btn:translate-x-1" />
                         </div>
                     </div>
                 </Link>
-            </GlassCard>
-
-            {/* Background Decoration behind the card */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-gold/10 via-white/5 to-gold/10 rounded-[3rem] blur-2xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            </div>
         </section>
     );
 }

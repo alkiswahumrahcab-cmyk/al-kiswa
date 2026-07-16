@@ -1,9 +1,7 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
-import FadeIn from '@/components/common/FadeIn';
 import { Mail, CheckCircle, ArrowRight, Bell } from 'lucide-react';
-import GlassCard from '@/components/ui/GlassCard';
 
 export default function NewsletterSignup() {
     const [email, setEmail] = useState('');
@@ -37,85 +35,74 @@ export default function NewsletterSignup() {
     };
 
     return (
-        <section className="py-24 px-4 relative bg-transparent">
+        <section className="py-24 px-4 relative bg-ink-bg border-y border-ink-surface">
             <div className="container max-w-5xl mx-auto">
-                <GlassCard className="relative overflow-hidden p-10 md:p-16 !bg-neutral-900/90 !border-white/10 shadow-2xl backdrop-blur-xl group">
+                <div className="relative z-10 flex flex-col md:flex-row items-center gap-12 md:gap-20">
 
-                    {/* Background Accents */}
-                    <div className="absolute top-0 right-0 w-80 h-80 bg-gold/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-                    <div className="absolute bottom-0 left-0 w-80 h-80 bg-gold/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
-
-                    <div className="relative z-10 flex flex-col md:flex-row items-center gap-12 md:gap-20">
-
-                        {/* Text Content */}
-                        <div className="flex-1 text-center md:text-left">
-                            <FadeIn>
-                                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 text-gold text-xs font-bold uppercase tracking-[0.2em] mb-6 border border-gold/20 shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)]">
-                                    <Bell size={14} />
-                                    <span>Stay Updated</span>
-                                </div>
-                                <h2 className="text-3xl md:text-5xl font-semibold text-white mb-6 font-display">
-                                    Join Our Community
-                                </h2>
-                                <p className="text-n-400 text-lg leading-relaxed max-w-xl font-light">
-                                    Get exclusive travel tips, spiritual guides, and special offers for your Umrah journey delivered directly to your inbox.
-                                </p>
-                            </FadeIn>
+                    {/* Text Content */}
+                    <div className="flex-1 text-center md:text-left">
+                        <div className="inline-flex items-center gap-2 text-gold text-sm font-semibold uppercase tracking-[0.14em] mb-6">
+                            <Bell size={16} />
+                            <span>Stay Updated</span>
                         </div>
-
-                        {/* Form */}
-                        <div className="w-full md:w-auto md:min-w-[420px]">
-                            <FadeIn delay={0.2}>
-                                {status === 'success' ? (
-                                    <div className="bg-green-500/10 border border-green-500/30 rounded-2xl p-8 text-center animate-in fade-in zoom-in duration-300">
-                                        <div className="w-14 h-14 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4 text-green-400 border border-green-500/30">
-                                            <CheckCircle size={28} />
-                                        </div>
-                                        <h3 className="text-2xl font-semibold text-white mb-2 font-display">Subscribed!</h3>
-                                        <p className="text-green-300/80 text-sm">Thank you for joining our newsletter.</p>
-                                        <button
-                                            onClick={() => setStatus('idle')}
-                                            className="mt-6 text-xs text-white/50 hover:text-white underline"
-                                        >
-                                            Subscribe another email
-                                        </button>
-                                    </div>
-                                ) : (
-                                    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                                        <div className="relative">
-                                            <Mail className="absolute left-5 top-1/2 -translate-y-1/2 text-n-500" size={20} />
-                                            <input
-                                                type="email"
-                                                required
-                                                placeholder="Enter your email address"
-                                                value={email}
-                                                onChange={(e) => setEmail(e.target.value)}
-                                                className="w-full bg-black/50 border border-white/10 rounded-2xl py-5 pl-14 pr-6 text-white placeholder:text-n-600 focus:ring-2 focus:ring-gold/50 focus:border-gold/50 outline-none transition-all shadow-inner"
-                                            />
-                                        </div>
-                                        <button
-                                            type="submit"
-                                            disabled={status === 'loading'}
-                                            className="group bg-gold hover:bg-white hover:text-black text-black font-bold py-5 px-8 rounded-2xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3 shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]"
-                                        >
-                                            {status === 'loading' ? (
-                                                <div className="w-5 h-5 border-2 border-black/30 border-t-black rounded-full animate-spin" />
-                                            ) : (
-                                                <>
-                                                    <span className="uppercase tracking-widest text-sm">Subscribe</span>
-                                                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                                                </>
-                                            )}
-                                        </button>
-                                        <p className="text-xs text-n-600 text-center mt-2 font-light">
-                                            We respect your privacy. Unsubscribe at any time.
-                                        </p>
-                                    </form>
-                                )}
-                            </FadeIn>
-                        </div>
+                        <h2 className="text-3xl md:text-[44px] font-semibold text-on-ink mb-6 font-display leading-[1.1]">
+                            Join Our Community
+                        </h2>
+                        <p className="text-on-ink-muted text-lg md:text-[19px] leading-[1.65] max-w-xl font-body">
+                            Get exclusive travel tips, spiritual guides, and special offers for your Umrah journey delivered directly to your inbox.
+                        </p>
                     </div>
-                </GlassCard>
+
+                    {/* Form */}
+                    <div className="w-full md:w-auto md:min-w-[420px]">
+                        {status === 'success' ? (
+                            <div className="bg-success-soft border border-success/30 rounded-xl p-8 text-center animate-in fade-in zoom-in duration-300">
+                                <div className="w-14 h-14 bg-success/20 rounded-full flex items-center justify-center mx-auto mb-4 text-success border border-success/30">
+                                    <CheckCircle size={28} />
+                                </div>
+                                <h3 className="text-2xl font-semibold text-ink mb-2 font-display">Subscribed!</h3>
+                                <p className="text-body text-sm">Thank you for joining our newsletter.</p>
+                                <button
+                                    onClick={() => setStatus('idle')}
+                                    className="mt-6 text-sm font-semibold text-muted hover:text-ink transition-colors"
+                                >
+                                    Subscribe another email
+                                </button>
+                            </div>
+                        ) : (
+                            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                                <div className="relative">
+                                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-on-ink-muted" size={20} />
+                                    <input
+                                        type="email"
+                                        required
+                                        placeholder="Enter your email address"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        className="w-full bg-ink-surface border border-border-strong rounded-md py-4 pl-12 pr-4 text-on-ink placeholder:text-on-ink-muted focus:ring-1 focus:ring-gold focus:border-gold outline-none transition-colors text-base"
+                                    />
+                                </div>
+                                <button
+                                    type="submit"
+                                    disabled={status === 'loading'}
+                                    className="group bg-gold hover:bg-gold-soft text-ink font-semibold py-4 px-8 rounded-btn transition-colors duration-200 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                                >
+                                    {status === 'loading' ? (
+                                        <div className="w-5 h-5 border-2 border-ink/30 border-t-ink rounded-full animate-spin" />
+                                    ) : (
+                                        <>
+                                            <span className="text-base">Subscribe</span>
+                                            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-200" />
+                                        </>
+                                    )}
+                                </button>
+                                <p className="text-sm text-on-ink-muted text-center mt-2 font-body">
+                                    We respect your privacy. Unsubscribe at any time.
+                                </p>
+                            </form>
+                        )}
+                    </div>
+                </div>
             </div>
         </section>
     );

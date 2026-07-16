@@ -1,35 +1,41 @@
-﻿import React from 'react';
-import FadeIn from '@/components/common/FadeIn';
+import React from 'react';
 
 export default function BlogHero() {
     return (
-        <section className="relative py-32 md:py-40 flex items-center justify-center overflow-hidden bg-charcoal">
-            {/* Background Image/Gradient */}
-            <div className="absolute inset-0 z-0">
-                {/* Texture Pattern */}
-                <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-10 mix-blend-overlay" />
+        <section className="relative pt-32 pb-16 md:pt-48 md:pb-24 bg-surface overflow-hidden">
+            {/* Subtle Background Accent */}
+            <div className="absolute top-0 right-0 w-[80%] md:w-1/2 h-full bg-surface-alt rounded-bl-[150px] md:rounded-bl-[250px] opacity-70 pointer-events-none" />
 
-                {/* Gradient Overlays */}
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[120px] pointer-events-none" />
-                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
-            </div>
-
-            <div className="container relative z-10 px-4 text-center">
-                <div className="max-w-4xl mx-auto space-y-8">
-                    <FadeIn direction="down">
-                        <span className="text-gold font-bold uppercase tracking-[0.25em] text-sm md:text-base mb-4 block animate-in fade-in slide-in-from-bottom-4 duration-1000">
-                            Knowledge Center | المدونة
-                        </span>
-                        <h1 className="text-5xl md:text-7xl font-semibold font-display text-white drop-shadow-2xl leading-[1.1] tracking-tight">
-                            Pilgrim <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold to-gold-light italic font-serif">Insights</span>
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-12">
+                    
+                    {/* Left Side */}
+                    <div className="flex-1 space-y-6 md:space-y-8">
+                        <div className="inline-block border border-gold/30 bg-gold-soft/50 px-4 py-2 rounded-pill mb-2">
+                            <span className="text-gold-strong font-bold uppercase tracking-[0.15em] text-xs">
+                                Knowledge Center
+                            </span>
+                        </div>
+                        
+                        <h1 className="text-5xl md:text-[80px] lg:text-[96px] font-semibold font-display text-ink leading-[1] tracking-tight">
+                            Pilgrim <span className="text-gold-strong italic">Insights</span>
                         </h1>
-                    </FadeIn>
-                    <FadeIn delay={0.2} direction="up">
-                        <p className="text-lg md:text-2xl text-n-300 leading-relaxed font-light max-w-2xl mx-auto">
-                            Expert guides, travel tips, and spiritual resources for a <span className="text-gold font-medium">blessed Umrah journey</span>.
+                        
+                        <p className="text-lg md:text-[22px] text-body leading-[1.65] font-body max-w-[42ch]">
+                            Expert guides, travel tips, and spiritual resources for a <span className="text-ink font-medium">blessed Umrah journey</span>.
                         </p>
-                    </FadeIn>
+                    </div>
+
+                    {/* Right Side - Typographic Graphic */}
+                    <div className="md:w-auto flex justify-start md:justify-end pb-2 md:pb-6">
+                        <span className="text-7xl md:text-[120px] lg:text-[140px] font-bold font-arabic text-gold-strong opacity-[0.08] leading-none select-none" dir="rtl">
+                            المدونة
+                        </span>
+                    </div>
                 </div>
+
+                {/* Divider */}
+                <div className="max-w-5xl mx-auto mt-16 md:mt-24 h-px bg-border w-full" />
             </div>
         </section>
     );

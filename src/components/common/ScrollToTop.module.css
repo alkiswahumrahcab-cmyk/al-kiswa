@@ -1,6 +1,6 @@
 .button {
     position: fixed;
-    bottom: 6rem; /* Sits comfortably above chatbot on desktop */
+    bottom: 11.5rem; /* Sits comfortably above stacked WhatsApp button on desktop */
     right: 1.5rem;
     left: auto;
     width: 45px;
@@ -37,7 +37,7 @@
 
 @media (max-width: 767px) {
     .button {
-        bottom: 11rem; /* Sits above chatbot which is bumped up for sticky bar */
+        bottom: 16.5rem; /* Sits above stacked WhatsApp button on mobile */
         right: 1rem;
         width: 40px;
         height: 40px;

@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import HadithCarousel from '@/components/blog/HadithCarousel';
 import Hero from '@/components/common/Hero';
@@ -59,9 +59,7 @@ export default async function BlogPage() {
 
 
     return (
-        <main className="min-h-screen bg-charcoal relative">
-            <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
-
+        <main className="min-h-screen bg-bg relative selection:bg-gold-soft selection:text-ink">
             <div className="relative z-10">
                 <BlogHero />
 
@@ -71,8 +69,8 @@ export default async function BlogPage() {
                 </div>
 
                 {/* Articles Section */}
-                <div className="bg-transparent pb-20 pt-20 min-h-[600px]">
-                    <div className="container px-[5px] md:px-4">
+                <div className="bg-transparent pb-20 pt-10 min-h-[600px]">
+                    <div className="container px-4">
                         {featuredPost && (
                             <FeaturedPost post={featuredPost} />
                         )}
@@ -91,6 +89,6 @@ export default async function BlogPage() {
                 <TravelTips />
                 <FAQSection />
             </div>
-        </main >
+        </main>
     );
 }

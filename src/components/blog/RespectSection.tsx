@@ -1,60 +1,57 @@
-﻿import React from 'react';
+import React from 'react';
 import { BookOpen, Heart, Shield, Handshake } from 'lucide-react';
-import FadeIn from '@/components/common/FadeIn';
 import { respectSectionData } from '@/lib/blogData';
-import GlassCard from '@/components/ui/GlassCard';
 
 export default function RespectSection() {
     return (
-        <section className="py-24 bg-transparent relative overflow-hidden border-t border-white/5">
-            {/* Background handled by parent, but added localized glow */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-3xl pointer-events-none" />
-
+        <section className="py-24 bg-bg relative overflow-hidden border-t border-border">
             <div className="container mx-auto px-4 relative z-10">
-                <div className="text-center max-w-4xl mx-auto mb-16">
-                    <FadeIn>
-                        <div className="bg-black/40 backdrop-blur-md inline-flex items-center gap-3 px-6 py-3 rounded-full border border-gold/30 mb-8 shadow-lg">
-                            <BookOpen className="text-gold" size={20} />
-                            <blockquote className="font-serif text-white italic tracking-wide">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+                    
+                    {/* Left Column: Intro & Quote */}
+                    <div className="lg:col-span-5 flex flex-col justify-start">
+                        <h2 className="text-3xl md:text-[44px] font-semibold font-display text-ink mb-6 leading-tight">
+                            {respectSectionData.title}
+                        </h2>
+                        <p className="text-lg text-body leading-[1.65] font-body mb-10">
+                            {respectSectionData.intro}
+                        </p>
+
+                        <div className="bg-surface-alt p-8 rounded-xl border border-border">
+                            <BookOpen className="text-gold-strong mb-4" size={24} />
+                            <blockquote className="font-display text-[22px] text-ink italic leading-[1.4] mb-4">
                                 &quot;{respectSectionData.verse.text}&quot;
                             </blockquote>
-                            <cite className="text-xs font-bold text-gold not-italic uppercase tracking-widest border-l border-white/20 pl-3 ml-2">
+                            <cite className="text-xs font-semibold text-gold-strong not-italic uppercase tracking-widest block">
                                 {respectSectionData.verse.reference}
                             </cite>
                         </div>
-                        <h2 className="text-3xl md:text-5xl font-semibold font-display text-white mb-6 leading-tight">{respectSectionData.title}</h2>
-                        <p className="text-lg text-n-400 leading-relaxed max-w-2xl mx-auto font-light">{respectSectionData.intro}</p>
-                    </FadeIn>
-                </div>
+                    </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {respectSectionData.commitments.map((item, index) => {
-                        const Icon = item.icon === 'Heart' ? Heart : item.icon === 'Shield' ? Shield : Handshake;
-                        return (
-                            <FadeIn key={index} delay={index * 0.1}>
-                                <GlassCard className="p-10 h-full text-center flex flex-col items-center hover:-translate-y-2 transition-transform duration-300 border-white/10 bg-neutral-900/50 hover:bg-neutral-900/80 hover:border-gold/30 shadow-lg hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.1)] group">
-                                    <div className="w-20 h-20 rounded-full bg-black flex items-center justify-center mb-8 text-gold border border-white/10 group-hover:border-gold/50 group-hover:scale-110 transition-all duration-300 shadow-inner">
-                                        <Icon size={32} />
+                    {/* Right Column: Commitment Rows */}
+                    <div className="lg:col-span-7 flex flex-col justify-center">
+                        <div className="flex flex-col">
+                            {respectSectionData.commitments.map((item, index) => {
+                                const Icon = item.icon === 'Heart' ? Heart : item.icon === 'Shield' ? Shield : Handshake;
+                                return (
+                                    <div key={index} className="flex items-start gap-6 py-8 border-b border-border first:pt-0">
+                                        <div className="shrink-0 w-14 h-14 rounded-full bg-gold-soft flex items-center justify-center text-gold-strong" aria-hidden="true">
+                                            <Icon size={24} />
+                                        </div>
+                                        <p className="text-body font-body leading-relaxed text-[17px] pt-1.5">{item.text}</p>
                                     </div>
-                                    <p className="text-n-300 font-light leading-relaxed text-lg">{item.text}</p>
-                                </GlassCard>
-                            </FadeIn>
-                        );
-                    })}
-                </div>
+                                );
+                            })}
+                        </div>
 
-                <FadeIn delay={0.4}>
-                    <div className="text-center mt-20 max-w-3xl mx-auto">
-                        <div className="bg-gradient-to-r from-transparent via-gold/10 to-transparent p-1 rounded-2xl">
-                            <p className="text-xl md:text-2xl font-serif text-white italic py-8 px-4 border-y border-gold/20 relative">
-                                <span className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-black border border-gold/30 rounded-full flex items-center justify-center">
-                                    <span className="w-2 h-2 bg-gold rounded-full"></span>
-                                </span>
+                        <div className="mt-8 pt-8">
+                            <p className="text-2xl font-display text-ink italic leading-[1.4]">
                                 {respectSectionData.closing}
                             </p>
                         </div>
                     </div>
-                </FadeIn>
+
+                </div>
             </div>
         </section>
     );

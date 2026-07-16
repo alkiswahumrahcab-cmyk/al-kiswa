@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -60,17 +60,14 @@ export default function CookieConsent() {
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     className="fixed bottom-4 left-4 right-4 md:left-auto md:bottom-8 md:right-8 z-[9999] max-w-sm w-full"
                 >
-                    <div className="bg-neutral-900/95 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_0_40px_rgba(0,0,0,0.5)] p-6 relative overflow-hidden">
-                        {/* Decorative Gradient */}
-                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-50" />
-
-                        <div className="flex items-start gap-4 mb-4">
-                            <div className="bg-gold/10 p-2.5 rounded-xl text-gold border border-gold/20">
+                    <div className="bg-surface backdrop-blur-xl border border-border rounded-xl shadow-xl p-6 relative overflow-hidden">
+                        <div className="flex items-start gap-4 mb-5">
+                            <div className="bg-gold-soft p-2.5 rounded-lg text-gold-strong shrink-0">
                                 <ShieldCheck size={20} />
                             </div>
                             <div>
-                                <h3 className="text-white font-bold text-sm mb-1">Privacy & Cookies</h3>
-                                <p className="text-n-400 text-xs leading-relaxed">
+                                <h3 className="text-ink font-semibold font-display text-base mb-1">Privacy & Cookies</h3>
+                                <p className="text-body text-[13px] leading-relaxed font-body">
                                     We use cookies to improve your experience and ensure secure bookings.
                                 </p>
                             </div>
@@ -79,17 +76,17 @@ export default function CookieConsent() {
                         <div className="flex items-center gap-3">
                             <button
                                 onClick={handleAccept}
-                                className="flex-1 bg-white text-black hover:bg-n-200 text-xs font-bold py-2.5 px-4 rounded-lg transition-colors"
+                                className="flex-1 bg-gold hover:bg-gold-soft text-ink text-[13px] font-semibold py-2.5 px-4 rounded-btn transition-colors border border-transparent shadow-sm"
                             >
-                                Accept <span className="font-arabic ml-1">موافق</span>
+                                Accept <span className="font-arabic ml-1 font-normal">موافق</span>
                             </button>
                             <button
                                 onClick={handleReject}
-                                className="flex-1 bg-white/5 text-n-400 hover:text-white hover:bg-white/10 text-xs font-medium py-2.5 px-4 rounded-lg transition-colors border border-white/5"
+                                className="flex-1 bg-surface text-ink hover:bg-surface-alt hover:text-gold-strong text-[13px] font-medium py-2.5 px-4 rounded-btn transition-colors border border-border shadow-sm"
                             >
                                 Reject
                             </button>
-                            <Link href="/cookie-preferences" className="text-[10px] text-n-500 hover:text-gold transition-colors underline decoration-dotted">
+                            <Link href="/cookie-preferences" className="text-[11px] text-muted hover:text-gold-strong transition-colors underline decoration-dotted font-body ml-1">
                                 Manage
                             </Link>
                         </div>

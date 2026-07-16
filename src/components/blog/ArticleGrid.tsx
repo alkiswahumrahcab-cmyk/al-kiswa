@@ -1,7 +1,6 @@
-﻿import React from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import FadeIn from '@/components/common/FadeIn';
 import { Search, Clock, ArrowRight, CalendarDays } from 'lucide-react';
 
 // Define a flexible shape to handle both data sources
@@ -55,9 +54,9 @@ export default function ArticleGrid({
                                     <button
                                         key={cat}
                                         onClick={() => onCategoryChange(cat)}
-                                        className={`px-4 py-2 rounded-full text-sm font-bold transition-all ${activeCategory === cat
-                                            ? 'bg-gold text-black shadow-lg shadow-gold/20'
-                                            : 'bg-white/5 text-n-400 hover:bg-white/10 hover:text-white border border-white/5'
+                                        className={`px-4 py-2 rounded-pill text-sm font-semibold transition-colors duration-200 ${activeCategory === cat
+                                            ? 'bg-gold text-ink shadow-sm'
+                                            : 'bg-surface text-body hover:bg-surface-alt border border-border'
                                             }`}
                                     >
                                         {cat}
@@ -74,9 +73,9 @@ export default function ArticleGrid({
                                     placeholder="Search articles..."
                                     value={searchTerm}
                                     onChange={(e) => onSearchChange(e.target.value)}
-                                    className="w-full pl-10 pr-4 py-2 bg-neutral-900/50 border border-white/10 rounded-full focus:outline-none focus:ring-2 focus:ring-gold text-sm text-white placeholder-gray-500"
+                                    className="w-full pl-10 pr-4 py-3 bg-surface border border-border-strong rounded-md focus:outline-none focus:ring-1 focus:ring-gold focus:border-gold text-base md:text-sm text-ink placeholder-muted transition-colors duration-200"
                                 />
-                                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-n-500" size={16} />
+                                <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={16} />
                             </div>
                         )}
                     </div>
@@ -90,65 +89,62 @@ export default function ArticleGrid({
                     if (!linkSlug) return null;
 
                     return (
-                        <FadeIn key={linkSlug} delay={index * 0.05}>
-                            <Link href={`/blog/${linkSlug}`} className="group h-full block">
-                                <article className="h-full flex flex-col glass-card hover:-translate-y-2 relative isolate group-hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.15)]">
+                        <Link key={linkSlug} href={`/blog/${linkSlug}`} className="group h-full block">
+                            <article className="h-full flex flex-col bg-surface border border-border rounded-xl shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 overflow-hidden">
 
-                                    {/* Image */}
-                                    <div className="relative h-64 overflow-hidden border-b border-white/5">
-                                        <Image
-                                            src={article.image}
-                                            alt={article.alt}
-                                            fill
-                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
-                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
+                                {/* Image */}
+                                <div className="relative h-64 overflow-hidden border-b border-border bg-surface-alt">
+                                    <Image
+                                        src={article.image}
+                                        alt={article.alt}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    />
 
-                                        {/* Category Badge */}
-                                        <div className="absolute top-4 left-4">
-                                            <span className="px-3 py-1 bg-black/60 backdrop-blur-md text-xs font-bold uppercase tracking-wider text-gold rounded-full border border-white/10 shadow-lg">
-                                                {article.category}
-                                            </span>
-                                        </div>
+                                    {/* Category Badge */}
+                                    <div className="absolute top-4 left-4">
+                                        <span className="px-3 py-1 bg-surface-alt/90 backdrop-blur-md text-xs font-semibold uppercase tracking-wider text-ink rounded-pill border border-border shadow-sm">
+                                            {article.category}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {/* Content */}
+                                <div className="p-6 md:p-8 flex flex-col flex-1 relative bg-surface">
+                                    {/* Date & Read Time */}
+                                    <div className="flex items-center gap-4 text-muted mb-4 tracking-wide text-sm font-medium">
+                                        <span className="flex items-center gap-1.5">
+                                            <CalendarDays size={14} className="text-gold-strong" />
+                                            {// Handle both Date object and string date
+                                                new Date(article.date).toLocaleDateString(undefined, {
+                                                    month: 'short',
+                                                    day: 'numeric',
+                                                    year: 'numeric'
+                                                })}
+                                        </span>
+                                        <span className="w-1 h-1 rounded-pill bg-border-strong" />
+                                        <span className="flex items-center gap-1.5">
+                                            <Clock size={14} className="text-gold-strong" />
+                                            {article.readTime}
+                                        </span>
                                     </div>
 
-                                    {/* Content */}
-                                    <div className="p-6 md:p-8 flex flex-col flex-1 relative">
-                                        {/* Date & Read Time */}
-                                        <div className="flex items-center gap-4 text-white/60 mb-4 tracking-wide">
-                                            <span className="flex items-center gap-1.5">
-                                                <CalendarDays size={14} className="text-gold" />
-                                                {// Handle both Date object and string date
-                                                    new Date(article.date).toLocaleDateString(undefined, {
-                                                        month: 'short',
-                                                        day: 'numeric',
-                                                        year: 'numeric'
-                                                    })}
-                                            </span>
-                                            <span className="w-1 h-1 rounded-full bg-gold/50" />
-                                            <span className="flex items-center gap-1.5">
-                                                <Clock size={14} className="text-gold" />
-                                                {article.readTime}
-                                            </span>
-                                        </div>
+                                    <h3 className="text-2xl font-semibold font-display text-ink mb-3 line-clamp-2 leading-tight group-hover:text-gold-strong transition-colors duration-200">
+                                        {article.title}
+                                    </h3>
 
-                                        <h3 className="text-2xl font-bold font-serif text-white mb-3 line-clamp-2 leading-tight group-hover:text-gold transition-colors duration-300">
-                                            {article.title}
-                                        </h3>
+                                    <p className="text-body text-base leading-relaxed line-clamp-3 mb-6 flex-1 font-body">
+                                        {article.excerpt}
+                                    </p>
 
-                                        <p className="text-n-400 text-sm leading-relaxed line-clamp-3 mb-6 flex-1 font-light">
-                                            {article.excerpt}
-                                        </p>
-
-                                        <div className="flex items-center gap-2 text-sm font-bold text-gold uppercase tracking-widest group/btn pt-4 border-t border-white/5">
-                                            Read Article
-                                            <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
-                                        </div>
+                                    <div className="flex items-center gap-2 text-sm font-semibold text-gold-strong uppercase tracking-widest group/btn pt-4 border-t border-border">
+                                        Read Article
+                                        <ArrowRight size={16} className="transition-transform duration-200 group-hover/btn:translate-x-1" />
                                     </div>
-                                </article>
-                            </Link>
-                        </FadeIn>
+                                </div>
+                            </article>
+                        </Link>
                     );
                 })}
             </div>
@@ -160,9 +156,9 @@ export default function ArticleGrid({
                         <button
                             key={page}
                             onClick={() => onPageChange(page)}
-                            className={`w-10 h-10 rounded-full font-bold transition-all ${currentPage === page
-                                ? 'bg-gold text-black'
-                                : 'bg-white/5 text-n-400 hover:bg-white/10 border border-white/5'
+                            className={`w-10 h-10 rounded-pill font-semibold transition-colors duration-200 ${currentPage === page
+                                ? 'bg-gold text-ink'
+                                : 'bg-surface text-body hover:bg-surface-alt border border-border'
                                 }`}
                         >
                             {page}

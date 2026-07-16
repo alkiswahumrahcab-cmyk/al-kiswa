@@ -2,8 +2,6 @@
 
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import FadeIn from '@/components/common/FadeIn';
-
 import { enFaqs, arFaqs } from '@/data/faqs';
 
 interface Props {
@@ -19,50 +17,41 @@ export default function FAQSection({ lang = 'en' }: Props) {
     };
 
     return (
-        <section className="py-24 bg-transparent relative border-t border-border">
+        <section className="py-24 bg-bg relative border-t border-border">
             <div className="container mx-auto px-4">
-                <FadeIn>
-                    <div className="text-center mb-16">
-                        <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm mb-3 block">
-                            {lang === 'ar' ? 'أسئلة شائعة' : 'Common Questions'}
-                        </span>
-                        <h2 className="text-3xl md:text-4xl font-semibold font-display text-foreground">
-                            {lang === 'ar' ? 'الأسئلة الأكثر تكراراً' : 'Frequently Asked Questions'}
-                        </h2>
-                    </div>
-                </FadeIn>
+                <div className="text-center mb-16">
+                    <span className="text-gold-strong font-semibold tracking-[0.14em] uppercase text-sm mb-4 block">
+                        {lang === 'ar' ? 'أسئلة شائعة' : 'Common Questions'}
+                    </span>
+                    <h2 className="text-3xl md:text-[44px] font-semibold font-display text-ink leading-tight">
+                        {lang === 'ar' ? 'الأسئلة الأكثر تكراراً' : 'Frequently Asked Questions'}
+                    </h2>
+                </div>
 
-                <div className="max-w-3xl mx-auto space-y-4">
+                <div className="max-w-3xl mx-auto">
                     {faqs.map((faq, index) => (
-                        <FadeIn key={index} delay={index * 0.1}>
+                        <div key={index} className="border-b border-border first:border-t">
+                            <button
+                                className={`w-full flex items-center justify-between py-6 group ${lang === 'ar' ? 'text-right' : 'text-left'}`}
+                                onClick={() => toggleAccordion(index)}
+                            >
+                                <span className={`font-semibold text-[19px] md:text-xl transition-colors font-display ${activeAccordion === index ? 'text-ink' : 'text-ink group-hover:text-gold-strong'
+                                    }`} style={lang === 'ar' ? { fontFamily: 'var(--font-tajawal)' } : {}}>
+                                    {faq.question}
+                                </span>
+                                <div className={`flex items-center justify-center transition-transform duration-300 shrink-0 ${lang === 'ar' ? 'mr-4' : 'ml-4'} ${activeAccordion === index ? 'rotate-180 text-ink' : 'text-muted group-hover:text-gold-strong'}`}>
+                                    <ChevronDown size={20} />
+                                </div>
+                            </button>
                             <div
-                                className={`border rounded-xl backdrop-blur-sm transition-all duration-300 ${activeAccordion === index
-                                    ? 'bg-card border-gold/50 shadow-[0_0_15px_hsl(var(--gold-glow) / 0.1)]'
-                                    : 'bg-muted/50 border-border hover:border-gold/30 hover:bg-card'
+                                className={`transition-all duration-300 ease-in-out overflow-hidden ${activeAccordion === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                                     }`}
                             >
-                                <button
-                                    className={`w-full flex items-center justify-between p-6 group ${lang === 'ar' ? 'text-right' : 'text-left'}`}
-                                    onClick={() => toggleAccordion(index)}
-                                >
-                                     <span className={`font-semibold text-lg transition-colors font-sans ${activeAccordion === index ? 'text-foreground' : 'text-muted-foreground group-hover:text-gold'
-                                        }`} style={lang === 'ar' ? { fontFamily: 'var(--font-tajawal)' } : {}}>
-                                        {faq.question}
-                                    </span>
-                                     <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0 ${lang === 'ar' ? 'mr-4' : ''} ${activeAccordion === index ? 'bg-gold text-black rotate-180' : 'bg-gold/10 text-gold group-hover:bg-gold group-hover:text-black'}`}>
-                                        <ChevronDown size={20} />
-                                    </div>
-                                </button>
-                                <div
-                                    className={`transition-all duration-300 ease-in-out overflow-hidden ${activeAccordion === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                                        }`}
-                                >
-                                     <div className="px-6 pb-6 text-muted-foreground leading-relaxed font-light border-t border-border" style={lang === 'ar' ? { fontFamily: 'var(--font-tajawal)' } : {}}>
-                                        {faq.answer}
-                                    </div>
+                                <div className="pb-6 text-body text-base leading-[1.65] font-body" style={lang === 'ar' ? { fontFamily: 'var(--font-tajawal)' } : {}}>
+                                    {faq.answer}
                                 </div>
                             </div>
-                        </FadeIn>
+                        </div>
                     ))}
                 </div>
             </div>

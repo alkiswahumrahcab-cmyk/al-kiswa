@@ -7,6 +7,7 @@ import { regions } from '@/data/regions';
 import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 import NusukFooterSeal from '@/components/trust/NusukFooterSeal';
 import ThemeLogo from '@/components/common/ThemeLogo';
+import { Link003 } from '@/components/ui/skiper-ui/skiper40';
 
 export default function Footer() {
     const { settings } = useSettings();
@@ -164,12 +165,12 @@ export default function Footer() {
                             Popular Umrah Routes
                         </h3>
                         <ul className="space-y-3">
-                            <li><Link href="/services/jeddah-airport-transfer" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">Jeddah Airport to Makkah Taxi</Link></li>
-                            <li><Link href="/services/makkah-madinah-taxi" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">Makkah to Madinah Private Taxi</Link></li>
-                            <li><Link href="/services/madinah-airport-transfer" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">Madinah Airport to Hotel Transfer</Link></li>
-                            <li><Link href="/services/intercity-transfer" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">Jeddah to Madinah Direct Transfer</Link></li>
-                            <li><Link href="/services/ziyarat-tours" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">Makkah Ziyarat City Tours</Link></li>
-                            <li><Link href="/ramadan-2026" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">Ramadan 2026 Umrah Transport</Link></li>
+                            <li><Link003 href="/services/jeddah-airport-transfer" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Jeddah Airport to Makkah Taxi</Link003></li>
+                            <li><Link003 href="/services/makkah-madinah-taxi" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Makkah to Madinah Private Taxi</Link003></li>
+                            <li><Link003 href="/services/madinah-airport-transfer" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Madinah Airport to Hotel Transfer</Link003></li>
+                            <li><Link003 href="/services/intercity-transfer" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Jeddah to Madinah Direct Transfer</Link003></li>
+                            <li><Link003 href="/services/ziyarat-tours" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Makkah Ziyarat City Tours</Link003></li>
+                            <li><Link003 href="/ramadan-2026" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Ramadan 2026 Umrah Transport</Link003></li>
                         </ul>
                     </div>
 
@@ -179,14 +180,14 @@ export default function Footer() {
                             Services & Fleet
                         </h3>
                         <ul className="space-y-3">
-                            <li><Link href="/services/airport-transfers" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">Airport Transfers</Link></li>
-                            <li><Link href="/services/hotel-transfers" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">Hotel Transfers</Link></li>
-                            <li><Link href="/services/intercity-transfer" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">Intercity Transport</Link></li>
-                            <li><Link href="/fleet/gmc-yukon-at4" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">GMC Yukon XL — VIP SUV</Link></li>
-                            <li><Link href="/fleet/hyundai-staria" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">Hyundai Staria — Family MPV</Link></li>
-                            <li><Link href="/fleet/toyota-hiace" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">Toyota Hiace — Group Bus</Link></li>
-                            <li><Link href="/pricing" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">Pricing & Rates</Link></li>
-                            <li><Link href="/pricing/compare" className="text-gold-strong hover:text-gold transition-colors text-[15px]">Compare vs Kiwi · Telixo · 5Star</Link></li>
+                            <li><Link003 href="/services/airport-transfers" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Airport Transfers</Link003></li>
+                            <li><Link003 href="/services/hotel-transfers" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Hotel Transfers</Link003></li>
+                            <li><Link003 href="/services/intercity-transfer" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Intercity Transport</Link003></li>
+                            <li><Link003 href="/fleet/gmc-yukon-at4" className="text-ink-muted hover:text-ink transition-colors text-[15px]">GMC Yukon XL — VIP SUV</Link003></li>
+                            <li><Link003 href="/fleet/hyundai-staria" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Hyundai Staria — Family MPV</Link003></li>
+                            <li><Link003 href="/fleet/toyota-hiace" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Toyota Hiace — Group Bus</Link003></li>
+                            <li><Link003 href="/pricing" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Pricing & Rates</Link003></li>
+                            <li><Link003 href="/pricing/compare" className="text-gold-strong hover:text-ink transition-colors text-[15px]">Compare vs Kiwi · Telixo · 5Star</Link003></li>
                         </ul>
                     </div>
 
@@ -196,19 +197,19 @@ export default function Footer() {
                             Al Kiswah Transport
                         </h3>
                         <ul className="space-y-3">
-                            <li><Link href="/about" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">About Us</Link></li>
-                            <li><Link href="/blog" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">Blog & Travel Guides</Link></li>
-                            <li><Link href="/contact" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">Contact Us</Link></li>
-                            <li><Link href="/safety" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">Safety Policy</Link></li>
-                            <li><Link href="/track-booking" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">Track My Booking</Link></li>
+                            <li><Link003 href="/about" className="text-ink-muted hover:text-ink transition-colors text-[15px]">About Us</Link003></li>
+                            <li><Link003 href="/blog" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Blog & Travel Guides</Link003></li>
+                            <li><Link003 href="/contact" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Contact Us</Link003></li>
+                            <li><Link003 href="/safety" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Safety Policy</Link003></li>
+                            <li><Link003 href="/track-booking" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Track My Booking</Link003></li>
                             {regions.slice(0, 4).map((region) => (
                                 <li key={region.id}>
-                                    <Link href={`/pilgrims/${region.id}`} className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]">
+                                    <Link003 href={`/pilgrims/${region.id}`} className="text-ink-muted hover:text-ink transition-colors text-[15px]">
                                         Umrah Taxi {region.name}
-                                    </Link>
+                                    </Link003>
                                 </li>
                             ))}
-                            <li><Link href="/ar" className="text-ink-muted hover:text-gold-strong transition-colors text-[15px]" dir="rtl">للمعتمرين العرب</Link></li>
+                            <li><Link003 href="/ar" className="text-ink-muted hover:text-ink transition-colors text-[15px]" dir="rtl">للمعتمرين العرب</Link003></li>
                         </ul>
                     </div>
                 </div>
