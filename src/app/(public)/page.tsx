@@ -63,15 +63,11 @@ export async function generateMetadata() {
 }
 
 export default async function Home() {
-  const heroTitle = "Your Trusted Umrah Taxi in Jeddah, Makkah & Madinah";
-  const heroSubtitleText = "Private, licensed drivers. Fixed-price transfers from Jeddah Airport to your hotel in Makkah or Madinah.";
-  const heroSubtitleContent = (
-    <>
-      <span className="block opacity-90">{heroSubtitleText}</span>
-    </>
-  );
+  const heroTitle = "Premium Umrah Chauffeur & Luxury Pilgrim Transport";
+  const heroSubtitleText = "";
+  const heroSubtitleContent = null;
 
-  const heroImage = "/images/haram-hero.webp";
+  const heroImage = "/images/hero/homehero.jpeg";
 
   return (
     <main className="overflow-x-hidden">

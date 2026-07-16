@@ -3,9 +3,9 @@ import { Star, ShieldCheck } from 'lucide-react';
 
 export default function TrustBar() {
     return (
-        <section className="bg-surface-alt border-y border-border py-8">
+        <section className="bg-surface-alt border-y border-border py-4 md:py-8">
             <div className="container mx-auto px-4">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-12 text-ink">
+                <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-12 text-ink">
                     
                     {/* Rating */}
                     <div className="flex flex-col items-center md:items-start">

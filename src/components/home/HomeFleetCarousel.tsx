@@ -265,12 +265,12 @@ export default function HomeFleetCarousel() {
 
                                     <div className="flex gap-3 w-full md:w-auto">
                                         <Link href={`/fleet/${currentVehicle.slug}`} className="flex-1 md:flex-none">
-                                            <button className="w-full bg-surface border border-border text-ink text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-full hover:border-gold hover:text-gold-strong transition-colors">
+                                            <button className="w-full whitespace-nowrap bg-surface border border-border text-ink text-xs font-bold uppercase tracking-wider px-4 md:px-6 py-3.5 rounded-full hover:border-gold hover:text-gold-strong transition-colors">
                                                 Details
                                             </button>
                                         </Link>
                                         <Link href="/booking" className="flex-1 md:flex-none">
-                                            <button className="w-full bg-gold text-ink text-xs font-bold uppercase tracking-wider px-6 py-3.5 rounded-full hover:bg-gold-soft hover:shadow-lg hover:shadow-gold/20 transition-all">
+                                            <button className="w-full whitespace-nowrap bg-gold text-ink text-xs font-bold uppercase tracking-wider px-4 md:px-6 py-3.5 rounded-full hover:bg-gold-soft hover:shadow-lg hover:shadow-gold/20 transition-all">
                                                 Book Now
                                             </button>
                                         </Link>

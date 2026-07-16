@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Hero from '@/components/common/Hero';
@@ -165,8 +165,8 @@ const ROUTES = [
 
 export default function RoutesPage() {
     return (
-        <main className="bg-charcoal min-h-screen pb-20 relative">
-            <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none fixed" />
+        <main className="bg-bg min-h-screen pb-20 relative">
+            <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.02] mix-blend-multiply pointer-events-none fixed" />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
             <Hero
@@ -180,76 +180,104 @@ export default function RoutesPage() {
             />
 
             <section className="container mx-auto px-4 -mt-20 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {ROUTES.map((route, index) => (
+                <div className="flex flex-col gap-12 lg:gap-24">
+                    {ROUTES.map((route, index) => {
+                        const isEven = index % 2 === 0;
+                        return (
                         <FadeIn key={route.id} delay={index * 0.08}>
-                            <div className="block h-full group relative">
-                                <GlassCard className="h-full bg-neutral-900/80 border-white/10 hover:border-gold/30 transition-all duration-300 overflow-hidden relative shadow-2xl backdrop-blur-md">
-                                    <Link href={route.link} className="absolute inset-0 z-10">
-                                        <span className="sr-only">View {route.title}</span>
-                                    </Link>
-                                    <div className="flex flex-col md:flex-row h-full">
-                                        <div className="md:w-2/5 relative min-h-[220px] md:min-h-full overflow-hidden">
-                                            <Image src={route.image} alt={route.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(max-width: 768px) 100vw, 50vw" />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent md:bg-gradient-to-r md:from-black/60 md:to-transparent" />
-                                            <div className="absolute bottom-4 left-4 text-white md:hidden relative z-10">
-                                                <div className="flex items-center gap-2 text-sm font-medium mb-1"><Clock size={14} className="text-gold" />{route.time}</div>
-                                                <div className="flex items-center gap-2 text-sm font-medium"><MapPin size={14} className="text-gold" />{route.distance}</div>
+                            <div className="relative group block bg-surface border border-border overflow-hidden rounded-[16px] hover:border-gold-line transition-all duration-500 shadow-sm hover:shadow-md">
+                                <Link href={route.link} className="absolute inset-0 z-10">
+                                    <span className="sr-only">View {route.title}</span>
+                                </Link>
+                                <div className={`flex flex-col lg:flex-row ${isEven ? '' : 'lg:flex-row-reverse'} h-full`}>
+                                    
+                                    {/* Image Section */}
+                                    <div className="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-[450px] overflow-hidden">
+                                        <Image 
+                                            src={route.image} 
+                                            alt={route.title} 
+                                            fill 
+                                            className="object-cover transition-transform duration-[1200ms] group-hover:scale-105" 
+                                            sizes="(max-width: 1024px) 100vw, 50vw" 
+                                        />
+                                        <div className={`absolute inset-0 bg-gradient-to-t from-black/80 to-transparent lg:hidden`} />
+                                        
+                                        <div className="absolute bottom-6 left-6 text-white lg:hidden relative z-10">
+                                            <div className="flex items-center gap-3 text-sm font-medium mb-1"><Clock size={16} className="text-gold" />{route.time}</div>
+                                            <div className="flex items-center gap-3 text-sm font-medium"><MapPin size={16} className="text-gold" />{route.distance}</div>
+                                        </div>
+                                    </div>
+                                    
+                                    {/* Content Section */}
+                                    <div className="p-8 lg:p-16 w-full lg:w-1/2 flex flex-col justify-center">
+                                        <div className="mb-6 lg:mb-10">
+                                            <div className="text-gold uppercase tracking-[0.14em] font-semibold text-[13px] mb-4">Route {index + 1}</div>
+                                            <h3 className="text-3xl lg:text-[42px] leading-tight font-semibold font-display text-ink group-hover:text-gold-strong transition-colors duration-500">{route.title}</h3>
+                                            <h4 className="text-xl lg:text-2xl font-bold text-gold-strong font-reem-kufi mt-3">{route.titleAr}</h4>
+                                        </div>
+                                        
+                                        <div className="space-y-5 mb-10">
+                                            <p className="text-body text-base lg:text-lg leading-relaxed font-normal">{route.description}</p>
+                                            <p className="text-muted text-sm lg:text-base font-arabic leading-relaxed text-right border-t border-dashed border-border pt-5">{route.descriptionAr}</p>
+                                        </div>
+                                        
+                                        {/* Features List - Minimalist */}
+                                        <div className="hidden md:flex flex-col gap-6 mb-12">
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <div className="space-y-3">
+                                                    {route.features.map((f, i) => (
+                                                        <div key={i} className="flex items-center gap-3 text-sm text-body font-normal">
+                                                            <div className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                                                            {f}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                                <div className="space-y-3 text-right" dir="rtl">
+                                                    {route.featuresAr.map((f, i) => (
+                                                        <div key={i} className="flex items-center gap-3 text-sm text-muted font-arabic font-normal">
+                                                            <div className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                                                            {f}
+                                                        </div>
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className="p-8 md:w-3/5 flex flex-col">
-                                            <div className="mb-4">
-                                                <h3 className="text-2xl font-semibold font-display text-white group-hover:text-gold transition-colors">{route.title}</h3>
-                                                <h4 className="text-lg font-bold text-gold font-reem-kufi mt-1">{route.titleAr}</h4>
+                                        
+                                        <div className="mt-auto flex items-center justify-between pt-8 border-t border-border">
+                                            <div className="flex flex-col gap-1">
+                                                <span className="text-[12px] text-muted uppercase tracking-[0.08em] font-semibold">Starting Price</span>
+                                                <span className="text-2xl lg:text-3xl font-semibold font-display text-gold-strong">{route.price}</span>
                                             </div>
-                                            <div className="space-y-4 mb-8">
-                                                <p className="text-white/60 text-sm leading-relaxed font-light">{route.description}</p>
-                                                <p className="text-white/50 text-sm font-arabic leading-relaxed text-right border-t border-dashed border-white/10 pt-3">{route.descriptionAr}</p>
-                                            </div>
-                                            <div className="hidden md:grid grid-cols-2 gap-3 mb-8 text-sm text-white/60">
-                                                <div className="flex flex-wrap gap-2">
-                                                    {route.features.map((f, i) => (<span key={i} className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/5 rounded-lg text-xs border border-white/5"><CheckCircle size={10} className="text-gold" /> {f}</span>))}
-                                                </div>
-                                                <div className="flex flex-wrap gap-2 justify-end" dir="rtl">
-                                                    {route.featuresAr.map((f, i) => (<span key={i} className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white/5 rounded-lg text-xs font-arabic border border-white/5"><CheckCircle size={10} className="text-gold" /> {f}</span>))}
-                                                </div>
-                                            </div>
-                                            <div className="mt-auto flex items-center justify-between pt-6 border-t border-white/10">
-                                                <div className="flex flex-col">
-                                                    <span className="text-xs text-white/50 uppercase tracking-wider font-semibold">Starting from</span>
-                                                    <span className="text-xl font-bold text-gold">{route.price}</span>
-                                                </div>
-                                                <div className="flex gap-4 relative z-20 items-center">
-                                                    <Link href="/fleet" className="hidden md:flex items-center text-xs font-medium text-white/60 hover:text-white transition-colors uppercase tracking-wider">View Fleet</Link>
-                                                    <span className="flex items-center gap-2 text-sm font-bold text-black bg-gold px-4 py-2 rounded-btn hover:bg-white transition-colors shadow-lg shadow-gold/20">Book Now <ArrowRight size={16} /></span>
-                                                </div>
+                                            <div className="flex gap-4 relative z-20 items-center">
+                                                <span className="inline-flex items-center justify-center h-[48px] px-8 bg-gold hover:bg-gold-soft text-ink font-semibold rounded-btn transition-all">Book Journey <ArrowRight size={16} className="ml-2" /></span>
                                             </div>
                                         </div>
                                     </div>
-                                </GlassCard>
+                                </div>
                             </div>
                         </FadeIn>
-                    ))}
+                        );
+                    })}
                 </div>
-                <div className="mt-12 text-center max-w-2xl mx-auto">
+                <div className="mt-20 text-center max-w-2xl mx-auto">
                     <SeasonalPricingNote />
                 </div>
             </section>
 
             {/* Stats Counter */}
-            <section className="py-16 mt-16 bg-neutral-900/60 border-y border-white/5 relative">
-                <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <section className="py-24 mt-24 bg-surface-alt border-y border-border relative">
+                <div className="container mx-auto px-4 max-w-5xl">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center divide-x divide-border">
                         {[
-                            { value: '8', label: 'Routes', labelAr: 'مسارات' },
-                            { value: '4', label: 'Cities', labelAr: 'مدن' },
-                            { value: '6', label: 'Vehicle Types', labelAr: 'أنواع سيارات' },
+                            { value: '8', label: 'Dedicated Routes', labelAr: 'مسارات مخصصة' },
+                            { value: '4', label: 'Holy Cities', labelAr: 'مدن مقدسة' },
+                            { value: '6', label: 'Vehicle Classes', labelAr: 'فئات سيارات' },
                             { value: '24/7', label: 'Availability', labelAr: 'متاح دائماً' },
                         ].map((s, i) => (
                             <FadeIn key={i} delay={i * 0.1}>
-                                <div className="text-gold text-4xl md:text-5xl font-bold mb-2">{s.value}</div>
-                                <div className="text-white font-semibold text-sm">{s.label}</div>
-                                <div className="text-white/50 text-xs font-arabic">{s.labelAr}</div>
+                                <div className="text-gold text-5xl lg:text-7xl font-semibold font-display mb-4 tracking-tighter">{s.value}</div>
+                                <div className="text-ink font-semibold text-sm tracking-[0.08em] uppercase mb-2">{s.label}</div>
+                                <div className="text-muted text-sm font-arabic">{s.labelAr}</div>
                             </FadeIn>
                         ))}
                     </div>
@@ -257,45 +285,60 @@ export default function RoutesPage() {
             </section>
 
             {/* Why Choose Section */}
-            <section className="py-24 bg-transparent relative">
-                <div className="container mx-auto px-4">
-                    <div className="text-center max-w-2xl mx-auto mb-20">
+            <section className="py-32 bg-bg relative">
+                <div className="container mx-auto px-4 max-w-6xl">
+                    <div className="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
                         <FadeIn>
-                            <h2 className="text-3xl lg:text-5xl font-semibold font-display text-white mb-6">Why Travel With Al Kiswah?</h2>
-                            <p className="text-white/60 font-light text-lg">More than just transport, we provide a seamless bridge between your spiritual destinations.</p>
+                            <div className="text-gold uppercase tracking-[0.14em] font-semibold text-[13px] mb-4">The Al Kiswah Standard</div>
+                            <h2 className="text-4xl lg:text-[44px] font-semibold font-display text-ink max-w-xl leading-[1.1]">Why Choose Our Chauffeurs</h2>
+                        </FadeIn>
+                        <FadeIn delay={0.1}>
+                            <p className="text-body font-normal text-lg lg:text-[19px] max-w-md leading-[1.65] border-l-[1.5px] border-gold-line pl-6">More than transport, we provide a seamless bridge between your spiritual destinations with unmatched hospitality.</p>
                         </FadeIn>
                     </div>
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <div className="grid md:grid-cols-3 gap-12 lg:gap-20">
                         {[
-                            { icon: ShieldCheck, title: "Licensed & Insured", titleAr: "مرخص ومؤمن", desc: "Fully licensed by the Ministry of Transport. Every vehicle is insured and monitored.", descAr: "مرخصون من وزارة النقل وتغطية تأمينية شاملة." },
-                            { icon: Star, title: "Premium Experience", titleAr: "تجربة فاخرة", desc: "From the moment you step in, experience hospitality that honors the Guests of Allah.", descAr: "ضيافة تليق بضيوف الرحمن منذ لحظة الوصول." },
-                            { icon: Clock, title: "Punctuality", titleAr: "دقة المواعيد", desc: "Our drivers arrive before schedule to ensure your journey is stress-free.", descAr: "نحترم وقتكم الثمين. وصول قبل الموعد لضمان راحتكم." }
+                            { icon: ShieldCheck, title: "Licensed & Secure", titleAr: "أمان وموثوقية", desc: "Fully licensed by the Ministry of Transport. Every journey is tracked and insured for total peace of mind.", descAr: "مرخصون من وزارة النقل وتغطية تأمينية شاملة لراحتكم." },
+                            { icon: Star, title: "Five-Star Hospitality", titleAr: "ضيافة خمس نجوم", desc: "Experience a service designed around the needs of the Guests of Allah, from chilled water to pristine interiors.", descAr: "ضيافة تليق بضيوف الرحمن وعناية بأدق التفاصيل." },
+                            { icon: Clock, title: "Impeccable Timing", titleAr: "دقة متناهية", desc: "Flight tracking and early arrival guarantees ensure your schedule is never compromised.", descAr: "نحترم وقتكم الثمين مع متابعة مستمرة للرحلات." }
                         ].map((feature, idx) => (
                             <FadeIn key={idx} delay={0.2 + (idx * 0.1)}>
-                                <GlassCard className="text-center p-10 rounded-3xl bg-neutral-900/50 border-white/10 hover:border-gold/30 transition-all duration-300 hover:-translate-y-2">
-                                    <div className="w-20 h-20 bg-black/50 border border-white/10 rounded-full flex items-center justify-center mx-auto mb-8 text-gold shadow-inner">
+                                <div className="p-8 border-t border-border hover:border-gold-strong transition-colors duration-500 group">
+                                    <div className="mb-8 text-gold group-hover:text-gold-strong transition-colors duration-500">
                                         <feature.icon size={36} strokeWidth={1.5} />
                                     </div>
-                                    <h3 className="text-2xl font-semibold mb-2 text-white font-display">{feature.title}</h3>
-                                    <h4 className="text-xl font-bold text-gold font-reem-kufi mb-4">{feature.titleAr}</h4>
-                                    <p className="text-white/60 text-sm mb-4 leading-relaxed font-light">{feature.desc}</p>
-                                    <p className="text-white/50 text-sm font-arabic border-t border-white/10 pt-3">{feature.descAr}</p>
-                                </GlassCard>
+                                    <h3 className="text-[22px] font-semibold mb-2 text-ink font-display">{feature.title}</h3>
+                                    <h4 className="text-[19px] font-bold text-gold-strong font-reem-kufi mb-5">{feature.titleAr}</h4>
+                                    <p className="text-body text-base leading-[1.65] font-normal">{feature.desc}</p>
+                                </div>
                             </FadeIn>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* SEO Content */}
-            <section className="py-20 bg-neutral-900/50 border-y border-white/5 relative">
-                <div className="container mx-auto px-4">
+            {/* Editorial / SEO Guide */}
+            <section className="py-24 lg:py-32 bg-bg border-t border-border relative">
+                <div className="container mx-auto px-4 max-w-5xl">
                     <FadeIn>
-                        <div className="max-w-4xl mx-auto space-y-5 text-white/80 leading-relaxed font-light">
-                            <h2 className="text-2xl md:text-3xl font-semibold text-white font-display text-center mb-6">Umrah Transport Routes — Your Complete Guide</h2>
-                            <p>Planning your Umrah journey requires reliable transport between Saudi Arabia&apos;s holy cities. <strong className="text-white">Al Kiswah Umrah Transport</strong> operates <strong className="text-white">8 dedicated routes</strong> connecting Jeddah Airport, Makkah, Madinah, and Taif — serving over 10,000 pilgrims annually with our fleet of <Link href="/fleet/toyota-camry" className="text-gold hover:text-white hover:underline">Toyota Camry sedans</Link>, <Link href="/fleet/gmc-yukon-at4" className="text-gold hover:text-white hover:underline">GMC Yukon AT4 SUVs</Link>, <Link href="/fleet/hyundai-staria" className="text-gold hover:text-white hover:underline">Hyundai Staria vans</Link>, and <Link href="/fleet/toyota-hiace" className="text-gold hover:text-white hover:underline">Toyota Hiace buses</Link>.</p>
-                            <p>Our most popular route — <Link href="/services/jeddah-airport-transfer" className="text-gold hover:text-white hover:underline">Jeddah Airport to Makkah</Link> — features meet &amp; greet service, flight monitoring, and luggage assistance from SAR 200. For the journey between the two holy cities, our <Link href="/services/makkah-madinah-taxi" className="text-gold hover:text-white hover:underline">Makkah to Madinah transfer</Link> includes optional Miqat stops for Ihram.</p>
-                            <p>Explore Islamic history with our <Link href="/services/ziyarat-tours" className="text-gold hover:text-white hover:underline">Ziyarat Tours</Link> covering <strong className="text-white">43+ sacred sites</strong> across all four cities. Visit <Link href="/services/ziarah-makkah" className="text-gold hover:text-white hover:underline">15 sites in Makkah</Link> including Cave Hira and Arafat, or explore <Link href="/services/ziarah-madinah" className="text-gold hover:text-white hover:underline">14 sites in Madinah</Link> from Masjid Quba to the Date Market. All prices are fixed per vehicle with no hidden charges.</p>
+                        <div className="mb-16 text-center max-w-2xl mx-auto">
+                            <span className="text-gold font-semibold tracking-[0.14em] uppercase text-[13px] mb-4 block">Travel Information</span>
+                            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-semibold text-ink font-display leading-[1.15]">Your Complete Guide to Umrah Transport</h2>
+                        </div>
+                        
+                        <div className="columns-1 md:columns-2 gap-10 lg:gap-16 text-body leading-[1.7] font-normal text-base lg:text-[17px]">
+                            <p className="mb-6 md:mb-8">
+                                <span className="float-left text-6xl lg:text-7xl font-display text-gold-strong leading-[0.8] pr-3 pt-2">P</span>
+                                lanning your Umrah journey requires reliable transport between Saudi Arabia&apos;s holy cities. <strong className="text-ink font-semibold">Al Kiswah Umrah Transport</strong> operates <strong className="text-ink font-semibold">8 dedicated routes</strong> connecting Jeddah Airport, Makkah, Madinah, and Taif — serving over 10,000 pilgrims annually with our fleet of <Link href="/fleet/toyota-camry" className="text-gold-strong hover:text-gold hover:underline transition-colors">Toyota Camry sedans</Link>, <Link href="/fleet/gmc-yukon-at4" className="text-gold-strong hover:text-gold hover:underline transition-colors">GMC Yukon AT4 SUVs</Link>, <Link href="/fleet/hyundai-staria" className="text-gold-strong hover:text-gold hover:underline transition-colors">Hyundai Staria vans</Link>, and <Link href="/fleet/toyota-hiace" className="text-gold-strong hover:text-gold hover:underline transition-colors">Toyota Hiace buses</Link>.
+                            </p>
+                            
+                            <p className="mb-6 md:mb-8">
+                                Our most popular route — <Link href="/services/jeddah-airport-transfer" className="text-gold-strong hover:text-gold hover:underline font-medium transition-colors">Jeddah Airport to Makkah</Link> — features meet &amp; greet service, flight monitoring, and luggage assistance from SAR 200. For the journey between the two holy cities, our <Link href="/services/makkah-madinah-taxi" className="text-gold-strong hover:text-gold hover:underline font-medium transition-colors">Makkah to Madinah transfer</Link> includes optional Miqat stops for Ihram.
+                            </p>
+                            
+                            <p className="mb-0">
+                                Explore Islamic history with our <Link href="/services/ziyarat-tours" className="text-gold-strong hover:text-gold hover:underline font-medium transition-colors">Ziyarat Tours</Link> covering <strong className="text-ink font-semibold">43+ sacred sites</strong> across all four cities. Visit <Link href="/services/ziarah-makkah" className="text-gold-strong hover:text-gold hover:underline font-medium transition-colors">15 sites in Makkah</Link> including Cave Hira and Arafat, or explore <Link href="/services/ziarah-madinah" className="text-gold-strong hover:text-gold hover:underline font-medium transition-colors">14 sites in Madinah</Link> from Masjid Quba to the Date Market. All prices are fixed per vehicle with no hidden charges.
+                            </p>
                         </div>
                     </FadeIn>
                 </div>

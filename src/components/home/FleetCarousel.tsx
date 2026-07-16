@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Users, Briefcase, Check, ArrowRight, Tag, ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import GlassButton from '@/components/ui/GlassButton';
 import FadeIn from '@/components/common/FadeIn';
@@ -74,7 +75,7 @@ export default function FleetCarousel({ vehicles, discount }: FleetCarouselProps
                                     Luxury Vehicles for <br />
                                     <span className="text-gold italic font-serif">Every Journey</span>
                                 </h2>
-                                <p className="text-ink-muted text-lg leading-relaxed max-w-xl font-light">
+                                <p className="text-body text-lg leading-relaxed max-w-xl font-light">
                                     Meticulously maintained GMC Yukons, H1 Vans, and Buses.
                                     Designed for the comfort of pilgrims in Makkah & Madinah.
                                 </p>
@@ -111,28 +112,33 @@ export default function FleetCarousel({ vehicles, discount }: FleetCarouselProps
                         <div key={vehicle.id} className="min-w-[340px] md:min-w-[400px] snap-center">
                             <article className="h-full relative bg-surface border border-border rounded-[2rem] overflow-hidden group hover:border-gold/30 transition-all duration-500 hover:shadow-2xl hover:shadow-gold/5 flex flex-col">
 
+                                {/* Top Row: Badge & Rating */}
+                                <div className="p-6 pb-2 flex justify-between items-start">
+                                    <div>
+                                        <span className="inline-block bg-gold-soft text-ink text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2 border border-gold/20 shadow-sm">
+                                            {vehicle.category || 'Premium'}
+                                        </span>
+                                        <h3 className="text-[20px] lg:text-[22px] font-semibold text-ink font-display">{vehicle.name}</h3>
+                                    </div>
+                                    <div className="flex items-center gap-1 text-gold-strong">
+                                        <span className="text-sm font-bold text-ink mr-1">5.0</span>
+                                        <Star size={14} fill="currentColor" />
+                                    </div>
+                                </div>
+
                                 {/* Image Area */}
-                                <div className="relative h-64 overflow-hidden">
-                                    <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent z-10 opacity-80" />
+                                <div className="relative w-full h-48 sm:h-56 overflow-hidden bg-bg/50 flex items-center justify-center p-4">
                                     <Image
                                         src={vehicle.image}
                                         alt={vehicle.name}
                                         fill
-                                        className="object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out grayscale-[0.2] group-hover:grayscale-0"
+                                        className="object-contain p-4 transform group-hover:scale-105 transition-transform duration-700 ease-out z-10"
                                         sizes="(max-width: 768px) 100vw, 400px"
                                         draggable={false}
                                     />
-
-                                    {/* Category Badge */}
-                                    <div className="absolute top-6 left-6 z-20">
-                                        <span className="bg-black/80 backdrop-blur-md border border-white/10 text-white px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest">
-                                            {vehicle.category || 'Premium'}
-                                        </span>
-                                    </div>
-
                                     {/* Discount Badge */}
                                     {isDiscountActive && (
-                                        <div className="absolute top-6 right-6 z-20 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg flex items-center gap-1">
+                                        <div className="absolute top-2 right-4 z-20 bg-red-600 text-white px-3 py-1 rounded-full text-[11px] font-bold shadow-lg flex items-center gap-1">
                                             <Tag size={10} className="fill-current" />
                                             <span>
                                                 {discount?.type === 'percentage' ? `${discount.value}% OFF` : `${discount?.value} SAR OFF`}
@@ -142,48 +148,25 @@ export default function FleetCarousel({ vehicles, discount }: FleetCarouselProps
                                 </div>
 
                                 {/* Content Area */}
-                                <div className="p-8 flex flex-col flex-1">
-                                    <div className="mb-6">
-                                        <h3 className="text-2xl font-semibold text-ink mb-2 group-hover:text-gold transition-colors font-display">
-                                            {vehicle.name}
-                                        </h3>
-                                        <div className="flex items-center gap-2 mb-6">
-                                            {[1, 2, 3, 4, 5].map((star) => (
-                                                <Star key={star} size={12} className="fill-gold text-gold" />
-                                            ))}
-                                            <span className="text-xs text-ink-muted font-medium ml-2">(5.0)</span>
+                                <div className="p-6 pt-2 flex flex-col flex-1">
+                                    <div className="flex justify-between items-center mb-6 px-1">
+                                        <div className="flex items-center gap-2 text-body text-[13px] sm:text-sm">
+                                            <Users size={16} className="text-gold-strong" />
+                                            <span>{vehicle.passengers} Passengers</span>
                                         </div>
-
-                                        <div className="grid grid-cols-2 gap-3">
-                                            <div className="bg-bg rounded-xl p-3 border border-border flex flex-col items-center justify-center text-center group-hover:border-gold/30 transition-colors">
-                                                <Users size={18} className="text-ink-muted mb-2 group-hover:text-gold transition-colors" />
-                                                <span className="text-xs text-ink-muted font-medium uppercase tracking-wider mb-0.5">Capacity</span>
-                                                <span className="text-sm font-bold text-ink">{vehicle.passengers}</span>
-                                            </div>
-                                            <div className="bg-bg rounded-xl p-3 border border-border flex flex-col items-center justify-center text-center group-hover:border-gold/30 transition-colors">
-                                                <Briefcase size={18} className="text-ink-muted mb-2 group-hover:text-gold transition-colors" />
-                                                <span className="text-xs text-ink-muted font-medium uppercase tracking-wider mb-0.5">Luggage</span>
-                                                <span className="text-sm font-bold text-ink">{vehicle.luggage} Bags</span>
-                                            </div>
+                                        <div className="flex items-center gap-2 text-body text-[13px] sm:text-sm">
+                                            <Briefcase size={16} className="text-gold-strong" />
+                                            <span>{vehicle.luggage} Bags</span>
                                         </div>
-                                    </div>
-
-                                    <div className="space-y-3 mb-8">
-                                        {vehicle.features.slice(0, 3).map((feature, i) => (
-                                            <div key={i} className="flex items-center gap-3 text-ink-muted text-sm">
-                                                <div className="w-1.5 h-1.5 rounded-full bg-gold/50" />
-                                                <span>{feature}</span>
-                                            </div>
-                                        ))}
                                     </div>
 
                                     <div className="mt-auto">
-                                        <GlassButton
+                                        <Link
                                             href="/booking"
-                                            className="w-full !bg-bg !text-ink font-bold text-sm tracking-wider uppercase hover:!bg-gold hover:!text-ink !border-border group-hover:!border-gold/50 transition-all py-4"
+                                            className="w-full flex items-center justify-center bg-surface hover:bg-gold-soft border border-border group-hover:border-gold-strong text-ink font-semibold rounded-xl transition-all duration-300 py-3.5 shadow-sm hover:shadow-md"
                                         >
                                             Book Vehicle
-                                        </GlassButton>
+                                        </Link>
                                     </div>
                                 </div>
                             </article>
