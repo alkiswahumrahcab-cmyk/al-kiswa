@@ -16,7 +16,7 @@ interface Review {
 
 import { curatedTestimonials } from '@/data/testimonials';
 
-export default function ReviewsSection() {
+export default function ReviewsSection({ lang = 'en' }: { lang?: 'ar' | 'en' }) {
     const [reviews, setReviews] = useState<Review[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -125,21 +125,27 @@ export default function ReviewsSection() {
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 mb-6"
                     >
                         <Star size={14} className="fill-gold text-gold" />
-                        <span className="text-sm font-bold text-gold uppercase tracking-widest">
-                            <span className="text-foreground">{averageRating}/5</span> Average Rating
+                        <span className={`text-sm font-bold text-gold uppercase tracking-widest ${lang === 'ar' ? 'font-ar-body tracking-normal' : ''}`}>
+                            <span className="text-foreground">{averageRating}/5</span> {lang === 'ar' ? 'متوسط التقييم' : 'Average Rating'}
                         </span>
                     </div>
 
                     <h2
-                        className="text-3xl md:text-5xl font-semibold font-display text-foreground mb-6"
+                        className={`text-3xl md:text-5xl font-semibold mb-6 ${lang === 'ar' ? 'font-ar-head text-ink' : 'font-display text-foreground'}`}
                     >
-                        Trusted by <span className="text-gold">Pilgrims</span>
+                        {lang === 'ar' ? (
+                            <>موثوق من <span className="text-gold">ضيوف الرحمن</span></>
+                        ) : (
+                            <>Trusted by <span className="text-gold">Pilgrims</span></>
+                        )}
                     </h2>
 
                     <p
-                        className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light mb-12"
+                        className={`text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light mb-12 ${lang === 'ar' ? 'font-ar-body' : ''}`}
                     >
-                        Join the community of pilgrims who trust Al Kiswah Transport for their spiritual journey.
+                        {lang === 'ar' 
+                            ? 'انضم إلى آلاف المعتمرين الذين يثقون في الكسوة لنقلهم في رحلتهم الروحانية.' 
+                            : 'Join the community of pilgrims who trust Al Kiswah Transport for their spiritual journey.'}
                     </p>
 
                     {/* Simplified Rating Summary */}
@@ -159,7 +165,7 @@ export default function ReviewsSection() {
                                         <Star key={i} size={18} className={`${i < Math.round(Number(averageRating)) ? 'fill-gold text-gold' : 'text-n-600'}`} />
                                     ))}
                                 </div>
-                                <div className="text-xs text-muted-foreground font-medium tracking-widest uppercase opacity-80">{totalReviews} Reviews</div>
+                                <div className={`text-xs text-muted-foreground font-medium uppercase opacity-80 ${lang === 'ar' ? 'font-ar-body tracking-normal' : 'tracking-widest'}`}>{totalReviews} {lang === 'ar' ? 'تقييم' : 'Reviews'}</div>
                             </div>
 
                             {/* Divider for mobile/desktop */}
@@ -191,8 +197,8 @@ export default function ReviewsSection() {
                                     <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
                                 </svg>
                                 <div className="flex flex-col leading-none">
-                                    <span className="text-[9px] text-muted-foreground uppercase tracking-wider font-bold">Recommended on</span>
-                                    <span className="text-xs font-bold text-foreground tracking-wide">Google Reviews</span>
+                                    <span className={`text-[9px] text-muted-foreground uppercase tracking-wider font-bold ${lang === 'ar' ? 'font-ar-body tracking-normal text-xs' : ''}`}>{lang === 'ar' ? 'موصى به على' : 'Recommended on'}</span>
+                                    <span className={`font-bold text-foreground tracking-wide ${lang === 'ar' ? 'text-sm font-ar-body' : 'text-xs'}`}>Google Reviews</span>
                                 </div>
                             </div>
 
@@ -202,14 +208,14 @@ export default function ReviewsSection() {
                                 rel="noopener noreferrer"
                                 className="group flex items-center gap-3 bg-foreground text-background hover:bg-gold px-8 py-3.5 rounded-lg font-bold text-sm transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)]"
                             >
-                                <span>Write a Review</span>
-                                <MessageSquarePlus size={16} className="group-hover:translate-x-1 transition-transform" />
+                                <span className={lang === 'ar' ? 'font-ar-body' : ''}>{lang === 'ar' ? 'اكتب تقييماً' : 'Write a Review'}</span>
+                                <MessageSquarePlus size={16} className={`transition-transform ${lang === 'ar' ? 'group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <ReviewsCarousel reviews={reviews} />
+                <ReviewsCarousel reviews={reviews} lang={lang} />
 
                 <div
                     className="text-center mt-12"
@@ -220,8 +226,8 @@ export default function ReviewsSection() {
                         rel="noopener noreferrer"
                         className="text-gold hover:text-foreground transition-colors text-sm font-bold uppercase tracking-widest flex items-center justify-center gap-2 group"
                     >
-                        <span>Read all reviews on Google</span>
-                        <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                        <span className={lang === 'ar' ? 'font-ar-body' : ''}>{lang === 'ar' ? 'اقرأ جميع التقييمات على جوجل' : 'Read all reviews on Google'}</span>
+                        <ChevronRight size={14} className={`transition-transform ${lang === 'ar' ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
                     </a>
                 </div>
             </div>

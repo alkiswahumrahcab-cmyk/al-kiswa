@@ -120,18 +120,14 @@ export default function TransportServices({ lang = 'en' }: Props) {
 
     return (
         <section className="pt-20 md:pt-32 pb-10 md:pb-16 relative overflow-hidden bg-bg">
-            <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.03] mix-blend-overlay pointer-events-none" />
-            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gold-deep/5 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
-
             <div className="container relative z-10 px-4 md:px-8">
                 <FadeIn>
                     <div className="text-center max-w-4xl mx-auto mb-20">
-                        <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs md:text-sm mb-4 block">{heading.eyebrow}</span>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black font-display text-ink mb-8 tracking-tight leading-tight">
+                        <span className={`text-gold font-bold tracking-[0.2em] uppercase text-xs md:text-sm mb-4 block ${lang === 'ar' ? 'font-ar-body tracking-normal' : ''}`}>{heading.eyebrow}</span>
+                        <h2 className={`text-4xl md:text-5xl lg:text-6xl font-semibold text-ink mb-8 tracking-tight leading-tight ${lang === 'ar' ? 'font-ar-head' : 'font-display font-black'}`}>
                             {heading.title}
                         </h2>
-                        <p className="text-lg md:text-xl text-ink-muted leading-relaxed max-w-2xl mx-auto font-light">
+                        <p className={`text-lg md:text-xl text-ink-muted leading-relaxed max-w-2xl mx-auto font-light ${lang === 'ar' ? 'font-ar-body' : ''}`}>
                             {heading.sub}
                         </p>
                     </div>
@@ -152,23 +148,23 @@ export default function TransportServices({ lang = 'en' }: Props) {
                                         style={{ objectFit: 'cover' }}
                                     />
 
-                                    <div className="absolute top-6 left-6 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-100">
-                                        <ArrowRight size={18} />
+                                    <div className={`absolute top-6 ${lang === 'ar' ? 'right-6 -translate-x-4 group-hover:translate-x-0' : 'left-6 translate-x-4 group-hover:translate-x-0'} z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100`}>
+                                        <ArrowRight size={18} className={lang === 'ar' ? 'rotate-180' : ''} />
                                     </div>
                                     <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-20">
-                                        <p className="text-gold text-[10px] md:text-xs font-bold uppercase tracking-widest mb-2 opacity-90">{service.subtitle}</p>
-                                        <h3 className="text-2xl md:text-3xl font-semibold font-display text-white leading-tight group-hover:text-gold transition-colors duration-300">
+                                        <p className={`text-gold text-[10px] md:text-xs font-bold uppercase tracking-widest mb-2 opacity-90 ${lang === 'ar' ? 'font-ar-body tracking-normal' : ''}`}>{service.subtitle}</p>
+                                        <h3 className={`text-2xl md:text-3xl font-semibold text-white leading-tight group-hover:text-gold transition-colors duration-300 ${lang === 'ar' ? 'font-ar-head' : 'font-display'}`}>
                                             {service.title}
                                         </h3>
                                     </div>
                                 </Link>
                                 <div className="p-6 md:p-8 pt-6 flex flex-col flex-1">
-                                    <p className="text-ink-muted leading-relaxed mb-6 text-sm md:text-base">{service.description}</p>
-                                    <Link href={service.link} className="inline-flex items-center gap-3 text-ink font-bold uppercase tracking-wider text-xs md:text-sm group/btn group-hover:text-gold transition-colors mt-auto">
+                                    <p className={`text-ink-muted leading-relaxed mb-6 text-sm md:text-base ${lang === 'ar' ? 'font-ar-body' : ''}`}>{service.description}</p>
+                                    <Link href={service.link} className={`inline-flex items-center gap-3 text-ink font-bold uppercase tracking-wider text-xs md:text-sm group/btn group-hover:text-gold transition-colors mt-auto ${lang === 'ar' ? 'font-ar-body tracking-normal' : ''}`}>
                                         <span className="border-b-2 border-border group-hover:border-gold transition-colors py-1">
                                             {lang === 'ar' ? 'عرض التفاصيل' : 'View Details'}
                                         </span>
-                                        <ArrowRight size={16} className="transform group-hover:translate-x-1 transition-transform" />
+                                        <ArrowRight size={16} className={`transform transition-transform ${lang === 'ar' ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
                                     </Link>
                                 </div>
                             </article>

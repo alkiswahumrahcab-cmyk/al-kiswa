@@ -45,6 +45,8 @@ const config: Config = {
             fontFamily: {
                 display: ['var(--font-display)'],
                 body: ['var(--font-body)'],
+                'ar-head': ['var(--font-amiri)', '"Noto Naskh Arabic"', '"Geeza Pro"', 'serif'],
+                'ar-body': ['var(--font-plex-arabic)', '"Noto Sans Arabic"', '"Geeza Pro"', 'sans-serif'],
             },
             borderRadius: {
                 btn: 'var(--radius-btn)',

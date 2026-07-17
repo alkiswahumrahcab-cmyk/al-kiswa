@@ -24,10 +24,6 @@ export default function BookingGuide({ lang = 'en' }: Props) {
     const steps = STEPS[lang];
     return (
         <section className="py-24 bg-bg overflow-hidden relative border-t border-border">
-            {/* Elegant Background Patterns */}
-            <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('/pattern.png')] mix-blend-overlay" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gold/5 rounded-full blur-[120px] pointer-events-none" />
-
             <div className="container mx-auto px-4 relative z-10">
                 {/* Header */}
                 <div className="text-center max-w-3xl mx-auto mb-20">
@@ -39,7 +35,7 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                     </div>
 
                     <h2
-                        className="text-4xl md:text-5xl font-black text-ink mb-6 leading-tight tracking-tight"
+                        className={`text-4xl md:text-5xl font-semibold text-ink mb-6 leading-tight tracking-tight ${lang === 'ar' ? 'font-ar-head' : 'font-display'}`}
                     >
                         {lang === 'ar' ? (
                             <>رحلتك في <span className="relative inline-block"><span className="relative z-10 text-gradient-gold">٣ خطوات بسيطة</span></span></>
@@ -48,7 +44,7 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                         )}
                     </h2>
                     <p
-                        className="text-ink-muted text-lg leading-relaxed font-medium font-light"
+                        className={`text-ink-muted text-lg leading-relaxed font-light ${lang === 'ar' ? 'font-ar-body' : ''}`}
                     >
                         {lang === 'ar' ? 'اختبر أعلى معايير نقل العمرة. سلاسة تامة لراحتكم وطمأنينتكم.' : 'Experience the gold standard of Umrah transport. Streamlined for your comfort and peace of mind.'}
                     </p>
@@ -80,10 +76,10 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                                     </div>
                                 </div>
 
-                                <h3 className="text-xl font-bold text-ink mb-3">
+                                <h3 className={`text-xl font-semibold text-ink mb-3 ${lang === 'ar' ? 'font-ar-head' : ''}`}>
                                     {step.title}
                                 </h3>
-                                <p className="text-ink-muted leading-relaxed max-w-[260px] mx-auto text-base">
+                                <p className={`text-ink-muted leading-[1.8] max-w-[260px] mx-auto text-base ${lang === 'ar' ? 'font-ar-body' : ''}`}>
                                     {step.description}
                                 </p>
                             </div>
@@ -97,13 +93,12 @@ export default function BookingGuide({ lang = 'en' }: Props) {
                 >
                     <Link
                         href={lang === 'ar' ? '/ar/booking' : '/booking'}
-                        className="btn-primary inline-flex items-center gap-3 px-12 py-6 text-lg group relative overflow-hidden"
+                        className={`btn-primary inline-flex items-center gap-3 px-10 py-4 text-lg ${lang === 'ar' ? 'font-ar-body' : ''}`}
                     >
-                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                         {lang === 'ar' ? 'احجز رحلتك الآن' : 'Book Your Ride Now'}
-                        <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight size={22} className={lang === 'ar' ? 'rotate-180' : ''} />
                     </Link>
-                    <p className="mt-6 text-sm font-medium text-ink-muted flex items-center justify-center gap-2 uppercase tracking-wide">
+                    <p className={`mt-6 text-sm font-medium text-ink-muted flex items-center justify-center gap-2 tracking-wide ${lang === 'ar' ? 'font-ar-body' : 'uppercase'}`}>
                         <MousePointerClick size={16} className="text-gold" />
                         {lang === 'ar' ? 'لا دفع مسبق مطلوب • الدفع عند الوصول' : 'No prepayment required • Pay upon arrival'}
                     </p>

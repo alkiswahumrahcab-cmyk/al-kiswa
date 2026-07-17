@@ -173,6 +173,263 @@ Values are `desktop / mobile`. Line-heights tighten as size grows.
 - Eyebrows are always gold, uppercase, letter-spaced — they open most sections (`EYEBROW → H2 → lead`).
 - Max reading width for body copy: `65ch`.
 
+## Arabic Typography
+
+Al Kiswah is a bilingual brand. Arabic is not a translation layer bolted onto an
+English site — it is a first-class script serving our Gulf and Arabic-reading
+pilgrims. The Arabic type system is built to *mirror* the Latin system, so the
+brand reads with the same authority in both scripts.
+
+| Role | Latin | Arabic | Intent |
+|------|-------|--------|--------|
+| Display / headings | Cormorant Garamond | **Amiri** | High-contrast, calligraphic, heritage-rich |
+| Body / UI | Manrope | **IBM Plex Sans Arabic** | Clean, contemporary, legible at UI sizes |
+
+Amiri is the Arabic counterpart to Cormorant: a refined Naskh with manuscript
+lineage that fits an Umrah/Hajj brand. IBM Plex Sans Arabic is the counterpart to
+Manrope: a neutral, modern sans that stays sharp in booking forms and dense UI.
+Both are open-licensed (SIL OFL), so there is zero licensing cost.
+
+> **Why this matters:** Cormorant Garamond and Manrope contain **no Arabic glyphs.**
+> Any Arabic rendered without a dedicated font falls back to the visitor's device
+> font (Geeza Pro, Segoe UI, etc.), which is inconsistent and off-brand. Every
+> Arabic string on the site must resolve to Amiri or Plex Arabic — never a fallback.
+
+---
+
+### Font stacks
+
+Always ship a graceful fallback so there is no flash of unstyled Arabic before the
+web font loads. Fallbacks are ordered by likelihood across our audience's devices.
+
+```css
+--font-ar-head: var(--font-amiri), "Noto Naskh Arabic", "Geeza Pro", serif;
+--font-ar-body: var(--font-plex-arabic), "Noto Sans Arabic", "Geeza Pro",
+                "Segoe UI", Tahoma, sans-serif;
+```
+
+**Weights available**
+
+| Font | Weights | Use |
+|------|---------|-----|
+| Amiri | 400, 700 | 700 for headings; 400 for the gold tagline and pull-quotes |
+| IBM Plex Sans Arabic | 300, 400, 500, 600 | 400 body · 500 emphasis · 600 labels/buttons · 300 large lead paragraphs only |
+
+Amiri has no light or medium weight — never fake one with `font-weight` values it
+doesn't ship. If a lighter display feel is needed, drop to Amiri 400, not a
+synthetic weight.
+
+---
+
+### The optical scale (critical)
+
+Arabic reads **visually smaller** than Latin at the same pixel size, because its
+weight sits on the baseline rather than in ascenders. To achieve *optical parity*,
+Arabic sizes step up ~1–2px against the Latin scale, and line-heights are taller to
+give room for descenders and any diacritics.
+
+| Token | Latin (px / lh) | Arabic (px / lh) | Notes |
+|-------|-----------------|------------------|-------|
+| `display` | 64 / 1.1 | 66 / 1.4 | Hero headline (Amiri 700) |
+| `h1` | 48 / 1.15 | 50 / 1.4 | Amiri 700 |
+| `h2` | 32 / 1.2 | 34 / 1.4 | Amiri 700 |
+| `h3` | 24 / 1.3 | 25 / 1.5 | Amiri 700 |
+| `lead` | 18 / 1.6 | 19 / 1.9 | Plex Arabic 400 |
+| `body` | 16 / 1.7 | 17 / 1.9 | Plex Arabic 400 |
+| `sm` | 14 / 1.5 | 15 / 1.8 | Plex Arabic 400 |
+| `label` | 13 / 1.4 | 14 / 1.6 | Plex Arabic 600 |
+
+Rule of thumb: **Arabic line-height ≈ Latin line-height + 0.2.** Cramped Arabic is
+the single most common tell of a rushed RTL implementation — give it room.
+
+---
+
+### Letter-spacing — do not touch
+
+Arabic is a **connected (cursive) script.** Applying `letter-spacing` /
+tracking severs the joins between letters and produces broken, illegible words.
+
+```css
+/* Latin labels may use positive tracking */
+.label-en { letter-spacing: 0.04em; }
+
+/* Arabic — ALWAYS zero. No exceptions. */
+[dir="rtl"], [lang="ar"] { letter-spacing: 0 !important; }
+```
+
+This includes uppercase-style eyebrow labels: the Latin side may track them out, the
+Arabic side must not. Style Arabic eyebrows with color and weight instead.
+
+---
+
+### RTL, bidi, and mixed content
+
+**Use logical properties, not physical ones.** This lets the same component flip
+correctly in RTL without duplicated CSS.
+
+```css
+/* Do */   margin-inline-start: 1rem;  padding-inline: 1.5rem;  inset-inline-start: 0;
+/* Don't */ margin-left: 1rem;         padding-left: 1.5rem;    left: 0;
+```
+
+**Isolate embedded LTR runs.** Prices, phone numbers, Latin brand names (GMC Yukon,
+Hyundai Staria), and URLs inside Arabic text must be wrapped so bidi reordering
+doesn't scramble them:
+
+```html
+<p dir="rtl" class="font-ar-body">
+  احجز <bdi>GMC Yukon</bdi> بسعر <bdi>SAR 250</bdi> فقط.
+</p>
+```
+
+Use `<bdi>` (or `unicode-bidi: isolate`) for any inline foreign-script or numeric run.
+
+---
+
+### Numerals policy
+
+For consistency with the Latin experience and our international audience, **use
+Western Arabic numerals (0–9)** everywhere numbers carry operational meaning —
+prices, times, dates, phone numbers, seat counts. Do not mix Eastern Arabic-Indic
+digits (٠١٢٣) into the same interface.
+
+```css
+[lang="ar"] { font-feature-settings: "lnum" 1; }
+```
+
+Eastern digits are permissible only in decorative/editorial Arabic copy on the `/ar`
+route if a deliberate cultural choice is made — but pick one system per surface and
+never mix.
+
+---
+
+### Diacritics (harakat)
+
+Omit harakat in UI and body copy — they add visual noise and hurt scan-ability.
+Amiri renders them correctly when they *do* appear, so any Quranic or devotional
+phrase (e.g. ﷺ, ضيوف الرحمن) that carries marks will set cleanly at heading sizes.
+Do not manually strip marks from sacred phrases where they are meaningful.
+
+---
+
+### Color & tokens
+
+Arabic uses the **same** color tokens as Latin — no separate palette.
+
+- Headings / body: charcoal `--ink` (`#15140F`) on ivory `--bg` (`#FDFCF8`)
+- The brand tagline stays gold: `--gold` (`#E2A336`)
+
+Never introduce Arabic-only colors; the script changes, the brand does not.
+
+---
+
+### Living specimens
+
+These are the canonical strings — use them for visual regression and font-loading QA.
+
+**Heading — Amiri 700, `dir="rtl"`, `.font-ar-head`**
+> خدمة توصيل من مطار جدة إلى مكة
+
+**Tagline — Amiri 400, gold `--gold`, `dir="rtl"`, `.font-ar-head`**
+> رفيقكم الأمين في رحلة العمرة المباركة
+
+**Body — Plex Arabic 400, `dir="rtl"`, `.font-ar-body`**
+> هل تبحث عن أفضل شركة نقل معتمرين؟ نوفر خدمات توصيل من مطار جدة إلى مكة بأعلى معايير الراحة والأمان، مع استقبال خاص في المطار وخدمة حمل الحقائب على مدار الساعة.
+
+**Value labels — Plex Arabic 600, `dir="rtl"`, `.font-ar-body`**
+> طمأنينة وأمان · دقة في المواعيد · خدمة ضيوف الرحمن
+
+**Latin pair (reference) — Cormorant Garamond 600**
+> Jeddah Airport to Makkah
+
+---
+
+### Component rules
+
+- **Headings (h1–h4)** under `[dir="rtl"]` → `--font-ar-head`, weight 700, lh 1.4.
+- **Body / paragraphs** → `--font-ar-body`, weight 400, lh 1.9.
+- **Buttons & CTAs** → `--font-ar-body`, weight 600, `letter-spacing: 0`. Icon sits
+  on the *inline-start* side and the CTA arrow flips direction in RTL.
+- **Form fields** (booking) → `--font-ar-body` 400; placeholders `--text-muted`;
+  input `text-align: start`; numeric fields keep Western digits and may stay `ltr`
+  if that reads better for phone/date entry.
+- **`/ar` route** → the layout renders `<html lang="ar" dir="rtl">`; the global rules
+  below then style the entire page automatically.
+
+---
+
+### Do / Don't
+
+| ✅ Do | ❌ Don't |
+|------|---------|
+| Scope Arabic fonts to `[dir="rtl"]` / `[lang="ar"]` | Apply Amiri/Plex globally over Latin text |
+| Line-height +0.2 vs Latin | Reuse Latin line-heights on Arabic |
+| `letter-spacing: 0` on all Arabic | Track out Arabic labels |
+| Logical properties (`margin-inline-*`) | Physical `left`/`right` in shared components |
+| `<bdi>` around prices, brand names, numbers | Let bidi reorder mixed runs |
+| Western digits for prices/times | Mix Eastern + Western numerals |
+| `subsets: ['arabic']` on both fonts | Ship the full Latin glyph set of Arabic fonts |
+
+---
+
+### Implementation
+
+**1. Register fonts (Next.js App Router — `next/font/google`, no `<link>`/`@import`)**
+
+```ts
+// app/fonts.ts  (or wherever Cormorant/Manrope are already defined)
+import { Amiri, IBM_Plex_Sans_Arabic } from 'next/font/google'
+
+export const amiri = Amiri({
+  subsets: ['arabic'],
+  weight: ['400', '700'],
+  variable: '--font-amiri',
+  display: 'swap',
+})
+
+export const plexArabic = IBM_Plex_Sans_Arabic({
+  subsets: ['arabic'],
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-plex-arabic',
+  display: 'swap',
+})
+```
+
+Add `amiri.variable` and `plexArabic.variable` to the `<html>`/`<body>` className
+alongside the existing Cormorant + Manrope variables. Remove nothing.
+
+**2. Tailwind (`tailwind.config.ts` → `theme.extend.fontFamily`)**
+
+```ts
+'ar-head': ['var(--font-amiri)', '"Noto Naskh Arabic"', '"Geeza Pro"', 'serif'],
+'ar-body': ['var(--font-plex-arabic)', '"Noto Sans Arabic"', '"Geeza Pro"', 'sans-serif'],
+```
+
+**3. Global RTL rules (`globals.css`)**
+
+```css
+[dir="rtl"], [lang="ar"] {
+  font-family: var(--font-plex-arabic), "Noto Sans Arabic", "Geeza Pro", sans-serif;
+  line-height: 1.9;
+  letter-spacing: 0 !important;
+  font-feature-settings: "lnum" 1;
+}
+[dir="rtl"] :is(h1,h2,h3,h4),
+[lang="ar"] :is(h1,h2,h3,h4),
+.font-ar-head {
+  font-family: var(--font-amiri), "Noto Naskh Arabic", "Geeza Pro", serif;
+  line-height: 1.4;
+}
+.font-ar-body {
+  font-family: var(--font-plex-arabic), "Noto Sans Arabic", "Geeza Pro", sans-serif;
+  line-height: 1.9;
+}
+```
+
+**4. Inline Arabic on English pages** — wrap each canonical string in `dir="rtl"` with
+`.font-ar-head` (headings/tagline) or `.font-ar-body` (paragraph/labels). Preserve
+existing color tokens; the tagline keeps `--gold`.
+
 ---
 
 ## 5. Spacing & Layout

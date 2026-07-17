@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
 import Script from "next/script";
-import { Montserrat, Tajawal, Cormorant_Garamond, Manrope } from "next/font/google"; // Elegant & Light + Arabic + Display serif + Premium Body
+import { Montserrat, Tajawal, Cormorant_Garamond, Manrope, Amiri, IBM_Plex_Sans_Arabic } from "next/font/google"; // Elegant & Light + Arabic + Display serif + Premium Body
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { MenuProvider } from "@/context/MenuContext";
 import { PricingProvider } from '@/context/PricingContext';
@@ -41,6 +41,20 @@ const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
   weight: ["500", "600", "700"],
+  display: "swap",
+});
+
+const amiri = Amiri({
+  variable: "--font-amiri",
+  subsets: ["arabic"],
+  weight: ["400", "700"],
+  display: "swap",
+});
+
+const plexArabic = IBM_Plex_Sans_Arabic({
+  variable: "--font-plex-arabic",
+  subsets: ["arabic"],
+  weight: ["300", "400", "500", "600"],
   display: "swap",
 });
 
@@ -225,7 +239,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         />
         {/* TikTok Pixel Code End */}
       </head>
-      <body className={`${manrope.variable} ${montserrat.variable} ${tajawal.variable} ${cormorant.variable}`}>
+      <body className={`${manrope.variable} ${montserrat.variable} ${tajawal.variable} ${cormorant.variable} ${amiri.variable} ${plexArabic.variable}`}>
         {settings.general.googleAnalyticsId && (
           <GoogleAnalytics gaId={settings.general.googleAnalyticsId} />
         )}

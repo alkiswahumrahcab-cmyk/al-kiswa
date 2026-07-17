@@ -16,9 +16,10 @@ interface Review {
 
 interface ReviewsCarouselProps {
     reviews: Review[];
+    lang?: 'ar' | 'en';
 }
 
-export default function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
+export default function ReviewsCarousel({ reviews, lang = 'en' }: ReviewsCarouselProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [visibleItems, setVisibleItems] = useState(3);
 
@@ -57,7 +58,7 @@ export default function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
                             key={review.id}
                             className="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                         >
-                            <ReviewItem review={review} />
+                            <ReviewItem review={review} lang={lang} />
                         </div>
                     ))}
                 </motion.div>
@@ -70,7 +71,7 @@ export default function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
                     className="p-4 rounded-btn bg-card border border-border text-foreground hover:bg-gold hover:border-gold hover:text-black transition-all duration-300 disabled:opacity-30 disabled:hover:bg-muted disabled:hover:border-border disabled:cursor-not-allowed group"
                     aria-label="Previous review"
                 >
-                    <ChevronLeft size={24} className="group-hover:-translate-x-0.5 transition-transform" />
+                    <ChevronLeft size={24} className={`transition-transform ${lang === 'ar' ? 'rotate-180 group-hover:translate-x-0.5' : 'group-hover:-translate-x-0.5'}`} />
                 </button>
                 <button
                     onClick={nextSlide}
@@ -78,7 +79,7 @@ export default function ReviewsCarousel({ reviews }: ReviewsCarouselProps) {
                     className="p-4 rounded-btn bg-card border border-border text-foreground hover:bg-gold hover:border-gold hover:text-black transition-all duration-300 disabled:opacity-30 disabled:hover:bg-muted disabled:hover:border-border disabled:cursor-not-allowed group"
                     aria-label="Next review"
                 >
-                    <ChevronRight size={24} className="group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight size={24} className={`transition-transform ${lang === 'ar' ? 'rotate-180 group-hover:-translate-x-0.5' : 'group-hover:translate-x-0.5'}`} />
                 </button>
             </div>
         </div>

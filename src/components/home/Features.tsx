@@ -67,15 +67,14 @@ export default function Features({ lang = 'en' }: Props) {
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
                 <div className="absolute top-1/4 -left-64 w-96 h-96 bg-gold/5 rounded-full blur-3xl mix-blend-screen" />
                 <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-gold-metallic/5 rounded-full blur-3xl mix-blend-screen" />
-                <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.03] mix-blend-overlay pointer-events-none bg-repeat" />
             </div>
 
             <div className="container px-4">
                 <FadeIn>
-                    <h2 className="text-4xl md:text-5xl font-semibold text-center mb-6 font-display text-ink leading-tight">
+                    <h2 className={`text-4xl md:text-5xl font-semibold text-center mb-6 text-ink leading-tight ${lang === 'ar' ? 'font-ar-head' : 'font-display'}`}>
                         {t.heading}
                     </h2>
-                    <p className="text-lg text-ink-muted text-center max-w-2xl mx-auto mb-16 font-light leading-relaxed">
+                    <p className={`text-lg text-ink-muted text-center max-w-2xl mx-auto mb-16 font-light leading-relaxed ${lang === 'ar' ? 'font-ar-body' : ''}`}>
                         {t.sub}
                     </p>
                 </FadeIn>
@@ -86,9 +85,9 @@ export default function Features({ lang = 'en' }: Props) {
                             <div className="mb-8 inline-flex items-center justify-center w-20 h-20 rounded-full bg-gold/10 text-gold group-hover:scale-110 group-hover:bg-gold group-hover:text-black hover-icon-black transition-all duration-500 shadow-xl shadow-gold/5">
                                 <PremiumIcon name={feature.iconName} size="feature" className="group-hover:!text-black" />
                             </div>
-                            <h3 className="text-2xl font-semibold mb-2 font-display text-ink group-hover:text-gold transition-colors">{feature.title}</h3>
-                            <p className="text-gold-metallic/80 font-bold font-reem-kufi mb-4 text-lg">{feature.arabic}</p>
-                            <p className="text-ink-muted leading-relaxed group-hover:text-ink transition-colors">{feature.desc}</p>
+                            <h3 className={`text-2xl font-semibold mb-2 text-ink group-hover:text-gold transition-colors ${lang === 'ar' ? 'font-ar-head' : 'font-display'}`}>{feature.title}</h3>
+                            <p className={`text-gold-deep font-semibold mb-4 text-sm tracking-widest uppercase ${lang === 'ar' ? 'font-ar-body tracking-normal' : ''}`}>{feature.arabic}</p>
+                            <p className={`text-ink-muted leading-relaxed group-hover:text-ink transition-colors ${lang === 'ar' ? 'font-ar-body' : ''}`}>{feature.desc}</p>
                         </div>
                     ))}
                 </div>

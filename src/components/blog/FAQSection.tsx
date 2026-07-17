@@ -20,10 +20,10 @@ export default function FAQSection({ lang = 'en' }: Props) {
         <section className="py-24 bg-bg relative border-t border-border">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16">
-                    <span className="text-gold-strong font-semibold tracking-[0.14em] uppercase text-sm mb-4 block">
+                    <span className={`text-gold font-semibold tracking-[0.14em] uppercase text-sm mb-4 block ${lang === 'ar' ? 'font-ar-body tracking-normal' : ''}`}>
                         {lang === 'ar' ? 'أسئلة شائعة' : 'Common Questions'}
                     </span>
-                    <h2 className="text-3xl md:text-[44px] font-semibold font-display text-ink leading-tight">
+                    <h2 className={`text-3xl md:text-[44px] font-semibold text-ink leading-tight ${lang === 'ar' ? 'font-ar-head' : 'font-display'}`}>
                         {lang === 'ar' ? 'الأسئلة الأكثر تكراراً' : 'Frequently Asked Questions'}
                     </h2>
                 </div>
@@ -35,11 +35,10 @@ export default function FAQSection({ lang = 'en' }: Props) {
                                 className={`w-full flex items-center justify-between py-6 group ${lang === 'ar' ? 'text-right' : 'text-left'}`}
                                 onClick={() => toggleAccordion(index)}
                             >
-                                <span className={`font-semibold text-[19px] md:text-xl transition-colors font-display ${activeAccordion === index ? 'text-ink' : 'text-ink group-hover:text-gold-strong'
-                                    }`} style={lang === 'ar' ? { fontFamily: 'var(--font-tajawal)' } : {}}>
+                                <span className={`font-semibold text-[19px] md:text-xl transition-colors ${lang === 'ar' ? 'font-ar-head' : 'font-display'} ${activeAccordion === index ? 'text-ink' : 'text-ink group-hover:text-gold'}`}>
                                     {faq.question}
                                 </span>
-                                <div className={`flex items-center justify-center transition-transform duration-300 shrink-0 ${lang === 'ar' ? 'mr-4' : 'ml-4'} ${activeAccordion === index ? 'rotate-180 text-ink' : 'text-muted group-hover:text-gold-strong'}`}>
+                                <div className={`flex items-center justify-center transition-transform duration-300 shrink-0 ${lang === 'ar' ? 'mr-4' : 'ml-4'} ${activeAccordion === index ? 'rotate-180 text-ink' : 'text-muted group-hover:text-gold'}`}>
                                     <ChevronDown size={20} />
                                 </div>
                             </button>
@@ -47,7 +46,7 @@ export default function FAQSection({ lang = 'en' }: Props) {
                                 className={`transition-all duration-300 ease-in-out overflow-hidden ${activeAccordion === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                                     }`}
                             >
-                                <div className="pb-6 text-body text-base leading-[1.65] font-body" style={lang === 'ar' ? { fontFamily: 'var(--font-tajawal)' } : {}}>
+                                <div className={`pb-6 text-body text-base leading-[1.65] ${lang === 'ar' ? 'font-ar-body' : 'font-body'}`}>
                                     {faq.answer}
                                 </div>
                             </div>

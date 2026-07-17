@@ -84,6 +84,23 @@
     font-family: var(--font-display);
     color: var(--color-ink);
   }
+
+  [dir="rtl"], [lang="ar"] {
+    font-family: var(--font-plex-arabic), "Noto Sans Arabic", "Geeza Pro", sans-serif;
+    line-height: 1.9;
+    letter-spacing: 0 !important;
+    font-feature-settings: "lnum" 1;
+  }
+  [dir="rtl"] :is(h1,h2,h3,h4,h5,h6),
+  [lang="ar"] :is(h1,h2,h3,h4,h5,h6),
+  .font-ar-head {
+    font-family: var(--font-amiri), "Noto Naskh Arabic", "Geeza Pro", serif;
+    line-height: 1.4;
+  }
+  .font-ar-body {
+    font-family: var(--font-plex-arabic), "Noto Sans Arabic", "Geeza Pro", sans-serif;
+    line-height: 1.9;
+  }
 }
 
 @layer utilities {

@@ -1,14 +1,11 @@
-﻿import React, { Suspense } from 'react';
+import React, { Suspense } from 'react';
 import dynamic from 'next/dynamic';
+import BookingFormSkeleton from '@/components/booking/BookingFormSkeleton';
 
-const BookingWizard = dynamic(() => import('@/components/booking/BookingWizard'), {
-    ssr: true,
-    loading: () => (
-        <div className="max-w-4xl mx-auto h-[600px] w-full animate-pulse bg-white/5 rounded-[2rem] border border-white/10 flex items-center justify-center">
-            <div className="text-gold/50 text-sm font-medium tracking-widest">جاري التحميل...</div>
-        </div>
-    )
+const BookingForm = dynamic(() => import('@/components/booking/BookingForm'), {
+    loading: () => <BookingFormSkeleton />
 });
+import { CheckCircle2 } from 'lucide-react';
 import { generateMetadataAlternates } from '@/lib/hreflang';
 import type { Metadata } from 'next';
 
@@ -45,43 +42,46 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default function ArabicBookingPage() {
     return (
-        <main className="min-h-screen bg-charcoal relative overflow-hidden" dir="rtl" lang="ar">
-            {/* Background */}
-            <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none" />
-            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[120px] pointer-events-none" />
-            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gold-secondary/5 rounded-full blur-[120px] pointer-events-none" />
+        <main className="min-h-screen bg-bg relative overflow-hidden" dir="rtl" lang="ar">
+            {/* Ambient Glows */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold-soft/50 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-surface-alt rounded-full blur-[120px] pointer-events-none" />
 
-            {/* SEO H1 - hidden visually but indexed by Google */}
-            <h1 className="sr-only">احجز رحلة عمرة — الكسوة لنقل المعتمرين</h1>
+            <div className="container relative z-20 pt-8 md:pt-10 pb-10 px-4 max-w-5xl mx-auto">
 
-            {/* Arabic intro header */}
-            <div className="relative z-10 text-center pt-28 pb-6 px-4">
-                <p className="text-gold text-xs font-bold tracking-[0.3em] uppercase mb-3">
-                    حجز فوري — ٢٤/٧
-                </p>
-                <h2 className="text-3xl md:text-5xl font-semibold text-white mb-4 font-display">
-                    احجز <span className="text-gold">رحلتك</span> الآن
-                </h2>
-                <p className="text-n-400 text-base max-w-xl mx-auto">
-                    نقل خاص وموثوق من مطار جدة إلى مكة المكرمة والمدينة المنورة. أسعار شفافة بدون مفاجآت.
-                </p>
+                {/* Booking Form */}
+                <div className="booking-container">
+                    <Suspense fallback={<BookingFormSkeleton />}>
+                        <BookingForm />
+                    </Suspense>
+                </div>
+
+                {/* Pay on Arrival Guarantee Bar - Translated to Arabic */}
+                <div className="mt-6 mb-8 p-5 rounded-xl bg-surface border border-border flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 shadow-sm">
+                    {[
+                        { icon: <CheckCircle2 size={18} className="text-gold shrink-0" />, text: 'ادفع نقداً عند الوصول — بدون دفع مسبق' },
+                        { icon: <CheckCircle2 size={18} className="text-gold shrink-0" />, text: 'إلغاء مجاني حتى ٢٤ ساعة قبل الرحلة' },
+                        { icon: <CheckCircle2 size={18} className="text-gold shrink-0" />, text: 'سعر ثابت — بدون رسوم خفية أو مفاجآت' },
+                    ].map((item, i) => (
+                        <div key={i} className="flex items-center gap-2 text-sm text-body font-medium font-ar-body">
+                            {item.icon}
+                            <span>{item.text}</span>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Booking Page Pixel Event */}
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            if (typeof fbq === 'function') {
+                                fbq('track', 'InitiateCheckout');
+                            }
+                        `
+                    }}
+                />
+
             </div>
-
-            <div className="container relative z-20 pb-20 px-4">
-                <BookingWizard />
-            </div>
-
-            {/* Booking Page Pixel Event */}
-            <script
-                dangerouslySetInnerHTML={{
-                    __html: `
-                        if (typeof fbq === 'function') {
-                            fbq('track', 'InitiateCheckout');
-                        }
-                    `
-                }}
-            />
-
         </main>
     );
 }

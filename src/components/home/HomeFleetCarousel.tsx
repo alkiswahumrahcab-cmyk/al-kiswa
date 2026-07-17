@@ -84,7 +84,7 @@ const HOME_FLEET_OFFERS = [
     }
 ];
 
-export default function HomeFleetCarousel() {
+export default function HomeFleetCarousel({ lang = 'en' }: { lang?: 'ar' | 'en' }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
@@ -159,14 +159,20 @@ export default function HomeFleetCarousel() {
 
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
-                    <span className="text-gold font-bold tracking-[0.2em] uppercase text-xs mb-3 block">
-                        Our Premium Fleet
+                    <span className={`text-gold font-bold tracking-[0.2em] uppercase text-xs mb-3 block ${lang === 'ar' ? 'font-ar-body' : ''}`}>
+                        {lang === 'ar' ? 'أسطولنا المتميز' : 'Our Premium Fleet'}
                     </span>
-                    <h2 className="text-3xl md:text-5xl font-bold text-ink mb-6">
-                        Travel in <span className="text-gold italic font-serif">Luxury & Comfort</span>
+                    <h2 className={`text-3xl md:text-5xl font-semibold text-ink mb-6 ${lang === 'ar' ? 'font-ar-head' : 'font-display'}`}>
+                        {lang === 'ar' ? (
+                            <>سافر في <span className="text-gold">رفاهية وراحة</span></>
+                        ) : (
+                            <>Travel in <span className="text-gold italic font-serif">Luxury & Comfort</span></>
+                        )}
                     </h2>
-                    <p className="text-ink-muted max-w-2xl mx-auto text-lg font-light">
-                        Choose from our exclusive selection of latest 2025 models, designed for your spiritual journey.
+                    <p className={`text-ink-muted max-w-2xl mx-auto text-lg font-light ${lang === 'ar' ? 'font-ar-body' : ''}`}>
+                        {lang === 'ar' 
+                            ? 'اختر من أحدث موديلات ٢٠٢٥، المصممة خصيصاً لرحلتك الروحانية.' 
+                            : 'Choose from our exclusive selection of latest 2025 models, designed for your spiritual journey.'}
                     </p>
                 </div>
 
@@ -209,7 +215,6 @@ export default function HomeFleetCarousel() {
                             >
                                 {/* Central Huge Image */}
                                 <div className="relative w-full max-w-5xl h-[300px] md:h-[500px] z-10 flex items-center justify-center">
-                                    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold/20 via-transparent to-transparent blur-3xl opacity-60" />
 
                                     {/* Discount Badge - Floating */}
                                     {currentVehicle.discountLabel && (
@@ -257,21 +262,23 @@ export default function HomeFleetCarousel() {
                                         </h3>
                                         <div className="flex items-baseline justify-center md:justify-start gap-2">
                                             <span className="text-2xl font-bold text-gold-deep">{currentVehicle.offerPrice || currentVehicle.price}</span>
-                                            <span className="text-xs font-medium text-ink-muted uppercase tracking-wider">/ Trip</span>
+                                            <span className={`text-xs font-medium text-ink-muted uppercase tracking-wider ${lang === 'ar' ? 'font-ar-body' : ''}`}>
+                                                {lang === 'ar' ? '/ رحلة' : '/ Trip'}
+                                            </span>
                                         </div>
                                     </div>
 
                                     <div className="h-12 w-[1px] bg-border hidden md:block" />
 
                                     <div className="flex gap-3 w-full md:w-auto">
-                                        <Link href={`/fleet/${currentVehicle.slug}`} className="flex-1 md:flex-none">
-                                            <button className="w-full whitespace-nowrap bg-surface border border-border text-ink text-xs font-bold uppercase tracking-wider px-4 md:px-6 py-3.5 rounded-full hover:border-gold hover:text-gold-strong transition-colors">
-                                                Details
+                                        <Link href={lang === 'ar' ? `/ar/fleet/${currentVehicle.slug}` : `/fleet/${currentVehicle.slug}`} className="flex-1 md:flex-none">
+                                            <button className={`w-full whitespace-nowrap bg-surface border border-border text-ink text-xs font-bold uppercase tracking-wider px-4 md:px-6 py-3.5 rounded-full hover:border-gold hover:text-gold-strong transition-colors ${lang === 'ar' ? 'font-ar-body' : ''}`}>
+                                                {lang === 'ar' ? 'التفاصيل' : 'Details'}
                                             </button>
                                         </Link>
-                                        <Link href="/booking" className="flex-1 md:flex-none">
-                                            <button className="w-full whitespace-nowrap bg-gold text-ink text-xs font-bold uppercase tracking-wider px-4 md:px-6 py-3.5 rounded-full hover:bg-gold-soft hover:shadow-lg hover:shadow-gold/20 transition-all">
-                                                Book Now
+                                        <Link href={lang === 'ar' ? '/ar/booking' : '/booking'} className="flex-1 md:flex-none">
+                                            <button className={`w-full whitespace-nowrap bg-gold text-ink text-xs font-bold uppercase tracking-wider px-4 md:px-6 py-3.5 rounded-full hover:bg-gold-soft hover:shadow-lg hover:shadow-gold/20 transition-all ${lang === 'ar' ? 'font-ar-body' : ''}`}>
+                                                {lang === 'ar' ? 'احجز الآن' : 'Book Now'}
                                             </button>
                                         </Link>
                                     </div>

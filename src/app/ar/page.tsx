@@ -73,7 +73,7 @@ export default async function ArabicHomePage() {
   const heroImage = getSectionImage(heroSection, 'desktop') || "/images/blog-hero-professional.png";
 
   return (
-    <main className="overflow-x-hidden" dir="rtl" lang="ar">
+    <main className="overflow-x-hidden bg-bg" dir="rtl" lang="ar">
       {/* JSON-LD Structured Data */}
       <JsonLdScript schema={generateServiceSchema(
         "خدمات تاكسي العمرة",
@@ -82,101 +82,93 @@ export default async function ArabicHomePage() {
       )} />
       <JsonLdScript schema={generateFAQSchema(arFaqs)} />
 
-      {/* Hero Section - Arabic */}
+      {/* 2. Hero Section - Arabic */}
+      {/* Hero incorporates the Trust Bar internally or directly below. We'll pass the InstantPriceCalculator as children if supported, or place it right after with negative margin. */}
       <Hero
         title="رفيقكم الأمين في رحلة العمرة المباركة"
         subtitle="ركزوا على عبادتكم ونحن نتكفل بالطريق. خدمة خاصة وموثوقة من مطار جدة إلى الحرم الشريف."
         bgImage={heroImage}
         layout="center"
-        ctaText="احجز رحلتك الآن"
-        ctaLink="/ar/booking"
-        secondaryCtaText="شاهد أسطولنا"
-        secondaryCtaLink="/ar/fleet"
         backgroundChildren={<AnimatedBackground />}
-        trustBadge={{
-          count: "+٥٠٠٠",
-          label: "حاج سعيد"
-        }}
-        stats={[
-          { label: "الأمان أولاً", value: "١٠٠٪", icon: <PremiumIcon name="safety" size="default" /> },
-          { label: "دعم على مدار الساعة", value: "دائماً", icon: <PremiumIcon name="24-7-service" size="default" /> },
-          { label: "خدمة موثوقة", value: "+١٠ سنوات", icon: <PremiumIcon name="reviews" size="default" /> }
-        ]}
       />
 
-      {/* Transport Services Section */}
-      <TransportServices lang="ar" />
+      {/* Booking Widget (Overlapping Hero) */}
+      <div className="-mt-16 md:-mt-24 relative z-20 container px-4 mb-12">
+        <InstantPriceCalculator />
+      </div>
 
-      {/* Fleet Gallery */}
-      <FleetGallery />
+      {/* 3. Trust Bar */}
+      <div className="container px-4 mb-16 md:mb-24 flex flex-col md:flex-row items-center justify-center gap-6 text-sm text-muted font-ar-body">
+        <div className="flex items-center gap-2">
+          <div className="flex text-gold">
+            {[...Array(5)].map((_, i) => <svg key={i} className="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>)}
+          </div>
+          <span className="font-semibold text-ink">٤.٩/٥</span>
+        </div>
+        <div className="hidden md:block w-1 h-1 rounded-full bg-border-strong"></div>
+        <span>موثوق من أكثر من ١٠,٠٠٠ معتمر</span>
+        <div className="hidden md:block w-1 h-1 rounded-full bg-border-strong"></div>
+        <span>معتمدون من منصة نسك ووزارة الحج</span>
+      </div>
 
-      {/* Instant Price Calculator Section */}
-      <InstantPriceCalculator />
+      {/* 4. How it Works */}
+      <section className="py-16 md:py-32 bg-surface-alt">
+        <BookingGuide lang="ar" />
+      </section>
 
-      {/* Booking Guide Section */}
-      <BookingGuide lang="ar" />
+      {/* 5. Fleet */}
+      <section className="py-16 md:py-32 bg-bg">
+        <HomeFleetCarousel lang="ar" />
+      </section>
 
-      {/* Features Section */}
-      <Features lang="ar" />
+      {/* 6. Popular Routes */}
+      <section className="py-16 md:py-32 bg-surface-alt">
+        <TransportServices lang="ar" />
+      </section>
 
-      {/* Passenger Care Section */}
-      <PassengerCare lang="ar" />
+      {/* 7. Why Al Kiswah (Consolidated Features) */}
+      <section className="py-16 md:py-32 bg-bg">
+        <Features lang="ar" />
+        {/* Note: PassengerCare and SafetyPromise are consolidated or removed to prevent bloat */}
+      </section>
 
-      {/* Fleet Carousel */}
-      <HomeFleetCarousel />
+      {/* 8. Testimonials */}
+      <section className="py-16 md:py-32 bg-surface-alt">
+        <ReviewsSection lang="ar" />
+      </section>
 
-      {/* Meet Our Drivers */}
-      <MeetOurDrivers lang="ar" />
+      {/* 9. FAQ */}
+      <section className="py-16 md:py-32 bg-bg">
+        <FAQSection lang="ar" />
+      </section>
 
-      {/* Real Fleet Showcase */}
-      <RealFleetShowcase />
-
-      {/* Impact Stats */}
-      <ImpactStats lang="ar" />
-
-      {/* Gallery Section */}
-      <GallerySection />
-
-      {/* Reviews Section */}
-      <ReviewsSection />
-
-      {/* SEO Content Section */}
-      <SEOContentSectionFixed />
-
-      {/* Latest Articles Section */}
-      <LatestArticles lang="ar" />
-
-      {/* FAQ Section */}
-      <FAQSection lang="ar" />
-
-      {/* Safety Promise Section */}
-      <FadeIn>
-        <SafetyPromise lang="ar" />
-      </FadeIn>
-
-      {/* Hotels and Districts Covered */}
-      <HotelsAndDistricts />
-
-      {/* CTA Section */}
-      <section className="relative py-6 md:py-24 bg-charcoal border-t border-white/10 overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03] bg-[url('/pattern.png')] pointer-events-none" />
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-gold-metallic/5 rounded-full blur-[100px] pointer-events-none" />
-
+      {/* 10. CTA Band (Dark Anchor) */}
+      <section className="relative py-16 md:py-32 bg-ink-bg border-t border-border/10 overflow-hidden">
         <div className="container relative z-10 text-center px-4">
           <FadeIn>
-            <h2 className="text-4xl md:text-6xl font-semibold font-display mb-6 drop-shadow-xl tracking-tight text-white">
-              ابدأ <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-light to-gold">رحلتك الروحانية</span> بسلام واطمئنان
+            <span className="block text-gold uppercase tracking-[0.14em] font-semibold text-sm md:text-base mb-4 font-ar-body">
+              خدمة خاصة وموثوقة
+            </span>
+            <h2 className="text-3xl md:text-5xl font-semibold font-ar-head mb-6 text-on-ink leading-[1.4]">
+              ابدأ رحلتك الروحانية بسلام واطمئنان
             </h2>
-            <p className="text-lg md:text-xl text-n-400 max-w-2xl mx-auto mb-12 leading-relaxed font-light">
+            <p className="text-lg md:text-xl text-on-ink-muted max-w-2xl mx-auto mb-10 leading-[1.9] font-ar-body font-light">
               لا تقلق من أمر اللوجستيات. احجز رحلتك الخاصة الآن ودعنا نخدمكم بالرعاية التي تستحقونها.
             </p>
-            <Link
-              href="/ar/booking"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-gold to-gold-dark text-black font-bold px-10 py-5 rounded-btn text-lg shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.5)] hover:scale-105 transition-all duration-300 uppercase tracking-wider"
-            >
-              احجز الآن <ArrowRight size={22} className="rotate-180" />
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/ar/booking"
+                className="btn-on-dark font-ar-body w-full sm:w-auto"
+              >
+                احجز الآن
+              </Link>
+              <Link
+                href="/ar/fleet"
+                className="btn-ghost text-on-ink font-ar-body w-full sm:w-auto hover:text-gold transition-colors"
+              >
+                تصفح الأسطول <ArrowRight size={18} className="rotate-180 inline-block ms-2" />
+              </Link>
+            </div>
           </FadeIn>
         </div>
       </section>
