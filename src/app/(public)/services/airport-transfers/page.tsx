@@ -124,10 +124,12 @@ export default function AirportTransfersPage() {
             <Hero
                 title="Jeddah & Madinah Airport Transfers"
                 subtitle="Private airport transfers from Jeddah (KAIA) and Madinah (PMIA) to your hotel in Makkah or Madinah. We track your flight and meet you at arrivals."
-                bgImage="/images/real-fleet/hotel-pickup.jpg"
+                bgImage="/images/hero/airportransfer.jpg"
                 ctaText="Book Transfer Now"
                 ctaLink="/booking?service=airport"
                 alt="Jeddah and Madinah Airport Transfers"
+                removeBlur={true}
+                layout="right"
             />
 
             {/* Instant Quote Section */}

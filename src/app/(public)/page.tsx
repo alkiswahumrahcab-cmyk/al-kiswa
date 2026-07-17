@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import { InteriorShowcase } from '@/components/home/InteriorShowcase';
 import HomeHero from '@/components/home/HomeHero';
 import HeroBookingWidget from '@/components/home/HeroBookingWidget';
 import TrustBar from '@/components/trust/TrustBar';
@@ -70,7 +71,7 @@ export default async function Home() {
   const heroImage = "/images/hero/homehero.jpeg";
 
   return (
-    <main className="overflow-x-hidden">
+    <main>
       {/* JSON-LD Structured Data */}
       <JsonLdScript schema={generateLocalBusinessSchema()} />
       <JsonLdScript schema={generateServiceSchema(
@@ -96,6 +97,9 @@ export default async function Home() {
 
       {/* 4. Fleet */}
       <HomeFleetCarousel />
+
+      {/* 4.5 Interior Showcase */}
+      <InteriorShowcase />
 
       {/* 5. Popular Routes */}
       <TransportServices />

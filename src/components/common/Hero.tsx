@@ -18,7 +18,7 @@ interface HeroProps {
     secondaryCtaLink?: string;
     showBookingForm?: boolean;
     children?: React.ReactNode;
-    layout?: 'center' | 'two-column';
+    layout?: 'center' | 'two-column' | 'right';
     badge?: string;
     backgroundChildren?: React.ReactNode;
     breadcrumbs?: React.ReactNode;
@@ -160,15 +160,20 @@ const Hero: React.FC<HeroProps> = ({
                     {/* Dark vs Light Overlays */}
                     {isDark ? (
                         <>
-                            {leftOverlay ? (
+                            {leftOverlay || layout === 'two-column' ? (
                                 <>
-                                    <div className={`absolute left-0 top-0 bottom-0 w-full lg:w-[65%] bg-gradient-to-r from-black/95 via-black/70 to-transparent ${removeBlur ? '' : 'backdrop-blur-[1px]'} z-[1]`} />
+                                    <div className={`absolute left-0 top-0 bottom-0 w-full lg:w-[65%] bg-gradient-to-r from-black/80 via-black/50 to-transparent ${removeBlur ? '' : 'backdrop-blur-[1px]'} z-[1]`} />
                                     <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 z-[1]" />
+                                </>
+                            ) : layout === 'right' ? (
+                                <>
+                                    <div className={`absolute inset-0 bg-gradient-to-r from-black/10 via-black/40 to-black/80 z-[1]`} />
+                                    <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50 z-[1]" />
                                 </>
                             ) : (
                                 <>
-                                    <div className={`absolute inset-0 bg-black/50 ${removeBlur ? '' : 'backdrop-blur-[2px]'} z-[1]`} />
-                                    <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/20 to-black/90 z-[1]" />
+                                    <div className={`absolute inset-0 bg-black/30 ${removeBlur ? '' : 'backdrop-blur-[2px]'} z-[1]`} />
+                                    <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/10 to-black/60 z-[1]" />
                                 </>
                             )}
                         </>
@@ -179,23 +184,17 @@ const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Content Container */}
-            <div className={`container relative z-10 px-4 pt-24 md:pt-28 lg:pt-32 pb-24 ${layout === 'two-column' ? 'grid lg:grid-cols-2 gap-12 lg:gap-24 items-center' : 'flex flex-col items-center text-center'} ${isSpiritual && layout === 'two-column' ? 'lg:grid-cols-[1.2fr,0.8fr]' : ''}`}>
+            <div className={`container relative z-10 px-4 pt-24 md:pt-28 lg:pt-32 pb-24 ${layout === 'two-column' ? 'grid lg:grid-cols-2 gap-12 lg:gap-24 items-center' : layout === 'right' ? 'flex flex-col items-end text-left w-full' : 'flex flex-col items-center text-center'} ${isSpiritual && layout === 'two-column' ? 'lg:grid-cols-[1.2fr,0.8fr]' : ''}`}>
 
                 {/* Text Content */}
-                <div className={`flex flex-col gap-8 ${layout === 'center' ? 'items-center text-center max-w-4xl' : 'max-w-3xl'}`}>
+                <div className={`flex flex-col gap-8 ${layout === 'center' ? 'items-center text-center max-w-4xl' : layout === 'right' ? 'w-full lg:w-[50%] max-w-[640px] md:ml-auto items-start text-left lg:max-w-none' : 'max-w-3xl'}`}>
                     {/* Badge */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-                        className="flex flex-col justify-center lg:justify-start items-center lg:items-start gap-4 w-full"
+                        className={`flex flex-col ${layout === 'right' ? 'justify-start items-start' : 'justify-center lg:justify-start items-center lg:items-start'} gap-4 w-full`}
                     >
-                        {/* Bismillah Calligraphy */}
-                        <div className="mb-4 w-full text-center">
-                            <div className={`text-2xl md:text-3xl font-arabic ${isDark ? 'text-gold drop-shadow-[0_0_15px_rgba(239,191,91,0.3)]' : 'text-gold-strong'} leading-relaxed`} dir="rtl">
-                                بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
-                            </div>
-                        </div>
 
                         {badge ? (
                             typeof badge === 'string' ? (
@@ -215,17 +214,9 @@ const Hero: React.FC<HeroProps> = ({
                     </motion.div>
 
                     {/* Title */}
-                    <div>
-                        <h1 className={`font-display font-semibold text-5xl md:text-6xl lg:text-7xl ${isDark ? 'text-surface drop-shadow-md' : 'text-ink'} leading-[1.1] tracking-tight`}>
-                            {title.split(' ').map((word, i) => {
-                                const highlightWords = ['VIP', 'Umrah', 'Makkah', 'Madinah', 'Jeddah', 'Premium', 'Taxi', 'Transfers'];
-                                const isHighlighted = highlightWords.some(hw => word.includes(hw)) && word.length > 3;
-                                return (
-                                    <span key={i} className={isHighlighted ? 'text-gold' : ''}>
-                                        {word}{' '}
-                                    </span>
-                                );
-                            })}
+                    <div className="w-full">
+                        <h1 className={`font-display font-semibold text-[32px] sm:text-[40px] md:text-[58px] ${isDark ? 'text-white' : 'text-ink'} leading-[1.1] tracking-[-0.01em]`}>
+                            {title}
                         </h1>
                     </div>
 

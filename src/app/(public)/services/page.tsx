@@ -115,9 +115,9 @@ export default function ServicesPage() {
 
 function HeroSection() {
     return (
-        <section className="relative w-full min-h-[clamp(560px,80vh,760px)] flex items-end pb-16 lg:pb-24 pt-32 overflow-hidden">
+        <section className="relative w-full min-h-[clamp(560px,80vh,760px)] flex items-end pb-4 lg:pb-6 pt-32 overflow-hidden">
             <Image
-                src="/images/services/hotel-transfers-new.png"
+                src="/images/hero/services page.jpg"
                 alt="Umrah Transport Services Fleet"
                 fill
                 priority
@@ -129,11 +129,8 @@ function HeroSection() {
 
             <div className="container relative z-20">
                 <div className="max-w-3xl flex flex-col items-start text-left gap-5">
-                    <div className="text-xl md:text-2xl font-arabic text-gold leading-relaxed drop-shadow-md mb-2" dir="rtl">
-                        بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
-                    </div>
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-tint border border-gold/30 text-[13px] font-bold tracking-[0.14em] uppercase text-charcoal">
-                        <Shield size={14} className="text-gold-deep" />
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-gold-tint border border-gold/30 text-[11px] font-bold tracking-[0.14em] uppercase text-charcoal">
+                        <Shield size={12} className="text-gold-deep" />
                         Ministry Licensed Operator
                     </div>
                     <h1 className="font-display font-semibold text-[clamp(40px,5vw,72px)] text-white leading-[1.1] tracking-tight drop-shadow-md">

@@ -1,0 +1,75 @@
+/* Sticky stacking cards — pure CSS, no JS runtime.
+   Pinning: position: sticky. Recede: CSS scroll-driven animation.
+   Fallback: sticky stack only. Reduced motion: plain list. */
+
+.stack {
+  /* container needs no special layout; cards pin themselves */
+  --nav-h: 5rem;          /* set to your real fixed navbar height */
+  --stagger: 0rem;        /* 0 so cards completely cover the previous ones */
+  --recede-scale: 0.92;   /* subtle: how small a covered card gets */
+  --recede-opacity: 0.6;  /* subtle: how much a covered card dims */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.card {
+  position: sticky;
+  /* each card pins slightly lower than the previous → visible stack edges */
+  top: calc(var(--nav-h) + (var(--index, 0) * var(--stagger)));
+  /* height of this wrapper controls how long each card stays before the
+     next covers it. min-height keeps short cards from collapsing. */
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.cardInner {
+  width: 100%;
+  transform-origin: center top;
+  will-change: transform;
+  /* your existing card visual styles live here (or on the inner markup) */
+}
+
+/* Recede: only where scroll-driven animations are supported.
+   Everything else just gets the clean sticky stack above. */
+@supports (animation-timeline: view()) {
+  .cardInner {
+    animation: recede linear both;
+    animation-timeline: view();
+    /* play as the card leaves the top of the scrollport (gets covered).
+       If the timing feels early/late, tune this range:
+       try `exit`, `exit-crossing`, or `contain 40% exit 100%`. */
+    animation-range: exit-crossing 0% exit-crossing 100%;
+  }
+
+  @keyframes recede {
+    to {
+      transform: scale(var(--recede-scale));
+    }
+  }
+}
+
+/* Accessibility: no pinning, no motion — a plain scrollable list. */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    position: static;
+    min-height: 0;
+    margin-block-end: 2rem;
+  }
+  .cardInner {
+    animation: none;
+    will-change: auto;
+    transform: none;
+    opacity: 1;
+  }
+}
+
+/* Optional: ease the stagger on small screens where space is tight. */
+@media (max-width: 640px) {
+  .stack { 
+    --stagger: 0rem; 
+    --nav-h: 4rem;
+  }
+}

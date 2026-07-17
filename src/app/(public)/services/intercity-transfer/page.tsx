@@ -4,6 +4,7 @@ import BookingFormWrapper from '@/components/home/BookingFormWrapper';
 import { ServiceSchema } from '@/components/seo/ServiceSchema';
 import Image from 'next/image';
 import Link from 'next/link';
+import Hero from '@/components/common/Hero';
 import { 
   ShieldCheck, 
   Star, 
@@ -84,62 +85,18 @@ export default function IntercityTransferPage() {
             />
 
             {/* 1. HERO SECTION */}
-            <section className="relative w-full min-h-[600px] md:min-h-[720px] flex flex-col pt-32 md:pt-40 pb-40 md:pb-56 bg-surface-alt">
-                <div className="absolute inset-0 z-0">
-                    <Image 
-                        src="/images/hero/desert-highway-makkah-tower.jpg" 
-                        alt="Private car for Makkah to Madinah intercity transfer" 
-                        fill
-                        priority
-                        className="object-cover"
-                        sizes="100vw"
-                    />
-                    {/* Scrim for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-ink/80 to-ink/20" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
-                </div>
+            <Hero
+                title="Intercity Transfers in Saudi Arabia"
+                subtitle="Seamless, private transport between Makkah, Madinah, and Jeddah. Fixed prices, English-speaking drivers, and complete peace of mind."
+                bgImage="/images/hero/intercitytransfer.jpg"
+                alt="Private car for Makkah to Madinah intercity transfer"
+                removeBlur={true}
+                layout="right"
+                badge="INTERCITY TRANSPORTS"
+            />
 
-                <div className="container relative z-10 flex-grow flex flex-col justify-center mt-8 md:mt-0">
-                    <div className="max-w-[640px]">
-                        <div className="flex items-center gap-2 text-sm text-surface-sunken mb-6">
-                            <Link href="/" className="hover:text-gold transition-colors">Home</Link>
-                            <span>›</span>
-                            <Link href="/services" className="hover:text-gold transition-colors">Services</Link>
-                            <span>›</span>
-                            <span className="text-gold">Intercity Transfers</span>
-                        </div>
-                        
-                        <span className="text-gold font-body font-semibold tracking-[0.14em] text-[13px] uppercase block mb-4">
-                            INTERCITY TRANSPORTS
-                        </span>
-                        
-                        <h1 className="font-display font-semibold text-[40px] md:text-[68px] leading-[1.04] text-white mb-6 tracking-[-0.01em]">
-                            Intercity Transfers in Saudi Arabia
-                        </h1>
-                        
-                        <p className="font-body text-[17px] md:text-[19px] leading-[1.65] text-white/90 mb-8 max-w-[44ch]">
-                            Seamless, private transport between Makkah, Madinah, and Jeddah. Fixed prices, English-speaking drivers, and complete peace of mind.
-                        </p>
-
-                        <div className="flex items-center gap-2 text-sm text-white/80 font-body">
-                            <div className="flex text-gold">
-                                <Star size={16} fill="currentColor" />
-                                <Star size={16} fill="currentColor" />
-                                <Star size={16} fill="currentColor" />
-                                <Star size={16} fill="currentColor" />
-                                <Star size={16} fill="currentColor" />
-                            </div>
-                            <span>·</span>
-                            <span>10,000+ pilgrims</span>
-                            <span>·</span>
-                            <span>Nusuk-approved</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Booking Widget Floating Over Fold */}
-            <div className="container relative z-20 -mt-24 md:-mt-32 mb-16 flex justify-center">
+            {/* Booking Widget */}
+            <div className="container relative z-20 mt-8 mb-16 flex justify-center">
                 <div className="w-full max-w-5xl">
                     <BookingFormWrapper />
                     <div className="mt-4 flex items-center justify-center gap-2 text-sm text-muted font-body text-center flex-wrap">

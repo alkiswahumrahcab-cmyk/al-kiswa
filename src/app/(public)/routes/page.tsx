@@ -9,6 +9,7 @@ import GlassCard from '@/components/ui/GlassCard';
 import FadeIn from '@/components/common/FadeIn';
 import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 import dynamic from 'next/dynamic';
+import styles from "./routes-stack.module.css";
 
 const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 
@@ -179,83 +180,79 @@ export default function RoutesPage() {
                 breadcrumbs={<Breadcrumbs />}
             />
 
-            <section className="container mx-auto px-4 -mt-20 relative z-10">
-                <div className="flex flex-col gap-12 lg:gap-24">
+            <section className="w-full -mt-20 relative z-10">
+                <div className={styles.stack}>
                     {ROUTES.map((route, index) => {
-                        const isEven = index % 2 === 0;
                         return (
-                        <FadeIn key={route.id} delay={index * 0.08}>
-                            <div className="relative group block bg-surface border border-border overflow-hidden rounded-[16px] hover:border-gold-line transition-all duration-500 shadow-sm hover:shadow-md">
-                                <Link href={route.link} className="absolute inset-0 z-10">
-                                    <span className="sr-only">View {route.title}</span>
-                                </Link>
-                                <div className={`flex flex-col lg:flex-row ${isEven ? '' : 'lg:flex-row-reverse'} h-full`}>
-                                    
-                                    {/* Image Section */}
-                                    <div className="w-full lg:w-1/2 relative min-h-[300px] lg:min-h-[450px] overflow-hidden">
+                        <div
+                            key={route.id}
+                            className={styles.card}
+                            style={{ ["--index" as string]: index }}
+                        >
+                            <div className={styles.cardInner}>
+                                <FadeIn delay={index * 0.08}>
+                                    <div className="relative group block overflow-hidden transition-all duration-500 shadow-sm hover:shadow-gold w-full h-[60vh] lg:h-[75vh] min-h-[400px] max-h-[550px] lg:max-h-[700px]">
+                                        <Link href={route.link} className="absolute inset-0 z-30">
+                                            <span className="sr-only">View {route.title}</span>
+                                        </Link>
+                                        
+                                        {/* Full Card Image */}
                                         <Image 
                                             src={route.image} 
                                             alt={route.title} 
                                             fill 
                                             className="object-cover transition-transform duration-[1200ms] group-hover:scale-105" 
-                                            sizes="(max-width: 1024px) 100vw, 50vw" 
+                                            sizes="100vw" 
                                         />
-                                        <div className={`absolute inset-0 bg-gradient-to-t from-black/80 to-transparent lg:hidden`} />
                                         
-                                        <div className="absolute bottom-6 left-6 text-white lg:hidden relative z-10">
-                                            <div className="flex items-center gap-3 text-sm font-medium mb-1"><Clock size={16} className="text-gold" />{route.time}</div>
-                                            <div className="flex items-center gap-3 text-sm font-medium"><MapPin size={16} className="text-gold" />{route.distance}</div>
-                                        </div>
-                                    </div>
-                                    
-                                    {/* Content Section */}
-                                    <div className="p-8 lg:p-16 w-full lg:w-1/2 flex flex-col justify-center">
-                                        <div className="mb-6 lg:mb-10">
-                                            <div className="text-gold uppercase tracking-[0.14em] font-semibold text-[13px] mb-4">Route {index + 1}</div>
-                                            <h3 className="text-3xl lg:text-[42px] leading-tight font-semibold font-display text-ink group-hover:text-gold-strong transition-colors duration-500">{route.title}</h3>
-                                            <h4 className="text-xl lg:text-2xl font-bold text-gold-strong font-reem-kufi mt-3">{route.titleAr}</h4>
-                                        </div>
-                                        
-                                        <div className="space-y-5 mb-10">
-                                            <p className="text-body text-base lg:text-lg leading-relaxed font-normal">{route.description}</p>
-                                            <p className="text-muted text-sm lg:text-base font-arabic leading-relaxed text-right border-t border-dashed border-border pt-5">{route.descriptionAr}</p>
-                                        </div>
-                                        
-                                        {/* Features List - Minimalist */}
-                                        <div className="hidden md:flex flex-col gap-6 mb-12">
-                                            <div className="grid grid-cols-2 gap-4">
-                                                <div className="space-y-3">
-                                                    {route.features.map((f, i) => (
-                                                        <div key={i} className="flex items-center gap-3 text-sm text-body font-normal">
-                                                            <div className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
-                                                            {f}
-                                                        </div>
-                                                    ))}
+                                        {/* Dark Overlay - Initial subtle gradient, intensifies on hover */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10 opacity-70 group-hover:opacity-100 transition-opacity duration-[800ms] z-10" />
+
+                                        {/* Content Overlay */}
+                                        <div className="absolute inset-0 z-20 flex flex-col justify-end pb-6 lg:pb-10">
+                                            <div className="container mx-auto px-4 lg:px-8">
+                                                {/* Top section: Route badge */}
+                                                <div className="mb-auto mt-4 transform -translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] delay-100">
+                                                    <span className="inline-block px-4 py-1.5 bg-black/40 backdrop-blur-md text-gold text-[12px] uppercase tracking-widest font-semibold rounded-full border border-gold/30">
+                                                        Route {index + 1}
+                                                    </span>
                                                 </div>
-                                                <div className="space-y-3 text-right" dir="rtl">
-                                                    {route.featuresAr.map((f, i) => (
-                                                        <div key={i} className="flex items-center gap-3 text-sm text-muted font-arabic font-normal">
-                                                            <div className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
-                                                            {f}
+
+                                                <div className="relative w-full">
+                                                    <h3 className="text-3xl lg:text-4xl font-semibold font-display text-white mb-1 leading-tight drop-shadow-md">{route.title}</h3>
+                                                    <h4 className="text-xl lg:text-2xl text-gold-strong font-reem-kufi drop-shadow-md mb-2">{route.titleAr}</h4>
+                                                    
+                                                    {/* Hidden detailed content that expands on hover */}
+                                                    <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)]">
+                                                        <div className="overflow-hidden">
+                                                            <div className="pt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-[800ms] delay-150">
+                                                                <p className="text-white/90 text-sm lg:text-base leading-relaxed font-normal mb-4 max-w-2xl line-clamp-2">
+                                                                    {route.description}
+                                                                </p>
+                                                                
+                                                                {/* Bottom Bar: Price & CTA */}
+                                                                <div className="flex flex-wrap items-center justify-between gap-4 pt-2 mt-2 relative z-20">
+                                                                    <div className="flex items-center gap-6">
+                                                                        <div className="flex flex-col">
+                                                                            <span className="text-[10px] text-white/60 uppercase tracking-widest mb-0.5">Starting Price</span>
+                                                                            <span className="text-xl lg:text-2xl font-semibold font-display text-gold drop-shadow-md">{route.price}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <span className="inline-flex items-center justify-center h-[40px] px-6 bg-gold hover:bg-gold-soft text-ink text-sm font-semibold rounded-btn transition-all pointer-events-none group-hover:pointer-events-auto">
+                                                                        Book <ArrowRight size={16} className="ml-2" />
+                                                                    </span>
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    ))}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div className="mt-auto flex items-center justify-between pt-8 border-t border-border">
-                                            <div className="flex flex-col gap-1">
-                                                <span className="text-[12px] text-muted uppercase tracking-[0.08em] font-semibold">Starting Price</span>
-                                                <span className="text-2xl lg:text-3xl font-semibold font-display text-gold-strong">{route.price}</span>
-                                            </div>
-                                            <div className="flex gap-4 relative z-20 items-center">
-                                                <span className="inline-flex items-center justify-center h-[48px] px-8 bg-gold hover:bg-gold-soft text-ink font-semibold rounded-btn transition-all">Book Journey <ArrowRight size={16} className="ml-2" /></span>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </FadeIn>
                             </div>
-                        </FadeIn>
+                        </div>
                         );
                     })}
                 </div>
