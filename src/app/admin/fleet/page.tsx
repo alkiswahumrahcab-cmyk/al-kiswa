@@ -21,6 +21,8 @@ interface Vehicle {
     price: string;
     hourlyRate?: string;
     category: string;
+    model?: string;
+    tier?: string;
     isActive: boolean;
     unavailableDates?: string[];
 }
@@ -45,6 +47,8 @@ export default function FleetPage() {
         price: '',
         hourlyRate: '',
         category: 'Standard',
+        model: '',
+        tier: '',
         isActive: true,
         unavailableDates: [] as string[]
     });
@@ -85,6 +89,8 @@ export default function FleetPage() {
             price: vehicle.price,
             hourlyRate: vehicle.hourlyRate || '',
             category: vehicle.category,
+            model: vehicle.model || '',
+            tier: vehicle.tier || '',
             isActive: vehicle.isActive,
             unavailableDates: vehicle.unavailableDates || []
         });
@@ -104,6 +110,8 @@ export default function FleetPage() {
             price: '',
             hourlyRate: '',
             category: 'Standard',
+            model: '',
+            tier: '',
             isActive: true,
             unavailableDates: []
         });
@@ -184,7 +192,7 @@ export default function FleetPage() {
         }
     };
 
-    const categories = ['All', 'Standard', 'Premium', 'VIP', 'Bus'];
+    const categories = ['All', ...Array.from(new Set(vehicles.map(v => v.category).filter(Boolean)))];
 
     return (
         <div className="p-6 max-w-7xl mx-auto space-y-8">
@@ -374,15 +382,36 @@ export default function FleetPage() {
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-slate-700">Category</label>
-                                        <select
+                                        <input
+                                            type="text"
                                             className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
                                             value={formData.category}
                                             onChange={e => setFormData({ ...formData, category: e.target.value })}
-                                        >
-                                            {categories.filter(c => c !== 'All').map(cat => (
-                                                <option key={cat} value={cat}>{cat}</option>
-                                            ))}
-                                        </select>
+                                            placeholder="e.g. Premium Van"
+                                        />
+                                    </div>
+                                </div>
+                                
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-medium text-slate-700">Model Name (Optional Subtitle)</label>
+                                        <input
+                                            type="text"
+                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            value={formData.model || ''}
+                                            onChange={e => setFormData({ ...formData, model: e.target.value })}
+                                            placeholder="e.g. Hyundai Staria"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-medium text-slate-700">Tier Badge (Optional)</label>
+                                        <input
+                                            type="text"
+                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            value={formData.tier || ''}
+                                            onChange={e => setFormData({ ...formData, tier: e.target.value })}
+                                            placeholder="e.g. VIP"
+                                        />
                                     </div>
                                 </div>
 

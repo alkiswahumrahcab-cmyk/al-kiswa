@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useMemo, useEffect } from 'react';
 import Link from 'next/link';
@@ -123,21 +123,21 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
     }, [routes, searchQuery, activeCategory]);
 
     const TrustIndicators = () => (
-        <div className="flex flex-col gap-3 glass-panel p-5 mt-6">
+        <div className="flex flex-col gap-3 bg-surface border border-border shadow-sm rounded-[16px] p-5 mt-6">
             <h4 className="text-ink font-bold text-sm uppercase tracking-wider mb-2">Why Book Direct?</h4>
-            <div className="flex items-center gap-3 text-sm text-ink/80">
+            <div className="flex items-center gap-3 text-sm text-body">
                 <CheckCircle2 size={16} className="text-gold shrink-0" />
                 <span>Ministry Licensed</span>
             </div>
-            <div className="flex items-center gap-3 text-sm text-ink/80">
+            <div className="flex items-center gap-3 text-sm text-body">
                 <CheckCircle2 size={16} className="text-gold shrink-0" />
                 <span>Fixed Pricing</span>
             </div>
-            <div className="flex items-center gap-3 text-sm text-ink/80">
+            <div className="flex items-center gap-3 text-sm text-body">
                 <CheckCircle2 size={16} className="text-gold shrink-0" />
                 <span>No Hidden Fees</span>
             </div>
-            <div className="flex items-center gap-3 text-sm text-ink/80">
+            <div className="flex items-center gap-3 text-sm text-body">
                 <CheckCircle2 size={16} className="text-gold shrink-0" />
                 <span>Direct Operator</span>
             </div>
@@ -162,7 +162,7 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                             placeholder="Search routes, cities, airports..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full pl-11 pr-4 py-4 glass-input text-lg bg-surface border-gold/20 focus:border-gold rounded-xl transition-all shadow-[0_0_15px_hsl(var(--gold-glow) / 0.05)]"
+                            className="w-full pl-11 pr-4 py-4 text-lg bg-surface border border-border-strong focus:border-gold rounded-xl transition-all shadow-sm outline-none text-ink placeholder-muted"
                         />
                         {searchQuery && (
                             <button 
@@ -175,7 +175,7 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                     </div>
 
                     {/* PHASE 4: Filter Chips */}
-                    <div className="glass-panel p-5">
+                    <div className="bg-surface border border-border shadow-sm rounded-[16px] p-5">
                         <h4 className="text-ink font-bold text-sm uppercase tracking-wider mb-4 flex items-center gap-2">
                             <Filter size={16} className="text-gold" /> Filter Categories
                         </h4>
@@ -184,10 +184,10 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                                 <button
                                     key={cat}
                                     onClick={() => setActiveCategory(cat)}
-                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                                    className={`px-4 py-2 rounded-[8px] text-sm font-medium transition-all duration-300 ${
                                         activeCategory === cat 
-                                        ? "bg-gradient-to-r from-gold to-gold-dark text-black shadow-[0_0_15px_hsl(var(--gold-glow) / 0.3)] font-bold" 
-                                        : "glass-button py-2 border-border text-ink/80 hover:text-ink"
+                                        ? "bg-gold text-ink shadow-[0_2px_8px_rgba(226,163,54,0.22)] font-bold" 
+                                        : "bg-surface border-[1.5px] border-border-strong text-body hover:bg-gold-soft hover:text-ink hover:border-transparent"
                                     }`}
                                 >
                                     {cat}
@@ -214,12 +214,12 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                             <motion.div 
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
-                                className="glass-panel p-12 text-center"
+                                className="bg-surface border border-border shadow-sm rounded-[16px] p-12 text-center"
                             >
                                 <div className="text-gold/50 mb-4 flex justify-center"><Search size={48} /></div>
                                 <h3 className="text-2xl font-bold text-ink mb-2">No Routes Found</h3>
-                                <p className="text-ink-muted mb-6">Try adjusting your search or filters.</p>
-                                <button onClick={() => { setSearchQuery(""); setActiveCategory("All Routes"); }} className="btn-gold">
+                                <p className="text-body mb-6">Try adjusting your search or filters.</p>
+                                <button onClick={() => { setSearchQuery(""); setActiveCategory("All Routes"); }} className="bg-gold text-ink font-semibold rounded-btn hover:bg-gold-soft px-7 py-[14px]">
                                     Clear All Filters
                                 </button>
                             </motion.div>
@@ -249,7 +249,7 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                                         exit={{ opacity: 0, scale: 0.95 }}
                                         transition={{ duration: 0.3 }}
                                         key={route.id}
-                                        className={`glass-panel border ${isPopular ? 'border-gold/40' : 'border-border'} overflow-hidden group`}
+                                        className={`bg-surface shadow-sm hover:shadow-md transition-shadow rounded-[16px] border ${isPopular ? 'border-gold/40' : 'border-border'} overflow-hidden group`}
                                     >
                                         {/* PHASE 5: Compact Route Header */}
                                         <div className="p-5 md:p-6 flex flex-col md:flex-row justify-between gap-4 md:items-center relative">
@@ -290,12 +290,12 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                                                     {/* Mobile Only: Compare Button triggers drawer */}
                                                     <button 
                                                         onClick={() => setCompareDrawerRoute(route)}
-                                                        className="md:hidden glass-button py-2 px-4 text-xs flex items-center gap-1 border-border/50"
+                                                        className="md:hidden bg-transparent border-[1.5px] border-border-strong text-ink hover:bg-gold-soft hover:border-transparent py-2 px-4 text-xs font-semibold flex items-center gap-1 rounded-btn"
                                                     >
                                                         Compare
                                                     </button>
                                                     
-                                                    <Link href={`/booking?route=${route.id}`} className="btn-gold py-2 px-6 text-sm">
+                                                    <Link href={`/booking?route=${route.id}`} className="bg-gold text-ink font-semibold rounded-btn hover:bg-gold-soft py-2 px-6 text-sm">
                                                         Book
                                                     </Link>
                                                 </div>
@@ -370,18 +370,18 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
             </div>
 
             {/* PHASE 8: Sticky Mobile Toolbar */}
-            <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 p-3 bg-black/80 backdrop-blur-xl border-t border-border flex items-center justify-between gap-3 safe-area-bottom">
+            <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 p-3 bg-surface/95 backdrop-blur-xl border-t border-border flex items-center justify-between gap-3 safe-area-bottom shadow-[0_-4px_24px_rgba(21,20,15,0.08)]">
                 <button 
                     onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); document.querySelector('input')?.focus(); }}
-                    className="flex-1 glass-button py-3 px-2 flex items-center justify-center gap-2 border-border text-sm"
+                    className="flex-1 bg-transparent border-[1.5px] border-border-strong hover:bg-gold-soft text-ink py-3 px-2 flex items-center justify-center gap-2 text-sm rounded-btn font-semibold"
                 >
                     <Search size={16} className="text-gold" /> Search
                 </button>
-                <Link href="/booking" className="flex-[2] btn-gold py-3 px-2 flex justify-center text-sm shadow-lg">
+                <Link href="/booking" className="flex-[2] bg-gold text-ink font-semibold rounded-btn py-3 px-2 flex justify-center text-sm shadow-md hover:bg-gold-soft">
                     Book Now
                 </Link>
                 {showBackToTop && (
-                    <button onClick={scrollToTop} className="w-12 h-12 bg-white/10 border border-border/50 rounded-lg flex items-center justify-center text-ink backdrop-blur-md">
+                    <button onClick={scrollToTop} className="w-12 h-12 bg-surface-alt border border-border rounded-btn flex items-center justify-center text-ink shadow-sm">
                         <ArrowUp size={20} />
                     </button>
                 )}
@@ -394,19 +394,19 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                         <motion.div 
                             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                             onClick={() => setCompareDrawerRoute(null)}
-                            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 lg:hidden"
+                            className="fixed inset-0 bg-ink/40 backdrop-blur-sm z-50 lg:hidden"
                         />
                         <motion.div 
                             initial={{ y: '100%' }} animate={{ y: 0 }} exit={{ y: '100%' }}
                             transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-                            className="fixed bottom-0 left-0 right-0 bg-[#0f1115] border-t border-border/50 rounded-t-3xl z-50 p-6 pb-12 lg:hidden max-h-[85vh] overflow-y-auto"
+                            className="fixed bottom-0 left-0 right-0 bg-surface border-t border-border rounded-t-[20px] shadow-lg z-50 p-6 pb-12 lg:hidden max-h-[85vh] overflow-y-auto"
                         >
                             <div className="flex justify-between items-center mb-6">
                                 <div>
                                     <h3 className="text-xl font-bold text-ink leading-tight">Compare Vehicles</h3>
-                                    <p className="text-sm text-gold font-medium">{compareDrawerRoute.origin} → {compareDrawerRoute.destination}</p>
+                                    <p className="text-sm text-gold-strong font-medium">{compareDrawerRoute.origin} → {compareDrawerRoute.destination}</p>
                                 </div>
-                                <button onClick={() => setCompareDrawerRoute(null)} className="p-2 bg-white/10 rounded-btn text-ink">
+                                <button onClick={() => setCompareDrawerRoute(null)} className="p-2 bg-surface-alt rounded-btn text-ink border border-border">
                                     <X size={20} />
                                 </button>
                             </div>
@@ -436,7 +436,7 @@ export default function PricingClientUX({ routes, vehicles, exchangeRate }: Prop
                                                 </div>
                                                 <Link 
                                                     href={`/booking?route=${compareDrawerRoute.id}&vehicle=${p.vehicleId}`}
-                                                    className="mt-2 text-[10px] font-bold uppercase tracking-wider text-black bg-gold px-4 py-1.5 rounded-full"
+                                                    className="mt-2 text-[10px] font-bold uppercase tracking-wider text-ink bg-gold px-4 py-1.5 rounded-[8px]"
                                                 >
                                                     Select
                                                 </Link>

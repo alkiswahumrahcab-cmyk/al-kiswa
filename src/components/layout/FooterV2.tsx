@@ -187,7 +187,7 @@ export default function Footer() {
                             <li><Link003 href="/fleet/hyundai-staria" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Hyundai Staria — Family MPV</Link003></li>
                             <li><Link003 href="/fleet/toyota-hiace" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Toyota Hiace — Group Bus</Link003></li>
                             <li><Link003 href="/pricing" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Pricing & Rates</Link003></li>
-                            <li><Link003 href="/pricing/compare" className="text-gold-strong hover:text-ink transition-colors text-[15px]">Compare vs Kiwi · Telixo · 5Star</Link003></li>
+                            <li><Link href="/pricing/compare" className="text-gold-strong hover:text-ink transition-colors text-[15px]">Compare vs Other Platforms</Link></li>
                         </ul>
                     </div>
 

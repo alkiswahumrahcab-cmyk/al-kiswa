@@ -1,9 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { Check, X, TrendingDown, ArrowRight } from 'lucide-react';
+import { Check, X, TrendingDown, ArrowRight, ChevronDown } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Al Kiswah's actual rates (what you supply to Kiwi as operator)
 // Kiwi then charges customers ~20-30% MORE than these prices
@@ -79,166 +80,126 @@ const ROUTES = [
 ];
 
 export default function PriceComparisonTable() {
-    const [openRoute, setOpenRoute] = useState<number | null>(0);
+    const [expandedRoute, setExpandedRoute] = useState<number | null>(0);
 
     return (
-        <section className="py-24 relative z-10">
-            <div className="container mx-auto px-4">
+        <section className="py-24 relative z-10 bg-bg">
+            <div className="container mx-auto px-4 max-w-5xl">
                 <FadeIn>
-                    <div className="text-center mb-14">
-                        <span className="inline-block bg-gold/10 border border-gold/30 text-gold text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
-                            Real Price Comparison
+                    <div className="text-center mb-16">
+                        <span className="inline-block bg-gold-soft border border-gold-line text-gold-strong text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
+                            Complete Transparency
                         </span>
-                        <h2 className="text-3xl md:text-5xl font-bold text-ink mb-4">
-                            We Supply Kiwi Taxi.{' '}
-                            <span className="text-gold">Book From Us Directly.</span>
+                        <h2 className="text-3xl md:text-5xl font-bold font-display text-ink mb-6">
+                            Detailed <span className="text-gold">Price Comparison</span>
                         </h2>
-                        <p className="text-ink-muted max-w-2xl mx-auto text-lg">
-                            Al Kiswah provides the actual transport for platforms like Kiwi Taxi and Booking.com.
-                            Those platforms add <strong className="text-red-400">20–30% commission</strong> before showing customers.
-                            Book direct — pay the operator price.
+                        <p className="text-body max-w-2xl mx-auto">
+                            See exactly how our direct pricing compares to standard online platforms and agency rates.
+                            Rates are estimates in SAR based on peak season averages.
                         </p>
                     </div>
 
-                    {/* Column legend */}
-                    <div className="max-w-4xl mx-auto mb-6 grid grid-cols-2 gap-4">
-                        <div className="flex items-center gap-3 bg-gold/10 border border-gold/30 rounded-xl px-4 py-3">
-                            <Check size={20} className="text-gold shrink-0" />
-                            <div>
-                                <p className="text-gold font-bold text-sm">Al Kiswah Direct Price (USD)</p>
-                                <p className="text-n-400 text-xs">Book at alkiswahumrahtransport.com</p>
-                            </div>
-                        </div>
-                        <div className="flex items-center gap-3 bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">
-                            <X size={20} className="text-red-400 shrink-0" />
-                            <div>
-                                <p className="text-red-400 font-bold text-sm">Kiwi / Platform Price (USD)</p>
-                                <p className="text-n-400 text-xs">Same car, more expensive</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Accordion price table */}
-                    <div className="max-w-4xl mx-auto space-y-3">
-                        {ROUTES.map((route, ri) => {
-                            const isOpen = openRoute === ri;
+                    <div className="max-w-4xl mx-auto">
+                        {ROUTES.map((route, i) => {
+                            const isExpanded = expandedRoute === i;
                             const lowestOurs = Math.min(...route.vehicles.map(v => v.ourPrice));
-                            const lowestKiwi = Math.min(...route.vehicles.map(v => v.kiwiPrice));
-                            const saving = lowestKiwi - lowestOurs;
-                            const savingPct = Math.round((saving / lowestKiwi) * 100);
-
                             return (
-                                <div
-                                    key={ri}
-                                    className={`rounded-2xl border overflow-hidden transition-all duration-300 ${
-                                        route.highlight
-                                            ? 'border-gold/40 shadow-[0_0_20px_hsl(var(--gold-glow) / 0.08)]'
-                                            : 'border-border'
-                                    } ${isOpen ? 'bg-surface-alt' : 'bg-surface hover:bg-surface-alt'}`}
-                                >
-                                    {/* Route header — click to expand */}
+                                <div key={i} className={`mb-4 bg-surface border rounded-xl overflow-hidden shadow-sm transition-colors ${route.highlight ? 'border-gold/40' : 'border-border'}`}>
                                     <button
-                                        onClick={() => setOpenRoute(isOpen ? null : ri)}
-                                        className="w-full flex items-center justify-between p-5 text-left"
+                                        onClick={() => setExpandedRoute(isExpanded ? null : i)}
+                                        className="w-full flex items-center justify-between p-6 hover:bg-surface-alt transition-colors"
                                     >
-                                        <div className="flex items-center gap-4">
-                                            {route.highlight && (
-                                                <span className="shrink-0 bg-gold text-black text-[10px] font-bold uppercase px-2 py-0.5 rounded-full">
-                                                    Popular
-                                                </span>
-                                            )}
-                                            <div>
-                                                <h3 className="text-ink font-bold flex items-center gap-2">
-                                                    {route.origin}
-                                                    <ArrowRight size={14} className="text-n-500" />
-                                                    {route.destination}
-                                                </h3>
-                                                <p className="text-n-500 text-sm">{route.distance}</p>
-                                            </div>
+                                        <div className="text-left flex-1">
+                                            <h3 className="text-xl font-bold text-ink flex items-center gap-2 flex-wrap">
+                                                {route.origin} <ArrowRight size={16} className="text-muted" /> {route.destination}
+                                                {route.highlight && <span className="text-[10px] bg-gold-soft text-gold-strong px-2 py-0.5 rounded-full uppercase tracking-wider font-bold ml-2">Popular</span>}
+                                            </h3>
+                                            <p className="text-body text-sm mt-1">{route.distance}</p>
                                         </div>
-                                        <div className="flex items-center gap-6 shrink-0">
-                                            <div className="hidden md:flex items-center gap-4 text-sm">
-                                                <span className="text-gold font-black">
-                                                    from ${lowestOurs}
-                                                </span>
-                                                <span className="text-n-600 line-through text-xs">
-                                                    ${lowestKiwi}
-                                                </span>
-                                                <span className="bg-gold/15 text-gold text-xs font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
-                                                    <TrendingDown size={11} />
-                                                    Save {savingPct}%
-                                                </span>
+                                        <div className="flex items-center gap-4">
+                                            <div className="hidden md:block text-right mr-4">
+                                                <p className="text-xs text-muted uppercase tracking-wider mb-1">Our Price From</p>
+                                                <p className="text-xl font-black text-gold-strong">${lowestOurs}</p>
                                             </div>
-                                            <div className={`w-5 h-5 border border-white/20 rounded-full flex items-center justify-center transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>
-                                                <span className="text-n-400 text-lg leading-none">+</span>
-                                            </div>
+                                            <ChevronDown 
+                                                size={24} 
+                                                className={`text-gold transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} 
+                                            />
                                         </div>
                                     </button>
-
-                                    {/* Expandable vehicle table */}
-                                    {isOpen && (
-                                        <div className="px-5 pb-5">
-                                            <div className="rounded-xl overflow-hidden border border-white/8">
-                                                <table className="w-full text-sm">
-                                                    <thead>
-                                                        <tr className="border-b border-border bg-surface-alt">
-                                                            <th className="text-left px-4 py-3 text-n-400 font-medium">Vehicle Class</th>
-                                                            <th className="text-center px-4 py-3 text-gold font-bold">Direct (Us)</th>
-                                                            <th className="text-center px-4 py-3 text-red-400 font-medium">Via Platform</th>
-                                                            <th className="text-center px-4 py-3 text-gold font-medium hidden md:table-cell">You Save</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        {route.vehicles.map((v, vi) => {
-                                                            const save = v.kiwiPrice - v.ourPrice;
-                                                            const pct = Math.round((save / v.kiwiPrice) * 100);
-                                                            return (
-                                                                <tr
-                                                                    key={vi}
-                                                                    className={`border-b border-white/5 last:border-0 ${vi % 2 === 0 ? 'bg-white/2' : ''}`}
-                                                                >
-                                                                    <td className="px-4 py-3 text-n-300">{v.label}</td>
-                                                                    <td className="px-4 py-3 text-center">
-                                                                        <span className="text-gold font-black text-base">${v.ourPrice}</span>
-                                                                    </td>
-                                                                    <td className="px-4 py-3 text-center">
-                                                                        <span className="text-red-400 line-through opacity-70">${v.kiwiPrice}</span>
-                                                                    </td>
-                                                                    <td className="px-4 py-3 text-center hidden md:table-cell">
-                                                                        <span className="text-gold font-semibold">${save} ({pct}%)</span>
-                                                                    </td>
+                                    
+                                    <AnimatePresence>
+                                        {isExpanded && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: 'auto', opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                className="border-t border-border bg-surface-alt"
+                                            >
+                                                <div className="px-6 pb-6 pt-4">
+                                                    <div className="rounded-xl overflow-hidden border border-border">
+                                                        <table className="w-full text-sm">
+                                                            <thead>
+                                                                <tr className="border-b border-border bg-surface">
+                                                                    <th className="text-left px-4 py-3 text-body font-medium">Vehicle Class</th>
+                                                                    <th className="text-center px-4 py-3 text-gold-strong font-bold">Direct (Us)</th>
+                                                                    <th className="text-center px-4 py-3 text-error font-medium">Via Platform</th>
+                                                                    <th className="text-center px-4 py-3 text-gold-strong font-medium hidden md:table-cell">You Save</th>
                                                                 </tr>
-                                                            );
-                                                        })}
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                                                            </thead>
+                                                            <tbody>
+                                                                {route.vehicles.map((v, vi) => {
+                                                                    const save = v.kiwiPrice - v.ourPrice;
+                                                                    const pct = Math.round((save / v.kiwiPrice) * 100);
+                                                                    return (
+                                                                        <tr
+                                                                            key={vi}
+                                                                            className={`border-b border-border last:border-0 ${vi % 2 === 0 ? 'bg-surface' : 'bg-surface-alt'}`}
+                                                                        >
+                                                                            <td className="px-4 py-3 text-ink">{v.label}</td>
+                                                                            <td className="px-4 py-3 text-center">
+                                                                                <span className="text-gold-strong font-black text-base">${v.ourPrice}</span>
+                                                                            </td>
+                                                                            <td className="px-4 py-3 text-center">
+                                                                                <span className="text-error line-through opacity-70">${v.kiwiPrice}</span>
+                                                                            </td>
+                                                                            <td className="px-4 py-3 text-center hidden md:table-cell">
+                                                                                <span className="text-gold-strong font-semibold">${save} ({pct}%)</span>
+                                                                            </td>
+                                                                        </tr>
+                                                                    );
+                                                                })}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
 
-                                            <div className="mt-4 flex flex-col sm:flex-row gap-3">
-                                                <Link
-                                                    href={`/booking?from=${encodeURIComponent(route.origin)}&to=${encodeURIComponent(route.destination)}`}
-                                                    className="flex-1 bg-gold text-black font-bold py-3 px-6 rounded-xl text-center hover:bg-white transition-colors text-sm uppercase tracking-wider"
-                                                >
-                                                    Book This Route Direct
-                                                </Link>
-                                                <a
-                                                    href="https://wa.me/966548707332"
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="sm:w-auto bg-gold/20 border border-gold text-gold font-bold py-3 px-6 rounded-btn text-center hover:bg-gold hover:text-ink transition-colors text-sm"
-                                                >
-                                                    WhatsApp Quote
-                                                </a>
-                                            </div>
-                                        </div>
-                                    )}
+                                                    <div className="mt-4 flex flex-col sm:flex-row gap-3">
+                                                        <Link
+                                                            href={`/booking?from=${encodeURIComponent(route.origin)}&to=${encodeURIComponent(route.destination)}`}
+                                                            className="flex-1 bg-gold text-ink font-semibold rounded-btn py-3 px-6 text-center hover:bg-gold-soft transition-colors text-sm uppercase tracking-wider"
+                                                        >
+                                                            Book This Route Direct
+                                                        </Link>
+                                                        <a
+                                                            href="https://wa.me/966548707332"
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="sm:w-auto bg-transparent border-[1.5px] border-border-strong text-ink font-semibold rounded-btn py-3 px-6 text-center hover:bg-gold-soft transition-colors text-sm uppercase tracking-wider"
+                                                        >
+                                                            WhatsApp Quote
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
                                 </div>
                             );
                         })}
                     </div>
 
                     {/* Bottom note */}
-                    <p className="text-center text-xs text-n-600 mt-8 max-w-xl mx-auto">
+                    <p className="text-center text-xs text-muted mt-8 max-w-xl mx-auto">
                         Platform prices shown are approximate estimates based on standard commission rates (20–30%).
                         Al Kiswah direct prices are guaranteed fixed rates inclusive of all taxes and fees.
                     </p>

@@ -24,7 +24,9 @@ export async function GET() {
                     isActive: true, // Default to active
                     passengers: capacityNum,
                     luggage: luggageNum,
-                    category: vehicleData.multiplier > 1.4 ? 'VIP' : 'Standard'
+                    category: vehicleData.category || (vehicleData.multiplier > 1.4 ? 'VIP' : 'Standard'),
+                    model: vehicleData.model || '',
+                    tier: vehicleData.tier || ''
                 },
                 { upsert: true, new: true }
             );

@@ -468,7 +468,9 @@
                 "USB Charging",
                 "Perfect for couples"
             ],
-            "luggage": "2 Large Suitcases"
+            "luggage": "2 Large Suitcases",
+            "category": "Sedan",
+            "model": "Toyota Camry"
         },
         {
             "id": "gmc",
@@ -495,7 +497,9 @@
                 "Privacy Tint",
                 "Dual AC"
             ],
-            "luggage": "5 Large Suitcases"
+            "luggage": "5 Large Suitcases",
+            "category": "VIP SUV",
+            "model": "GMC Yukon"
         },
         {
             "id": "staria",
@@ -521,7 +525,10 @@
                 "Pilot Seats",
                 "USB-C Ports"
             ],
-            "luggage": "4 Large Suitcases"
+            "luggage": "4 Large Suitcases",
+            "category": "Premium Van",
+            "model": "Hyundai Staria",
+            "tier": "Newer model · extra comfort"
         },
         {
             "id": "starex",
@@ -546,7 +553,9 @@
                 "Sliding Doors",
                 "Budget Friendly"
             ],
-            "luggage": "4 Large Suitcases"
+            "luggage": "4 Large Suitcases",
+            "category": "Family Van",
+            "model": "Hyundai H1"
         },
         {
             "id": "hiace",
@@ -571,7 +580,9 @@
                 "Ample Luggage Space",
                 "Group Travel"
             ],
-            "luggage": "8 Large Suitcases"
+            "luggage": "8 Large Suitcases",
+            "category": "Minibus",
+            "model": "Toyota HiAce"
         },
         {
             "id": "coaster",
@@ -588,7 +599,7 @@
                     "باص كوستر ايجار"
                 ]
             },
-            "capacity": "19 Seater",
+            "capacity": "19 Pax",
             "multiplier": 2.5,
             "features": [
                 "Microphone System",
@@ -596,7 +607,9 @@
                 "Reclining Seats",
                 "Large Windows"
             ],
-            "luggage": "19 Large Suitcases"
+            "luggage": "15 Bags",
+            "category": "Group Bus",
+            "model": "Toyota Coaster"
         }
     ]
 }

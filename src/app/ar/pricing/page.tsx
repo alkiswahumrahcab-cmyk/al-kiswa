@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from 'next';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -61,14 +61,14 @@ export default function PricingPage() {
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <Hero
-                title="Transparent & Fair Pricing"
-                subtitle="Know your travel costs upfront. No meters, no surprises, just honest, fixed rates for your sacred journey."
-                bgImage="https://images.unsplash.com/photo-1631631480669-535cc43f2327?q=80&w=2000&auto=format&fit=crop"
-                ctaText="Get Custom Quote"
-                ctaLink="/contact"
-                layout="center"
+                title="أسعارنا. مباشرة. بدون عمولات."
+                subtitle="نحن نمتلك أسطولنا السعودي. لا توجد رسوم وسطاء. ما تراه هو ما تدفعه — سعر ثابت، شامل كل شيء، ومضمون."
+                bgImage="/images/hero/pricingpagehero.jpg"
+                ctaText="احجز مباشرة الآن"
+                ctaLink="/booking"
+                layout="right"
+                removeBlur={true}
                 breadcrumbs={<Breadcrumbs />}
-                alt="Saudi Riyals Payment Pricing"
             />
 
             {/* Pricing Cards */}

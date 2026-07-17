@@ -15,18 +15,18 @@ import { Suspense } from 'react';
 import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 
 export const metadata: Metadata = {
-    title: "Umrah Taxi Prices 2026 | Jeddah to Makkah — Direct Operator, No Middleman",
-    description: "Book direct with Al Kiswah — Saudi Arabia's own licensed Umrah taxi fleet. Jeddah to Makkah from 200 SAR. 20–30% cheaper than Booking.com, Telexo & Kiwi. Fixed price, no hidden fees.",
+    title: "Al Kiswah Umrah Taxi Prices 2026 | Jeddah to Makkah & Madinah",
+    description: "Book direct with Al Kiswah — Saudi Arabia's own licensed Umrah taxi fleet. Jeddah to Makkah from 200 SAR. 20–30% cheaper than other platforms. Fixed price, no hidden fees.",
     keywords: [
         "Jeddah to Makkah Taxi Price 2026",
         "Makkah to Madinah Taxi Fare",
         "Umrah Taxi Rates 2026",
         "Cheap Umrah Taxi no middleman",
-        "cheaper than booking.com umrah",
-        "cheaper than kiwi taxi umrah",
-        "Al Kiswah vs Kiwi Taxi",
-        "Al Kiswah vs Telixo",
-        "Al Kiswah vs 5Star",
+        "cheaper than other platforms umrah",
+        "book direct umrah taxi",
+        "no commission umrah taxi",
+        "Al Kiswah vs other platforms",
+        "Al Kiswah vs middleman",
         "Al Kiswah taxi price",
         "GMC Yukon Price Makkah",
         "Taxi Cost Jeddah Airport",
@@ -36,8 +36,9 @@ export const metadata: Metadata = {
     ],
     alternates: generateMetadataAlternates("/pricing"),
     openGraph: {
-        title: "Umrah Taxi Prices 2026 | Al Kiswah — Book Direct, No Commission",
-        description: "We own our fleet. No middleman. Jeddah to Makkah from 200 SAR — 20% cheaper than Booking.com. Fixed price, WhatsApp support, Saudi-licensed.",
+        title: "Umrah Taxi Prices 2026 | Direct Operator",
+        description: "We own our fleet. No middleman. Jeddah to Makkah from 200 SAR — 20% cheaper than other platforms. Fixed price, WhatsApp support, Saudi-licensed.",
+        url: "https://alkiswahumrahtransport.com/pricing",
         images: [{ url: '/images/fleet/gmc-yukon-hero-professional.webp', width: 1200, height: 630, alt: 'Al Kiswah Umrah Taxi Pricing — Direct Operator' }]
     }
 };
@@ -48,8 +49,8 @@ const pricingFAQs = [
         answer: "We own every vehicle in our fleet. Al Kiswah is a licensed ground transport operator based in Makkah, Saudi Arabia — NOT a booking platform, broker, or middleman. When you book with us, you book directly with the company that owns and operates the car."
     },
     {
-        question: "Why is Al Kiswah cheaper than Booking.com, Telexo, and Kiwi?",
-        answer: "Booking.com, Telexo, and Kiwi add 15–30% commission on top of the transport cost. Because we are the direct operator, there is no middleman taking a cut. You pay us directly, and that's why our prices are consistently 20–30% lower than platform-based services."
+        question: "Why is Al Kiswah cheaper than other platforms?",
+        answer: "Other platforms add 15–30% commission on top of the transport cost. Because we are the direct operator, there is no middleman taking a cut. You pay us directly, and that's why our prices are consistently 20–30% lower than platform-based services."
     },
     {
         question: "What is the taxi fare from Jeddah Airport to Makkah in 2026?",
@@ -89,14 +90,13 @@ function PricingTableSkeleton() {
     return (
         <div className="space-y-8 max-w-6xl mx-auto animate-pulse">
             {[1, 2, 3].map(i => (
-                <div key={i} className="h-64 bg-white/5 rounded-3xl border border-white/8" />
+                <div key={i} className="h-64 bg-surface-alt rounded-[20px] border border-border" />
             ))}
         </div>
     );
 }
 
 export default async function PricingPage() {
-    // Fetch exchange rate server-side
     let exchangeRate = 3.75;
     try {
         const rawSettings = await settingsService.getSettings() as any[];
@@ -111,7 +111,6 @@ export default async function PricingPage() {
         console.error('[PricingPage] failed to fetch exchange rate:', e);
     }
 
-    // Fetch routes for JSON-LD
     let routesForSchema: any[] = [];
     try {
         const routes = await routeService.getActiveRoutes();
@@ -128,7 +127,6 @@ export default async function PricingPage() {
             }));
     } catch (e) {}
 
-    // Static price offers for Google rich snippets (from real operator rates)
     const staticOffers = [
         { name: 'Jeddah Airport to Makkah — Sedan (3 pax)', price: 50, route: 'jeddah-airport-makkah' },
         { name: 'Jeddah Airport to Makkah — Family Van (7 pax)', price: 60, route: 'jeddah-airport-makkah' },
@@ -146,10 +144,14 @@ export default async function PricingPage() {
         "@graph": [
             {
                 "@type": "LocalBusiness",
-                "@id": "https://kiswahumrahcab.com/#business",
+                "@id": "https://alkiswahumrahtransport.com/#business",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://alkiswahumrahtransport.com/pricing"
+                },
                 "name": "Al Kiswah Umrah Transport",
-                "description": "Saudi Arabia's own licensed Umrah taxi operator. We own our fleet — no middleman, no commission. Serving Makkah, Madinah, Jeddah and all Umrah routes. We supply vehicles to Kiwi Taxi, Telixo, 5Star and Booking.com — book direct for 20–30% savings.",
-                "url": "https://kiswahumrahcab.com",
+                "description": "Saudi Arabia's own licensed Umrah taxi operator. We own our fleet — no middleman, no commission. Serving Makkah, Madinah, Jeddah and all Umrah routes. We supply vehicles to other platforms — book direct for 20–30% savings.",
+                "url": "https://alkiswahumrahtransport.com",
                 "telephone": "+966548707332",
                 "priceRange": "$50–$850 USD",
                 "address": {
@@ -193,17 +195,18 @@ export default async function PricingPage() {
     };
 
     return (
-        <main className="min-h-screen bg-surface-alt relative">
+        <main className="min-h-screen bg-bg relative">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-            <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
+            <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-[0.03] mix-blend-multiply pointer-events-none z-0" />
 
             <Hero
                 title="Our Prices. Direct. No Commission."
                 subtitle="We own our Saudi fleet. No middleman markup. What you see is what you pay — fixed price, all-inclusive, guaranteed."
-                bgImage="/images/hero/desert-highway-makkah-tower.jpg"
+                bgImage="/images/hero/pricingpagehero.jpg"
                 ctaText="Book Direct Now"
                 ctaLink="/booking"
-                layout="center"
+                layout="right"
+                removeBlur={true}
                 breadcrumbs={<Breadcrumbs />}
                 alt="Al Kiswah Umrah Taxi — Direct Operator Pricing"
             />
@@ -234,10 +237,10 @@ export default async function PricingPage() {
             </section>
 
             {/* ── COMPARE LINK STRIP ──────────────────────────────── */}
-            <div className="relative z-10 py-4 border-b border-white/5 bg-white/2">
+            <div className="relative z-10 py-4 border-y border-border bg-surface">
                 <div className="container mx-auto px-4 flex flex-col sm:flex-row items-center justify-center gap-3 text-sm text-center">
-                    <span className="text-ink-muted">We supply Kiwi Taxi, Telixo, 5Star &amp; Booking.com. Book direct and save 20–30%.</span>
-                    <Link href="/pricing/compare" className="text-gold font-bold hover:text-ink transition-colors whitespace-nowrap">
+                    <span className="text-body font-medium">We supply vehicles to other online platforms. Book direct and save 20–30%.</span>
+                    <Link href="/pricing/compare" className="text-gold font-bold hover:text-gold-strong transition-colors whitespace-nowrap">
                         See Full Comparison →
                     </Link>
                 </div>
@@ -250,7 +253,7 @@ export default async function PricingPage() {
             <PriceComparisonTable />
 
             {/* ── TRUST BADGES ────────────────────────────────────── */}
-            <section className="py-16 bg-white/5 border-y border-white/5 relative z-10">
+            <section className="py-16 bg-surface-alt border-y border-border relative z-10">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                         {[
@@ -260,11 +263,11 @@ export default async function PricingPage() {
                             { Icon: AlertCircle, title: 'Free Cancel', sub: 'Up to 24h before trip' },
                         ].map(({ Icon, title, sub }) => (
                             <div key={title} className="flex flex-col items-center gap-4">
-                                <div className="p-4 rounded-full bg-gold/10 text-gold mb-2">
-                                    <Icon size={32} />
+                                <div className="p-4 rounded-full bg-gold-soft text-gold-strong mb-2">
+                                    <Icon size={32} strokeWidth={1.5} />
                                 </div>
-                                <h4 className="font-bold text-white">{title}</h4>
-                                <p className="text-xs text-white/60">{sub}</p>
+                                <h4 className="font-bold text-ink">{title}</h4>
+                                <p className="text-xs text-body">{sub}</p>
                             </div>
                         ))}
                     </div>
@@ -272,31 +275,31 @@ export default async function PricingPage() {
             </section>
 
             {/* ── SOCIAL PROOF STRIP ──────────────────────────────── */}
-            <section className="py-14 relative z-10 border-b border-white/5">
+            <section className="py-14 relative z-10 bg-bg border-b border-border">
                 <div className="container mx-auto px-4">
                     <FadeIn>
                         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
                             <div>
-                                <p className="text-3xl font-black text-white mb-1">10,000+</p>
-                                <p className="text-white/60 text-sm">Pilgrims transported</p>
+                                <p className="text-3xl font-black text-ink mb-1">10,000+</p>
+                                <p className="text-body text-sm">Pilgrims transported</p>
                             </div>
-                            <div className="hidden md:block w-px h-12 bg-white/10" />
+                            <div className="hidden md:block w-px h-12 bg-border" />
                             <div>
                                 <div className="flex items-center justify-center md:justify-start gap-1 mb-1">
                                     {[...Array(5)].map((_, i) => <Star key={i} size={18} className="text-gold fill-gold" />)}
-                                    <span className="text-white font-bold ml-2">5.0</span>
+                                    <span className="text-ink font-bold ml-2">5.0</span>
                                 </div>
-                                <p className="text-white/60 text-sm">Google Reviews — Verified</p>
+                                <p className="text-body text-sm">Google Reviews — Verified</p>
                             </div>
-                            <div className="hidden md:block w-px h-12 bg-white/10" />
+                            <div className="hidden md:block w-px h-12 bg-border" />
                             <div>
-                                <p className="text-3xl font-black text-white mb-1">0%</p>
-                                <p className="text-white/60 text-sm">Commission. Book direct.</p>
+                                <p className="text-3xl font-black text-ink mb-1">0%</p>
+                                <p className="text-body text-sm">Commission. Book direct.</p>
                             </div>
-                            <div className="hidden md:block w-px h-12 bg-white/10" />
+                            <div className="hidden md:block w-px h-12 bg-border" />
                             <div>
                                 <p className="text-3xl font-black text-gold mb-1">SAR · USD</p>
-                                <p className="text-white/60 text-sm">Pay in your currency</p>
+                                <p className="text-body text-sm">Pay in your currency</p>
                             </div>
                         </div>
                     </FadeIn>
@@ -304,26 +307,26 @@ export default async function PricingPage() {
             </section>
 
             {/* ── FAQ ─────────────────────────────────────────────── */}
-            <div className="relative z-10">
+            <div className="relative z-10 bg-surface-alt border-t border-border">
                 <FAQSection items={pricingFAQs} title="Pricing & Common Questions" />
             </div>
 
             {/* ── BOTTOM CTA ──────────────────────────────────────── */}
-            <section className="py-24 relative z-10">
+            <section className="py-24 relative z-10 bg-ink-bg">
                 <div className="container mx-auto px-4">
                     <FadeIn>
-                        <div className="max-w-3xl mx-auto text-center bg-gradient-to-br from-gold/10 to-black border border-gold/20 rounded-3xl p-12">
-                            <CheckCircle2 size={48} className="text-gold mx-auto mb-6" />
-                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                        <div className="max-w-3xl mx-auto text-center">
+                            <CheckCircle2 size={48} className="text-gold mx-auto mb-6" strokeWidth={1.5} />
+                            <h2 className="text-3xl md:text-4xl font-bold font-display text-on-ink mb-4">
                                 Ready to Book Direct?
                             </h2>
-                            <p className="text-white/60 mb-8 text-lg">
+                            <p className="text-on-ink-muted mb-8 text-lg">
                                 No platform fees. No broker markup. Just a fair price from Saudi Arabia's own Umrah fleet.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <Link
                                     href="/booking"
-                                    className="bg-gold text-black font-bold px-10 py-4 rounded-xl hover:bg-white transition-colors uppercase tracking-wider"
+                                    className="bg-gold text-ink font-semibold px-10 py-4 rounded-btn hover:bg-gold-soft transition-colors uppercase tracking-wider text-[15px]"
                                 >
                                     Book Now — Instant Confirmation
                                 </Link>
@@ -331,7 +334,7 @@ export default async function PricingPage() {
                                     href="https://wa.me/966548707332"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="bg-gold text-black font-bold px-10 py-4 rounded-xl hover:bg-gold-light transition-colors uppercase tracking-wider"
+                                    className="bg-transparent border-[1.5px] border-border-strong text-on-ink font-semibold px-10 py-4 rounded-btn hover:bg-white/5 transition-colors uppercase tracking-wider text-[15px]"
                                 >
                                     WhatsApp Us
                                 </a>

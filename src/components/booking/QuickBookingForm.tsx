@@ -215,7 +215,21 @@ export default function QuickBookingForm() {
                                             <Image src={vehicle.image} alt={vehicle.name} fill className="object-contain" />
                                         </div>
                                     )}
-                                    <h3 className="font-semibold text-ink text-lg">{vehicle?.name}</h3>
+                                    <div className="flex flex-col items-center">
+                                        {vehicle?.tier && (
+                                            <span className="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider mb-1" style={{ backgroundColor: '#E2A336', color: '#1A1A1A' }}>
+                                                {vehicle.tier}
+                                            </span>
+                                        )}
+                                        <h3 className="font-display font-bold text-ink text-2xl leading-tight">
+                                            {vehicle?.category || vehicle?.name}
+                                        </h3>
+                                        {vehicle?.model && (
+                                            <p className="font-body text-sm text-muted mt-0.5 opacity-80">
+                                                {vehicle.model}
+                                            </p>
+                                        )}
+                                    </div>
                                     <div className="flex gap-3 text-sm text-muted mt-1 mb-4">
                                         <span className="flex items-center gap-1"><Users size={14} /> {vehicle?.capacity}</span>
                                         <span className="flex items-center gap-1"><Briefcase size={14} /> {vehicle?.luggage}</span>

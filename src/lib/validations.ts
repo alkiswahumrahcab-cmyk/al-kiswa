@@ -98,7 +98,9 @@ export const PricingSchema = z.object({
         multiplier: z.number(),
         features: z.array(z.string()),
         luggage: z.string(),
-        category: z.enum(['Standard', 'Premium', 'VIP']).optional(), // Optional for backward compatibility
+        category: z.string().optional(),
+        model: z.string().optional(),
+        tier: z.string().optional(),
         isActive: z.boolean().optional(),
     })),
 });

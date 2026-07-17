@@ -965,7 +965,21 @@ export default function BookingForm() {
                                     </div>
                                     
                                     <div className="flex justify-between items-start mb-2">
-                                        <h3 className={`text-lg font-bold ${isSelected ? 'text-gold' : 'text-ink'}`}>{vehicle.name}</h3>
+                                        <div>
+                                            {vehicle.tier && (
+                                                <span className="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider mb-1" style={{ backgroundColor: '#E2A336', color: '#1A1A1A' }}>
+                                                    {vehicle.tier}
+                                                </span>
+                                            )}
+                                            <h3 className={`font-display text-xl sm:text-2xl font-bold leading-tight ${isSelected ? 'text-gold' : 'text-ink'}`}>
+                                                {vehicle.category || vehicle.name}
+                                            </h3>
+                                            {vehicle.model && (
+                                                <p className="font-body text-sm text-muted mt-0.5 opacity-80">
+                                                    {vehicle.model}
+                                                </p>
+                                            )}
+                                        </div>
                                         {dispPrice && (
                                             <div className="text-right">
                                                 {Number(dispPrice.amount) > 0 ? (
