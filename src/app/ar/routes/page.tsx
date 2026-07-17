@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Hero from '@/components/common/Hero';
@@ -77,7 +77,7 @@ const ROUTES = [
         features: ['Meet & Greet', 'Flight Monitoring', 'Luggage Assistance'],
         featuresAr: ['خدمة استقبال', 'متابعة الرحلات', 'مساعدة في الحقائب'],
         link: '/services/jeddah-airport-transfer',
-        image: '/images/routes/jeddah-airport-hero-professional.webp'
+        image: '/images/hero/jeddah-airport-to-makkah.jpg'
     },
     {
         id: 'makkah-madinah',

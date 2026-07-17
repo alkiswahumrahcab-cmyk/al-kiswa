@@ -59,58 +59,65 @@ export default function HotelTransferPage() {
             />
 
             {/* 1. Custom Hero Section (Full-Bleed) */}
-            <section className="relative w-full min-h-[clamp(560px,80vh,760px)] flex items-end pb-16 lg:pb-24 pt-32 overflow-hidden">
-                <Image
-                    src="/images/services/hotel-transfers-new.png"
-                    alt="Premium Hotel Transfers"
-                    fill
-                    priority
-                    sizes="100vw"
-                    className="object-cover object-center"
-                />
+            <section className="relative w-full min-h-[500px] sm:min-h-[760px] md:min-h-[850px] lg:h-[920px] xl:h-screen flex flex-col justify-end lg:justify-center pt-24 sm:pt-32 pb-8 sm:pb-24 lg:pt-40 lg:pb-32 overflow-hidden">
+                {/* Full-bleed background image */}
+                <div className="absolute inset-0 w-full h-full">
+                    <Image
+                        src="/images/hero/hotel-transfers.jpg"
+                        alt="Premium Hotel Transfers"
+                        fill
+                        priority
+                        sizes="100vw"
+                        className="object-cover object-[center_top] md:object-center"
+                    />
+                </div>
                 
-                {/* Warm charcoal gradient scrim */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-charcoal/90 via-charcoal/60 to-transparent pointer-events-none z-10" />
+                {/* Two-layer scrim for text readability (AA contrast) */}
+                <div className="absolute inset-0 bg-gradient-to-l from-black/80 via-black/40 to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
 
-                <div className="container relative z-20">
-                    <div className="max-w-3xl flex flex-col items-start text-left gap-5">
+                <div className="container relative z-20 px-4 w-full">
+                    {/* -mt-8 to shift the block slightly upward as requested */}
+                    <div className="w-full lg:w-[50%] max-w-[640px] md:ml-auto flex flex-col gap-5 lg:max-w-none text-left lg:-mt-16">
                         
-                        {/* Bismillah */}
-                        <div className="text-xl md:text-2xl font-arabic text-gold leading-relaxed drop-shadow-md mb-2" dir="rtl">
-                            بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
-                        </div>
-
                         {/* Eyebrow Chip */}
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-tint border border-gold/30 text-[13px] font-bold tracking-[0.14em] uppercase text-charcoal">
-                            <Shield size={14} className="text-gold-deep" />
+                        <div className="text-gold uppercase tracking-[0.14em] font-semibold text-[13px]">
                             Ministry Licensed Operator
                         </div>
 
-                        <h1 className="font-display font-semibold text-[clamp(40px,5vw,72px)] text-white leading-[1.1] tracking-tight drop-shadow-md">
+                        <h1 className="font-display font-semibold text-[32px] sm:text-[40px] md:text-[58px] leading-[1.1] text-white tracking-[-0.01em]">
                             Premium Hotel Transfers
                         </h1>
 
-                        <p className="text-white/90 text-lg md:text-xl font-light max-w-[52ch] leading-[1.65]">
+                        <p className="text-white/90 font-light text-lg md:text-[19px] leading-[1.65] max-w-[44ch]">
                             Seamless door-to-door transport between your hotel and the Holy Mosques in Makkah & Madinah.
                         </p>
 
-                        <div className="mt-4 flex flex-col sm:flex-row items-center gap-6">
+                        <div className="flex flex-col sm:flex-row items-start gap-6 mt-2">
                             <Link 
                                 href="/booking"
-                                className="inline-flex items-center justify-center bg-gold text-charcoal font-semibold px-8 py-4 rounded-btn hover:bg-gold-deep transition-colors duration-200"
+                                className="inline-flex items-center justify-center h-[48px] px-8 bg-gold hover:bg-gold-soft text-ink font-semibold rounded-btn shadow-sm transition-all min-w-[200px]"
                             >
                                 Book Your Ride
                                 <ArrowRight size={20} className="ml-2" />
                             </Link>
+                        </div>
 
-                            {/* Trust Row */}
-                            <div className="flex flex-wrap items-center gap-3">
-                                {["Nusuk Registered", "Ministry Licensed", "Verified Transport"].map((trust, idx) => (
-                                    <span key={idx} className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface/10 backdrop-blur-sm border border-hairline/30 text-white text-xs font-medium">
-                                        <CheckCircle size={12} className="text-gold" />
-                                        {trust}
-                                    </span>
-                                ))}
+                        {/* Trust Indicators */}
+                        <div className="hidden md:flex flex-col gap-3 mt-6 text-[14px] text-white/90 font-body">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4">
+                                <div className="flex items-center gap-2.5">
+                                    <ShieldCheck size={18} strokeWidth={1.5} className="text-gold shrink-0" />
+                                    <span>Nusuk Registered</span>
+                                </div>
+                                <div className="flex items-center gap-2.5">
+                                    <ShieldCheck size={18} strokeWidth={1.5} className="text-gold shrink-0" />
+                                    <span>Ministry Licensed</span>
+                                </div>
+                                <div className="flex items-center gap-2.5">
+                                    <Star size={18} strokeWidth={1.5} fill="currentColor" className="text-gold shrink-0" />
+                                    <span>Verified Transport</span>
+                                </div>
                             </div>
                         </div>
                     </div>

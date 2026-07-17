@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -112,7 +112,7 @@ export default async function JeddahAirportTransferPage() {
     const content = {
         title: "Jeddah Airport to Makkah Transfers",
         subtitle: "Start your Umrah with peace of mind. Professional drivers, Meet & Greet service (استقبال خاص). Direct transfer to your Makkah hotel.",
-        heroImage: "/images/routes/jeddah-airport-hero-professional.webp"
+        heroImage: "/images/hero/jeddah-airport-to-makkah.jpg"
     };
 
     return (

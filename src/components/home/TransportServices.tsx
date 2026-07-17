@@ -28,7 +28,7 @@ const enServices: ServiceItem[] = [
                 Experience safe, comfortable <Link href="/services/intercity-transfer" className="text-gold hover:underline">intercity travel</Link> between major Saudi cities. Our premium intercity transport ensures a smooth journey for pilgrims performing Umrah and Ziyarat.
             </>
         ),
-        image: '/images/services/intercity-transport-new.png',
+        image: '/images/hero/intercitytransfer.jpg',
         alt: 'GMC Yukon Intercity Taxi Makkah to Madinah',
         iconName: 'executive-sedan',
         link: '/services/intercity-transfer',
@@ -43,7 +43,7 @@ const enServices: ServiceItem[] = [
             </>
         ),
         iconName: 'airport',
-        image: '/images/services/airport-transport-new.png',
+        image: '/images/hero/airportransfer.jpg',
         alt: 'Jeddah Airport Taxi Pickup Service',
         link: '/services/airport-transfers',
     },
@@ -57,7 +57,7 @@ const enServices: ServiceItem[] = [
             </>
         ),
         iconName: 'hotel-transfer',
-        image: '/images/services/hotel-transfers-new.png',
+        image: '/images/hero/hotel-transfers.jpg',
         alt: 'Private Hotel Transfer Makkah to Haram',
         link: '/services/hotel-transfers',
     }
@@ -73,7 +73,7 @@ const arServices: ServiceItem[] = [
                 استمتع برحلة آمنة ومريحة بين المدن السعودية الكبرى مع <Link href="/ar/services/intercity-transfer" className="text-gold hover:underline">خدمة النقل البيني</Link> المتميزة. نضمن لك رحلة سلسة أثناء أداء العمرة والزيارات.
             </>
         ),
-        image: '/images/services/intercity-transport-new.png',
+        image: '/images/hero/intercitytransfer.jpg',
         alt: 'تاكسي GMC يونك من مكة إلى المدينة المنورة',
         iconName: 'executive-sedan',
         link: '/ar/services/intercity-transfer',
@@ -88,7 +88,7 @@ const arServices: ServiceItem[] = [
             </>
         ),
         iconName: 'airport',
-        image: '/images/services/airport-transport-new.png',
+        image: '/images/hero/airportransfer.jpg',
         alt: 'استقبال من مطار الملك عبدالعزيز جدة',
         link: '/ar/services/airport-transfers',
     },
@@ -102,7 +102,7 @@ const arServices: ServiceItem[] = [
             </>
         ),
         iconName: 'hotel-transfer',
-        image: '/images/services/hotel-transfers-new.png',
+        image: '/images/hero/hotel-transfers.jpg',
         alt: 'توصيل خاص من الفندق إلى الحرم المكي',
         link: '/ar/services/hotel-transfers',
     }

@@ -76,7 +76,7 @@ const ROUTES = [
         features: ['Meet & Greet', 'Flight Monitoring', 'Luggage Assistance'],
         featuresAr: ['خدمة استقبال', 'متابعة الرحلات', 'مساعدة في الحقائب'],
         link: '/services/jeddah-airport-transfer',
-        image: '/images/routes/jeddah-airport-hero-professional.webp'
+        image: '/images/hero/jeddah-airport-to-makkah.jpg'
     },
     {
         id: 'makkah-madinah',

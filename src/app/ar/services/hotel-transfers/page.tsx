@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import { Metadata } from 'next';
 import Hero from '@/components/common/Hero';
@@ -30,7 +30,7 @@ export default function HotelTransferPage() {
             <Hero
                 title="Premium Hotel Transfers"
                 subtitle="Seamless door-to-door transport between your hotel and the Holy Mosques in Makkah & Madinah."
-                bgImage="/images/services/hotel-transfer-real.jpg"
+                bgImage="/images/hero/hotel-transfers.jpg"
                 ctaText="Book Your Ride"
                 ctaLink="/booking"
                 layout="center"

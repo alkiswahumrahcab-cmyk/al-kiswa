@@ -143,7 +143,7 @@ export default async function JeddahAirportTransferPage() {
             <section className="relative pt-[120px] pb-16 md:pt-[160px] md:pb-24 overflow-hidden border-b border-border bg-surface">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/routes/jeddah-airport-hero-professional.webp"
+                        src="/images/hero/jeddah-airport-to-makkah.jpg"
                         alt="Jeddah Airport to Makkah Taxi Transfer"
                         fill
                         priority
