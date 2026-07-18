@@ -470,7 +470,7 @@
             ],
             "luggage": "2 Large Suitcases",
             "category": "Sedan",
-            "model": "Toyota Camry"
+            "modelName": "Toyota Camry"
         },
         {
             "id": "gmc",
@@ -499,7 +499,7 @@
             ],
             "luggage": "5 Large Suitcases",
             "category": "VIP SUV",
-            "model": "GMC Yukon"
+            "modelName": "GMC Yukon"
         },
         {
             "id": "staria",
@@ -527,7 +527,7 @@
             ],
             "luggage": "4 Large Suitcases",
             "category": "Premium Van",
-            "model": "Hyundai Staria",
+            "modelName": "Hyundai Staria",
             "tier": "Newer model · extra comfort"
         },
         {
@@ -555,7 +555,7 @@
             ],
             "luggage": "4 Large Suitcases",
             "category": "Family Van",
-            "model": "Hyundai H1"
+            "modelName": "Hyundai H1"
         },
         {
             "id": "hiace",
@@ -582,7 +582,7 @@
             ],
             "luggage": "8 Large Suitcases",
             "category": "Minibus",
-            "model": "Toyota HiAce"
+            "modelName": "Toyota HiAce"
         },
         {
             "id": "coaster",
@@ -609,7 +609,7 @@
             ],
             "luggage": "15 Bags",
             "category": "Group Bus",
-            "model": "Toyota Coaster"
+            "modelName": "Toyota Coaster"
         }
     ]
 }

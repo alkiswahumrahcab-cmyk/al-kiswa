@@ -974,9 +974,9 @@ export default function BookingForm() {
                                             <h3 className={`font-display text-xl sm:text-2xl font-bold leading-tight ${isSelected ? 'text-gold' : 'text-ink'}`}>
                                                 {vehicle.category || vehicle.name}
                                             </h3>
-                                            {vehicle.model && (
+                                            {vehicle.modelName && (
                                                 <p className="font-body text-sm text-muted mt-0.5 opacity-80">
-                                                    {vehicle.model}
+                                                    {vehicle.modelName}
                                                 </p>
                                             )}
                                         </div>

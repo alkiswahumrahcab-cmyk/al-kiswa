@@ -32,7 +32,7 @@ export interface Vehicle {
     features: string[];
     luggage: string;
     category?: string;
-    model?: string;
+    modelName?: string;
     tier?: string;
     isActive?: boolean;
     image?: string;

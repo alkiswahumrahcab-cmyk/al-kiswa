@@ -25,7 +25,7 @@ export async function GET() {
                     passengers: capacityNum,
                     luggage: luggageNum,
                     category: vehicleData.category || (vehicleData.multiplier > 1.4 ? 'VIP' : 'Standard'),
-                    model: vehicleData.model || '',
+                    modelName: vehicleData.modelName || '',
                     tier: vehicleData.tier || ''
                 },
                 { upsert: true, new: true }

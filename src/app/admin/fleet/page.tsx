@@ -21,7 +21,7 @@ interface Vehicle {
     price: string;
     hourlyRate?: string;
     category: string;
-    model?: string;
+    modelName?: string;
     tier?: string;
     isActive: boolean;
     unavailableDates?: string[];
@@ -47,7 +47,7 @@ export default function FleetPage() {
         price: '',
         hourlyRate: '',
         category: 'Standard',
-        model: '',
+        modelName: '',
         tier: '',
         isActive: true,
         unavailableDates: [] as string[]
@@ -89,7 +89,7 @@ export default function FleetPage() {
             price: vehicle.price,
             hourlyRate: vehicle.hourlyRate || '',
             category: vehicle.category,
-            model: vehicle.model || '',
+            modelName: vehicle.modelName || '',
             tier: vehicle.tier || '',
             isActive: vehicle.isActive,
             unavailableDates: vehicle.unavailableDates || []
@@ -110,7 +110,7 @@ export default function FleetPage() {
             price: '',
             hourlyRate: '',
             category: 'Standard',
-            model: '',
+            modelName: '',
             tier: '',
             isActive: true,
             unavailableDates: []
@@ -398,8 +398,8 @@ export default function FleetPage() {
                                         <input
                                             type="text"
                                             className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
-                                            value={formData.model || ''}
-                                            onChange={e => setFormData({ ...formData, model: e.target.value })}
+                                            value={formData.modelName || ''}
+                                            onChange={e => setFormData({ ...formData, modelName: e.target.value })}
                                             placeholder="e.g. Hyundai Staria"
                                         />
                                     </div>

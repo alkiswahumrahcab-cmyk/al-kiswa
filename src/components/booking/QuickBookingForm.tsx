@@ -224,9 +224,9 @@ export default function QuickBookingForm() {
                                         <h3 className="font-display font-bold text-ink text-2xl leading-tight">
                                             {vehicle?.category || vehicle?.name}
                                         </h3>
-                                        {vehicle?.model && (
-                                            <p className="font-body text-sm text-muted mt-0.5 opacity-80">
-                                                {vehicle.model}
+                                        {vehicle?.modelName && (
+                                            <p className="font-body text-[11px] text-muted mt-0.5 opacity-80 leading-none">
+                                                {vehicle.modelName}
                                             </p>
                                         )}
                                     </div>

@@ -14,7 +14,7 @@ export interface IVehicle extends Document {
     discountLabel?: string;
     hourlyRate?: string;
     category: string;
-    model?: string;
+    modelName?: string;
     tier?: string;
     isActive: boolean;
     isOfferActive?: boolean;
@@ -256,7 +256,7 @@ const VehicleSchema = new Schema<IVehicle>({
     discountLabel: { type: String }, // e.g., "15% OFF"
     hourlyRate: { type: String },
     category: { type: String, default: 'Standard' },
-    model: { type: String },
+    modelName: { type: String },
     tier: { type: String },
     isActive: { type: Boolean, default: true },
     isOfferActive: { type: Boolean, default: false },
