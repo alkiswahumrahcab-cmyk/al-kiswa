@@ -468,7 +468,7 @@
                 "USB Charging",
                 "Perfect for couples"
             ],
-            "luggage": "2 Large Suitcases",
+            "luggage": "3 Bags",
             "category": "Sedan",
             "modelName": "Toyota Camry"
         },
@@ -525,7 +525,7 @@
                 "Pilot Seats",
                 "USB-C Ports"
             ],
-            "luggage": "4 Large Suitcases",
+            "luggage": "7 Bags",
             "category": "Premium Van",
             "modelName": "Hyundai Staria",
             "tier": "Newer model · extra comfort"
@@ -553,7 +553,7 @@
                 "Sliding Doors",
                 "Budget Friendly"
             ],
-            "luggage": "4 Large Suitcases",
+            "luggage": "7 Bags",
             "category": "Family Van",
             "modelName": "Hyundai H1"
         },
@@ -580,7 +580,7 @@
                 "Ample Luggage Space",
                 "Group Travel"
             ],
-            "luggage": "8 Large Suitcases",
+            "luggage": "12 Bags",
             "category": "Minibus",
             "modelName": "Toyota HiAce"
         },
