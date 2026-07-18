@@ -32,6 +32,8 @@ export interface Vehicle {
     features: string[];
     luggage: string;
     category?: string;
+    model?: string;
+    tier?: string;
     isActive?: boolean;
     image?: string;
 }
