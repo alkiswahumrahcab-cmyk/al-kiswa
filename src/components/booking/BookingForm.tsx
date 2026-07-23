@@ -586,11 +586,11 @@ export default function BookingForm() {
                                                 title="Select Route"
                                             >
                                                 <div className="p-4 border-b border-border relative sticky top-0 bg-surface z-10">
-                                                    <Search size={18} className="absolute left-7 top-1/2 -translate-y-1/2 text-muted" />
+                                                    <Search size={18} className="absolute left-8 top-1/2 -translate-y-1/2 text-muted" />
                                                     <input
                                                         type="text" value={searchStr} onChange={(e) => setRouteSearches(prev => ({ ...prev, [index]: e.target.value }))}
                                                         placeholder="Search city or airport..."
-                                                        className="w-full pl-10 pr-4 py-2 bg-transparent border-b border-border rounded-none text-base text-ink placeholder-muted outline-none focus:border-gold transition-colors"
+                                                        className="w-full pl-12 pr-4 py-3 bg-surface-sunken border border-border-strong rounded-md text-base text-ink placeholder-muted outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-all shadow-sm"
                                                     />
                                                 </div>
                                                 <div className="max-h-64 overflow-y-auto custom-scrollbar">

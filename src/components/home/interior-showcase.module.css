@@ -158,5 +158,9 @@
 
 @media (max-width: 640px) {
   .section { --stagger: 0.25rem; padding-block: 4rem; }
-  .cardInner { aspect-ratio: 4 / 5; }
+  .cardInner { 
+    aspect-ratio: 4 / 5; 
+    height: auto;
+    min-height: unset;
+  }
 }

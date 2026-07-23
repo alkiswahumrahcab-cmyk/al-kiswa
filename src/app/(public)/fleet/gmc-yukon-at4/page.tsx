@@ -158,15 +158,11 @@ export default async function GmcYukonPage() {
                 badge="Premium VIP Choice"
                 ctaText="Book Now"
                 ctaLink="/booking?vehicle=gmc"
+                whatsappText="WhatsApp Inquiry"
+                whatsappLink={whatsappLink}
                 layout="center"
                 breadcrumbs={<Breadcrumbs />}
-            >
-                <div className="mt-4 flex justify-center gap-4">
-                    <a href={whatsappLink} className="inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-btn font-bold hover:bg-green-600 transition-colors">
-                        WhatsApp Inquiry
-                    </a>
-                </div>
-            </Hero>
+            />
 
             {/* B & C. Exterior Highlights / Cinematic Gallery */}
             <section className="py-20 bg-surface">
@@ -181,7 +177,7 @@ export default async function GmcYukonPage() {
                         {exteriorImages.map((img, i) => (
                             <div key={i} className="group relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
                                 <Image src={img.src} alt={img.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4">
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#15140F]/90 via-[#15140F]/30 to-transparent flex items-end p-4">
                                     <h3 className="text-white font-bold text-base">{img.title}</h3>
                                 </div>
                             </div>
@@ -191,27 +187,26 @@ export default async function GmcYukonPage() {
             </section>
 
             {/* D. Interior Luxury Section */}
-            <section className="py-20 bg-ink text-surface relative">
-                <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5"></div>
+            <section className="py-20 bg-surface-alt relative">
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="text-center max-w-3xl mx-auto mb-16">
                         <span className="text-gold font-bold tracking-widest uppercase text-sm mb-4 block">Interior</span>
-                        <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6">Unmatched Cabin Comfort</h2>
-                        <p className="text-surface-alt/80 text-lg">Experience first-class travel with premium leather seating, advanced climate control, and massive legroom for every passenger.</p>
+                        <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-ink">Unmatched Cabin Comfort</h2>
+                        <p className="text-ink-muted text-lg">Experience first-class travel with premium leather seating, advanced climate control, and massive legroom for every passenger.</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                         {interiorImages.map((img, i) => (
                             <div key={i} className="group relative rounded-xl overflow-hidden aspect-[4/3]">
                                 <Image src={img.src} alt={img.alt} fill className="object-cover transition-opacity duration-500 group-hover:opacity-75" />
-                                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+                                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#15140F]/90 to-transparent">
                                     <h4 className="font-bold text-lg text-gold">{img.title}</h4>
                                 </div>
                             </div>
                         ))}
                     </div>
 
-                    <div className="max-w-5xl mx-auto mt-12 bg-ink/50 rounded-2xl p-2 md:p-4 shadow-2xl border border-white/10">
+                    <div className="max-w-5xl mx-auto mt-12 bg-surface rounded-2xl p-2 md:p-4 shadow-xl border border-border">
                         <Interior360Viewer
                             imageUrl="/images/fleet/gmc-yukon-interior-360.webp"
                             title="Interactive 360° Cabin View"
@@ -402,10 +397,10 @@ export default async function GmcYukonPage() {
                                 </div>
                             </div>
                             <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                                <Link href="/booking?vehicle=gmc" className="flex-1 bg-gold hover:bg-gold-soft text-ink px-8 py-4 rounded-btn font-bold text-lg text-center transition-all hover:scale-105 shadow-lg shadow-gold/30 flex items-center justify-center gap-2">
+                                <Link href="/booking?vehicle=gmc" className="flex-1 btn-primary text-lg flex items-center justify-center gap-2">
                                     Go to Full Booking Form <ArrowRight size={20} />
                                 </Link>
-                                <a href={whatsappLink} className="flex-1 bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-btn font-bold text-lg text-center transition-all hover:scale-105 flex items-center justify-center gap-2">
+                                <a href={whatsappLink} className="flex-1 btn-whatsapp text-lg flex items-center justify-center gap-2">
                                     Book via WhatsApp
                                 </a>
                             </div>
@@ -423,17 +418,17 @@ export default async function GmcYukonPage() {
                         fill 
                         className="object-cover object-center"
                     />
-                    <div className="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+                    <div className="absolute inset-0 bg-[#15140F]/80 backdrop-blur-sm"></div>
                 </div>
                 
                 <div className="relative z-10 text-center max-w-2xl mx-auto px-4">
                     <h2 className="text-3xl md:text-5xl font-bold font-playfair text-white mb-6">Ready to Book Your VIP Ride?</h2>
                     <p className="text-lg text-white/80 mb-10">Reserve your GMC Yukon XL instantly with our online booking system or chat with our support team via WhatsApp.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking?vehicle=gmc" className="bg-gold hover:bg-gold-soft text-ink px-8 py-4 rounded-btn font-bold text-lg transition-transform hover:scale-105 shadow-lg shadow-gold/30 flex items-center justify-center gap-2">
+                        <Link href="/booking?vehicle=gmc" className="btn-primary text-lg flex items-center justify-center gap-2">
                             Go to Booking Form <ArrowRight size={20} />
                         </Link>
-                        <a href={whatsappLink} className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-btn font-bold text-lg transition-transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
+                        <a href={whatsappLink} className="btn-whatsapp text-lg flex items-center justify-center gap-2">
                             Book via WhatsApp
                         </a>
                     </div>

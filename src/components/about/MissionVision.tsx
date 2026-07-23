@@ -16,12 +16,12 @@ export default function MissionVision() {
                     <div
                         className={`glass-card p-8 md:p-12 rounded-3xl transition-all duration-700 transform hover:-translate-y-2 group ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
                     >
-                        <div className="w-20 h-20 bg-gradient-to-br from-gold/20 to-black border border-gold/30 rounded-2xl flex items-center justify-center mb-8 shadow-[0_0_30px_hsl(var(--gold-glow) / 0.1)] group-hover:scale-110 transition-transform duration-500">
-                            <Target size={40} strokeWidth={1.5} className="text-gold drop-shadow-[0_0_10px_hsl(var(--gold-glow) / 0.4)]" />
+                        <div className="w-20 h-20 bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/30 rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 transition-transform duration-500">
+                            <Target size={40} strokeWidth={1.5} className="text-gold" />
                         </div>
-                        <h2 className="text-4xl font-semibold text-foreground mb-6 font-display tracking-tight">Our Mission</h2>
-                        <p className="text-lg text-muted-foreground leading-relaxed font-light group-hover:text-foreground transition-colors">
-                            To serve the Guests of Allah with <span className="text-gold font-medium">sincerity, safety, and excellence</span>. We strive to ensure every mile traveled is a seamless part of your spiritual journey, honoring your trust with the highest standards of hospitality.
+                        <h2 className="text-4xl font-semibold text-ink mb-6 font-display tracking-tight">Our Mission</h2>
+                        <p className="text-lg text-ink-muted leading-relaxed font-light group-hover:text-ink transition-colors">
+                            To serve the Guests of Allah with <span className="text-gold-strong font-medium">sincerity, safety, and excellence</span>. We strive to ensure every mile traveled is a seamless part of your spiritual journey, honoring your trust with the highest standards of hospitality.
                         </p>
                     </div>
 
@@ -29,12 +29,12 @@ export default function MissionVision() {
                     <div
                         className={`glass-card p-8 md:p-12 rounded-3xl transition-all duration-700 delay-200 transform hover:-translate-y-2 group ${isIntersecting ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'}`}
                     >
-                        <div className="w-20 h-20 bg-gradient-to-br from-charcoal/40 to-black border border-gold/30 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
-                            <Eye size={40} strokeWidth={1.5} className="text-gold drop-shadow-[0_0_10px_rgba(52,211,153,0.4)]" />
+                        <div className="w-20 h-20 bg-gradient-to-br from-gold/10 to-transparent border border-gold/30 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+                            <Eye size={40} strokeWidth={1.5} className="text-gold" />
                         </div>
-                        <h2 className="text-4xl font-semibold text-foreground mb-6 font-display tracking-tight">Our Vision</h2>
-                        <p className="text-lg text-muted-foreground leading-relaxed font-light group-hover:text-foreground transition-colors">
-                            To be the most <span className="text-gold font-medium">trusted companion</span> for Hajj and Umrah pilgrims. We envision a world where every pilgrim can focus entirely on their worship, knowing their journey is in safe, caring hands.
+                        <h2 className="text-4xl font-semibold text-ink mb-6 font-display tracking-tight">Our Vision</h2>
+                        <p className="text-lg text-ink-muted leading-relaxed font-light group-hover:text-ink transition-colors">
+                            To be the most <span className="text-gold-strong font-medium">trusted companion</span> for Hajj and Umrah pilgrims. We envision a world where every pilgrim can focus entirely on their worship, knowing their journey is in safe, caring hands.
                         </p>
                     </div>
 

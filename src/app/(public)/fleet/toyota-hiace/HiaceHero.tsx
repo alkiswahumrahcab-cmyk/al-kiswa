@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -30,8 +30,9 @@ export default function HiaceHero({ whatsappLink, phoneNumber }: Props) {
                 />
             </motion.div>
 
-            {/* Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-deep-black via-black/50 to-black/10" />
+            {/* Overlay Gradient for readability */}
+            <div className="absolute inset-0 bg-ink/30 backdrop-blur-[2px] z-[1]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-ink/60 z-[1]" />
 
             {/* Content */}
             <div className="relative z-10 container mx-auto px-6 text-center">
@@ -57,7 +58,7 @@ export default function HiaceHero({ whatsappLink, phoneNumber }: Props) {
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 }}
-                    className="text-n-300 text-base md:text-lg max-w-xl mx-auto mb-8"
+                    className="text-white/90 text-base md:text-lg max-w-xl mx-auto mb-8"
                 >
                     Group transport for Umrah, families & business — Jeddah, Makkah, Madinah & Abha.
                 </motion.p>
@@ -70,7 +71,7 @@ export default function HiaceHero({ whatsappLink, phoneNumber }: Props) {
                 >
                     <Link
                         href="/booking"
-                        className="inline-flex items-center justify-center bg-gold hover:bg-white text-black font-bold px-8 py-3.5 rounded-xl transition-all duration-300 shadow-[0_0_30px_rgba(245,158,11,0.35)]"
+                        className="btn-primary"
                     >
                         Book Now
                     </Link>
@@ -78,13 +79,13 @@ export default function HiaceHero({ whatsappLink, phoneNumber }: Props) {
                         href={whatsappLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb85a] text-white font-bold px-8 py-3.5 rounded-xl transition-colors"
+                        className="btn-whatsapp flex gap-2"
                     >
                         <MessageCircle size={18} /> WhatsApp
                     </a>
                     <a
                         href={`tel:${phoneNumber}`}
-                        className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 hover:bg-white/20 text-white font-bold px-8 py-3.5 rounded-xl backdrop-blur-sm transition-colors"
+                        className="btn-secondary border-white/30 text-white hover:bg-white/10 flex gap-2 items-center justify-center"
                     >
                         <Phone size={18} /> Call
                     </a>

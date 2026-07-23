@@ -3,7 +3,7 @@ import React from 'react';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import WelcomeSection from '@/components/about/WelcomeSection';
-import CompanyStory from '@/components/about/CompanyStory';
+
 import MissionVision from '@/components/about/MissionVision';
 import CoreValues from '@/components/about/CoreValues';
 import TrustSection from '@/components/about/TrustSection';
@@ -68,7 +68,6 @@ export default async function AboutPage() {
                     <WelcomeSection />
                     <NusukTrustStrip />
                     <ImpactStats />
-                    <CompanyStory />
                     <MissionVision />
                     <CoreValues />
                     <TrustSection />

@@ -24,12 +24,12 @@ const generateJsonLd = (vehicleData: any) => ({
         },
         {
             "@type": "Product",
-            "name": "Hyundai Staria 2026",
+            "name": "Hyundai Staria",
             "image": [
                 "https://kiswahumrahcab.com/images/fleet/staria/hyundai-staria-2026-exterior-cinematic.jpeg",
                 "https://kiswahumrahcab.com/images/fleet/staria/hyundai-staria-2026-exterior-front-view.jpeg"
             ],
-            "description": "Hyundai Staria 2026 – premium family and business van with advanced safety, spacious interior, and futuristic design. Book your premium Umrah transport in Saudi Arabia.",
+            "description": "Hyundai Staria – premium family and business van with advanced safety, spacious interior, and futuristic design. Book your premium Umrah transport in Saudi Arabia.",
             "brand": { "@type": "Brand", "name": "Hyundai" },
             "category": "Automotive",
             "offers": {
@@ -90,14 +90,14 @@ const generateJsonLd = (vehicleData: any) => ({
 
 export async function generateMetadata(): Promise<Metadata> {
     return {
-        title: "Hyundai Staria 2026 – Price, Features & Interior | Saudi Arabia",
-        description: "Explore the Hyundai Staria 2026 in Saudi Arabia. Premium interior, advanced safety, spacious design, and top performance. Book a test drive today.",
+        title: "Hyundai Staria – Price, Features & Interior | Saudi Arabia",
+        description: "Explore the Hyundai Staria in Saudi Arabia. Premium interior, advanced safety, spacious design, and top performance. Book a test drive today.",
         keywords: [
             "Hyundai Staria Saudi Arabia",
             "Hyundai Staria price KSA",
             "Hyundai Staria interior",
             "Hyundai Staria features",
-            "Hyundai Staria 2026",
+            "Hyundai Staria",
             "Hyundai Staria review",
             "Hyundai Staria family van",
             "Hyundai Staria business van"
@@ -123,6 +123,22 @@ const stariaFAQs = [
         question: "What are the safety features of Hyundai Staria?",
         answer: "It comes equipped with Hyundai Smart Sense, including forward collision-avoidance assist, blind-spot view monitor, and a reinforced safety structure."
     },
+    {
+        question: "Can I book the Hyundai Staria for intercity transfers between Makkah and Madinah?",
+        answer: "Yes, it is highly recommended for the Makkah to Madinah route. Its lounge-like comfort and smooth suspension make the 4-hour journey extremely relaxing for families."
+    },
+    {
+        question: "Is there enough space for luggage in the Hyundai Staria?",
+        answer: "Yes, the Staria offers versatile seating and generous cargo space, easily accommodating 6-8 large suitcases along with hand luggage without compromising passenger comfort."
+    },
+    {
+        question: "Does the Staria have charging ports for passengers?",
+        answer: "Absolutely. Our premium Staria fleet comes equipped with multiple USB charging ports and independent climate control for all passenger rows."
+    },
+    {
+        question: "How do I book a Hyundai Staria for my Umrah trip?",
+        answer: "You can instantly book online through our booking page, or simply click the WhatsApp button to chat with our support team for a quick, confirmed reservation."
+    }
 ];
 
 export default async function HyundaiStariaPage() {
@@ -145,15 +161,16 @@ export default async function HyundaiStariaPage() {
                     <StariaAnimations type="ken-burns" className="absolute inset-0">
                         <Image
                             src="/images/fleet/staria/hyundai-staria-2026-exterior-cinematic.jpeg"
-                            alt="Hyundai Staria 2026 Premium People Mover"
+                            alt="Hyundai Staria Premium People Mover"
                             fill
                             priority
                             className="object-cover object-center"
                         />
                     </StariaAnimations>
                     {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/80 to-transparent" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-transparent to-black/30" />
+                    <div className="absolute inset-0 bg-[#15140F]/30 backdrop-blur-[2px] z-[1]" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#15140F] via-[#15140F]/80 to-transparent z-[1]" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#15140F] via-transparent to-[#15140F]/30 z-[1]" />
                 </div>
                 
                 <div className="relative z-10 container mx-auto px-4 text-center mt-20">
@@ -162,20 +179,20 @@ export default async function HyundaiStariaPage() {
                             The Future of Mobility
                         </span>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 font-playfair tracking-tight leading-tight">
-                            Hyundai Staria 2026 <br/>
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-light to-gold">
+                            Hyundai Staria <br/>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E5C158] to-gold">
                                 Premium Family & Business Van
                             </span>
                         </h1>
-                        <p className="text-lg md:text-2xl text-n-200 mb-10 max-w-3xl mx-auto font-light">
+                        <p className="text-white/90 mb-10 max-w-3xl mx-auto text-lg md:text-xl font-light">
                             Premium comfort, futuristic design, and unmatched versatility in Saudi Arabia.
                         </p>
                         
                         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                            <a href="#features" className="px-8 py-4 bg-transparent border-2 border-gold text-white rounded-btn font-bold hover:bg-gold hover:text-charcoal transition-colors shadow-[0_0_20px_rgba(245,158,11,0.2)]">
+                            <a href="#features" className="btn-secondary border-white/30 text-white hover:bg-white/10 flex items-center justify-center">
                                 Explore Features
                             </a>
-                            <Link href="/booking" className="px-8 py-4 bg-gold text-charcoal rounded-btn font-bold hover:bg-gold-metallic transition-colors shadow-[0_0_20px_rgba(245,158,11,0.4)] flex items-center gap-2">
+                            <Link href="/booking" className="btn-primary flex items-center gap-2">
                                 Book Now <ArrowRight size={20} />
                             </Link>
                         </div>
@@ -201,10 +218,10 @@ export default async function HyundaiStariaPage() {
                         <StariaAnimations type="zoom-in" delay={0.1}>
                             <div className="group relative h-[300px] rounded-2xl overflow-hidden shadow-xl border border-border">
                                 <Image src="/images/fleet/staria/hyundai-staria-2026-exterior-led-headlight.jpeg" alt="LED Headlamps" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#15140F]/90 via-[#15140F]/20 to-transparent"></div>
                                 <div className="absolute bottom-6 left-6">
-                                    <h3 className="text-gold-light text-xl font-bold mb-2">LED Headlamps</h3>
-                                    <p className="text-n-300 text-sm">Signature horizon styling</p>
+                                    <h3 className="text-gold text-xl font-bold mb-2">LED Headlamps</h3>
+                                    <p className="text-white/90 text-sm">Signature horizon styling</p>
                                 </div>
                             </div>
                         </StariaAnimations>
@@ -212,10 +229,10 @@ export default async function HyundaiStariaPage() {
                         <StariaAnimations type="zoom-in" delay={0.2}>
                             <div className="group relative h-[300px] rounded-2xl overflow-hidden shadow-xl border border-border">
                                 <Image src="/images/fleet/staria/hyundai-staria-2026-exterior-full-front.jpeg" alt="Parametric Grille" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#15140F]/90 via-[#15140F]/20 to-transparent"></div>
                                 <div className="absolute bottom-6 left-6">
-                                    <h3 className="text-gold-light text-xl font-bold mb-2">Parametric Grille</h3>
-                                    <p className="text-n-300 text-sm">Bold and commanding fascia</p>
+                                    <h3 className="text-gold text-xl font-bold mb-2">Parametric Grille</h3>
+                                    <p className="text-white/90 text-sm">Bold and commanding fascia</p>
                                 </div>
                             </div>
                         </StariaAnimations>
@@ -223,10 +240,10 @@ export default async function HyundaiStariaPage() {
                         <StariaAnimations type="zoom-in" delay={0.3}>
                             <div className="group relative h-[300px] rounded-2xl overflow-hidden shadow-xl border border-border">
                                 <Image src="/images/fleet/staria/hyundai-staria-2026-exterior-alloy-wheels.jpeg" alt="Alloy Wheels" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#15140F]/90 via-[#15140F]/20 to-transparent"></div>
                                 <div className="absolute bottom-6 left-6">
-                                    <h3 className="text-gold-light text-xl font-bold mb-2">Premium Alloy Wheels</h3>
-                                    <p className="text-n-300 text-sm">Diamond-cut geometric design</p>
+                                    <h3 className="text-gold text-xl font-bold mb-2">Premium Alloy Wheels</h3>
+                                    <p className="text-white/90 text-sm">Diamond-cut geometric design</p>
                                 </div>
                             </div>
                         </StariaAnimations>
@@ -234,10 +251,10 @@ export default async function HyundaiStariaPage() {
                         <StariaAnimations type="zoom-in" delay={0.4} className="md:col-span-2">
                             <div className="group relative h-[300px] rounded-2xl overflow-hidden shadow-xl border border-border">
                                 <Image src="/images/fleet/staria/hyundai-staria-2026-exterior-sliding-doors-open.jpeg" alt="Sliding Doors" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#15140F]/90 via-[#15140F]/20 to-transparent"></div>
                                 <div className="absolute bottom-6 left-6">
-                                    <h3 className="text-gold-light text-2xl font-bold mb-2">Dual Smart Sliding Doors</h3>
-                                    <p className="text-n-300 text-sm max-w-md">Effortless entry and exit, perfect for families and VIP guests with automatic opening features.</p>
+                                    <h3 className="text-gold text-2xl font-bold mb-2">Dual Smart Sliding Doors</h3>
+                                    <p className="text-white/90 text-sm max-w-md">Effortless entry and exit, perfect for families and VIP guests with automatic opening features.</p>
                                 </div>
                             </div>
                         </StariaAnimations>
@@ -245,10 +262,10 @@ export default async function HyundaiStariaPage() {
                         <StariaAnimations type="zoom-in" delay={0.5}>
                             <div className="group relative h-[300px] rounded-2xl overflow-hidden shadow-xl border border-border">
                                 <Image src="/images/fleet/staria/hyundai-staria-2026-exterior-rear-lights-combo.jpeg" alt="Aerodynamic Body" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#15140F]/90 via-[#15140F]/20 to-transparent"></div>
                                 <div className="absolute bottom-6 left-6">
-                                    <h3 className="text-gold-light text-xl font-bold mb-2">Parametric Pixel Lights</h3>
-                                    <p className="text-n-300 text-sm">Futuristic rear illumination</p>
+                                    <h3 className="text-gold text-xl font-bold mb-2">Parametric Pixel Lights</h3>
+                                    <p className="text-white/90 text-sm">Futuristic rear illumination</p>
                                 </div>
                             </div>
                         </StariaAnimations>
@@ -257,19 +274,18 @@ export default async function HyundaiStariaPage() {
             </section>
 
             {/* 3. Interior Luxury Showcase */}
-            <section className="py-24 bg-ink relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10">
+            <section className="py-24 bg-surface-alt relative overflow-hidden">
+                <div className="absolute inset-0 opacity-5">
                     <Image src="/images/fleet/staria/hyundai-staria-2026-interior-dashboard-main.jpeg" alt="Background" fill className="object-cover blur-sm" />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-b from-ink/90 via-ink/80 to-ink"></div>
                 
                 <div className="container mx-auto px-4 relative z-10">
                     <StariaAnimations type="slide-up">
                         <div className="text-center mb-16">
-                            <h2 className="text-3xl md:text-5xl font-bold font-playfair text-surface mb-4">
+                            <h2 className="text-3xl md:text-5xl font-bold font-playfair text-ink mb-4">
                                 Interior Luxury & Comfort
                             </h2>
-                            <p className="text-surface-alt/80 max-w-2xl mx-auto text-lg">
+                            <p className="text-ink-muted max-w-2xl mx-auto text-lg">
                                 A lounge-inspired cabin that transforms travel time into relaxation time. Featuring premium captain seats, panoramic windows, and advanced infotainment.
                             </p>
                         </div>
@@ -278,22 +294,22 @@ export default async function HyundaiStariaPage() {
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
                         <div className="md:col-span-8 h-[400px] md:h-[600px] relative rounded-2xl overflow-hidden shadow-2xl border border-gold/20">
                             <Image src="/images/fleet/staria/hyundai-staria-2026-interior-spacious-seating.jpeg" alt="Spacious Cabin" fill className="object-cover" />
-                            <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-charcoal/90 to-transparent">
-                                <h3 className="text-2xl font-bold text-gold-light mb-2">Expansive Space</h3>
-                                <p className="text-n-200">Unrivaled headroom and legroom for all passengers.</p>
+                            <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-[#15140F]/90 to-transparent">
+                                <h3 className="text-2xl font-bold text-gold mb-2">Expansive Space</h3>
+                                <p className="text-white/90">Unrivaled headroom and legroom for all passengers.</p>
                             </div>
                         </div>
                         <div className="md:col-span-4 flex flex-col gap-4">
                             <div className="h-[200px] md:h-[292px] relative rounded-2xl overflow-hidden shadow-xl border border-gold/20">
                                 <Image src="/images/fleet/staria/hyundai-staria-2026-interior-captain-seat.jpeg" alt="Captain Seats" fill className="object-cover" />
-                                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-charcoal/90 to-transparent">
-                                    <h3 className="text-xl font-bold text-gold-light">Premium Captain Seats</h3>
+                                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#15140F]/90 to-transparent">
+                                    <h3 className="text-xl font-bold text-gold">Premium Captain Seats</h3>
                                 </div>
                             </div>
                             <div className="h-[200px] md:h-[292px] relative rounded-2xl overflow-hidden shadow-xl border border-gold/20">
                                 <Image src="/images/fleet/staria/hyundai-staria-2026-interior-dashboard-angle.jpeg" alt="Dashboard" fill className="object-cover" />
-                                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-charcoal/90 to-transparent">
-                                    <h3 className="text-xl font-bold text-gold-light">Advanced Dashboard</h3>
+                                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-[#15140F]/90 to-transparent">
+                                    <h3 className="text-xl font-bold text-gold">Advanced Dashboard</h3>
                                 </div>
                             </div>
                         </div>
@@ -420,11 +436,11 @@ export default async function HyundaiStariaPage() {
             <StariaGallery />
 
             {/* 7. Booking Section (Lifestyle) */}
-            <section className="relative py-32 bg-charcoal text-white overflow-hidden">
+            <section className="relative py-32 bg-[#15140F] text-white overflow-hidden">
                 <div className="absolute inset-0">
                     <Image src="/images/fleet/staria/hyundai-staria-2026-lifestyle-desert-road.jpeg" alt="Desert Road" fill className="object-cover opacity-30" />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-r from-charcoal/95 to-charcoal/50"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#15140F]/95 to-[#15140F]/50"></div>
                 
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="max-w-2xl">
@@ -433,13 +449,13 @@ export default async function HyundaiStariaPage() {
                                 Ready to Experience the Future of Travel?
                             </h2>
                             <p className="text-xl text-white/80 mb-10">
-                                Book the Hyundai Staria 2026 today for your family's Umrah transport. Enjoy fixed pricing, professional chauffeurs, and ultimate comfort.
+                                Book the Hyundai Staria today for your family's Umrah transport. Enjoy fixed pricing, professional chauffeurs, and ultimate comfort.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <Link href="/booking" className="px-8 py-4 bg-gold text-charcoal text-center rounded-btn font-bold hover:bg-gold-metallic transition-colors shadow-lg shadow-gold/20 text-lg">
+                                <Link href="/booking" className="btn-primary text-lg">
                                     Book a Ride Now
                                 </Link>
-                                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-[#25D366] text-white text-center rounded-btn font-bold hover:bg-[#20bd5a] transition-colors shadow-lg shadow-[#25D366]/20 text-lg flex items-center justify-center gap-2">
+                                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn-whatsapp text-lg flex items-center justify-center gap-2">
                                     Contact via WhatsApp
                                 </a>
                             </div>

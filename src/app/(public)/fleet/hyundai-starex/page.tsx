@@ -190,25 +190,24 @@ export default async function HyundaiStarexPage() {
             </section>
 
             {/* 360 Interior Preview (Placeholder) */}
-            <section className="py-16 bg-ink text-surface overflow-hidden relative">
-                <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
+            <section className="py-16 bg-surface-alt overflow-hidden relative">
                 <div className="container mx-auto px-4 text-center relative z-10">
                     <span className="text-gold font-bold tracking-widest uppercase text-sm mb-4 block">Budget Friendly Comfort</span>
-                    <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8 text-surface">Step Inside</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8 text-ink">Step Inside</h2>
 
                     <div className="max-w-6xl mx-auto">
                         {/* <Interior360Viewer
                             imageUrl="/images/fleet/camry-interior-360.webp"
                             title="Hyundai H1 Starex Interior"
                         /> */}
-                        <div className="w-full h-[400px] flex items-center justify-center bg-charcoal rounded-2xl border border-white/10">
+                        <div className="w-full h-[400px] flex items-center justify-center bg-surface rounded-2xl border border-border shadow-md">
                             <div className="text-center">
-                                <h3 className="text-2xl font-bold text-white mb-2">360° View Coming Soon</h3>
-                                <p className="text-white/70">We will upload the interior view later.</p>
+                                <h3 className="text-2xl font-bold text-ink mb-2">360° View Coming Soon</h3>
+                                <p className="text-ink-muted">We will upload the interior view later.</p>
                             </div>
                         </div>
                     </div>
-                    <p className="text-surface/60 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
+                    <p className="text-ink-muted mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
                 </div>
             </section>
 

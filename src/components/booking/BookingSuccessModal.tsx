@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
 
@@ -109,7 +109,7 @@ export default function BookingSuccessModal({
 
                                     {/* Header */}
                                     <div className="text-center relative z-10">
-                                        <div className="w-20 h-20 mx-auto bg-gold/20 rounded-full flex items-center justify-center mb-6 text-gold shadow-[0_0_20px_rgba(200,137,31,0.2)]">
+                                        <div className="w-20 h-20 mx-auto bg-gold-soft rounded-full flex items-center justify-center mb-6 text-gold-strong">
                                             <CheckCircle size={40} />
                                         </div>
                                         <h2 className="text-3xl md:text-5xl font-bold text-ink mb-2 tracking-tight">Booking Confirmed</h2>
@@ -118,9 +118,9 @@ export default function BookingSuccessModal({
                                         </p>
 
                                         {/* Blessing Quotes */}
-                                        <div className="bg-black/20 border border-gold/20 rounded-2xl p-6 mb-8 text-center shadow-inner">
+                                        <div className="bg-surface-sunken border border-border rounded-xl p-6 mb-8 text-center">
                                             <div className="mb-5">
-                                                <p className="text-gold font-bold text-xl md:text-2xl mb-1.5 leading-loose drop-shadow-sm font-arabic" dir="rtl">
+                                                <p className="text-gold font-bold text-xl md:text-2xl mb-1.5 leading-loose font-arabic" dir="rtl">
                                                     تقبّل الله عمرتكم وبارك في خطاكم.
                                                 </p>
                                                 <p className="text-muted text-sm font-montserrat">
@@ -128,7 +128,7 @@ export default function BookingSuccessModal({
                                                 </p>
                                             </div>
                                             <div>
-                                                <p className="text-gold font-bold text-xl md:text-2xl mb-1.5 leading-loose drop-shadow-sm font-arabic" dir="rtl">
+                                                <p className="text-gold font-bold text-xl md:text-2xl mb-1.5 leading-loose font-arabic" dir="rtl">
                                                     نسأل الله أن ييسر رحلتكم ويكتب لكم الأجر.
                                                 </p>
                                                 <p className="text-muted text-sm font-montserrat">
@@ -146,7 +146,7 @@ export default function BookingSuccessModal({
                                     </div>
 
                                     {/* What happens next? */}
-                                    <div className="mb-8 relative z-10 bg-black/20 border border-gold/30 rounded-2xl p-6 md:p-8 text-left shadow-lg">
+                                    <div className="mb-8 relative z-10 bg-surface border border-border rounded-xl p-6 md:p-8 text-left shadow-sm">
                                         <h3 className="text-gold font-bold text-xl md:text-2xl mb-6">What happens next?</h3>
                                         <div className="space-y-5">
                                             <div className="flex gap-4 items-start">
@@ -175,7 +175,7 @@ export default function BookingSuccessModal({
                                             href={whatsappLink}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="w-full flex items-center justify-center gap-3 bg-gold hover:bg-[#b07718] active:scale-[0.98] text-[#012A5B] font-bold py-5 rounded-2xl transition-all shadow-[0_4px_20px_rgba(200,137,31,0.3)] text-lg"
+                                            className="w-full flex items-center justify-center gap-3 btn-primary text-base py-4 shadow-sm hover:shadow-md"
                                         >
                                             <MessageCircle size={24} />
                                             Message us on WhatsApp
@@ -262,14 +262,14 @@ export default function BookingSuccessModal({
 
                                         {/* Total Amount */}
                                         <div className="flex items-stretch gap-3 mt-2">
-                                            <div className="flex-1 bg-gold/10 border border-gold/30 text-ink rounded-2xl p-5 flex flex-col justify-center shadow-lg backdrop-blur-sm relative overflow-hidden">
-                                                <div className="absolute inset-0 bg-gradient-to-r from-gold/5 to-transparent pointer-events-none" />
+                                            <div className="flex-1 bg-surface border border-gold/30 text-ink rounded-xl p-5 flex flex-col justify-center shadow-sm relative overflow-hidden">
+                                                <div className="absolute inset-0 bg-gold-soft/30 pointer-events-none" />
                                                 <div className="relative z-10 flex justify-between items-end">
                                                     <div>
-                                                        <p className="text-xs text-gold-light/80 uppercase tracking-wider mb-0.5 font-semibold">Total Amount</p>
-                                                        <p className="text-xs text-gold-light/80 font-bold" dir="rtl">الإجمالي</p>
+                                                        <p className="text-xs text-muted uppercase tracking-wider mb-0.5 font-semibold">Total Amount</p>
+                                                        <p className="text-xs text-muted font-bold" dir="rtl">الإجمالي</p>
                                                     </div>
-                                                    <p className="text-2xl md:text-3xl font-extrabold text-gold relative z-10 drop-shadow-md">{priceDisplay}</p>
+                                                    <p className="text-2xl md:text-3xl font-extrabold text-gold relative z-10">{priceDisplay}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -280,7 +280,7 @@ export default function BookingSuccessModal({
                                 <div className="pt-8 flex flex-col gap-3 relative z-20">
                                     <button
                                         onClick={onClose}
-                                        className="w-full flex items-center justify-center gap-2 bg-surface-alt hover:bg-surface-sunken border border-border text-ink font-medium py-4 rounded-xl transition-colors text-base active:scale-[0.98]"
+                                        className="w-full flex items-center justify-center gap-2 btn-secondary py-4"
                                     >
                                         <Home size={18} />
                                         Return Home

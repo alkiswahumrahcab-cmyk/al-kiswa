@@ -82,7 +82,7 @@ export default async function ContactPage() {
                     </div>
                 </FadeIn>
 
-                <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-16">
                     {/* Contact Info Column */}
                     <div className="lg:col-span-5 space-y-6">
                         <ContactGrid contactSettings={{
@@ -90,22 +90,6 @@ export default async function ContactPage() {
                             email,
                             address
                         }} />
-
-                        {/* Map Placeholder */}
-                        <FadeIn direction="up" delay={0.4}>
-                            <GlassCard className="p-0 overflow-hidden min-h-[400px] relative flex items-center justify-center bg-surface border-border shadow-sm rounded-[20px]" id="map">
-                                <div className="absolute inset-0 bg-gold/5 pointer-events-none z-10 mix-blend-overlay" />
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3713.526883410923!2d39.8126588!3d21.447833599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c21d9da1e4d599%3A0xb8a485c3949902cc!2zQWwgS2lzd2FoIFVtyoNoIFRyYW5zcG9ydA!5e0!3m2!1sen!2s"
-                                    width="100%"
-                                    height="100%"
-                                    loading="lazy"
-                                    className="w-full h-full min-h-[400px] border-0 opacity-90 hover:opacity-100 transition-opacity"
-                                    title="Al Kiswah Umrah Transport Map"
-                                    allowFullScreen
-                                />
-                            </GlassCard>
-                        </FadeIn>
                     </div>
 
                     {/* Contact Form Column */}
@@ -127,6 +111,22 @@ export default async function ContactPage() {
                         </FadeIn>
                     </div>
                 </div>
+
+                {/* Full Width Map */}
+                <FadeIn direction="up" delay={0.4}>
+                    <GlassCard className="p-0 overflow-hidden min-h-[500px] lg:min-h-[600px] w-full relative flex items-center justify-center bg-surface border-border shadow-sm rounded-[20px]" id="map">
+                        <div className="absolute inset-0 bg-gold/5 pointer-events-none z-10 mix-blend-overlay" />
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14853.5!2d39.8126588!3d21.4478336!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDI2JzUyLjIiTiAzOcKwNDgnNDUuNiJF!5e0!3m2!1sen!2s"
+                            width="100%"
+                            height="100%"
+                            loading="lazy"
+                            className="absolute inset-0 w-full h-full border-0 opacity-90 hover:opacity-100 transition-opacity"
+                            title="Al Kiswah Umrah Transport Map"
+                            allowFullScreen
+                        />
+                    </GlassCard>
+                </FadeIn>
             </div>
 
             <HotelsAndDistricts />

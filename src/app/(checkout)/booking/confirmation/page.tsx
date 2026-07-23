@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { Suspense, useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
@@ -58,13 +58,13 @@ function ConfirmationContent() {
                 className="w-full relative"
             >
                 {/* ═══ TICKET CARD ═══ */}
-                <div className="bg-[#080E1D] rounded-[2rem] overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.8)] border border-gold/20">
+                <div className="bg-surface rounded-[2rem] overflow-hidden shadow-xl border border-border">
 
                     {/* ── Header ── */}
-                    <div className="relative bg-gradient-to-b from-[#1C1200] via-[#0D0900] to-[#080E1D] px-8 pt-12 pb-8 text-center overflow-hidden">
+                    <div className="relative bg-surface-sunken px-8 pt-12 pb-8 text-center overflow-hidden">
                         {/* Glow rings */}
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <div className="w-48 h-48 rounded-full bg-gold/5 blur-2xl" />
+                            <div className="w-48 h-48 rounded-full bg-gold/10 blur-2xl" />
                         </div>
 
                         {/* Animated check */}
@@ -101,7 +101,7 @@ function ConfirmationContent() {
                             initial={{ opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.3 }}
-                            className="text-3xl font-extrabold text-white tracking-tight mb-2"
+                            className="text-3xl font-extrabold text-ink tracking-tight mb-2"
                         >
                             Booking Confirmed
                         </motion.h2>
@@ -110,18 +110,18 @@ function ConfirmationContent() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.38 }}
-                            className="text-n-400 text-sm"
+                            className="text-muted text-sm"
                         >
-                            Thank you, <span className="text-white font-semibold">{name}</span>
+                            Thank you, <span className="text-ink font-semibold">{name}</span>
                         </motion.p>
                         {email && (
                             <motion.p
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.42 }}
-                                className="text-n-500 text-xs mt-1"
+                                className="text-muted text-xs mt-1"
                             >
-                                Receipt sent to <span className="text-gold/90">{email}</span>
+                                Receipt sent to <span className="text-ink font-semibold">{email}</span>
                             </motion.p>
                         )}
 
@@ -131,22 +131,22 @@ function ConfirmationContent() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.48 }}
                             onClick={copyBookingId}
-                            className="mt-6 inline-flex items-center gap-2 bg-white/5 border border-gold/25 hover:border-gold/60 hover:bg-gold/10 text-gold px-5 py-2.5 rounded-btn text-sm font-mono font-bold transition-all duration-200 group"
+                            className="mt-6 inline-flex items-center gap-2 bg-surface border border-border hover:bg-surface-alt text-ink px-5 py-2.5 rounded-btn text-sm font-mono font-bold transition-all duration-200 group"
                         >
-                            <span className="text-n-400 text-xs font-sans font-normal">ID</span>
+                            <span className="text-muted text-xs font-sans font-normal">ID</span>
                             <span>#{id}</span>
                             {copied
-                                ? <Check size={14} className="text-gold" />
-                                : <Copy size={14} className="opacity-50 group-hover:opacity-100 transition-opacity" />
+                                ? <Check size={14} className="text-green-500" />
+                                : <Copy size={14} className="text-muted group-hover:text-ink transition-colors" />
                             }
                         </motion.button>
                     </div>
 
                     {/* ── Dashed Ticket Tear ── */}
                     <div className="relative flex items-center px-6 -my-0.5 z-10">
-                        <div className="w-6 h-6 rounded-full bg-black -ml-6 shrink-0" />
-                        <div className="flex-1 border-t-2 border-dashed border-white/8" />
-                        <div className="w-6 h-6 rounded-full bg-black -mr-6 shrink-0" />
+                        <div className="w-6 h-6 rounded-full bg-background -ml-6 shrink-0" />
+                        <div className="flex-1 border-t-2 border-dashed border-border" />
+                        <div className="w-6 h-6 rounded-full bg-background -mr-6 shrink-0" />
                     </div>
 
                     {/* ── Trip Details (If available in URL) ── */}
@@ -158,19 +158,19 @@ function ConfirmationContent() {
                             className="px-7 py-8 space-y-4 text-left"
                         >
                             {/* Route */}
-                            <div className="bg-white/[0.04] border border-white/8 rounded-2xl p-4">
-                                <p className="text-[10px] text-n-500 uppercase tracking-widest font-semibold mb-2.5 flex items-center gap-1.5">
+                            <div className="bg-surface-alt border border-border rounded-2xl p-4">
+                                <p className="text-[10px] text-muted uppercase tracking-widest font-semibold mb-2.5 flex items-center gap-1.5">
                                     <MapPin size={10} className="text-gold" /> Route
                                 </p>
                                 <div className="flex items-center gap-2 min-w-0">
                                     <div className="flex-1 min-w-0">
-                                        <p className="text-white text-sm font-semibold truncate">{pickup}</p>
+                                        <p className="text-ink text-sm font-semibold truncate">{pickup}</p>
                                     </div>
                                     {displayDropoff && (
                                         <>
                                             <ArrowRight size={14} className="text-gold shrink-0" />
                                             <div className="flex-1 min-w-0 text-right">
-                                                <p className="text-n-300 text-sm font-medium truncate">{displayDropoff}</p>
+                                                <p className="text-muted text-sm font-medium truncate">{displayDropoff}</p>
                                             </div>
                                         </>
                                     )}
@@ -179,53 +179,53 @@ function ConfirmationContent() {
 
                             {/* Date / Time / Passengers grid */}
                             <div className="grid grid-cols-3 gap-2.5">
-                                <div className="bg-white/[0.04] border border-white/8 rounded-xl p-3 flex flex-col gap-1.5">
+                                <div className="bg-surface border border-border rounded-xl p-3 flex flex-col gap-1.5 shadow-sm">
                                     <Calendar size={13} className="text-gold" />
-                                    <p className="text-[10px] text-n-500 uppercase tracking-wider">Date</p>
-                                    <p className="text-white text-xs font-semibold leading-tight">{formattedDate}</p>
+                                    <p className="text-[10px] text-muted uppercase tracking-wider">Date</p>
+                                    <p className="text-ink text-xs font-semibold leading-tight">{formattedDate}</p>
                                 </div>
-                                <div className="bg-white/[0.04] border border-white/8 rounded-xl p-3 flex flex-col gap-1.5">
+                                <div className="bg-surface border border-border rounded-xl p-3 flex flex-col gap-1.5 shadow-sm">
                                     <Clock size={13} className="text-gold" />
-                                    <p className="text-[10px] text-n-500 uppercase tracking-wider">Time</p>
-                                    <p className="text-white text-sm font-bold">{time}</p>
+                                    <p className="text-[10px] text-muted uppercase tracking-wider">Time</p>
+                                    <p className="text-ink text-sm font-bold">{time}</p>
                                 </div>
-                                <div className="bg-white/[0.04] border border-white/8 rounded-xl p-3 flex flex-col gap-1.5">
+                                <div className="bg-surface border border-border rounded-xl p-3 flex flex-col gap-1.5 shadow-sm">
                                     <Users size={13} className="text-gold" />
-                                    <p className="text-[10px] text-n-500 uppercase tracking-wider">Pax</p>
-                                    <p className="text-white text-sm font-bold">{passengers}</p>
+                                    <p className="text-[10px] text-muted uppercase tracking-wider">Pax</p>
+                                    <p className="text-ink text-sm font-bold">{passengers}</p>
                                 </div>
                             </div>
 
                             {/* Vehicle & Price */}
-                            <div className="bg-gradient-to-r from-gold/10 to-transparent border border-gold/20 rounded-2xl px-4 py-3.5 flex items-center justify-between">
+                            <div className="bg-surface border border-gold/30 rounded-2xl px-4 py-3.5 flex items-center justify-between shadow-sm">
                                 <div className="flex items-center gap-2.5">
-                                    <div className="w-10 h-10 rounded-xl bg-gold/15 flex items-center justify-center">
+                                    <div className="w-10 h-10 rounded-xl bg-gold-soft flex items-center justify-center">
                                         <Car size={18} className="text-gold" />
                                     </div>
                                     <div>
-                                        <p className="text-[10px] text-n-500 uppercase tracking-wider">Vehicle</p>
-                                        <p className="text-white text-sm font-semibold">{vehicleName}</p>
+                                        <p className="text-[10px] text-muted uppercase tracking-wider">Vehicle</p>
+                                        <p className="text-ink text-sm font-semibold">{vehicleName}</p>
                                     </div>
                                 </div>
                                 <div className="text-right">
-                                    <p className="text-[10px] text-n-500 uppercase tracking-wider">Total</p>
+                                    <p className="text-[10px] text-muted uppercase tracking-wider">Total</p>
                                     <p className="text-gold text-xl font-extrabold tracking-tight">{priceDisplay}</p>
                                 </div>
                             </div>
 
                             {/* Trust badge */}
                             <div className="flex items-center justify-center gap-4 pt-3">
-                                <div className="flex items-center gap-1.5 text-n-500 text-[11px]">
+                                <div className="flex items-center gap-1.5 text-muted text-[11px]">
                                     <Shield size={11} className="text-gold/60" />
                                     Pay on arrival
                                 </div>
-                                <div className="w-px h-3 bg-white/10" />
-                                <div className="flex items-center gap-1.5 text-n-500 text-[11px]">
+                                <div className="w-px h-3 bg-border" />
+                                <div className="flex items-center gap-1.5 text-muted text-[11px]">
                                     <Star size={11} className="text-gold/60" />
                                     Licensed & insured
                                 </div>
-                                <div className="w-px h-3 bg-white/10" />
-                                <div className="flex items-center gap-1.5 text-n-500 text-[11px]">
+                                <div className="w-px h-3 bg-border" />
+                                <div className="flex items-center gap-1.5 text-muted text-[11px]">
                                     <CheckCircle size={11} className="text-gold/60" />
                                     24/7 support
                                 </div>
@@ -242,9 +242,9 @@ function ConfirmationContent() {
                     >
                         <Link
                             href="/"
-                            className="w-full flex items-center justify-center gap-2.5 bg-gold hover:bg-gold-hover active:scale-[0.98] text-black font-bold py-3.5 rounded-xl transition-all duration-200 shadow-[0_8px_24px_hsl(var(--gold-glow) / 0.25)] text-sm"
+                            className="w-full flex items-center justify-center gap-2.5 btn-primary py-4 text-base"
                         >
-                            <Home size={16} />
+                            <Home size={18} />
                             Return Home
                         </Link>
                     </motion.div>
@@ -256,8 +256,8 @@ function ConfirmationContent() {
 
 export default function ConfirmationPage() {
     return (
-        <main className="min-h-screen bg-black pt-28 pb-12">
-            <Suspense fallback={<div className="text-center py-20 text-white">Loading...</div>}>
+        <main className="min-h-screen bg-background pt-28 pb-12">
+            <Suspense fallback={<div className="text-center py-20 text-ink">Loading...</div>}>
                 <ConfirmationContent />
             </Suspense>
         </main>

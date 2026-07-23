@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
 import Hero from '@/components/common/Hero';
@@ -6,7 +6,7 @@ import Breadcrumbs from '@/components/common/Breadcrumbs';
 
 export default function TermsPage() {
     return (
-        <div className="bg-charcoal min-h-screen pb-20 relative text-white/90">
+        <div className="bg-bg min-h-screen pb-20 relative text-ink">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <Hero
@@ -18,34 +18,34 @@ export default function TermsPage() {
 
             <div className="container mx-auto px-4 -mt-12 relative z-10">
                 <FadeIn>
-                    <div className="bg-neutral-900/90 rounded-3xl shadow-xl p-8 md:p-12 max-w-4xl mx-auto border border-white/10 backdrop-blur-md">
-                        <div className="mb-8 pb-8 border-b border-white/10">
-                            <h1 className="text-3xl font-semibold font-display text-white mb-2">Terms and Conditions</h1>
-                            <p className="text-white/60 text-sm">Last Updated: November 2025</p>
+                    <div className="bg-surface rounded-3xl shadow-lg p-8 md:p-12 max-w-4xl mx-auto border border-border backdrop-blur-md">
+                        <div className="mb-8 pb-8 border-b border-border">
+                            <h1 className="text-3xl font-semibold font-display text-ink mb-2">Terms and Conditions</h1>
+                            <p className="text-ink-muted text-sm">Last Updated: November 2025</p>
                         </div>
 
-                        <div className="space-y-8 text-white/80 leading-relaxed font-light">
+                        <div className="space-y-8 text-ink leading-relaxed font-light">
                             <section>
-                                <h2 className="text-xl font-semibold text-white mb-4 font-display">1. Introduction</h2>
+                                <h2 className="text-xl font-semibold text-ink mb-4 font-display">1. Introduction</h2>
                                 <p>
                                     Welcome to Al Kiswah Umrah Transport. By accessing our website and using our services, you agree to be bound by these Terms and Conditions. Please read them carefully before making a booking.
                                 </p>
                             </section>
 
                             <section>
-                                <h2 className="text-xl font-semibold text-white mb-4 font-display">2. Bookings and Payments</h2>
+                                <h2 className="text-xl font-semibold text-ink mb-4 font-display">2. Bookings and Payments</h2>
                                 <p className="mb-4">
                                     All bookings are subject to availability and confirmation. We reserve the right to decline any booking at our discretion.
                                 </p>
                                 <ul className="list-disc pl-5 space-y-2 marker:text-gold">
-                                    <li><strong className="text-white">Pricing:</strong> Prices are subject to change without notice, but confirmed bookings will be honored at the agreed rate.</li>
-                                    <li><strong className="text-white">Payment:</strong> Full payment or a deposit may be required to secure your reservation, as specified during the booking process.</li>
-                                    <li><strong className="text-white">Confirmation:</strong> You will receive a booking confirmation via email or WhatsApp once your reservation is processed.</li>
+                                    <li><strong className="text-ink">Pricing:</strong> Prices are subject to change without notice, but confirmed bookings will be honored at the agreed rate.</li>
+                                    <li><strong className="text-ink">Payment:</strong> Full payment or a deposit may be required to secure your reservation, as specified during the booking process.</li>
+                                    <li><strong className="text-ink">Confirmation:</strong> You will receive a booking confirmation via email or WhatsApp once your reservation is processed.</li>
                                 </ul>
                             </section>
 
                             <section>
-                                <h2 className="text-xl font-semibold text-white mb-4 font-display">3. Cancellations and Refunds</h2>
+                                <h2 className="text-xl font-semibold text-ink mb-4 font-display">3. Cancellations and Refunds</h2>
                                 <p className="mb-4">
                                     We understand that plans can change. Our cancellation policy is designed to be fair to both parties.
                                 </p>
@@ -57,7 +57,7 @@ export default function TermsPage() {
                             </section>
 
                             <section>
-                                <h2 className="text-xl font-semibold text-white mb-4 font-display">4. User Responsibilities</h2>
+                                <h2 className="text-xl font-semibold text-ink mb-4 font-display">4. User Responsibilities</h2>
                                 <p className="mb-4">
                                     As a user of our services, you agree to:
                                 </p>
@@ -70,29 +70,29 @@ export default function TermsPage() {
                             </section>
 
                             <section>
-                                <h2 className="text-xl font-semibold text-white mb-4 font-display">5. Limitation of Liability</h2>
+                                <h2 className="text-xl font-semibold text-ink mb-4 font-display">5. Limitation of Liability</h2>
                                 <p>
                                     Al Kiswah Umrah Transport shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your use of our services.
                                 </p>
                             </section>
 
                             <section>
-                                <h2 className="text-xl font-semibold text-white mb-4 font-display">6. Contact Us</h2>
+                                <h2 className="text-xl font-semibold text-ink mb-4 font-display">6. Contact Us</h2>
                                 <p className="mb-6">
                                     If you have any questions about these Terms and Conditions, please contact us:
                                 </p>
                                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                    <div className="flex items-center gap-3 p-4 bg-black/40 rounded-lg border border-white/5">
+                                    <div className="flex items-center gap-3 p-4 bg-surface-alt rounded-lg border border-border">
                                         <MapPin size={24} className="text-gold" />
-                                        <span className="font-medium text-white">Makkah, Saudi Arabia</span>
+                                        <span className="font-medium text-ink">Makkah, Saudi Arabia</span>
                                     </div>
-                                    <div className="flex items-center gap-3 p-4 bg-black/40 rounded-lg border border-white/5">
+                                    <div className="flex items-center gap-3 p-4 bg-surface-alt rounded-lg border border-border">
                                         <Phone size={24} className="text-gold" />
-                                        <span className="font-medium text-white">+966 54 870 7332</span>
+                                        <span className="font-medium text-ink">+966 54 870 7332</span>
                                     </div>
-                                    <div className="flex items-center gap-3 p-4 bg-black/40 rounded-lg border border-white/5">
+                                    <div className="flex items-center gap-3 p-4 bg-surface-alt rounded-lg border border-border">
                                         <Mail size={24} className="text-gold" />
-                                        <span className="font-medium text-white">info@alkiswahumrahtransport.com</span>
+                                        <span className="font-medium text-ink">info@alkiswahumrahtransport.com</span>
                                     </div>
                                 </div>
                             </section>

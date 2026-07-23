@@ -211,7 +211,7 @@ export default async function ToyotaHiacePage() {
                             <div className="absolute bottom-6 left-6 right-6">
                                 <div className="grid grid-cols-3 gap-3">
                                     {[['2.8L', 'Turbo Diesel'], ['174hp', 'Peak Power'], ['10-12', 'Passengers']].map(([val, lbl]) => (
-                                        <div key={lbl} className="bg-black/60 backdrop-blur-sm border border-gold/30 rounded-xl p-3 text-center">
+                                        <div key={lbl} className="bg-ink/60 backdrop-blur-sm border border-gold/30 rounded-xl p-3 text-center">
                                             <p className="text-gold font-bold text-xl">{val}</p>
                                             <p className="text-white/80 text-xs">{lbl}</p>
                                         </div>
@@ -299,20 +299,20 @@ export default async function ToyotaHiacePage() {
             <section className="py-24 relative overflow-hidden" id="booking">
                 <div className="absolute inset-0">
                     <Image src="/images/fleet/hiace/toyota-hiace-2026-lifestyle-top-wide-view.jpeg" alt="Book Toyota Hiace group transport Saudi Arabia" fill className="object-cover opacity-30" sizes="100vw" />
-                    <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
+                    <div className="absolute inset-0 bg-[#15140F]/80 backdrop-blur-sm" />
                 </div>
                 <div className="container mx-auto px-4 relative z-10 text-center">
                     <span className="text-gold text-sm font-bold tracking-[0.3em] uppercase mb-4 block">Ready to Travel?</span>
                     <h2 className="text-4xl md:text-5xl font-bold font-playfair text-white mb-4">Book Your Toyota Hiace Today</h2>
                     <p className="text-white/80 max-w-xl mx-auto mb-10">Fixed prices. Professional drivers. Instant confirmation. Keep your entire group together.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/booking" className="inline-flex items-center justify-center gap-2 bg-gold hover:bg-gold-soft text-ink font-bold px-10 py-4 rounded-xl transition-all duration-300 text-lg shadow-[0_0_30px_rgba(245,158,11,0.3)]">
+                        <Link href="/booking" className="btn-primary text-lg flex items-center justify-center gap-2">
                             Book Now <ArrowRight size={20} />
                         </Link>
-                        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1fb85a] text-white font-bold px-10 py-4 rounded-xl transition-colors text-lg">
+                        <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className="btn-whatsapp text-lg flex items-center justify-center gap-2">
                             <MessageCircle size={20} /> WhatsApp
                         </a>
-                        <a href={`tel:${phoneNumber}`} className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/20 hover:bg-white/20 text-white font-bold px-10 py-4 rounded-xl transition-colors text-lg">
+                        <a href={`tel:${phoneNumber}`} className="btn-secondary border-white/30 text-white hover:bg-white/10 text-lg flex items-center justify-center gap-2">
                             <Phone size={20} /> Call Us
                         </a>
                     </div>

@@ -30,9 +30,6 @@ export default function CredentialsSection() {
                             </div>
                             <h3 className="font-bold text-xl text-ink mb-2">Transport Licence</h3>
                             <p className="text-ink-muted mb-4 text-sm">Ministry of Transport</p>
-                            <div className="bg-surface px-4 py-2 rounded-lg inline-block text-sm font-mono font-bold text-ink border border-border">
-                                ID: [PENDING_UPDATE]
-                            </div>
                         </div>
 
                         {/* CR Placeholder */}
@@ -42,9 +39,6 @@ export default function CredentialsSection() {
                             </div>
                             <h3 className="font-bold text-xl text-ink mb-2">Commercial Registration</h3>
                             <p className="text-ink-muted mb-4 text-sm">Ministry of Commerce</p>
-                            <div className="bg-surface px-4 py-2 rounded-lg inline-block text-sm font-mono font-bold text-ink border border-border">
-                                CR: [PENDING_UPDATE]
-                            </div>
                         </div>
 
                         {/* Fleet Safety */}
