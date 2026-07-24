@@ -55,10 +55,24 @@ export default function LoginPage() {
 
     return (
         <div className="min-h-screen flex flex-col lg:flex-row bg-surface">
-            {/* Left Column - Branding (Dark Anchor) */}
-            <div className="w-full lg:w-5/12 bg-ink-bg relative flex flex-col justify-between p-8 lg:p-12 overflow-hidden text-on-ink">
-                {/* Background Pattern */}
-                <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
+            {/* Left Column - Branding (Dark Anchor with Image) */}
+            <div className="w-full lg:w-5/12 relative flex flex-col justify-between p-8 lg:p-12 overflow-hidden text-on-ink">
+                
+                {/* Background Image & Overlay */}
+                <div className="absolute inset-0 z-0">
+                    <Image
+                        src="https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?q=80&w=1000&auto=format&fit=crop"
+                        alt="Makkah Background"
+                        fill
+                        className="object-cover"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-ink-bg/90 mix-blend-multiply"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-ink-bg/40 via-ink-bg/60 to-ink-bg"></div>
+                </div>
+
+                {/* Pattern overlay for extra texture */}
+                <div className="absolute inset-0 z-0 opacity-10 pointer-events-none mix-blend-overlay">
                     <Image
                         src="/pattern.png"
                         alt="Pattern"
