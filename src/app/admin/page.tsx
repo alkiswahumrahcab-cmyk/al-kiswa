@@ -2,7 +2,6 @@ import { getBookings, getFleet, getDashboardStats } from '@/lib/db';
 import { getLogs } from '@/lib/logger';
 import { routeService } from '@/services/routeService';
 import DashboardClient from './DashboardClient';
-import AdminAutoLock from '@/components/admin/AdminAutoLock';
 
 import { IBooking } from '@/models';
 
@@ -45,7 +44,6 @@ export default async function AdminDashboard() {
 
     return (
         <div className="flex flex-col h-full">
-            <AdminAutoLock />
             <div className="flex-1 w-full max-w-[1600px] mx-auto">
                 <DashboardClient {...dashboardData} />
             </div>
