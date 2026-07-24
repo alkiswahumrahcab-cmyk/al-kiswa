@@ -8,7 +8,7 @@ export default function ClientLayoutWrapper({
     children: React.ReactNode;
 }) {
     const pathname = usePathname();
-    const shouldHide = pathname?.startsWith('/admin') || pathname?.startsWith('/driver');
+    const shouldHide = pathname?.startsWith('/292852') || pathname?.startsWith('/driver');
 
     if (shouldHide) {
         return null;

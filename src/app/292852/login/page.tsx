@@ -39,7 +39,7 @@ export default function LoginPage() {
             const data = await res.json();
 
             if (data.success) {
-                router.push('/admin');
+                router.push('/292852');
                 router.refresh();
             } else {
                 setError(data.error || 'Login failed');

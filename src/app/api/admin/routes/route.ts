@@ -54,7 +54,7 @@ export async function POST(request: Request) {
         });
 
         revalidatePath('/booking');
-        revalidatePath('/admin/routes');
+        revalidatePath('/292852/routes');
         // @ts-expect-error: revalidateTag signature mismatch in this next version
         revalidateTag('routes');
 
@@ -100,7 +100,7 @@ export async function PUT(request: Request) {
         });
 
         revalidatePath('/booking');
-        revalidatePath('/admin/routes');
+        revalidatePath('/292852/routes');
         // @ts-expect-error: revalidateTag signature mismatch in this next version
         revalidateTag('routes');
 
@@ -136,7 +136,7 @@ export async function DELETE(request: Request) {
         });
 
         revalidatePath('/booking');
-        revalidatePath('/admin/routes');
+        revalidatePath('/292852/routes');
         // @ts-expect-error: revalidateTag signature mismatch in this next version
         revalidateTag('routes');
 

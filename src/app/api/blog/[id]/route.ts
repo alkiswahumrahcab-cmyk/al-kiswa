@@ -61,7 +61,7 @@ export async function PUT(
         const { revalidatePath } = await import('next/cache');
         revalidatePath('/blog');
         revalidatePath(`/blog/${post.id}`); // Use new ID in case slug changed
-        revalidatePath('/admin/blog');
+        revalidatePath('/292852/blog');
 
         return NextResponse.json(post);
     } catch (error) {
@@ -85,7 +85,7 @@ export async function DELETE(
 
         const { revalidatePath } = await import('next/cache');
         revalidatePath('/blog');
-        revalidatePath('/admin/blog');
+        revalidatePath('/292852/blog');
 
         return NextResponse.json({ success: true });
     } catch {

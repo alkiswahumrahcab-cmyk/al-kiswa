@@ -228,7 +228,7 @@ export default function UsersPage() {
                                     </div>
                                     <div className="flex gap-2">
                                         <Link
-                                            href={`/admin/users/${user.id}`}
+                                            href={`/292852/users/${user.id}`}
                                             className="text-muted hover:text-info transition-colors"
                                         >
                                             <Eye size={18} />

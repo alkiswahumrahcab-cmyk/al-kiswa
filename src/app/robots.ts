@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
             {
                 userAgent: '*',
                 allow: ['/', '/llms.txt'],
-                disallow: ['/api/', '/admin/', '/track-booking'],
+                disallow: ['/api/', '/292852/', '/track-booking'],
             },
             // OpenAI GPTBot
             {

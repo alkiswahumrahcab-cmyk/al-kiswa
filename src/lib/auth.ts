@@ -17,7 +17,7 @@ export const logout = async (shouldRedirect: boolean = true): Promise<void> => {
     try {
         await fetch('/api/auth/logout', { method: 'POST' });
         if (shouldRedirect && typeof window !== 'undefined') {
-            window.location.href = '/admin/login';
+            window.location.href = '/292852/login';
         }
     } catch (error) {
         console.error('Logout failed:', error);

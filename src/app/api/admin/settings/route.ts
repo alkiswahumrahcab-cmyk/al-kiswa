@@ -81,7 +81,7 @@ export async function POST(request: Request) {
         await Promise.all(updatePromises);
 
         // Invalidate cache
-        revalidatePath('/admin/settings');
+        revalidatePath('/292852/settings');
         revalidatePath('/', 'layout'); // Clears everything using layout (header/footer)
         // If exchange rate changed, also revalidate public pricing pages
         if (updates['exchange_rate'] || body['exchange_rate']) {

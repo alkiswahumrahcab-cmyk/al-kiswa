@@ -12,7 +12,7 @@ export async function POST(request: Request) {
         await sendPushNotification(user.id as string, {
             title: 'Test Notification',
             body: 'This is a test notification from Al Kiswah Transport!',
-            url: '/admin/dashboard'
+            url: '/292852/dashboard'
         });
 
         return NextResponse.json({ success: true });

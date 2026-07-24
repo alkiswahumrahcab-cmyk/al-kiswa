@@ -17,7 +17,7 @@ interface GlobalClientComponentsProps {
 
 export default function GlobalClientComponents({ contactSettings }: GlobalClientComponentsProps) {
     const pathname = usePathname();
-    const isAdmin  = pathname?.startsWith('/admin');
+    const isAdmin  = pathname?.startsWith('/292852');
 
     if (isAdmin) {
         return null;

@@ -33,7 +33,7 @@ export default function AdminLayout({
 
     useEffect(() => {
         const checkAuth = async () => {
-            if (pathname === '/admin/login') {
+            if (pathname === '/292852/login') {
                 setLoading(false);
                 return;
             }
@@ -45,11 +45,11 @@ export default function AdminLayout({
                 if (data.authenticated) {
                     setUser(data.user);
                 } else {
-                    router.push('/admin/login');
+                    router.push('/292852/login');
                 }
             } catch (error) {
                 console.error('Auth check failed:', error);
-                router.push('/admin/login');
+                router.push('/292852/login');
             } finally {
                 setLoading(false);
             }
@@ -59,7 +59,7 @@ export default function AdminLayout({
     }, [pathname, router]);
 
     // If on login page, render full screen without sidebar
-    if (pathname === '/admin/login') {
+    if (pathname === '/292852/login') {
         return <>{children}</>;
     }
 
@@ -79,24 +79,24 @@ export default function AdminLayout({
     const handleLogout = async (e: React.MouseEvent) => {
         e.preventDefault();
         await logout();
-        router.push('/admin/login');
+        router.push('/292852/login');
     };
 
     const allLinks = [
-        { href: '/admin', label: 'Dashboard', icon: LayoutDashboard, roles: ['admin', 'manager', 'operational_manager'] },
-        { href: '/admin/analytics', label: 'Analytics', icon: BarChart3, roles: ['admin', 'manager'] },
-        { href: '/admin/bookings', label: 'Bookings', icon: Calendar, roles: ['admin', 'manager', 'operational_manager'] },
-        { href: '/admin/inquiries', label: 'Inquiries', icon: Mail, roles: ['admin', 'manager'] },
-        { href: '/admin/routes', label: 'Routes', icon: MapPin, roles: ['admin', 'manager', 'operational_manager'] },
-        { href: '/admin/fleet', label: 'Fleet', icon: Car, roles: ['admin', 'manager', 'operational_manager'] },
-        { href: '/admin/pricing', label: 'Pricing', icon: DollarSign, roles: ['admin'] },
-        { href: '/admin/reviews', label: 'Reviews', icon: MessageSquare, roles: ['admin', 'manager', 'operational_manager'] },
-        { href: '/admin/blog', label: 'Blog', icon: FileText, roles: ['admin', 'manager', 'operational_manager'] },
-        { href: '/admin/gallery', label: 'Gallery', icon: ImageIcon, roles: ['admin', 'manager', 'operational_manager'] },
-        { href: '/admin/content', label: 'Content', icon: PenTool, roles: ['admin', 'manager', 'operational_manager'] },
-        { href: '/admin/marketing', label: 'Marketing', icon: MessageSquare, roles: ['admin', 'manager'] },
-        { href: '/admin/users', label: 'Users', icon: Users, roles: ['admin'] },
-        { href: '/admin/settings', label: 'Settings', icon: Settings, roles: ['admin'] },
+        { href: '/292852', label: 'Dashboard', icon: LayoutDashboard, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/292852/analytics', label: 'Analytics', icon: BarChart3, roles: ['admin', 'manager'] },
+        { href: '/292852/bookings', label: 'Bookings', icon: Calendar, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/292852/inquiries', label: 'Inquiries', icon: Mail, roles: ['admin', 'manager'] },
+        { href: '/292852/routes', label: 'Routes', icon: MapPin, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/292852/fleet', label: 'Fleet', icon: Car, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/292852/pricing', label: 'Pricing', icon: DollarSign, roles: ['admin'] },
+        { href: '/292852/reviews', label: 'Reviews', icon: MessageSquare, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/292852/blog', label: 'Blog', icon: FileText, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/292852/gallery', label: 'Gallery', icon: ImageIcon, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/292852/content', label: 'Content', icon: PenTool, roles: ['admin', 'manager', 'operational_manager'] },
+        { href: '/292852/marketing', label: 'Marketing', icon: MessageSquare, roles: ['admin', 'manager'] },
+        { href: '/292852/users', label: 'Users', icon: Users, roles: ['admin'] },
+        { href: '/292852/settings', label: 'Settings', icon: Settings, roles: ['admin'] },
     ];
 
     const userRole = user.role.toLowerCase();

@@ -40,7 +40,7 @@ export default function RecentBookingsTable({ bookings, onStatusChange }: Recent
                     <Clock size={20} className="text-gold" />
                     Recent Bookings
                 </h3>
-                <Link href="/admin/bookings" className="text-sm font-semibold text-gold hover:text-gold-strong transition-colors flex items-center gap-1">
+                <Link href="/292852/bookings" className="text-sm font-semibold text-gold hover:text-gold-strong transition-colors flex items-center gap-1">
                     View All <ArrowUpRightIcon size={14} />
                 </Link>
             </div>

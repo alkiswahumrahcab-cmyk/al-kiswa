@@ -46,7 +46,7 @@ export async function POST(request: Request) {
 
         const { revalidatePath } = await import('next/cache');
         revalidatePath('/blog');
-        revalidatePath('/admin/blog');
+        revalidatePath('/292852/blog');
 
         return NextResponse.json(post);
     } catch (error) {

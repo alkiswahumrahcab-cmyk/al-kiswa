@@ -61,7 +61,7 @@ export async function POST(request: Request) {
 
         const { revalidatePath, revalidateTag } = await import('next/cache');
         revalidatePath('/booking');
-        revalidatePath('/admin/pricing');
+        revalidatePath('/292852/pricing');
         // @ts-expect-error: revalidateTag signature mismatch in this next version
         revalidateTag('routes');
 

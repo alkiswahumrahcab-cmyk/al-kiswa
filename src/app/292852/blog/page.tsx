@@ -96,7 +96,7 @@ export default function BlogAdminPage() {
                     <p className="text-muted-foreground mt-1">Manage your blog posts and articles</p>
                 </div>
                 <Link
-                    href="/admin/blog/new"
+                    href="/292852/blog/new"
                     className="flex items-center gap-2 bg-primary text-primary-foreground px-6 py-2.5 rounded-btn font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform"
                 >
                     <Plus size={20} />
@@ -164,7 +164,7 @@ export default function BlogAdminPage() {
                                         <td className="text-right">
                                             <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                                 <Link
-                                                    href={`/admin/blog/${post.id}`}
+                                                    href={`/292852/blog/${post.id}`}
                                                     className="p-2 text-info hover:bg-info/10 rounded-btn transition-colors"
                                                     title="Edit"
                                                 >

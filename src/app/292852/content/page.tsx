@@ -130,7 +130,7 @@ export default function ContentManagementPage() {
                                                 </td>
                                                 <td className="px-6 py-4 text-right">
                                                     <Link
-                                                        href={`/admin/content/${section._id}`}
+                                                        href={`/292852/content/${section._id}`}
                                                         className="inline-flex items-center gap-1 text-info hover:text-info/80 font-medium transition-colors"
                                                     >
                                                         <Edit size={16} />

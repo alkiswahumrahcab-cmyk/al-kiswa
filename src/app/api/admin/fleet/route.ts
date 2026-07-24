@@ -67,7 +67,7 @@ export async function POST(request: Request) {
 
         const { revalidatePath } = await import('next/cache');
         revalidatePath('/fleet');
-        revalidatePath('/admin/fleet');
+        revalidatePath('/292852/fleet');
 
         return NextResponse.json(vehicle);
     } catch {
@@ -117,7 +117,7 @@ export async function PUT(request: Request) {
 
         const { revalidatePath } = await import('next/cache');
         revalidatePath('/fleet');
-        revalidatePath('/admin/fleet');
+        revalidatePath('/292852/fleet');
 
         return NextResponse.json(vehicle);
     } catch {
@@ -152,7 +152,7 @@ export async function DELETE(request: Request) {
 
         const { revalidatePath } = await import('next/cache');
         revalidatePath('/fleet');
-        revalidatePath('/admin/fleet');
+        revalidatePath('/292852/fleet');
 
         return NextResponse.json({ success: true });
     } catch {

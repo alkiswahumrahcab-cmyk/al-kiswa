@@ -66,7 +66,7 @@ function LogsContent() {
                 params.delete('search');
             }
             params.set('page', '1'); // Reset to page 1 on search
-            router.push(`/admin/logs?${params.toString()}`);
+            router.push(`/292852/logs?${params.toString()}`);
         }, 500);
 
         return () => clearTimeout(timer);
@@ -83,7 +83,7 @@ function LogsContent() {
         if (newPage < 1 || newPage > totalPages) return;
         const params = new URLSearchParams(searchParams.toString());
         params.set('page', newPage.toString());
-        router.push(`/admin/logs?${params.toString()}`);
+        router.push(`/292852/logs?${params.toString()}`);
     };
 
     const getActionColor = (action: string) => {

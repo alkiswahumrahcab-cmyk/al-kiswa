@@ -87,8 +87,8 @@ export async function GET() {
         console.log(`[Seed] Seeded ${seededRoutesCount} routes`);
 
         const { revalidatePath, revalidateTag } = await import('next/cache');
-        revalidatePath('/admin/routes');
-        revalidatePath('/admin/pricing');
+        revalidatePath('/292852/routes');
+        revalidatePath('/292852/pricing');
         revalidatePath('/booking');
 
         try {

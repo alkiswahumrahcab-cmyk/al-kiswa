@@ -12,7 +12,7 @@ export const dynamic = 'force-dynamic';
 export default async function AnalyticsPage() {
     // 1. Auth Check
     const user = await requireRole(['admin', 'manager', 'operational_manager']);
-    if (!user) redirect('/admin/login');
+    if (!user) redirect('/292852/login');
 
     // 2. Data Fetching
     await dbConnect();

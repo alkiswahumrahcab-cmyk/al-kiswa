@@ -53,7 +53,7 @@ export default function EditContentPage() {
                     setPreviews({ desktop, mobile });
                 } else {
                     alert('Failed to load section');
-                    router.push('/admin/content');
+                    router.push('/292852/content');
                 }
             } catch (error) {
                 console.error('Error fetching section:', error);
@@ -139,7 +139,7 @@ export default function EditContentPage() {
         <div className="p-6 max-w-5xl mx-auto">
             <div className="flex items-center gap-4 mb-6">
                 <Link
-                    href="/admin/content"
+                    href="/292852/content"
                     className="p-2 hover:bg-surface-alt rounded-btn transition-colors"
                 >
                     <ArrowLeft size={20} className="text-muted hover:text-ink transition-colors" />

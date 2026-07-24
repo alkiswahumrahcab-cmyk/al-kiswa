@@ -123,7 +123,7 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
 
             if (!res.ok) throw new Error('Failed to save post');
 
-            router.push('/admin/blog');
+            router.push('/292852/blog');
             router.refresh();
         } catch (error) {
             console.error('Error saving post:', error);
@@ -157,7 +157,7 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                 <div className="flex items-center justify-between mb-8 sticky top-0 bg-surface-sunken z-20 py-4 border-b border-border">
                     <div className="flex items-center gap-4">
                         <Link
-                            href="/admin/blog"
+                            href="/292852/blog"
                             className="p-2 hover:bg-surface-alt rounded-btn transition-colors"
                         >
                             <ArrowLeft size={20} />

@@ -13,8 +13,8 @@ export async function middleware(request: NextRequest) {
     }
 
     // --- 1. ADMIN AUTHENTICATION ---
-    if (pathname.startsWith('/admin') || pathname.startsWith('/api/admin')) {
-        if (pathname === '/admin/login' || pathname === '/api/auth/login') {
+    if (pathname.startsWith('/292852') || pathname.startsWith('/api/admin')) {
+        if (pathname === '/292852/login' || pathname === '/api/auth/login') {
             return NextResponse.next();
         }
 
@@ -24,7 +24,7 @@ export async function middleware(request: NextRequest) {
             if (pathname.startsWith('/api/')) {
                 return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
             }
-            const loginUrl = new URL('/admin/login', request.url);
+            const loginUrl = new URL('/292852/login', request.url);
             return NextResponse.redirect(loginUrl);
         }
 
@@ -41,7 +41,7 @@ export async function middleware(request: NextRequest) {
                 if (pathname.startsWith('/api/')) {
                     return NextResponse.json({ success: false, error: 'Forbidden' }, { status: 403 });
                 }
-                const loginUrl = new URL('/admin/login', request.url);
+                const loginUrl = new URL('/292852/login', request.url);
                 loginUrl.searchParams.set('error', 'Unauthorized access');
                 return NextResponse.redirect(loginUrl);
             }
@@ -49,7 +49,7 @@ export async function middleware(request: NextRequest) {
             if (pathname.startsWith('/api/')) {
                 return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
             }
-            const loginUrl = new URL('/admin/login', request.url);
+            const loginUrl = new URL('/292852/login', request.url);
             const response = NextResponse.redirect(loginUrl);
             response.cookies.delete('admin_token');
             return response;

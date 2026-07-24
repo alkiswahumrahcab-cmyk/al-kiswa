@@ -141,7 +141,7 @@ export default function DashboardClient({
                         </p>
                     </div>
                     <div className="flex gap-3">
-                        <Link href="/admin/bookings">
+                        <Link href="/292852/bookings">
                             <button className="flex items-center gap-2 px-6 py-3 bg-gold hover:bg-gold-soft text-ink font-bold rounded-btn transition-all active:translate-y-0.5">
                                 <Plus size={20} />
                                 <span>New Booking</span>
