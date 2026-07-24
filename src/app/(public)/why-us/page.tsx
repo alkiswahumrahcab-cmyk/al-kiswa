@@ -7,6 +7,7 @@ import PassengerCare from '@/components/home/PassengerCare';
 import Features from '@/components/home/Features';
 import { JsonLdScript } from '@/components/seo/JsonLd';
 import { generateServiceSchema } from '@/components/seo/schema-generator';
+import { TRUST_METRICS, formatMetric } from '@/config/site';
 
 export async function generateMetadata() {
     return {
