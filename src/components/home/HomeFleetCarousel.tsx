@@ -171,8 +171,8 @@ export default function HomeFleetCarousel({ lang = 'en' }: { lang?: 'ar' | 'en' 
                     </h2>
                     <p className={`text-ink-muted max-w-2xl mx-auto text-lg font-light ${lang === 'ar' ? 'font-ar-body' : ''}`}>
                         {lang === 'ar' 
-                            ? 'اختر من أحدث موديلات ٢٠٢٥، المصممة خصيصاً لرحلتك الروحانية.' 
-                            : 'Choose from our exclusive selection of latest 2025 models, designed for your spiritual journey.'}
+                            ? 'اختر من أسطولنا المميز من المركبات الفاخرة، المصممة خصيصاً لرحلتك الروحانية.' 
+                            : 'Choose from our exclusive selection of premium vehicles, designed for your spiritual journey.'}
                     </p>
                 </div>
 

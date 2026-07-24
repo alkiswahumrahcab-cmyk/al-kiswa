@@ -1,6 +1,7 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import Link from "next/link";
 import { CheckCircle, Phone, MapPin } from "lucide-react";
+import { SOCIAL_LINKS } from "@/config/site";
 
 export const metadata = {
   title: "مواصلات العمرة فرنسا | تاكسي جدة مكة | الكسوة",
@@ -50,7 +51,7 @@ export default function FrancePilgrimsArabicPage() {
             <Link href="/ar/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-btn hover:scale-105 transition-transform shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)] uppercase tracking-wider text-lg">
               احجز الآن
             </Link>
-            <a href="https://wa.me/966548707332" className="border border-gold/50 text-gold font-bold px-8 py-4 rounded-btn hover:bg-gold/10 transition-colors uppercase tracking-wider text-lg">
+            <a href={SOCIAL_LINKS.whatsapp} className="border border-gold/50 text-gold font-bold px-8 py-4 rounded-btn hover:bg-gold/10 transition-colors uppercase tracking-wider text-lg">
               تواصل عبر واتساب
             </a>
           </div>
@@ -92,7 +93,7 @@ export default function FrancePilgrimsArabicPage() {
             <Link href="/ar/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-btn hover:scale-105 transition-transform text-lg">
               احجز عبر الإنترنت
             </Link>
-            <a href="tel:+966548707332" className="flex items-center justify-center gap-2 border border-white/20 text-white font-bold px-8 py-4 rounded-btn hover:bg-white/5 transition-colors text-lg" dir="ltr">
+            <a href={`tel:${SOCIAL_LINKS.phone}`} className="flex items-center justify-center gap-2 border border-white/20 text-white font-bold px-8 py-4 rounded-btn hover:bg-white/5 transition-colors text-lg" dir="ltr">
               <Phone size={18} /> +966 54 870 7332
             </a>
           </div>

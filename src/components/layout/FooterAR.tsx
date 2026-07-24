@@ -3,10 +3,11 @@
 import Link from 'next/link';
 import { useSettings } from '@/context/SettingsContext';
 import { regions } from '@/data/regions';
-import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import NusukFooterSeal from '@/components/trust/NusukFooterSeal';
 import ThemeLogo from '@/components/common/ThemeLogo';
 import { Link003 } from '@/components/ui/skiper-ui/skiper40';
+import { SOCIAL_LINKS } from '@/config/site';
 
 export default function FooterAR() {
     const { settings } = useSettings();
@@ -87,23 +88,19 @@ export default function FooterAR() {
 
                         {/* Social Links */}
                         <div className="flex items-center gap-4 pt-2">
-                            {settings?.contact?.social?.facebook && (
-                                <a href={settings.contact.social.facebook} target="_blank" rel="noopener noreferrer" className="text-on-ink-muted hover:text-blue-500 transition-colors" aria-label="Facebook">
+                            {SOCIAL_LINKS.facebook && (
+                                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="text-on-ink-muted hover:text-blue-500 transition-colors" aria-label="Facebook">
                                     <Facebook size={20} strokeWidth={1.5} />
                                 </a>
                             )}
-                            {settings?.contact?.social?.instagram && (
-                                <a href={settings.contact.social.instagram} target="_blank" rel="noopener noreferrer" className="text-on-ink-muted hover:text-pink-500 transition-colors" aria-label="Instagram">
+                            {SOCIAL_LINKS.instagram && (
+                                <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-on-ink-muted hover:text-pink-500 transition-colors" aria-label="Instagram">
                                     <Instagram size={20} strokeWidth={1.5} />
                                 </a>
                             )}
-                            {settings?.contact?.social?.twitter && (
-                                <a href={settings.contact.social.twitter} target="_blank" rel="noopener noreferrer" className="text-on-ink-muted hover:text-blue-400 transition-colors" aria-label="Twitter">
-                                    <Twitter size={20} strokeWidth={1.5} />
-                                </a>
-                            )}
-                            {settings?.contact?.social?.linkedin && (
-                                <a href={settings.contact.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-on-ink-muted hover:text-blue-600 transition-colors" aria-label="LinkedIn">
+
+                            {SOCIAL_LINKS.linkedin && (
+                                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-on-ink-muted hover:text-blue-600 transition-colors" aria-label="LinkedIn">
                                     <Linkedin size={20} strokeWidth={1.5} />
                                 </a>
                             )}

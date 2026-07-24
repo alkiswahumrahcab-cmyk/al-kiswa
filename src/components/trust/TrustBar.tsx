@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star, ShieldCheck } from 'lucide-react';
+import { TRUST_METRICS, formatMetric } from '@/config/site';
 
 export default function TrustBar() {
     return (
@@ -16,13 +17,13 @@ export default function TrustBar() {
                             <Star size={20} fill="currentColor" />
                             <Star size={20} fill="currentColor" />
                         </div>
-                        <span className="font-semibold text-lg">4.9/5 Average Rating</span>
-                        <span className="text-sm text-muted">From 500+ Pilgrim Reviews</span>
+                        <span className="font-semibold text-lg">{TRUST_METRICS.googleRating || "X.X"}/5 Average Rating</span>
+                        <span className="text-sm text-muted">From {formatMetric(TRUST_METRICS.googleReviewCount)} Pilgrim Reviews</span>
                     </div>
 
                     {/* Stat */}
                     <div className="flex flex-col items-center md:items-start md:border-l border-border md:pl-12">
-                        <span className="text-3xl font-display font-bold text-gold-strong">5,000+</span>
+                        <span className="text-3xl font-display font-bold text-gold-strong">{formatMetric(TRUST_METRICS.pilgrimsServed)}</span>
                         <span className="text-sm font-medium uppercase tracking-wider text-muted">Pilgrims Served</span>
                     </div>
 

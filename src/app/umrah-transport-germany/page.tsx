@@ -1,6 +1,7 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import Link from "next/link";
-import { CheckCircle, Phone, MapPin, Star, ArrowRight } from "lucide-react";
+import { CheckCircle, Clock, MapPin, Plane, Shield, ArrowRight, Star, Phone } from 'lucide-react';
+import { SOCIAL_LINKS } from "@/config/site";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 
 export const metadata = {
@@ -141,7 +142,7 @@ export default function GermanyPilgrimsPage() {
             <Link href="/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-btn hover:scale-105 transition-transform shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)] uppercase tracking-wider">
               Jetzt Buchen
             </Link>
-            <a href="https://wa.me/966548707332" className="border border-gold/50 text-gold font-bold px-8 py-4 rounded-btn hover:bg-gold/10 transition-colors uppercase tracking-wider">
+            <a href={SOCIAL_LINKS.whatsapp} className="border border-gold/50 text-gold font-bold px-8 py-4 rounded-btn hover:bg-gold/10 transition-colors uppercase tracking-wider">
               WhatsApp
             </a>
           </div>
@@ -283,7 +284,7 @@ export default function GermanyPilgrimsPage() {
           <p className="text-n-400 mb-6">Kontaktieren Sie uns per WhatsApp oder buchen Sie online — Antwort in Minuten.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-btn hover:scale-105 transition-transform">Online Buchen</Link>
-            <a href="tel:+966548707332" className="flex items-center justify-center gap-2 border border-white/20 text-white font-bold px-8 py-4 rounded-btn hover:bg-white/5 transition-colors">
+            <a href={`tel:${SOCIAL_LINKS.phone}`} className="flex items-center justify-center gap-2 border border-white/20 text-white font-bold px-8 py-4 rounded-btn hover:bg-white/5 transition-colors">
               <Phone size={18} /> +966 54 870 7332
             </a>
           </div>

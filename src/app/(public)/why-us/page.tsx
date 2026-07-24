@@ -11,7 +11,7 @@ import { generateServiceSchema } from '@/components/seo/schema-generator';
 export async function generateMetadata() {
     return {
         title: "Why Choose Al Kiswah | Premium Umrah Transport",
-        description: "Discover why 5,000+ pilgrims trust Al Kiswah for their Umrah and Hajj transport in Saudi Arabia. Our safety promise, passenger care, and features.",
+        description: `Discover why ${formatMetric(TRUST_METRICS.pilgrimsServed)} pilgrims trust Al Kiswah for their Umrah and Hajj transport in Saudi Arabia. Our safety promise, passenger care, and features.`,
         keywords: [
             "why al kiswah", 
             "umrah transport safety",

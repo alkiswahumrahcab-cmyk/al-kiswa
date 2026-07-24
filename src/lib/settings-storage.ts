@@ -1,7 +1,8 @@
-﻿import dbConnect from '@/lib/mongodb';
+import dbConnect from '@/lib/mongodb';
 import { Settings as SettingsModel } from '@/models';
 import { Settings } from './validations';
 import { unstable_cache, revalidateTag } from 'next/cache';
+import { SOCIAL_LINKS } from '@/config/site';
 
 import { DEFAULT_BOOKING_CONFIRMATION_TEMPLATE, DEFAULT_ADMIN_NOTIFICATION_TEMPLATE } from './email-templates';
 
@@ -19,13 +20,13 @@ const DEFAULT_SETTINGS: Settings = {
         phone2: '',
         address: 'Makkah, Saudi Arabia',
         social: {
-            facebook: 'https://www.facebook.com/profile.php?id=61586674295032',
+            facebook: SOCIAL_LINKS.facebook,
             twitter: '',
-            instagram: 'https://www.instagram.com/exploresaudia12',
-            tiktok: 'https://www.tiktok.com/@alkiswah_cab?_r=1&_t=ZS-97UXEVIhQeL',
-            linkedin: 'https://www.linkedin.com/in/al-kiswah-umrah-cab/',
-            googleBusiness: 'https://share.google/ARbbVaAackyOs8N7G',
-            googleReview: 'https://share.google/ARbbVaAackyOs8N7G',
+            instagram: SOCIAL_LINKS.instagram,
+            tiktok: SOCIAL_LINKS.tiktok,
+            linkedin: SOCIAL_LINKS.linkedin,
+            googleBusiness: SOCIAL_LINKS.googleBusiness,
+            googleReview: SOCIAL_LINKS.googleReview,
         },
     },
     seo: {

@@ -1,6 +1,7 @@
 import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Image from 'next/image';
+import { TRUST_METRICS, formatMetric } from '@/config/site';
 import Link from 'next/link';
 import { 
     Clock, 
@@ -208,7 +209,7 @@ export default async function MakkahMadinahTaxiPage() {
                         <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-10 text-[13px] font-bold tracking-wider uppercase text-muted">
                             <div className="flex items-center gap-2">
                                 <Star size={16} className="text-gold fill-gold" />
-                                <span>10,000+ Pilgrims</span>
+                                <span>{formatMetric(TRUST_METRICS.pilgrimsServed)} Pilgrims</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <Check size={16} className="text-gold" />
@@ -478,7 +479,7 @@ export default async function MakkahMadinahTaxiPage() {
                 <div className="container">
                     <div className="max-w-3xl mx-auto text-center mb-16">
                         <span className="text-gold font-body font-semibold tracking-[0.14em] text-[13px] uppercase block mb-3 md:mb-4">
-                            10,000+ PILGRIMS SERVED
+                            {formatMetric(TRUST_METRICS.pilgrimsServed).toUpperCase()} PILGRIMS SERVED
                         </span>
                         <h2 className="font-display font-semibold text-[32px] md:text-[44px] text-ink mb-6">
                             Why Pilgrims Trust Al Kiswah

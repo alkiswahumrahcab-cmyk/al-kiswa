@@ -22,11 +22,12 @@ const CtaBand = dynamic(() => import('@/components/home/CtaBand'));
 
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import { generateServiceSchema, generateLocalBusinessSchema } from "@/components/seo/schema-generator";
+import { TRUST_METRICS, formatMetric } from "@/config/site";
 
 export async function generateMetadata() {
   return {
     title: "Umrah & Hajj Taxi Jeddah–Makkah–Madinah 2026 | Al Kiswah",
-    description: "Book a private Umrah and Hajj taxi in Saudi Arabia. Trusted by 5,000+ pilgrims since 2014. Fixed prices, 24/7 support, GMC Yukon & Staria fleet. No prepayment required.",
+    description: `Book a private Umrah and Hajj taxi in Saudi Arabia. Trusted by ${formatMetric(TRUST_METRICS.pilgrimsServed)} pilgrims since ${TRUST_METRICS.operatingSince}. Fixed prices, 24/7 support, GMC Yukon & Staria fleet. No prepayment required.`,
     alternates: generateMetadataAlternates("/"),
     keywords: [
       "umrah taxi jeddah makkah madinah",
@@ -39,7 +40,7 @@ export async function generateMetadata() {
     ],
     openGraph: {
       title: "Umrah Taxi Jeddah–Makkah–Madinah | Al Kiswah",
-      description: "Book a private Umrah taxi in Saudi Arabia. Trusted by 5,000+ pilgrims since 2014. Fixed prices, 24/7 support. GMC Yukon & Staria available.",
+      description: `Book a private Umrah taxi in Saudi Arabia. Trusted by ${formatMetric(TRUST_METRICS.pilgrimsServed)} pilgrims since ${TRUST_METRICS.operatingSince}. Fixed prices, 24/7 support. GMC Yukon & Staria available.`,
       url: "https://kiswahumrahcab.com",
       siteName: "Al Kiswah Umrah Transport",
       images: [

@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Shield, Star, Briefcase, Users, Wifi, Fuel, MapPin, CheckCircle, Phone } from 'lucide-react';
 import { getVehicle, formatSeats, formatLuggage } from '@/data/fleet';
+import { SOCIAL_LINKS } from '@/config/site';
 
 export async function generateMetadata(): Promise<Metadata> {
     return {
@@ -136,7 +137,7 @@ export default async function ToyotaCamryPage() {
                         <a href={whatsappLink} className="btn-whatsapp text-lg flex items-center gap-2">
                             WhatsApp
                         </a>
-                        <a href="tel:+966548707332" className="btn-on-dark text-lg flex items-center gap-2">
+                        <a href={`tel:${SOCIAL_LINKS.phone}`} className="btn-on-dark text-lg flex items-center gap-2">
                             <Phone size={20} /> Call Us
                         </a>
                     </div>

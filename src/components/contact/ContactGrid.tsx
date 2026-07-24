@@ -1,8 +1,9 @@
 'use client';
 
 import React from 'react';
-import { Mail, MapPin, Phone, MessageCircle, Star, ArrowRight } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, ShieldCheck, Map, Star, MessageCircle, ArrowRight } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
+import { SOCIAL_LINKS, TRUST_METRICS } from '@/config/site';
 import { trackConversion } from '@/lib/analytics';
 import FadeIn from '@/components/common/FadeIn';
 import { useSettings } from '@/context/SettingsContext';
@@ -67,7 +68,7 @@ export default function ContactGrid({ contactSettings }: ContactGridProps) {
         {
             icon: Star,
             title: "Google Verified Business",
-            value: "5.0 Rating ⭐⭐⭐⭐⭐",
+            value: `${TRUST_METRICS.googleRating || "X.X"} Rating ⭐⭐⭐⭐⭐`,
             sub: "Read our verified pilgrim reviews",
             action: googleBusiness,
             btnText: "View on Google",

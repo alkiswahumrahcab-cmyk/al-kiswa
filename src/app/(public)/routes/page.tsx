@@ -6,7 +6,9 @@ import Breadcrumbs from '@/components/common/Breadcrumbs';
 import Link from 'next/link';
 import { ArrowRight, MapPin, Clock, ShieldCheck, Star, CheckCircle } from 'lucide-react';
 import GlassCard from '@/components/ui/GlassCard';
+import FAQSection from '@/components/services/FAQSection';
 import FadeIn from '@/components/common/FadeIn';
+import { TRUST_METRICS, formatMetric } from '@/config/site';
 import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 import dynamic from 'next/dynamic';
 import styles from "./routes-stack.module.css";
@@ -326,7 +328,7 @@ export default function RoutesPage() {
                         <div className="columns-1 md:columns-2 gap-10 lg:gap-16 text-body leading-[1.7] font-normal text-base lg:text-[17px]">
                             <p className="mb-6 md:mb-8">
                                 <span className="float-left text-6xl lg:text-7xl font-display text-gold-strong leading-[0.8] pr-3 pt-2">P</span>
-                                lanning your Umrah journey requires reliable transport between Saudi Arabia&apos;s holy cities. <strong className="text-ink font-semibold">Al Kiswah Umrah Transport</strong> operates <strong className="text-ink font-semibold">8 dedicated routes</strong> connecting Jeddah Airport, Makkah, Madinah, and Taif — serving over 10,000 pilgrims annually with our fleet of <Link href="/fleet/toyota-camry" className="text-gold-strong hover:text-gold hover:underline transition-colors">Toyota Camry sedans</Link>, <Link href="/fleet/gmc-yukon-xl" className="text-gold-strong hover:text-gold hover:underline transition-colors">GMC Yukon AT4 SUVs</Link>, <Link href="/fleet/hyundai-staria" className="text-gold-strong hover:text-gold hover:underline transition-colors">Hyundai Staria vans</Link>, and <Link href="/fleet/toyota-hiace" className="text-gold-strong hover:text-gold hover:underline transition-colors">Toyota Hiace buses</Link>.
+                                lanning your Umrah journey requires reliable transport between Saudi Arabia&apos;s holy cities. <strong className="text-ink font-semibold">Al Kiswah Umrah Transport</strong> operates <strong className="text-ink font-semibold">8 dedicated routes</strong> connecting Jeddah Airport, Makkah, Madinah, and Taif — serving {formatMetric(TRUST_METRICS.pilgrimsServed)} pilgrims with our fleet of <Link href="/fleet/toyota-camry" className="text-gold-strong hover:text-gold hover:underline transition-colors">Toyota Camry sedans</Link>, <Link href="/fleet/gmc-yukon-xl" className="text-gold-strong hover:text-gold hover:underline transition-colors">GMC Yukon AT4 SUVs</Link>, <Link href="/fleet/hyundai-staria" className="text-gold-strong hover:text-gold hover:underline transition-colors">Hyundai Staria vans</Link>, and <Link href="/fleet/toyota-hiace" className="text-gold-strong hover:text-gold hover:underline transition-colors">Toyota Hiace buses</Link>.
                             </p>
                             
                             <p className="mb-6 md:mb-8">

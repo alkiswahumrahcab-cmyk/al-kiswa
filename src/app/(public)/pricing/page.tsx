@@ -5,6 +5,7 @@ import Breadcrumbs from '@/components/common/Breadcrumbs';
 import Link from 'next/link';
 import { Shield, CreditCard, Banknote, AlertCircle, Star, CheckCircle2 } from 'lucide-react';
 import FAQSection from '@/components/services/FAQSection';
+import { TRUST_METRICS, formatMetric, SOCIAL_LINKS } from '@/config/site';
 import FadeIn from '@/components/common/FadeIn';
 import LivePricingTable from './LivePricingTable';
 import DirectVsMiddleman from '@/components/pricing/DirectVsMiddleman';
@@ -162,7 +163,7 @@ export default async function PricingPage() {
                 },
                 "areaServed": ["Makkah", "Madinah", "Jeddah", "Riyadh", "Taif", "Saudi Arabia"],
                 "sameAs": [
-                    "https://wa.me/966548707332"
+                    SOCIAL_LINKS.whatsapp
                 ],
                 "hasOfferCatalog": {
                     "@type": "OfferCatalog",
@@ -281,14 +282,14 @@ export default async function PricingPage() {
                     <FadeIn>
                         <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-center md:text-left">
                             <div>
-                                <p className="text-3xl font-black text-ink mb-1">10,000+</p>
+                                <p className="text-3xl font-black text-ink mb-1">{formatMetric(TRUST_METRICS.pilgrimsServed)}</p>
                                 <p className="text-body text-sm">Pilgrims transported</p>
                             </div>
                             <div className="hidden md:block w-px h-12 bg-border" />
                             <div>
                                 <div className="flex items-center justify-center md:justify-start gap-1 mb-1">
                                     {[...Array(5)].map((_, i) => <Star key={i} size={18} className="text-gold fill-gold" />)}
-                                    <span className="text-ink font-bold ml-2">5.0</span>
+                                    <span className="text-ink font-bold ml-2">{TRUST_METRICS.googleRating || "X.X"}</span>
                                 </div>
                                 <p className="text-body text-sm">Google Reviews — Verified</p>
                             </div>
@@ -332,7 +333,7 @@ export default async function PricingPage() {
                                     Book Now — Instant Confirmation
                                 </Link>
                                 <a
-                                    href="https://wa.me/966548707332"
+                                    href={SOCIAL_LINKS.whatsapp}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="bg-transparent border-[1.5px] border-border-strong text-on-ink font-semibold px-10 py-4 rounded-btn hover:bg-white/5 transition-colors uppercase tracking-wider text-[15px]"

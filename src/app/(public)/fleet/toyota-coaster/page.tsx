@@ -10,13 +10,14 @@ import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
 
 import { getVehicle, formatSeats, formatLuggage } from '@/data/fleet';
-import { SITE_URL } from '@/config/site';
+import { SITE_URL, TRUST_METRICS, formatMetric } from '@/config/site';
+
 export async function generateMetadata(): Promise<Metadata> {
     const vehicle = getVehicle('toyota-coaster')!;
 
     return {
         title: vehicle ? vehicle.name + " Group Umrah Transport | Al Kiswah" : "Toyota Coaster Group Transport | Al Kiswah",
-        description: vehicle ? `Book ${vehicle.name} in Makkah. ${formatSeats(vehicle)} bus for large group Umrah transport. Licensed and fixed rates.` : "Book Toyota Coaster in Makkah. 19-seater bus for large group Umrah transport. Licensed service for 5,000+ pilgrims.",
+        description: vehicle ? `Book ${vehicle.name} in Makkah. ${formatSeats(vehicle)} bus for large group Umrah transport. Licensed and fixed rates.` : `Book Toyota Coaster in Makkah. 19-seater bus for large group Umrah transport. Licensed service for ${formatMetric(TRUST_METRICS.pilgrimsServed)} pilgrims.`,
         keywords: [
             "toyota coaster umrah transport",
             "large group bus makkah",

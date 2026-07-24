@@ -1,11 +1,13 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import Link from "next/link";
-import { CheckCircle, Phone, MapPin, Star, ArrowRight, Clock, Shield } from "lucide-react";
+import { CheckCircle, Clock, MapPin, Plane, Shield, Star, Users, ArrowRight, Phone } from 'lucide-react';
+import { SOCIAL_LINKS } from '@/config/site';
 import { JsonLdScript } from "@/components/seo/JsonLd";
+import { TRUST_METRICS, formatMetric } from "@/config/site";
 
 export const metadata = {
   title: "Umrah Transport for UK Pilgrims | Jeddah · Makkah · Madinah | Al Kiswah",
-  description: "Private Umrah taxi from Jeddah Airport to Makkah for UK pilgrims. Fixed prices from £35, English-speaking drivers, 24/7 support. Trusted by 5,000+ British pilgrims. Book online.",
+  description: `Private Umrah taxi from Jeddah Airport to Makkah for UK pilgrims. Fixed prices from £35, English-speaking drivers, 24/7 support. Trusted by ${formatMetric(TRUST_METRICS.pilgrimsServed)} British pilgrims. Book online.`,
   alternates: {
     canonical: "https://kiswahumrahcab.com/umrah-transport-uk-pilgrims",
     languages: {
@@ -22,7 +24,7 @@ export const metadata = {
   ],
   openGraph: {
     title: "Umrah Transport for UK Pilgrims — Al Kiswah | Jeddah → Makkah",
-    description: "Fixed-price private transfers from £35. English-speaking drivers. Trusted by 5,000+ UK pilgrims.",
+    description: `Fixed-price private transfers from £35. English-speaking drivers. Trusted by ${formatMetric(TRUST_METRICS.pilgrimsServed)} UK pilgrims.`,
     url: "https://kiswahumrahcab.com/umrah-transport-uk-pilgrims",
     locale: "en_GB",
     alternateLocale: ["ar_SA"],
@@ -182,7 +184,7 @@ export default function UKPilgrimsPage() {
             <Link href="/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-btn hover:scale-105 transition-transform shadow-[0_0_20px_hsl(var(--gold-glow) / 0.4)] uppercase tracking-wider">
               Book Your Transfer
             </Link>
-            <a href="https://wa.me/966548707332" className="border border-gold/50 text-gold font-bold px-8 py-4 rounded-btn hover:bg-gold/10 transition-colors uppercase tracking-wider">
+            <a href={SOCIAL_LINKS.whatsapp} className="border border-gold/50 text-gold font-bold px-8 py-4 rounded-btn hover:bg-gold/10 transition-colors uppercase tracking-wider">
               WhatsApp Us
             </a>
           </div>
@@ -351,7 +353,7 @@ export default function UKPilgrimsPage() {
             <Link href="/booking" className="bg-gold text-black font-bold px-8 py-4 rounded-btn hover:scale-105 transition-transform">
               Book Online
             </Link>
-            <a href="tel:+966548707332" className="flex items-center justify-center gap-2 border border-white/20 text-white font-bold px-8 py-4 rounded-btn hover:bg-white/5 transition-colors">
+            <a href={`tel:${SOCIAL_LINKS.phone}`} className="flex items-center justify-center gap-2 border border-white/20 text-white font-bold px-8 py-4 rounded-btn hover:bg-white/5 transition-colors">
               <Phone size={18} /> +966 54 870 7332
             </a>
           </div>

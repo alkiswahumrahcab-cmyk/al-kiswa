@@ -13,15 +13,7 @@ import { LocationGrid } from '@/components/ziyarat/LocationGrid';
 import { makkahSites } from '@/data/ziyarat-locations';
 import { FLEET, formatSeats } from '@/data/fleet';
 
-const PRICE_MAP: Record<string, string> = {
-    'toyota-camry': 'SAR 200',
-    'hyundai-starex': 'SAR 250',
-    'hyundai-staria': 'SAR 250',
-    'toyota-hiace': 'SAR 300',
-    'gmc-yukon-xl': 'SAR 400',
-    'toyota-coaster': 'SAR 500',
-    'mitsubishi-xpander': 'SAR 200'
-};
+import { TOUR_PRICES } from '@/data/pricing';
 
 export const metadata: Metadata = {
     title: "Makkah Ziyarat Tour 2026 — 15 Islamic Historical Sites | Al Kiswah",
@@ -82,7 +74,7 @@ const makkahFAQs = [
     { question: "How long is the Makkah Ziyarat tour?", answer: "The standard tour covering 6 main sites takes 3–4 hours. Extended tours covering all 15 sites take 5–6 hours. We recommend starting after Fajr to avoid heat." },
     { question: "Can we climb Cave Hira on Jabal Al-Nour?", answer: "Yes, but climbing takes 1–2 hours of hiking. If you wish to climb, inform us when booking so we adjust the schedule. Elderly passengers can view from the base and pray." },
     { question: "Is hotel pickup included in the price?", answer: "Yes, we pick you up from any hotel in Makkah and drop you back after the tour. No extra charges for pickup/drop-off." },
-    { question: "What vehicles are available for Makkah Ziyarat?", answer: FLEET.filter(v => v.bookable).map(v => `${v.name} (${formatSeats(v)}, ${PRICE_MAP[v.id] || 'Contact Us'})`).join(', ') + '.' },
+    { question: "What vehicles are available for Makkah Ziyarat?", answer: FLEET.filter(v => v.bookable).map(v => `${v.name} (${formatSeats(v)})`).join(', ') + '. Please check our booking page for current seasonal pricing.' },
     { question: "Can we customize which sites we visit?", answer: "Absolutely. Every tour is private. Choose which of the 15 sites to visit, how long to stay at each, and the order of stops." },
     { question: "Is Makkah Ziyarat suitable for elderly or children?", answer: "Yes. Most sites are accessible from the vehicle or at ground level. Jabal Al-Nour and Thawr require climbing but can be viewed from base. Child seats available free." },
 ];
@@ -114,13 +106,16 @@ export default async function ZiarahMakkahPage() {
                 <div className="container mx-auto px-4">
                     <FadeIn>
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
-                            {FLEET.filter(v => v.bookable).map((v, i) => (
+                            {FLEET.filter(v => v.bookable).map((v, i) => {
+                                const tourPrice = TOUR_PRICES.find(p => p.vehicleId === v.id && p.tourId === 'makkah-ziyarat');
+                                return (
                                 <div key={v.id} className="bg-surface border border-border rounded-xl p-4 hover:border-gold-line transition-all shadow-sm">
-                                    <div className="text-gold-strong font-bold text-lg">{PRICE_MAP[v.id] || 'Contact Us'}</div>
+                                    <div className="text-gold-strong font-bold text-lg">{tourPrice?.price ? `SAR ${tourPrice.price}` : 'Contact Us'}</div>
                                     <div className="text-ink font-semibold text-sm mt-1">{v.name}</div>
                                     <div className="text-muted text-xs">{formatSeats(v)}</div>
+                                    <div className="text-[10px] text-muted mt-2 uppercase tracking-wide">Makkah Ziyarat Tour</div>
                                 </div>
-                            ))}
+                            )})}
                         </div>
                         <p className="text-center text-xs text-muted mt-4">All prices per vehicle • Fuel, tolls & waiting included • Duration: 3–4 hours</p>
                         <SeasonalPricingNote className="mt-4" />

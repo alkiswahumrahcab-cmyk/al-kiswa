@@ -10,14 +10,16 @@ interface FleetOfferGalleryProps {
     vehicles?: Vehicle[];
 }
 
-const PRICING_DATA: Record<string, any> = {
-    'toyota-camry': { originalPrice: '250 SAR', offerPrice: '200 SAR', discount: '20% OFF', rating: 4.8, badge: 'Best Value' },
-    'gmc-yukon-xl': { originalPrice: '600 SAR', offerPrice: '450 SAR', discount: 'Save 150 SAR', rating: 5.0, badge: 'Top Choice' },
-    'toyota-hiace': { originalPrice: '400 SAR', offerPrice: '350 SAR', discount: 'Family Deal', rating: 4.9, badge: 'Most Popular' },
-    'hyundai-staria': { originalPrice: '550 SAR', offerPrice: '400 SAR', discount: 'Limited Time', rating: 4.9, badge: 'New Arrival' },
-    'hyundai-starex': { originalPrice: '350 SAR', offerPrice: '300 SAR', discount: 'Economy', rating: 4.8, badge: 'Budget Pick' },
-    'toyota-coaster': { originalPrice: '800 SAR', offerPrice: '650 SAR', discount: 'Group Special', rating: 4.8, badge: 'Groups 20+' },
-    'mitsubishi-xpander': { originalPrice: '220 SAR', offerPrice: '180 SAR', discount: 'New', rating: 4.7, badge: 'Value' }
+import { PROMO_PRICES } from '@/data/pricing';
+
+const RATINGS: Record<string, number> = {
+    'toyota-camry': 4.8,
+    'gmc-yukon-xl': 5.0,
+    'toyota-hiace': 4.9,
+    'hyundai-staria': 4.9,
+    'hyundai-starex': 4.8,
+    'toyota-coaster': 4.8,
+    'mitsubishi-xpander': 4.7
 };
 
 export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryProps) {
@@ -39,7 +41,14 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {displayVehicles.map((vehicle, idx) => {
-                        const pricing = PRICING_DATA[vehicle.id] || {};
+                        const promo = PROMO_PRICES[vehicle.id];
+                        const isExpired = promo ? new Date(promo.expiresAt).getTime() < Date.now() : true;
+                        
+                        const displayOriginalPrice = promo ? `${promo.wasPrice} SAR` : null;
+                        const displayOfferPrice = promo ? (isExpired ? `${promo.wasPrice} SAR` : `${promo.nowPrice} SAR`) : null;
+                        const displayDiscount = (!isExpired && promo) ? promo.label : null;
+                        const rating = RATINGS[vehicle.id] || 4.8;
+                        
                         return (
                         <div
                             key={vehicle.id || idx}
@@ -48,19 +57,19 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
                             <div className="relative h-full flex flex-col bg-surface border border-border shadow-sm rounded-xl overflow-hidden hover:shadow-md hover:border-border-strong transition-all duration-300">
 
                                 {/* Discount Badge */}
-                                {(pricing.discount) && (
+                                {displayDiscount && (
                                     <div className="absolute top-4 left-4 z-20">
                                         <div className="bg-gold-soft text-gold-strong font-bold px-3 py-1 rounded-full text-[10px] uppercase tracking-wide">
-                                            {pricing.discount}
+                                            {displayDiscount}
                                         </div>
                                     </div>
                                 )}
 
                                 {/* Rating */}
-                                {pricing.rating && (
+                                {rating && (
                                     <div className="absolute top-4 right-4 z-20 bg-surface-alt px-2 py-1 rounded-full border border-border flex items-center gap-1 shadow-xs">
                                         <Star size={10} className="fill-gold text-gold" />
-                                        <span className="text-xs text-ink font-bold">{pricing.rating}</span>
+                                        <span className="text-xs text-ink font-bold">{rating}</span>
                                     </div>
                                 )}
 
@@ -110,16 +119,18 @@ export default function FleetOfferGallery({ vehicles = [] }: FleetOfferGalleryPr
                                     {/* Footer: Price & Button */}
                                     <div className="mt-auto flex flex-col sm:flex-row sm:items-end justify-between gap-4">
                                         <div>
-                                            {(pricing.originalPrice) && (
+                                            {displayOriginalPrice && !isExpired && (
                                                 <span className="block text-[10px] text-muted line-through mb-1">
-                                                    {pricing.originalPrice}
+                                                    {displayOriginalPrice}
                                                 </span>
                                             )}
                                             <div className="flex items-baseline gap-1">
                                                 <span className="text-2xl font-bold font-display text-ink leading-none">
-                                                    {pricing.offerPrice || 'Contact Us'}
+                                                    {displayOfferPrice || 'Contact Us'}
                                                 </span>
-                                                <span className="text-[10px] text-muted uppercase font-medium">/ Trip</span>
+                                                <span className="text-[10px] text-muted uppercase font-medium">
+                                                    / {isExpired ? 'Trip' : 'Limited Offer'}
+                                                </span>
                                             </div>
                                         </div>
 

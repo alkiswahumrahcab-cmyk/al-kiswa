@@ -65,7 +65,7 @@ const generateJsonLd = (vehicleData: any) => ({
                     "name": "How many seats does Hyundai Staria have?",
                     "acceptedAnswer": {
                         "@type": "Answer",
-                        "text": "The Hyundai Staria features premium captain seats and can comfortably accommodate up to 7-9 passengers along with significant luggage space."
+                        "text": "The Hyundai Staria features premium captain seats and can comfortably accommodate 7 passengers along with significant luggage space."
                     }
                 },
                 {
@@ -114,7 +114,7 @@ const stariaFAQs = [
     },
     {
         question: "How many seats does Hyundai Staria have?",
-        answer: "Our VIP Staria models are configured for up to 7-9 passengers, featuring ultra-comfortable captain seats with ample legroom for long journeys."
+        answer: "Our VIP Staria models are configured for 7 passengers, featuring ultra-comfortable captain seats with ample legroom for long journeys."
     },
     {
         question: "Is Hyundai Staria good for family use?",

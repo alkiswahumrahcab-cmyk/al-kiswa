@@ -283,8 +283,8 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
     
     const importantRules = [
         "1. Vehicle Capacity:",
-        "   - Toyota Camry / Hyundai Sonata: Max 4 Passengers & 3 Medium Bags.",
-        "   - GMC Yukon / Chevrolet Tahoe: Max 7 Passengers & 7 Medium Bags.",
+        "   - Toyota Camry / Mitsubishi Xpander: Max 4 Passengers & 3 Medium Bags.",
+        "   - GMC Yukon XL: Max 7 Passengers & 7 Medium Bags.",
         "   - Hyundai Staria / H1: Max 7 Passengers & 7 Medium Bags.",
         "   - Toyota Hiace: Max 10 Passengers & 10 Medium Bags.",
         "   - Ford Transit: Max 12 Passengers & 12 Medium Bags.",

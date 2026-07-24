@@ -1,7 +1,8 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { generateMetadataAlternates } from '@/lib/hreflang';
-import { Check, X, ArrowRight, TrendingDown, ShieldCheck, Star, Zap } from 'lucide-react';
+import { X, Check, Shield, Star, DollarSign, Users, ExternalLink, ArrowRight, TrendingDown, ShieldCheck, Zap } from 'lucide-react';
+import { TRUST_METRICS, formatMetric, SOCIAL_LINKS } from '@/config/site';
 import FadeIn from '@/components/common/FadeIn';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 
@@ -248,8 +249,8 @@ export default function ComparePage() {
                             {[
                                 { val: '0%', label: 'Platform Commission', color: 'text-gold' },
                                 { val: '20–30%', label: 'Cheaper than Kiwi Taxi', color: 'text-gold' },
-                                { val: '10,000+', label: 'Pilgrims Transported', color: 'text-white' },
-                                { val: '5.0★', label: 'Google Rating', color: 'text-gold' },
+                                { val: `${formatMetric(TRUST_METRICS.pilgrimsServed)}`, label: 'Pilgrims Transported', color: 'text-white' },
+                                { val: `${TRUST_METRICS.googleRating || "X.X"}★`, label: 'Google Rating', color: 'text-gold' },
                             ].map(stat => (
                                 <div key={stat.label} className="bg-white/5 border border-white/8 rounded-2xl p-5 text-center">
                                     <p className={`text-3xl font-black mb-1 ${stat.color}`}>{stat.val}</p>
@@ -479,7 +480,7 @@ export default function ComparePage() {
                                     Book Now — Instant Confirmation
                                 </Link>
                                 <a
-                                    href="https://wa.me/966548707332"
+                                    href={SOCIAL_LINKS.whatsapp}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="bg-gold text-black font-bold px-10 py-4 rounded-xl hover:bg-gold-light transition-colors uppercase tracking-wider"

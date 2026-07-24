@@ -17,13 +17,14 @@ import dynamic from 'next/dynamic';
 import NusukTrustStrip from '@/components/trust/NusukTrustStrip';
 import { JsonLdScript } from '@/components/seo/JsonLd';
 import { generateAboutPageSchema } from '@/components/seo/schema-generator';
+import { TRUST_METRICS, formatMetric } from '@/config/site';
 
 const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 
 export async function generateMetadata() {
     return {
         title: "About Us: Premier VIP Umrah Transport | Al Kiswah",
-        description: "Learn about Al Kiswah Umrah Transport. We provide VIP Jeddah Airport transfers, Makkah to Madinah transport, and a reliable fleet for 5,000+ pilgrims.",
+        description: `Learn about Al Kiswah Umrah Transport. We provide VIP Jeddah Airport transfers, Makkah to Madinah transport, and a reliable fleet for ${formatMetric(TRUST_METRICS.pilgrimsServed)} pilgrims.`,
         keywords: [
             "about al kiswah transport", 
             "umrah transport company",

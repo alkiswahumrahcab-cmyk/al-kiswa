@@ -15,7 +15,7 @@ import { getSettings } from "@/lib/settings-storage";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import HtmlLangUpdater from "@/components/seo/HtmlLangUpdater";
 import "./globals.css";
-import { SITE_URL } from '@/config/site';
+import { SITE_URL, SOCIAL_LINKS } from '@/config/site';
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -214,7 +214,7 @@ export default async function RootLayout({
               },
               "sameAs": [
                 "https://www.google.com/search?q=Al+Kiswah+Umrah+Transport",
-                "https://wa.me/966548707332"
+                SOCIAL_LINKS.whatsapp
               ]
             })
           }}

@@ -1,4 +1,4 @@
-﻿export const staticBlogPosts = [
+export const staticBlogPosts = [
     {
         _id: 'static-new-hajj-2026',
         slug: 'hajj-2026-guidance-taxi-service-pilgrims',
@@ -981,7 +981,7 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
 
             <h3>1. Private VIP SUV Transfers (The "Comfort" Choice)</h3>
             <p><strong>Best For:</strong> Families, Seniors, VIPs.</p>
-            <p>For those seeking luxury and privacy, private SUVs like the <strong>GMC Yukon</strong> or <strong>Chevrolet Tahoe</strong> are the gold standard.</p>
+            <p>For those seeking luxury and privacy, private SUVs like the <strong>GMC Yukon XL</strong> are the gold standard.</p>
             <ul>
                 <li><strong>Pros:</strong> Door-to-door service, massive luggage capacity (up to 6 suitcases), superior air conditioning, and privacy glass.</li>
                 <li><strong>Cons:</strong> Higher price point than buses.</li>

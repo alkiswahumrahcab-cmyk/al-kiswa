@@ -92,16 +92,16 @@ export default function SEOContentSectionV3() {
                                 </div>
                                 <ul className="list-disc list-inside text-ink-muted space-y-2 ml-4 mb-4">
                                     <li>
-                                        <strong>GMC Yukon / Chevrolet Tahoe:</strong> The epitome of luxury and power. Perfect for families of up to 7 passengers looking for a VIP experience. Book your <Link href="/fleet/gmc-yukon-xl" className="text-ink hover:text-gold transition-colors">GMC Yukon XL</Link> for maximum luggage space and comfort.
+                                        <strong>GMC Yukon XL:</strong> The epitome of luxury and power. Perfect for families of 7 passengers looking for a VIP experience. Book your <Link href="/fleet/gmc-yukon-xl" className="text-ink hover:text-gold transition-colors">GMC Yukon XL</Link> for maximum luggage space and comfort.
                                     </li>
                                     <li>
-                                        <strong>Hyundai Staria / H1:</strong> A versatile and spacious MPV, ideal for families or small groups (7-9 passengers). It offers excellent visibility, modern interiors, and a smooth ride. Explore our <Link href="/fleet/hyundai-staria" className="text-ink hover:text-gold transition-colors">Hyundai Staria fleet</Link>.
+                                        <strong>Hyundai Staria / H1:</strong> A versatile and spacious MPV, ideal for families or small groups (7 passengers). It offers excellent visibility, modern interiors, and a smooth ride. Explore our <Link href="/fleet/hyundai-staria" className="text-ink hover:text-gold transition-colors">Hyundai Staria fleet</Link>.
                                     </li>
                                     <li>
-                                        <strong>Toyota Hiace / Coaster:</strong> For larger groups, Ziarah tours, or budget-conscious travelers requiring specialized transport. Our buses are fully air-conditioned and driven by licenced heavy-vehicle operators.
+                                        <strong>Toyota Hiace / Coaster:</strong> For larger groups, Ziarah tours, or budget-conscious travelers requiring specialized transport. Our buses are fully air-conditioned and driven by licensed heavy-vehicle operators.
                                     </li>
                                     <li>
-                                        <strong>Luxury Sedans:</strong> For business travelers or solo pilgrims, offering a premium yet economical <Link href="/services" className="text-ink hover:text-gold transition-colors">private car service</Link>.
+                                        <strong>Luxury Sedans (Toyota Camry & Mitsubishi Xpander):</strong> For business travelers or solo pilgrims, offering a premium yet economical <Link href="/services" className="text-ink hover:text-gold transition-colors">private car service</Link>.
                                     </li>
                                 </ul>
                             </div>

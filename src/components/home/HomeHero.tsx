@@ -3,6 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { Star, ShieldCheck, UserCheck, Plane, MessageCircle } from 'lucide-react';
+import { TRUST_METRICS, formatMetric } from '@/config/site';
 
 interface HomeHeroProps {
     title: React.ReactNode | string;
@@ -93,8 +94,10 @@ const HomeHero: React.FC<HomeHeroProps> = ({
                             {[...Array(5)].map((_, i) => (
                                 <Star key={i} size={16} fill="currentColor" />
                             ))}
-                            <span className="text-white font-semibold ml-1">4.9 / 5</span>
-                            <span className="text-white/60 font-normal ml-1">from 10,000+ pilgrims</span>
+                            <span className="text-white font-semibold ml-1">{TRUST_METRICS.googleRating || "X.X"} / 5</span>
+                            <span className="text-white/60 font-normal ml-1">from {formatMetric(TRUST_METRICS.googleReviewCount)} Reviews</span>
+                            <span className="text-white/60 font-normal mx-2">·</span>
+                            <span className="text-white/60 font-normal">{formatMetric(TRUST_METRICS.pilgrimsServed)} Pilgrims Served</span>
                         </div>
                         
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4">

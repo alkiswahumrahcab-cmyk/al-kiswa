@@ -4,11 +4,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useSettings } from '@/context/SettingsContext';
 import { regions } from '@/data/regions';
-import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
+import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import NusukFooterSeal from '@/components/trust/NusukFooterSeal';
 import ThemeLogo from '@/components/common/ThemeLogo';
 import { Link003 } from '@/components/ui/skiper-ui/skiper40';
 import { getVehicle } from '@/data/fleet';
+import { SOCIAL_LINKS, TRUST_METRICS } from '@/config/site';
 
 export default function Footer() {
     const { settings } = useSettings();
@@ -37,12 +38,10 @@ export default function Footer() {
             "closes": "23:59"
         },
         "sameAs": Array.from(new Set([
-            settings?.contact?.social?.instagram,
-            settings?.contact?.social?.facebook,
-            settings?.contact?.social?.tiktok,
-            "https://www.instagram.com/kiswahumrahcab",
-            "https://www.facebook.com/kiswahumrahcab",
-            "https://www.tiktok.com/@kiswahumrahcab"
+            SOCIAL_LINKS.instagram,
+            SOCIAL_LINKS.facebook,
+            SOCIAL_LINKS.tiktok,
+            SOCIAL_LINKS.linkedin
         ].filter((url): url is string => typeof url === 'string' && url.trim().length > 0))),
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
@@ -108,7 +107,7 @@ export default function Footer() {
                                 <span className="text-yellow-500 text-sm tracking-widest group-hover:scale-105 transition-transform origin-left">⭐⭐⭐⭐⭐</span>
                                 <span className="text-[10px] font-bold text-ink bg-blue-50 px-2 py-0.5 rounded border border-blue-200">Google Provider</span>
                             </div>
-                            <span className="text-xs text-ink-muted mt-1 block group-hover:text-ink transition-colors">5.0 Rating — See our reviews</span>
+                            <span className="text-xs text-ink-muted mt-1 block group-hover:text-ink transition-colors">{TRUST_METRICS.googleRating || "X.X"} Rating — See our reviews</span>
                         </a>
                         <a
                             href={`https://wa.me/${whatsappNumber.replace(/[^0-9]/g, '')}`}
@@ -130,28 +129,24 @@ export default function Footer() {
 
                         {/* Social Links */}
                         <div className="flex items-center gap-4 pt-2">
-                            {settings?.contact?.social?.facebook && (
-                                <a href={settings.contact.social.facebook} target="_blank" rel="noopener noreferrer" className="text-ink-muted hover:text-blue-600 transition-colors" aria-label="Facebook">
+                            {SOCIAL_LINKS.facebook && (
+                                <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="text-ink-muted hover:text-blue-600 transition-colors" aria-label="Facebook">
                                     <Facebook size={20} strokeWidth={1.5} />
                                 </a>
                             )}
-                            {settings?.contact?.social?.instagram && (
-                                <a href={settings.contact.social.instagram} target="_blank" rel="noopener noreferrer" className="text-ink-muted hover:text-pink-600 transition-colors" aria-label="Instagram">
+                            {SOCIAL_LINKS.instagram && (
+                                <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="text-ink-muted hover:text-pink-600 transition-colors" aria-label="Instagram">
                                     <Instagram size={20} strokeWidth={1.5} />
                                 </a>
                             )}
-                            {settings?.contact?.social?.twitter && (
-                                <a href={settings.contact.social.twitter} target="_blank" rel="noopener noreferrer" className="text-ink-muted hover:text-blue-500 transition-colors" aria-label="Twitter">
-                                    <Twitter size={20} strokeWidth={1.5} />
-                                </a>
-                            )}
-                            {settings?.contact?.social?.linkedin && (
-                                <a href={settings.contact.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-ink-muted hover:text-blue-700 transition-colors" aria-label="LinkedIn">
+
+                            {SOCIAL_LINKS.linkedin && (
+                                <a href={SOCIAL_LINKS.linkedin} target="_blank" rel="noopener noreferrer" className="text-ink-muted hover:text-blue-700 transition-colors" aria-label="LinkedIn">
                                     <Linkedin size={20} strokeWidth={1.5} />
                                 </a>
                             )}
-                            {settings?.contact?.social?.tiktok && (
-                                <a href={settings.contact.social.tiktok} target="_blank" rel="noopener noreferrer" className="text-ink-muted hover:text-ink transition-colors" aria-label="TikTok">
+                            {SOCIAL_LINKS.tiktok && (
+                                <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer" className="text-ink-muted hover:text-ink transition-colors" aria-label="TikTok">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                                     </svg>
