@@ -293,12 +293,12 @@ export default function SettingsPage() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
                 <div>
                     <h1 className={styles.title}>Settings</h1>
-                    <p className="text-muted-foreground">Manage your website configuration and preferences</p>
+                    <p className="text-muted">Manage your website configuration and preferences</p>
                 </div>
                 <button
                     onClick={handleSubmit}
                     disabled={saving}
-                    className="flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 px-8 py-3 rounded-btn font-bold shadow-lg shadow-amber-500/20 hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100"
+                    className="flex items-center gap-2 bg-gold text-white px-8 py-3 rounded-btn font-bold shadow-lg shadow-gold/20 hover:scale-105 transition-all disabled:opacity-50 disabled:hover:scale-100"
                 >
                     <Save size={20} />
                     {saving ? 'Saving...' : 'Save Changes'}
@@ -316,18 +316,18 @@ export default function SettingsPage() {
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id as Tab)}
                                 className={`group flex items-center gap-4 px-4 py-4 rounded-2xl transition-all text-left border ${isActive
-                                    ? 'bg-white shadow-md border-amber-100'
-                                    : 'hover:bg-white/50 border-transparent hover:border-slate-100'
+                                    ? 'bg-surface shadow-md border-gold/20'
+                                    : 'hover:bg-surface-alt border-transparent hover:border-border'
                                     }`}
                             >
-                                <div className={`p-2.5 rounded-xl transition-colors ${isActive ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/30' : 'bg-slate-100 text-slate-500 group-hover:bg-white group-hover:text-amber-500'}`}>
+                                <div className={`p-2.5 rounded-xl transition-colors ${isActive ? 'bg-gold text-white shadow-lg shadow-gold/30' : 'bg-surface-sunken text-muted group-hover:bg-surface group-hover:text-gold'}`}>
                                     <Icon size={20} />
                                 </div>
                                 <div>
-                                    <div className={`font-semibold ${isActive ? 'text-slate-900' : 'text-slate-600 group-hover:text-slate-900'}`}>
+                                    <div className={`font-semibold ${isActive ? 'text-ink' : 'text-muted group-hover:text-ink'}`}>
                                         {tab.label}
                                     </div>
-                                    <div className="text-xs text-muted-foreground font-medium">
+                                    <div className="text-xs text-muted font-medium">
                                         {tab.description}
                                     </div>
                                 </div>
@@ -350,36 +350,36 @@ export default function SettingsPage() {
                             {activeTab === 'general' && (
                                 <div className="space-y-8">
                                     <div>
-                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-                                            <Layout className="text-amber-500" size={28} />
+                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2 text-ink">
+                                            <Layout className="text-gold" size={28} />
                                             General Information
                                         </h2>
-                                        <p className="text-muted-foreground">Basic details about your website identity.</p>
+                                        <p className="text-muted">Basic details about your website identity.</p>
                                     </div>
                                     <div className="grid gap-6">
                                         <div className="space-y-2">
-                                            <label className="text-sm font-semibold text-slate-700 ml-1">Site Name</label>
+                                            <label className="text-sm font-semibold text-ink ml-1">Site Name</label>
                                             <div className="relative">
-                                                <Globe className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+                                                <Globe className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
                                                 <input
                                                     type="text"
                                                     name="site_name"
                                                     value={settings.site_name}
                                                     onChange={handleChange}
-                                                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
+                                                    className="w-full pl-10 pr-4 py-3 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all outline-none"
                                                     placeholder="Al Kiswah Umrah Transport"
                                                 />
                                             </div>
                                         </div>
                                         <div className="space-y-2">
-                                            <label className="text-sm font-semibold text-slate-700 ml-1">Site Description</label>
+                                            <label className="text-sm font-semibold text-ink ml-1">Site Description</label>
                                             <div className="relative">
-                                                <FileText className="absolute left-3 top-4 text-muted-foreground" size={18} />
+                                                <FileText className="absolute left-3 top-4 text-muted" size={18} />
                                                 <textarea
                                                     name="site_description"
                                                     value={settings.site_description}
                                                     onChange={handleChange}
-                                                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none min-h-[120px]"
+                                                    className="w-full pl-10 pr-4 py-3 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all outline-none min-h-[120px]"
                                                     placeholder="Brief description of your services..."
                                                 />
                                             </div>
@@ -391,65 +391,65 @@ export default function SettingsPage() {
                             {activeTab === 'contact' && (
                                 <div className="space-y-8">
                                     <div>
-                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-                                            <Phone className="text-amber-500" size={28} />
+                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2 text-ink">
+                                            <Phone className="text-gold" size={28} />
                                             Contact Details
                                         </h2>
-                                        <p className="text-muted-foreground">How customers can reach you.</p>
+                                        <p className="text-muted">How customers can reach you.</p>
                                     </div>
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div className="space-y-2">
-                                            <label className="text-sm font-semibold text-slate-700 ml-1">Phone Number</label>
+                                            <label className="text-sm font-semibold text-ink ml-1">Phone Number</label>
                                             <div className="relative">
-                                                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+                                                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
                                                 <input
                                                     type="text"
                                                     name="contact_phone"
                                                     value={settings.contact_phone}
                                                     onChange={handleChange}
-                                                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
+                                                    className="w-full pl-10 pr-4 py-3 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all outline-none"
                                                     placeholder="+966 50 123 4567"
                                                 />
                                             </div>
                                         </div>
                                         <div className="space-y-2">
-                                            <label className="text-sm font-semibold text-slate-700 ml-1">Secondary Phone</label>
+                                            <label className="text-sm font-semibold text-ink ml-1">Secondary Phone</label>
                                             <div className="relative">
-                                                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+                                                <Phone className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
                                                 <input
                                                     type="text"
                                                     name="contact_phone_2"
                                                     value={settings.contact_phone_2}
                                                     onChange={handleChange}
-                                                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
+                                                    className="w-full pl-10 pr-4 py-3 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all outline-none"
                                                     placeholder="+966 50 987 6543"
                                                 />
                                             </div>
                                         </div>
                                         <div className="space-y-2">
-                                            <label className="text-sm font-semibold text-slate-700 ml-1">Email Address</label>
+                                            <label className="text-sm font-semibold text-ink ml-1">Email Address</label>
                                             <div className="relative">
-                                                <AtSign className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+                                                <AtSign className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
                                                 <input
                                                     type="email"
                                                     name="contact_email"
                                                     value={settings.contact_email}
                                                     onChange={handleChange}
-                                                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
+                                                    className="w-full pl-10 pr-4 py-3 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all outline-none"
                                                     placeholder="info@alkiswah.com"
                                                 />
                                             </div>
                                         </div>
                                         <div className="space-y-2 md:col-span-2">
-                                            <label className="text-sm font-semibold text-slate-700 ml-1">Address</label>
+                                            <label className="text-sm font-semibold text-ink ml-1">Address</label>
                                             <div className="relative">
-                                                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+                                                <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
                                                 <input
                                                     type="text"
                                                     name="address"
                                                     value={settings.address}
                                                     onChange={handleChange}
-                                                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
+                                                    className="w-full pl-10 pr-4 py-3 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all outline-none"
                                                     placeholder="Makkah, Saudi Arabia"
                                                 />
                                             </div>
@@ -461,32 +461,32 @@ export default function SettingsPage() {
                             {activeTab === 'social' && (
                                 <div className="space-y-8">
                                     <div>
-                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-                                            <Globe className="text-amber-500" size={28} />
+                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2 text-ink">
+                                            <Globe className="text-gold" size={28} />
                                             Social Media
                                         </h2>
-                                        <p className="text-muted-foreground">Connect your social platforms.</p>
+                                        <p className="text-muted">Connect your social platforms.</p>
                                     </div>
                                     <div className="grid md:grid-cols-2 gap-6">
                                         {[
-                                            { name: 'social_facebook', label: 'Facebook', icon: Facebook, color: 'text-blue-600' },
-                                            { name: 'social_instagram', label: 'Instagram', icon: Instagram, color: 'text-pink-600' },
-                                            { name: 'social_twitter', label: 'Twitter / X', icon: Twitter, color: 'text-sky-500' },
-                                            { name: 'social_linkedin', label: 'LinkedIn', icon: Linkedin, color: 'text-blue-700' },
-                                            { name: 'social_tiktok', label: 'TikTok', icon: Video, color: 'text-black' },
+                                            { name: 'social_facebook', label: 'Facebook', icon: Facebook, color: 'text-info' },
+                                            { name: 'social_instagram', label: 'Instagram', icon: Instagram, color: 'text-error' },
+                                            { name: 'social_twitter', label: 'Twitter / X', icon: Twitter, color: 'text-info' },
+                                            { name: 'social_linkedin', label: 'LinkedIn', icon: Linkedin, color: 'text-info' },
+                                            { name: 'social_tiktok', label: 'TikTok', icon: Video, color: 'text-ink' },
                                         ].map((social) => (
                                             <div key={social.name} className="space-y-2">
-                                                <label className="text-sm font-semibold text-slate-700 ml-1 flex items-center gap-2">
+                                                <label className="text-sm font-semibold text-ink ml-1 flex items-center gap-2">
                                                     <social.icon size={16} className={social.color} /> {social.label}
                                                 </label>
                                                 <div className="relative">
-                                                    <LinkIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={16} />
+                                                    <LinkIcon className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={16} />
                                                     <input
                                                         type="text"
                                                         name={social.name}
                                                         value={settings[social.name as keyof typeof settings] as string}
                                                         onChange={handleChange}
-                                                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
+                                                        className="w-full pl-10 pr-4 py-3 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all outline-none"
                                                         placeholder={`https://${social.label.toLowerCase().split(' ')[0]}.com/...`}
                                                     />
                                                 </div>
@@ -499,56 +499,56 @@ export default function SettingsPage() {
                             {activeTab === 'seo' && (
                                 <div className="space-y-8">
                                     <div>
-                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-                                            <Search className="text-amber-500" size={28} />
+                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2 text-ink">
+                                            <Search className="text-gold" size={28} />
                                             SEO Configuration
                                         </h2>
-                                        <p className="text-muted-foreground">Optimize your site for search engines.</p>
+                                        <p className="text-muted">Optimize your site for search engines.</p>
                                     </div>
                                     <div className="space-y-6">
                                         <div className="space-y-2">
-                                            <label className="text-sm font-semibold text-slate-700 ml-1">Meta Title</label>
+                                            <label className="text-sm font-semibold text-ink ml-1">Meta Title</label>
                                             <div className="relative">
-                                                <Layout className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+                                                <Layout className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
                                                 <input
                                                     type="text"
                                                     name="seo_title"
                                                     value={settings.seo_title}
                                                     onChange={handleChange}
-                                                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
+                                                    className="w-full pl-10 pr-4 py-3 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all outline-none"
                                                     placeholder="Al Kiswah Umrah Transport - Premium Taxi Service"
                                                 />
                                             </div>
-                                            <p className="text-xs text-muted-foreground ml-1">Recommended length: 50-60 characters</p>
+                                            <p className="text-xs text-muted ml-1">Recommended length: 50-60 characters</p>
                                         </div>
                                         <div className="space-y-2">
-                                            <label className="text-sm font-semibold text-slate-700 ml-1">Meta Description</label>
+                                            <label className="text-sm font-semibold text-ink ml-1">Meta Description</label>
                                             <div className="relative">
-                                                <FileText className="absolute left-3 top-4 text-muted-foreground" size={18} />
+                                                <FileText className="absolute left-3 top-4 text-muted" size={18} />
                                                 <textarea
                                                     name="seo_description"
                                                     value={settings.seo_description}
                                                     onChange={handleChange}
-                                                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none min-h-[100px]"
+                                                    className="w-full pl-10 pr-4 py-3 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all outline-none min-h-[100px]"
                                                     placeholder="Best Umrah taxi service in Saudi Arabia..."
                                                 />
                                             </div>
-                                            <p className="text-xs text-muted-foreground ml-1">Recommended length: 150-160 characters</p>
+                                            <p className="text-xs text-muted ml-1">Recommended length: 150-160 characters</p>
                                         </div>
                                         <div className="space-y-2">
-                                            <label className="text-sm font-semibold text-slate-700 ml-1">Keywords</label>
+                                            <label className="text-sm font-semibold text-ink ml-1">Keywords</label>
                                             <div className="relative">
-                                                <Hash className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+                                                <Hash className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
                                                 <input
                                                     type="text"
                                                     name="seo_keywords"
                                                     value={settings.seo_keywords}
                                                     onChange={handleChange}
-                                                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
+                                                    className="w-full pl-10 pr-4 py-3 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all outline-none"
                                                     placeholder="umrah taxi, makkah transport, jeddah airport taxi"
                                                 />
                                             </div>
-                                            <p className="text-xs text-muted-foreground ml-1">Separate keywords with commas</p>
+                                            <p className="text-xs text-muted ml-1">Separate keywords with commas</p>
                                         </div>
                                     </div>
                                 </div>
@@ -557,56 +557,56 @@ export default function SettingsPage() {
                             {activeTab === 'scripts' && (
                                 <div className="space-y-8">
                                     <div>
-                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-                                            <Code className="text-amber-500" size={28} />
+                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2 text-ink">
+                                            <Code className="text-gold" size={28} />
                                             Custom Scripts
                                         </h2>
-                                        <p className="text-muted-foreground">Inject custom code into your site.</p>
+                                        <p className="text-muted">Inject custom code into your site.</p>
                                     </div>
                                     <div className="space-y-6">
                                         <div className="space-y-2">
-                                            <label className="text-sm font-semibold text-slate-700 ml-1">Google Analytics Measurement ID</label>
+                                            <label className="text-sm font-semibold text-ink ml-1">Google Analytics Measurement ID</label>
                                             <div className="relative">
-                                                <Hash className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+                                                <Hash className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
                                                 <input
                                                     type="text"
                                                     name="google_analytics_id"
                                                     value={settings.google_analytics_id}
                                                     onChange={handleChange}
-                                                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
+                                                    className="w-full pl-10 pr-4 py-3 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all outline-none"
                                                     placeholder="G-XXXXXXXXXX"
                                                 />
                                             </div>
-                                            <p className="text-xs text-muted-foreground ml-1">Enter your GA4 Measurement ID (starts with G-)</p>
+                                            <p className="text-xs text-muted ml-1">Enter your GA4 Measurement ID (starts with G-)</p>
                                         </div>
 
                                         <div className="space-y-2">
-                                            <label className="text-sm font-semibold text-slate-700 ml-1">Header Scripts</label>
+                                            <label className="text-sm font-semibold text-ink ml-1">Header Scripts</label>
                                             <div className="relative">
-                                                <div className="absolute left-3 top-4 text-muted-foreground font-mono text-xs">&lt;/&gt;</div>
+                                                <div className="absolute left-3 top-4 text-muted font-mono text-xs">&lt;/&gt;</div>
                                                 <textarea
                                                     name="scripts_header"
                                                     value={settings.scripts_header}
                                                     onChange={handleChange}
-                                                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none font-mono text-sm min-h-[200px]"
+                                                    className="w-full pl-10 pr-4 py-3 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all outline-none font-mono text-sm min-h-[200px]"
                                                     placeholder="<!-- Google Analytics -->"
                                                 />
                                             </div>
-                                            <p className="text-xs text-muted-foreground ml-1">Scripts injected into the &lt;head&gt; tag</p>
+                                            <p className="text-xs text-muted ml-1">Scripts injected into the &lt;head&gt; tag</p>
                                         </div>
                                         <div className="space-y-2">
-                                            <label className="text-sm font-semibold text-slate-700 ml-1">Footer Scripts</label>
+                                            <label className="text-sm font-semibold text-ink ml-1">Footer Scripts</label>
                                             <div className="relative">
-                                                <div className="absolute left-3 top-4 text-muted-foreground font-mono text-xs">&lt;/&gt;</div>
+                                                <div className="absolute left-3 top-4 text-muted font-mono text-xs">&lt;/&gt;</div>
                                                 <textarea
                                                     name="scripts_footer"
                                                     value={settings.scripts_footer}
                                                     onChange={handleChange}
-                                                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-slate-50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none font-mono text-sm min-h-[200px]"
+                                                    className="w-full pl-10 pr-4 py-3 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all outline-none font-mono text-sm min-h-[200px]"
                                                     placeholder="<!-- Chat Widget -->"
                                                 />
                                             </div>
-                                            <p className="text-xs text-muted-foreground ml-1">Scripts injected before the closing &lt;/body&gt; tag</p>
+                                            <p className="text-xs text-muted ml-1">Scripts injected before the closing &lt;/body&gt; tag</p>
                                         </div>
                                     </div>
                                 </div>
@@ -623,28 +623,28 @@ export default function SettingsPage() {
                             {activeTab === 'currency' && (
                                 <div className="space-y-8">
                                     <div>
-                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-                                            <Banknote className="text-amber-500" size={28} />
+                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2 text-ink">
+                                            <Banknote className="text-gold" size={28} />
                                             Pricing & Currency
                                         </h2>
-                                        <p className="text-muted-foreground">Manage the global USD to SAR exchange rate.</p>
+                                        <p className="text-muted">Manage the global USD to SAR exchange rate.</p>
                                     </div>
                                     <div className="grid gap-6">
                                         <div className="space-y-2">
-                                            <label className="text-sm font-semibold text-slate-700 ml-1">Exchange Rate (1 USD to SAR)</label>
+                                            <label className="text-sm font-semibold text-ink ml-1">Exchange Rate (1 USD to SAR)</label>
                                             <div className="relative">
-                                                <Banknote className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+                                                <Banknote className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
                                                 <input
                                                     type="number"
                                                     step="0.01"
                                                     name="exchange_rate"
                                                     value={settings.exchange_rate}
                                                     onChange={handleChange}
-                                                    className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
+                                                    className="w-full pl-10 pr-4 py-3 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all outline-none"
                                                     placeholder="3.75"
                                                 />
                                             </div>
-                                            <p className="text-xs text-muted-foreground ml-1">Example: 3.75 means 1 USD = 3.75 SAR</p>
+                                            <p className="text-xs text-muted ml-1">Example: 3.75 means 1 USD = 3.75 SAR</p>
                                         </div>
                                     </div>
                                 </div>
@@ -657,23 +657,23 @@ export default function SettingsPage() {
                                     className="space-y-6"
                                 >
                                     <div className={styles.glassCard}>
-                                        <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
-                                            <Percent className="text-emerald-500" />
+                                        <h2 className="text-xl font-bold mb-6 flex items-center gap-2 text-ink">
+                                            <Percent className="text-success" />
                                             Additional Fees & Surcharges
                                         </h2>
                                         
                                         <div className="space-y-6">
                                         {/* Hajj Terminal Fee */}
-                                        <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+                                        <div className="bg-surface-sunken rounded-2xl p-6 border border-border">
                                             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
                                                 <div>
                                                     <div className="flex items-center gap-3 mb-1">
-                                                        <div className="p-2 bg-emerald-100 text-emerald-600 rounded-lg">
+                                                        <div className="p-2 bg-success/10 text-success rounded-btn">
                                                             <MapPin size={20} />
                                                         </div>
-                                                        <h3 className="text-lg font-bold">Jeddah Airport Hajj Terminal Parking Fee</h3>
+                                                        <h3 className="text-lg font-bold text-ink">Jeddah Airport Hajj Terminal Parking Fee</h3>
                                                     </div>
-                                                    <p className="text-sm text-slate-500">Apply a mandatory parking fee when customers select Hajj Terminal for Jeddah Airport pickups.</p>
+                                                    <p className="text-sm text-muted">Apply a mandatory parking fee when customers select Hajj Terminal for Jeddah Airport pickups.</p>
                                                 </div>
                                                 <label className="relative inline-flex items-center cursor-pointer">
                                                     <input
@@ -682,19 +682,19 @@ export default function SettingsPage() {
                                                         checked={settings.fees.enableHajjTerminalFee}
                                                         onChange={(e) => setSettings(s => ({ ...s, fees: { ...s.fees, enableHajjTerminalFee: e.target.checked } }))}
                                                     />
-                                                        <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-500"></div>
+                                                        <div className="w-11 h-6 bg-border peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-border after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-success"></div>
                                                     </label>
                                                 </div>
 
                                                 <div className="relative">
-                                                    <label className="block text-sm font-bold text-slate-700 mb-2">
+                                                    <label className="block text-sm font-bold text-ink mb-2">
                                                         Parking Fee Amount (SAR)
                                                     </label>
                                                     <input
                                                         type="number"
                                                         value={settings.fees.hajjTerminalFeeAmount}
                                                         onChange={(e) => setSettings(s => ({ ...s, fees: { ...s.fees, hajjTerminalFeeAmount: Number(e.target.value) } }))}
-                                                        className={styles.input}
+                                                        className="w-full px-4 py-3 rounded-btn border border-border bg-surface text-ink focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all outline-none"
                                                         disabled={!settings.fees.enableHajjTerminalFee}
                                                         min="0"
                                                     />
@@ -703,7 +703,7 @@ export default function SettingsPage() {
                                                     <button
                                                         type="button"
                                                         onClick={() => handleSectionSave('fees', settings.fees)}
-                                                        className="px-4 py-2 bg-slate-900 text-white rounded-lg hover:bg-slate-800 transition-colors flex items-center gap-2 text-sm font-medium"
+                                                        className="px-4 py-2 bg-ink text-surface rounded-btn hover:bg-ink/90 transition-all hover:scale-105 flex items-center gap-2 text-sm font-medium"
                                                     >
                                                         <Save size={16} /> Save Fee Settings
                                                     </button>
@@ -724,33 +724,33 @@ export default function SettingsPage() {
                             {activeTab === 'database' && (
                                 <div className="space-y-8">
                                     <div>
-                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-                                            <DatabaseBackup className="text-amber-500" size={28} />
+                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2 text-ink">
+                                            <DatabaseBackup className="text-gold" size={28} />
                                             Database Maintenance
                                         </h2>
-                                        <p className="text-muted-foreground">Manage data retention and optimization.</p>
+                                        <p className="text-muted">Manage your data retention and keep your system optimized.</p>
                                     </div>
 
-                                    <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                                        <div className="flex items-start gap-4">
-                                            <div className="p-3 bg-amber-100 rounded-xl text-amber-600">
+                                    <div className="space-y-6">
+                                        <div className="bg-surface-sunken p-6 rounded-2xl border border-error/20 flex flex-col md:flex-row gap-6">
+                                            <div className="p-3 bg-error/10 text-error rounded-xl h-fit shrink-0">
                                                 <Trash2 size={24} />
                                             </div>
                                             <div className="flex-1">
-                                                <h3 className="text-lg font-bold text-slate-800 mb-2">Clean Up Old Data</h3>
-                                                <p className="text-slate-600 mb-4 text-sm leading-relaxed">
+                                                <h3 className="text-lg font-bold text-ink mb-2">Clean Up Old Data</h3>
+                                                <p className="text-muted mb-4 text-sm leading-relaxed">
                                                     Permanently remove <strong>Completed</strong> and <strong>Cancelled</strong> bookings that are older than the selected period.
                                                     This action removes booking records and their associated driver assignments.
-                                                    <br /><span className="font-semibold text-red-500">Warning: This action cannot be undone.</span>
+                                                    <br /><span className="font-semibold text-error">Warning: This action cannot be undone.</span>
                                                 </p>
 
                                                 <div className="flex flex-col sm:flex-row gap-4 items-end sm:items-center">
                                                     <div className="w-full sm:w-48">
-                                                        <label className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5 block">Delete Older Than</label>
+                                                        <label className="text-xs font-bold text-muted uppercase tracking-wider mb-1.5 block">Delete Older Than</label>
                                                         <select
                                                             value={retentionMonths}
                                                             onChange={(e) => setRetentionMonths(e.target.value)}
-                                                            className="w-full p-2.5 rounded-lg border border-slate-300 bg-white focus:ring-2 focus:ring-amber-500 outline-none font-medium"
+                                                            className="w-full p-2.5 rounded-btn border border-border bg-surface focus:ring-2 focus:ring-error/20 focus:border-error outline-none font-medium cursor-pointer"
                                                         >
                                                             <option value="1">1 Month</option>
                                                             <option value="3">3 Months</option>
@@ -778,7 +778,7 @@ export default function SettingsPage() {
                                                                 setLoading(false);
                                                             }
                                                         }}
-                                                        className="px-6 py-2.5 bg-red-500 hover:bg-red-600 text-white rounded-lg font-bold shadow-lg shadow-red-500/20 transition-all active:scale-95"
+                                                        className="px-6 py-2.5 bg-error hover:bg-error/90 text-white rounded-btn font-bold shadow-lg shadow-error/20 transition-all hover:scale-105 active:scale-95"
                                                     >
                                                         Clean Up Now
                                                     </button>
@@ -792,43 +792,43 @@ export default function SettingsPage() {
                             {activeTab === 'security' && (
                                 <div className="space-y-8">
                                     <div>
-                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2">
-                                            <ShieldCheck className="text-amber-500" size={28} />
+                                        <h2 className="text-2xl font-bold mb-2 flex items-center gap-2 text-ink">
+                                            <ShieldCheck className="text-gold" size={28} />
                                             Security Settings
                                         </h2>
-                                        <p className="text-muted-foreground">Manage your account security and password.</p>
+                                        <p className="text-muted">Manage your account security and password.</p>
                                     </div>
 
-                                    <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200">
-                                        <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                                            <Lock size={20} className="text-slate-500" />
+                                    <div className="bg-surface-sunken p-6 rounded-2xl border border-border">
+                                        <h3 className="text-lg font-bold mb-4 flex items-center gap-2 text-ink">
+                                            <Lock size={20} className="text-muted" />
                                             Change Password
                                         </h3>
                                         <form onSubmit={handlePasswordSubmit} className="space-y-4 max-w-md">
                                             <div className="space-y-2">
-                                                <label className="text-sm font-semibold text-slate-700 ml-1">Current Password</label>
+                                                <label className="text-sm font-semibold text-ink ml-1">Current Password</label>
                                                 <input
                                                     type="password"
                                                     name="currentPassword"
                                                     value={passwordForm.currentPassword}
                                                     onChange={handlePasswordChange}
                                                     required
-                                                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white focus:ring-2 focus:ring-amber-500/20 focus:border-amber-500 transition-all outline-none"
+                                                    className="w-full px-4 py-3 rounded-btn border border-border bg-surface text-ink focus:ring-2 focus:ring-gold/20 focus:border-gold transition-all outline-none"
                                                     placeholder="Enter current password"
                                                 />
                                             </div>
                                             <div className="space-y-2">
-                                                <label className="text-sm font-semibold text-slate-700 ml-1">New Password</label>
+                                                <label className="text-sm font-semibold text-ink ml-1">New Password</label>
                                                 <input
                                                     type="password"
                                                     name="newPassword"
                                                     value={passwordForm.newPassword}
                                                     onChange={handlePasswordChange}
                                                     required
-                                                    className={`w-full px-4 py-3 rounded-xl border bg-white focus:ring-2 focus:ring-amber-500/20 transition-all outline-none ${
+                                                    className={`w-full px-4 py-3 rounded-btn border bg-surface text-ink focus:ring-2 focus:ring-gold/20 transition-all outline-none ${
                                                         passwordForm.newPassword
-                                                            ? pwStrong ? 'border-green-400 focus:border-green-500' : 'border-red-300 focus:border-red-400'
-                                                            : 'border-slate-200 focus:border-amber-500'
+                                                            ? pwStrong ? 'border-success focus:border-success' : 'border-error focus:border-error'
+                                                            : 'border-border focus:border-gold'
                                                     }`}
                                                     placeholder="Enter new password"
                                                 />
@@ -842,7 +842,7 @@ export default function SettingsPage() {
                                                             [pwChecks.number,  'Number (0-9)'],
                                                             [pwChecks.special, 'Special character (@, !, # …)'],
                                                         ] as [boolean, string][]).map(([ok, label]) => (
-                                                            <li key={label} className={`flex items-center gap-1.5 ${ok ? 'text-green-600' : 'text-red-500'}`}>
+                                                            <li key={label} className={`flex items-center gap-1.5 ${ok ? 'text-success' : 'text-error'}`}>
                                                                 <span className="text-base leading-none">{ok ? '✓' : '✗'}</span> {label}
                                                             </li>
                                                         ))}
@@ -850,34 +850,34 @@ export default function SettingsPage() {
                                                 )}
                                             </div>
                                             <div className="space-y-2">
-                                                <label className="text-sm font-semibold text-slate-700 ml-1">Confirm New Password</label>
+                                                <label className="text-sm font-semibold text-ink ml-1">Confirm New Password</label>
                                                 <input
                                                     type="password"
                                                     name="confirmPassword"
                                                     value={passwordForm.confirmPassword}
                                                     onChange={handlePasswordChange}
                                                     required
-                                                    className={`w-full px-4 py-3 rounded-xl border bg-white focus:ring-2 focus:ring-amber-500/20 transition-all outline-none ${
+                                                    className={`w-full px-4 py-3 rounded-btn border bg-surface text-ink focus:ring-2 focus:ring-gold/20 transition-all outline-none ${
                                                         passwordForm.confirmPassword
-                                                            ? passwordForm.newPassword === passwordForm.confirmPassword ? 'border-green-400' : 'border-red-300'
-                                                            : 'border-slate-200 focus:border-amber-500'
+                                                            ? passwordForm.newPassword === passwordForm.confirmPassword ? 'border-success' : 'border-error'
+                                                            : 'border-border focus:border-gold'
                                                     }`}
                                                     placeholder="Confirm new password"
                                                 />
                                                 {passwordForm.confirmPassword && passwordForm.newPassword !== passwordForm.confirmPassword && (
-                                                    <p className="text-xs text-red-500 mt-1">Passwords do not match</p>
+                                                    <p className="text-xs text-error mt-1">Passwords do not match</p>
                                                 )}
                                             </div>
                                             <div className="pt-2">
                                                 <button
                                                     type="submit"
                                                     disabled={passwordLoading || !pwStrong || passwordForm.newPassword !== passwordForm.confirmPassword}
-                                                    className="px-6 py-2.5 bg-slate-900 text-white rounded-lg font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+                                                    className="px-6 py-2.5 bg-ink text-surface rounded-btn font-medium hover:scale-105 transition-all disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed"
                                                 >
                                                     {passwordLoading ? 'Updating...' : 'Update Password'}
                                                 </button>
                                                 {passwordForm.newPassword && !pwStrong && (
-                                                    <p className="text-xs text-amber-600 mt-2">⚠ Password does not meet all requirements above</p>
+                                                    <p className="text-xs text-gold mt-2">⚠ Password does not meet all requirements above</p>
                                                 )}
                                             </div>
                                         </form>

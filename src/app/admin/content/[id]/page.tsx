@@ -128,7 +128,7 @@ export default function EditContentPage() {
     if (loading) {
         return (
             <div className="flex justify-center items-center min-h-screen">
-                <Loader2 className="animate-spin text-blue-600" size={32} />
+                <Loader2 className="animate-spin text-gold" size={32} />
             </div>
         );
     }
@@ -140,13 +140,13 @@ export default function EditContentPage() {
             <div className="flex items-center gap-4 mb-6">
                 <Link
                     href="/admin/content"
-                    className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                    className="p-2 hover:bg-surface-alt rounded-btn transition-colors"
                 >
-                    <ArrowLeft size={20} className="text-gray-600" />
+                    <ArrowLeft size={20} className="text-muted hover:text-ink transition-colors" />
                 </Link>
                 <div>
-                    <h1 className="text-2xl font-bold text-gray-900">Edit Section</h1>
-                    <p className="text-sm text-gray-500">
+                    <h1 className="text-2xl font-bold text-ink">Edit Section</h1>
+                    <p className="text-sm text-muted">
                         {section.page} / {section.name}
                     </p>
                 </div>
@@ -156,45 +156,45 @@ export default function EditContentPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     {/* Main Content */}
                     <div className="lg:col-span-2 space-y-6">
-                        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                            <h2 className="text-lg font-semibold mb-4 text-gray-900">Content</h2>
+                        <div className="bg-surface p-6 rounded-2xl shadow-sm border border-border">
+                            <h2 className="text-lg font-semibold mb-4 text-ink">Content</h2>
 
                             <div className="space-y-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    <label className="block text-sm font-medium text-ink mb-1">
                                         Title
                                     </label>
                                     <input
                                         type="text"
                                         value={section.title}
                                         onChange={(e) => setSection({ ...section, title: e.target.value })}
-                                        className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 outline-none"
+                                        className="w-full px-4 py-2 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold outline-none transition-all"
                                         required
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    <label className="block text-sm font-medium text-ink mb-1">
                                         Subtitle
                                     </label>
                                     <input
                                         type="text"
                                         value={section.subtitle || ''}
                                         onChange={(e) => setSection({ ...section, subtitle: e.target.value })}
-                                        className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 outline-none"
+                                        className="w-full px-4 py-2 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold outline-none transition-all"
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    <label className="block text-sm font-medium text-ink mb-1">
                                         Body Content
                                     </label>
-                                    <div className="bg-white rounded-lg overflow-hidden">
+                                    <div className="bg-surface rounded-2xl overflow-hidden border border-border">
                                         <ReactQuill
                                             theme="snow"
                                             value={section.content || ''}
                                             onChange={(content) => setSection({ ...section, content })}
-                                            className="text-gray-900"
+                                            className="text-ink"
                                         />
                                     </div>
                                 </div>
@@ -203,19 +203,19 @@ export default function EditContentPage() {
 
                         {/* Custom Fields */}
                         {section.customFields && section.customFields.length > 0 && (
-                            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                                <h2 className="text-lg font-semibold mb-4 text-gray-900">Custom Fields</h2>
+                            <div className="bg-surface p-6 rounded-2xl shadow-sm border border-border">
+                                <h2 className="text-lg font-semibold mb-4 text-ink">Custom Fields</h2>
                                 <div className="space-y-4">
                                     {section.customFields.map((field, index) => (
                                         <div key={field.key}>
-                                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                                            <label className="block text-sm font-medium text-ink mb-1">
                                                 {field.label}
                                             </label>
                                             <input
                                                 type={field.type === 'text' || field.type === 'link' ? 'text' : field.type}
                                                 value={field.value}
                                                 onChange={(e) => handleCustomFieldChange(index, e.target.value)}
-                                                className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 outline-none"
+                                                className="w-full px-4 py-2 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold outline-none transition-all"
                                             />
                                         </div>
                                     ))}
@@ -223,31 +223,31 @@ export default function EditContentPage() {
                             </div>
                         )}
 
-                        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                            <h2 className="text-lg font-semibold mb-4 text-gray-900">SEO Settings</h2>
+                        <div className="bg-surface p-6 rounded-2xl shadow-sm border border-border">
+                            <h2 className="text-lg font-semibold mb-4 text-ink">SEO Settings</h2>
 
                             <div className="space-y-4">
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    <label className="block text-sm font-medium text-ink mb-1">
                                         Meta Title
                                     </label>
                                     <input
                                         type="text"
                                         value={section.metaTitle || ''}
                                         onChange={(e) => setSection({ ...section, metaTitle: e.target.value })}
-                                        className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 outline-none"
+                                        className="w-full px-4 py-2 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold outline-none transition-all"
                                     />
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                                    <label className="block text-sm font-medium text-ink mb-1">
                                         Meta Description
                                     </label>
                                     <textarea
                                         value={section.metaDescription || ''}
                                         onChange={(e) => setSection({ ...section, metaDescription: e.target.value })}
                                         rows={3}
-                                        className="w-full px-4 py-2 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 outline-none"
+                                        className="w-full px-4 py-2 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold outline-none transition-all"
                                     />
                                 </div>
                             </div>
@@ -256,16 +256,16 @@ export default function EditContentPage() {
 
                     {/* Sidebar */}
                     <div className="space-y-6">
-                        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                            <h2 className="text-lg font-semibold mb-4 text-gray-900">Media</h2>
+                        <div className="bg-surface p-6 rounded-2xl shadow-sm border border-border">
+                            <h2 className="text-lg font-semibold mb-4 text-ink">Media</h2>
 
                             <div className="space-y-6">
                                 {/* Desktop Image */}
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                    <label className="block text-sm font-medium text-ink mb-2">
                                         Desktop Image
                                     </label>
-                                    <div className="relative aspect-video w-full bg-gray-100 rounded-lg overflow-hidden mb-3 border-2 border-dashed border-gray-300 group">
+                                    <div className="relative aspect-video w-full bg-surface-sunken rounded-2xl overflow-hidden mb-3 border-2 border-dashed border-border group">
                                         {previews.desktop ? (
                                             <Image
                                                 src={previews.desktop}
@@ -274,7 +274,7 @@ export default function EditContentPage() {
                                                 className="object-cover"
                                             />
                                         ) : (
-                                            <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+                                            <div className="absolute inset-0 flex items-center justify-center text-muted">
                                                 <Upload size={32} />
                                             </div>
                                         )}
@@ -288,17 +288,17 @@ export default function EditContentPage() {
                                             <span className="text-white font-medium">Change Desktop</span>
                                         </div>
                                     </div>
-                                    <p className="text-xs text-gray-500">
+                                    <p className="text-xs text-muted">
                                         1920x1080px recommended.
                                     </p>
                                 </div>
 
                                 {/* Mobile Image */}
                                 <div>
-                                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                                    <label className="block text-sm font-medium text-ink mb-2">
                                         Mobile Image (Optional)
                                     </label>
-                                    <div className="relative aspect-[9/16] w-2/3 mx-auto bg-gray-100 rounded-lg overflow-hidden mb-3 border-2 border-dashed border-gray-300 group">
+                                    <div className="relative aspect-[9/16] w-2/3 mx-auto bg-surface-sunken rounded-2xl overflow-hidden mb-3 border-2 border-dashed border-border group">
                                         {previews.mobile ? (
                                             <Image
                                                 src={previews.mobile}
@@ -307,7 +307,7 @@ export default function EditContentPage() {
                                                 className="object-cover"
                                             />
                                         ) : (
-                                            <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+                                            <div className="absolute inset-0 flex items-center justify-center text-muted">
                                                 <Upload size={32} />
                                             </div>
                                         )}
@@ -321,20 +321,20 @@ export default function EditContentPage() {
                                             <span className="text-white font-medium">Change Mobile</span>
                                         </div>
                                     </div>
-                                    <p className="text-xs text-center text-gray-500">
+                                    <p className="text-xs text-center text-muted">
                                         1080x1920px recommended.
                                     </p>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                            <h2 className="text-lg font-semibold mb-4 text-gray-900">Publish</h2>
+                        <div className="bg-surface p-6 rounded-2xl shadow-sm border border-border">
+                            <h2 className="text-lg font-semibold mb-4 text-ink">Publish</h2>
 
                             <button
                                 type="submit"
                                 disabled={saving}
-                                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                className="w-full bg-gold hover:bg-gold-strong shadow-lg shadow-gold/20 text-white font-medium py-3 px-4 rounded-btn flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition-all hover:scale-105 disabled:hover:scale-100"
                             >
                                 {saving ? (
                                     <>

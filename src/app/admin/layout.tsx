@@ -4,10 +4,8 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { LayoutDashboard, Calendar, Car, DollarSign, Settings, LogOut, MapPin, MessageSquare, FileText, Users, Image as ImageIcon, PenTool, UserCheck, Navigation, BarChart3, Menu, X, Mail } from 'lucide-react';
+import { LayoutDashboard, Calendar, Car, DollarSign, Settings, LogOut, MapPin, MessageSquare, FileText, Users, Image as ImageIcon, PenTool, UserCheck, Navigation, BarChart3, Menu, X, Mail, ChevronLeft, ChevronRight } from 'lucide-react';
 import { logout } from '@/lib/auth';
-import AdminThemeToggle from './AdminThemeToggle';
-import AdminAutoLock from '@/components/admin/AdminAutoLock';
 
 interface User {
     id: string;
@@ -26,6 +24,7 @@ export default function AdminLayout({
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [isCollapsed, setIsCollapsed] = useState(false);
 
     useEffect(() => {
         // Close sidebar on route change (mobile)
@@ -66,9 +65,9 @@ export default function AdminLayout({
 
     if (loading) {
         return (
-            <div className="flex flex-col items-center justify-center h-screen bg-slate-50 gap-4">
-                <div className="w-12 h-12 border-4 border-amber-500/30 border-t-amber-500 rounded-full animate-spin"></div>
-                <div className="text-slate-500 font-medium animate-pulse">Verifying Session...</div>
+            <div className="flex flex-col items-center justify-center h-screen bg-bg gap-4">
+                <div className="w-12 h-12 border-4 border-gold-soft border-t-gold rounded-full animate-spin"></div>
+                <div className="text-muted font-medium animate-pulse">Verifying Session...</div>
             </div>
         );
     }
@@ -113,13 +112,13 @@ export default function AdminLayout({
     };
 
     return (
-        <div className="flex h-screen bg-slate-50 overflow-hidden">
+        <div className="flex h-screen bg-bg font-body text-body overflow-hidden">
             {/* Mobile Header */}
-            <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-slate-900 text-white px-4 py-3 flex items-center justify-between shadow-md">
+            <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-surface text-ink border-b border-border px-4 py-3 flex items-center justify-between shadow-sm">
                 <div className="flex items-center gap-3">
                     <button
                         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                        className="p-1 rounded-md hover:bg-slate-800 transition-colors"
+                        className="p-1 rounded-md hover:bg-surface-alt transition-colors"
                         aria-label="Toggle Menu"
                     >
                         {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
@@ -127,7 +126,7 @@ export default function AdminLayout({
                     <span className="font-bold text-lg">Admin Panel</span>
                 </div>
                 {user && (
-                    <div className="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold text-sm">
+                    <div className="w-8 h-8 rounded-full bg-gold flex items-center justify-center text-ink font-bold text-sm">
                         {user.name.charAt(0)}
                     </div>
                 )}
@@ -144,23 +143,38 @@ export default function AdminLayout({
             {/* Sidebar */}
             <aside
                 className={`
-                    fixed lg:static inset-y-0 left-0 z-50 w-64 bg-slate-900 border-r border-slate-800 
-                    transform transition-transform duration-300 ease-in-out lg:transform-none flex flex-col
+                    fixed lg:static inset-y-0 left-0 z-50 bg-surface border-r border-border 
+                    transform transition-all duration-300 ease-in-out lg:transform-none flex flex-col
                     ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
+                    ${isCollapsed ? 'w-20' : 'w-64'}
                 `}
             >
                 {/* Logo Area */}
-                <div className="p-6 border-b border-slate-800">
-                    <div className="flex flex-col items-start">
-                        <span className="text-2xl font-bold text-white">Al Kiswah</span>
-                        <span className="text-xs font-bold text-amber-500 tracking-[0.2em] uppercase">Transport</span>
-                        <span className="text-sm text-slate-400 mt-1 font-arabic">الكسوة لنقل المعتمرين</span>
-                    </div>
+                <div className="p-6 border-b border-border flex items-center justify-between relative">
+                    {!isCollapsed && (
+                        <div className="flex flex-col items-start overflow-hidden whitespace-nowrap transition-all">
+                            <span className="text-2xl font-bold font-display text-ink">Al Kiswah</span>
+                            <span className="text-xs font-bold text-gold tracking-[0.2em] uppercase mt-1">Transport</span>
+                        </div>
+                    )}
+                    {isCollapsed && (
+                        <div className="flex items-center justify-center w-full">
+                            <span className="text-2xl font-bold font-display text-gold">A</span>
+                        </div>
+                    )}
+                    <button 
+                        onClick={() => setIsCollapsed(!isCollapsed)}
+                        className={`absolute -right-3 top-8 bg-surface border border-border rounded-full p-1 text-muted hover:text-ink hover:bg-surface-alt transition-colors hidden lg:flex z-50 shadow-sm`}
+                        title={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
+                    >
+                        {isCollapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
+                    </button>
                 </div>
 
                 {/* Navigation */}
                 <nav className="flex-1 overflow-y-auto py-4 px-3 space-y-1 custom-scrollbar">
-                    <div className="px-3 mb-2 text-xs font-semibold text-slate-500 uppercase tracking-wider">Main Menu</div>
+                    {!isCollapsed && <div className="px-3 mb-2 text-xs font-semibold text-muted uppercase tracking-wider">Main Menu</div>}
+                    {isCollapsed && <div className="h-6"></div>}
                     {visibleLinks.map((link) => {
                         const Icon = link.icon;
                         const isActive = pathname === link.href;
@@ -168,41 +182,44 @@ export default function AdminLayout({
                             <Link
                                 key={link.href}
                                 href={link.href}
+                                title={isCollapsed ? link.label : undefined}
                                 className={`
-                                    flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200
+                                    flex items-center ${isCollapsed ? 'justify-center px-0' : 'gap-3 px-3'} py-2.5 rounded-lg text-sm font-medium transition-all duration-200 group
                                     ${isActive
-                                        ? 'bg-amber-500/10 text-amber-500 ring-1 ring-amber-500/20'
-                                        : 'text-slate-400 hover:text-slate-100 hover:bg-slate-800'
+                                        ? 'bg-gold-soft text-gold ring-1 ring-gold-line'
+                                        : 'text-muted hover:text-ink hover:bg-surface-alt'
                                     }
                                 `}
                             >
-                                <Icon size={18} className={isActive ? 'text-amber-500' : 'text-slate-500 group-hover:text-slate-300'} />
-                                <span>{link.label}</span>
+                                <Icon size={18} className={isActive ? 'text-gold' : 'text-muted group-hover:text-ink shrink-0'} />
+                                {!isCollapsed && <span className="whitespace-nowrap">{link.label}</span>}
                             </Link>
                         );
                     })}
                 </nav>
 
                 {/* User Profile */}
-                <div className="p-4 border-t border-slate-800 bg-slate-900/50">
-                    <div className="flex items-center gap-3 mb-3">
-                        <div className="w-9 h-9 rounded-full bg-amber-500 flex items-center justify-center text-white font-bold shrink-0">
+                <div className="p-4 border-t border-border bg-surface">
+                    <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'gap-3'} mb-3`}>
+                        <div className="w-9 h-9 rounded-full bg-gold flex items-center justify-center text-ink font-bold shrink-0">
                             {user.name.charAt(0)}
                         </div>
-                        <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium text-white truncate">{user.name}</p>
-                            <p className="text-xs text-slate-500 truncate">{getRoleDisplay(user.role)}</p>
-                        </div>
+                        {!isCollapsed && (
+                            <div className="flex-1 min-w-0">
+                                <p className="text-sm font-medium text-ink truncate">{user.name}</p>
+                                <p className="text-xs text-muted truncate">{getRoleDisplay(user.role)}</p>
+                            </div>
+                        )}
                     </div>
 
-                    <div className="flex items-center justify-between gap-2">
-                        <AdminThemeToggle />
+                    <div className="flex items-center justify-center gap-2">
                         <button
                             onClick={handleLogout}
-                            className="p-2 text-slate-400 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors flex-1 flex items-center justify-center gap-2 text-xs font-medium"
+                            title={isCollapsed ? "Logout" : undefined}
+                            className={`p-2 text-muted hover:text-error hover:bg-error-soft rounded-lg transition-colors flex-1 flex items-center justify-center ${isCollapsed ? 'px-0' : 'gap-2'} text-xs font-medium`}
                         >
-                            <LogOut size={16} />
-                            <span>Logout</span>
+                            <LogOut size={16} className="shrink-0" />
+                            {!isCollapsed && <span>Logout</span>}
                         </button>
                     </div>
                 </div>
@@ -212,8 +229,6 @@ export default function AdminLayout({
             <main className="flex-1 overflow-auto w-full pt-16 lg:pt-0 pb-6 px-4 lg:px-8 custom-scrollbar">
                 {children}
             </main>
-
-            <AdminAutoLock />
         </div>
     );
 }

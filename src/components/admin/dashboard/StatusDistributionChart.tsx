@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Activity } from 'lucide-react';
 import { Cell, Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
 
@@ -12,10 +12,10 @@ export default function StatusDistributionChart({ data }: StatusDistributionChar
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="bg-charcoal/80 backdrop-blur-xl border border-white/10 rounded-2xl p-6 shadow-lg shadow-black/50"
+            className="bg-surface border border-border rounded-xl p-6 shadow-sm"
         >
-            <h3 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
-                <Activity size={18} className="text-purple-400" />
+            <h3 className="text-lg font-bold text-ink mb-6 flex items-center gap-2">
+                <Activity size={18} className="text-gold" />
                 Booking Status
             </h3>
             <div className="h-[250px]">
@@ -35,14 +35,14 @@ export default function StatusDistributionChart({ data }: StatusDistributionChar
                         </Pie>
                         <Tooltip
                             contentStyle={{
-                                backgroundColor: '#111',
-                                borderColor: '#333',
+                                backgroundColor: 'var(--color-surface)',
+                                borderColor: 'var(--color-border)',
                                 borderRadius: '8px',
-                                color: '#f8fafc'
+                                color: 'var(--color-ink)'
                             }}
-                            itemStyle={{ color: '#f8fafc' }}
+                            itemStyle={{ color: 'var(--color-ink)' }}
                         />
-                        <Legend verticalAlign="bottom" height={36} iconType="circle" wrapperStyle={{ fontSize: '12px', paddingTop: '20px' }} />
+                        <Legend verticalAlign="bottom" height={36} iconType="circle" wrapperStyle={{ fontSize: '12px', paddingTop: '20px', color: 'var(--color-muted)' }} />
                     </PieChart>
                 </ResponsiveContainer>
             </div>

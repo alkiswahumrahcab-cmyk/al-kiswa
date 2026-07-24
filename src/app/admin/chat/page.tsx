@@ -42,22 +42,22 @@ export default function AdminChatPage() {
     return (
         <div className="h-[calc(100vh-100px)] flex gap-6">
             {/* Sidebar List */}
-            <div className="w-1/3 bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col overflow-hidden">
-                <div className="p-4 border-b border-slate-100 bg-slate-50">
-                    <h2 className="font-bold text-slate-800 mb-2">Conversations</h2>
+            <div className="w-1/3 bg-surface rounded-2xl shadow-sm border border-border flex flex-col overflow-hidden">
+                <div className="p-4 border-b border-border bg-surface-sunken">
+                    <h2 className="font-bold text-ink mb-2">Conversations</h2>
                     <div className="relative">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={16} />
                         <input
                             type="text"
                             placeholder="Search driver..."
-                            className="w-full pl-9 pr-3 py-2 text-sm border border-slate-200 rounded-lg focus:outline-none focus:border-amber-500"
+                            className="w-full pl-9 pr-3 py-2 text-sm border border-border bg-surface rounded-btn focus:outline-none focus:ring-2 focus:ring-gold/20 focus:border-gold text-ink transition-all"
                         />
                     </div>
                 </div>
 
                 <div className="flex-1 overflow-y-auto">
                     {conversations.length === 0 ? (
-                        <div className="p-4 text-center text-slate-400 text-sm">No active chats</div>
+                        <div className="p-4 text-center text-muted text-sm">No active chats</div>
                     ) : (
                         conversations.map((conv) => (
                             <button
@@ -66,16 +66,16 @@ export default function AdminChatPage() {
                                     setSelectedChannel(conv.channelId);
                                     setSelectedDriverName(conv.members[0]?.name || 'Unknown Driver');
                                 }}
-                                className={`w-full text-left p-4 border-b border-slate-50 hover:bg-slate-50 transition flex items-center gap-3
-                                    ${selectedChannel === conv.channelId ? 'bg-amber-50 border-l-4 border-l-amber-500' : ''}
+                                className={`w-full text-left p-4 border-b border-border hover:bg-surface-alt transition flex items-center gap-3
+                                    ${selectedChannel === conv.channelId ? 'bg-surface-sunken border-l-4 border-l-gold' : ''}
                                 `}
                             >
-                                <div className="w-10 h-10 bg-slate-200 rounded-full flex items-center justify-center text-slate-500">
+                                <div className="w-10 h-10 bg-surface-alt rounded-full border border-border flex items-center justify-center text-muted">
                                     <User size={20} />
                                 </div>
                                 <div>
-                                    <h3 className="font-medium text-slate-900">{conv.members[0]?.name || 'Driver'}</h3>
-                                    <p className="text-xs text-slate-500 truncate w-40">
+                                    <h3 className="font-medium text-ink">{conv.members[0]?.name || 'Driver'}</h3>
+                                    <p className="text-xs text-muted truncate w-40">
                                         Last active: {new Date(conv.lastMessageAt).toLocaleDateString()}
                                     </p>
                                 </div>
@@ -88,15 +88,17 @@ export default function AdminChatPage() {
             {/* Chat Window */}
             <div className="flex-1">
                 {selectedChannel && adminId ? (
-                    <ChatWidget
-                        key={selectedChannel} // Force re-mount on change
-                        channelId={selectedChannel}
-                        currentUserId={adminId}
-                        currentUserRole="admin"
-                        title={selectedDriverName}
-                    />
+                    <div className="h-full bg-surface rounded-2xl shadow-sm border border-border overflow-hidden">
+                        <ChatWidget
+                            key={selectedChannel} // Force re-mount on change
+                            channelId={selectedChannel}
+                            currentUserId={adminId}
+                            currentUserRole="admin"
+                            title={selectedDriverName}
+                        />
+                    </div>
                 ) : (
-                    <div className="h-full bg-slate-50 rounded-xl border border-dashed border-slate-300 flex items-center justify-center text-slate-400">
+                    <div className="h-full bg-surface-sunken rounded-2xl border border-dashed border-border flex items-center justify-center text-muted">
                         Select a conversation to start chatting
                     </div>
                 )}

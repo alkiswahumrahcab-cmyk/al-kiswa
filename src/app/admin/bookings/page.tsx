@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -265,11 +265,11 @@ export default function BookingsPage() {
 
     const getStatusBadge = (status: string) => {
         switch (status) {
-            case 'confirmed': return 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20';
-            case 'pending': return 'bg-amber-500/10 text-amber-500 border-amber-500/20';
-            case 'completed': return 'bg-blue-500/10 text-blue-500 border-blue-500/20';
-            case 'cancelled': return 'bg-red-500/10 text-red-500 border-red-500/20';
-            default: return 'bg-slate-500/10 text-slate-500 border-slate-500/20';
+            case 'confirmed': return 'bg-success-soft text-success border-success/20';
+            case 'pending': return 'bg-warning/10 text-warning border-warning/20';
+            case 'completed': return 'bg-info/10 text-info border-info/20';
+            case 'cancelled': return 'bg-error-soft text-error border-error/20';
+            default: return 'bg-surface-sunken text-muted border-border';
         }
     };
 
@@ -287,37 +287,37 @@ export default function BookingsPage() {
 
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
-                    <h1 className={adminStyles.title}>Bookings</h1>
-                    <p className="text-muted-foreground mt-1">Manage and track all your fleet reservations</p>
+                    <h1 className="text-3xl font-bold text-ink tracking-tight">Bookings</h1>
+                    <p className="text-muted mt-1">Manage and track all your fleet reservations</p>
                 </div>
-                <div className="flex bg-slate-100 p-1 rounded-lg">
+                <div className="flex bg-surface-sunken p-1 rounded-lg">
                     <button
                         onClick={() => setViewMode('list')}
                         className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${viewMode === 'list'
-                            ? 'bg-white text-slate-900 shadow-sm'
-                            : 'text-slate-500 hover:text-slate-700'}`}
+                            ? 'bg-surface text-ink shadow-sm'
+                            : 'text-muted hover:text-ink'}`}
                     >
                         <LayoutList size={18} /> List
                     </button>
                     <button
                         onClick={() => setViewMode('calendar')}
                         className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${viewMode === 'calendar'
-                            ? 'bg-white text-slate-900 shadow-sm'
-                            : 'text-slate-500 hover:text-slate-700'}`}
+                            ? 'bg-surface text-ink shadow-sm'
+                            : 'text-muted hover:text-ink'}`}
                     >
                         <Calendar size={18} /> Calendar
                     </button>
                 </div>
             </div>
 
-            <div className="flex flex-col gap-4 bg-card border border-border p-4 rounded-xl shadow-sm">
+            <div className="flex flex-col gap-4 mb-6">
                 <div className="flex flex-col md:flex-row gap-4">
                     <div className="relative flex-1">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={20} />
                         <input
                             type="text"
                             placeholder="Search bookings..."
-                            className="w-full pl-10 pr-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                            className="w-full pl-10 pr-4 py-2 rounded-btn border border-border bg-surface focus:ring-2 focus:ring-gold/20 outline-none transition-all text-ink"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
@@ -328,17 +328,17 @@ export default function BookingsPage() {
                         <div className="relative">
                             <input
                                 type="date"
-                                className="pl-3 pr-2 py-2 rounded-lg border border-border bg-background text-sm focus:ring-2 focus:ring-primary/20 outline-none"
+                                className="pl-3 pr-2 py-2 rounded-btn border border-border bg-surface text-sm focus:ring-2 focus:ring-gold/20 outline-none text-ink"
                                 value={startDate}
                                 onChange={(e) => setStartDate(e.target.value)}
                                 title="Start Date"
                             />
                         </div>
-                        <span className="self-center text-muted-foreground">-</span>
+                        <span className="self-center text-muted">-</span>
                         <div className="relative">
                             <input
                                 type="date"
-                                className="pl-3 pr-2 py-2 rounded-lg border border-border bg-background text-sm focus:ring-2 focus:ring-primary/20 outline-none"
+                                className="pl-3 pr-2 py-2 rounded-btn border border-border bg-surface text-sm focus:ring-2 focus:ring-gold/20 outline-none text-ink"
                                 value={endDate}
                                 onChange={(e) => setEndDate(e.target.value)}
                                 title="End Date"
@@ -350,7 +350,7 @@ export default function BookingsPage() {
                     <select
                         value={specificVehicle}
                         onChange={(e) => setSpecificVehicle(e.target.value)}
-                        className="px-3 py-2 rounded-lg border border-border bg-background text-sm focus:ring-2 focus:ring-primary/20 outline-none cursor-pointer max-w-[200px]"
+                        className="px-3 py-2 rounded-btn border border-border bg-surface text-sm focus:ring-2 focus:ring-gold/20 outline-none cursor-pointer max-w-[200px] text-ink"
                     >
                         <option value="All Vehicles">All Vehicles</option>
                         {uniqueVehicles.map(v => (
@@ -359,14 +359,14 @@ export default function BookingsPage() {
                     </select>
                 </div>
 
-                <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 border-t border-border pt-4">
+                <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 pt-2">
                     {['All', 'Pending', 'Confirmed', 'Completed', 'Cancelled'].map((status) => (
                         <button
                             key={status}
                             onClick={() => setFilter(status)}
-                            className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap ${filter === status
-                                ? 'bg-primary text-primary-foreground'
-                                : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                            className={`px-4 py-2 rounded-btn text-sm font-medium transition-colors whitespace-nowrap ${filter === status
+                                ? 'bg-gold text-white'
+                                : 'bg-surface border border-border text-muted hover:bg-surface-sunken'
                                 }`}
                         >
                             {status}
@@ -375,7 +375,7 @@ export default function BookingsPage() {
                     <div className="flex-1"></div>
                     <button
                         onClick={handleExportCSV}
-                        className="px-4 py-2 rounded-lg text-sm font-medium bg-emerald-500 text-white hover:bg-emerald-600 transition-colors flex items-center gap-2 whitespace-nowrap"
+                        className="px-4 py-2 rounded-btn text-sm font-medium bg-gold text-white hover:bg-gold-strong transition-colors flex items-center gap-2 whitespace-nowrap"
                         title="Export to CSV"
                     >
                         <Download size={16} /> Export CSV
@@ -383,23 +383,23 @@ export default function BookingsPage() {
                 </div>
             </div>
 
-            <div className={adminStyles.glassCard}>
+            <div className="overflow-hidden">
                 {viewMode === 'list' ? (
                     <div className="overflow-x-auto">
-                        <table className={adminStyles.table}>
-                            <thead>
-                                <tr>
-                                    <th>ID & Customer</th>
-                                    <th>Journey Details</th>
-                                    <th>Visa</th>
-                                    <th>Nationality</th>
-                                    <th>Vehicle</th>
-                                    <th>Price</th>
-                                    <th>Status</th>
-                                    <th className="text-right">Actions</th>
+                        <table className="w-full text-left border-collapse">
+                            <thead className="bg-surface-alt border-b border-border">
+                                <tr className="text-xs uppercase tracking-wider text-muted">
+                                    <th className="p-4 font-semibold">ID & Customer</th>
+                                    <th className="p-4 font-semibold">Journey Details</th>
+                                    <th className="p-4 font-semibold">Visa</th>
+                                    <th className="p-4 font-semibold">Nationality</th>
+                                    <th className="p-4 font-semibold">Vehicle</th>
+                                    <th className="p-4 font-semibold">Price</th>
+                                    <th className="p-4 font-semibold">Status</th>
+                                    <th className="p-4 font-semibold text-right">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="divide-y divide-border">
                                 <AnimatePresence mode='popLayout'>
                                     {filteredBookings.length === 0 ? (
                                         <tr>
@@ -418,16 +418,16 @@ export default function BookingsPage() {
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
                                                 exit={{ opacity: 0 }}
-                                                className="group transition-colors hover:bg-slate-50 cursor-pointer"
+                                                className="group transition-colors hover:bg-surface-alt cursor-pointer"
                                                 onClick={() => setSelectedBooking(booking)}
                                             >
-                                                <td>
+                                                <td className="p-4">
                                                     <div className="flex flex-col gap-1">
-                                                        <span className="font-mono text-xs text-muted-foreground">#{booking.id.slice(0, 8)}</span>
+                                                        <span className="font-mono text-xs text-muted">#{booking.id.slice(0, 8)}</span>
                                                         <div className="flex items-center gap-2">
-                                                            <span className="font-medium">{booking.name}</span>
+                                                            <span className="font-medium text-ink">{booking.name}</span>
                                                         </div>
-                                                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                                                        <div className="flex items-center gap-2 text-xs text-muted">
                                                             <Mail size={12} /> {booking.email}
                                                         </div>
                                                         <div className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -435,51 +435,51 @@ export default function BookingsPage() {
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td className="p-4">
                                                     <div className="flex flex-col gap-2">
-                                                        <div className="flex items-center gap-2 text-sm">
-                                                            <MapPin size={14} className="text-emerald-500" />
+                                                        <div className="flex items-center gap-2 text-sm text-body">
+                                                            <MapPin size={14} className="text-success" />
                                                             <span>{booking.pickup}</span>
                                                         </div>
-                                                        <div className="flex items-center gap-2 text-sm">
-                                                            <MapPin size={14} className="text-red-500" />
+                                                        <div className="flex items-center gap-2 text-sm text-body">
+                                                            <MapPin size={14} className="text-error" />
                                                             <span>{booking.dropoff}</span>
                                                         </div>
-                                                        <div className="flex items-center gap-2 text-xs text-muted-foreground mt-1">
+                                                        <div className="flex items-center gap-2 text-xs text-muted mt-1">
                                                             <Calendar size={12} />
                                                             <span>{booking.date} at {booking.time}</span>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td className="p-4">
                                                     <div className="flex flex-col gap-1">
                                                         {booking.visaType && (
-                                                            <span className={`px-2 py-0.5 rounded text-xs font-semibold w-max ${booking.visaType === 'umrah' ? 'bg-gold-dark/10 text-gold-dark border border-[#C8891F]/30' : booking.visaType === 'visit' ? 'bg-[#012A5B]/10 text-[#012A5B] border border-[#012A5B]/30' : 'bg-slate-100 text-slate-600 border border-slate-200'}`}>
+                                                            <span className={`px-2 py-0.5 rounded text-xs font-semibold w-max ${booking.visaType === 'umrah' ? 'bg-gold-dark/10 text-gold-dark border border-[#C8891F]/30' : booking.visaType === 'visit' ? 'bg-[#012A5B]/10 text-[#012A5B] border border-[#012A5B]/30' : 'bg-surface-sunken text-muted border border-border'}`}>
                                                                 {booking.visaType === 'umrah' ? 'Umrah' : booking.visaType === 'visit' ? 'Visit' : booking.visaOther || 'Other'}
                                                             </span>
                                                         )}
                                                     </div>
                                                 </td>
-                                                <td>
-                                                    <div className="text-sm font-medium whitespace-nowrap">
+                                                <td className="p-4">
+                                                    <div className="text-sm font-medium text-ink whitespace-nowrap">
                                                         {booking.nationality || '—'}
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td className="p-4">
                                                     <div className="flex flex-col gap-1">
                                                         {booking.selectedVehicles && booking.selectedVehicles.length > 0 ? (
                                                             <div className="flex flex-col gap-1">
                                                                 {booking.selectedVehicles.map((sv, i) => (
-                                                                    <span key={i} className="font-medium">
-                                                                        {sv.name || 'Vehicle'} <span className="text-xs text-muted-foreground">x{sv.quantity}</span>
+                                                                    <span key={i} className="font-medium text-ink">
+                                                                        {sv.name || 'Vehicle'} <span className="text-xs text-muted">x{sv.quantity}</span>
                                                                     </span>
                                                                 ))}
                                                             </div>
                                                         ) : (
-                                                            <span className="font-medium">{booking.vehicle} <span className="text-xs text-muted-foreground">x{booking.vehicleCount || 1}</span></span>
+                                                            <span className="font-medium text-ink">{booking.vehicle} <span className="text-xs text-muted">x{booking.vehicleCount || 1}</span></span>
                                                         )}
 
-                                                        <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
+                                                        <div className="flex flex-wrap gap-2 text-xs text-muted">
                                                             <span className="flex items-center gap-1">
                                                                 <Users size={12} /> {booking.passengers}
                                                             </span>
@@ -494,7 +494,7 @@ export default function BookingsPage() {
                                                         )}
                                                         {/* Display Country, Flight, Arrival if present */}
                                                         {(booking.country || booking.flightNumber || booking.arrivalDate) && (
-                                                            <div className="mt-1 pt-1 border-t border-slate-100 text-xs text-slate-500">
+                                                            <div className="mt-1 pt-1 border-t border-border text-xs text-muted">
                                                                 {booking.country && <div>Country: {booking.country}</div>}
                                                                 {booking.flightNumber && <div>Flight: {booking.flightNumber}</div>}
                                                                 {booking.arrivalDate && <div>Arrival: {booking.arrivalDate}</div>}
@@ -502,12 +502,12 @@ export default function BookingsPage() {
                                                         )}
                                                     </div>
                                                 </td>
-                                                <td>
-                                                    <div className="font-bold text-slate-900 whitespace-nowrap">
+                                                <td className="p-4">
+                                                    <div className="font-bold text-ink whitespace-nowrap">
                                                         {booking.price || (booking.finalPrice ? `${booking.finalPrice} SAR` : 'N/A')}
                                                     </div>
                                                 </td>
-                                                <td>
+                                                <td className="p-4">
                                                     <span className={`px-2.5 py-1 rounded-full text-xs font-semibold border ${getStatusBadge(booking.status)}`}>
                                                         {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
                                                     </span>
@@ -523,8 +523,8 @@ export default function BookingsPage() {
                                                             value={booking.paymentStatus || 'unpaid'}
                                                             onChange={(e) => handlePaymentStatusChange(booking.id, e.target.value as any)}
                                                             className={`text-[10px] font-bold uppercase border rounded px-1.5 py-0.5 outline-none cursor-pointer ${booking.paymentStatus === 'paid'
-                                                                ? 'bg-emerald-50 text-emerald-700 border-emerald-200'
-                                                                : 'bg-slate-50 text-slate-500 border-slate-200'
+                                                                ? 'bg-success-soft text-success border-success/20'
+                                                                : 'bg-surface-sunken text-muted border-border'
                                                                 }`}
                                                         >
                                                             <option value="unpaid">Unpaid</option>
@@ -533,20 +533,20 @@ export default function BookingsPage() {
                                                         </select>
                                                     </div>
                                                 </td>
-                                                <td className="text-right">
+                                                <td className="p-4 text-right">
                                                     <div className="flex justify-end gap-2" onClick={(e) => e.stopPropagation()}>
                                                         {booking.status === 'pending' && (
                                                             <>
                                                                 <button
                                                                     onClick={() => handleStatusChange(booking.id, 'confirmed')}
-                                                                    className="p-2 rounded-lg hover:bg-emerald-500/10 text-emerald-500 transition-colors"
+                                                                    className="p-2 rounded-btn hover:bg-success-soft text-success transition-colors"
                                                                     title="Confirm Booking"
                                                                 >
                                                                     <Check size={18} />
                                                                 </button>
                                                                 <button
                                                                     onClick={() => handleStatusChange(booking.id, 'cancelled')}
-                                                                    className="p-2 rounded-lg hover:bg-red-500/10 text-red-500 transition-colors"
+                                                                    className="p-2 rounded-btn hover:bg-error-soft text-error transition-colors"
                                                                     title="Cancel Booking"
                                                                 >
                                                                     <X size={18} />
@@ -556,7 +556,7 @@ export default function BookingsPage() {
                                                         {booking.status === 'confirmed' && (
                                                             <button
                                                                 onClick={() => handleStatusChange(booking.id, 'completed')}
-                                                                className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-blue-500/10 text-blue-500 hover:bg-blue-500/20 text-xs font-medium transition-colors"
+                                                                className="flex items-center gap-1 px-3 py-1.5 rounded-btn bg-info/10 text-info hover:bg-info/20 text-xs font-medium transition-colors"
                                                                 title="Mark as Completed"
                                                             >
                                                                 <CheckCircle2 size={14} /> Complete
@@ -565,7 +565,7 @@ export default function BookingsPage() {
                                                         {(booking.status === 'completed' || booking.status === 'cancelled') && (
                                                             <button
                                                                 onClick={() => handleDelete(booking.id)}
-                                                                className="p-2 rounded-lg hover:bg-red-500/10 text-red-500 transition-colors"
+                                                                className="p-2 rounded-btn hover:bg-error-soft text-error transition-colors"
                                                                 title="Delete Booking"
                                                             >
                                                                 <Trash2 size={18} />

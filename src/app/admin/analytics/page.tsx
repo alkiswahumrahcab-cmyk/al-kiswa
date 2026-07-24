@@ -81,10 +81,10 @@ export default async function AnalyticsPage() {
     }));
 
     return (
-        <div className="p-6 max-w-7xl mx-auto min-h-screen bg-slate-50">
+        <div className="p-6 max-w-7xl mx-auto min-h-screen">
             <div className="mb-8">
-                <h1 className="text-3xl font-bold text-slate-800 mb-2">Business Analytics</h1>
-                Track your business performance and revenue trends.
+                <h1 className="text-3xl font-bold text-ink mb-2">Business Analytics</h1>
+                <p className="text-muted">Track your business performance and revenue trends.</p>
             </div>
 
             <AnalyticsDashboard

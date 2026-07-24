@@ -154,21 +154,21 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
         <>
             <form onSubmit={handleSubmit} className="max-w-6xl mx-auto p-6">
                 {/* Header */}
-                <div className="flex items-center justify-between mb-8 sticky top-0 bg-slate-50 z-20 py-4 border-b border-slate-200">
+                <div className="flex items-center justify-between mb-8 sticky top-0 bg-surface-sunken z-20 py-4 border-b border-border">
                     <div className="flex items-center gap-4">
                         <Link
                             href="/admin/blog"
-                            className="p-2 hover:bg-slate-200 rounded-btn transition-colors"
+                            className="p-2 hover:bg-surface-alt rounded-btn transition-colors"
                         >
                             <ArrowLeft size={20} />
                         </Link>
                         <div>
-                            <h1 className="text-2xl font-bold text-slate-800">
+                            <h1 className="text-2xl font-bold text-ink">
                                 {isEditing ? 'Edit Post' : 'New Blog Post'}
                             </h1>
                             <div className="flex items-center gap-2 text-sm">
-                                <span className={`w-2 h-2 rounded-full ${formData.isPublished ? 'bg-green-500' : 'bg-amber-500'}`} />
-                                <span className="text-slate-500">
+                                <span className={`w-2 h-2 rounded-full ${formData.isPublished ? 'bg-success' : 'bg-gold'}`} />
+                                <span className="text-muted">
                                     {formData.isPublished ? 'Published' : 'Draft'}
                                 </span>
                             </div>
@@ -178,7 +178,7 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                         <button
                             type="button"
                             onClick={() => setPreviewMode(!previewMode)}
-                            className="flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 hover:bg-slate-100 transition-colors text-slate-600"
+                            className="flex items-center gap-2 px-4 py-2 rounded-btn border border-border hover:bg-surface-alt transition-colors text-muted"
                         >
                             {previewMode ? <Edit2 size={18} /> : <Eye size={18} />}
                             <span>{previewMode ? 'Edit' : 'Preview'}</span>
@@ -186,7 +186,7 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                         <button
                             type="submit"
                             disabled={loading}
-                            className="flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-6 py-2 rounded-lg transition-colors font-medium disabled:opacity-50 shadow-lg shadow-amber-500/20"
+                            className="flex items-center gap-2 bg-gold hover:bg-gold-strong text-white px-6 py-2 rounded-btn transition-colors font-medium disabled:opacity-50 shadow-lg shadow-gold/20"
                         >
                             {loading ? <Loader2 size={20} className="animate-spin" /> : <Save size={20} />}
                             <span>{isEditing ? 'Update' : 'Publish'}</span>
@@ -195,25 +195,25 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                 </div>
 
                 {/* Tabs */}
-                <div className="flex gap-4 mb-6 border-b border-slate-200">
+                <div className="flex gap-4 mb-6 border-b border-border">
                     <button
                         type="button"
                         onClick={() => setActiveTab('content')}
-                        className={`pb-2 px-1 text-sm font-medium transition-colors ${activeTab === 'content' ? 'border-b-2 border-amber-500 text-amber-600' : 'text-slate-500 hover:text-slate-700'}`}
+                        className={`pb-2 px-1 text-sm font-medium transition-colors ${activeTab === 'content' ? 'border-b-2 border-gold text-gold-strong' : 'text-muted hover:text-ink'}`}
                     >
                         Content
                     </button>
                     <button
                         type="button"
                         onClick={() => setActiveTab('seo')}
-                        className={`pb-2 px-1 text-sm font-medium transition-colors ${activeTab === 'seo' ? 'border-b-2 border-amber-500 text-amber-600' : 'text-slate-500 hover:text-slate-700'}`}
+                        className={`pb-2 px-1 text-sm font-medium transition-colors ${activeTab === 'seo' ? 'border-b-2 border-gold text-gold-strong' : 'text-muted hover:text-ink'}`}
                     >
                         SEO
                     </button>
                     <button
                         type="button"
                         onClick={() => setActiveTab('settings')}
-                        className={`pb-2 px-1 text-sm font-medium transition-colors ${activeTab === 'settings' ? 'border-b-2 border-amber-500 text-amber-600' : 'text-slate-500 hover:text-slate-700'}`}
+                        className={`pb-2 px-1 text-sm font-medium transition-colors ${activeTab === 'settings' ? 'border-b-2 border-gold text-gold-strong' : 'text-muted hover:text-ink'}`}
                     >
                         Settings
                     </button>
@@ -226,31 +226,31 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                         {activeTab === 'content' && (
                             <>
                                 {/* Title & Slug */}
-                                <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 space-y-4">
+                                <div className="bg-surface p-6 rounded-2xl shadow-sm border border-border space-y-4">
                                     <div>
                                         <input
                                             type="text"
                                             required
                                             value={formData.title}
                                             onChange={handleTitleChange}
-                                            className="w-full text-3xl font-bold bg-transparent border-none focus:ring-0 placeholder-slate-300 p-0"
+                                            className="w-full text-3xl font-bold bg-transparent border-none focus:ring-0 placeholder:text-muted p-0 text-ink"
                                             placeholder="Enter post title..."
                                         />
                                     </div>
-                                    <div className="flex items-center gap-2 text-sm text-slate-500 font-mono bg-slate-50 p-2 rounded">
-                                        <span className="text-slate-400">/blog/</span>
+                                    <div className="flex items-center gap-2 text-sm text-muted font-mono bg-surface-sunken p-2 rounded">
+                                        <span className="text-muted">/blog/</span>
                                         <input
                                             type="text"
                                             required
                                             value={formData.id}
                                             onChange={(e) => setFormData({ ...formData, id: e.target.value })}
-                                            className="bg-transparent border-none focus:ring-0 w-full p-0 text-slate-600"
+                                            className="bg-transparent border-none focus:ring-0 w-full p-0 text-muted"
                                         />
                                     </div>
                                 </div>
 
                                 {/* Content Editor */}
-                                <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden min-h-[500px] flex flex-col">
+                                <div className="bg-surface rounded-2xl shadow-sm border border-border overflow-hidden min-h-[500px] flex flex-col text-ink">
                                     {!previewMode ? (
                                         <div className="h-[500px]">
                                             <ReactQuill
@@ -270,8 +270,8 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                                 </div>
 
                                 {/* Excerpt */}
-                                <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                                    <label className="block text-sm font-medium text-slate-700 mb-2">
+                                <div className="bg-surface p-6 rounded-2xl shadow-sm border border-border">
+                                    <label className="block text-sm font-medium text-ink mb-2">
                                         Excerpt
                                     </label>
                                     <textarea
@@ -279,7 +279,7 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                                         rows={3}
                                         value={formData.excerpt}
                                         onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
-                                        className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                                        className="w-full px-4 py-2 rounded-btn border border-border bg-surface-sunken text-ink focus:outline-none focus:ring-2 focus:ring-gold"
                                         placeholder="Short summary for cards and SEO..."
                                     />
                                 </div>
@@ -287,43 +287,43 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                         )}
 
                         {activeTab === 'seo' && (
-                            <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 space-y-6">
-                                <h3 className="font-semibold text-slate-800">Search Engine Optimization</h3>
+                            <div className="bg-surface p-6 rounded-2xl shadow-sm border border-border space-y-6">
+                                <h3 className="font-semibold text-ink">Search Engine Optimization</h3>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 mb-1">
+                                    <label className="block text-sm font-medium text-ink mb-1">
                                         Meta Title
                                     </label>
                                     <input
                                         type="text"
                                         value={formData.metaTitle}
                                         onChange={(e) => setFormData({ ...formData, metaTitle: e.target.value })}
-                                        className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                                        className="w-full px-4 py-2 rounded-btn border border-border bg-surface-sunken text-ink focus:outline-none focus:ring-2 focus:ring-gold"
                                         placeholder="Title tag for search engines"
                                     />
-                                    <p className="text-xs text-slate-500 mt-1">Recommended length: 50-60 characters</p>
+                                    <p className="text-xs text-muted mt-1">Recommended length: 50-60 characters</p>
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 mb-1">
+                                    <label className="block text-sm font-medium text-ink mb-1">
                                         Meta Description
                                     </label>
                                     <textarea
                                         rows={3}
                                         value={formData.metaDescription}
                                         onChange={(e) => setFormData({ ...formData, metaDescription: e.target.value })}
-                                        className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                                        className="w-full px-4 py-2 rounded-btn border border-border bg-surface-sunken text-ink focus:outline-none focus:ring-2 focus:ring-gold"
                                         placeholder="Description for search results"
                                     />
-                                    <p className="text-xs text-slate-500 mt-1">Recommended length: 150-160 characters</p>
+                                    <p className="text-xs text-muted mt-1">Recommended length: 150-160 characters</p>
                                 </div>
                             </div>
                         )}
 
                         {activeTab === 'settings' && (
-                            <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 space-y-6">
-                                <h3 className="font-semibold text-slate-800">Post Settings</h3>
-                                <p className="text-slate-500">Additional configuration options can go here.</p>
+                            <div className="bg-surface p-6 rounded-2xl shadow-sm border border-border space-y-6">
+                                <h3 className="font-semibold text-ink">Post Settings</h3>
+                                <p className="text-muted">Additional configuration options can go here.</p>
                             </div>
                         )}
                     </div>
@@ -331,39 +331,39 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                     {/* Sidebar */}
                     <div className="space-y-6">
                         {/* Status Card */}
-                        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                            <h3 className="font-semibold text-slate-800 mb-4">Publishing</h3>
-                            <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg mb-4">
-                                <span className="text-sm font-medium text-slate-700">Status</span>
+                        <div className="bg-surface p-6 rounded-2xl shadow-sm border border-border">
+                            <h3 className="font-semibold text-ink mb-4">Publishing</h3>
+                            <div className="flex items-center justify-between p-3 bg-surface-sunken rounded-btn mb-4 border border-border">
+                                <span className="text-sm font-medium text-ink">Status</span>
                                 <button
                                     type="button"
                                     onClick={() => setFormData({ ...formData, isPublished: !formData.isPublished })}
-                                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 ${formData.isPublished ? 'bg-green-500' : 'bg-slate-200'}`}
+                                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-gold focus:ring-offset-2 ${formData.isPublished ? 'bg-success' : 'bg-surface-alt'}`}
                                 >
                                     <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${formData.isPublished ? 'translate-x-6' : 'translate-x-1'}`} />
                                 </button>
                             </div>
-                            <div className="flex items-center gap-2 text-xs text-slate-500">
+                            <div className="flex items-center gap-2 text-xs text-muted">
                                 {formData.isPublished ? (
-                                    <><CheckCircle size={14} className="text-green-500" /> Visible to public</>
+                                    <><CheckCircle size={14} className="text-success" /> Visible to public</>
                                 ) : (
-                                    <><AlertCircle size={14} className="text-amber-500" /> Only visible to admins</>
+                                    <><AlertCircle size={14} className="text-gold" /> Only visible to admins</>
                                 )}
                             </div>
                         </div>
 
                         {/* Metadata Card */}
-                        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200 space-y-4">
-                            <h3 className="font-semibold text-slate-800">Metadata</h3>
+                        <div className="bg-surface p-6 rounded-2xl shadow-sm border border-border space-y-4">
+                            <h3 className="font-semibold text-ink">Metadata</h3>
 
                             <div>
-                                <label className="block text-sm font-medium text-slate-700 mb-1">
+                                <label className="block text-sm font-medium text-ink mb-1">
                                     Category
                                 </label>
                                 <select
                                     value={formData.category}
                                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                                    className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                                    className="w-full px-4 py-2 rounded-btn border border-border bg-surface-sunken text-ink focus:outline-none focus:ring-2 focus:ring-gold cursor-pointer"
                                 >
                                     {CATEGORIES.map(cat => (
                                         <option key={cat} value={cat}>{cat}</option>
@@ -372,7 +372,7 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-slate-700 mb-1">
+                                <label className="block text-sm font-medium text-ink mb-1">
                                     Author
                                 </label>
                                 <input
@@ -380,19 +380,19 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                                     required
                                     value={formData.author}
                                     onChange={(e) => setFormData({ ...formData, author: e.target.value })}
-                                    className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                                    className="w-full px-4 py-2 rounded-btn border border-border bg-surface-sunken text-ink focus:outline-none focus:ring-2 focus:ring-gold"
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-slate-700 mb-1">
+                                <label className="block text-sm font-medium text-ink mb-1">
                                     Tags
                                 </label>
                                 <div className="flex flex-wrap gap-2 mb-2">
                                     {formData.tags.map(tag => (
-                                        <span key={tag} className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-amber-100 text-amber-800 text-xs font-medium">
+                                        <span key={tag} className="inline-flex items-center gap-1 px-2 py-1 rounded-md bg-gold-soft text-gold-strong text-xs font-medium">
                                             {tag}
-                                            <button type="button" onClick={() => removeTag(tag)} className="hover:text-amber-900"><X size={12} /></button>
+                                            <button type="button" onClick={() => removeTag(tag)} className="hover:text-gold-strong/80"><X size={12} /></button>
                                         </span>
                                     ))}
                                 </div>
@@ -401,15 +401,15 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                                     value={tagInput}
                                     onChange={(e) => setTagInput(e.target.value)}
                                     onKeyDown={handleAddTag}
-                                    className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                                    className="w-full px-4 py-2 rounded-btn border border-border bg-surface-sunken text-ink focus:outline-none focus:ring-2 focus:ring-gold text-sm"
                                     placeholder="Type and press Enter..."
                                 />
                             </div>
                         </div>
 
                         {/* Featured Image */}
-                        <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                            <h3 className="font-semibold text-slate-800 mb-4">Featured Image</h3>
+                        <div className="bg-surface p-6 rounded-2xl shadow-sm border border-border">
+                            <h3 className="font-semibold text-ink mb-4">Featured Image</h3>
 
                             <div className="space-y-4">
                                 <div className="flex gap-2">
@@ -483,7 +483,7 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                                                     }
                                                 }
                                             }}
-                                            className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 file:mr-4 file:py-2 file:px-4 file:rounded-btn file:border-0 file:text-sm file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100 transition-all text-sm"
+                                            className="w-full px-4 py-2 rounded-btn border border-border bg-surface-sunken text-ink file:mr-4 file:py-2 file:px-4 file:rounded-btn file:border-0 file:text-sm file:font-semibold file:bg-gold-soft file:text-gold-strong hover:file:bg-gold-soft transition-all text-sm cursor-pointer"
                                         />
                                     </div>
                                 </div>
@@ -492,12 +492,12 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                                     type="text"
                                     value={formData.image}
                                     onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                                    className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                                    className="w-full px-4 py-2 rounded-btn border border-border bg-surface-sunken text-ink focus:outline-none focus:ring-2 focus:ring-gold text-sm"
                                     placeholder="Or enter image URL manually..."
                                 />
 
                                 {formData.image ? (
-                                    <div className="relative aspect-video rounded-lg overflow-hidden border border-slate-200 group">
+                                    <div className="relative aspect-video rounded-2xl overflow-hidden border border-border group">
                                         <Image
                                             src={formData.image}
                                             alt="Preview"
@@ -510,7 +510,7 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                                         </div>
                                     </div>
                                 ) : (
-                                    <div className="aspect-video rounded-lg border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-slate-400">
+                                    <div className="aspect-video rounded-2xl border-2 border-dashed border-border flex flex-col items-center justify-center text-muted">
                                         <ImageIcon size={32} className="mb-2" />
                                         <span className="text-sm">No image selected</span>
                                     </div>
@@ -518,14 +518,14 @@ export default function BlogPostForm({ initialData, isEditing = false }: BlogPos
                             </div>
 
                             <div className="mt-4">
-                                <label className="block text-sm font-medium text-slate-700 mb-1">
+                                <label className="block text-sm font-medium text-ink mb-1">
                                     Image Alt Text
                                 </label>
                                 <input
                                     type="text"
                                     value={formData.alt}
                                     onChange={(e) => setFormData({ ...formData, alt: e.target.value })}
-                                    className="w-full px-4 py-2 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-amber-500 text-sm"
+                                    className="w-full px-4 py-2 rounded-btn border border-border bg-surface-sunken text-ink focus:outline-none focus:ring-2 focus:ring-gold text-sm"
                                     placeholder="Describe the image for SEO..."
                                 />
                             </div>

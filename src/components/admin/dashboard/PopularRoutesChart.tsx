@@ -12,10 +12,10 @@ export default function PopularRoutesChart({ data }: PopularRoutesChartProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.45 }}
-            className="bg-white backdrop-blur-xl border border-slate-200 rounded-2xl p-6 shadow-sm shadow-slate-200/50"
+            className="bg-surface border border-border rounded-xl p-6 shadow-sm"
         >
-            <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-                <TrendingUp size={18} className="text-emerald-500" />
+            <h3 className="text-lg font-bold text-ink mb-6 flex items-center gap-2">
+                <TrendingUp size={18} className="text-gold" />
                 Popular Routes
             </h3>
             <div className="h-[250px]">
@@ -25,15 +25,15 @@ export default function PopularRoutesChart({ data }: PopularRoutesChartProps) {
                         layout="vertical"
                         margin={{ top: 5, right: 30, left: 10, bottom: 5 }}
                     >
-                        <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e2e8f0" />
+                        <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="var(--color-border)" />
                         <XAxis type="number" hide />
-                        <YAxis dataKey="name" type="category" width={80} tick={{ fontSize: 10 }} interval={0} />
+                        <YAxis dataKey="name" type="category" width={80} tick={{ fontSize: 10, fill: 'var(--color-muted)' }} interval={0} />
                         <Tooltip
                             cursor={{ fill: 'transparent' }}
-                            contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
+                            contentStyle={{ borderRadius: '8px', border: '1px solid var(--color-border)', backgroundColor: 'var(--color-surface)' }}
                             formatter={(value: any) => [value, 'Bookings']}
                         />
-                        <Bar dataKey="value" fill="#10b981" radius={[0, 4, 4, 0]} barSize={20} />
+                        <Bar dataKey="value" fill="var(--color-gold)" radius={[0, 4, 4, 0]} barSize={20} />
                     </BarChart>
                 </ResponsiveContainer>
             </div>

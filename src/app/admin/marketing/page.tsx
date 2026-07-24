@@ -37,29 +37,29 @@ export default function MarketingPage() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 p-8 font-sans">
-            <h1 className="text-3xl font-bold text-slate-900 mb-2">Marketing Automation</h1>
-            <p className="text-slate-500 mb-8">Manage automated email campaigns and measure effectiveness.</p>
+        <div className="min-h-screen p-8 font-sans">
+            <h1 className="text-3xl font-bold text-ink mb-2">Marketing Automation</h1>
+            <p className="text-muted mb-8">Manage automated email campaigns and measure effectiveness.</p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Review Collection Card */}
-                <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                <div className="bg-surface border border-border rounded-2xl p-6 shadow-sm">
                     <div className="flex justify-between items-start mb-6">
                         <div>
-                            <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
-                                <Mail className="text-amber-500" />
+                            <h2 className="text-xl font-bold text-ink flex items-center gap-2">
+                                <Mail className="text-gold" />
                                 Post-Trip Reviews
                             </h2>
-                            <p className="text-sm text-slate-500 mt-1">
+                            <p className="text-sm text-muted mt-1">
                                 Automatically ask customers for feedback 2 hours after their trip is completed.
                             </p>
                         </div>
                     </div>
 
-                    <div className="bg-slate-50 rounded-xl p-4 mb-6 border border-slate-100">
-                        <div className="flex items-center gap-3 text-sm text-slate-600">
-                            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                            <span>Status: <strong>Active (Manual Trigger)</strong></span>
+                    <div className="bg-surface-sunken rounded-xl p-4 mb-6 border border-border">
+                        <div className="flex items-center gap-3 text-sm text-muted">
+                            <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
+                            <span>Status: <strong className="text-ink">Active (Manual Trigger)</strong></span>
                         </div>
                     </div>
 
@@ -83,25 +83,25 @@ export default function MarketingPage() {
                 </div>
 
                 {/* Abandoned Cart Recovery */}
-                <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                <div className="bg-surface border border-border rounded-2xl p-6 shadow-sm">
                     <div className="flex justify-between items-start mb-6">
                         <div>
-                            <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
-                                <div className="bg-rose-100 p-1.5 rounded-lg">
-                                    <AlertCircle className="w-5 h-5 text-rose-500" />
+                            <h2 className="text-xl font-bold text-ink flex items-center gap-2">
+                                <div className="bg-error/10 p-1.5 rounded-lg">
+                                    <AlertCircle className="w-5 h-5 text-error" />
                                 </div>
                                 Abandoned Cart Recovery
                             </h2>
-                            <p className="text-sm text-slate-500 mt-1">
+                            <p className="text-sm text-muted mt-1">
                                 Recover lost bookings by emailing users who dropped off ({'>'} 15 mins inactive).
                             </p>
                         </div>
                     </div>
 
-                    <div className="bg-slate-50 rounded-xl p-4 mb-6 border border-slate-100">
+                    <div className="bg-surface-sunken rounded-xl p-4 mb-6 border border-border">
                         <div className="flex justify-between items-center text-sm">
-                            <span className="text-slate-500">Recovery Window</span>
-                            <span className="font-bold text-slate-900">15m - 24h</span>
+                            <span className="text-muted">Recovery Window</span>
+                            <span className="font-bold text-ink">15m - 24h</span>
                         </div>
                     </div>
 
@@ -130,27 +130,27 @@ export default function MarketingPage() {
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mt-8 p-6 bg-white border border-slate-200 rounded-2xl shadow-lg"
+                    className="mt-8 p-6 bg-surface border border-border rounded-2xl shadow-lg"
                 >
-                    <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-                        <CheckCircle className="text-emerald-500" /> Batch Results
+                    <h3 className="text-lg font-bold text-ink mb-4 flex items-center gap-2">
+                        <CheckCircle className="text-success" /> Batch Results
                     </h3>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                        <div className="bg-slate-50 p-4 rounded-xl">
-                            <div className="text-xs text-slate-500 uppercase font-bold mb-1">Processed</div>
-                            <div className="text-2xl font-black text-slate-900">{stats.processed}</div>
+                        <div className="bg-surface-sunken p-4 rounded-xl border border-border">
+                            <div className="text-xs text-muted uppercase font-bold mb-1">Processed</div>
+                            <div className="text-2xl font-black text-ink">{stats.processed}</div>
                         </div>
-                        <div className="bg-emerald-50 p-4 rounded-xl">
-                            <div className="text-xs text-emerald-600 uppercase font-bold mb-1">Sent Successfully</div>
-                            <div className="text-2xl font-black text-emerald-600">{stats.succeeded}</div>
+                        <div className="bg-success/10 p-4 rounded-xl border border-success/20">
+                            <div className="text-xs text-success uppercase font-bold mb-1">Sent Successfully</div>
+                            <div className="text-2xl font-black text-success">{stats.succeeded}</div>
                         </div>
-                        <div className="bg-red-50 p-4 rounded-xl">
-                            <div className="text-xs text-red-600 uppercase font-bold mb-1">Failed</div>
-                            <div className="text-2xl font-black text-red-600">{stats.failed}</div>
+                        <div className="bg-error/10 p-4 rounded-xl border border-error/20">
+                            <div className="text-xs text-error uppercase font-bold mb-1">Failed</div>
+                            <div className="text-2xl font-black text-error">{stats.failed}</div>
                         </div>
-                        <div className="bg-blue-50 p-4 rounded-xl">
-                            <div className="text-xs text-blue-600 uppercase font-bold mb-1">Skipped (Converted)</div>
-                            <div className="text-2xl font-black text-blue-600">{stats.skipped || 0}</div>
+                        <div className="bg-info/10 p-4 rounded-xl border border-info/20">
+                            <div className="text-xs text-info uppercase font-bold mb-1">Skipped (Converted)</div>
+                            <div className="text-2xl font-black text-info">{stats.skipped || 0}</div>
                         </div>
                     </div>
                 </motion.div>
@@ -160,7 +160,7 @@ export default function MarketingPage() {
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mt-6 p-4 bg-red-50 text-red-600 rounded-xl flex items-center gap-2"
+                    className="mt-6 p-4 bg-error/10 text-error rounded-xl flex items-center gap-2 border border-error/20"
                 >
                     <AlertCircle size={18} /> {error}
                 </motion.div>

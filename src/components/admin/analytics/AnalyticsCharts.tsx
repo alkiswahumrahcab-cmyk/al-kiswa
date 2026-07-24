@@ -1,4 +1,4 @@
-﻿
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -96,26 +96,26 @@ export default function AnalyticsDashboard({ revenueData, statusData, routeData 
     const [mounted, setMounted] = useState(false);
     useEffect(() => { setMounted(true); }, []);
 
-    if (!mounted) return <div className="p-8 text-center text-slate-500">Loading Charts...</div>;
+    if (!mounted) return <div className="p-8 text-center text-muted">Loading Charts...</div>;
 
     return (
         <div className="space-y-8">
             {/* Revenue */}
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                <h3 className="text-lg font-bold text-slate-800 mb-6">Revenue Trend (Last 6 Months)</h3>
+            <div className="bg-surface p-6 rounded-2xl shadow-sm border border-border">
+                <h3 className="text-lg font-bold text-ink mb-6">Revenue Trend (Last 6 Months)</h3>
                 <RevenueChart data={revenueData || []} />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Status Distribution */}
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 className="text-lg font-bold text-slate-800 mb-6">Booking Status Distribution</h3>
+                <div className="bg-surface p-6 rounded-2xl shadow-sm border border-border">
+                    <h3 className="text-lg font-bold text-ink mb-6">Booking Status Distribution</h3>
                     <StatusPieChart data={statusData || []} />
                 </div>
 
                 {/* Top Routes */}
-                <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 className="text-lg font-bold text-slate-800 mb-6">Top Routes</h3>
+                <div className="bg-surface p-6 rounded-2xl shadow-sm border border-border">
+                    <h3 className="text-lg font-bold text-ink mb-6">Top Routes</h3>
                     <RouteBarChart data={routeData || []} />
                 </div>
             </div>

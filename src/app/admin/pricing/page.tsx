@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect, memo, useCallback } from 'react';
 import dynamic from 'next/dynamic';
@@ -64,11 +64,11 @@ const PriceCell = memo(({
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
                     onBlur={handleBlur}
-                    className={`w-20 text-center bg-transparent border-b border-transparent hover:border-border focus:border-primary focus:outline-none transition-all ${isModified ? 'text-amber-500 font-bold' : 'text-foreground'
+                    className={`w-20 text-center bg-transparent border-b border-transparent hover:border-border focus:border-gold focus:outline-none transition-all ${isModified ? 'text-gold font-bold' : 'text-ink'
                         }`}
                 />
                 {isModified && (
-                    <div className="absolute -top-2 -right-2 w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
+                    <div className="absolute -top-2 -right-2 w-2 h-2 bg-gold rounded-full animate-pulse" />
                 )}
             </div>
         </td>
@@ -264,26 +264,26 @@ export default function PricingPage() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
                     <h1 className={styles.title}>Price Management</h1>
-                    <p className="text-muted-foreground">Manage dynamic pricing for routes and vehicles</p>
+                    <p className="text-muted">Manage dynamic pricing for routes and vehicles</p>
                 </div>
                 
-                <div className="flex bg-slate-800 p-1 rounded-xl">
+                <div className="flex bg-surface-sunken p-1 rounded-xl">
                     <button
                         onClick={() => setActiveCurrency('SAR')}
-                        className={`px-6 py-2 rounded-lg font-bold transition-all ${
+                        className={`px-6 py-2 rounded-btn font-bold transition-all ${
                             activeCurrency === 'SAR' 
-                            ? 'bg-amber-500 text-slate-900 shadow-md' 
-                            : 'text-slate-400 hover:text-white hover:bg-slate-700'
+                            ? 'bg-gold text-white shadow-md' 
+                            : 'text-muted hover:text-ink hover:bg-surface-alt'
                         }`}
                     >
                         🇸🇦 SAR Pricing
                     </button>
                     <button
                         onClick={() => setActiveCurrency('USD')}
-                        className={`px-6 py-2 rounded-lg font-bold transition-all ${
+                        className={`px-6 py-2 rounded-btn font-bold transition-all ${
                             activeCurrency === 'USD' 
-                            ? 'bg-blue-500 text-white shadow-md' 
-                            : 'text-slate-400 hover:text-white hover:bg-slate-700'
+                            ? 'bg-info text-white shadow-md' 
+                            : 'text-muted hover:text-ink hover:bg-surface-alt'
                         }`}
                     >
                         🇺🇸 USD Pricing
@@ -293,22 +293,22 @@ export default function PricingPage() {
 
             {/* Global Adjustment Card */}
             {settings && (
-                <div className="bg-slate-900 border border-white/10 p-6 rounded-2xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="bg-surface border border-border p-6 rounded-2xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
                     <div>
-                        <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-ink flex items-center gap-2">
                             <RotateCcw className="text-gold" size={20} />
                             Global Price Adjustment
                         </h2>
-                        <p className="text-gray-400 text-sm mt-1">
+                        <p className="text-muted text-sm mt-1">
                             Increase or decrease ALL prices on the website by a percentage.
                             <br />
-                            <span className="text-xs text-amber-500 font-bold">Example: 10 = +10% Increase | -10 = -10% Discount</span>
+                            <span className="text-xs text-warning font-bold">Example: 10 = +10% Increase | -10 = -10% Discount</span>
                         </p>
                     </div>
 
-                    <div className="flex items-center gap-4 bg-black/20 p-2 rounded-xl border border-white/5">
+                    <div className="flex items-center gap-4 bg-surface-sunken p-2 rounded-xl border border-border">
                         <div className="flex flex-col">
-                            <label className="text-xs text-gray-500 font-bold uppercase tracking-wider mb-1 ml-1">Percentage %</label>
+                            <label className="text-xs text-muted font-bold uppercase tracking-wider mb-1 ml-1">Percentage %</label>
                             <input
                                 type="number"
                                 value={settings.pricing?.globalPercentageAdjustment || 0}
@@ -316,14 +316,14 @@ export default function PricingPage() {
                                     ...settings,
                                     pricing: { ...settings.pricing, globalPercentageAdjustment: parseFloat(e.target.value) || 0 }
                                 })}
-                                className="bg-transparent text-white text-2xl font-bold w-32 px-4 py-2 border-b-2 border-gold focus:outline-none focus:border-white transition-colors text-center"
+                                className="bg-transparent text-ink text-2xl font-bold w-32 px-4 py-2 border-b-2 border-gold focus:outline-none focus:border-gold-strong transition-colors text-center"
                                 placeholder="0"
                             />
                         </div>
                         <button
                             onClick={handleSaveGlobalSettings}
                             disabled={isSavingSettings}
-                            className="bg-gold text-black px-6 py-4 rounded-xl font-bold shadow-lg hover:bg-white hover:scale-105 transition-all disabled:opacity-50 disabled:hover:scale-100"
+                            className="bg-gold text-white px-6 py-4 rounded-btn font-bold shadow-lg shadow-gold/20 hover:bg-gold-strong hover:scale-105 transition-all disabled:opacity-50 disabled:hover:scale-100"
                         >
                             {isSavingSettings ? 'Saving...' : 'Apply Adjustment'}
                         </button>
@@ -333,15 +333,15 @@ export default function PricingPage() {
 
 
             {/* Table Controls */}
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-white/10">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border">
                 <div className="relative flex-1 md:w-64">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
                     <input
                         type="text"
                         placeholder="Search routes..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 bg-background border border-border rounded-full focus:ring-2 focus:ring-amber-500/50 outline-none transition-all"
+                        className="w-full pl-10 pr-4 py-2 bg-surface-sunken border border-border rounded-full focus:ring-2 focus:ring-gold/50 outline-none transition-all text-ink"
                     />
                 </div>
 
@@ -349,7 +349,7 @@ export default function PricingPage() {
                     {(Object.keys(modified).length > 0 || Object.keys(modifiedUSD).length > 0) && (
                         <button
                             onClick={handleReset}
-                            className="flex items-center gap-2 bg-slate-100 text-slate-600 px-4 py-2.5 rounded-btn font-bold hover:bg-slate-200 transition-colors"
+                            className="flex items-center gap-2 bg-surface-sunken text-muted px-4 py-2.5 rounded-btn font-bold hover:bg-surface-alt transition-colors"
                         >
                             <RotateCcw size={18} />
                             Reset Changes
@@ -359,7 +359,7 @@ export default function PricingPage() {
                     <button
                         onClick={handleSaveAll}
                         disabled={saving || (Object.keys(modified).length === 0 && Object.keys(modifiedUSD).length === 0)}
-                        className="flex items-center gap-2 bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 px-6 py-2.5 rounded-btn font-bold shadow-lg shadow-amber-500/20 hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100 whitespace-nowrap"
+                        className="flex items-center gap-2 bg-gold text-white px-6 py-2.5 rounded-btn font-bold shadow-lg shadow-gold/20 hover:bg-gold-strong hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100 whitespace-nowrap"
                     >
                         <Save size={20} />
                         {saving ? 'Saving...' : 'Save Table Changes'}
@@ -370,26 +370,26 @@ export default function PricingPage() {
             <div className={styles.glassCard}>
                 <div className="overflow-x-auto max-h-[calc(100vh-250px)] relative">
                     <table className={styles.table}>
-                        <thead className="sticky top-0 z-10 bg-slate-900 shadow-sm ring-1 ring-white/10">
+                        <thead className="sticky top-0 z-10 bg-surface shadow-sm ring-1 ring-border">
                             <tr>
-                                <th className="bg-slate-900 min-w-[200px] p-4 text-left font-bold text-slate-300 border-b border-white/10">
+                                <th className="bg-surface min-w-[200px] p-4 text-left font-bold text-ink border-b border-border">
                                     Route / Vehicle
                                 </th>
                                 {vehicles.map(vehicle => (
-                                    <th key={vehicle.id} className="text-center min-w-[150px] p-4 border-b border-white/10 bg-slate-900">
-                                        <div className="font-bold text-white">{vehicle.name}</div>
+                                    <th key={vehicle.id} className="text-center min-w-[150px] p-4 border-b border-border bg-surface">
+                                        <div className="font-bold text-ink">{vehicle.name}</div>
                                     </th>
                                 ))}
                             </tr>
                         </thead>
                         <tbody>
                             {filteredRoutes.map(route => (
-                                <tr key={route.id} className="hover:bg-slate-50/30 transition-colors">
-                                    <td className="font-medium p-4 border-b border-border bg-slate-50/10 sticky left-0 backdrop-blur-[2px]">
+                                <tr key={route.id} className="hover:bg-surface-sunken transition-colors">
+                                    <td className="font-medium p-4 border-b border-border bg-surface sticky left-0 backdrop-blur-[2px]">
                                         <div className="flex flex-col">
-                                            <span className="text-foreground font-semibold">{route.origin}</span>
-                                            <span className="text-xs text-muted-foreground flex items-center gap-1">
-                                                to <span className="font-medium text-foreground">{route.destination}</span>
+                                            <span className="text-ink font-semibold">{route.origin}</span>
+                                            <span className="text-xs text-muted flex items-center gap-1">
+                                                to <span className="font-medium text-ink">{route.destination}</span>
                                             </span>
                                         </div>
                                     </td>

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import { X, Calendar, MapPin, User, Mail, Phone, Briefcase, Car, Check, XCircle, CheckCircle2, CarFront } from 'lucide-react';
@@ -42,23 +42,23 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-            <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto border border-slate-200 animate-in fade-in zoom-in-95 duration-200">
+            <div className="bg-surface rounded-xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto border border-border animate-in fade-in zoom-in-95 duration-200">
                 {/* Header */}
-                <div className="flex justify-between items-start p-6 border-b border-slate-100 sticky top-0 bg-white z-10">
+                <div className="flex justify-between items-start p-6 border-b border-border sticky top-0 bg-surface z-10">
                     <div>
                         <div className="flex items-center gap-3 mb-1">
-                            <h2 className="text-xl font-bold text-slate-900">Booking Details</h2>
-                            <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wide border ${getStatusBadge(booking.status)}`}>
+                            <h2 className="text-xl font-bold text-ink">Booking Details</h2>
+                            <span className={`px-2.5 py-0.5 rounded-pill text-xs font-bold uppercase tracking-wide border ${getStatusBadge(booking.status)}`}>
                                 {booking.status}
                             </span>
                         </div>
-                        <p className="text-sm text-slate-500 font-mono">ID: #{booking.id}</p>
+                        <p className="text-sm text-muted font-mono">ID: #{booking.id}</p>
                     </div>
                     <div className="flex items-center gap-2">
 
                         <button
                             onClick={onClose}
-                            className="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-btn transition-colors"
+                            className="p-2 text-muted hover:text-ink hover:bg-surface-alt rounded-btn transition-colors"
                         >
                             <X size={20} />
                         </button>
@@ -69,38 +69,38 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
 
                     {/* Journey Section */}
                     <section>
-                        <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+                        <h3 className="text-sm font-bold text-muted uppercase tracking-wider mb-4 flex items-center gap-2">
                             <MapPin size={16} /> Journey Information
                         </h3>
-                        <div className="bg-slate-50 rounded-xl p-5 space-y-4 border border-slate-100">
+                        <div className="bg-surface-alt rounded-xl p-5 space-y-4 border border-border">
                             <div className="flex flex-col md:flex-row gap-6">
                                 <div className="flex-1">
-                                    <label className="text-xs text-slate-500 font-medium mb-1 block">Pickup Location</label>
-                                    <p className="text-slate-900 font-medium">{booking.pickup}</p>
+                                    <label className="text-xs text-muted font-medium mb-1 block">Pickup Location</label>
+                                    <p className="text-ink font-medium">{booking.pickup}</p>
                                 </div>
-                                <div className="hidden md:block w-px bg-slate-200"></div>
+                                <div className="hidden md:block w-px bg-border"></div>
                                 <div className="flex-1">
-                                    <label className="text-xs text-slate-500 font-medium mb-1 block">Dropoff Location</label>
-                                    <p className="text-slate-900 font-medium">{booking.dropoff}</p>
+                                    <label className="text-xs text-muted font-medium mb-1 block">Dropoff Location</label>
+                                    <p className="text-ink font-medium">{booking.dropoff}</p>
                                 </div>
                             </div>
                             {booking.airportTerminal && (
                                 <div className="pt-2">
-                                    <label className="text-xs text-slate-500 font-medium mb-1 block">Airport Terminal</label>
-                                    <p className="text-amber-600 font-bold">{booking.airportTerminal}</p>
+                                    <label className="text-xs text-muted font-medium mb-1 block">Airport Terminal</label>
+                                    <p className="text-gold-strong font-bold">{booking.airportTerminal}</p>
                                 </div>
                             )}
-                            <div className="border-t border-slate-200 pt-4 flex gap-6">
+                            <div className="border-t border-border pt-4 flex gap-6">
                                 <div>
-                                    <label className="text-xs text-slate-500 font-medium mb-1 block">Date</label>
-                                    <div className="flex items-center gap-2 text-slate-900 font-medium">
-                                        <Calendar size={16} className="text-amber-500" />
+                                    <label className="text-xs text-muted font-medium mb-1 block">Date</label>
+                                    <div className="flex items-center gap-2 text-ink font-medium">
+                                        <Calendar size={16} className="text-gold" />
                                         {formattedDate}
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="text-xs text-slate-500 font-medium mb-1 block">Time</label>
-                                    <p className="text-slate-900 font-medium">{booking.time}</p>
+                                    <label className="text-xs text-muted font-medium mb-1 block">Time</label>
+                                    <p className="text-ink font-medium">{booking.time}</p>
                                 </div>
                             </div>
                         </div>
@@ -110,33 +110,33 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
                     <div className="grid md:grid-cols-2 gap-8">
                         {/* Customer Info */}
                         <section>
-                            <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+                            <h3 className="text-sm font-bold text-muted uppercase tracking-wider mb-4 flex items-center gap-2">
                                 <User size={16} /> Customer Details
                             </h3>
                             <div className="space-y-4">
                                 <div>
-                                    <p className="text-slate-900 font-bold text-lg">{booking.name}</p>
-                                    {booking.country && <p className="text-sm text-slate-500">{booking.country}</p>}
+                                    <p className="text-ink font-bold text-lg">{booking.name}</p>
+                                    {booking.country && <p className="text-sm text-muted">{booking.country}</p>}
                                 </div>
                                 <div className="space-y-2">
-                                    <div className="flex items-center gap-2 text-slate-600">
+                                    <div className="flex items-center gap-2 text-muted">
                                         <Mail size={16} />
-                                        <a href={`mailto:${booking.email}`} className="hover:text-amber-600 hover:underline">{booking.email}</a>
+                                        <a href={`mailto:${booking.email}`} className="hover:text-gold-strong hover:underline">{booking.email}</a>
                                     </div>
-                                    <div className="flex items-center gap-2 text-slate-600">
+                                    <div className="flex items-center gap-2 text-muted">
                                         <Phone size={16} />
-                                        <a href={`tel:${booking.phone}`} className="hover:text-amber-600 hover:underline">{booking.phone}</a>
+                                        <a href={`tel:${booking.phone}`} className="hover:text-gold-strong hover:underline">{booking.phone}</a>
                                     </div>
                                     {booking.nationality && (
-                                        <div className="flex items-center gap-2 text-slate-600 mt-2 pt-2 border-t border-slate-100">
+                                        <div className="flex items-center gap-2 text-muted mt-2 pt-2 border-t border-border">
                                             <span className="font-semibold w-24">Nationality:</span>
                                             <span>{booking.nationality}</span>
                                         </div>
                                     )}
                                     {booking.visaType && (
-                                        <div className="flex items-center gap-2 text-slate-600">
+                                        <div className="flex items-center gap-2 text-muted">
                                             <span className="font-semibold w-24">Visa Type:</span>
-                                            <span className={`px-2 py-0.5 rounded text-xs font-semibold ${booking.visaType === 'umrah' ? 'bg-gold-dark/10 text-gold-dark' : booking.visaType === 'visit' ? 'bg-[#012A5B]/10 text-[#012A5B]' : 'bg-slate-100 text-slate-600'}`}>
+                                            <span className={`px-2 py-0.5 rounded text-xs font-semibold ${booking.visaType === 'umrah' ? 'bg-gold-soft text-gold-strong' : booking.visaType === 'visit' ? 'bg-info/10 text-info' : 'bg-surface-sunken text-muted'}`}>
                                                 {booking.visaType === 'umrah' ? 'Umrah' : booking.visaType === 'visit' ? 'Visit' : booking.visaOther || 'Other'}
                                             </span>
                                         </div>
@@ -147,24 +147,24 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
 
                         {/* Vehicle Info */}
                         <section>
-                            <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+                            <h3 className="text-sm font-bold text-muted uppercase tracking-wider mb-4 flex items-center gap-2">
                                 <Car size={16} /> Vehicle & Requirements
                             </h3>
                             <div className="space-y-3">
                                 <div>
-                                    <p className="font-bold text-slate-900">
+                                    <p className="font-bold text-ink">
                                         {booking.vehicle || 'Not selected'}
-                                        {booking.vehicleCount && booking.vehicleCount > 1 && <span className="text-amber-600 ml-2">x{booking.vehicleCount}</span>}
+                                        {booking.vehicleCount && booking.vehicleCount > 1 && <span className="text-gold-strong ml-2">x{booking.vehicleCount}</span>}
                                     </p>
                                     {booking.selectedVehicles && booking.selectedVehicles.length > 0 && (
-                                        <div className="text-xs text-slate-500 mt-1 pl-2 border-l-2 border-slate-200">
+                                        <div className="text-xs text-muted mt-1 pl-2 border-l-2 border-border">
                                             {booking.selectedVehicles.map((v, i) => (
                                                 <div key={i}>{v.name || 'Vehicle'} (x{v.quantity})</div>
                                             ))}
                                         </div>
                                     )}
                                 </div>
-                                <div className="flex gap-4 text-sm text-slate-600">
+                                <div className="flex gap-4 text-sm text-muted">
                                     <span className="flex items-center gap-1.5"><User size={14} /> {booking.passengers || 0} pax</span>
                                     <span className="flex items-center gap-1.5"><Briefcase size={14} /> {booking.luggage || 0} bags</span>
                                 </div>
@@ -174,25 +174,25 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
 
                     {/* Payment Info */}
                     <section>
-                        <h3 className="text-sm font-bold text-emerald-600 uppercase tracking-wider mb-4 flex items-center gap-2">
+                        <h3 className="text-sm font-bold text-success uppercase tracking-wider mb-4 flex items-center gap-2">
                             <span className="text-lg">💰</span> Payment Information
                         </h3>
-                        <div className="bg-emerald-50 rounded-xl p-5 border border-emerald-200 space-y-3">
+                        <div className="bg-success-soft rounded-xl p-5 border border-success/20 space-y-3">
                             <div className="flex justify-between items-center text-sm">
-                                <span className="font-medium text-emerald-800">Base Fare</span>
-                                <span className="font-bold text-emerald-900">
+                                <span className="font-medium text-success">Base Fare</span>
+                                <span className="font-bold text-success">
                                     {booking.price ? booking.price : (booking.finalPrice ? `${booking.finalPrice - (booking.parkingFee || 0)} SAR` : 'N/A')}
                                 </span>
                             </div>
                             {booking.parkingFee ? (
                                 <div className="flex justify-between items-center text-sm">
-                                    <span className="font-medium text-amber-700">{booking.airportTerminal} Parking Fee</span>
-                                    <span className="font-bold text-amber-700">+{booking.parkingFee} SAR</span>
+                                    <span className="font-medium text-warning">{booking.airportTerminal} Parking Fee</span>
+                                    <span className="font-bold text-warning">+{booking.parkingFee} SAR</span>
                                 </div>
                             ) : null}
-                            <div className="pt-3 border-t border-emerald-200/50 flex justify-between items-center">
-                                <span className="text-sm font-bold text-emerald-800">Total Price</span>
-                                <span className="text-xl font-black text-emerald-900">
+                            <div className="pt-3 border-t border-success/20 flex justify-between items-center">
+                                <span className="text-sm font-bold text-success">Total Price</span>
+                                <span className="text-xl font-black text-success">
                                     {booking.price ? booking.price : (booking.finalPrice ? `${booking.finalPrice} SAR` : 'N/A')}
                                 </span>
                             </div>
@@ -201,15 +201,15 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
 
                     {/* Rating & Review */}
                     {booking.rating && (
-                        <section className="bg-yellow-50 p-5 rounded-xl border border-yellow-200">
-                            <h3 className="text-sm font-bold text-yellow-800 mb-3 uppercase tracking-wider flex items-center gap-2">
+                        <section className="bg-warning/10 p-5 rounded-xl border border-warning/20">
+                            <h3 className="text-sm font-bold text-warning mb-3 uppercase tracking-wider flex items-center gap-2">
                                 <span className="text-lg">⭐</span> Customer Feedback
                             </h3>
                             <div className="flex items-center gap-1 mb-2">
                                 {[1, 2, 3, 4, 5].map((star) => (
                                     <svg
                                         key={star}
-                                        className={`w-5 h-5 ${star <= (booking.rating || 0) ? 'text-amber-500 fill-amber-500' : 'text-slate-300'}`}
+                                        className={`w-5 h-5 ${star <= (booking.rating || 0) ? 'text-gold fill-gold' : 'text-surface-sunken'}`}
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
                                         fill="none"
@@ -221,12 +221,12 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
                                         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                                     </svg>
                                 ))}
-                                <span className="ml-2 font-bold text-slate-700">
+                                <span className="ml-2 font-bold text-ink">
                                     {booking.rating}/5
                                 </span>
                             </div>
                             {booking.review && (
-                                <p className="text-slate-700 italic">
+                                <p className="text-ink italic">
                                     "{booking.review}"
                                 </p>
                             )}
@@ -234,25 +234,25 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
                     )}
 
                     {(booking.notes || booking.flightNumber || booking.arrivalDate) && (
-                        <section className="bg-amber-50 p-4 rounded-xl border border-amber-100">
-                            <h3 className="text-sm font-bold text-amber-800 mb-3">Additional Information</h3>
+                        <section className="bg-warning/10 p-4 rounded-xl border border-warning/20">
+                            <h3 className="text-sm font-bold text-warning mb-3">Additional Information</h3>
                             <div className="grid md:grid-cols-2 gap-4 text-sm">
                                 {booking.flightNumber && (
                                     <div>
-                                        <span className="text-amber-700/70 font-medium block">Flight Number</span>
-                                        <span className="text-amber-900">{booking.flightNumber}</span>
+                                        <span className="text-warning font-medium block">Flight Number</span>
+                                        <span className="text-ink">{booking.flightNumber}</span>
                                     </div>
                                 )}
                                 {booking.arrivalDate && (
                                     <div>
-                                        <span className="text-amber-700/70 font-medium block">Arrival Date</span>
-                                        <span className="text-amber-900">{booking.arrivalDate}</span>
+                                        <span className="text-warning font-medium block">Arrival Date</span>
+                                        <span className="text-ink">{booking.arrivalDate}</span>
                                     </div>
                                 )}
                                 {booking.notes && (
                                     <div className="md:col-span-2">
-                                        <span className="text-amber-700/70 font-medium block">Customer Notes</span>
-                                        <p className="text-amber-900 mt-1 italic">"{booking.notes}"</p>
+                                        <span className="text-warning font-medium block">Customer Notes</span>
+                                        <p className="text-ink mt-1 italic">"{booking.notes}"</p>
                                     </div>
                                 )}
                             </div>
@@ -261,10 +261,10 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
                 </div>
 
                 {/* Footer Actions */}
-                <div className="p-6 border-t border-slate-100 bg-slate-50 flex flex-wrap justify-between items-center gap-4 sticky bottom-0">
+                <div className="p-6 border-t border-border bg-surface-alt flex flex-wrap justify-between items-center gap-4 sticky bottom-0">
                     <button
                         onClick={onClose}
-                        className="px-5 py-2.5 text-sm font-medium text-slate-600 hover:bg-slate-200 rounded-lg transition-colors"
+                        className="px-5 py-2.5 text-sm font-medium text-ink hover:bg-surface-sunken rounded-btn transition-colors"
                     >
                         Close
                     </button>
@@ -274,13 +274,13 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
                             <>
                                 <button
                                     onClick={() => onStatusUpdate(booking.id, 'cancelled')}
-                                    className="px-5 py-2.5 text-sm font-bold text-red-600 bg-red-50 hover:bg-red-100 border border-red-200 rounded-lg flex items-center gap-2 transition-colors"
+                                    className="px-5 py-2.5 text-sm font-bold text-error bg-error-soft hover:bg-error/20 border border-error/20 rounded-btn flex items-center gap-2 transition-colors"
                                 >
                                     <XCircle size={18} /> Reject
                                 </button>
                                 <button
                                     onClick={() => onStatusUpdate(booking.id, 'confirmed')}
-                                    className="px-5 py-2.5 text-sm font-bold text-white bg-emerald-600 hover:bg-emerald-700 shadow-lg shadow-emerald-500/20 rounded-lg flex items-center gap-2 transition-colors"
+                                    className="px-5 py-2.5 text-sm font-bold text-white bg-success hover:bg-success/90 rounded-btn flex items-center gap-2 transition-colors"
                                 >
                                     <Check size={18} /> Confirm Booking
                                 </button>
@@ -291,13 +291,13 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
                             <>
                                 <button
                                     onClick={() => onStatusUpdate(booking.id, 'cancelled')}
-                                    className="px-5 py-2.5 text-sm font-bold text-red-600 bg-red-50 hover:bg-red-100 border border-red-200 rounded-lg flex items-center gap-2 transition-colors"
+                                    className="px-5 py-2.5 text-sm font-bold text-error bg-error-soft hover:bg-error/20 border border-error/20 rounded-btn flex items-center gap-2 transition-colors"
                                 >
                                     <XCircle size={18} /> Cancel
                                 </button>
                                 <button
                                     onClick={() => onStatusUpdate(booking.id, 'completed')}
-                                    className="px-5 py-2.5 text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/20 rounded-lg flex items-center gap-2 transition-colors"
+                                    className="px-5 py-2.5 text-sm font-bold text-info bg-info/10 hover:bg-info/20 rounded-btn flex items-center gap-2 transition-colors"
                                 >
                                     <CheckCircle2 size={18} /> Mark Complete
                                 </button>
@@ -312,10 +312,10 @@ export default function BookingDetailsModal({ booking, isOpen, onClose, onStatus
 
 function getStatusBadge(status: string) {
     switch (status) {
-        case 'confirmed': return 'bg-emerald-100 text-emerald-700 border-emerald-200';
-        case 'pending': return 'bg-amber-100 text-amber-700 border-amber-200';
-        case 'completed': return 'bg-blue-100 text-blue-700 border-blue-200';
-        case 'cancelled': return 'bg-red-100 text-red-700 border-red-200';
-        default: return 'bg-slate-100 text-slate-700 border-slate-200';
+        case 'confirmed': return 'bg-success-soft text-success border-success/20';
+        case 'pending': return 'bg-warning/10 text-warning border-warning/20';
+        case 'completed': return 'bg-info/10 text-info border-info/20';
+        case 'cancelled': return 'bg-error-soft text-error border-error/20';
+        default: return 'bg-surface-sunken text-muted border-border';
     }
 }

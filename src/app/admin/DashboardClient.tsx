@@ -124,25 +124,25 @@ export default function DashboardClient({
     };
 
     return (
-        <div className="min-h-screen bg-[#0F172A] text-slate-200 font-sans selection:bg-gold/30 transition-colors duration-300">
+        <div className="min-h-screen bg-bg text-body font-body selection:bg-gold-soft selection:text-ink transition-colors duration-300">
             {toast && <Toast message={toast.message} type={toast.type} isVisible={true} onClose={() => setToast(null)} />}
 
             <div className="max-w-[1600px] mx-auto p-6 space-y-8">
 
                 {/* Header Section */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-200 pb-6">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-border pb-6">
                     <div>
-                        <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-2 tracking-tight">
+                        <h1 className="text-3xl md:text-4xl font-bold text-ink font-display mb-2 tracking-tight">
                             Command Center
                         </h1>
-                        <p className="text-slate-500 text-sm md:text-base flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                        <p className="text-muted text-sm md:text-base flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
                             System Operational • {new Date().toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
                         </p>
                     </div>
                     <div className="flex gap-3">
                         <Link href="/admin/bookings">
-                            <button className="flex items-center gap-2 px-6 py-3 bg-gold hover:bg-[#B38E2D] text-ink font-bold rounded-btn shadow-lg shadow-[#D4AF37]/20 transition-all active:scale-95">
+                            <button className="flex items-center gap-2 px-6 py-3 bg-gold hover:bg-gold-soft text-ink font-bold rounded-btn transition-all active:translate-y-0.5">
                                 <Plus size={20} />
                                 <span>New Booking</span>
                             </button>

@@ -147,32 +147,32 @@ export default function BlogAdminPage() {
                                 </tr>
                             ) : (
                                 filteredPosts.map((post) => (
-                                    <tr key={post.id} className="group hover:bg-slate-50/5 transition-colors">
+                                    <tr key={post.id} className="group hover:bg-surface-sunken transition-colors">
                                         <td className="font-medium">
-                                            <div className="text-foreground">{post.title}</div>
-                                            <div className="text-xs text-muted-foreground font-mono mt-1">{post.id}</div>
+                                            <div className="text-ink">{post.title}</div>
+                                            <div className="text-xs text-muted font-mono mt-1">{post.id}</div>
                                         </td>
                                         <td>
-                                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-500">
+                                            <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-info/10 text-info">
                                                 {post.category}
                                             </span>
                                         </td>
-                                        <td className="text-muted-foreground">{post.author}</td>
-                                        <td className="text-muted-foreground">
+                                        <td className="text-muted">{post.author}</td>
+                                        <td className="text-muted">
                                             {new Date(post.date).toLocaleDateString()}
                                         </td>
                                         <td className="text-right">
                                             <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                                 <Link
                                                     href={`/admin/blog/${post.id}`}
-                                                    className="p-2 text-blue-500 hover:bg-blue-500/10 rounded-lg transition-colors"
+                                                    className="p-2 text-info hover:bg-info/10 rounded-btn transition-colors"
                                                     title="Edit"
                                                 >
                                                     <Edit size={18} />
                                                 </Link>
                                                 <button
                                                     onClick={() => handleDelete(post.id)}
-                                                    className="p-2 text-red-500 hover:bg-red-500/10 rounded-lg transition-colors"
+                                                    className="p-2 text-error hover:bg-error/10 rounded-btn transition-colors"
                                                     title="Delete"
                                                 >
                                                     <Trash2 size={18} />

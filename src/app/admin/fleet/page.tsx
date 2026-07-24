@@ -263,9 +263,9 @@ export default function FleetPage() {
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     exit={{ opacity: 0, scale: 0.9 }}
-                                    className={`${styles.glassCard} group hover:border-amber-500/50 transition-colors`}
+                                    className={`${styles.glassCard} group hover:border-gold/50 transition-colors bg-surface`}
                                 >
-                                    <div className="relative h-52 mb-4 rounded-xl overflow-hidden bg-slate-100">
+                                    <div className="relative h-52 mb-4 rounded-xl overflow-hidden bg-surface-alt">
                                         <Image
                                             src={vehicle.image || '/placeholder-car.png'}
                                             alt={vehicle.name}
@@ -274,9 +274,9 @@ export default function FleetPage() {
                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         />
                                         <div className="absolute top-3 right-3 flex gap-2">
-                                            <span className={`px-2.5 py-1 rounded-full text-xs font-bold shadow-sm backdrop-blur-md ${vehicle.isActive
-                                                ? 'bg-emerald-500/90 text-white'
-                                                : 'bg-red-500/90 text-white'
+                                            <span className={`px-2.5 py-1 rounded-pill text-xs font-bold shadow-sm backdrop-blur-md ${vehicle.isActive
+                                                ? 'bg-success text-white'
+                                                : 'bg-error text-white'
                                                 }`}>
                                                 {vehicle.isActive ? 'Active' : 'Inactive'}
                                             </span>
@@ -284,14 +284,14 @@ export default function FleetPage() {
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-end p-4 gap-2">
                                             <button
                                                 onClick={() => handleEdit(vehicle)}
-                                                className="p-2 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white rounded-lg transition-colors"
+                                                className="p-2 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white rounded-btn transition-colors"
                                                 title="Edit"
                                             >
                                                 <Edit size={18} />
                                             </button>
                                             <button
                                                 onClick={() => handleDelete(vehicle.id)}
-                                                className="p-2 bg-red-500/80 backdrop-blur-md hover:bg-red-600/90 text-white rounded-lg transition-colors"
+                                                className="p-2 bg-error/80 backdrop-blur-md hover:bg-error/90 text-white rounded-btn transition-colors"
                                                 title="Delete"
                                             >
                                                 <Trash2 size={18} />
@@ -302,38 +302,38 @@ export default function FleetPage() {
                                     <div className="space-y-4">
                                         <div className="flex justify-between items-start">
                                             <div>
-                                                <h3 className="text-lg font-bold text-foreground line-clamp-1">{vehicle.name}</h3>
-                                                <span className="text-xs font-bold text-amber-500 uppercase tracking-wider bg-amber-500/10 px-2 py-0.5 rounded">
+                                                <h3 className="text-lg font-bold text-ink line-clamp-1">{vehicle.name}</h3>
+                                                <span className="text-xs font-bold text-gold-strong uppercase tracking-wider bg-gold-soft px-2 py-0.5 rounded">
                                                     {vehicle.category}
                                                 </span>
                                             </div>
                                             <div className="text-right">
-                                                <div className="font-bold text-lg text-amber-500">{vehicle.price}</div>
+                                                <div className="font-bold text-lg text-gold">{vehicle.price}</div>
                                                 {vehicle.hourlyRate && (
-                                                    <div className="text-xs text-muted-foreground">{vehicle.hourlyRate}/hr</div>
+                                                    <div className="text-xs text-muted">{vehicle.hourlyRate}/hr</div>
                                                 )}
                                             </div>
                                         </div>
 
-                                        <div className="flex items-center gap-4 text-sm text-muted-foreground bg-slate-50 p-2 rounded-lg">
+                                        <div className="flex items-center gap-4 text-sm text-muted bg-surface-sunken p-2 rounded-lg">
                                             <div className="flex items-center gap-1.5">
-                                                <Users size={16} className="text-amber-500" />
+                                                <Users size={16} className="text-gold" />
                                                 <span>{vehicle.passengers} Pax</span>
                                             </div>
                                             <div className="flex items-center gap-1.5">
-                                                <Briefcase size={16} className="text-amber-500" />
+                                                <Briefcase size={16} className="text-gold" />
                                                 <span>{vehicle.luggage} Bags</span>
                                             </div>
                                         </div>
 
                                         <div className="flex flex-wrap gap-2">
                                             {vehicle.features.slice(0, 3).map((feature, i) => (
-                                                <span key={i} className="text-xs bg-slate-100 px-2 py-1 rounded-md text-slate-600">
+                                                <span key={i} className="text-xs bg-surface-alt px-2 py-1 rounded-md text-muted">
                                                     {feature}
                                                 </span>
                                             ))}
                                             {vehicle.features.length > 3 && (
-                                                <span className="text-xs bg-slate-100 px-2 py-1 rounded-md text-slate-600">
+                                                <span className="text-xs bg-surface-alt px-2 py-1 rounded-md text-muted">
                                                     +{vehicle.features.length - 3}
                                                 </span>
                                             )}
@@ -354,37 +354,37 @@ export default function FleetPage() {
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            className="bg-card text-card-foreground border border-border rounded-2xl p-6 w-full max-w-2xl shadow-2xl my-8 relative"
+                            className="bg-surface text-ink border border-border rounded-2xl p-6 w-full max-w-2xl shadow-2xl my-8 relative"
                         >
                             <button
                                 onClick={() => setShowModal(false)}
-                                className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-2 rounded-btn hover:bg-slate-100 transition-colors"
+                                className="absolute top-4 right-4 text-muted hover:text-ink p-2 rounded-btn hover:bg-surface-alt transition-colors"
                             >
                                 <X size={20} />
                             </button>
 
-                            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-foreground">
-                                {editingId ? <Edit className="text-amber-500" /> : <Plus className="text-amber-500" />}
+                            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2 text-ink">
+                                {editingId ? <Edit className="text-gold" /> : <Plus className="text-gold" />}
                                 {editingId ? 'Edit Vehicle' : 'Add New Vehicle'}
                             </h2>
 
                             <form onSubmit={handleSaveVehicle} className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-slate-700">Vehicle Name</label>
+                                        <label className="text-sm font-medium text-ink">Vehicle Name</label>
                                         <input
                                             required
-                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="w-full p-2.5 rounded-lg border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                             value={formData.name}
                                             onChange={e => setFormData({ ...formData, name: e.target.value })}
                                             placeholder="e.g. GMC Yukon 2024"
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-slate-700">Category</label>
+                                        <label className="text-sm font-medium text-ink">Category</label>
                                         <input
                                             type="text"
-                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="w-full p-2.5 rounded-lg border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                             value={formData.category}
                                             onChange={e => setFormData({ ...formData, category: e.target.value })}
                                             placeholder="e.g. Premium Van"
@@ -394,20 +394,20 @@ export default function FleetPage() {
                                 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-slate-700">Model Name (Optional Subtitle)</label>
+                                        <label className="text-sm font-medium text-ink">Model Name (Optional Subtitle)</label>
                                         <input
                                             type="text"
-                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="w-full p-2.5 rounded-lg border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                             value={formData.modelName || ''}
                                             onChange={e => setFormData({ ...formData, modelName: e.target.value })}
                                             placeholder="e.g. Hyundai Staria"
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-slate-700">Tier Badge (Optional)</label>
+                                        <label className="text-sm font-medium text-ink">Tier Badge (Optional)</label>
                                         <input
                                             type="text"
-                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="w-full p-2.5 rounded-lg border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                             value={formData.tier || ''}
                                             onChange={e => setFormData({ ...formData, tier: e.target.value })}
                                             placeholder="e.g. VIP"
@@ -416,7 +416,7 @@ export default function FleetPage() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-slate-700">Vehicle Image</label>
+                                    <label className="text-sm font-medium text-ink">Vehicle Image</label>
                                     <div className="space-y-3">
                                         <div className="flex gap-2">
                                             <div className="relative flex-1">
@@ -487,21 +487,21 @@ export default function FleetPage() {
                                                             }
                                                         }
                                                     }}
-                                                    className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 file:mr-4 file:py-2 file:px-4 file:rounded-btn file:border-0 file:text-sm file:font-semibold file:bg-amber-50 file:text-amber-700 hover:file:bg-amber-100 transition-all"
+                                                    className="w-full p-2.5 rounded-lg border border-border bg-surface-sunken text-ink file:mr-4 file:py-2 file:px-4 file:rounded-btn file:border-0 file:text-sm file:font-semibold file:bg-gold-soft file:text-gold-strong hover:file:bg-gold/20 transition-all"
                                                 />
                                             </div>
                                         </div>
 
                                         {/* URL Input Fallback */}
                                         <input
-                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 text-sm focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="w-full p-2.5 rounded-lg border border-border bg-surface-sunken text-ink text-sm focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                             value={formData.image}
                                             onChange={e => setFormData({ ...formData, image: e.target.value })}
                                             placeholder="Or enter image URL manually..."
                                         />
 
                                         {formData.image && (
-                                            <div className="relative w-full h-48 rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
+                                            <div className="relative w-full h-48 rounded-xl overflow-hidden border border-border bg-surface-alt">
                                                 <Image
                                                     src={formData.image}
                                                     alt="Preview"
@@ -515,39 +515,39 @@ export default function FleetPage() {
 
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-slate-700">Passengers</label>
+                                        <label className="text-sm font-medium text-ink">Passengers</label>
                                         <input
                                             type="number"
                                             required
-                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="w-full p-2.5 rounded-lg border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                             value={formData.passengers}
                                             onChange={e => setFormData({ ...formData, passengers: parseInt(e.target.value) })}
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-slate-700">Luggage</label>
+                                        <label className="text-sm font-medium text-ink">Luggage</label>
                                         <input
                                             type="number"
                                             required
-                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="w-full p-2.5 rounded-lg border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                             value={formData.luggage}
                                             onChange={e => setFormData({ ...formData, luggage: parseInt(e.target.value) })}
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-slate-700">Base Price</label>
+                                        <label className="text-sm font-medium text-ink">Base Price</label>
                                         <input
                                             required
-                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="w-full p-2.5 rounded-lg border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                             value={formData.price}
                                             onChange={e => setFormData({ ...formData, price: e.target.value })}
                                             placeholder="SAR 150"
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-slate-700">Hourly Rate</label>
+                                        <label className="text-sm font-medium text-ink">Hourly Rate</label>
                                         <input
-                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="w-full p-2.5 rounded-lg border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                             value={formData.hourlyRate}
                                             onChange={e => setFormData({ ...formData, hourlyRate: e.target.value })}
                                             placeholder="SAR 50/hr"
@@ -556,10 +556,10 @@ export default function FleetPage() {
                                 </div>
 
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-slate-700">Features</label>
+                                    <label className="text-sm font-medium text-ink">Features</label>
                                     <div className="flex gap-2">
                                         <input
-                                            className="flex-1 p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="flex-1 p-2.5 rounded-lg border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                             value={featureInput}
                                             onChange={e => setFeatureInput(e.target.value)}
                                             placeholder="Add a feature (e.g. Free WiFi)"
@@ -568,22 +568,22 @@ export default function FleetPage() {
                                         <button
                                             type="button"
                                             onClick={addFeature}
-                                            className="px-4 py-2 bg-slate-200 text-slate-700 rounded-lg font-medium hover:bg-slate-300 transition-colors"
+                                            className="px-4 py-2 bg-surface-alt text-ink rounded-lg font-medium hover:bg-border transition-colors"
                                         >
                                             Add
                                         </button>
                                     </div>
-                                    <div className="flex flex-wrap gap-2 mt-2 min-h-[2.5rem] p-2 bg-slate-50 rounded-lg border border-slate-200">
+                                    <div className="flex flex-wrap gap-2 mt-2 min-h-[2.5rem] p-2 bg-surface-sunken rounded-lg border border-border">
                                         {formData.features.length === 0 && (
-                                            <span className="text-sm text-slate-400 italic">No features added yet</span>
+                                            <span className="text-sm text-muted/50 italic">No features added yet</span>
                                         )}
                                         {formData.features.map((feature, index) => (
-                                            <span key={index} className="flex items-center gap-1 bg-white border border-slate-200 px-3 py-1 rounded-full text-sm shadow-sm animate-in fade-in zoom-in duration-200 text-slate-700">
+                                            <span key={index} className="flex items-center gap-1 bg-surface border border-border px-3 py-1 rounded-pill text-sm shadow-sm animate-in fade-in zoom-in duration-200 text-ink">
                                                 {feature}
                                                 <button
                                                     type="button"
                                                     onClick={() => removeFeature(index)}
-                                                    className="text-slate-400 hover:text-red-500 transition-colors ml-1"
+                                                    className="text-muted hover:text-error transition-colors ml-1"
                                                 >
                                                     <X size={14} />
                                                 </button>
@@ -594,12 +594,12 @@ export default function FleetPage() {
 
                                 {/* Unavailable Dates */}
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-slate-700">Unavailable Dates</label>
+                                    <label className="text-sm font-medium text-ink">Unavailable Dates</label>
                                     <div className="flex gap-2">
                                         <input
                                             type="date"
                                             min={new Date().toISOString().split('T')[0]}
-                                            className="flex-1 p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="flex-1 p-2.5 rounded-lg border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                             onChange={(e) => {
                                                 if (e.target.value && !formData.unavailableDates?.includes(e.target.value)) {
                                                     setFormData(prev => ({
@@ -611,12 +611,12 @@ export default function FleetPage() {
                                             }}
                                         />
                                     </div>
-                                    <div className="flex flex-wrap gap-2 mt-2 min-h-[2.5rem] p-2 bg-slate-50 rounded-lg border border-slate-200">
+                                    <div className="flex flex-wrap gap-2 mt-2 min-h-[2.5rem] p-2 bg-surface-sunken rounded-lg border border-border">
                                         {(!formData.unavailableDates || formData.unavailableDates.length === 0) && (
-                                            <span className="text-sm text-slate-400 italic">No unavailable dates set</span>
+                                            <span className="text-sm text-muted/50 italic">No unavailable dates set</span>
                                         )}
                                         {formData.unavailableDates?.map((date, index) => (
-                                            <span key={index} className="flex items-center gap-1 bg-red-50 border border-red-200 px-3 py-1 rounded-full text-xs font-mono text-red-700">
+                                            <span key={index} className="flex items-center gap-1 bg-error-soft border border-error/20 px-3 py-1 rounded-pill text-xs font-mono text-error">
                                                 {date}
                                                 <button
                                                     type="button"
@@ -624,7 +624,7 @@ export default function FleetPage() {
                                                         ...prev,
                                                         unavailableDates: prev.unavailableDates?.filter((_, i) => i !== index)
                                                     }))}
-                                                    className="text-red-400 hover:text-red-600 transition-colors ml-1"
+                                                    className="text-error/70 hover:text-error transition-colors ml-1"
                                                 >
                                                     <X size={14} />
                                                 </button>
@@ -633,33 +633,33 @@ export default function FleetPage() {
                                     </div>
                                 </div>
 
-                                <div className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl border border-slate-200">
+                                <div className="flex items-center gap-3 p-4 bg-surface-sunken rounded-xl border border-border">
                                     <div className="relative flex items-center">
                                         <input
                                             type="checkbox"
                                             id="isActive"
                                             checked={formData.isActive}
                                             onChange={e => setFormData({ ...formData, isActive: e.target.checked })}
-                                            className="peer h-5 w-5 cursor-pointer appearance-none rounded-md border border-slate-300 bg-white checked:border-amber-500 checked:bg-amber-500 transition-all"
+                                            className="peer h-5 w-5 cursor-pointer appearance-none rounded-md border border-border bg-surface checked:border-gold checked:bg-gold transition-all"
                                         />
                                         <Check size={14} className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-white opacity-0 peer-checked:opacity-100 transition-opacity" />
                                     </div>
-                                    <label htmlFor="isActive" className="text-sm font-medium cursor-pointer select-none text-slate-700">
+                                    <label htmlFor="isActive" className="text-sm font-medium cursor-pointer select-none text-ink">
                                         Vehicle is Active and Visible to Customers
                                     </label>
                                 </div>
 
-                                <div className="flex justify-end gap-3 pt-6 border-t border-slate-200">
+                                <div className="flex justify-end gap-3 pt-6 border-t border-border">
                                     <button
                                         type="button"
                                         onClick={() => setShowModal(false)}
-                                        className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
+                                        className="px-4 py-2 text-sm font-medium text-muted hover:text-ink transition-colors"
                                     >
                                         Cancel
                                     </button>
                                     <button
                                         type="submit"
-                                        className="px-6 py-2 bg-amber-500 text-white rounded-lg text-sm font-bold hover:bg-amber-600 shadow-lg shadow-amber-500/20 hover:scale-105 transition-all"
+                                        className="px-6 py-2 bg-gold text-white rounded-btn text-sm font-bold hover:bg-gold-strong shadow-lg shadow-gold/20 hover:scale-105 transition-all"
                                     >
                                         {editingId ? 'Save Changes' : 'Add Vehicle'}
                                     </button>

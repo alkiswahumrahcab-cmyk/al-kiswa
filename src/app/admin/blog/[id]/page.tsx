@@ -33,14 +33,14 @@ export default function EditBlogPostPage() {
     if (loading) {
         return (
             <div className="flex items-center justify-center min-h-[400px]">
-                <Loader2 size={32} className="animate-spin text-amber-500" />
+                <Loader2 size={32} className="animate-spin text-gold" />
             </div>
         );
     }
 
     if (!post) {
         return (
-            <div className="text-center py-20 text-slate-500">
+            <div className="text-center py-20 text-muted">
                 Post not found
             </div>
         );

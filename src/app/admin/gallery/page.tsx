@@ -226,7 +226,7 @@ export default function GalleryPage() {
                                 initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
-                                className="group relative aspect-[3/4] rounded-2xl overflow-hidden bg-slate-100 border border-border shadow-sm hover:shadow-xl transition-all"
+                                className="group relative aspect-[3/4] rounded-2xl overflow-hidden bg-surface-sunken border border-border shadow-sm hover:shadow-xl transition-all"
                             >
                                 <Image
                                     src={item.image}
@@ -242,7 +242,7 @@ export default function GalleryPage() {
                                     </div>
                                     <button
                                         onClick={() => handleDelete(item._id)}
-                                        className="absolute top-3 right-3 p-2 bg-red-500/80 backdrop-blur-md hover:bg-red-600 text-white rounded-full transition-colors"
+                                        className="absolute top-3 right-3 p-2 bg-error/80 backdrop-blur-md hover:bg-error text-white rounded-full transition-colors"
                                     >
                                         <Trash2 size={16} />
                                     </button>
@@ -263,17 +263,17 @@ export default function GalleryPage() {
                     >
                         <button
                             onClick={() => setShowModal(false)}
-                            className="absolute top-4 right-4 text-slate-400 hover:text-slate-600"
+                            className="absolute top-4 right-4 text-muted hover:text-ink p-2 rounded-btn hover:bg-surface-alt transition-colors"
                         >
                             <X size={20} />
                         </button>
 
-                        <h2 className="text-2xl font-bold mb-6">Add New Photo</h2>
+                        <h2 className="text-2xl font-bold mb-6 text-ink">Add New Photo</h2>
 
                         <form onSubmit={handleSubmit} className="space-y-4">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium">Photo</label>
-                                <div className="border-2 border-dashed border-border rounded-xl p-4 text-center hover:bg-slate-50 transition-colors relative">
+                                <label className="text-sm font-medium text-ink">Photo</label>
+                                <div className="border-2 border-dashed border-border rounded-xl p-4 text-center hover:bg-surface-sunken transition-colors relative">
                                     <input
                                         type="file"
                                         accept="image/*"
@@ -282,13 +282,13 @@ export default function GalleryPage() {
                                         disabled={uploading}
                                     />
                                     {uploading ? (
-                                        <div className="text-amber-500">Uploading...</div>
+                                        <div className="text-gold">Uploading...</div>
                                     ) : formData.image ? (
-                                        <div className="relative h-40 w-full rounded-lg overflow-hidden">
+                                        <div className="relative h-40 w-full rounded-2xl overflow-hidden">
                                             <Image src={formData.image} alt="Preview" fill className="object-cover" />
                                         </div>
                                     ) : (
-                                        <div className="flex flex-col items-center gap-2 text-muted-foreground">
+                                        <div className="flex flex-col items-center gap-2 text-muted">
                                             <Upload size={24} />
                                             <span>Click to upload image</span>
                                         </div>
@@ -297,10 +297,10 @@ export default function GalleryPage() {
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium">Caption</label>
+                                <label className="text-sm font-medium text-ink">Caption</label>
                                 <input
                                     required
-                                    className="w-full p-2.5 rounded-lg border border-border bg-background"
+                                    className="w-full p-2.5 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                     value={formData.caption}
                                     onChange={e => setFormData({ ...formData, caption: e.target.value })}
                                     placeholder="e.g. Happy family in Makkah"
@@ -308,28 +308,28 @@ export default function GalleryPage() {
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium">Location</label>
+                                <label className="text-sm font-medium text-ink">Location</label>
                                 <input
                                     required
-                                    className="w-full p-2.5 rounded-lg border border-border bg-background"
+                                    className="w-full p-2.5 rounded-btn border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                     value={formData.location}
                                     onChange={e => setFormData({ ...formData, location: e.target.value })}
                                     placeholder="e.g. Makkah"
                                 />
                             </div>
 
-                            <div className="flex justify-end gap-3 pt-4">
+                            <div className="flex justify-end gap-3 pt-4 border-t border-border mt-6">
                                 <button
                                     type="button"
                                     onClick={() => setShowModal(false)}
-                                    className="px-4 py-2 text-sm font-medium hover:bg-slate-100 rounded-lg"
+                                    className="px-4 py-2 text-sm font-medium text-muted hover:text-ink transition-colors"
                                 >
                                     Cancel
                                 </button>
                                 <button
                                     type="submit"
                                     disabled={!formData.image || uploading}
-                                    className="px-6 py-2 bg-primary text-primary-foreground rounded-lg font-bold hover:opacity-90 disabled:opacity-50"
+                                    className="px-6 py-2 bg-gold text-white rounded-btn font-bold hover:bg-gold-strong shadow-lg shadow-gold/20 hover:scale-105 transition-all disabled:opacity-50 disabled:hover:scale-100"
                                 >
                                     Save Photo
                                 </button>

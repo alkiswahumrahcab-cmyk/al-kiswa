@@ -224,7 +224,7 @@ export default function RoutesPage() {
                                     >
                                         <td className="font-medium">
                                             <div className="flex items-center gap-2">
-                                                <div className="w-2 h-2 rounded-full bg-amber-500" />
+                                                <div className="w-2 h-2 rounded-full bg-gold" />
                                                 {route.origin}
                                             </div>
                                         </td>
@@ -247,9 +247,9 @@ export default function RoutesPage() {
                                             </div>
                                         </td>
                                         <td>
-                                            <span className={`px-2.5 py-1 rounded-full text-xs font-semibold ${route.category === 'Airport' || route.category === 'Airport Arrival' || route.category === 'Airport Departure' ? 'bg-blue-500/10 text-blue-500' :
-                                                route.category === 'Ziarat' ? 'bg-emerald-500/10 text-emerald-500' :
-                                                    'bg-amber-500/10 text-amber-500'
+                                            <span className={`px-2.5 py-1 rounded-pill text-xs font-semibold ${route.category === 'Airport' || route.category === 'Airport Arrival' || route.category === 'Airport Departure' ? 'bg-info/10 text-info' :
+                                                route.category === 'Ziarat' ? 'bg-success-soft text-success' :
+                                                    'bg-gold-soft text-gold-strong'
                                                 }`}>
                                                 {route.category}
                                             </span>
@@ -258,14 +258,14 @@ export default function RoutesPage() {
                                             <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                                                 <button
                                                     onClick={() => handleEdit(route)}
-                                                    className="p-2 text-blue-500 hover:bg-blue-500/10 rounded-lg transition-colors"
+                                                    className="p-2 text-info hover:bg-info/10 rounded-btn transition-colors"
                                                     title="Edit"
                                                 >
                                                     <Edit size={18} />
                                                 </button>
                                                 <button
                                                     onClick={() => handleDelete(route.id)}
-                                                    className="p-2 text-red-500 hover:bg-red-500/10 rounded-lg transition-colors"
+                                                    className="p-2 text-error hover:bg-error/10 rounded-btn transition-colors"
                                                     title="Delete"
                                                 >
                                                     <Trash2 size={18} />
@@ -302,33 +302,33 @@ export default function RoutesPage() {
                         >
                             <button
                                 onClick={() => setShowModal(false)}
-                                className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-2 rounded-btn hover:bg-slate-100 transition-colors"
+                                className="absolute top-4 right-4 text-muted hover:text-ink p-2 rounded-btn hover:bg-surface-alt transition-colors"
                             >
                                 <X size={20} />
                             </button>
 
-                            <h2 className="text-xl font-bold mb-6 flex items-center gap-2 text-foreground">
-                                {editingId ? <Edit className="text-amber-500" /> : <Plus className="text-amber-500" />}
+                            <h2 className="text-xl font-bold mb-6 flex items-center gap-2 text-ink">
+                                {editingId ? <Edit className="text-gold" /> : <Plus className="text-gold" />}
                                 {editingId ? 'Edit Route' : 'Add New Route'}
                             </h2>
 
                             <form onSubmit={handleSaveRoute} className="space-y-4">
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-slate-700">Origin</label>
+                                        <label className="text-sm font-medium text-ink">Origin</label>
                                         <input
                                             required
-                                            className="w-full p-2.5 rounded-lg border border-border bg-background focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="w-full p-2.5 rounded-lg border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                             value={formData.origin}
                                             onChange={e => setFormData({ ...formData, origin: e.target.value })}
                                             placeholder="e.g. Makkah"
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-slate-700">Destination</label>
+                                        <label className="text-sm font-medium text-ink">Destination</label>
                                         <input
                                             required
-                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="w-full p-2.5 rounded-lg border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                             value={formData.destination}
                                             onChange={e => setFormData({ ...formData, destination: e.target.value })}
                                             placeholder="e.g. Madinah"
@@ -337,18 +337,18 @@ export default function RoutesPage() {
                                 </div>
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-slate-700">Distance</label>
+                                        <label className="text-sm font-medium text-ink">Distance</label>
                                         <input
-                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="w-full p-2.5 rounded-lg border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                             value={formData.distance}
                                             onChange={e => setFormData({ ...formData, distance: e.target.value })}
                                             placeholder="e.g. 450 km"
                                         />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-slate-700">Duration</label>
+                                        <label className="text-sm font-medium text-ink">Duration</label>
                                         <input
-                                            className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all"
+                                            className="w-full p-2.5 rounded-lg border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all"
                                             value={formData.duration}
                                             onChange={e => setFormData({ ...formData, duration: e.target.value })}
                                             placeholder="e.g. 4.5 hours"
@@ -356,9 +356,9 @@ export default function RoutesPage() {
                                     </div>
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-slate-700">Category</label>
+                                    <label className="text-sm font-medium text-ink">Category</label>
                                     <select
-                                        className="w-full p-2.5 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all cursor-pointer"
+                                        className="w-full p-2.5 rounded-lg border border-border bg-surface-sunken text-ink focus:ring-2 focus:ring-gold/20 outline-none transition-all cursor-pointer"
                                         value={formData.category}
                                         onChange={e => setFormData({ ...formData, category: e.target.value })}
                                     >
@@ -368,17 +368,17 @@ export default function RoutesPage() {
                                         ))}
                                     </select>
                                 </div>
-                                <div className="flex justify-end gap-3 mt-6 pt-4 border-t border-slate-200">
+                                <div className="flex justify-end gap-3 mt-6 pt-4 border-t border-border">
                                     <button
                                         type="button"
                                         onClick={() => setShowModal(false)}
-                                        className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
+                                        className="px-4 py-2 text-sm font-medium text-muted hover:text-ink transition-colors"
                                     >
                                         Cancel
                                     </button>
                                     <button
                                         type="submit"
-                                        className="px-4 py-2 bg-amber-500 text-white rounded-lg text-sm font-medium hover:bg-amber-600 shadow-lg shadow-amber-500/20 hover:scale-105 transition-all"
+                                        className="px-4 py-2 bg-gold text-white rounded-btn text-sm font-medium hover:bg-gold-strong shadow-lg shadow-gold/20 hover:scale-105 transition-all"
                                     >
                                         {editingId ? 'Save Changes' : 'Create Route'}
                                     </button>

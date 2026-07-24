@@ -90,8 +90,7 @@ function LogsContent() {
         if (action.includes('DELETE')) return 'bg-red-500/10 text-red-500 border-red-500/20';
         if (action.includes('UPDATE') || action.includes('EDIT')) return 'bg-blue-500/10 text-blue-500 border-blue-500/20';
         if (action.includes('CREATE') || action.includes('ADD')) return 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20';
-        if (action.includes('LOGIN')) return 'bg-purple-500/10 text-purple-500 border-purple-500/20';
-        return 'bg-slate-500/10 text-slate-500 border-slate-500/20';
+        return 'bg-surface-sunken text-muted border-border';
     };
 
     return (
@@ -99,14 +98,14 @@ function LogsContent() {
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
                     <h1 className={adminStyles.title}>Activity Logs</h1>
-                    <p className="text-muted-foreground mt-1">Audit trail of all system actions</p>
+                    <p className="text-muted mt-1">Audit trail of all system actions</p>
                 </div>
                 <button
                     onClick={fetchLogs}
-                    className="p-2 bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors"
+                    className="p-2 bg-surface-sunken rounded-btn hover:bg-surface transition-colors border border-border"
                     title="Refresh Logs"
                 >
-                    <RefreshCcw size={18} className={loading ? 'animate-spin' : ''} />
+                    <RefreshCcw size={18} className={loading ? 'animate-spin text-gold' : 'text-ink'} />
                 </button>
             </div>
 
@@ -114,24 +113,24 @@ function LogsContent() {
                 {/* Metrics */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 border-b border-border">
                     <div className="flex items-center gap-4">
-                        <div className="p-3 bg-blue-500/10 text-blue-500 rounded-xl">
+                        <div className="p-3 bg-info/10 text-info rounded-xl">
                             <Activity size={24} />
                         </div>
                         <div>
-                            <p className="text-sm text-muted-foreground">Total Events</p>
-                            <p className="text-2xl font-bold">{total}</p>
+                            <p className="text-sm text-muted">Total Events</p>
+                            <p className="text-2xl font-bold text-ink">{total}</p>
                         </div>
                     </div>
                 </div>
 
                 {/* Toolbar */}
-                <div className="p-4 flex flex-col md:flex-row gap-4 border-b border-border bg-slate-50/50">
+                <div className="p-4 flex flex-col md:flex-row gap-4 border-b border-border bg-surface-alt">
                     <div className="relative flex-1">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
                         <input
                             type="text"
                             placeholder="Search by action, user, or details..."
-                            className="w-full pl-10 pr-4 py-2 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                            className="w-full pl-10 pr-4 py-2 rounded-btn border border-border bg-surface focus:ring-2 focus:ring-gold/20 outline-none transition-all text-ink"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                         />
@@ -154,31 +153,31 @@ function LogsContent() {
                             {loading && logs.length === 0 ? (
                                 Array.from({ length: 5 }).map((_, i) => (
                                     <tr key={i} className="animate-pulse">
-                                        <td><div className="h-4 bg-slate-200 rounded w-24"></div></td>
-                                        <td><div className="h-4 bg-slate-200 rounded w-20"></div></td>
-                                        <td><div className="h-6 bg-slate-200 rounded w-24"></div></td>
-                                        <td><div className="h-4 bg-slate-200 rounded w-48"></div></td>
-                                        <td><div className="h-4 bg-slate-200 rounded w-16"></div></td>
+                                        <td><div className="h-4 bg-border rounded w-24"></div></td>
+                                        <td><div className="h-4 bg-border rounded w-20"></div></td>
+                                        <td><div className="h-6 bg-border rounded w-24"></div></td>
+                                        <td><div className="h-4 bg-border rounded w-48"></div></td>
+                                        <td><div className="h-4 bg-border rounded w-16"></div></td>
                                     </tr>
                                 ))
                             ) : logs.length === 0 ? (
                                 <tr>
-                                    <td colSpan={5} className="text-center py-12 text-muted-foreground">
+                                    <td colSpan={5} className="text-center py-12 text-muted">
                                         No logs found matching criteria
                                     </td>
                                 </tr>
                             ) : (
                                 logs.map((log) => (
-                                    <tr key={log.id} className="group hover:bg-slate-50/50 transition-colors">
-                                        <td className="text-sm text-muted-foreground font-mono">
+                                    <tr key={log.id} className="group hover:bg-surface-alt transition-colors">
+                                        <td className="text-sm text-muted font-mono">
                                             {format(new Date(log.timestamp), 'MMM d, HH:mm:ss')}
                                         </td>
                                         <td>
                                             <div className="flex items-center gap-2">
-                                                <div className="w-6 h-6 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold">
+                                                <div className="w-6 h-6 rounded-full bg-surface-sunken border border-border flex items-center justify-center text-xs font-bold text-ink">
                                                     {log.user.charAt(0).toUpperCase()}
                                                 </div>
-                                                <span className="font-medium text-sm">{log.user}</span>
+                                                <span className="font-medium text-sm text-ink">{log.user}</span>
                                             </div>
                                         </td>
                                         <td>
@@ -186,12 +185,12 @@ function LogsContent() {
                                                 {log.action}
                                             </span>
                                         </td>
-                                        <td className="text-sm text-slate-700 max-w-md truncate" title={log.details}>
+                                        <td className="text-sm text-ink max-w-md truncate" title={log.details}>
                                             {log.details}
                                         </td>
                                         <td>
                                             {log.entity && (
-                                                <span className="text-xs font-mono bg-slate-100 px-2 py-1 rounded text-muted-foreground">
+                                                <span className="text-xs font-mono bg-surface-sunken px-2 py-1 rounded text-muted">
                                                     {log.entity}
                                                 </span>
                                             )}
@@ -204,22 +203,22 @@ function LogsContent() {
                 </div>
 
                 {/* Pagination */}
-                <div className="p-4 border-t border-border flex items-center justify-between bg-slate-50/50">
-                    <span className="text-sm text-muted-foreground">
+                <div className="p-4 border-t border-border flex items-center justify-between bg-surface-alt">
+                    <span className="text-sm text-muted">
                         Page {page} of {totalPages || 1}
                     </span>
                     <div className="flex gap-2">
                         <button
                             onClick={() => handlePageChange(page - 1)}
                             disabled={page <= 1}
-                            className="p-2 rounded-lg border border-border bg-background hover:bg-slate-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                            className="p-2 rounded-btn border border-border bg-surface hover:bg-surface-sunken disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-ink"
                         >
                             <ChevronLeft size={16} />
                         </button>
                         <button
                             onClick={() => handlePageChange(page + 1)}
                             disabled={page >= totalPages}
-                            className="p-2 rounded-lg border border-border bg-background hover:bg-slate-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                            className="p-2 rounded-btn border border-border bg-surface hover:bg-surface-sunken disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-ink"
                         >
                             <ChevronRight size={16} />
                         </button>
