@@ -55,15 +55,15 @@ export default function LoginPage() {
 
     return (
         <div className="min-h-screen flex flex-col lg:flex-row bg-surface">
-            {/* Left Column - Branding (Dark Anchor) */}
-            <div className="w-full lg:w-5/12 bg-ink-bg relative flex flex-col justify-between p-8 lg:p-12 overflow-hidden text-on-ink">
+            {/* Left Column - Branding */}
+            <div className="w-full lg:w-5/12 bg-gold relative flex flex-col justify-between p-8 lg:p-12 overflow-hidden text-ink">
                 
                 {/* Decorative Glowing Orbs for Luxury Feel */}
-                <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-gold/10 rounded-full blur-[120px] pointer-events-none"></div>
-                <div className="absolute bottom-[-10%] right-[-20%] w-[400px] h-[400px] bg-gold/5 rounded-full blur-[100px] pointer-events-none"></div>
+                <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-white/30 rounded-full blur-[120px] pointer-events-none"></div>
+                <div className="absolute bottom-[-10%] right-[-20%] w-[400px] h-[400px] bg-white/20 rounded-full blur-[100px] pointer-events-none"></div>
 
                 {/* Pattern overlay for extra texture */}
-                <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
+                <div className="absolute inset-0 z-0 opacity-[0.04] pointer-events-none mix-blend-overlay">
                     <Image
                         src="/pattern.png"
                         alt="Pattern"
@@ -74,34 +74,34 @@ export default function LoginPage() {
                 </div>
                 
                 {/* Top decorative gradient */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-gold to-transparent opacity-50"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent opacity-40"></div>
 
                 <div className="relative z-10">
                     <Link
                         href="/"
-                        className="inline-flex items-center gap-2 text-on-ink-muted hover:text-gold transition-colors group mb-12"
+                        className="inline-flex items-center gap-2 text-ink/70 hover:text-ink transition-colors group mb-12"
                     >
-                        <div className="p-2 rounded-btn bg-white/5 border border-white/10 group-hover:border-gold/50 transition-colors">
+                        <div className="p-2 rounded-btn bg-ink/5 border border-ink/10 group-hover:border-ink/30 transition-colors">
                             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
                         </div>
                         <span className="font-medium text-sm">Back to Home</span>
                     </Link>
                     
-                    <h1 className="text-4xl lg:text-5xl font-display font-semibold mb-4 leading-tight">
-                        Al Kiswah <br /> <span className="text-gold italic">Command Center</span>
+                    <h1 className="text-4xl lg:text-5xl font-display font-semibold mb-4 leading-tight text-ink">
+                        Al Kiswah <br /> <span className="italic font-bold">Command Center</span>
                     </h1>
-                    <p className="text-on-ink-muted text-lg font-body max-w-sm">
+                    <p className="text-ink/80 text-lg font-body max-w-sm font-medium">
                         Secure portal for managing VIP Umrah and Hajj transport operations.
                     </p>
                 </div>
 
                 <div className="relative z-10 mt-12 lg:mt-0">
-                    <div className="flex items-center gap-4 text-on-ink-muted text-sm">
-                        <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                            <Lock size={18} className="text-gold" />
+                    <div className="flex items-center gap-4 text-ink/80 text-sm">
+                        <div className="w-10 h-10 rounded-xl bg-ink/5 border border-ink/10 flex items-center justify-center">
+                            <Lock size={18} className="text-ink" />
                         </div>
                         <div>
-                            <p className="font-semibold text-on-ink">Protected Access</p>
+                            <p className="font-bold text-ink">Protected Access</p>
                             <p>Authorized personnel only</p>
                         </div>
                     </div>
