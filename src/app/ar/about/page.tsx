@@ -1,8 +1,8 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import Hero from '@/components/common/Hero';
 import WelcomeSection from '@/components/about/WelcomeSection';
-import CompanyStory from '@/components/about/CompanyStory';
+import CompanyStory from '@/components/CompanyStory';
 import MissionVision from '@/components/about/MissionVision';
 import CoreValues from '@/components/about/CoreValues';
 import TrustSection from '@/components/about/TrustSection';
