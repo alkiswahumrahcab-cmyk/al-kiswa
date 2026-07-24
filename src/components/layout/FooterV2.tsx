@@ -8,6 +8,7 @@ import { Facebook, Instagram, Twitter, Linkedin } from 'lucide-react';
 import NusukFooterSeal from '@/components/trust/NusukFooterSeal';
 import ThemeLogo from '@/components/common/ThemeLogo';
 import { Link003 } from '@/components/ui/skiper-ui/skiper40';
+import { getVehicle } from '@/data/fleet';
 
 export default function Footer() {
     const { settings } = useSettings();
@@ -183,9 +184,10 @@ export default function Footer() {
                             <li><Link003 href="/services/airport-transfers" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Airport Transfers</Link003></li>
                             <li><Link003 href="/services/hotel-transfers" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Hotel Transfers</Link003></li>
                             <li><Link003 href="/services/intercity-transfer" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Intercity Transport</Link003></li>
-                            <li><Link003 href="/fleet/gmc-yukon-at4" className="text-ink-muted hover:text-ink transition-colors text-[15px]">GMC Yukon XL — VIP SUV</Link003></li>
-                            <li><Link003 href="/fleet/hyundai-staria" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Hyundai Staria — Family MPV</Link003></li>
-                            <li><Link003 href="/fleet/toyota-hiace" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Toyota Hiace — Group Bus</Link003></li>
+
+                            <li><Link003 href="/fleet/gmc-yukon-xl" className="text-ink-muted hover:text-ink transition-colors text-[15px]">{getVehicle('gmc-yukon-xl')?.name} — {getVehicle('gmc-yukon-xl')?.categoryLabel}</Link003></li>
+                            <li><Link003 href="/fleet/hyundai-staria" className="text-ink-muted hover:text-ink transition-colors text-[15px]">{getVehicle('hyundai-staria')?.name} — {getVehicle('hyundai-staria')?.categoryLabel}</Link003></li>
+                            <li><Link003 href="/fleet/toyota-hiace" className="text-ink-muted hover:text-ink transition-colors text-[15px]">{getVehicle('toyota-hiace')?.name} — {getVehicle('toyota-hiace')?.categoryLabel}</Link003></li>
                             <li><Link003 href="/pricing" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Pricing & Rates</Link003></li>
                             <li><Link href="/pricing/compare" className="text-gold-strong hover:text-ink transition-colors text-[15px]">Compare vs Other Platforms</Link></li>
                         </ul>

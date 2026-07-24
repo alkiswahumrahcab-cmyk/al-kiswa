@@ -9,9 +9,10 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
 
-import { vehicleService } from '@/services/vehicleService';
+import { getVehicle, formatSeatsAr, formatLuggageAr } from '@/data/fleet';
+import { SITE_URL } from '@/config/site';
 
-const generateJsonLd = (vehicleData: any) => ({
+const generateJsonLd = (vehicle: any) => ({
     "@context": "https://schema.org",
     "@graph": [
         {
@@ -21,35 +22,35 @@ const generateJsonLd = (vehicleData: any) => ({
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Home",
-                    "item": "https://alkiswahumrahtransport.com"
+                    "item": `${SITE_URL}`
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Fleet",
-                    "item": "https://alkiswahumrahtransport.com/fleet"
+                    "item": `${SITE_URL}/fleet`
                 },
                 {
                     "@type": "ListItem",
                     "position": 3,
                     "name": "Toyota Hiace",
-                    "item": "https://alkiswahumrahtransport.com/fleet/toyota-hiace"
+                    "item": `${SITE_URL}/fleet/toyota-hiace`
                 }
             ]
         },
         {
             "@type": "Product",
-            "name": vehicleData?.name || "Toyota Hiace 12-Seater Bus Rental",
-            "image": "https://alkiswahumrahtransport.com/images/fleet/hiace-hero-professional.webp",
-            "description": vehicleData ? `Rent ${vehicleData.name} bus in Makkah. Reliable ${vehicleData.passengers}-seater transport for Umrah groups and large families.` : "Rent Toyota Hiace bus in Makkah. Reliable 12-seater transport for Umrah groups and large families.",
+            "name": vehicle.name,
+            "image": `${SITE_URL}/images/fleet/hiace-hero-professional.webp`,
+            "description": `Rent ${vehicle.name} bus in Makkah. Reliable ${vehicle.seats}-seater transport for Umrah groups and large families.`,
             "brand": { "@type": "Brand", "name": "Toyota" },
             "offers": {
                 "@type": "Offer",
-                "price": vehicleData?.basePrice?.toString() || "350",
+                "price": "350",
                 "priceCurrency": "SAR",
                 "availability": "https://schema.org/InStock",
                 "priceValidUntil": '2026-12-31',
-                "url": "https://alkiswahumrahtransport.com/fleet/toyota-hiace"
+                "url": `${SITE_URL}/fleet/toyota-hiace`
             },
             "aggregateRating": {
                 "@type": "AggregateRating",
@@ -70,12 +71,10 @@ const generateJsonLd = (vehicleData: any) => ({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-    const vehicles = await vehicleService.getActiveVehicles();
-    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('hiace'));
-
+    const vehicle = getVehicle('toyota-hiace')!;
     return {
-        title: vehicleData ? `${vehicleData.name} Bus Rental Makkah | Cheap Group Transport` : "Toyota Hiace Bus Rental Makkah | Cheap Group Transport",
-        description: vehicleData ? `Book ${vehicleData.name} ${vehicleData.passengers}-seater bus for Umrah groups. Affordable transport. Base Route: ${vehicleData.basePrice} SAR.` : "Book Toyota Hiace 12-seater bus for Umrah groups. Affordable transport from Jeddah Airport to Makkah & Madinah. Reliable & spacious.",
+        title: `${vehicle.name} تاجير مكة | نقل جماعي رخيص`,
+        description: `احجز باص ${vehicle.name} يتسع لـ ${vehicle.seats} ركاب لمجموعات العمرة. وسيلة نقل بأسعار معقولة.`,
         keywords: [
             "Toyota Hiace Rental Makkah",
             "10 Seater Bus Makkah",
@@ -95,16 +94,16 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const hiaceFAQs = [
     {
-        question: "How many bags can fit in a Toyota Hiace?",
-        answer: "If occupied by 10 passengers, the Hiace can fit about 10-12 medium suitcases. For full capacity, luggage space is limited, so we recommend a dedicated luggage vehicle or upgrading to a Coaster."
+        question: "كم عدد الحقائب التي تتسع لها تويوتا هايس؟",
+        answer: "إذا كانت مشغولة بـ 10 ركاب، يمكن أن تتسع هايس لحوالي 10-12 حقيبة متوسطة. للحصول على السعة الكاملة، مساحة الأمتعة محدودة، لذا نوصي بمركبة مخصصة للأمتعة أو الترقية إلى كوستر."
     },
     {
-        question: "Is the Hiace suitable for elderly pilgrims?",
-        answer: "The Hiace is reliable, but for elderly pilgrims requiring maximum comfort, we recommend the Hyundai Staria or GMC Yukon due to their softer suspension. However, our Hiace models are modern and well-maintained."
+        question: "هل هايس مناسبة للحجاج كبار السن؟",
+        answer: "تعتبر هايس موثوقة، ولكن للحجاج كبار السن الذين يحتاجون إلى أقصى درجات الراحة، نوصي باستخدام هيونداي ستاريا أو جي إم سي يوكن بسبب نظام التعليق الأكثر نعومة. ومع ذلك، فإن طرازات هايس لدينا حديثة وتتم صيانتها جيدًا."
     },
     {
-        question: "Do you offer the larger Toyota Coaster bus?",
-        answer: "Yes, for groups of 18-30 people, we offer the Toyota Coaster. It provides more luggage space and a smoother ride than the Hiace. Contact us for Coaster pricing."
+        question: "هل تقدمون حافلة تويوتا كوستر الأكبر؟",
+        answer: "نعم، للمجموعات من 18 إلى 30 شخصًا، نقدم تويوتا كوستر. توفر مساحة أكبر للأمتعة ورحلة أكثر سلاسة من هايس. اتصل بنا لمعرفة أسعار الكوستر."
     },
 ];
 
@@ -113,24 +112,23 @@ export default async function ToyotaHiacePage() {
     const phoneNumber = settings.contact.phone;
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20Toyota%20Hiace%20for%20Group%20Umrah`;
 
-    const vehicles = await vehicleService.getActiveVehicles();
-    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('hiace'));
 
     // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
-    const hiaceId = vehicleData?.id || '692db09834f15bc89b45a5fb';
+    
     const hiaceImage = '/images/fleet/hiace-hero-professional.webp';
 
-    const jsonLd = generateJsonLd(vehicleData);
+    const vehicle = getVehicle('toyota-hiace')!;
+    const jsonLd = generateJsonLd(vehicle);
 
     return (
         <main className="overflow-x-hidden">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             <Hero
-                title="Toyota Hiace 2024 | Group Umrah Transport"
-                subtitle="The trusted choice for large families and groups traveling between Jeddah, Makkah, and Madinah. Reliable and spacious."
+                title="تويوتا هايس | نقل مجموعات العمرة"
+                subtitle="الخيار الموثوق للعائلات الكبيرة والمجموعات التي تسافر بين جدة ومكة والمدينة. موثوقة وواسعة."
                 bgImage={hiaceImage}
-                badge="Group Choice"
-                ctaText="Book via WhatsApp"
+                badge="خيار المجموعات"
+                ctaText="احجز عبر واتساب"
                 ctaLink={whatsappLink}
                 layout="center"
             />
@@ -149,48 +147,47 @@ export default async function ToyotaHiacePage() {
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                             />
                             <div className="absolute bottom-4 left-4 bg-gold text-black px-4 py-1 rounded-full text-sm font-bold">
-                                Capacity Leader
+                                الرائدة في السعة
                             </div>
                         </div>
                         <div>
                             <h2 className="text-3xl font-bold mb-6 font-playfair text-n-800 dark:text-n-100">
-                                Why Choose Toyota Hiace for Group Umrah?
+                                لماذا تختار تويوتا هايس لمجموعة العمرة؟
                             </h2>
                             <p className="text-n-600 dark:text-n-300 mb-8 leading-relaxed">
-                                Keep your group united. The Toyota Hiace is perfect for families traveling from <Link href="/ar/services/jeddah-airport-transfer" className="text-gold-dark font-medium hover:underline">Jeddah Airport to Makkah</Link>.
-                                Known for its reliability and powerful AC, it ensures a comfortable journey across Saudi Arabia for up to 12 passengers.
+                                حافظ على مجموعتك معًا. تويوتا هايس مثالية للعائلات التي تسافر من <Link href="/ar/services/jeddah-airport-transfer" className="text-gold-dark font-medium hover:underline">مطار جدة إلى مكة</Link>. تشتهر بموثوقيتها وتكييفها القوي، وتضمن رحلة مريحة عبر المملكة العربية السعودية لما يصل إلى 12 راكبًا.
                             </p>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
-                                        <Users className="text-gold" size={20} /> 10 Passengers
+                                        <Users className="text-gold" size={20} /> {formatSeatsAr(vehicle)}
                                     </div>
-                                    <p className="text-sm text-n-500">Perfect for 2-3 families</p>
+                                    <p className="text-sm text-n-500">مثالية لـ 2-3 عائلات</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
-                                        <Briefcase className="text-gold" size={20} /> 10+ Bags
+                                        <Briefcase className="text-gold" size={20} /> {formatLuggageAr(vehicle)}
                                     </div>
-                                    <p className="text-sm text-n-500">Dedicated rear luggage area</p>
+                                    <p className="text-sm text-n-500">منطقة مخصصة للأمتعة الخلفية</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
-                                        <Shield className="text-gold" size={20} /> Extreme Reliability
+                                        <Shield className="text-gold" size={20} /> موثوقية قصوى
                                     </div>
-                                    <p className="text-sm text-n-500">Toyota's legendarily durable engine</p>
+                                    <p className="text-sm text-n-500">محرك تويوتا المتين الأسطوري</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
-                                        <Fuel className="text-gold" size={20} /> Fuel Efficient
+                                        <Fuel className="text-gold" size={20} /> كفاءة في استهلاك الوقود
                                     </div>
-                                    <p className="text-sm text-n-500">High efficiency for long distances</p>
+                                    <p className="text-sm text-n-500">كفاءة عالية لمسافات طويلة</p>
                                 </div>
                             </div>
 
                             <div className="mt-10">
                                 <Link href="/ar/booking" className="inline-flex items-center gap-2 bg-n-900 text-white hover:bg-n-800 dark:bg-white dark:text-n-900 px-8 py-3 rounded-btn font-bold transition-all shadow-lg hover:shadow-gold/20">
-                                    Book Toyota Hiace <ArrowRight size={20} />
+                                    احجز تويوتا هايس <ArrowRight size={20} />
                                 </Link>
                             </div>
                         </div>
@@ -201,27 +198,27 @@ export default async function ToyotaHiacePage() {
             {/* Detailed Specifications */}
             <section className="py-12 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-n-900 dark:text-white">Technical Specifications</h2>
+                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-n-900 dark:text-white">المواصفات الفنية</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
-                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Engine & Power</h3>
-                            <p className="font-bold text-xl text-n-900 dark:text-white">2.8L Turbo Diesel</p>
-                            <p className="text-sm text-n-400">High Torque Motor</p>
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">المحرك والقوة</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">ديزل تيربو 2.8 لتر</p>
+                            <p className="text-sm text-n-400">محرك عالي العزم</p>
                         </div>
                         <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
-                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Cooling System</h3>
-                            <p className="font-bold text-xl text-n-900 dark:text-white">Heavy Duty AC</p>
-                            <p className="text-sm text-n-400">Individual Roof Vents</p>
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">نظام التبريد</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">تكييف للخدمة الشاقة</p>
+                            <p className="text-sm text-n-400">فتحات سقف فردية</p>
                         </div>
                         <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
-                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Capacity</h3>
-                            <p className="font-bold text-xl text-n-900 dark:text-white">10-13 Seats</p>
-                            <p className="text-sm text-n-400">Configurable Layout</p>
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">السعة</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">10-13 مقعدًا</p>
+                            <p className="text-sm text-n-400">تصميم قابل للتكوين</p>
                         </div>
                         <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
-                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Safety</h3>
-                            <p className="font-bold text-xl text-n-900 dark:text-white">ABS & Airbags</p>
-                            <p className="text-sm text-n-400">Standard Safety Pack</p>
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">الأمان</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">فرامل ABS ووسائد هوائية</p>
+                            <p className="text-sm text-n-400">Standard الأمان Pack</p>
                         </div>
                     </div>
                 </div>
@@ -231,38 +228,38 @@ export default async function ToyotaHiacePage() {
             <section className="py-16 bg-n-900 text-white overflow-hidden relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                 <div className="container mx-auto px-4 text-center relative z-10">
-                    <span className="text-gold font-bold tracking-widest uppercase text-sm mb-4 block">Spacious Group Travel</span>
-                    <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>
+                    <span className="text-gold font-bold tracking-widest uppercase text-sm mb-4 block">سفر جماعي واسع</span>
+                    <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">اكتشف المقصورة</h2>
 
                     <div className="max-w-6xl mx-auto">
                         <Interior360Viewer
                             imageUrl="/images/fleet/hiace-interior-360.webp"
-                            title="Toyota Hiace Interior"
+                            title="مقصورة تويوتا هايس"
                         />
                     </div>
-                    <p className="text-n-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
+                    <p className="text-n-400 mt-6 text-sm">العرض التفاعلي 360 درجة غير متوفر على الأجهزة المحمولة في وضع توفير البيانات.</p>
                 </div>
             </section>
 
             {/* Use Cases */}
             <section className="py-16 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-12 font-playfair">Proven for Big Groups</h2>
+                    <h2 className="text-3xl font-bold text-center mb-12 font-playfair">أثبتت كفاءتها للمجموعات الكبيرة</h2>
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
                             {
-                                title: "Extended Families",
-                                desc: "No need to coordinate between multiple cars. Keep grandparents and kids together.",
+                                title: "عائلات ممتدة",
+                                desc: "لا حاجة للتنسيق بين سيارات متعددة. حافظ على الأجداد والأطفال معًا.",
                                 icon: Users
                             },
                             {
-                                title: "Budget Friendly",
-                                desc: "Significant cost savings per person compared to booking multiple smaller vehicles.",
+                                title: "مناسبة للميزانية",
+                                desc: "وفورات كبيرة في التكلفة لكل شخص مقارنة بحجز عدة سيارات صغيرة.",
                                 icon: Briefcase
                             },
                             {
-                                title: "Reliability",
-                                desc: "The vehicle that never stops. Perfect for tight schedules and long distances.",
+                                title: "الموثوقية",
+                                desc: "السيارة التي لا تتوقف أبدًا. مثالية للجداول الزمنية الضيقة والمسافات الطويلة.",
                                 icon: Shield
                             }
                         ].map((item, idx) => (
@@ -278,7 +275,7 @@ export default async function ToyotaHiacePage() {
 
             <FleetCarouselWrapper />
 
-            <FAQSection items={hiaceFAQs} title="Toyota Hiace Rental - Frequently Asked Questions" />
+            <FAQSection items={hiaceFAQs} title="تأجير تويوتا هايس - الأسئلة الشائعة" />
         </main>
     );
 }

@@ -7,6 +7,7 @@ import FAQSection from '@/components/services/FAQSection';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Shield, Star, Briefcase, Users, Wifi, Fuel, MapPin, CheckCircle, Phone } from 'lucide-react';
+import { getVehicle, formatSeats, formatLuggage } from '@/data/fleet';
 
 export async function generateMetadata(): Promise<Metadata> {
     return {
@@ -100,6 +101,7 @@ export default async function ToyotaCamryPage() {
     const vehicles = await vehicleService.getActiveVehicles();
     const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('camry'));
     const camryId = vehicleData?.id || '692db09834f15bc89b45a5f6';
+    const vehicle = getVehicle('toyota-camry')!;
 
     return (
         <main className="overflow-x-hidden">
@@ -118,7 +120,7 @@ export default async function ToyotaCamryPage() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                 </div>
                 <div className="relative z-10 container mx-auto px-4">
-                    <span className="inline-block bg-gold text-ink text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">Most Popular Sedan</span>
+                    <span className="inline-block bg-gold text-ink text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-5">{vehicle.categoryLabel}</span>
                     <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-playfair text-white mb-5 max-w-4xl leading-tight">
                         Toyota Camry –<br />
                         <span className="text-gold">Executive Comfort</span><br />
@@ -161,8 +163,8 @@ export default async function ToyotaCamryPage() {
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                         {[
-                            { val: '4', label: 'Passengers' },
-                            { val: '2–3', label: 'Suitcases' },
+                            { val: formatSeats(vehicle), label: 'Capacity' },
+                            { val: formatLuggage(vehicle), label: 'Storage' },
                             { val: '2.5L', label: 'Hybrid Engine' },
                             { val: '24/7', label: 'Availability' },
                         ].map((s, i) => (
@@ -226,7 +228,14 @@ export default async function ToyotaCamryPage() {
                         <div className="w-24 h-1 bg-gold mx-auto rounded-full" />
                     </div>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                        {specs.map((s, i) => (
+                        {[
+                            { icon: Fuel, title: 'Fuel Efficiency', desc: '2.5L Hybrid engine delivering 208 HP with outstanding fuel economy for long Saudi routes.' },
+                            { icon: Users, title: 'Comfort & Seating', desc: `Premium leather seats for ${formatSeats(vehicle)} with dual-zone automatic climate control.` },
+                            { icon: Shield, title: 'Safety Systems', desc: 'Toyota Safety Sense — pre-collision system, lane departure alert, and adaptive cruise control.' },
+                            { icon: Wifi, title: 'Tech & Connectivity', desc: '9" infotainment display, wireless Apple CarPlay, Android Auto, and USB-C charging ports.' },
+                            { icon: Briefcase, title: 'Luggage Capacity', desc: `15.1 cu ft trunk accommodating ${formatLuggage(vehicle)} — perfect for airport transfers.` },
+                            { icon: Star, title: 'Ride Quality', desc: 'Sound-dampened cabin with smooth suspension for a quiet, peaceful journey.' },
+                        ].map((s, i) => (
                             <div key={i} className="p-6 rounded-2xl border border-border bg-surface-alt hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                                 <s.icon className="w-10 h-10 text-gold-strong mb-4" />
                                 <h3 className="font-bold text-xl mb-2 text-ink">{s.title}</h3>

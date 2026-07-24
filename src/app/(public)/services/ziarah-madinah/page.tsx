@@ -11,6 +11,17 @@ import FadeIn from "@/components/common/FadeIn";
 import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 import { LocationGrid } from '@/components/ziyarat/LocationGrid';
 import { madinahSites } from '@/data/ziyarat-locations';
+import { FLEET, formatSeats } from '@/data/fleet';
+
+const PRICE_MAP: Record<string, string> = {
+    'toyota-camry': 'SAR 200',
+    'hyundai-starex': 'SAR 200',
+    'hyundai-staria': 'SAR 200',
+    'toyota-hiace': 'SAR 250',
+    'gmc-yukon-xl': 'SAR 400',
+    'toyota-coaster': 'SAR 500',
+    'mitsubishi-xpander': 'SAR 200'
+};
 
 export const metadata: Metadata = {
     title: "Madinah Ziyarat Tour 2026 — 14 Islamic Historical Sites | Al Kiswah",
@@ -71,7 +82,7 @@ const madinahFAQs = [
     { question: "How long is the Madinah Ziyarat tour?", answer: "The standard tour covering Masjid Quba, Mount Uhud, Qiblatayn, Seven Mosques, and Jannat Al-Baqi takes 3–4 hours. Extended tours covering all 14 sites including the Date Market take 5–6 hours." },
     { question: "Is Masjid Quba included?", answer: "Yes. Masjid Quba is always our first stop. We allow ample time for Wudhu and 2 Rakaats prayer — the Prophet (SAW) said this equals an Umrah reward." },
     { question: "Can we visit Badr battlefield?", answer: "Yes. Badr is approximately 150 km from Madinah and can be added as an optional extended trip. This adds 3–4 hours and is charged separately. A deeply moving experience for history enthusiasts." },
-    { question: "What vehicles are available for Madinah Ziyarat?", answer: "Toyota Camry (4 pax, SAR 200), Hyundai H1/Staria (7 pax, SAR 200), Toyota Hiace (10 pax, SAR 250), GMC Yukon (7 pax, SAR 400), and Toyota Coaster (19 pax, SAR 500)." },
+    { question: "What vehicles are available for Madinah Ziyarat?", answer: FLEET.filter(v => v.bookable).map(v => `${v.name} (${formatSeats(v)}, ${PRICE_MAP[v.id] || 'Contact Us'})`).join(', ') + '.' },
     { question: "Is the tour suitable for elderly or families?", answer: "Absolutely. All sites are at ground level except Mount Uhud which has an optional climb. We drop elderly passengers at the closest accessible point. Child seats are available free of charge." },
     { question: "When is Jannat Al-Baqi cemetery open?", answer: "Jannat Al-Baqi gates are typically opened after Fajr and after Asr prayers. We schedule the tour to coincide with these opening times so you can visit and make Dua." },
 ];
@@ -102,18 +113,11 @@ export default async function ZiarahMadinahPage() {
                 <div className="container mx-auto px-4">
                     <FadeIn>
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
-                            {[
-                                { vehicle: "Toyota Camry", capacity: "4 pax", price: "SAR 200" },
-                                { vehicle: "Hyundai H1", capacity: "7 pax", price: "SAR 200" },
-                                { vehicle: "Hyundai Staria", capacity: "7 pax", price: "SAR 200" },
-                                { vehicle: "Toyota Hiace", capacity: "10 pax", price: "SAR 250" },
-                                { vehicle: "GMC Yukon", capacity: "7 pax", price: "SAR 400" },
-                                { vehicle: "Toyota Coaster", capacity: "19 pax", price: "SAR 500" },
-                            ].map((v, i) => (
-                                <div key={i} className="bg-black/50 border border-white/10 rounded-xl p-4 hover:border-gold/30 transition-all">
-                                    <div className="text-gold font-bold text-lg">{v.price}</div>
-                                    <div className="text-white font-semibold text-sm mt-1">{v.vehicle}</div>
-                                    <div className="text-white/50 text-xs">{v.capacity}</div>
+                            {FLEET.filter(v => v.bookable).map((v, i) => (
+                                <div key={v.id} className="bg-black/50 border border-white/10 rounded-xl p-4 hover:border-gold/30 transition-all">
+                                    <div className="text-gold font-bold text-lg">{PRICE_MAP[v.id] || 'Contact Us'}</div>
+                                    <div className="text-white font-semibold text-sm mt-1">{v.name}</div>
+                                    <div className="text-white/50 text-xs">{formatSeats(v)}</div>
                                 </div>
                             ))}
                         </div>
@@ -177,7 +181,7 @@ export default async function ZiarahMadinahPage() {
                             <h2 className="text-2xl md:text-3xl font-semibold text-white font-display text-center mb-6">Private Madinah Ziyarat Tour — Complete Guide</h2>
                             <p>Madinah Al-Munawwarah — the Illuminated City — holds a special place in every Muslim&apos;s heart. Beyond the magnificent <strong className="text-white">Masjid An-Nabawi</strong>, the city is filled with sacred sites that connect you to the earliest days of Islam. At <strong className="text-white">Al Kiswah Umrah Transport</strong>, we offer fully private tours covering <strong className="text-white">14 Islamic historical sites</strong> with multilingual drivers who share the significance of each location.</p>
                             <p>Our Madinah tour always begins at <strong className="text-white">Masjid Quba</strong> — the first mosque built in Islam. The Prophet (SAW) said that praying two Rakaats here equals an Umrah. We continue to <strong className="text-white">Mount Uhud</strong> and the Martyrs&apos; Cemetery where Hamza (RA), the Lion of Allah, rests alongside 70 companions. The <strong className="text-white">Seven Mosques</strong> complex marks the Battle of the Trench, and <strong className="text-white">Masjid Al-Qiblatayn</strong> is where the direction of prayer changed forever. We also visit <strong className="text-white">Jannat Al-Baqi</strong> (10,000+ companions), the companion mosques, and the famous <strong className="text-white">Date Market</strong> where you can buy Ajwa dates that the Prophet (SAW) recommended.</p>
-                            <p>Prices start from <strong className="text-white">SAR 200</strong> per vehicle. Choose from our <Link href="/fleet/toyota-camry" className="text-gold hover:text-white hover:underline">Toyota Camry</Link>, <Link href="/fleet/gmc-yukon-at4" className="text-gold hover:text-white hover:underline">GMC Yukon</Link>, <Link href="/fleet/hyundai-staria" className="text-gold hover:text-white hover:underline">Hyundai Staria</Link>, or <Link href="/fleet/toyota-hiace" className="text-gold hover:text-white hover:underline">Toyota Hiace</Link>. For the complete Ziyarat experience across all cities, see our <Link href="/services/ziyarat-tours" className="text-gold hover:text-white hover:underline">full Ziyarat Tours page</Link> covering Makkah, Madinah, Jeddah &amp; Taif.</p>
+                            <p>Prices start from <strong className="text-white">SAR 200</strong> per vehicle. Choose from our <Link href="/fleet/toyota-camry" className="text-gold hover:text-white hover:underline">Toyota Camry</Link>, <Link href="/fleet/gmc-yukon-xl" className="text-gold hover:text-white hover:underline">GMC Yukon</Link>, <Link href="/fleet/hyundai-staria" className="text-gold hover:text-white hover:underline">Hyundai Staria</Link>, or <Link href="/fleet/toyota-hiace" className="text-gold hover:text-white hover:underline">Toyota Hiace</Link>. For the complete Ziyarat experience across all cities, see our <Link href="/services/ziyarat-tours" className="text-gold hover:text-white hover:underline">full Ziyarat Tours page</Link> covering Makkah, Madinah, Jeddah &amp; Taif.</p>
                         </div>
                     </FadeIn>
                 </div>

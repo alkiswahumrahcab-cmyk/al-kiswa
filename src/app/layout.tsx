@@ -15,6 +15,7 @@ import { getSettings } from "@/lib/settings-storage";
 import { JsonLdScript } from "@/components/seo/JsonLd";
 import HtmlLangUpdater from "@/components/seo/HtmlLangUpdater";
 import "./globals.css";
+import { SITE_URL } from '@/config/site';
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",

@@ -7,6 +7,7 @@ import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import { ArrowRight, Clock, MapPin, CheckCircle, Car } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
+import { SITE_URL } from '@/config/site';
 
 // Generate static params for all routes in pricing.json
 export async function generateStaticParams() {
@@ -37,7 +38,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         description: route.seo.description,
         keywords: route.seo.keywords,
         alternates: {
-            canonical: `https://alkiswahumrahtransport.com/routes/${slug}`,
+            canonical: `${SITE_URL}/routes/${slug}`,
         },
         openGraph: {
             title: route.seo.title,

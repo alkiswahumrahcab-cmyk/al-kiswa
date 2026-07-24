@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { Facebook, Twitter, Linkedin, Link as LinkIcon, Check } from 'lucide-react';
+import { SITE_URL } from '@/config/site';
 
 interface ShareButtonsProps {
     slug: string;
@@ -10,7 +11,7 @@ interface ShareButtonsProps {
 
 const ShareButtons: React.FC<ShareButtonsProps> = ({ slug, title }) => {
     const [copied, setCopied] = useState(false);
-    const url = `https://alkiswahumrahtransport.com/blog/${slug}`;
+    const url = `${SITE_URL}/blog/${slug}`;
     const encodedUrl = encodeURIComponent(url);
     const encodedTitle = encodeURIComponent(title);
 

@@ -252,7 +252,7 @@ export default function FrancePilgrimsPage() {
           <h2 className="text-xl font-bold mb-6 text-white">Explorer Nos Services et Notre Flotte</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              { href: "/fleet/gmc-yukon-at4", label: "GMC Yukon AT4", desc: "SUV luxe 7 places" },
+              { href: "/fleet/gmc-yukon-xl", label: "GMC Yukon AT4", desc: "SUV luxe 7 places" },
               { href: "/fleet/hyundai-staria", label: "Hyundai Staria", desc: "Van 11 places — le plus populaire" },
               { href: "/fleet/toyota-hiace", label: "Toyota Hiace", desc: "Minivan 10 places" },
               { href: "/services/jeddah-airport-transfer", label: "Transfert Aéroport Djeddah", desc: "Arrivées & départs KAIA" },

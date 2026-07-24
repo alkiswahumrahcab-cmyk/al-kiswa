@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -13,15 +13,15 @@ import FadeIn from '@/components/common/FadeIn';
 
 export const metadata: Metadata = {
     title: "تاكسي مطار المدينة المنورة | استقبال وتوصيل فندق | الكسوة",
-    description: "Reliable taxi from Madinah Airport (MED) to Masjid Nabawi hotels. 24/7 airport pickup. حجز تاكسي مطار المدينة المنورة. توصيل الى فندق الحرم.",
+    description: "تاكسي موثوق من مطار المدينة المنورة (MED) إلى فنادق المسجد النبوي. استقبال من المطار على مدار الساعة. حجز تاكسي مطار المدينة المنورة. توصيل الى فندق الحرم.",
     keywords: [
-        "Madinah Airport Taxi",
-        "Madinah Airport to Masjid Nabawi",
-        "Prince Mohammad Bin Abdulaziz Airport",
-        "MED Airport Transfer",
-        "Madinah Airport to Makkah Taxi",
-        "Madinah Hotel Transfer",
-        "Umrah Taxi Madinah",
+        "تاكسي مطار المدينة المنورة",
+        "مطار المدينة إلى المسجد النبوي",
+        "مطار الأمير محمد بن عبدالعزيز",
+        "نقل مطار المدينة",
+        "تاكسي من مطار المدينة إلى مكة",
+        "توصيل فنادق المدينة",
+        "تاكسي عمرة المدينة",
         "تاكسي مطار المدينة",
         "استقبال مطار الامير محمد بن عبدالعزيز",
         "توصيل من مطار المدينة للحرم",
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   },
     openGraph: {
         title: "نقل مطار المدينة | مطار الأمير محمد بن عبدالعزيز | الكسوة",
-        description: "Reliable taxi from Madinah Airport (MED) to Masjid Nabawi hotels. 24/7 airport pickup, meet & greet service.",
-        images: [{ url: '/images/routes/madinah-airport-hero.webp', width: 1200, height: 630, alt: 'Madinah Airport Transfer Service' }]
+        description: "تاكسي موثوق من مطار المدينة المنورة (MED) إلى فنادق المسجد النبوي. استقبال من المطار على مدار الساعة، خدمة استقبال وترحيب.",
+        images: [{ url: '/images/routes/madinah-airport-hero.webp', width: 1200, height: 630, alt: 'خدمة النقل من مطار المدينة المنورة' }]
     }
 };
 
@@ -52,36 +52,31 @@ const jsonLd = {
         "@type": "Airport",
         "name": "Prince Mohammad Bin Abdulaziz International Airport"
     },
-    "description": "Private transfer from Madinah Airport to Masjid Nabawi hotels.",
-    "offers": {
-        "@type": "Offer",
-        "price": "150",
-        "priceCurrency": "SAR"
-    }
+    "description": "نقل خاص من مطار المدينة المنورة إلى فنادق المسجد النبوي."
 };
 
 const madinahAirportFAQs = [
     {
-        question: "How far is Madinah Airport from Masjid Nabawi?",
-        answer: "The airport is approximately 20-25 minutes (20 km) away from the central area (Markazia) where Masjid Nabawi and most hotels are located."
+        question: "كم يبعد مطار المدينة المنورة عن المسجد النبوي؟",
+        answer: "يبعد المطار حوالي 20-25 دقيقة (20 كم) عن المنطقة المركزية حيث يقع المسجد النبوي ومعظم الفنادق."
     },
     {
-        question: "Will the driver wait if my flight is delayed?",
-        answer: "Yes, we track all flights. Our driver will wait for you at the arrival hall, regardless of delays, at no extra cost."
+        question: "هل سينتظر السائق إذا تأخرت رحلتي؟",
+        answer: "نعم، نحن نتتبع جميع الرحلات الجوية. سينتظركم سائقنا في صالة الوصول، بغض النظر عن التأخير، دون أي تكلفة إضافية."
     },
     {
-        question: "Can I book a taxi from Madinah Airport directly to Makkah?",
-        answer: "Yes, we offer direct transfers from Madinah Airport (MED) to Makkah hotels. The journey takes about 4.5 hours via the Hijrah Highway."
+        question: "هل يمكنني حجز تاكسي من مطار المدينة المنورة مباشرة إلى مكة؟",
+        answer: "نعم، نقدم خدمات نقل مباشرة من مطار المدينة المنورة (MED) إلى فنادق مكة. تستغرق الرحلة حوالي 4.5 ساعات عبر طريق الهجرة."
     },
 ];
 
 export default async function MadinahAirportPage() {
     const settings = await getSettings();
     const phoneNumber = settings.contact.phone;
-    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20need%20pickup%20from%20Madinah%20Airport`;
+    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=أحتاج%20إلى%20استقبال%20من%20مطار%20المدينة`;
 
     return (
-        <main className="overflow-x-hidden bg-charcoal min-h-screen relative">
+        <main className="overflow-x-hidden bg-charcoal min-h-screen relative" dir="rtl">
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none fixed" />
 
             <script
@@ -89,10 +84,10 @@ export default async function MadinahAirportPage() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
             <Hero
-                title="Madinah Airport (MED) Transfers"
-                subtitle="Start your visit to the Prophet's City with peace of mind. Reliable meet & greet service from Prince Mohammad Bin Abdulaziz Airport."
+                title="نقل مطار المدينة المنورة (MED)"
+                subtitle="ابدأ زيارتك لمدينة رسول الله براحة بال. خدمة استقبال وترحيب موثوقة من مطار الأمير محمد بن عبدالعزيز."
                 bgImage="/images/routes/madinah-airport-hero.webp"
-                ctaText="Book Airport Pickup"
+                ctaText="احجز استقبال المطار"
                 ctaLink={whatsappLink}
                 layout="center"
                 breadcrumbs={<Breadcrumbs />}
@@ -104,13 +99,13 @@ export default async function MadinahAirportPage() {
                     <div className="grid md:grid-cols-2 gap-16 items-center">
                         <FadeIn>
                             <div>
-                                <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm border-b border-gold/30 pb-2 mb-4 block w-fit">Stress-Free Welcome</span>
+                                <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm border-b border-gold/30 pb-2 mb-4 block w-fit">استقبال خالي من المتاعب</span>
                                 <h2 className="text-4xl md:text-5xl font-semibold mb-8 font-display text-white">
-                                    Seamless Arrival in <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Madinah</span>
+                                    وصول سلس إلى <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">المدينة المنورة</span>
                                 </h2>
                                 <p className="text-n-400 mb-8 leading-relaxed font-light text-lg">
-                                    Arriving for Umrah or Ziyarat should be stress-free. Avoid the hassle of haggling with local taxis.
-                                    Our professional drivers greet you at the arrival terminal with a name sign and assist with your luggage to your comfortable private vehicle.
+                                    يجب أن يكون وصولك للعمرة أو الزيارة خالياً من المتاعب. تجنب عناء التفاوض مع سيارات الأجرة المحلية.
+                                    يستقبلكم سائقونا المحترفون في صالة الوصول مع لوحة باسمكم ويساعدونكم في نقل الأمتعة إلى سيارتكم الخاصة المريحة.
                                 </p>
 
                                 <div className="space-y-8">
@@ -119,8 +114,8 @@ export default async function MadinahAirportPage() {
                                             <Plane size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold text-xl mb-2 text-white group-hover:text-gold transition-colors font-display">Flight Tracking</h4>
-                                            <p className="text-sm text-n-400 font-light leading-relaxed">We monitor your flight status to ensure we are there when you land, adjusting for any delays automatically.</p>
+                                            <h4 className="font-semibold text-xl mb-2 text-white group-hover:text-gold transition-colors font-display">تتبع الرحلات</h4>
+                                            <p className="text-sm text-n-400 font-light leading-relaxed">نقوم بمراقبة حالة رحلتكم لضمان تواجدنا عند هبوطكم، ونتكيف مع أي تأخير بشكل تلقائي.</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-6 group">
@@ -128,8 +123,8 @@ export default async function MadinahAirportPage() {
                                             <Hotel size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold text-xl mb-2 text-white group-hover:text-gold transition-colors font-display">Hotel Drop-off</h4>
-                                            <p className="text-sm text-n-400 font-light leading-relaxed">Direct transfer to your hotel lobby in the Markazia District (near Masjid Nabawi) or any other location.</p>
+                                            <h4 className="font-semibold text-xl mb-2 text-white group-hover:text-gold transition-colors font-display">توصيل للفندق</h4>
+                                            <p className="text-sm text-n-400 font-light leading-relaxed">نقل مباشر إلى بهو فندقكم في المنطقة المركزية (بالقرب من المسجد النبوي) أو أي موقع آخر.</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-6 group">
@@ -137,15 +132,15 @@ export default async function MadinahAirportPage() {
                                             <Clock size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="font-semibold text-xl mb-2 text-white group-hover:text-gold transition-colors font-display">24/7 Availability</h4>
-                                            <p className="text-sm text-n-400 font-light leading-relaxed">Late night or early morning flight? We are always available to serve you at any hour.</p>
+                                            <h4 className="font-semibold text-xl mb-2 text-white group-hover:text-gold transition-colors font-display">متاحون على مدار الساعة</h4>
+                                            <p className="text-sm text-n-400 font-light leading-relaxed">رحلة في وقت متأخر من الليل أو في الصباح الباكر؟ نحن دائماً متاحون لخدمتكم في أي وقت.</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div className="mt-12">
                                     <Link href="/ar/booking" className="inline-flex items-center gap-3 bg-gradient-to-r from-gold to-gold-dark text-black hover:bg-white hover:text-black hover:from-white hover:to-white px-10 py-4 rounded-btn font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] uppercase tracking-wider text-sm transform hover:-translate-y-1">
-                                        Book Transfer Now <ArrowRight size={20} />
+                                        احجز نقلك الآن <ArrowRight size={20} className="rotate-180" />
                                     </Link>
                                 </div>
                             </div>
@@ -156,7 +151,7 @@ export default async function MadinahAirportPage() {
                             <div className="bg-neutral-900/50 p-8 rounded-3xl border border-white/10 shadow-2xl backdrop-blur-md relative overflow-hidden">
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-[80px] pointer-events-none" />
 
-                                <h3 className="text-2xl font-semibold mb-8 text-center text-white font-display">Popular Routes from Madinah Airport</h3>
+                                <h3 className="text-2xl font-semibold mb-8 text-center text-white font-display">الطرق الشائعة من مطار المدينة</h3>
 
                                 <div className="space-y-4 relative z-10">
                                     <div className="flex items-center justify-between p-5 bg-black/40 border border-white/5 rounded-2xl hover:border-gold/30 transition-all group">
@@ -165,13 +160,13 @@ export default async function MadinahAirportPage() {
                                                 <MapPin size={24} />
                                             </div>
                                             <div>
-                                                <p className="font-bold text-white text-lg">To Masjid Nabawi</p>
-                                                <p className="text-xs text-n-500 uppercase tracking-wider">Central Hotels</p>
+                                                <p className="font-bold text-white text-lg">إلى المسجد النبوي</p>
+                                                <p className="text-xs text-n-500 uppercase tracking-wider">فنادق المركزية</p>
                                             </div>
                                         </div>
-                                        <div className="text-right">
-                                            <p className="font-bold text-gold">25 Mins</p>
-                                            <p className="text-xs text-n-500">20 km</p>
+                                        <div className="text-left">
+                                            <p className="font-bold text-gold">25 دقيقة</p>
+                                            <p className="text-xs text-n-500">20 كم</p>
                                         </div>
                                     </div>
 
@@ -181,13 +176,13 @@ export default async function MadinahAirportPage() {
                                                 <MapPin size={24} />
                                             </div>
                                             <div>
-                                                <p className="font-bold text-white text-lg"><Link href="/ar/services/makkah-madinah-taxi" className="hover:text-green-400 transition-colors underline decoration-dotted underline-offset-4">To Makkah Hotel</Link></p>
-                                                <p className="text-xs text-n-500 uppercase tracking-wider">Direct Transfer</p>
+                                                <p className="font-bold text-white text-lg"><Link href="/ar/services/makkah-madinah-taxi" className="hover:text-green-400 transition-colors underline decoration-dotted underline-offset-4">إلى فنادق مكة</Link></p>
+                                                <p className="text-xs text-n-500 uppercase tracking-wider">نقل مباشر</p>
                                             </div>
                                         </div>
-                                        <div className="text-right">
-                                            <p className="font-bold text-gold">4.5 Hours</p>
-                                            <p className="text-xs text-n-500">450 km</p>
+                                        <div className="text-left">
+                                            <p className="font-bold text-gold">4.5 ساعات</p>
+                                            <p className="text-xs text-n-500">450 كم</p>
                                         </div>
                                     </div>
 
@@ -197,19 +192,19 @@ export default async function MadinahAirportPage() {
                                                 <MapPin size={24} />
                                             </div>
                                             <div>
-                                                <p className="font-bold text-white text-lg"><Link href="/ar/services/ziyarat-tours" className="hover:text-blue-400 transition-colors underline decoration-dotted underline-offset-4">To Masjid Quba</Link></p>
-                                                <p className="text-xs text-n-500 uppercase tracking-wider">Ziyarat Start</p>
+                                                <p className="font-bold text-white text-lg"><Link href="/ar/services/ziyarat-tours" className="hover:text-blue-400 transition-colors underline decoration-dotted underline-offset-4">إلى مسجد قباء</Link></p>
+                                                <p className="text-xs text-n-500 uppercase tracking-wider">بداية الزيارات</p>
                                             </div>
                                         </div>
-                                        <div className="text-right">
-                                            <p className="font-bold text-gold">30 Mins</p>
-                                            <p className="text-xs text-n-500">25 km</p>
+                                        <div className="text-left">
+                                            <p className="font-bold text-gold">30 دقيقة</p>
+                                            <p className="text-xs text-n-500">25 كم</p>
                                         </div>
                                     </div>
                                 </div>
 
                                 <p className="text-center text-xs text-n-500 mt-8 italic font-light">
-                                    *Travel times may vary based on traffic conditions
+                                    *أوقات السفر قد تختلف بناءً على حالة المرور
                                 </p>
                             </div>
                         </FadeIn>
@@ -217,14 +212,14 @@ export default async function MadinahAirportPage() {
 
                     <div className="mt-24">
                         <FadeIn>
-                            <h3 className="text-3xl font-semibold mb-10 text-center font-display text-white">Journey to Markazia</h3>
+                            <h3 className="text-3xl font-semibold mb-10 text-center font-display text-white">الرحلة إلى المركزية</h3>
                             <RouteVisual
-                                from="Madinah Airport (MED)"
-                                fromLabel="Arrival Terminal"
-                                to="Masjid Nabawi Hotel"
-                                toLabel="Your Hotel / Markazia"
-                                duration="25 Mins"
-                                distance="20 km"
+                                from="مطار المدينة (MED)"
+                                fromLabel="صالة الوصول"
+                                to="فندق المسجد النبوي"
+                                toLabel="فندقك / المركزية"
+                                duration="25 دقيقة"
+                                distance="20 كم"
                                 showMiqat={false}
                             />
                         </FadeIn>
@@ -238,7 +233,7 @@ export default async function MadinahAirportPage() {
                 <div className="container max-w-4xl mx-auto px-4">
                     <FadeIn>
                         <h2 className="text-3xl md:text-5xl font-semibold text-center mb-16 font-display text-white">
-                            Common <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Questions</span>
+                            الأسئلة <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">الشائعة</span>
                         </h2>
                         <div className="space-y-4">
                             {madinahAirportFAQs.map((faq, i) => (
@@ -250,7 +245,7 @@ export default async function MadinahAirportPage() {
                                                 <ChevronDown size={20} className="group-open:rotate-180 transition-transform duration-300" />
                                             </span>
                                         </summary>
-                                        <div className="mt-4 px-6 leading-relaxed text-n-400 font-light border-l-2 border-gold/30 ml-4">
+                                        <div className="mt-4 px-6 leading-relaxed text-n-400 font-light border-r-2 border-gold/30 mr-4">
                                             {faq.answer}
                                         </div>
                                     </details>

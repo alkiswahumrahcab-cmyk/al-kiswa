@@ -9,14 +9,14 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
 
-import { vehicleService } from '@/services/vehicleService';
+import { getVehicle, formatSeats, formatLuggage } from '@/data/fleet';
+import { SITE_URL } from '@/config/site';
 export async function generateMetadata(): Promise<Metadata> {
-    const vehicles = await vehicleService.getActiveVehicles();
-    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('coaster'));
+    const vehicle = getVehicle('toyota-coaster')!;
 
     return {
-        title: vehicleData ? vehicleData.name + " Group Umrah Transport | Al Kiswah" : "Toyota Coaster Group Transport | Al Kiswah",
-        description: vehicleData ? `Book ${vehicleData.name} in Makkah. ${vehicleData.passengers}-seater bus for large group Umrah transport. Licensed and fixed rates.` : "Book Toyota Coaster in Makkah. 19-seater bus for large group Umrah transport. Licensed service for 5,000+ pilgrims.",
+        title: vehicle ? vehicle.name + " Group Umrah Transport | Al Kiswah" : "Toyota Coaster Group Transport | Al Kiswah",
+        description: vehicle ? `Book ${vehicle.name} in Makkah. ${formatSeats(vehicle)} bus for large group Umrah transport. Licensed and fixed rates.` : "Book Toyota Coaster in Makkah. 19-seater bus for large group Umrah transport. Licensed service for 5,000+ pilgrims.",
         keywords: [
             "toyota coaster umrah transport",
             "large group bus makkah",
@@ -33,7 +33,7 @@ const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData ? `${vehicleData.name} ${vehicleData.passengers}-Seater Bus Transport` : "Toyota Coaster 19-seater Bus Transport",
-    "image": "https://alkiswahumrahtransport.com/images/fleet/toyota-coaster-2025.webp",
+    "image": `${SITE_URL}/images/fleet/toyota-coaster-2025.webp`,
     "description": vehicleData ? `Book ${vehicleData.name} bus in Makkah. Premium ${vehicleData.passengers}-seater transport for Umrah groups. Spacious, comfortable, and reliable.` : "Book Toyota Coaster bus in Makkah. Premium 19-seater transport for Umrah groups. Spacious, comfortable, and reliable.",
     "brand": { "@type": "Brand", "name": "Toyota" },
     "offers": {
@@ -42,7 +42,7 @@ const generateJsonLd = (vehicleData: any) => ({
         "priceCurrency": "SAR",
         "availability": "https://schema.org/InStock",
         "priceValidUntil": '2026-12-31',
-        "url": "https://alkiswahumrahtransport.com/fleet/toyota-coaster"
+        "url": `${SITE_URL}/fleet/toyota-coaster`
     },
     "aggregateRating": {
         "@type": "AggregateRating",
@@ -88,14 +88,11 @@ export default async function ToyotaCoasterPage() {
     const phoneNumber = settings.contact.phone;
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20Toyota%20Coaster%20for%20Group%20Umrah`;
 
-    const vehicles = await vehicleService.getActiveVehicles();
-    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('coaster'));
 
-    // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
-    const coasterId = vehicleData?.id || '692db09834f15bc89b45a5f6_coaster';
     const coasterImage = '/images/fleet/toyota-coaster-2025.webp';
+    const vehicle = getVehicle('toyota-coaster')!;
 
-    const jsonLd = generateJsonLd(vehicleData);
+    const jsonLd = generateJsonLd(vehicle);
 
     return (
         <main className="overflow-x-hidden">
@@ -104,7 +101,7 @@ export default async function ToyotaCoasterPage() {
                 title="Toyota Coaster 2025 | Premium Group Transport"
                 subtitle="The ultimate choice for medium-sized Umrah groups. Spacious, reliable, and comfortable travel across Saudi Arabia."
                 bgImage={coasterImage}
-                badge="Best for Groups"
+                badge={vehicle.categoryLabel}
                 ctaText="Book via WhatsApp"
                 ctaLink={whatsappLink}
                 layout="center"
@@ -124,7 +121,7 @@ export default async function ToyotaCoasterPage() {
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                             />
                             <div className="absolute bottom-4 left-4 bg-gold text-ink px-4 py-1 rounded-full text-sm font-bold">
-                                Group Favorite
+                                {vehicle.categoryLabel}
                             </div>
                         </div>
                         <div>
@@ -139,13 +136,13 @@ export default async function ToyotaCoasterPage() {
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-ink">
-                                        <Users className="text-gold" size={20} /> 19 passengers
+                                        <Users className="text-gold" size={20} /> {formatSeats(vehicle)}
                                     </div>
                                     <p className="text-sm text-ink-muted">Ideal for 3-5 families</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-ink">
-                                        <Briefcase className="text-gold" size={20} /> 15+ Bags
+                                        <Briefcase className="text-gold" size={20} /> {formatLuggage(vehicle)}
                                     </div>
                                     <p className="text-sm text-ink-muted">Ample storage space</p>
                                 </div>
@@ -190,7 +187,7 @@ export default async function ToyotaCoasterPage() {
                         </div>
                         <div className="bg-surface p-6 rounded-xl shadow-sm border border-border">
                             <h3 className="font-bold text-ink-muted uppercase text-xs tracking-wider mb-2">Seating</h3>
-                            <p className="font-bold text-xl text-ink">19 Seats</p>
+                            <p className="font-bold text-xl text-ink">{formatSeats(vehicle)}</p>
                             <p className="text-sm text-ink-muted/80">High-back fabric seats</p>
                         </div>
                         <div className="bg-surface p-6 rounded-xl shadow-sm border border-border">

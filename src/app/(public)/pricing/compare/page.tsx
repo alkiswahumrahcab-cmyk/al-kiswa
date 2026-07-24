@@ -141,7 +141,7 @@ const PRICE_COMPARISON = [
 const FAQ_ITEMS = [
     {
         q: 'Is Al Kiswah the same company as Kiwi Taxi in Saudi Arabia?',
-        a: 'No — but Al Kiswah is one of the operators that supplies vehicles to platforms like Kiwi Taxi for Saudi Arabia routes. When you book Umrah transport on Kiwi Taxi, the actual car and driver may come from Al Kiswah or similar local operators. Kiwi then adds their commission. By booking at alkiswahumrahtransport.com directly, you get the same car and driver at the base operator price — no platform fee.',
+        a: 'No — but Al Kiswah is one of the operators that supplies vehicles to platforms like Kiwi Taxi for Saudi Arabia routes. When you book Umrah transport on Kiwi Taxi, the actual car and driver may come from Al Kiswah or similar local operators. Kiwi then adds their commission. By booking at kiswahumrahcab.com directly, you get the same car and driver at the base operator price — no platform fee.',
     },
     {
         q: 'Why is Al Kiswah cheaper than Kiwi Taxi for Jeddah to Makkah?',
@@ -157,7 +157,7 @@ const FAQ_ITEMS = [
     },
     {
         q: 'What is the cheapest way to get a taxi from Jeddah Airport to Makkah?',
-        a: 'The cheapest way is to book direct with a Saudi-licensed operator like Al Kiswah. A private sedan from Jeddah Airport (JED) to Makkah starts at $50 USD (approximately 188 SAR). This is 20–30% less than booking the same route through Kiwi Taxi ($65), Booking.com ($70), or Telexo. Go to alkiswahumrahtransport.com/booking or WhatsApp +966 54 870 7332.',
+        a: 'The cheapest way is to book direct with a Saudi-licensed operator like Al Kiswah. A private sedan from Jeddah Airport (JED) to Makkah starts at $50 USD (approximately 188 SAR). This is 20–30% less than booking the same route through Kiwi Taxi ($65), Booking.com ($70), or Telexo. Go to kiswahumrahcab.com/booking or WhatsApp +966 54 870 7332.',
     },
     {
         q: 'Can I trust booking a taxi directly in Saudi Arabia without a platform?',

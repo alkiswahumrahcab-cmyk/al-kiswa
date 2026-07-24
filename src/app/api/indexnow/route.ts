@@ -19,7 +19,7 @@ const PRIORITY_URLS = [
   `${BASE_URL}/ar/services/ziyarat-tours`,
   `${BASE_URL}/ramadan-2026`,
   `${BASE_URL}/ar/ramadan-2026`,
-  `${BASE_URL}/fleet/gmc-yukon-at4`,
+  `${BASE_URL}/fleet/gmc-yukon-xl`,
   `${BASE_URL}/fleet/hyundai-staria`,
   `${BASE_URL}/about`,
   `${BASE_URL}/umrah-transport-uk-pilgrims`,

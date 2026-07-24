@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import ThemeLogo from '@/components/common/ThemeLogo';
 import { Link001 } from '@/components/ui/skiper-ui/skiper40';
+import { getVehicle, formatSeats } from '@/data/fleet';
 
 import { Menu, X, ChevronDown, Phone, Mail, Instagram, Facebook, MessageCircle, Linkedin } from 'lucide-react';
 import { useMenu } from '@/context/MenuContext';
@@ -88,11 +89,12 @@ export default function Navbar() {
             href: '/fleet',
             label: 'Fleet',
             children: [
-                { href: '/fleet/gmc-yukon-at4', label: 'GMC Yukon XL', description: 'VIP Luxury 7-Seater. Elite comfort.' },
-                { href: '/fleet/hyundai-staria', label: 'Hyundai Staria', description: 'Premium Family 7-Seater. Modern space.' },
-                { href: '/fleet/hyundai-starex', label: 'Hyundai H1 Starex', description: 'Comfortable Family 7-Seater.' },
-                { href: '/fleet/toyota-hiace', label: 'Toyota Hiace', description: 'Group Travel 11-Seater. Perfect for luggage.' },
-                { href: '/fleet/toyota-camry', label: 'Toyota Camry', description: 'Standard Sedan 4-Seater.' },
+
+                { href: '/fleet/gmc-yukon-xl', label: getVehicle('gmc-yukon-xl')?.name, description: `${getVehicle('gmc-yukon-xl')?.categoryLabel}. ${formatSeats(getVehicle('gmc-yukon-xl')!)}.` },
+                { href: '/fleet/hyundai-staria', label: getVehicle('hyundai-staria')?.name, description: `${getVehicle('hyundai-staria')?.categoryLabel}. ${formatSeats(getVehicle('hyundai-staria')!)}.` },
+                { href: '/fleet/hyundai-starex', label: getVehicle('hyundai-starex')?.name, description: `${getVehicle('hyundai-starex')?.categoryLabel}. ${formatSeats(getVehicle('hyundai-starex')!)}.` },
+                { href: '/fleet/toyota-hiace', label: getVehicle('toyota-hiace')?.name, description: `${getVehicle('toyota-hiace')?.categoryLabel}. ${formatSeats(getVehicle('toyota-hiace')!)}.` },
+                { href: '/fleet/toyota-camry', label: getVehicle('toyota-camry')?.name, description: `${getVehicle('toyota-camry')?.categoryLabel}. ${formatSeats(getVehicle('toyota-camry')!)}.` },
             ]
         },
         {

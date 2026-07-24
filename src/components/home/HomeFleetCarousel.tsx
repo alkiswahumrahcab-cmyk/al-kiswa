@@ -37,7 +37,7 @@ const HOME_FLEET_OFFERS = [
         features: ['Leather Seats', 'Privacy Tint', 'VIP Service'],
         category: 'VIP SUV',
         rating: 5.0,
-        slug: 'gmc-yukon-at4'
+        slug: 'gmc-yukon-xl'
     },
     {
         id: 'hiace',

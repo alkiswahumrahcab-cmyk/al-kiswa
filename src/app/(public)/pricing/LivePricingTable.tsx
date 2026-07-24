@@ -1,26 +1,10 @@
-﻿import { routeService, RouteWithPrices } from '@/services/routeService';
+import { routeService, RouteWithPrices } from '@/services/routeService';
 import { vehicleService } from '@/services/vehicleService';
 import { settingsService } from '@/services/settingsService';
 import Link from 'next/link';
 import { MapPin, Clock, Users, Luggage, ArrowRight, CheckCircle2 } from 'lucide-react';
 
-// Vehicle display config (sort order + display name)
-const VEHICLE_DISPLAY: Record<string, { label: string; pax: string; bags: string; badge?: string }> = {
-    camry:  { label: 'Sedan', pax: '3 Pax', bags: '2 Bags' },
-    staria: { label: 'Family Van', pax: '7 Pax', bags: '5 Bags' },
-    starex: { label: 'Family Van', pax: '7 Pax', bags: '5 Bags' },
-    gmc:    { label: 'VIP SUV', pax: '7 Pax', bags: '5 Bags', badge: 'VIP' },
-    yukon:  { label: 'VIP SUV', pax: '7 Pax', bags: '5 Bags', badge: 'VIP' },
-    hiace:  { label: 'Group Bus', pax: '10 Pax', bags: '10 Bags' },
-};
-
-function getVehicleDisplay(vehicleName: string) {
-    const n = vehicleName.toLowerCase();
-    for (const [key, val] of Object.entries(VEHICLE_DISPLAY)) {
-        if (n.includes(key)) return val;
-    }
-    return { label: vehicleName, pax: '—', bags: '—' };
-}
+import { FLEET, getVehicle, formatSeats, formatLuggage } from '@/data/fleet';
 
 function formatSAR(amount: number) {
     return amount.toLocaleString('en-SA', { minimumFractionDigits: 0, maximumFractionDigits: 0 });

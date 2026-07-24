@@ -13,6 +13,7 @@ import { settingsService } from '@/services/settingsService';
 import { routeService } from '@/services/routeService';
 import { Suspense } from 'react';
 import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
+import { SITE_URL } from '@/config/site';
 
 export const metadata: Metadata = {
     title: "Al Kiswah Umrah Taxi Prices 2026 | Jeddah to Makkah & Madinah",
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Umrah Taxi Prices 2026 | Direct Operator",
         description: "We own our fleet. No middleman. Jeddah to Makkah from 200 SAR — 20% cheaper than other platforms. Fixed price, WhatsApp support, Saudi-licensed.",
-        url: "https://alkiswahumrahtransport.com/pricing",
+        url: `${SITE_URL}/pricing`,
         images: [{ url: '/images/fleet/gmc-yukon-hero-professional.webp', width: 1200, height: 630, alt: 'Al Kiswah Umrah Taxi Pricing — Direct Operator' }]
     }
 };
@@ -70,7 +71,7 @@ const pricingFAQs = [
     },
     {
         question: "Can I book an Umrah taxi without paying a platform commission?",
-        answer: "Yes — that's exactly what we offer. By booking directly with Al Kiswah at alkiswahumrahtransport.com, you bypass all third-party platforms and pay only the actual transport cost with zero commission added."
+        answer: "Yes — that's exactly what we offer. By booking directly with Al Kiswah at kiswahumrahcab.com, you bypass all third-party platforms and pay only the actual transport cost with zero commission added."
     },
     {
         question: "Do prices change during Ramadan or Hajj season?",
@@ -123,7 +124,7 @@ export default async function PricingPage() {
                 "price": r.prices?.[0]?.price ?? 0,
                 "priceCurrency": "SAR",
                 "availability": "https://schema.org/InStock",
-                "url": `https://alkiswahumrahtransport.com/booking?route=${r.id}`,
+                "url": `${SITE_URL}/booking?route=${r.id}`,
             }));
     } catch (e) {}
 
@@ -144,14 +145,14 @@ export default async function PricingPage() {
         "@graph": [
             {
                 "@type": "LocalBusiness",
-                "@id": "https://alkiswahumrahtransport.com/#business",
+                "@id": `${SITE_URL}/#business`,
                 "mainEntityOfPage": {
                     "@type": "WebPage",
-                    "@id": "https://alkiswahumrahtransport.com/pricing"
+                    "@id": `${SITE_URL}/pricing`
                 },
                 "name": "Al Kiswah Umrah Transport",
                 "description": "Saudi Arabia's own licensed Umrah taxi operator. We own our fleet — no middleman, no commission. Serving Makkah, Madinah, Jeddah and all Umrah routes. We supply vehicles to other platforms — book direct for 20–30% savings.",
-                "url": "https://alkiswahumrahtransport.com",
+                "url": `${SITE_URL}`,
                 "telephone": "+966548707332",
                 "priceRange": "$50–$850 USD",
                 "address": {

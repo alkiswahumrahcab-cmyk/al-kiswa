@@ -262,7 +262,7 @@ export default function NederlandPilgrimsPage() {
           <h2 className="text-xl font-bold mb-6 text-white">Onze Voertuigen &amp; Services</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              { href: "/fleet/gmc-yukon-at4", label: "GMC Yukon AT4", desc: "Luxe SUV, 7 zitplaatsen" },
+              { href: "/fleet/gmc-yukon-xl", label: "GMC Yukon AT4", desc: "Luxe SUV, 7 zitplaatsen" },
               { href: "/fleet/hyundai-staria", label: "Hyundai Staria", desc: "11 zitplaatsen — meest populair" },
               { href: "/fleet/toyota-hiace", label: "Toyota Hiace", desc: "Minibus 10 zitplaatsen" },
               { href: "/services/jeddah-airport-transfer", label: "Luchthaventransfer Jeddah", desc: "Aankomst & vertrek KAIA" },

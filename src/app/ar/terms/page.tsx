@@ -92,7 +92,7 @@ export default function TermsPage() {
                                     </div>
                                     <div className="flex items-center gap-3 p-4 bg-black/40 rounded-lg border border-white/5">
                                         <Mail size={24} className="text-gold" />
-                                        <span className="font-medium text-white">info@alkiswahumrahtransport.com</span>
+                                        <span className="font-medium text-white">info@kiswahumrahcab.com</span>
                                     </div>
                                 </div>
                             </section>

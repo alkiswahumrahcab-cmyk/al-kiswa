@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ChevronRight, Home } from 'lucide-react';
+import { SITE_URL } from '@/config/site';
 
 interface BreadcrumbsProps {
     overrideLastItem?: string;
@@ -45,13 +46,13 @@ export default function Breadcrumbs({ overrideLastItem, className = '' }: Breadc
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": `https://alkiswahumrahtransport.com${homeLink}`
+                "item": `${SITE_URL}${homeLink}`
             },
             ...displaySegments.map((segment, index) => ({
                 "@type": "ListItem",
                 "position": index + 2,
                 "name": formatSegment(segment),
-                "item": `https://alkiswahumrahtransport.com${homeLink === '/' ? '' : homeLink}/${displaySegments.slice(0, index + 1).join('/')}`
+                "item": `${SITE_URL}${homeLink === '/' ? '' : homeLink}/${displaySegments.slice(0, index + 1).join('/')}`
             }))
         ]
     };

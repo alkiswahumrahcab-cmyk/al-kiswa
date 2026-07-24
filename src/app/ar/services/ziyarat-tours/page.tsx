@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -11,14 +11,14 @@ import FadeIn from "@/components/common/FadeIn";
 
 export const metadata: Metadata = {
     title: "جولات زيارة مكة والمدينة | المواقع الأثرية | الكسوة",
-    description: "Private Ziyarat tours in Makkah (Jabal Al-Nour, Arafat) & Madinah (Masjid Quba, Uhud). Experienced drivers sharing Islamic history.",
+    description: "جولات زيارات خاصة في مكة (جبل النور، عرفات) والمدينة (مسجد قباء، أحد). سائقون ذوو خبرة يشاركونك التاريخ الإسلامي.",
     keywords: [
-        "Ziyarat Tours Makkah",
-        "Ziyarat Madinah Places",
-        "Masjid Quba Transport",
-        "Historical Places Tour Makkah",
-        "Private Ziyarat Taxi",
-        "Taif Day Trip from Makkah",
+        "جولات زيارة مكة",
+        "مواقع زيارة المدينة",
+        "نقل مسجد قباء",
+        "جولة الأماكن التاريخية بمكة",
+        "تاكسي زيارات خاص",
+        "رحلة يومية إلى الطائف من مكة",
         "رحلات زيارة مكة",
         "مزارات المدينة المنورة",
         "زيارة مسجد قباء",
@@ -31,16 +31,16 @@ export const metadata: Metadata = {
   },
     openGraph: {
         title: "جولات زيارة مكة والمدينة | المواقع التاريخية | الكسوة",
-        description: "Guided private tours to Jabal Al-Nour, Masjid Quba, Mount Uhud, and more. deeply spiritual experience with knowledgeable drivers.",
-        images: [{ url: '/images/routes/makkah-ziyarat-hero.webp', width: 1200, height: 630, alt: 'Jabal Al-Nour Makkah Ziyarat' }]
+        description: "جولات خاصة برفقة مرشد إلى جبل النور، مسجد قباء، جبل أحد، والمزيد. تجربة روحانية عميقة مع سائقين على دراية تامة.",
+        images: [{ url: '/images/routes/makkah-ziyarat-hero.webp', width: 1200, height: 630, alt: 'جبل النور مكة زيارات' }]
     }
 };
 
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
-    "name": "Makkah and Madinah Ziyarat Tour",
-    "description": "Private guided tour of historical Islamic sites in Makkah and Madinah including Cave Hira and Masjid Quba.",
+    "name": "جولة زيارات مكة والمدينة",
+    "description": "جولة خاصة برفقة مرشد للمواقع الإسلامية التاريخية في مكة والمدينة بما في ذلك غار حراء ومسجد قباء.",
     "provider": {
         "@type": "TransportationService",
         "name": "Al Kiswah Transport"
@@ -49,44 +49,42 @@ const jsonLd = {
         {
             "@type": "City",
             "name": "Makkah",
-            "description": "Visit Jabal Al-Nour, Jabal Thawr, and Arafat. زيارة جبل النور وغار ثور."
+            "description": "زيارة جبل النور وغار ثور وعرفات."
         },
         {
             "@type": "City",
             "name": "Madinah",
-            "description": "Visit Masjid Quba, Mount Uhud, and Qiblatayn. زيارة مسجد قباء وجبل أحد."
+            "description": "زيارة مسجد قباء وجبل أحد ومسجد القبلتين."
         }
     ],
     "offers": {
         "@type": "Offer",
-        "price": "300",
-        "priceCurrency": "SAR",
         "availability": "https://schema.org/InStock"
     }
 };
 
 const ziyaratFAQs = [
     {
-        question: "How long is a typical Ziyarat tour?",
-        answer: "A standard Ziyarat tour in either Makkah or Madinah takes about 2 to 3 hours. However, we offer extended tours if you wish to visit more distant sites like Badr or Taif."
+        question: "ما هي مدة جولة الزيارة النموذجية؟",
+        answer: "تستغرق جولة الزيارة العادية في مكة أو المدينة حوالي ساعتين إلى 3 ساعات. ومع ذلك، نقدم جولات ممتدة إذا كنت ترغب في زيارة مواقع بعيدة مثل بدر أو الطائف."
     },
     {
-        question: "Do the drivers speak English?",
-        answer: "Yes, our Ziyarat drivers are selected for their language skills and knowledge of the historical sites. They can guide you to the best parking spots and explain the significance of the locations."
+        question: "هل يتحدث السائقون اللغة الإنجليزية؟",
+        answer: "نعم، يتم اختيار سائقي الزيارات بناءً على مهاراتهم اللغوية ومعرفتهم بالمواقع التاريخية. يمكنهم إرشادك إلى أفضل أماكن وقوف السيارات وشرح أهمية المواقع."
     },
     {
-        question: "Can we customize the places we visit?",
-        answer: "Absolutely. It is a private tour. You can choose which sites to visit and how long to stay at each. We are here to serve your schedule."
+        question: "هل يمكننا تخصيص الأماكن التي نزورها؟",
+        answer: "بالتأكيد. إنها جولة خاصة. يمكنك اختيار المواقع التي ترغب في زيارتها ومدة البقاء في كل منها. نحن هنا لخدمة جدولك الزمني."
     },
 ];
 
 export default async function ZiyaratToursPage() {
     const settings = await getSettings();
     const phoneNumber = settings.contact.phone;
-    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20a%20Ziyarat%20Tour`;
+    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent('أنا مهتم بحجز جولة زيارة')}`;
 
     return (
-        <main className="min-h-screen bg-charcoal relative">
+        <main dir="rtl" className="min-h-screen bg-charcoal relative">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <script
@@ -94,14 +92,14 @@ export default async function ZiyaratToursPage() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
             <Hero
-                title="Ziyarat Tours: Relive Islamic History"
-                subtitle="Walk in the footsteps of the Prophet (SAW). Comprehensive engaging tours of the holy sites in Makkah and Madinah."
+                title="جولات الزيارات: استرجع التاريخ الإسلامي"
+                subtitle="سر على خطى النبي (صلى الله عليه وسلم). جولات شاملة وجذابة للمواقع المقدسة في مكة والمدينة."
                 bgImage="/images/routes/makkah-ziyarat-hero.webp"
-                ctaText="Book Ziyarat Tour"
+                ctaText="احجز جولة زيارة"
                 ctaLink={whatsappLink}
                 layout="center"
                 breadcrumbs={<Breadcrumbs />}
-                alt="Makkah and Madinah Historical Ziyarat Tours - Jabal Al Noor"
+                alt="جولات الزيارات التاريخية في مكة والمدينة - جبل النور"
             />
 
             {/* Makkah Ziyarat */}
@@ -110,18 +108,18 @@ export default async function ZiyaratToursPage() {
                     <FadeIn>
                         <div className="flex flex-col md:flex-row gap-12 items-center">
                             <div className="md:w-1/2">
-                                <h2 className="text-3xl md:text-4xl font-semibold mb-6 font-display text-white border-l-4 border-gold pl-4">
-                                    Makkah Ziyarat Sites
+                                <h2 className="text-3xl md:text-4xl font-semibold mb-6 font-display text-white border-r-4 border-gold pr-4">
+                                    مواقع زيارات مكة
                                 </h2>
                                 <p className="text-n-300 mb-6 leading-relaxed font-light text-lg">
-                                    Discover the places where Revelation began. Our Makkah tour covers the most significant landmarks outside the Haram.
+                                    اكتشف الأماكن التي بدأ فيها الوحي. تغطي جولتنا في مكة أهم المعالم البارزة خارج الحرم.
                                 </p>
                                 <ul className="space-y-4">
                                     {[
-                                        { name: "Jabal Al-Nour (Cave Hira)", desc: "The place of the first revelation." },
-                                        { name: "Jabal Thawr", desc: "The cave where the Prophet (SAW) hid during migration." },
-                                        { name: "Mina, Arafat & Muzdalifah", desc: "The sites of Hajj rituals." },
-                                        { name: "Jannat al-Mu'alla", desc: "The cemetery where Khadijah (RA) is buried." }
+                                        { name: "جبل النور (غار حراء)", desc: "مكان نزول الوحي الأول." },
+                                        { name: "جبل ثور", desc: "الغار الذي اختبأ فيه النبي (صلى الله عليه وسلم) أثناء الهجرة." },
+                                        { name: "منى، عرفات ومزدلفة", desc: "مواقع مشاعر الحج." },
+                                        { name: "مقبرة المعلاة", desc: "المقبرة التي دُفنت فيها خديجة (رضي الله عنها)." }
                                     ].map((site, idx) => (
                                         <li key={idx} className="bg-white/5 border border-white/10 p-4 rounded-xl flex gap-4 hover:border-gold/30 transition-all hover:bg-white/10 group">
                                             <div className="bg-gold/10 p-3 rounded-btn h-fit text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-colors">
@@ -139,11 +137,11 @@ export default async function ZiyaratToursPage() {
                                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10" />
                                 <img
                                     src="https://images.unsplash.com/photo-1537181534458-7dc2614c9546?q=80&w=1000&auto=format&fit=crop"
-                                    alt="Jabal Al-Nour (Cave of Hira) Mountain View Makkah"
+                                    alt="منظر جبل النور (غار حراء) في مكة"
                                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-8 z-20">
-                                    <span className="text-white text-2xl font-semibold font-display">Jabal Al-Nour</span>
+                                    <span className="text-white text-2xl font-semibold font-display">جبل النور</span>
                                 </div>
                             </div>
                         </div>
@@ -157,18 +155,18 @@ export default async function ZiyaratToursPage() {
                     <FadeIn delay={0.2}>
                         <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
                             <div className="md:w-1/2">
-                                <h2 className="text-3xl md:text-4xl font-semibold mb-6 font-display text-white border-l-4 border-gold pl-4">
-                                    Madinah Ziyarat Sites
+                                <h2 className="text-3xl md:text-4xl font-semibold mb-6 font-display text-white border-r-4 border-gold pr-4">
+                                    مواقع زيارات المدينة
                                 </h2>
                                 <p className="text-n-300 mb-6 leading-relaxed font-light text-lg">
-                                    Feel the peace of the City of the Prophet. Visit the first mosque of Islam and the sites of early battles.
+                                    اشعر بطمأنينة مدينة النبي. قم بزيارة أول مسجد في الإسلام ومواقع المعارك المبكرة.
                                 </p>
                                 <ul className="space-y-4">
                                     {[
-                                        { name: "Masjid Quba", desc: "The first mosque in Islam. Offering 2 Rakaats here equals an Umrah." },
-                                        { name: "Mount Uhud", desc: "Site of the Battle of Uhud and the cemetery of the martyrs." },
-                                        { name: "Masjid Al-Qiblatayn", desc: "The mosque where the Qibla was changed." },
-                                        { name: "The Seven Mosques", desc: "Site of the Battle of the Trench." }
+                                        { name: "مسجد قباء", desc: "أول مسجد في الإسلام. الصلاة فيه ركعتين تعدل عمرة." },
+                                        { name: "جبل أحد", desc: "موقع غزوة أحد ومقبرة الشهداء." },
+                                        { name: "مسجد القبلتين", desc: "المسجد الذي تم فيه تحويل القبلة." },
+                                        { name: "المساجد السبعة", desc: "موقع غزوة الخندق." }
                                     ].map((site, idx) => (
                                         <li key={idx} className="bg-white/5 border border-white/10 p-4 rounded-xl flex gap-4 hover:border-gold/30 transition-all hover:bg-white/10 group">
                                             <div className="bg-gold/10 p-3 rounded-btn h-fit text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-colors">
@@ -186,11 +184,11 @@ export default async function ZiyaratToursPage() {
                                 <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10" />
                                 <img
                                     src="https://images.unsplash.com/photo-1551041777-ed02bed74fc4?q=80&w=1000&auto=format&fit=crop"
-                                    alt="Masjid Quba Madinah First Mosque in Islam Exterior"
+                                    alt="مسجد قباء في المدينة أول مسجد في الإسلام من الخارج"
                                     className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-8 z-20">
-                                    <span className="text-white text-2xl font-semibold font-display">Masjid Quba</span>
+                                    <span className="text-white text-2xl font-semibold font-display">مسجد قباء</span>
                                 </div>
                             </div>
                         </div>
@@ -202,36 +200,36 @@ export default async function ZiyaratToursPage() {
             <section className="py-24 bg-transparent relative z-10">
                 <div className="container mx-auto px-4 text-center">
                     <FadeIn delay={0.4}>
-                        <h2 className="text-3xl md:text-5xl font-semibold mb-16 font-display text-white">Enhance Your Spiritual Journey</h2>
+                        <h2 className="text-3xl md:text-5xl font-semibold mb-16 font-display text-white">عزز رحلتك الروحانية</h2>
                         <div className="grid md:grid-cols-3 gap-8">
                             <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-gold/30 transition-all hover:bg-white/10 group">
                                 <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                     <Clock size={32} />
                                 </div>
-                                <h3 className="text-xl font-bold mb-3 text-white">No Hasted Visits</h3>
-                                <p className="text-sm text-n-400 leading-relaxed font-light">Unlike group buses, we wait for you. Travel in our private <Link href="/ar/fleet/gmc-yukon-at4" className="text-gold hover:text-white hover:underline decoration-gold/50">GMC Yukon</Link> or <Link href="/ar/fleet/hyundai-staria" className="text-gold hover:text-white hover:underline decoration-gold/50">Hyundai Staria</Link> and take your time to pray.</p>
+                                <h3 className="text-xl font-bold mb-3 text-white">زيارات بدون عجلة</h3>
+                                <p className="text-sm text-n-400 leading-relaxed font-light">على عكس حافلات المجموعات، نحن ننتظرك. سافر في سياراتنا الخاصة من نوع <Link href="/ar/fleet/gmc-yukon-xl" className="text-gold hover:text-white hover:underline decoration-gold/50">جي إم سي يوكون</Link> أو <Link href="/ar/fleet/hyundai-staria" className="text-gold hover:text-white hover:underline decoration-gold/50">هيونداي ستاريا</Link> وخذ وقتك للصلاة.</p>
                             </div>
                             <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-gold/30 transition-all hover:bg-white/10 group">
                                 <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                     <BookOpen size={32} />
                                 </div>
-                                <h3 className="text-xl font-bold mb-3 text-white">Historical Context</h3>
-                                <p className="text-sm text-n-400 leading-relaxed font-light">Our drivers share the history and significance of the locations you visit.</p>
+                                <h3 className="text-xl font-bold mb-3 text-white">السياق التاريخي</h3>
+                                <p className="text-sm text-n-400 leading-relaxed font-light">يشاركك سائقونا تاريخ وأهمية المواقع التي تزورها.</p>
                             </div>
                             <div className="p-8 rounded-2xl bg-white/5 border border-white/5 hover:border-gold/30 transition-all hover:bg-white/10 group">
                                 <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
                                     <Camera size={32} />
                                 </div>
-                                <h3 className="text-xl font-bold mb-3 text-white">Photo Opportunities</h3>
-                                <p className="text-sm text-n-400 leading-relaxed font-light">Flexibility to stop for photos at scenic points like the mountains surrounding Makkah.</p>
+                                <h3 className="text-xl font-bold mb-3 text-white">فرص التقاط الصور</h3>
+                                <p className="text-sm text-n-400 leading-relaxed font-light">مرونة التوقف لالتقاط الصور في النقاط ذات المناظر الخلابة مثل الجبال المحيطة بمكة.</p>
                             </div>
                         </div>
                         <div className="mt-16">
                             <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-btn font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105">
-                                Book Your Private Ziyarat Tour <ArrowRight size={20} className="ml-2" />
+                                احجز جولة الزيارات الخاصة بك <ArrowRight size={20} className="mr-2 rotate-180" />
                             </Link>
                             <p className="mt-8 text-sm text-n-500 font-light">
-                                Need to travel between cities? We also offer <Link href="/ar/services/makkah-madinah-taxi" className="text-gold hover:text-white transition-colors hover:underline decoration-gold/50">Makkah to Madinah Taxi</Link> services.
+                                هل تحتاج إلى السفر بين المدن؟ نحن نقدم أيضًا خدمات <Link href="/ar/services/makkah-madinah-taxi" className="text-gold hover:text-white transition-colors hover:underline decoration-gold/50">تاكسي من مكة إلى المدينة</Link>.
                             </p>
                         </div>
                     </FadeIn>
@@ -241,7 +239,7 @@ export default async function ZiyaratToursPage() {
             <FleetCarouselWrapper />
 
             <div className="relative z-10">
-                <FAQSection items={ziyaratFAQs} title="Ziyarat Tours - Frequently Asked Questions" />
+                <FAQSection items={ziyaratFAQs} title="جولات الزيارات - الأسئلة الشائعة" />
             </div>
         </main>
     );

@@ -262,7 +262,7 @@ export default function GermanyPilgrimsPage() {
           <h2 className="text-xl font-bold mb-6 text-white">Unsere Fahrzeuge & Services</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              { href: "/fleet/gmc-yukon-at4", label: "GMC Yukon AT4", desc: "Luxus SUV, 7 Sitze" },
+              { href: "/fleet/gmc-yukon-xl", label: "GMC Yukon AT4", desc: "Luxus SUV, 7 Sitze" },
               { href: "/fleet/hyundai-staria", label: "Hyundai Staria", desc: "11 Sitze — beliebteste Wahl" },
               { href: "/fleet/toyota-hiace", label: "Toyota Hiace", desc: "Minibus 10 Sitze für Gruppen" },
               { href: "/services/jeddah-airport-transfer", label: "Flughafentransfer Dschidda", desc: "Ankunft & Abflug KAIA" },

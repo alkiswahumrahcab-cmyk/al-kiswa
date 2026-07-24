@@ -27,20 +27,14 @@ function formatUSD(amount: number, rate: number) {
     return Math.round(amount / rate).toLocaleString('en-US');
 }
 
-// Vehicle Display Config (Shared logic from LivePricingTable)
-const VEHICLE_DISPLAY: Record<string, { label: string; pax: string; bags: string; badge?: string }> = {
-    camry:  { label: 'Sedan', pax: '3 Pax', bags: '2 Bags' },
-    staria: { label: 'Family Van', pax: '7 Pax', bags: '5 Bags' },
-    starex: { label: 'Family Van', pax: '7 Pax', bags: '5 Bags' },
-    gmc:    { label: 'VIP SUV', pax: '7 Pax', bags: '5 Bags', badge: 'VIP' },
-    yukon:  { label: 'VIP SUV', pax: '7 Pax', bags: '5 Bags', badge: 'VIP' },
-    hiace:  { label: 'Group Bus', pax: '10 Pax', bags: '10 Bags' },
-};
+import { FLEET, getVehicle, formatSeats, formatLuggage } from '@/data/fleet';
 
 function getVehicleDisplay(vehicleName: string) {
     const n = vehicleName.toLowerCase();
-    for (const [key, val] of Object.entries(VEHICLE_DISPLAY)) {
-        if (n.includes(key)) return val;
+    const v = FLEET.find(f => n.includes(f.name.toLowerCase().replace('2025', '').trim()) || n.includes(f.shortName.toLowerCase()) || n.includes(f.id.replace('gmc-yukon-xl', 'yukon').split('-')[1]));
+    
+    if (v) {
+        return { label: v.categoryLabel, pax: formatSeats(v), bags: formatLuggage(v), badge: v.category === 'suv' ? 'VIP' : undefined };
     }
     return { label: vehicleName, pax: '—', bags: '—' };
 }

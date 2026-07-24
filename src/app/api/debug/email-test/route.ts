@@ -4,7 +4,7 @@ import { NextResponse } from 'next/server';
  * GET /api/debug/email-test
  *
  * A quick smoke-test route to verify the email system works end-to-end on Vercel.
- * Call this after deploying: https://your-vercel-domain.vercel.app/api/debug/email-test
+ * Call this after deploying: https://kiswahumrahcab.com/api/debug/email-test
  *
  * This endpoint is intentionally unauthenticated for debugging purposes.
  * ⚠️ Remove or protect this route after confirming emails work in production.

@@ -81,7 +81,7 @@ export default function PrivacyPage() {
                                     </div>
                                     <div className="flex items-center gap-3 p-4 bg-surface-alt rounded-lg border border-border">
                                         <Mail size={24} className="text-gold" />
-                                        <span className="font-medium text-ink">info@alkiswahumrahtransport.com</span>
+                                        <span className="font-medium text-ink">info@kiswahumrahcab.com</span>
                                     </div>
                                 </div>
                             </section>

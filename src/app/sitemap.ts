@@ -15,7 +15,7 @@ const englishPages = [
   { path: "/services/ziarah-madinah", priority: 0.8, changeFreq: "monthly" },
   { path: "/services/airport-transfers", priority: 0.8, changeFreq: "monthly" },
   { path: "/services/hotel-transfers", priority: 0.7, changeFreq: "monthly" },
-  { path: "/fleet/gmc-yukon-at4", priority: 0.7, changeFreq: "monthly" },
+  { path: "/fleet/gmc-yukon-xl", priority: 0.7, changeFreq: "monthly" },
   { path: "/fleet/hyundai-staria", priority: 0.7, changeFreq: "monthly" },
   { path: "/fleet/hyundai-starex", priority: 0.6, changeFreq: "monthly" },
   { path: "/fleet/toyota-hiace", priority: 0.6, changeFreq: "monthly" },

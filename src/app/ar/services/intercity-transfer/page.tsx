@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React from 'react';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -13,82 +13,76 @@ import GlassCard from '@/components/ui/GlassCard';
 
 export const metadata = {
     title: "نقل بين المدن مكة المدينة جدة | الكسوة",
-    description: "Comfortable Makkah to Madinah transport. Reliable intercity taxi transfers between Jeddah, Makkah & Madinah. Enjoy a seamless, spiritual travel experience.",
-    keywords: ["Makkah to Madinah taxi", "Madinah to Makkah transport", "Haramain transport", "VIP intercity taxi", "Jeddah to Madinah taxi", "KSA intercity transfer"],
+    description: "انتقالات مريحة بين مكة والمدينة. خدمات تاكسي موثوقة للتنقل بين جدة، مكة، والمدينة. استمتع بتجربة سفر سلسة وروحانية.",
+    keywords: ["تاكسي من مكة للمدينة", "مواصلات من المدينة لمكة", "مواصلات الحرمين", "تاكسي VIP بين المدن", "تاكسي جدة للمدينة", "نقل بين مدن السعودية"],
     alternates: {
     ...generateMetadataAlternates("/services/intercity-transfer"),
     canonical: "https://kiswahumrahcab.com/ar/services/intercity-transfer",
   },
     openGraph: {
         title: "تاكسي مكة المدينة والتنقل بين المدن | اسطول VIP | الكسوة",
-        description: "Travel comfortably between Jeddah, Makkah, and Madinah. Premium private taxi service with experienced drivers.",
-        images: [{ url: '/images/routes/routes-network-hero.webp', width: 1200, height: 630, alt: 'Saudi Arabia Intercity Transport Network' }]
+        description: "سافر براحة تامة بين جدة، مكة، والمدينة. خدمة سيارات أجرة خاصة متميزة مع سائقين ذوي خبرة.",
+        images: [{ url: '/images/routes/routes-network-hero.webp', width: 1200, height: 630, alt: 'شبكة النقل بين المدن في المملكة العربية السعودية' }]
     }
 };
 
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Intercity Transport Service",
+    "name": "خدمة النقل بين المدن",
     "provider": {
         "@type": "LocalBusiness",
-        "name": "Al Kiswah Transport"
+        "name": "الكسوة للنقل"
     },
-    "serviceType": "Ground Transport",
+    "serviceType": "نقل بري",
     "areaServed": {
         "@type": "Country",
-        "name": "Saudi Arabia"
+        "name": "المملكة العربية السعودية"
     },
-    "description": "Luxury intercity transfers between Makkah, Madinah, and Jeddah.",
-    "offers": {
-        "@type": "Offer",
-        "price": "450",
-        "priceCurrency": "SAR",
-        "availability": "https://schema.org/InStock"
-    }
+    "description": "انتقالات فاخرة بين المدن مكة، المدينة، وجدة."
 };
 
 // Fallback data
 const MOCK_ROUTES = [
     {
         id: 'mock-1',
-        origin: 'Makkah Hotel',
-        destination: 'Madinah Hotel',
+        origin: 'فندق في مكة',
+        destination: 'فندق في المدينة',
         distance: '450 km',
         duration: '4 hrs 30 min',
         category: 'Intercity',
         isActive: true,
-        prices: [{ vehicleId: 'v1', price: 450 }]
+        prices: []
     },
     {
         id: 'mock-2',
-        origin: 'Jeddah Airport',
-        destination: 'Madinah Hotel',
+        origin: 'مطار جدة',
+        destination: 'فندق في المدينة',
         distance: '400 km',
         duration: '4 hrs',
         category: 'Intercity',
         isActive: true,
-        prices: [{ vehicleId: 'v1', price: 400 }]
+        prices: []
     },
     {
         id: 'mock-3',
-        origin: 'Madinah Airport',
-        destination: 'Makkah Hotel',
+        origin: 'مطار المدينة',
+        destination: 'فندق في مكة',
         distance: '460 km',
         duration: '4 hrs 45 min',
         category: 'Intercity',
         isActive: true,
-        prices: [{ vehicleId: 'v1', price: 460 }]
+        prices: []
     },
     {
         id: 'mock-4',
-        origin: 'Jeddah City',
-        destination: 'Makkah Hotel',
+        origin: 'مدينة جدة',
+        destination: 'فندق في مكة',
         distance: '85 km',
         duration: '1 hr 15 min',
         category: 'Intercity',
         isActive: true,
-        prices: [{ vehicleId: 'v1', price: 200 }]
+        prices: []
     }
 ];
 
@@ -106,7 +100,7 @@ export default async function IntercityTransferPage() {
     const effectiveRoutes = routes.length > 0 ? routes : (process.env.NODE_ENV === 'development' || routes.length === 0 ? MOCK_ROUTES : []) as unknown as RouteWithPrices[];
 
     return (
-        <main className="bg-charcoal text-white relative">
+        <main className="bg-charcoal text-white relative" dir="rtl">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -115,10 +109,10 @@ export default async function IntercityTransferPage() {
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <Hero
-                title="VIP Intercity Transfers"
-                subtitle="Travel between the Holy Cities in absolute comfort. Our premium fleet ensures a restful journey on the Hijrah Route."
+                title="النقل بين المدن VIP"
+                subtitle="سافر بين المدن المقدسة براحة تامة. أسطولنا المتميز يضمن لك رحلة مريحة على طريق الهجرة."
                 bgImage="/images/routes/routes-network-hero.webp"
-                ctaText="View Route Map"
+                ctaText="عرض خريطة المسارات"
                 ctaLink="#interactive-map"
                 backgroundChildren={<AnimatedMapBackground />}
                 breadcrumbs={<Breadcrumbs />}
@@ -129,24 +123,24 @@ export default async function IntercityTransferPage() {
                     <div className="grid lg:grid-cols-2 gap-12 items-start mb-20">
                         <FadeIn>
                             <div className="prose prose-invert max-w-none">
-                                <span className="text-gold font-bold tracking-[0.2em] text-sm uppercase mb-3 block border-l-4 border-gold pl-4">The Sacred Route</span>
+                                <span className="text-gold font-bold tracking-[0.2em] text-sm uppercase mb-3 block border-r-4 border-gold pr-4">المسار المقدس</span>
                                 <h2 className="text-4xl md:text-5xl font-semibold font-display mb-8 text-white leading-tight">
-                                    Journey with Peace <br />
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Between Haramains</span>
+                                    رحلة بسلام <br />
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">بين الحرمين</span>
                                 </h2>
                                 <p className="text-lg text-n-300 leading-relaxed mb-6 font-light">
-                                    The journey between Makkah and Madinah is more than just travel; it is a transition between two sacred sanctuaries. We honor this journey by providing a service that prioritizes your rest and reverence.
+                                    الرحلة بين مكة والمدينة هي أكثر من مجرد سفر؛ إنها انتقال بين حرمين مقدسين. نحن نكرم هذه الرحلة بتقديم خدمة تضع راحتك ووقارك في المقام الأول.
                                 </p>
                                 <p className="text-lg text-n-300 leading-relaxed mb-10 font-light">
-                                    Forget the hassle of shared buses. Our <strong>private intercity taxis</strong> allow you to travel on your own schedule, stop at Miqats (Dhul Hulayfah) for intention, and enjoy the scenic Hijrah route in the privacy of a premium vehicle.
+                                    انسَ عناء الحافلات المشتركة. تتيح لك <strong>سيارات الأجرة الخاصة بين المدن</strong> السفر وفقاً لجدولك الزمني، والتوقف عند المواقيت (مثل ذي الحليفة) للإحرام، والاستمتاع بمسار الهجرة في خصوصية تامة بسيارة فاخرة.
                                 </p>
 
                                 <div className="grid sm:grid-cols-2 gap-6 mb-8">
                                     {[
-                                        { icon: ShieldCheck, title: "Safety First", desc: "Expert drivers on Hijrah Highway." },
-                                        { icon: Star, title: "VIP Fleet", desc: "Late-model GMC Yukons & H1 Vans." },
-                                        { icon: UserCheck, title: "Door-to-Door", desc: "Hotel pickup & drop-off involved." },
-                                        { icon: Timer, title: "On Your Schedule", desc: "Depart exactly when you are ready." }
+                                        { icon: ShieldCheck, title: "السلامة أولاً", desc: "سائقون خبراء على طريق الهجرة." },
+                                        { icon: Star, title: "أسطول VIP", desc: "أحدث طرازات جي إم سي يوكن وفانات H1." },
+                                        { icon: UserCheck, title: "من الباب للباب", desc: "تشمل التوصيل من وإلى الفندق." },
+                                        { icon: Timer, title: "وفق جدولك الزمني", desc: "انطلق في الوقت الذي يناسبك تماماً." }
                                     ].map((item, idx) => (
                                         <GlassCard key={idx} className="flex gap-4 items-start p-6 rounded-2xl bg-neutral-900/50 border border-white/5 hover:border-gold/30 transition-all duration-300 group hover:-translate-y-1">
                                             <div className="p-3 rounded-lg bg-black border border-white/5 text-gold shrink-0 group-hover:scale-110 transition-transform shadow-inner">
@@ -162,10 +156,10 @@ export default async function IntercityTransferPage() {
                             </div>
                         </FadeIn>
 
-                        <div className="relative sticky top-32 lg:pl-10">
+                        <div className="relative sticky top-32 lg:pr-10">
                             <div className="absolute inset-0 bg-gold/10 rounded-full blur-[100px] opacity-20 transform translate-y-10 pointer-events-none" />
                             <div className="relative z-10 border border-white/10 rounded-3xl overflow-hidden shadow-2xl">
-                                <BookingFormWrapper title="Book Your Transfer" subtitle="Best Rates & Immediate Confirmation" />
+                                <BookingFormWrapper title="احجز رحلتك" subtitle="أفضل الأسعار وتأكيد فوري" />
                             </div>
                         </div>
                     </div>
@@ -185,20 +179,20 @@ export default async function IntercityTransferPage() {
                 <div className="container max-w-4xl mx-auto px-4">
                     <FadeIn>
                         <h2 className="text-3xl md:text-5xl font-semibold text-center mb-16 font-display text-white">
-                            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Questions</span>
+                            الأسئلة <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">الشائعة</span>
                         </h2>
                         <div className="space-y-6">
                             {[
-                                { q: "How long is the journey?", a: "Makkah to Madinah takes approximately 4.5 hours on the smooth Hijrah Highway. We adjust speed for your comfort and safety." },
-                                { q: "Is the Miqat stop included?", a: "Yes! If you are traveling from Madinah to Makkah, we will stop at Miqat Dhul Hulayfah (Abyar Ali) for 15-20 minutes for you to assume Ihram, free of charge." },
-                                { q: "Are there hidden fees?", a: "No. The price quoted is per vehicle, all-inclusive of fuel, driver, and taxes. No per-person charges." }
+                                { q: "كم تستغرق الرحلة؟", a: "تستغرق الرحلة من مكة إلى المدينة حوالي 4 ساعات ونصف على طريق الهجرة السريع. نقوم بتعديل السرعة لضمان راحتك وسلامتك." },
+                                { q: "هل التوقف عند الميقات مشمول؟", a: "نعم! إذا كنت مسافراً من المدينة إلى مكة، سنتوقف عند ميقات ذي الحليفة (آبار علي) لمدة 15-20 دقيقة لتتمكن من الإحرام، وذلك بدون أي تكلفة إضافية." },
+                                { q: "هل هناك رسوم خفية؟", a: "لا. السعر المعروض هو للسيارة بالكامل، ويشمل الوقود والسائق والضرائب. لا توجد رسوم لكل شخص." }
                             ].map((faq, i) => (
                                 <div key={i} className="bg-black/40 border border-white/5 rounded-2xl p-8 hover:border-gold/30 transition-all duration-300">
                                     <h3 className="font-semibold text-lg mb-3 text-white flex items-start gap-4 font-display">
                                         <span className="text-gold mt-1 p-1 bg-gold/10 rounded-full flex items-center justify-center"><ChevronDown size={16} /></span>
                                         {faq.q}
                                     </h3>
-                                    <p className="text-n-400 font-light leading-relaxed pl-10">{faq.a}</p>
+                                    <p className="text-n-400 font-light leading-relaxed pr-10">{faq.a}</p>
                                 </div>
                             ))}
                         </div>

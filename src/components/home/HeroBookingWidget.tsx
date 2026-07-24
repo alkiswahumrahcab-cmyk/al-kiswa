@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { MapPin, Calendar, Users, ChevronDown, Clock, Car, Plus, Minus } from 'lucide-react';
+import { FLEET, formatSeats } from '@/data/fleet';
 
 export default function HeroBookingWidget() {
     const router = useRouter();
@@ -131,11 +132,9 @@ export default function HeroBookingWidget() {
                                 className="w-full h-12 pl-12 pr-4 rounded-md border border-border-strong bg-surface focus:outline-none focus:ring-2 focus:ring-gold focus:border-gold appearance-none font-body text-ink cursor-pointer"
                             >
                                 <option value="Any Vehicle">Any Vehicle</option>
-                                <option value="Toyota Camry">Toyota Camry (4 seats)</option>
-                                <option value="Hyundai Staria">Hyundai Staria (7 seats)</option>
-                                <option value="GMC Yukon">GMC Yukon (7 seats VIP)</option>
-                                <option value="Toyota HiAce">Toyota HiAce (11 seats)</option>
-                                <option value="Toyota Coaster">Toyota Coaster (19 seats)</option>
+                                {FLEET.filter(v => v.bookable).map(v => (
+                                    <option key={v.id} value={v.name}>{v.name} ({formatSeats(v)})</option>
+                                ))}
                             </select>
                             <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-muted pointer-events-none" />
                         </div>

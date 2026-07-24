@@ -5,22 +5,23 @@ import Breadcrumbs from '@/components/common/Breadcrumbs';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import Features from '@/components/home/Features';
 import Link from 'next/link';
-import { ArrowRight, Plane, ShieldCheck, UserCheck } from 'lucide-react';
+import { ArrowLeft, Plane, ShieldCheck, UserCheck } from 'lucide-react';
 import FAQSection from '@/components/services/FAQSection';
 import VehicleCapacityGuide from '@/components/services/VehicleCapacityGuide';
 import RouteVisual from '@/components/services/RouteVisual';
 import { getSettings } from '@/lib/settings-storage';
 import FadeIn from "@/components/common/FadeIn";
+import { SITE_URL } from '@/config/site';
 
 export const metadata: Metadata = {
-    title: "تاكسي مطار جدة إلى مكة | نقل خاص بسعر ثابت | الكسوة",
-    description: "Book your Jeddah Airport to Makkah taxi. Private GMC Yukon & Hyundai Staria transfer with Meet & Greet service (استقبال المطار). Fixed rates, no hidden fees.",
+    title: "تاكسي مطار جدة إلى مكة | نقل خاص | الكسوة",
+    description: "احجز تاكسي من مطار جدة إلى مكة. توصيل خاص بسيارات جي إم سي يوكون وهيونداي ستاريا مع خدمة الاستقبال والترحيب في المطار. أسعار ثابتة بدون رسوم خفية.",
     keywords: [
-        "Jeddah Airport to Makkah Taxi",
-        "Taxi Jeddah Airport Price",
-        "Private Driver Jeddah Airport",
-        "KAIA Terminal 1 Taxi",
-        "GMC Yukon Jeddah Airport",
+        "تاكسي من مطار جدة إلى مكة",
+        "سعر تاكسي مطار جدة",
+        "سائق خاص مطار جدة",
+        "تاكسي الصالة 1 مطار الملك عبدالعزيز",
+        "جي إم سي يوكون مطار جدة",
         "تاكسي مطار جدة",
         "توصيل من مطار جدة الى مكة",
         "سعر التوصيل من مطار جدة للكعبة",
@@ -33,53 +34,47 @@ export const metadata: Metadata = {
   },
     openGraph: {
         title: "تاكسي مطار جدة إلى مكة | أسعار التوصيل الخاص | الكسوة",
-        description: "Reliable transfer from Jeddah Airport (JED) to Makkah hotels. Our driver waits for you at the arrival hall.",
-        images: [{ url: '/images/routes/jeddah-airport-hero-professional.webp', width: 1200, height: 630, alt: 'Jeddah Airport VIP Transfer' }]
+        description: "نقل موثوق من مطار جدة إلى فنادق مكة. سائقنا ينتظرك في صالة الوصول.",
+        images: [{ url: '/images/routes/jeddah-airport-hero-professional.webp', width: 1200, height: 630, alt: 'نقل كبار الشخصيات من مطار جدة' }]
     }
 };
 
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Jeddah Airport to Makkah Transfer",
+    "name": "توصيل من مطار جدة إلى مكة",
     "alternateName": "توصيل من مطار جدة الى مكة",
     "provider": {
         "@type": "LocalBusiness",
-        "name": "Al Kiswah Transport",
-        "image": "https://alkiswahumrahtransport.com/logo.png"
+        "name": "مواصلات الكسوة",
+        "image": `${SITE_URL}/logo.png`
     },
-    "serviceType": "Airport Transfer",
+    "serviceType": "توصيل المطار",
     "areaServed": {
         "@type": "Airport",
-        "name": "King Abdulaziz International Airport (JED)"
+        "name": "مطار الملك عبدالعزيز الدولي بجدة"
     },
-    "description": "Private VIP transfer from Jeddah Airport to Makkah hotels. 24/7 Meet & Greet. خدمة توصيل vip من المطار.",
-    "offers": {
-        "@type": "Offer",
-        "price": "200",
-        "priceCurrency": "SAR",
-        "availability": "https://schema.org/InStock"
-    },
+    "description": "خدمة توصيل كبار الشخصيات من مطار جدة إلى فنادق مكة. استقبال وترحيب على مدار الساعة.",
     "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
             {
                 "@type": "ListItem",
                 "position": 1,
-                "name": "Home",
-                "item": "https://alkiswahumrahtransport.com"
+                "name": "الرئيسية",
+                "item": `${SITE_URL}/ar`
             },
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Services",
-                "item": "https://alkiswahumrahtransport.com/services"
+                "name": "الخدمات",
+                "item": `${SITE_URL}/ar/services`
             },
             {
                 "@type": "ListItem",
                 "position": 3,
-                "name": "Jeddah Airport to Makkah",
-                "item": "https://alkiswahumrahtransport.com/services/jeddah-airport-transfer"
+                "name": "من مطار جدة إلى مكة",
+                "item": `${SITE_URL}/ar/services/jeddah-airport-transfer`
             }
         ]
     }
@@ -87,20 +82,20 @@ const jsonLd = {
 
 const jeddahAirportFAQs = [
     {
-        question: "Where will the driver meet me?",
-        answer: "Our driver will be waiting for you at the arrival hall after you clear customs and baggage claim. They will be holding a sign with your name or 'Al Kiswah Transport'. We track your flight to ensure we are there when you land."
+        question: "أين سيقابلني السائق؟",
+        answer: "سينتظرك سائقنا في صالة الوصول بعد الانتهاء من الجمارك واستلام الأمتعة. سيحمل لافتة باسمك أو باسم 'مواصلات الكسوة'. نقوم بتتبع رحلتك لضمان تواجدنا عند هبوطك."
     },
     {
-        question: "What if my flight is delayed?",
-        answer: "Don't worry. We monitor flight statuses in real-time. If your flight is delayed, we automatically adjust the pickup time. There are no extra charges for flight delays."
+        question: "ماذا لو تأخرت رحلتي؟",
+        answer: "لا تقلق. نحن نراقب حالة الرحلات في الوقت الفعلي. إذا تأخرت رحلتك، نقوم بتعديل وقت الاستلام تلقائياً. لا توجد رسوم إضافية على تأخير الرحلات."
     },
     {
-        question: "How long does the trip to Makkah take?",
-        answer: "The journey from King Abdulaziz International Airport (JED) to Makkah typically takes 60 to 75 minutes, depending on traffic conditions in Jeddah."
+        question: "كم تستغرق الرحلة إلى مكة؟",
+        answer: "تستغرق الرحلة من مطار الملك عبدالعزيز الدولي إلى مكة عادةً من 60 إلى 75 دقيقة، اعتماداً على حالة المرور في جدة."
     },
     {
-        question: "Can I pay in cash?",
-        answer: "Yes, you can pay the driver in cash (SAR) upon arrival. However, we recommend booking online to secure your rate and vehicle."
+        question: "هل يمكنني الدفع نقداً؟",
+        answer: "نعم، يمكنك الدفع للسائق نقداً (بالريال السعودي) عند الوصول. ومع ذلك، نوصي بالحجز عبر الإنترنت لضمان توفر سيارتك."
     }
 ];
 
@@ -110,13 +105,13 @@ export default async function JeddahAirportTransferPage() {
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}`;
 
     const content = {
-        title: "Jeddah Airport to Makkah Transfers",
-        subtitle: "Start your Umrah with peace of mind. Professional drivers, Meet & Greet service (استقبال خاص). Direct transfer to your Makkah hotel.",
+        title: "توصيل من مطار جدة إلى مكة",
+        subtitle: "ابدأ عمرتك براحة بال. سائقون محترفون، خدمة استقبال خاص. توصيل مباشر إلى فندقك في مكة.",
         heroImage: "/images/hero/jeddah-airport-to-makkah.jpg"
     };
 
     return (
-        <main className="min-h-screen bg-charcoal relative">
+        <main className="min-h-screen bg-charcoal relative" dir="rtl">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <script
@@ -127,7 +122,7 @@ export default async function JeddahAirportTransferPage() {
                 title={content.title}
                 subtitle={content.subtitle}
                 bgImage={content.heroImage}
-                ctaText="Book Arrival Transfer"
+                ctaText="احجز توصيل الوصول"
                 ctaLink={whatsappLink}
                 layout="center"
                 breadcrumbs={<Breadcrumbs />}
@@ -139,14 +134,14 @@ export default async function JeddahAirportTransferPage() {
                     <FadeIn>
                         <div className="max-w-4xl mx-auto text-center mb-16">
                             <h2 className="text-3xl md:text-4xl font-semibold mb-4 font-display text-white">
-                                Arrival Procedure: What to Expect
+                                إجراءات الوصول: ماذا تتوقع
                             </h2>
                             <p className="text-n-300 text-lg font-light leading-relaxed">
-                                We know arriving in a new country can be stressful. Here is how we make it easy:
+                                نحن نعلم أن الوصول إلى بلد جديد قد يكون مرهقاً. إليك كيف نجعله سهلاً:
                             </p>
                             <div className="mt-8 p-6 bg-white/5 rounded-2xl border border-white/10 inline-block">
                                 <p className="text-white font-medium italic font-sans text-lg">
-                                    "We wait for you, even if your flight is delayed – because your comfort matters."
+                                    "نحن ننتظرك، حتى لو تأخرت رحلتك – لأن راحتك تهمنا."
                                 </p>
                             </div>
                         </div>
@@ -155,18 +150,18 @@ export default async function JeddahAirportTransferPage() {
                             {[
                                 {
                                     icon: <UserCheck size={40} className="text-gold" />,
-                                    title: "1. Meet & Greet",
-                                    desc: "Our driver will be waiting at the arrival hall holding a sign with your name. No need to search for a taxi."
+                                    title: "1. الاستقبال والترحيب",
+                                    desc: "سينتظر سائقنا في صالة الوصول حاملاً لافتة باسمك. لا داعي للبحث عن تاكسي."
                                 },
                                 {
                                     icon: <ShieldCheck size={40} className="text-gold" />,
-                                    title: "2. Luggage Assistance",
-                                    desc: <span>Our vehicles (<Link href="/ar/fleet/gmc-yukon-at4" className="text-gold hover:underline">GMC</Link>/<Link href="/ar/fleet/hyundai-starex" className="text-gold hover:underline">H1</Link>) are chosen for their large luggage capacity. The driver will handle your bags.</span>
+                                    title: "2. المساعدة في الأمتعة",
+                                    desc: <span>سياراتنا واسعة ومناسبة للعائلات (<Link href="/ar/fleet/gmc-yukon-xl" className="text-gold hover:underline">جي إم سي</Link>/<Link href="/ar/fleet/hyundai-starex" className="text-gold hover:underline">إتش 1</Link>) لتتسع لجميع حقائبك. سيتولى السائق التعامل مع أمتعتك.</span>
                                 },
                                 {
                                     icon: <Plane size={40} className="text-gold" />,
-                                    title: "3. Direct to Hotel",
-                                    desc: <span>Relax in a cooled vehicle while we take you directly to your <Link href="/ar/services/makkah-madinah-taxi" className="text-gold hover:underline">hotel door in Makkah</Link> (approx 60-75 mins).</span>
+                                    title: "3. مباشرة إلى الفندق",
+                                    desc: <span>استرخِ في سيارة مكيفة بينما نأخذك مباشرة إلى <Link href="/ar/services/makkah-madinah-taxi" className="text-gold hover:underline">باب فندقك في مكة</Link> (حوالي 60-75 دقيقة).</span>
                                 }
                             ].map((item, idx) => (
                                 <div key={idx} className="bg-black/40 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-gold/30 transition-all text-center group hover:bg-black/60">
@@ -184,14 +179,14 @@ export default async function JeddahAirportTransferPage() {
             <section className="py-12 bg-neutral-900/30 border-y border-white/5 relative z-10 backdrop-blur-sm">
                 <div className="container mx-auto px-4">
                     <FadeIn delay={0.2}>
-                        <h2 className="text-2xl font-semibold text-center mb-8 font-display text-white">Your Journey to Makkah</h2>
+                        <h2 className="text-2xl font-semibold text-center mb-8 font-display text-white">رحلتك إلى مكة</h2>
                         <RouteVisual
-                            from="Jeddah Airport (JED)"
-                            fromLabel="Arrival Hall (Meet & Greet)"
-                            to="Makkah Hotel"
-                            toLabel="Hotel Reception Drop-off"
-                            duration="60-75 Mins"
-                            distance="95 km"
+                            from="مطار جدة"
+                            fromLabel="صالة الوصول (استقبال وترحيب)"
+                            to="فندق مكة"
+                            toLabel="التوصيل لاستقبال الفندق"
+                            duration="60-75 دقيقة"
+                            distance="95 كم"
                             showMiqat={false}
                         />
                     </FadeIn>
@@ -203,11 +198,11 @@ export default async function JeddahAirportTransferPage() {
                 <div className="container mx-auto px-4 text-center">
                     <FadeIn delay={0.3}>
                         <div className="max-w-3xl mx-auto p-8 rounded-3xl bg-gradient-to-br from-neutral-900 to-black border border-white/10 shadow-2xl">
-                            <h3 className="text-2xl font-semibold mb-4 text-white font-display">Which Terminal?</h3>
+                            <h3 className="text-2xl font-semibold mb-4 text-white font-display">أي صالة؟</h3>
                             <p className="text-n-300 mb-6 font-light leading-relaxed">
-                                Most international flights land at <strong className="font-bold text-gold">Terminal 1 (New Airport)</strong>.
-                                Some regional carriers use the North Terminal.
-                                Don't worry, we track your flight number and adjust the pickup location automatically.
+                                تهبط معظم الرحلات الدولية في <strong className="font-bold text-gold">الصالة 1 (المطار الجديد)</strong>.
+                                بعض الخطوط الإقليمية تستخدم الصالة الشمالية.
+                                لا تقلق، نحن نتتبع رقم رحلتك ونقوم بتعديل موقع الاستلام تلقائياً.
                             </p>
                         </div>
                     </FadeIn>
@@ -227,7 +222,7 @@ export default async function JeddahAirportTransferPage() {
             </div>
 
             <div className="relative z-10">
-                <FAQSection items={jeddahAirportFAQs} title="Jeddah Airport Transfer FAQs" />
+                <FAQSection items={jeddahAirportFAQs} title="الأسئلة الشائعة حول التوصيل من مطار جدة" />
             </div>
 
             {/* CTA */}
@@ -235,10 +230,10 @@ export default async function JeddahAirportTransferPage() {
                 <div className="container mx-auto px-4 text-center">
                     <FadeIn delay={0.4}>
                         <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-5 rounded-btn font-bold text-lg transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] text-black hover:scale-105">
-                            Check Taxi Fares <ArrowRight size={20} className="ml-2" />
+                            تحقق من أسعار التاكسي <ArrowLeft size={20} className="mr-2" />
                         </Link>
                         <p className="mt-8 text-sm text-n-400 font-light">
-                            Going to Madinah next? Check our <Link href="/ar/services/makkah-madinah-taxi" className="text-gold hover:text-white font-bold underline underline-offset-4 decoration-gold/50">Makkah to Madinah Taxi</Link> rates.
+                            هل أنت متجه إلى المدينة بعد ذلك؟ تحقق من أسعار <Link href="/ar/services/makkah-madinah-taxi" className="text-gold hover:text-white font-bold underline underline-offset-4 decoration-gold/50">تاكسي مكة إلى المدينة</Link>.
                         </p>
                     </FadeIn>
                 </div>
@@ -246,3 +241,4 @@ export default async function JeddahAirportTransferPage() {
         </main >
     );
 }
+

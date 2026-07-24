@@ -1,0 +1,445 @@
+import { generateMetadataAlternates } from "@/lib/hreflang";
+import type { Metadata } from "next";
+import Hero from '@/components/common/Hero';
+import Breadcrumbs from '@/components/common/Breadcrumbs';
+import Link from 'next/link';
+import { ArrowRight, Shield, Star, Briefcase, Users, Wifi, MapPin, CheckCircle } from 'lucide-react';
+import FAQSection from '@/components/services/FAQSection';
+import { getSettings } from '@/lib/settings-storage';
+import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
+import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
+import { getVehicle, formatSeatsAr, formatLuggageAr } from '@/data/fleet';
+import Image from 'next/image';
+import TrackEvent from '@/components/analytics/TrackEvent';
+
+const generateJsonLd = (vehicle: any) => ({
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kiswahumrahcab.com" },
+                { "@type": "ListItem", "position": 2, "name": "Fleet", "item": "https://kiswahumrahcab.com/fleet" },
+                { "@type": "ListItem", "position": 3, "name": "GMC Yukon XL", "item": "https://kiswahumrahcab.com/fleet/gmc-yukon-xl" }
+            ]
+        },
+        {
+            "@type": "Product",
+            "name": "GMC Yukon XL Luxury SUV",
+            "image": "https://kiswahumrahcab.com/images/fleet/gmc-yukon/gmc-yukon-xl-luxury-umrah-transport-cinematic.webp",
+            "description": "Book luxury GMC Yukon XL in Makkah & Madinah. 7 Seater SUV for VIP Umrah transport.",
+            "brand": { "@type": "Brand", "name": "GMC" },
+            "offers": {
+                "@type": "Offer",
+                "price": "600",
+                "priceCurrency": "SAR",
+                "availability": "https://schema.org/InStock",
+                "priceValidUntil": '2026-12-31',
+                "url": "https://kiswahumrahcab.com/fleet/gmc-yukon-xl"
+            },
+            "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "120",
+                "bestRating": "5",
+                "worstRating": "1"
+            }
+        },
+        {
+            "@type": "Service",
+            "name": "VIP Umrah Transport - GMC Yukon",
+            "provider": {
+                "@type": "LocalBusiness",
+                "name": "Al Kiswah Umrah Transport",
+                "image": "https://kiswahumrahcab.com/images/logo.png"
+            },
+            "areaServed": ["Makkah", "Madinah", "Jeddah"],
+            "description": "Premium chauffeured GMC Yukon for Umrah pilgrims."
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "كم عدد الركاب الذين تتسع لهم سيارة جي إم سي يوكن؟",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "تتسع يوكن XL براحة لما يصل إلى 7 ركاب (بما في ذلك الأطفال). ومع ذلك، للحصول على أقصى درجات الراحة مع الأمتعة، نوصي بها لـ 4-5 بالغين + 5 حقائب كبيرة."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is the GMC Yukon suitable for مكة إلى المدينة travel?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "بالتأكيد. إنها الخيار الأكثر شعبية للرحلة التي تستغرق 4.5 ساعات بين المدينتين المقدستين. بفضل نظام التعليق الممتاز والمقاعد الجلدية والتكييف المزدوج، تضمن رحلة خالية من التعب للحجاج."
+                    }
+                }
+            ]
+        }
+    ]
+});
+
+export async function generateMetadata(): Promise<Metadata> {
+    const vehicle = getVehicle('gmc-yukon-xl')!;
+    return {
+        title: "جي إم سي يوكن للعمرة - سيارة رياضية فاخرة | جدة إلى مكة | الكسوة تاكسي العمرة",
+        description: "احجز سيارة جي إم سي يوكن الممتازة لرحلات العمرة، جولات الزيارة، ونقل المطار في جميع أنحاء المملكة. 7 مقاعد واسعة، مقصورة فاخرة، سائقون محترفون. من مطار جدة إلى مكة، ومكة إلى المدينة.",
+        keywords: [
+            "جي إم سي يوكن السعودية",
+            "جمس يوكن عمرة",
+            "سيارة عائلية فاخرة جدة مكة",
+            "نقل مكة إلى المدينة",
+            "خدمة تاكسي العمرة",
+            "تاجير سيارات فخمة مكة",
+            "تاكسي الكسوة"
+        ],
+        alternates: generateMetadataAlternates("/fleet/gmc-yukon-xl"),
+    };
+}
+
+const gmcFAQs = [
+    {
+        question: "كم عدد الركاب الذين تتسع لهم سيارة جي إم سي يوكن؟",
+        answer: "تتسع يوكن XL براحة لما يصل إلى 7 ركاب (بما في ذلك الأطفال). ومع ذلك، للحصول على أقصى درجات الراحة مع الأمتعة، نوصي بها لـ 4-5 بالغين + 5 حقائب كبيرة."
+    },
+    {
+        question: "Is the GMC Yukon suitable for مكة إلى المدينة travel?",
+        answer: "بالتأكيد. إنها الخيار الأكثر شعبية للرحلة التي تستغرق 4.5 ساعات بين المدينتين المقدستين. بفضل نظام التعليق الممتاز والمقاعد الجلدية والتكييف المزدوج، تضمن رحلة خالية من التعب للحجاج."
+    },
+    {
+        question: "ما هو سعر جي إم سي يوكن من مطار جدة إلى مكة؟",
+        answer: "أسعارنا تنافسية لخدمة كبار الشخصيات. يرجى استخدام شبكة الحجز للحصول على عرض أسعار فوري أو الاتصال بنا عبر واتساب للحصول على أفضل العروض الموسمية."
+    },
+];
+
+export default async function GmcYukonPage() {
+    const settings = await getSettings();
+    const phoneNumber = settings.contact.phone;
+    const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20GMC%20Yukon%20for%20Umrah`;
+
+    
+    const vehicle = getVehicle('gmc-yukon-xl')!;
+
+    const jsonLd = generateJsonLd(vehicle);
+
+    const exteriorImages = [
+        { src: "/images/fleet/gmc-yukon/gmc-yukon-xl-full-exterior-view-umrah-taxi-service.webp", alt: "GMC Yukon full exterior view umrah taxi service", title: "Rugged Body Design" },
+        { src: "/images/fleet/gmc-yukon/gmc-yukon-xl-side-profile-vip-umrah-taxi.webp", alt: "GMC Yukon side profile VIP umrah taxi", title: "Premium Side Profile" },
+        { src: "/images/fleet/gmc-yukon/gmc-yukon-xl-rear-view-umrah-cab-saudi-arabia.webp", alt: "GMC Yukon rear view umrah cab Saudi Arabia", title: "Elegant Rear View" },
+        { src: "/images/fleet/gmc-yukon/gmc-yukon-xl-front-grille-jeddah-to-makkah-transport.webp", alt: "GMC Yukon front grille Jeddah to Makkah transport", title: "Bold GMC Grille" },
+        { src: "/images/fleet/gmc-yukon/gmc-yukon-xl-led-headlights-makkah-transport.webp", alt: "GMC Yukon LED headlights Makkah transport", title: "Signature LED Headlights" },
+        { src: "/images/fleet/gmc-yukon/gmc-yukon-xl-premium-alloy-wheels-umrah-cab.webp", alt: "GMC Yukon premium alloy wheels umrah cab", title: "Premium Wheels" },
+        { src: "/images/fleet/gmc-yukon/gmc-yukon-xl-umrah-taxi-tail-lights-makkah.webp", alt: "GMC Yukon umrah taxi tail lights Makkah", title: "Tail Lamp Design" },
+    ];
+
+    const interiorImages = [
+        { src: "/images/fleet/gmc-yukon/gmc-yukon-xl-premium-dashboard-interior-umrah-taxi.webp", alt: "GMC Yukon premium dashboard interior umrah taxi", title: "Touchscreen Infotainment" },
+        { src: "/images/fleet/gmc-yukon/gmc-yukon-xl-vip-passenger-seats-umrah-transport.webp", alt: "GMC Yukon VIP passenger seats umrah transport", title: "Premium Leather Seats" },
+        { src: "/images/fleet/gmc-yukon/gmc-yukon-xl-family-seating-makkah-to-madinah-taxi.webp", alt: "GMC Yukon family seating مكة إلى المدينة taxi", title: "Spacious Cabin" },
+        { src: "/images/fleet/gmc-yukon/gmc-yukon-xl-luggage-capacity-jeddah-airport-transfer.webp", alt: "GMC Yukon luggage capacity Jeddah airport transfer", title: "Massive Cargo Space" },
+        { src: "/images/fleet/gmc-yukon/gmc-yukon-xl-panoramic-sunroof-luxury-umrah-transport.webp", alt: "GMC Yukon panoramic sunroof luxury umrah transport", title: "Panoramic Sunroof" },
+        { src: "/images/fleet/gmc-yukon-interior-360.webp", alt: "GMC Yukon interior lighting and climate control", title: "Climate Control & Lighting" },
+    ];
+
+    return (
+        <main className="overflow-x-hidden bg-surface-alt">
+            <TrackEvent event="ViewContent" params={{ content_name: 'GMC Yukon XL' }} />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            
+            {/* A. Hero Section */}
+            <Hero
+                title="GMC Yukon – Luxury SUV for Umrah & Saudi Travel"
+                subtitle="Spacious. Powerful. Perfect for Families & Groups."
+                bgImage="/images/fleet/gmc-yukon/gmc-yukon-xl-luxury-umrah-transport-cinematic.webp"
+                badge={vehicle.categoryLabel}
+                ctaText="Book Now"
+                ctaLink="/booking?vehicle=gmc"
+                whatsappText="WhatsApp Inquiry"
+                whatsappLink={whatsappLink}
+                layout="center"
+                breadcrumbs={<Breadcrumbs />}
+            />
+
+            {/* B & C. Exterior Highlights / Cinematic Gallery */}
+            <section className="py-20 bg-surface">
+                <div className="container mx-auto px-4">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <span className="text-gold font-bold tracking-widest uppercase text-sm mb-4 block">Exterior</span>
+                        <h2 className="text-4xl md:text-5xl font-bold font-playfair text-ink mb-6">Commanding Presence</h2>
+                        <p className="text-lg text-ink-muted">The GMC Yukon XL makes a statement on the roads of مكة والمدينة with its rugged yet luxurious exterior design.</p>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+                        {exteriorImages.map((img, i) => (
+                            <div key={i} className="group relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
+                                <Image src={img.src} alt={img.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#15140F]/90 via-[#15140F]/30 to-transparent flex items-end p-4">
+                                    <h3 className="text-white font-bold text-base">{img.title}</h3>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* D. Interior Luxury Section */}
+            <section className="py-20 bg-surface-alt relative">
+                <div className="container mx-auto px-4 relative z-10">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <span className="text-gold font-bold tracking-widest uppercase text-sm mb-4 block">Interior</span>
+                        <h2 className="text-4xl md:text-5xl font-bold font-playfair mb-6 text-ink">Unmatched Cabin Comfort</h2>
+                        <p className="text-ink-muted text-lg">Experience first-class travel with premium leather seating, advanced climate control, and massive legroom for every passenger.</p>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+                        {interiorImages.map((img, i) => (
+                            <div key={i} className="group relative rounded-xl overflow-hidden aspect-[4/3]">
+                                <Image src={img.src} alt={img.alt} fill className="object-cover transition-opacity duration-500 group-hover:opacity-75" />
+                                <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-[#15140F]/90 to-transparent">
+                                    <h4 className="font-bold text-lg text-gold">{img.title}</h4>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="max-w-5xl mx-auto mt-12 bg-surface rounded-2xl p-2 md:p-4 shadow-xl border border-border">
+                        <Interior360Viewer
+                            imageUrl="/images/fleet/gmc-yukon-interior-360.webp"
+                            title="Interactive 360° Cabin View"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* E. Features & Specifications */}
+            <section className="py-20 bg-surface">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-16">
+                        <h2 className="text-3xl md:text-4xl font-bold font-playfair text-ink mb-4">المواصفات الفاخرة</h2>
+                        <div className="w-24 h-1 bg-gold mx-auto rounded-full"></div>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                        <div className="p-6 rounded-2xl border border-border bg-surface-alt shadow-sm hover:shadow-md transition-shadow">
+                            <Shield className="w-10 h-10 text-gold mb-4" />
+                            <h3 className="font-bold text-xl mb-2 text-ink">ميزات الأمان</h3>
+                            <p className="text-ink-muted">وسائد هوائية متطورة، نظام تحذير مغادرة المسار، ونظام التحكم الإلكتروني في الثبات StabiliTrak.</p>
+                        </div>
+                        <div className="p-6 rounded-2xl border border-border bg-surface-alt shadow-sm hover:shadow-md transition-shadow">
+                            <Users className="w-10 h-10 text-gold mb-4" />
+                            <h3 className="font-bold text-xl mb-2 text-ink">الراحة والمقاعد</h3>
+                            <p className="text-ink-muted">مقاعد جلدية مريحة، {formatSeatsAr(vehicle)}، مع نظام تحكم آلي بالمناخ ثلاثي المناطق.</p>
+                        </div>
+                        <div className="p-6 rounded-2xl border border-border bg-surface-alt shadow-sm hover:shadow-md transition-shadow">
+                            <Briefcase className="w-10 h-10 text-gold mb-4" />
+                            <h3 className="font-bold text-xl mb-2 text-ink">سعة الأمتعة</h3>
+                            <p className="text-ink-muted">مساحة صندوق ضخمة تستوعب {formatLuggageAr(vehicle)} بسهولة، مثالية لضيوف الرحمن الدوليين.</p>
+                        </div>
+                        <div className="p-6 rounded-2xl border border-border bg-surface-alt shadow-sm hover:shadow-md transition-shadow">
+                            <Wifi className="w-10 h-10 text-gold mb-4" />
+                            <h3 className="font-bold text-xl mb-2 text-ink">التكنولوجيا والاتصال</h3>
+                            <p className="text-ink-muted">نظام معلومات ترفيهي ممتاز بشاشة 10.2 بوصة مع دعم Apple CarPlay و Android Auto لاسلكياً.</p>
+                        </div>
+                        <div className="p-6 rounded-2xl border border-border bg-surface-alt shadow-sm hover:shadow-md transition-shadow">
+                            <MapPin className="w-10 h-10 text-gold mb-4" />
+                            <h3 className="font-bold text-xl mb-2 text-ink">قوة المحرك</h3>
+                            <p className="text-ink-muted">محرك V8 قوي سعة 5.3 لتر بقوة 355 حصاناً، يضمن قيادة سلسة على الطرق السريعة.</p>
+                        </div>
+                        <div className="p-6 rounded-2xl border border-border bg-surface-alt shadow-sm hover:shadow-md transition-shadow">
+                            <Star className="w-10 h-10 text-gold mb-4" />
+                            <h3 className="font-bold text-xl mb-2 text-ink">Suspension & Ride</h3>
+                            <p className="text-ink-muted">Premium Smooth Ride suspension isolates the cabin from rough roads for maximum comfort.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* F. Comprehensive SEO Content & Why Choose */}
+            <section className="py-24 bg-gold/5">
+                <div className="container mx-auto px-4">
+                    <div className="max-w-4xl mx-auto mb-16">
+                        <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8 text-ink text-center">GMC Yukon – Luxury SUV for Umrah, Ziyarat & Long‑Distance Travel in Saudi Arabia</h2>
+                        
+                        <div className="prose prose-lg max-w-none text-ink-muted space-y-6">
+                            <p>
+                                The <strong>GMC Yukon</strong> stands as one of the most trusted luxury SUVs for <strong>Umrah pilgrims, families, and international travelers</strong> seeking comfort, safety, and premium travel across Saudi Arabia. At <strong>Al Kiswah Umrah Cab</strong>, we proudly offer the Yukon as part of our elite fleet, ensuring a smooth, spacious, and reliable journey whether you are traveling for Umrah, Ziyarat, or airport transfers.
+                            </p>
+                            <p>
+                                With its bold exterior design, signature GMC grille, LED headlights, and commanding road presence, the Yukon delivers both elegance and power. Its rugged build and aerodynamic shape make it ideal for long‑distance routes such as <Link href="/services/jeddah-airport-transfer" className="text-gold-strong font-semibold hover:underline">Jeddah Airport to Makkah</Link>, <Link href="/services/makkah-madinah-taxi" className="text-gold-strong font-semibold hover:underline">مكة إلى المدينة</Link>, and <Link href="/services/ziyarat-tours" className="text-gold-strong font-semibold hover:underline">Madinah Ziyarat tours</Link>. The vehicle handles highways with ease, offering stability, comfort, and a premium travel experience for all passengers.
+                            </p>
+                            <p>
+                                Inside, the GMC Yukon offers a <strong>luxurious cabin</strong> designed for comfort during long journeys. Premium leather seating, a modern infotainment system, rear entertainment screens, and tri‑zone climate control ensure a relaxing ride for families, elderly pilgrims, and groups carrying multiple suitcases. The spacious interior comfortably accommodates up to <strong>7 passengers</strong>, making it a preferred choice for Umrah groups and family travelers.
+                            </p>
+                            <p>
+                                For pilgrims, the Yukon’s <strong>smooth suspension</strong>, <strong>quiet cabin</strong>, and <strong>large luggage capacity</strong> make it ideal for sacred journeys between holy cities. Whether you are performing Umrah, visiting historical sites, or traveling between hotels and airports, the Yukon guarantees a peaceful and stress‑free experience.
+                            </p>
+                            <p>
+                                At <strong>Al Kiswah Umrah Cab</strong>, we maintain our Yukon fleet with the highest standards of safety, cleanliness, and performance. Our professional drivers ensure punctual pickups, courteous service, and complete assistance throughout your journey. With transparent pricing, 24/7 availability, and easy online booking, we make your travel experience seamless and reliable.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto mt-20">
+                        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl group">
+                            <Image 
+                                src="/images/fleet/gmc-yukon/gmc-yukon-xl-highway-driving-makkah-to-madinah.webp" 
+                                alt="GMC Yukon for Umrah travel مكة إلى المدينة" 
+                                fill 
+                                className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                            />
+                        </div>
+                        <div>
+                            <h3 className="text-3xl font-bold font-playfair mb-8 text-ink">Why Choose the GMC Yukon for Umrah Travel?</h3>
+                            <ul className="space-y-5">
+                                {[
+                                    "Ideal for families and groups",
+                                    "Smooth and comfortable for long routes",
+                                    "Spacious seating and luggage capacity",
+                                    "Perfect for elderly pilgrims",
+                                    "Premium comfort for sacred journeys"
+                                ].map((item, idx) => (
+                                    <li key={idx} className="flex items-start gap-4 p-4 rounded-xl bg-surface shadow-sm border border-gold/20 transition-transform hover:-translate-y-1">
+                                        <CheckCircle className="w-6 h-6 text-gold shrink-0" />
+                                        <span className="text-lg font-medium text-ink">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* G. Pricing & Packages */}
+            
+
+            {/* H. Route Packages */}
+            <section className="py-20 bg-surface-alt">
+                <div className="container mx-auto px-4">
+                    <div className="text-center mb-14">
+                        <span className="text-gold font-bold tracking-widest uppercase text-sm">Routes & Packages</span>
+                        <h2 className="text-3xl md:text-4xl font-bold font-playfair text-ink mt-3 mb-3">Popular GMC Yukon Routes</h2>
+                        <div className="w-24 h-1 bg-gold mx-auto rounded-full" />
+                    </div>
+                    <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        {[
+                            {
+                                route: 'Jeddah Airport → Makkah',
+                                desc: 'Direct luxury pickup from King Abdulaziz International Airport to your hotel in Makkah. Meet & greet service included.',
+                                badge: 'Most Booked',
+                                href: '/services/jeddah-airport-transfer',
+                                icon: '✈️',
+                            },
+                            {
+                                route: 'Makkah → Madinah',
+                                desc: 'Comfortable 4-hour intercity transfer between the two holy cities with an experienced professional driver.',
+                                badge: 'Holy Route',
+                                href: '/services/makkah-madinah-taxi',
+                                icon: '🕌',
+                            },
+                            {
+                                route: 'Ziyarat Packages',
+                                desc: 'Full-day Ziyarat tours in Makkah & Madinah — visit Jabal al-Nour, Arafat, Quba Mosque, and more.',
+                                badge: 'Full Day',
+                                href: '/services/ziyarat-tours',
+                                icon: '📍',
+                            },
+                        ].map((r, i) => (
+                            <div key={i} className="bg-surface rounded-2xl shadow-md border-t-4 border-gold p-6 hover:-translate-y-2 transition-transform duration-300 flex flex-col">
+                                <div className="text-4xl mb-4">{r.icon}</div>
+                                <span className="inline-block bg-gold/10 text-gold-strong text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-3 w-fit">{r.badge}</span>
+                                <h3 className="text-xl font-bold text-ink mb-3">{r.route}</h3>
+                                <p className="text-ink-muted text-sm leading-relaxed flex-1">{r.desc}</p>
+                                <Link href={r.href} className="mt-5 inline-flex items-center gap-2 text-gold-strong hover:text-gold font-bold text-sm transition-colors">
+                                    View Route Details <ArrowRight size={16} />
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* I. Booking Form */}
+            <section className="py-20 bg-surface">
+                <div className="container mx-auto px-4">
+                    <div className="max-w-3xl mx-auto">
+                        <div className="text-center mb-10">
+                            <span className="text-gold font-bold tracking-widest uppercase text-sm">Quick Booking</span>
+                            <h2 className="text-3xl md:text-4xl font-bold font-playfair text-ink mt-3 mb-2">Reserve Your GMC Yukon</h2>
+                            <p className="text-ink-muted">Fill in your details and our team will confirm your booking within minutes.</p>
+                        </div>
+                        <div className="bg-surface-alt rounded-3xl p-8 shadow-xl border border-border">
+                            <div className="grid md:grid-cols-2 gap-5">
+                                {[
+                                    { label: 'Full Name', placeholder: 'Your full name', type: 'text', id: 'gmc-name' },
+                                    { label: 'Phone / WhatsApp', placeholder: '+966 5XX XXX XXXX', type: 'tel', id: 'gmc-phone' },
+                                    { label: 'Pickup Location', placeholder: 'e.g. Jeddah Airport, Terminal 1', type: 'text', id: 'gmc-pickup' },
+                                    { label: 'Drop Location', placeholder: 'e.g. Makkah Grand Mosque Hotel', type: 'text', id: 'gmc-drop' },
+                                    { label: 'Date & Time', placeholder: '', type: 'datetime-local', id: 'gmc-datetime' },
+                                    { label: 'No. of Passengers', placeholder: 'e.g. 5', type: 'number', id: 'gmc-passengers' },
+                                ].map((field) => (
+                                    <div key={field.id}>
+                                        <label htmlFor={field.id} className="block text-sm font-semibold text-ink-muted mb-2">{field.label}</label>
+                                        <input
+                                            id={field.id}
+                                            type={field.type}
+                                            placeholder={field.placeholder}
+                                            className="w-full px-4 py-3 rounded-xl border border-border bg-surface text-ink placeholder-ink-muted/50 focus:outline-none focus:ring-2 focus:ring-gold transition"
+                                        />
+                                    </div>
+                                ))}
+                                <div className="md:col-span-2">
+                                    <label htmlFor="gmc-vehicle" className="block text-sm font-semibold text-ink-muted mb-2">Vehicle</label>
+                                    <input id="gmc-vehicle" type="text" value="GMC Yukon XL (Pre-selected)" readOnly className="w-full px-4 py-3 rounded-xl border border-gold bg-gold/5 text-gold-strong font-semibold focus:outline-none cursor-not-allowed" />
+                                </div>
+                            </div>
+                            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                                <Link href="/booking?vehicle=gmc" className="flex-1 btn-primary text-lg flex items-center justify-center gap-2">
+                                    Go to Full Booking Form <ArrowRight size={20} />
+                                </Link>
+                                <a href={whatsappLink} className="flex-1 btn-whatsapp text-lg flex items-center justify-center gap-2">
+                                    Book via WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* J. Booking CTA Banner */}
+            <section className="py-24 relative flex items-center justify-center">
+                <div className="absolute inset-0">
+                    <Image 
+                        src="/images/fleet/gmc-yukon/gmc-yukon-xl-luxury-umrah-transport-cinematic.webp" 
+                        alt="Book GMC Yukon Umrah Taxi" 
+                        fill 
+                        className="object-cover object-center"
+                    />
+                    <div className="absolute inset-0 bg-[#15140F]/80 backdrop-blur-sm"></div>
+                </div>
+                
+                <div className="relative z-10 text-center max-w-2xl mx-auto px-4">
+                    <h2 className="text-3xl md:text-5xl font-bold font-playfair text-white mb-6">Ready to Book Your VIP Ride?</h2>
+                    <p className="text-lg text-white/80 mb-10">Reserve your GMC Yukon XL instantly with our online booking system or chat with our support team via WhatsApp.</p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link href="/booking?vehicle=gmc" className="btn-primary text-lg flex items-center justify-center gap-2">
+                            Go to Booking Form <ArrowRight size={20} />
+                        </Link>
+                        <a href={whatsappLink} className="btn-whatsapp text-lg flex items-center justify-center gap-2">
+                            Book via WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <FAQSection items={gmcFAQs} title="GMC Yukon Transport - FAQs" />
+            
+            <div className="py-10 bg-surface">
+                <FleetCarouselWrapper />
+            </div>
+        </main>
+    );
+}

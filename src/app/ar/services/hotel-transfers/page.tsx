@@ -16,23 +16,23 @@ export const metadata: Metadata = {
     ...generateMetadataAlternates("/services/hotel-transfers"),
     canonical: "https://kiswahumrahcab.com/ar/services/hotel-transfers",
   },
-    title: 'Hotel Transfers Makkah & Madinah | Al Kiswah Umrah Transport',
-    description: 'Reliable door-to-door hotel transfers in Makkah and Madinah. 24/7 comfortable transport between your hotel and the Holy Harams. Book your ride now.',
-    keywords: ['hotel transfer Makkah', 'hotel transfer Madinah', 'Umrah hotel shuttle', 'family transport Makkah', 'VIP hotel transfer Saudi Arabia']
+    title: 'انتقالات الفنادق مكة والمدينة | الكسوة لنقل العمرة',
+    description: 'انتقالات فنادق موثوقة من الباب إلى الباب في مكة والمدينة. نقل مريح على مدار الساعة بين فندقك والحرمين الشريفين. احجز رحلتك الآن.',
+    keywords: ['نقل فندق مكة', 'نقل فندق المدينة', 'حافلة فندق العمرة', 'نقل عائلي مكة', 'نقل فندق كبار الشخصيات السعودية']
 };
 
 export default function HotelTransferPage() {
     return (
-        <main className="bg-charcoal text-white min-h-screen relative">
+        <main className="bg-charcoal text-white min-h-screen relative" dir="rtl">
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none fixed" />
 
             {/* Hero Section */}
             <Hero
-                title="Premium Hotel Transfers"
-                subtitle="Seamless door-to-door transport between your hotel and the Holy Mosques in Makkah & Madinah."
+                title="انتقالات فنادق فاخرة"
+                subtitle="نقل سلس من الباب إلى الباب بين فندقك والحرمين الشريفين في مكة المكرمة والمدينة المنورة."
                 bgImage="/images/hero/hotel-transfers.jpg"
-                ctaText="Book Your Ride"
-                ctaLink="/booking"
+                ctaText="احجز رحلتك"
+                ctaLink="/ar/booking"
                 layout="center"
             />
 
@@ -40,12 +40,12 @@ export default function HotelTransferPage() {
             <section className="py-24 container mx-auto px-4 relative z-10">
                 <FadeIn>
                     <div className="text-center max-w-3xl mx-auto mb-20">
-                        <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm mb-4 block border-b border-gold/30 pb-2 w-fit mx-auto">Comfort & Convenience</span>
+                        <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm mb-4 block border-b border-gold/30 pb-2 w-fit mx-auto">الراحة والسهولة</span>
                         <h2 className="text-4xl md:text-5xl font-semibold font-display text-white mb-8">
-                            Stress-Free Travel <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">To Your Doorstep</span>
+                            سفر بدون عناء <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">إلى باب منزلك</span>
                         </h2>
                         <p className="text-lg text-n-400 leading-relaxed font-light">
-                            Arrive refreshed and on time. Whether you are heading to the Haram for prayers or returning to your hotel after Umrah, our dedicated drivers ensure a smooth, comfortable, and private journey for you and your family.
+                            صل منتعشًا وفي الوقت المحدد. سواء كنت متوجهاً إلى الحرم للصلاة أو عائداً إلى فندقك بعد العمرة، يضمن لك سائقونا المتفانون رحلة سلسة ومريحة وخاصة لك ولعائلتك.
                         </p>
                     </div>
                 </FadeIn>
@@ -55,18 +55,18 @@ export default function HotelTransferPage() {
                     {[
                         {
                             icon: <MapPin className="text-gold" size={32} />,
-                            title: "Door-to-Door Service",
-                            desc: "Direct pickup from your hotel lobby and drop-off at the closest accessible point to the Haram."
+                            title: "خدمة من الباب إلى الباب",
+                            desc: "استقبال مباشر من بهو فندقك وتوصيل إلى أقرب نقطة يمكن الوصول إليها من الحرم."
                         },
                         {
                             icon: <Clock className="text-gold" size={32} />,
-                            title: "24/7 Availability",
-                            desc: "Round-the-clock service to align with your prayer times, Ziyarat plans, and flight schedules."
+                            title: "متوفرون على مدار الساعة",
+                            desc: "خدمة على مدار الساعة لتتناسب مع أوقات الصلاة وخطط الزيارات ومواعيد رحلاتك الجوية."
                         },
                         {
                             icon: <Users className="text-gold" size={32} />,
-                            title: "Family Friendly",
-                            desc: "Spacious vehicles (GMC, H1, HiAce) perfect for families with children, elderly, and luggage."
+                            title: "مناسب للعائلات",
+                            desc: "مركبات واسعة مثالية للعائلات التي لديها أطفال وكبار السن، ولحمل الأمتعة بسهولة وراحة."
                         }
                     ].map((feature, idx) => (
                         <FadeIn key={idx} delay={idx * 0.1}>
@@ -94,21 +94,21 @@ export default function HotelTransferPage() {
                             <div className="absolute inset-0 bg-neutral-900 animate-pulse" /> {/* Loading Placeholder */}
                             <Image
                                 src="/images/services/intercity-transport.png" // Fallback/Shared image for context
-                                alt="Makkah Hotel Transport"
+                                alt="نقل فنادق مكة"
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent flex items-end p-10">
                                 <div>
-                                    <h3 className="text-3xl font-semibold text-white mb-2 font-display">Makkah & Madinah</h3>
-                                    <p className="text-n-300 font-light">Serving all major hotels in the Holy Cities.</p>
+                                    <h3 className="text-3xl font-semibold text-white mb-2 font-display">مكة المكرمة والمدينة المنورة</h3>
+                                    <p className="text-n-300 font-light">نخدم جميع الفنادق الكبرى في المدن المقدسة.</p>
                                 </div>
                             </div>
                         </div>
                         <div className="flex-1 space-y-12">
                             <FadeIn direction="right">
                                 <h3 className="text-4xl lg:text-5xl font-semibold font-display text-white mb-8">
-                                    We Cover All <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Major Zones</span>
+                                    نغطي جميع <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">المناطق الرئيسية</span>
                                 </h3>
                                 <div className="space-y-8 mt-6">
                                     <div className="flex items-start gap-6 group">
@@ -116,8 +116,8 @@ export default function HotelTransferPage() {
                                             <Building2 className="text-gold" size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="text-xl font-semibold text-white mb-2 font-display group-hover:text-gold transition-colors">Makkah Hotels</h4>
-                                            <p className="text-n-400 font-light leading-relaxed">Clock Tower (Abraj Al Bait), Jabal Omar, Ajyad, Aziziyah, and more.</p>
+                                            <h4 className="text-xl font-semibold text-white mb-2 font-display group-hover:text-gold transition-colors">فنادق مكة المكرمة</h4>
+                                            <p className="text-n-400 font-light leading-relaxed">برج الساعة (أبراج البيت)، جبل عمر، أجياد، العزيزية، والمزيد.</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-6 group">
@@ -125,8 +125,8 @@ export default function HotelTransferPage() {
                                             <Building2 className="text-gold" size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="text-xl font-semibold text-white mb-2 font-display group-hover:text-gold transition-colors">Madinah Hotels</h4>
-                                            <p className="text-n-400 font-light leading-relaxed">Central Area (Markazia), Qibla, and hotels near Masjid An Nabawi.</p>
+                                            <h4 className="text-xl font-semibold text-white mb-2 font-display group-hover:text-gold transition-colors">فنادق المدينة المنورة</h4>
+                                            <p className="text-n-400 font-light leading-relaxed">المنطقة المركزية، القبلة، والفنادق القريبة من المسجد النبوي.</p>
                                         </div>
                                     </div>
                                     <div className="flex items-start gap-6 group">
@@ -134,8 +134,8 @@ export default function HotelTransferPage() {
                                             <ShieldCheck className="text-gold" size={24} />
                                         </div>
                                         <div>
-                                            <h4 className="text-xl font-semibold text-white mb-2 font-display group-hover:text-gold transition-colors">Reliable & Safe</h4>
-                                            <p className="text-n-400 font-light leading-relaxed">Licensed drivers and well-maintained vehicles for your peace of mind.</p>
+                                            <h4 className="text-xl font-semibold text-white mb-2 font-display group-hover:text-gold transition-colors">موثوق وآمن</h4>
+                                            <p className="text-n-400 font-light leading-relaxed">سائقون مرخصون ومركبات تمت صيانتها جيدًا لراحة بالك.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -144,8 +144,8 @@ export default function HotelTransferPage() {
                                         href="/ar/booking"
                                         className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-gold to-gold-dark hover:bg-white hover:text-black text-black px-10 py-4 rounded-btn font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] uppercase tracking-wider text-sm transform hover:-translate-y-1"
                                     >
-                                        Book Your Hotel Transfer
-                                        <ArrowRight size={20} />
+                                        احجز انتقالك الفندقي
+                                        <ArrowRight className="rtl:rotate-180" size={20} />
                                     </Link>
                                 </div>
                             </FadeIn>

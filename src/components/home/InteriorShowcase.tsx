@@ -2,20 +2,19 @@
 
 import Image from "next/image";
 import styles from "./interior-showcase.module.css";
+import { getVehicle, formatSeats } from "@/data/fleet";
 
 type Vehicle = {
-  name: string;
+  id: string;
   line: string;   // editorial one-liner
-  spec: string;   // tracked sub-text
   image: string;  // interior asset
-  alt: string;
 };
 
 const VEHICLES: Vehicle[] = [
-  { name: "Hyundai Staria",   line: "Space that breathes with you", spec: "Premium Family · 7 Seats",    image: "/images/homepagescroll.jpg", alt: "Hyundai Staria" },
-  { name: "GMC Yukon XL",     line: "Where the journey slows down", spec: "VIP · 7 Seats",              image: "/images/homepagescrol.jpg",     alt: "GMC Yukon XL" },
-  { name: "Hyundai H1 Starex",line: "Room for every companion",     spec: "Comfortable Family · 7 Seats",image: "/images/homepagescrolll.jpg", alt: "Hyundai H1 Starex" },
-  { name: "Toyota Hiace",     line: "Together, in comfort",         spec: "Group Travel · 11 Seats",     image: "/images/homepagescrollll.jpg",  alt: "Toyota Hiace" }
+  { id: "hyundai-staria", line: "Space that breathes with you", image: "/images/homepagescroll.jpg" },
+  { id: "gmc-yukon-xl", line: "Where the journey slows down", image: "/images/homepagescrol.jpg" },
+  { id: "hyundai-starex", line: "Room for every companion", image: "/images/homepagescrolll.jpg" },
+  { id: "toyota-hiace", line: "Together, in comfort", image: "/images/homepagescrollll.jpg" }
 ];
 // TODO: confirm interior assets exist. Alternate wide + macro shots, one warm grade.
 // Do NOT fall back to exterior images.
@@ -34,12 +33,15 @@ export function InteriorShowcase() {
       </div>
 
       <div className={styles.stack}>
-        {VEHICLES.map((v, i) => (
-          <div key={v.name} className={styles.card} style={{ ["--index" as string]: i }}>
+        {VEHICLES.map((v, i) => {
+          const fleetVehicle = getVehicle(v.id);
+          if (!fleetVehicle) return null;
+          return (
+          <div key={fleetVehicle.name} className={styles.card} style={{ ["--index" as string]: i }}>
             <div className={styles.cardInner}>
               <Image
                 src={v.image}
-                alt={v.alt}
+                alt={fleetVehicle.name}
                 fill
                 sizes="(max-width: 768px) 100vw, 74rem"
                 className={styles.image}
@@ -48,12 +50,12 @@ export function InteriorShowcase() {
                 <p className={styles.index}>
                   {String(i + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
                 </p>
-                <h3 className={styles.name}>{v.name}</h3>
-                <p className={styles.spec}>{v.line} — {v.spec}</p>
+                <h3 className={styles.name}>{fleetVehicle.name}</h3>
+                <p className={styles.spec}>{v.line} — {fleetVehicle.categoryLabel} · {formatSeats(fleetVehicle)}</p>
               </div>
             </div>
           </div>
-        ))}
+        )})}
       </div>
     </section>
   );

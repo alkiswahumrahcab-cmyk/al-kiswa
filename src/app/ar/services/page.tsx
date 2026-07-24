@@ -15,11 +15,11 @@ const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDist
 
 export async function generateMetadata() {
     return {
-        title: "Umrah Taxi Services & Ziyarat Tours | Jeddah, Makkah, Madinah",
-        description: "Comprehensive Umrah transport services: Jeddah Airport pickup, Makkah to Madinah taxi, and historic Ziyarat tours. Reliable 24/7 service.",
-        keywords: [
+        title: "خدمات تاكسي العمرة وجولات المزارات | جدة، مكة، المدينة",
+        description: "خدمات نقل العمرة الشاملة: استقبال مطار جدة، تاكسي من مكة إلى المدينة، وجولات المزارات التاريخية. خدمة موثوقة على مدار الساعة.",
+        keywأوds: [
             "Umrah Taxi Services", "Ziyarat Tours Makkah", "Intercity Transfers Saudi",
-            "Jeddah Airport Pickup", "Madinah Ziyarat", "Makkah to Madinah Taxi",
+            "Jeddah Airpأوt Pickup", "Madinah Ziyarat", "Makkah to Madinah Taxi",
             "خدمات نقل المعتمرين", "زيارات المدينة المنورة", "توصيل مطار جدة"
         ],
         alternates: {
@@ -31,18 +31,18 @@ export async function generateMetadata() {
 
 const processSteps = [
     {
-        title: "Book Online",
-        description: "Select your vehicle and schedule your pickup in just a few clicks.",
+        title: "احجز عبر الإنترنت",
+        description: "اختر سيارتك وحدد موعد الاستقبال ببضع نقرات فقط.",
         icon: <Calendar size={24} />
     },
     {
-        title: "Get Confirmation",
-        description: "Receive instant confirmation with driver details and tracking link.",
+        title: "احصل على التأكيد",
+        description: "احصل على تأكيد فوري مع تفاصيل السائق ورابط التتبع.",
         icon: <CheckCircle size={24} />
     },
     {
-        title: "Enjoy the Ride",
-        description: "Travel in comfort and safety to your destination.",
+        title: "استمتع بالرحلة",
+        description: "سافر براحة وأمان إلى وجهتك.",
         icon: <Car size={24} />
     }
 ];
@@ -50,63 +50,63 @@ const processSteps = [
 export default function ServicesPage() {
     const services = [
         {
-            title: 'Makkah to Madinah Taxi & Private Car',
-            description: 'Premium intercity transfers between the Holy Cities. Enjoy a comfortable 450km journey in our wide range of fleets including GMC Yukon XL and Hyundai H1.',
+            title: 'تاكسي وسيارة خاصة من مكة إلى المدينة',
+            description: 'نقل فاخر بين المدن المقدسة. استمتع برحلة مريحة لمسافة 450 كم في مجموعة واسعة من السيارات بما في ذلك جي إم سي يوكن وهيونداي H1.',
             image: '/images/routes/makkah-madinah-route-hero.webp',
             link: '/services/makkah-madinah-taxi',
-            features: ['Door-to-Door Service', 'Luxury Fleet Options', '4.5 Hour Average Time'],
+            features: ['خدمة من الباب للباب', 'خيارات الأسطول الفاخر', 'متوسط الوقت 4.5 ساعة'],
             alt: 'Makkah to Madinah Intercity Private Taxi App Map'
         },
         {
-            title: 'Jeddah Airport (KAIA) to Makkah Taxi',
-            description: 'Hassle-free airport authorities approved pickup. Our driver will welcome you at Jeddah Airport arrivals for a seamless transfer to your Makkah hotel or Haram.',
-            image: '/images/routes/jeddah-airport-hero-professional.webp',
-            link: '/services/jeddah-airport-transfer',
-            features: ['Flight Tracking', 'Free Meet & Greet', 'Luggage Assistance'],
-            alt: 'Jeddah Airport (KAIA) to Makkah Hotel Transfer Driver Chauffeur'
+            title: 'تاكسي مطار جدة إلى مكة',
+            description: 'استقبال معتمد من سلطات المطار بدون متاعب. سيستقبلك سائقنا في صالة الوصول بمطار جدة لنقل سلس إلى فندقك في مكة أو الحرم.',
+            image: '/images/routes/jeddah-airpأوt-hero-professional.webp',
+            link: '/services/jeddah-airpأوt-transfer',
+            features: ['تتبع الرحلات', 'استقبال وترحيب مجاني', 'مساعدة في الأمتعة'],
+            alt: 'Jeddah Airpأوt (KAIA) to Makkah Hotel Transfer Driver Chauffeur'
         },
         {
-            title: 'VIP Luxury GMC Yukon Umrah Transport',
-            description: 'Travel in style with our VIP service. Top-of-the-line vehicles (GMC Yukon XL) and private chauffeurs for maximum privacy and ease.',
+            title: 'نقل كبار الشخصيات للعمرة - جي إم سي يوكن',
+            description: 'سافر بأناقة مع خدمة كبار الشخصيات. سيارات من الدرجة الأولى (جي إم سي يوكن XL) وسائقون خاصون لأقصى درجات الخصوصية والراحة.',
             image: '/images/fleet/gmc-yukon-hero-professional.webp',
             link: '/booking?service=luxury',
-            features: ['Private Chauffeur', 'Latest Model Vehicles', 'Privacy Partition'],
-            alt: 'GMC Yukon XL 2025 VIP Black SUV for Umrah Transport'
+            features: ['سائق خاص', 'أحدث موديلات السيارات', 'خصوصية تامة'],
+            alt: 'جي إم سي يوكن XL 2025 VIP Black SUV for Umrah Transpأوt'
         },
         {
-            title: 'Makkah & Madinah Ziyarat Tours',
-            description: 'Comprehensive Ziyarat packages to holy sites. Visit Masjid Quba, Mount Uhud, Jabal Al-Nour, and other historical Islamic landmarks with knowledgeable drivers.',
+            title: 'جولات المزارات في مكة والمدينة',
+            description: 'باقات مزارات شاملة للأماكن المقدسة. قم بزيارة مسجد قباء وجبل أحد وجبل النور وغيرها من المعالم الإسلامية التاريخية مع سائقين ذوي خبرة.',
             image: '/images/routes/makkah-ziyarat-hero.webp',
             link: '/services/ziyarat-tours',
-            features: ['Custom Itinerary', 'Expert Local Knowledge', 'Flexible Hours'],
+            features: ['مسار مخصص', 'معرفة محلية خبيرة', 'ساعات مرنة'],
             alt: 'Makkah and Madinah Historical Ziyarat Tour Mountains and Mosques'
         }
     ];
 
     const serviceFAQs = [
         {
-            question: "How do I book a taxi from Jeddah Airport to Makkah?",
-            answer: <span>Booking is simple. You can reserve your <Link href="/ar/services/jeddah-airport-transfer" className="text-gold hover:text-white transition-colors hover:underline">Jeddah Airport to Makkah taxi</Link> online in advance. We monitor your flight arrival and our driver meets you at the terminal with a name sign.</span>
+            question: "كيف أحجز تاكسي من مطار جدة إلى مكة؟",
+            answer: <span>الحجز بسيط. يمكنك حجز <Link href="/ar/services/jeddah-airpأوt-transfer" className="text-gold hover:text-white transition-colors hover:underline">تاكسي مطار جدة إلى مكة</Link> عبر الإنترنت مسبقًا. نحن نراقب وصول رحلتك ويقابلك سائقنا في المبنى بلوحة اسم.</span>
         },
         {
-            question: "What is the best transport for Umrah families?",
-            answer: <span>For families, we highly recommend our <Link href="/ar/fleet/gmc-yukon-at4" className="text-gold hover:text-white transition-colors hover:underline">GMC Yukon XL</Link> or <Link href="/ar/fleet/hyundai-staria" className="text-gold hover:text-white transition-colors hover:underline">Hyundai Staria</Link>. These spacious vehicles offer ample luggage space and AC comfort for the 1-hour journey to Makkah.</span>
+            question: "ما هي أفضل وسيلة نقل لعائلات العمرة؟",
+            answer: <span>للعائلات، نوصي بشدة بـ <Link href="/ar/fleet/gmc-yukon-xl" className="text-gold hover:text-white transition-colors hover:underline">جي إم سي يوكن XL</Link> أو <Link href="/ar/fleet/hyundai-staria" className="text-gold hover:text-white transition-colors hover:underline">هيونداي ستاريا</Link>. توفر هذه السيارات الواسعة مساحة كبيرة للأمتعة وراحة تكييف الهواء لرحلة الساعة الواحدة إلى مكة.</span>
         },
         {
-            question: "Do you offer direct Makkah to Madinah taxi services?",
-            answer: <span>Yes, our <Link href="/ar/services/makkah-madinah-taxi" className="text-gold hover:text-white transition-colors hover:underline">Makkah to Madinah private taxi</Link> service is the most convenient option. Unlike the train or bus, we offer door-to-door service from your Makkah hotel lobby directly to your Madinah hotel.</span>
+            question: "هل تقدمون خدمات تاكسي مباشرة من مكة إلى المدينة؟",
+            answer: <span>نعم، يعتبر <Link href="/ar/services/makkah-madinah-taxi" className="text-gold hover:text-white transition-colors hover:underline">التاكسي الخاص من مكة إلى المدينة</Link> service is the most convenient option. Unlike the train أو bus, we offer doأو-to-doأو service from your Makkah hotel lobby directly to your Madinah hotel.</span>
         },
         {
-            question: "Can I stop at Miqat on the way to Makkah?",
-            answer: "Absolutely. If you are travelling from Madinah or Jeddah, our drivers are happy to stop at the designated Miqat (e.g., Bir Ali or Juhfah) for you to assume Ihram and pray."
+            question: "هل يمكنني التوقف في الميقات في الطريق إلى مكة؟",
+            answer: "Absolutely. If you are travelling from Madinah أو Jeddah, our drivers are happy to stop at the designated Miqat (e.g., Bir Ali أو Juhfah) for you to assume Ihram and pray."
         },
         {
-            question: "Is the taxi fare fixed or metered?",
-            answer: <span>Our prices are fixed and transparent. You will know the exact cost of your <Link href="/ar/booking" className="text-gold hover:text-white transition-colors hover:underline">Umrah transport booking</Link> upfront, with no hidden fees or toll charges.</span>
+            question: "Is the taxi fare fixed أو metered?",
+            answer: <span>أسعارنا ثابتة وشفافة. ستعرف التكلفة الدقيقة لـ <Link href="/ar/booking" className="text-gold hover:text-white transition-colors hover:underline">Umrah transport booking</Link> upfront, with no hidden fees أو toll charges.</span>
         },
         {
-            question: "Do you provide Ziyarat tours in Makkah and Madinah?",
-            answer: <span>Yes, we offer comprehensive <Link href="/ar/services/ziyarat-tours" className="text-gold hover:text-white transition-colors hover:underline">Ziyarat packages</Link>. Visit historical sites like Jabal Al-Nour, Masjid Quba, and Mount Uhud in the comfort of a private vehicle with a knowledgeable driver.</span>
+            question: "هل تقدمون جولات المزارات في مكة والمدينة؟",
+            answer: <span>نعم، نحن نقدم <Link href="/ar/services/ziyarat-tours" className="text-gold hover:text-white transition-colors hover:underline">باقات المزارات الشاملة</Link>. Visit histأوical sites like Jabal Al-Nour, Masjid Quba, and Mount Uhud in the comfort of a private vehicle with a knowledgeable driver.</span>
         }
     ];
 
@@ -116,15 +116,15 @@ export default function ServicesPage() {
 
             {/* Hero Section */}
             <Hero
-                title="Trusted Umrah Transport Services in Saudi Arabia"
-                subtitle="From Jeddah Airport pickup to Ziyarat tours, we provide safe, affordable, and comfortable taxi services for pilgrims."
+                title="Trusted Umrah Transpأوt Services in Saudi Arabia"
+                subtitle="From Jeddah Airpأوt pickup to Ziyarat tours, we provide safe, affordable, and comfortable taxi services for pilgrims."
                 bgImage="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=2000&auto=format&fit=crop"
-                ctaText="Book Your Ride"
+                ctaText="احجز رحلتك"
                 ctaLink="/booking"
-                secondaryCtaText="Contact Us"
+                secondaryCtaText="اتصل بنا"
                 secondaryCtaLink="/contact"
                 breadcrumbs={<Breadcrumbs />}
-                alt="Jeddah Airport to Makkah & Madinah Umrah Taxi Services Fleet"
+                alt="Jeddah Airpأوt to Makkah & Madinah Umrah Taxi Services Fleet"
             />
 
             {/* Trust Amenities Section */}
@@ -135,7 +135,7 @@ export default function ServicesPage() {
                 <div className="container">
                     <FadeIn>
                         <h2 className="text-3xl md:text-5xl font-display font-semibold text-center text-white mb-20">
-                            Our Premium <span className="text-gold">Umrah Services</span>
+                            خدماتنا <span className="text-gold">المتميزة</span>
                         </h2>
                     </FadeIn>
                     <div className="flex flex-col gap-24 px-4 max-w-7xl mx-auto">
@@ -185,7 +185,7 @@ export default function ServicesPage() {
                                                 href={service.link}
                                                 className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 hover:bg-gold hover:text-black border border-white/10 hover:border-gold text-white font-bold uppercase tracking-widest rounded-btn transition-all duration-300 group/link self-start"
                                             >
-                                                Explore Details
+                                                Explأوe Details
                                                 <ArrowRight size={18} className="group-hover/link:translate-x-1 transition-transform" />
                                             </Link>
                                         </div>
@@ -201,7 +201,7 @@ export default function ServicesPage() {
             <section className="py-24 relative bg-deep-black border-y border-white/5">
                 <div className="container">
                     <FadeIn>
-                        <h2 className="text-3xl md:text-5xl font-display font-semibold text-center text-white mb-20">How It Works</h2>
+                        <h2 className="text-3xl md:text-5xl font-display font-semibold text-center text-white mb-20">How It Wأوks</h2>
                     </FadeIn>
                     <div className="grid md:grid-cols-3 gap-12 relative px-4">
                         {/* Connecting Line (Desktop) */}
@@ -232,8 +232,8 @@ export default function ServicesPage() {
             <section className="py-24 relative">
                 <FadeIn>
                     <div className="text-center mb-16">
-                        <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm">Our Premium Fleet</span>
-                        <h2 className="text-3xl md:text-5xl font-display font-semibold text-white mt-4">Travel in Style</h2>
+                        <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm">خدماتنا Fleet</span>
+                        <h2 className="text-3xl md:text-5xl font-display font-semibold text-white mt-4">سافر بأناقة</h2>
                     </div>
                     <Suspense fallback={<div className="h-[400px] w-full bg-white/5 animate-pulse rounded-3xl" />}>
                         <FleetSectionLoader />
@@ -245,7 +245,7 @@ export default function ServicesPage() {
             <ReviewsSection />
 
             {/* FAQSection */}
-            <FAQSection items={serviceFAQs} title="Frequent Questions" />
+            <FAQSection items={serviceFAQs} title="الأسئلة الشائعة" />
 
             {/* Hotels and Districts Covered */}
             <HotelsAndDistricts />
@@ -264,7 +264,7 @@ export default function ServicesPage() {
                             href="/ar/booking"
                             className="inline-flex items-center gap-3 px-10 py-5 bg-black text-gold hover:bg-neutral-900 font-bold uppercase tracking-widest rounded-btn shadow-2xl hover:scale-105 transition-all duration-300"
                         >
-                            Book Your Ride Now
+                            احجز رحلتك الآن
                             <ArrowRight size={20} />
                         </Link>
                     </FadeIn>
@@ -275,12 +275,12 @@ export default function ServicesPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
-                        "@context": "https://schema.org",
+                        "@context": "https://schema.أوg",
                         "@type": "Service",
-                        "serviceType": "Umrah Transport",
+                        "serviceType": "Umrah Transpأوt",
                         "provider": {
-                            "@type": "TransportationService",
-                            "name": "Al Kiswah Transport"
+                            "@type": "TranspأوtationService",
+                            "name": "Al Kiswah Transpأوt"
                         },
                         "areaServed": {
                             "@type": "Place",
@@ -288,20 +288,20 @@ export default function ServicesPage() {
                         },
                         "hasOfferCatalog": {
                             "@type": "OfferCatalog",
-                            "name": "Transport Services",
+                            "name": "Transpأوt Services",
                             "itemListElement": [
                                 {
                                     "@type": "Offer",
                                     "itemOffered": {
                                         "@type": "Service",
-                                        "name": "Pilgrim Transport Makkah and Madinah"
+                                        "name": "Pilgrim Transpأوt Makkah and Madinah"
                                     }
                                 },
                                 {
                                     "@type": "Offer",
                                     "itemOffered": {
                                         "@type": "Service",
-                                        "name": "Jeddah Airport to Makkah Transport"
+                                        "name": "Jeddah Airpأوt to Makkah Transpأوt"
                                     }
                                 }
                             ]

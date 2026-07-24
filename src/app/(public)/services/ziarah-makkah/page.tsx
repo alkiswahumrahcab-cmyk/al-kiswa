@@ -11,6 +11,17 @@ import FadeIn from "@/components/common/FadeIn";
 import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 import { LocationGrid } from '@/components/ziyarat/LocationGrid';
 import { makkahSites } from '@/data/ziyarat-locations';
+import { FLEET, formatSeats } from '@/data/fleet';
+
+const PRICE_MAP: Record<string, string> = {
+    'toyota-camry': 'SAR 200',
+    'hyundai-starex': 'SAR 250',
+    'hyundai-staria': 'SAR 250',
+    'toyota-hiace': 'SAR 300',
+    'gmc-yukon-xl': 'SAR 400',
+    'toyota-coaster': 'SAR 500',
+    'mitsubishi-xpander': 'SAR 200'
+};
 
 export const metadata: Metadata = {
     title: "Makkah Ziyarat Tour 2026 — 15 Islamic Historical Sites | Al Kiswah",
@@ -51,7 +62,7 @@ const jsonLd = {
                 { "@type": "Question", "name": "How long is the Makkah Ziyarat tour?", "acceptedAnswer": { "@type": "Answer", "text": "The standard tour covering 6 main sites takes 3–4 hours. Extended tours covering all 15 sites take 5–6 hours." } },
                 { "@type": "Question", "name": "Can we climb Cave Hira?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, but climbing takes 1–2 hours of hiking up Jabal Al-Nour. If you wish to climb, inform us when booking so we adjust the schedule. Elderly passengers can view from the base." } },
                 { "@type": "Question", "name": "Is hotel pickup included?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, we pick you up from any hotel in Makkah and drop you back after the tour. No extra charges." } },
-                { "@type": "Question", "name": "What vehicles are available?", "acceptedAnswer": { "@type": "Answer", "text": "Toyota Camry (4 pax, SAR 200), Hyundai H1/Staria (7 pax, SAR 250), Toyota Hiace (10 pax, SAR 300), GMC Yukon (7 pax, SAR 400), Toyota Coaster (19 pax, SAR 500)." } },
+                { "@type": "Question", "name": "What vehicles are available?", "acceptedAnswer": { "@type": "Answer", "text": "We offer a diverse fleet ranging from 4-seater sedans like Toyota Camry to luxury SUVs like GMC Yukon, spacious vans like Hyundai Staria/H1, and large capacity minibuses like Toyota Hiace and Coaster." } },
                 { "@type": "Question", "name": "Can we customize the itinerary?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Every tour is private. Choose which sites to visit, how long to stay, and the order. Discuss your preferences on WhatsApp before booking." } },
                 { "@type": "Question", "name": "Is Makkah Ziyarat suitable for elderly?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Most sites are accessible from the vehicle or at ground level. Jabal Al-Nour and Thawr require climbing but can be viewed from the base. Air-conditioned vehicles throughout." } },
             ],
@@ -71,7 +82,7 @@ const makkahFAQs = [
     { question: "How long is the Makkah Ziyarat tour?", answer: "The standard tour covering 6 main sites takes 3–4 hours. Extended tours covering all 15 sites take 5–6 hours. We recommend starting after Fajr to avoid heat." },
     { question: "Can we climb Cave Hira on Jabal Al-Nour?", answer: "Yes, but climbing takes 1–2 hours of hiking. If you wish to climb, inform us when booking so we adjust the schedule. Elderly passengers can view from the base and pray." },
     { question: "Is hotel pickup included in the price?", answer: "Yes, we pick you up from any hotel in Makkah and drop you back after the tour. No extra charges for pickup/drop-off." },
-    { question: "What vehicles are available for Makkah Ziyarat?", answer: "Toyota Camry (4 pax, SAR 200), Hyundai H1/Staria (7 pax, SAR 250), Toyota Hiace (10 pax, SAR 300), GMC Yukon (7 pax, SAR 400), and Toyota Coaster (19 pax, SAR 500)." },
+    { question: "What vehicles are available for Makkah Ziyarat?", answer: FLEET.filter(v => v.bookable).map(v => `${v.name} (${formatSeats(v)}, ${PRICE_MAP[v.id] || 'Contact Us'})`).join(', ') + '.' },
     { question: "Can we customize which sites we visit?", answer: "Absolutely. Every tour is private. Choose which of the 15 sites to visit, how long to stay at each, and the order of stops." },
     { question: "Is Makkah Ziyarat suitable for elderly or children?", answer: "Yes. Most sites are accessible from the vehicle or at ground level. Jabal Al-Nour and Thawr require climbing but can be viewed from base. Child seats available free." },
 ];
@@ -103,18 +114,11 @@ export default async function ZiarahMakkahPage() {
                 <div className="container mx-auto px-4">
                     <FadeIn>
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
-                            {[
-                                { vehicle: "Toyota Camry", capacity: "4 pax", price: "SAR 200" },
-                                { vehicle: "Hyundai H1", capacity: "7 pax", price: "SAR 250" },
-                                { vehicle: "Hyundai Staria", capacity: "7 pax", price: "SAR 250" },
-                                { vehicle: "Toyota Hiace", capacity: "10 pax", price: "SAR 300" },
-                                { vehicle: "GMC Yukon", capacity: "7 pax", price: "SAR 400" },
-                                { vehicle: "Toyota Coaster", capacity: "19 pax", price: "SAR 500" },
-                            ].map((v, i) => (
-                                <div key={i} className="bg-surface border border-border rounded-xl p-4 hover:border-gold-line transition-all shadow-sm">
-                                    <div className="text-gold-strong font-bold text-lg">{v.price}</div>
-                                    <div className="text-ink font-semibold text-sm mt-1">{v.vehicle}</div>
-                                    <div className="text-muted text-xs">{v.capacity}</div>
+                            {FLEET.filter(v => v.bookable).map((v, i) => (
+                                <div key={v.id} className="bg-surface border border-border rounded-xl p-4 hover:border-gold-line transition-all shadow-sm">
+                                    <div className="text-gold-strong font-bold text-lg">{PRICE_MAP[v.id] || 'Contact Us'}</div>
+                                    <div className="text-ink font-semibold text-sm mt-1">{v.name}</div>
+                                    <div className="text-muted text-xs">{formatSeats(v)}</div>
                                 </div>
                             ))}
                         </div>
@@ -190,7 +194,7 @@ export default async function ZiarahMakkahPage() {
                             </p>
                             
                             <p className="mb-0">
-                                All prices are <strong className="text-ink font-semibold">fixed per vehicle</strong> starting from SAR 200 (sedan) with fuel, tolls, and unlimited waiting included. Choose from our <Link href="/fleet/toyota-camry" className="text-gold-strong hover:text-gold hover:underline transition-colors">Toyota Camry</Link>, <Link href="/fleet/gmc-yukon-at4" className="text-gold-strong hover:text-gold hover:underline transition-colors">GMC Yukon</Link>, <Link href="/fleet/hyundai-staria" className="text-gold-strong hover:text-gold hover:underline transition-colors">Hyundai Staria</Link>, or <Link href="/fleet/toyota-hiace" className="text-gold-strong hover:text-gold hover:underline transition-colors">Toyota Hiace</Link>. For the complete Ziyarat experience, see our <Link href="/services/ziyarat-tours" className="text-gold-strong hover:text-gold hover:underline transition-colors">full Ziyarat Tours page</Link> covering Makkah, Madinah, Jeddah &amp; Taif.
+                                All prices are <strong className="text-ink font-semibold">fixed per vehicle</strong> starting from SAR 200 (sedan) with fuel, tolls, and unlimited waiting included. Choose from our <Link href="/fleet/toyota-camry" className="text-gold-strong hover:text-gold hover:underline transition-colors">Toyota Camry</Link>, <Link href="/fleet/gmc-yukon-xl" className="text-gold-strong hover:text-gold hover:underline transition-colors">GMC Yukon</Link>, <Link href="/fleet/hyundai-staria" className="text-gold-strong hover:text-gold hover:underline transition-colors">Hyundai Staria</Link>, or <Link href="/fleet/toyota-hiace" className="text-gold-strong hover:text-gold hover:underline transition-colors">Toyota Hiace</Link>. For the complete Ziyarat experience, see our <Link href="/services/ziyarat-tours" className="text-gold-strong hover:text-gold hover:underline transition-colors">full Ziyarat Tours page</Link> covering Makkah, Madinah, Jeddah &amp; Taif.
                             </p>
                         </div>
                     </FadeIn>

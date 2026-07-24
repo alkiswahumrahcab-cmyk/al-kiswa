@@ -9,39 +9,27 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
 
-import { vehicleService } from '@/services/vehicleService';
+import { getVehicle, formatSeatsAr, formatLuggageAr } from '@/data/fleet';
+import { SITE_URL } from '@/config/site';
 export async function generateMetadata(): Promise<Metadata> {
-    const vehicles = await vehicleService.getActiveVehicles();
-    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('coaster'));
-
+    const vehicle = getVehicle('toyota-coaster')!;
     return {
-        title: vehicleData ? `${vehicleData.name} Bus Rental Makkah | Group Umrah Transport` : "Toyota Coaster Bus Rental Makkah | Group Umrah Transport",
-        description: vehicleData ? `Book ${vehicleData.name} ${vehicleData.passengers}-seater bus for Umrah groups. Comfortable transport from Jeddah Airport to Makkah & Madinah. Base Route: ${vehicleData.basePrice} SAR.` : "Book Toyota Coaster 19-seater bus for Umrah groups. Comfortable transport from Jeddah Airport to Makkah & Madinah. Large luggage capacity.",
-        keywords: [
-            "Toyota Coaster Rental Makkah",
-            "19 seater Bus Makkah",
-            "Group Umrah Bus",
-            "Makkah Madinah Bus Transport",
-            "Toyota Coaster Price",
-            "??? ??? ?????",
-            "??? ????? ???",
-            "??? 20 ???? ???"
-        ],
+        title: "تأجير باص تويوتا كوستر مكة | نقل جماعي للعمرة | الكسوة",
+        description: "احجز باص تويوتا كوستر لمجموعات العمرة. نقل مريح من مطار جدة إلى مكة والمدينة. سعة أمتعة كبيرة.",
+        keywords: ["تأجير كوستر مكة","باص للعمرة","نقل مجموعات مكة"],
         alternates: {
-    ...generateMetadataAlternates("/fleet/toyota-coaster"),
-    canonical: "https://kiswahumrahcab.com/ar/fleet/toyota-coaster",
-  },
+            ...generateMetadataAlternates(`/fleet/${vehicle.slug}`),
+            canonical: `https://kiswahumrahcab.com/ar/fleet/${vehicle.slug}`,
+        },
         openGraph: {
-            title: vehicleData ? `${vehicleData.name} Bus Rental Makkah | Group Umrah Transport` : "Toyota Coaster Bus Rental Makkah | Group Umrah Transport",
-            description: vehicleData ? `Rent a ${vehicleData.passengers}-Seater ${vehicleData.name} for your Umrah group. Spacious, air-conditioned, and reliable transport.` : "Rent a 19-seater Toyota Coaster for your Umrah group. Spacious, air-conditioned, and reliable transport between Jeddah, Makkah, and Madinah.",
-            url: 'https://alkiswahumrahtransport.com/fleet/toyota-coaster',
-            siteName: 'Al Kiswah Umrah Transport',
+            title: "تأجير باص تويوتا كوستر مكة | نقل جماعي للعمرة | الكسوة",
+            description: "احجز باص تويوتا كوستر لمجموعات العمرة. نقل مريح من مطار جدة إلى مكة والمدينة. سعة أمتعة كبيرة.",
             images: [
                 {
-                    url: 'https://alkiswahumrahtransport.com/images/fleet/toyota-coaster-2025.webp',
+                    url: vehicle.image.hero,
                     width: 1200,
                     height: 630,
-                    alt: vehicleData?.name || 'Toyota Coaster 19-seater Bus',
+                    alt: vehicle.image.alt,
                 },
             ],
             type: 'website',
@@ -49,20 +37,20 @@ export async function generateMetadata(): Promise<Metadata> {
     };
 }
 
-const generateJsonLd = (vehicleData: any) => ({
+const generateJsonLd = (vehicle: any) => ({
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": vehicleData ? `${vehicleData.name} ${vehicleData.passengers}-Seater Bus Rental` : "Toyota Coaster 19-seater Bus Rental",
-    "image": "https://alkiswahumrahtransport.com/images/fleet/toyota-coaster-2025.webp",
-    "description": vehicleData ? `Rent ${vehicleData.name} bus in Makkah. Premium ${vehicleData.passengers}-seater transport for Umrah groups. Spacious, comfortable, and reliable.` : "Rent Toyota Coaster bus in Makkah. Premium 19-seater transport for Umrah groups. Spacious, comfortable, and reliable.",
+    "name": vehicle.name,
+    "image": `${SITE_URL}/images/fleet/toyota-coaster-2025.webp`,
+    "description": `Rent ${vehicle.name} bus in Makkah. Premium ${vehicle.seats}-seater transport for Umrah groups. Spacious, comfortable, and reliable.`,
     "brand": { "@type": "Brand", "name": "Toyota" },
     "offers": {
         "@type": "Offer",
-        "price": vehicleData?.basePrice?.toString() || "700",
+        "price": "700",
         "priceCurrency": "SAR",
         "availability": "https://schema.org/InStock",
         "priceValidUntil": '2026-12-31',
-        "url": "https://alkiswahumrahtransport.com/fleet/toyota-coaster"
+        "url": `${SITE_URL}/fleet/toyota-coaster`
     },
     "aggregateRating": {
         "@type": "AggregateRating",
@@ -90,16 +78,16 @@ const generateJsonLd = (vehicleData: any) => ({
 
 const coasterFAQs = [
     {
-        question: "How many passengers can the Coaster comfortably fit?",
-        answer: "The Toyota Coaster comfortably seats 19 passengers with ample legroom. It is designed for medium-sized groups."
+        question: "كم عدد الركاب الذين يمكن أن تتسع لهم كوستر براحة؟",
+        answer: "The Toyota Coaster comfortably seats {formatSeatsAr(vehicle)} with ample legroom. It is designed for medium-sized groups."
     },
     {
-        question: "Is there enough luggage space for 20+ people?",
-        answer: "Yes, the Coaster has a dedicated luggage area and overhead compartments. It can easily accommodate 15-20 standard suitcases."
+        question: "هل توجد مساحة كافية للأمتعة لـ 20 شخصاً فأكثر؟",
+        answer: "نعم، تحتوي كوستر على منطقة مخصصة للأمتعة ومقصورات علوية. يمكن أن تستوعب بسهولة 15-20 حقيبة قياسية."
     },
     {
-        question: "Is the Coaster suitable for long trips to Madinah?",
-        answer: "Absolutely. The Coaster features high-ceiling interiors, comfortable seating, and powerful air conditioning, making it ideal for the Jeddah-Makkah-Madinah route."
+        question: "هل كوستر مناسبة للرحلات الطويلة إلى المدينة؟",
+        answer: "بالتأكيد. تتميز كوستر بتصميم داخلي عالي السقف، ومقاعد مريحة، وتكييف هواء قوي، مما يجعلها مثالية لخط جدة-مكة-المدينة."
     },
 ];
 
@@ -108,24 +96,23 @@ export default async function ToyotaCoasterPage() {
     const phoneNumber = settings.contact.phone;
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20Toyota%20Coaster%20for%20Group%20Umrah`;
 
-    const vehicles = await vehicleService.getActiveVehicles();
-    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('coaster'));
 
     // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
-    const coasterId = vehicleData?.id || '692db09834f15bc89b45a5f6_coaster';
+    
     const coasterImage = '/images/fleet/toyota-coaster-2025.webp';
 
-    const jsonLd = generateJsonLd(vehicleData);
+    const vehicle = getVehicle('toyota-coaster')!;
+    const jsonLd = generateJsonLd(vehicle);
 
     return (
         <main className="overflow-x-hidden">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             <Hero
-                title="Toyota Coaster 2025 | Premium Group Transport"
-                subtitle="The ultimate choice for medium-sized Umrah groups. Spacious, reliable, and comfortable travel across Saudi Arabia."
+                title="تويوتا كوستر | نقل جماعي متميز"
+                subtitle="الخيار الأمثل لمجموعات العمرة المتوسطة الحجم. سفر واسع وموثوق ومريح عبر المملكة العربية السعودية."
                 bgImage={coasterImage}
-                badge="Best for Groups"
-                ctaText="Book via WhatsApp"
+                badge="الأفضل للمجموعات"
+                ctaText="احجز عبر واتساب"
                 ctaLink={whatsappLink}
                 layout="center"
             />
@@ -144,48 +131,48 @@ export default async function ToyotaCoasterPage() {
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                             />
                             <div className="absolute bottom-4 left-4 bg-gold text-black px-4 py-1 rounded-full text-sm font-bold">
-                                Group Favorite
+                                المفضل للمجموعات
                             </div>
                         </div>
                         <div>
                             <h2 className="text-3xl font-bold mb-6 font-playfair text-n-800 dark:text-n-100">
-                                Why Choose Toyota Coaster?
+                                لماذا تختار تويوتا كوستر؟
                             </h2>
                             <p className="text-n-600 dark:text-n-300 mb-8 leading-relaxed">
-                                Experience seamless group travel with the Toyota Coaster. Designed for comfort and durability, it offers a smooth ride for up to 19 passengers.
-                                Whether you are traveling from <Link href="/ar/services/jeddah-airport-transfer" className="text-gold-dark font-medium hover:underline">Jeddah Airport</Link> or visiting Ziyarat sites, the Coaster ensures everyone travels together in comfort.
+                                جرب السفر الجماعي السلس مع تويوتا كوستر. مصممة للراحة والمتانة، وتوفر رحلة سلسة لما يصل إلى 19 راكباً.
+                                سواء كنت مسافرًا من <Link href="/ar/services/jeddah-airport-transfer" className="text-gold-dark font-medium hover:underline">مطار جدة</Link> أو تزور مواقع المزارات، تضمن كوستر سفر الجميع معًا براحة.
                             </p>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
-                                        <Users className="text-gold" size={20} /> 19 passengers
+                                        <Users className="text-gold" size={20} /> {formatSeatsAr(vehicle)}
                                     </div>
-                                    <p className="text-sm text-n-500">Ideal for 3-5 families</p>
+                                    <p className="text-sm text-n-500">مثالية لـ 3-5 عائلات</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
-                                        <Briefcase className="text-gold" size={20} /> 15+ Bags
+                                        <Briefcase className="text-gold" size={20} /> {formatLuggageAr(vehicle)}
                                     </div>
-                                    <p className="text-sm text-n-500">Ample storage space</p>
+                                    <p className="text-sm text-n-500">مساحة تخزين واسعة</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
-                                        <Shield className="text-gold" size={20} /> Safety First
+                                        <Shield className="text-gold" size={20} /> الأمان أولاً
                                     </div>
-                                    <p className="text-sm text-n-500">Equipped with ABS & safety belts</p>
+                                    <p className="text-sm text-n-500">مجهزة بنظام ABS وأحزمة أمان</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
-                                        <Fuel className="text-gold" size={20} /> Smooth Ride
+                                        <Fuel className="text-gold" size={20} /> رحلة سلسة
                                     </div>
-                                    <p className="text-sm text-n-500">Stable suspension system</p>
+                                    <p className="text-sm text-n-500">نظام تعليق مستقر</p>
                                 </div>
                             </div>
 
                             <div className="mt-10">
                                 <Link href="/ar/booking" className="inline-flex items-center gap-2 bg-n-900 text-white hover:bg-n-800 dark:bg-white dark:text-n-900 px-8 py-3 rounded-btn font-bold transition-all shadow-lg hover:shadow-gold/20">
-                                    Book Toyota Coaster <ArrowRight size={20} />
+                                    احجز تويوتا كوستر <ArrowRight size={20} />
                                 </Link>
                             </div>
                         </div>
@@ -196,27 +183,27 @@ export default async function ToyotaCoasterPage() {
             {/* Detailed Specifications */}
             <section className="py-12 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-n-900 dark:text-white">Technical Specifications</h2>
+                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-n-900 dark:text-white">المواصفات الفنية</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
-                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Engine</h3>
-                            <p className="font-bold text-xl text-n-900 dark:text-white">4.0L Diesel</p>
-                            <p className="text-sm text-n-400">Reliable Performance</p>
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">المحرك</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">ديزل 4.0 لتر</p>
+                            <p className="text-sm text-n-400">أداء موثوق</p>
                         </div>
                         <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
-                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Climate Control</h3>
-                            <p className="font-bold text-xl text-n-900 dark:text-white">Ducted AC</p>
-                            <p className="text-sm text-n-400">Vents for every seat</p>
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">التحكم في المناخ</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">تكييف مركزي</p>
+                            <p className="text-sm text-n-400">فتحات لكل مقعد</p>
                         </div>
                         <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
-                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Seating</h3>
-                            <p className="font-bold text-xl text-n-900 dark:text-white">19 Seats</p>
-                            <p className="text-sm text-n-400">High-back fabric seats</p>
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">المقاعد</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">19 مقعدًا</p>
+                            <p className="text-sm text-n-400">مقاعد قماشية بظهر عالي</p>
                         </div>
                         <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
-                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Features</h3>
-                            <p className="font-bold text-xl text-n-900 dark:text-white">Mic & Audio</p>
-                            <p className="text-sm text-n-400">Guide seat included</p>
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">الميزات</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">ميكروفون وصوت</p>
+                            <p className="text-sm text-n-400">يشمل مقعد المرشد</p>
                         </div>
                     </div>
                 </div>
@@ -225,22 +212,22 @@ export default async function ToyotaCoasterPage() {
             {/* Use Cases */}
             <section className="py-16 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-12 font-playfair">Perfect For</h2>
+                    <h2 className="text-3xl font-bold text-center mb-12 font-playfair">مثالية لـ</h2>
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
                             {
-                                title: "Umrah Groups",
-                                desc: "Keep your entire group together in one comfortable vehicle.",
+                                title: "مجموعات العمرة",
+                                desc: "حافظ على مجموعتك بأكملها معًا في سيارة واحدة مريحة.",
                                 icon: Users
                             },
                             {
-                                title: "Corporate Travel",
-                                desc: "Professional transport for business delegations and staff transport.",
+                                title: "سفر الشركات",
+                                desc: "نقل احترافي لوفود الأعمال ونقل الموظفين.",
                                 icon: Briefcase
                             },
                             {
-                                title: "Sightseeing Tours",
-                                desc: "High windows and microphone system make it perfect for guided tours.",
+                                title: "جولات سياحية",
+                                desc: "نوافذ عالية ونظام ميكروفون يجعلها مثالية للجولات المصحوبة بمرشدين.",
                                 icon: MapPin
                             }
                         ].map((item, idx) => (
@@ -256,7 +243,7 @@ export default async function ToyotaCoasterPage() {
 
             <FleetCarouselWrapper />
 
-            <FAQSection items={coasterFAQs} title="Toyota Coaster Rental - Frequently Asked Questions" />
+            <FAQSection items={coasterFAQs} title="تأجير تويوتا كوستر - الأسئلة الشائعة" />
         </main>
     );
 }

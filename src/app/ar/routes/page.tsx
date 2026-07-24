@@ -8,6 +8,7 @@ import { ArrowRight, MapPin, Clock, ShieldCheck, Star, CheckCircle } from 'lucid
 import GlassCard from '@/components/ui/GlassCard';
 import FadeIn from '@/components/common/FadeIn';
 import dynamic from 'next/dynamic';
+import { SITE_URL } from '@/config/site';
 
 const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 
@@ -41,25 +42,25 @@ const jsonLd = {
             "@type": "ListItem",
             "position": 1,
             "name": "Jeddah Airport to Makkah",
-            "url": "https://alkiswahumrahtransport.com/services/jeddah-airport-transfer"
+            "url": `${SITE_URL}/services/jeddah-airport-transfer`
         },
         {
             "@type": "ListItem",
             "position": 2,
             "name": "Makkah to Madinah",
-            "url": "https://alkiswahumrahtransport.com/services/makkah-madinah-taxi"
+            "url": `${SITE_URL}/services/makkah-madinah-taxi`
         },
         {
             "@type": "ListItem",
             "position": 3,
             "name": "Madinah Airport Transfer",
-            "url": "https://alkiswahumrahtransport.com/services/madinah-airport-transfer"
+            "url": `${SITE_URL}/services/madinah-airport-transfer`
         },
         {
             "@type": "ListItem",
             "position": 4,
             "name": "Makkah to Jeddah Airport",
-            "url": "https://alkiswahumrahtransport.com/services/makkah-jeddah-taxi"
+            "url": `${SITE_URL}/services/makkah-jeddah-taxi`
         }
     ]
 };

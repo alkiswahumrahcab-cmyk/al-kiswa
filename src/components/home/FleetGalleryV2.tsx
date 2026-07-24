@@ -25,7 +25,7 @@ const FLEET_IMAGES = [
         badge: 'VIP Choice',
         capacity: '7 Pax',
         luggage: '5 Bags',
-        url: '/fleet/gmc-yukon-at4',
+        url: '/fleet/gmc-yukon-xl',
         rating: 5.0
     },
     {

@@ -10,6 +10,7 @@ import FadeIn from '@/components/common/FadeIn';
 import NusukTrustStrip from '@/components/trust/NusukTrustStrip';
 import CustomerGallery from '@/components/home/CustomerGallery';
 import { getSectionContent, getSectionImage, getCustomField } from '@/lib/content-service';
+import { SITE_URL } from '@/config/site';
 
 export async function generateMetadata() {
     return {
@@ -24,7 +25,7 @@ export async function generateMetadata() {
         openGraph: {
             title: "Premium Umrah Taxi Fleet 2026 | GMC, Toyota, Hyundai",
             description: "Browse our luxury fleet for Umrah transport. From GMC Yukon XL for VIPs to Toyota Coaster for groups. Book reliable transport in Makkah & Madinah.",
-            url: 'https://alkiswahumrahtransport.com/fleet',
+            url: `${SITE_URL}/fleet`,
             siteName: 'Al Kiswah Umrah Transport',
             images: [
                 {
@@ -49,13 +50,13 @@ const fleetJsonLd = {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Home",
-                    "item": "https://alkiswahumrahtransport.com"
+                    "item": `${SITE_URL}`
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Fleet",
-                    "item": "https://alkiswahumrahtransport.com/fleet"
+                    "item": `${SITE_URL}/fleet`
                 }
             ]
         },
@@ -66,31 +67,31 @@ const fleetJsonLd = {
                     "@type": "ListItem",
                     "position": 1,
                     "name": "GMC Yukon XL",
-                    "url": "https://alkiswahumrahtransport.com/fleet/gmc-yukon-at4"
+                    "url": `${SITE_URL}/fleet/gmc-yukon-xl`
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Toyota Hiace",
-                    "url": "https://alkiswahumrahtransport.com/fleet/toyota-hiace"
+                    "url": `${SITE_URL}/fleet/toyota-hiace`
                 },
                 {
                     "@type": "ListItem",
                     "position": 3,
                     "name": "Hyundai Staria",
-                    "url": "https://alkiswahumrahtransport.com/fleet/hyundai-staria"
+                    "url": `${SITE_URL}/fleet/hyundai-staria`
                 },
                 {
                     "@type": "ListItem",
                     "position": 4,
                     "name": "Toyota Coaster",
-                    "url": "https://alkiswahumrahtransport.com/fleet/toyota-coaster"
+                    "url": `${SITE_URL}/fleet/toyota-coaster`
                 },
                 {
                     "@type": "ListItem",
                     "position": 5,
                     "name": "Toyota Camry",
-                    "url": "https://alkiswahumrahtransport.com/fleet/toyota-camry"
+                    "url": `${SITE_URL}/fleet/toyota-camry`
                 }
             ]
         }

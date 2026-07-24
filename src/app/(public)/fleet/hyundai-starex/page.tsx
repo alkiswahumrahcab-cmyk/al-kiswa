@@ -10,12 +10,14 @@ import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
 
 import { vehicleService } from '@/services/vehicleService';
+import { getVehicle, formatSeats, formatLuggage } from '@/data/fleet';
+import { SITE_URL } from '@/config/site';
 
 const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.name || "Hyundai H1 Starex Van Transport",
-    "image": "https://alkiswahumrahtransport.com/images/fleet/starex-hero-professional.webp",
+    "image": `${SITE_URL}/images/fleet/starex-hero-professional.webp`,
     "description": `Book luxury ${vehicleData?.name || 'Hyundai H1 Starex'} in Makkah & Madinah. ${vehicleData?.passengers || 7} Seater SUV for VIP Umrah transport.`,
     "brand": { "@type": "Brand", "name": "Hyundai" },
     "offers": { 
@@ -72,6 +74,7 @@ export default async function HyundaiStarexPage() {
     // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
     const starexId = vehicleData?.id || '692db09834f15bc89b45a5fa';
     const starexImage = '/images/fleet/starex-hero-professional.webp';
+    const vehicle = getVehicle('hyundai-starex')!;
 
     const jsonLd = generateJsonLd(vehicleData);
 
@@ -82,7 +85,7 @@ export default async function HyundaiStarexPage() {
                 title="Hyundai H1 Starex | Best Family Van for Umrah"
                 subtitle="The practical choice for family travel between Jeddah, Makkah, and Madinah. Reliable, spacious, and perfect for groups."
                 bgImage={starexImage}
-                badge="Family Favorite"
+                badge={vehicle.categoryLabel}
                 ctaText="Book via WhatsApp"
                 ctaLink={whatsappLink}
                 layout="center"
@@ -102,7 +105,7 @@ export default async function HyundaiStarexPage() {
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                             />
                             <div className="absolute bottom-4 left-4 bg-gold text-ink px-4 py-1 rounded-full text-sm font-bold">
-                                Value Choice
+                                {vehicle.categoryLabel}
                             </div>
                         </div>
                         <div>
@@ -126,13 +129,13 @@ export default async function HyundaiStarexPage() {
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-ink">
-                                        <Users className="text-gold" size={20} /> 7 Passengers
+                                        <Users className="text-gold" size={20} /> {formatSeats(vehicle)}
                                     </div>
                                     <p className="text-sm text-ink-muted">Ample room for full families</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-ink">
-                                        <Briefcase className="text-gold" size={20} /> 6 Suitcases
+                                        <Briefcase className="text-gold" size={20} /> {formatLuggage(vehicle)}
                                     </div>
                                     <p className="text-sm text-ink-muted">Large rear cargo capacity</p>
                                 </div>

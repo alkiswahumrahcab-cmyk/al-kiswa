@@ -21,11 +21,12 @@ import BookingFormWrapper from '@/components/home/BookingFormWrapper';
 import RouteVisual from '@/components/services/RouteVisual';
 import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 import { getSettings } from '@/lib/settings-storage';
+import { getVehicle, formatSeats, formatLuggage } from '@/data/fleet';
 
 const makkahMadinahFAQs = [
     {
         question: "What is the price of a taxi from Makkah to Madinah?",
-        answer: "Our prices are fixed and strictly transparent with no hidden fees. A private 4-seater Sedan starts from SAR 400. If you need more space, our luxury 7-seater vehicles (GMC Yukon or Hyundai Staria) start from SAR 600. Prices may vary slightly during peak Ramadan or Hajj seasons."
+        answer: "Our prices are fixed and strictly transparent with no hidden fees. A private Sedan starts from SAR 400. If you need more space, our luxury premium vehicles (GMC Yukon or Hyundai Staria) start from SAR 600. Prices may vary slightly during peak Ramadan or Hajj seasons."
     },
     {
         question: "Which vehicle is best for a family or large group?",
@@ -65,11 +66,11 @@ export const metadata: Metadata = {
 };
 
 const vehicleOptions = [
-    { name: 'Standard Sedan', seats: '4', luggage: '2-3 Bags', bestFor: 'Couples', desc: 'Comfortable standard sedan ideal for individuals or couples.', image: null },
-    { name: 'GMC Yukon', seats: '7', luggage: '6 Bags', bestFor: 'Luxury', desc: 'Premium American SUV offering superior highway comfort and presence.', image: '/images/fleet/gmc/gmc-yukon-2026-exterior-front-view.jpeg' },
-    { name: 'Hyundai Staria', seats: '7', luggage: '7 Bags', bestFor: 'Families', desc: 'Premium comfort with ample legroom and panoramic windows.', image: '/images/fleet/staria/hyundai-staria-2026-exterior-front-view.jpeg' },
-    { name: 'Toyota HiAce', seats: '11', luggage: '10 Bags', bestFor: 'Extended families', desc: 'Spacious van ensuring everyone travels together with all luggage secured.', image: '/images/fleet/hiace/toyota-hiace-2026-exterior-front-view.jpeg' },
-    { name: 'Toyota Coaster', seats: '19', luggage: '15 Bags', bestFor: 'Large groups', desc: 'Mini-bus designed for group travel without compromising on air-conditioned comfort.', image: '/images/fleet/toyota-coaster-2025.webp' }
+    { name: 'Standard Sedan', seats: formatSeats(getVehicle('toyota-camry')!), luggage: formatLuggage(getVehicle('toyota-camry')!), bestFor: 'Couples', desc: 'Comfortable standard sedan ideal for individuals or couples.', image: null },
+    { name: 'GMC Yukon', seats: formatSeats(getVehicle('gmc-yukon-xl')!), luggage: formatLuggage(getVehicle('gmc-yukon-xl')!), bestFor: 'Luxury', desc: 'Premium American SUV offering superior highway comfort and presence.', image: '/images/fleet/gmc/gmc-yukon-2026-exterior-front-view.jpeg' },
+    { name: 'Hyundai Staria', seats: formatSeats(getVehicle('hyundai-staria')!), luggage: formatLuggage(getVehicle('hyundai-staria')!), bestFor: 'Families', desc: 'Premium comfort with ample legroom and panoramic windows.', image: '/images/fleet/staria/hyundai-staria-2026-exterior-front-view.jpeg' },
+    { name: 'Toyota HiAce', seats: formatSeats(getVehicle('toyota-hiace')!), luggage: formatLuggage(getVehicle('toyota-hiace')!), bestFor: 'Extended families', desc: 'Spacious van ensuring everyone travels together with all luggage secured.', image: '/images/fleet/hiace/toyota-hiace-2026-exterior-front-view.jpeg' },
+    { name: 'Toyota Coaster', seats: formatSeats(getVehicle('toyota-coaster')!), luggage: formatLuggage(getVehicle('toyota-coaster')!), bestFor: 'Large groups', desc: 'Mini-bus designed for group travel without compromising on air-conditioned comfort.', image: '/images/fleet/toyota-coaster-2025.webp' }
 ];
 
 export default async function MakkahMadinahTaxiPage() {
@@ -376,10 +377,10 @@ export default async function MakkahMadinahTaxiPage() {
                                 <thead>
                                     <tr className="bg-surface-alt border-b border-border">
                                         <th className="text-left p-5 text-ink font-bold uppercase tracking-wider min-w-[200px]">Route</th>
-                                        <th className="text-center p-5 text-ink font-bold tracking-wider">Sedan<br/><span className="text-xs text-muted font-light">(4 Seats)</span></th>
-                                        <th className="text-center p-5 text-ink font-bold tracking-wider">GMC Yukon<br/><span className="text-xs text-muted font-light">(7 Seats)</span></th>
-                                        <th className="text-center p-5 text-ink font-bold tracking-wider">Hyundai Staria<br/><span className="text-xs text-muted font-light">(7 Seats)</span></th>
-                                        <th className="text-center p-5 text-ink font-bold tracking-wider">Toyota HiAce<br/><span className="text-xs text-muted font-light">(11 Seats)</span></th>
+                                        <th className="text-center p-5 text-ink font-bold tracking-wider">{getVehicle('toyota-camry')!.name}<br/><span className="text-xs text-muted font-light">({formatSeats(getVehicle('toyota-camry')!)})</span></th>
+                                        <th className="text-center p-5 text-ink font-bold tracking-wider">{getVehicle('gmc-yukon-xl')!.name}<br/><span className="text-xs text-muted font-light">({formatSeats(getVehicle('gmc-yukon-xl')!)})</span></th>
+                                        <th className="text-center p-5 text-ink font-bold tracking-wider">{getVehicle('hyundai-staria')!.name}<br/><span className="text-xs text-muted font-light">({formatSeats(getVehicle('hyundai-staria')!)})</span></th>
+                                        <th className="text-center p-5 text-ink font-bold tracking-wider">{getVehicle('toyota-hiace')!.name}<br/><span className="text-xs text-muted font-light">({formatSeats(getVehicle('toyota-hiace')!)})</span></th>
                                     </tr>
                                 </thead>
                                 <tbody className="divide-y divide-border">
@@ -452,7 +453,7 @@ export default async function MakkahMadinahTaxiPage() {
                                             <div className="w-8 h-8 rounded-full bg-surface-alt flex items-center justify-center text-ink border border-border">
                                                 <Users size={16} />
                                             </div>
-                                            <span className="text-[15px] font-medium">{vehicle.seats} Seats</span>
+                                            <span className="text-[15px] font-medium">{vehicle.seats}</span>
                                         </div>
                                         <div className="flex items-center gap-2 text-body">
                                             <div className="w-8 h-8 rounded-full bg-surface-alt flex items-center justify-center text-ink border border-border">

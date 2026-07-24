@@ -6,9 +6,9 @@ import { ArrowRight, Shield, Star, Users, Fuel, Phone, MessageCircle, CheckCircl
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
-import { vehicleService } from '@/services/vehicleService';
 import HiaceGallery from './HiaceGallery';
 import HiaceHero from './HiaceHero';
+import { getVehicle, formatSeats, formatLuggage } from '@/data/fleet';
 
 const HERO_IMAGE = '/images/fleet/hiace/toyota-hiace-2026-lifestyle-cinematic-abha.jpeg';
 
@@ -138,10 +138,9 @@ export default async function ToyotaHiacePage() {
     const phoneNumber = settings.contact.phone;
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I'm%20interested%20in%20booking%20a%20Toyota%20Hiace%20for%20group%20transport`;
 
-    const vehicles = await vehicleService.getActiveVehicles();
-    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('hiace'));
-    const hiaceId = vehicleData?.id || '692db09834f15bc89b45a5fb';
-    const jsonLd = generateJsonLd(vehicleData);
+
+    const vehicle = getVehicle('toyota-hiace')!;
+    const jsonLd = generateJsonLd(vehicle);
 
     return (
         <main className="overflow-x-hidden bg-surface">
@@ -210,7 +209,7 @@ export default async function ToyotaHiacePage() {
                             <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
                             <div className="absolute bottom-6 left-6 right-6">
                                 <div className="grid grid-cols-3 gap-3">
-                                    {[['2.8L', 'Turbo Diesel'], ['174hp', 'Peak Power'], ['10-12', 'Passengers']].map(([val, lbl]) => (
+                                    {[['2.8L', 'Turbo Diesel'], ['174hp', 'Peak Power'], [formatSeats(vehicle), 'Capacity']].map(([val, lbl]) => (
                                         <div key={lbl} className="bg-ink/60 backdrop-blur-sm border border-gold/30 rounded-xl p-3 text-center">
                                             <p className="text-gold font-bold text-xl">{val}</p>
                                             <p className="text-white/80 text-xs">{lbl}</p>
@@ -317,7 +316,7 @@ export default async function ToyotaHiacePage() {
                         </a>
                     </div>
                     <div className="flex flex-wrap justify-center gap-8 mt-12">
-                        {[['10–12', 'Passengers'], ['29+', 'Abha Photos'], ['4.8★', 'Rating'], ['350+', 'Bookings']].map(([val, lbl]) => (
+                        {[[formatSeats(vehicle), 'Capacity'], ['29+', 'Abha Photos'], ['4.8★', 'Rating'], ['350+', 'Bookings']].map(([val, lbl]) => (
                             <div key={lbl} className="text-center">
                                 <p className="text-gold font-bold text-3xl">{val}</p>
                                 <p className="text-white/70 text-sm">{lbl}</p>

@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -10,9 +10,10 @@ import FleetCarouselWrapper from '@/components/home/FleetCarouselWrapper';
 import FleetFeatureImage from '@/components/fleet/FleetFeatureImage';
 import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
 
-import { vehicleService } from '@/services/vehicleService';
+import { getVehicle, formatSeatsAr, formatLuggageAr } from '@/data/fleet';
+import { SITE_URL } from '@/config/site';
 
-const generateJsonLd = (vehicleData: any) => ({
+const generateJsonLd = (vehicle: any) => ({
     "@context": "https://schema.org",
     "@graph": [
         {
@@ -22,35 +23,35 @@ const generateJsonLd = (vehicleData: any) => ({
                     "@type": "ListItem",
                     "position": 1,
                     "name": "Home",
-                    "item": "https://alkiswahumrahtransport.com"
+                    "item": `${SITE_URL}`
                 },
                 {
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Fleet",
-                    "item": "https://alkiswahumrahtransport.com/fleet"
+                    "item": `${SITE_URL}/fleet`
                 },
                 {
                     "@type": "ListItem",
                     "position": 3,
                     "name": "Toyota Camry",
-                    "item": "https://alkiswahumrahtransport.com/fleet/toyota-camry"
+                    "item": `${SITE_URL}/fleet/toyota-camry`
                 }
             ]
         },
         {
             "@type": "Product",
-            "name": vehicleData?.name || "Toyota Camry 2024 Taxi Makkah",
-            "image": "https://alkiswahumrahtransport.com/images/fleet/camry-hero-professional.webp",
-            "description": `Affordable ${vehicleData?.name || 'Toyota Camry'} taxi for Umrah. Reliable ${vehicleData?.passengers || 4}-seater sedan for Jeddah to Makkah transfers.`,
+            "name": vehicle.name,
+            "image": `${SITE_URL}/images/fleet/camry-hero-professional.webp`,
+            "description": `تاكسي ${vehicle.name} بأسعار معقولة للعمرة. سيارة سيدان مريحة تتسع لـ ${vehicle.seats} ركاب للتنقل من جدة إلى مكة.`,
             "brand": { "@type": "Brand", "name": "Toyota" },
             "offers": {
                 "@type": "Offer",
-                "price": vehicleData?.basePrice?.toString() || "200",
+                "price": "200",
                 "priceCurrency": "SAR",
                 "availability": "https://schema.org/InStock",
                 "priceValidUntil": '2026-12-31',
-                "url": "https://alkiswahumrahtransport.com/fleet/toyota-camry"
+                "url": `${SITE_URL}/fleet/toyota-camry`
             },
             "aggregateRating": {
                 "@type": "AggregateRating",
@@ -71,20 +72,18 @@ const generateJsonLd = (vehicleData: any) => ({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-    const vehicles = await vehicleService.getActiveVehicles();
-    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('camry'));
+    const vehicle = getVehicle('toyota-camry')!;
 
     return {
-        title: vehicleData ? `${vehicleData.name} Taxi Makkah | Umrah Cab Sedan` : "Toyota Camry 2024 Taxi Makkah",
-        description: vehicleData ? `Affordable ${vehicleData.name} taxi for Umrah. Reliable ${vehicleData.passengers}-seater sedan. Base Route: ${vehicleData.basePrice} SAR.` : "Affordable Toyota Camry taxi for Umrah. Reliable 4-seater sedan for Jeddah to Makkah transfers.",
+        title: `${vehicle.name} تاكسي مكة | سيارة سيدان للعمرة`,
+        description: `تاكسي ${vehicle.name} بأسعار معقولة للعمرة. سيارة سيدان موثوقة تتسع لـ ${vehicle.seats} ركاب.`,
         keywords: [
-            "Toyota Camry Umrah Taxi",
-            "Makkah Taxi Service",
-            "Jeddah to Makkah Cab",
-            "Affordable Umrah Transport",
-            "4 Seater Sedan Jeddah",
-            "تاكسي مكة كامري",
-            "توصيل المطار جدة"
+            "تاكسي كامري مكة",
+            "خدمة تاكسي مكة",
+            "سيارة من جدة الى مكة",
+            "تاكسي عمرة رخيص",
+            "توصيل المطار جدة",
+            "تاكسي مكة كامري"
         ],
         alternates: {
     ...generateMetadataAlternates("/fleet/toyota-camry"),
@@ -95,16 +94,16 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const camryFAQs = [
     {
-        question: "How many passengers fits in Toyota Camry?",
-        answer: "The Toyota Camry comfortably seats up to 4 passengers, making it ideal for solo travelers, couples, or small families."
+        question: "كم عدد الركاب الذين تتسع لهم تويوتا كامري؟",
+        answer: "تتسع كامري براحة تامة حتى 4 ركاب، مما يجعلها مثالية للمسافرين الأفراد، والأزواج، والعائلات الصغيرة."
     },
     {
-        question: "Is there enough space for luggage in a Camry?",
-        answer: "Yes, the Camry has a spacious trunk that can accommodate 2 large suitcases or 3-4 medium ones. If you have more luggage, we recommend our SUV or Van options."
+        question: "هل يوجد مساحة كافية للأمتعة في كامري؟",
+        answer: "نعم، تحتوي الكامري على صندوق واسع يستوعب حقيبتين كبيرتين أو 3-4 حقائب متوسطة. إذا كان لديك المزيد من الأمتعة، نوصي بخيارات SUV أو الفان."
     },
     {
-        question: "Do you provide child seats in Camry?",
-        answer: "Yes, we can provide child seats upon request for a small additional fee. Please mention this in the booking notes."
+        question: "هل توفرون مقاعد أطفال في الكامري؟",
+        answer: "نعم، يمكننا توفير مقاعد للأطفال عند الطلب مقابل رسوم إضافية رمزية. يرجى ذكر ذلك في ملاحظات الحجز."
     },
 ];
 
@@ -113,14 +112,13 @@ export default async function ToyotaCamryPage() {
     const phoneNumber = settings.contact.phone;
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=I%20am%20interested%20in%20booking%20Toyota%20Camry%20for%20Umrah`;
 
-    const vehicles = await vehicleService.getActiveVehicles();
-    const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('camry'));
+    const vehicle = getVehicle('toyota-camry')!;
 
     // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
-    const camryId = vehicleData?.id || '692db09834f15bc89b45a5f6';
+    
     const camryImage = '/images/fleet/camry-hero-professional.webp';
 
-    const jsonLd = generateJsonLd(vehicleData);
+    const jsonLd = generateJsonLd(vehicle);
 
     return (
         <main className="overflow-x-hidden">
@@ -129,8 +127,8 @@ export default async function ToyotaCamryPage() {
                 title="Toyota Camry 2024 | Reliable Umrah Taxi Makkah"
                 subtitle="The gold standard for private transfers. Affordable, comfortable, and efficient travel between Jeddah, Makkah, and Madinah."
                 bgImage={camryImage}
-                badge="Most Popular"
-                ctaText="Book via WhatsApp"
+                badge="الأكثر شعبية"
+                ctaText="احجز عبر واتساب"
                 ctaLink={whatsappLink}
                 layout="center"
                 breadcrumbs={<Breadcrumbs />}
@@ -150,48 +148,47 @@ export default async function ToyotaCamryPage() {
                                 className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
                             />
                             <div className="absolute bottom-4 left-4 bg-amber-500 text-white px-4 py-1 rounded-full text-sm font-bold">
-                                2024 Model
+                                موديل حديث
                             </div>
                         </div>
                         <div>
                             <h2 className="text-3xl font-bold mb-6 font-playfair text-n-800 dark:text-n-100">
-                                Reliable Toyota Camry for Umrah Travel
+                                تويوتا كامري موثوقة لرحلات العمرة
                             </h2>
                             <p className="text-n-600 dark:text-n-300 mb-8 leading-relaxed">
-                                Our Toyota Camry fleet offers the smoothest ride for your Umrah journey. Ideal for small families or couples traveling from Jeddah Airport
-                                to Makkah, ensuring a peaceful and efficient trip to the Holy Cities.
+                                يوفر أسطول سيارات تويوتا كامري لدينا أسهل وأكثر الرحلات سلاسة لرحلة العمرة الخاصة بك. مثالية للعائلات الصغيرة أو الأزواج الذين يسافرون من مطار جدة إلى مكة، مما يضمن رحلة هادئة وفعالة إلى المدن المقدسة.
                             </p>
 
                             <div className="grid grid-cols-2 gap-6">
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
-                                        <Users className="text-amber-500" size={20} /> 4 Passengers
+                                        <Users className="text-amber-500" size={20} /> {formatSeatsAr(vehicle)}
                                     </div>
-                                    <p className="text-sm text-n-500">Perfect for couples & small families</p>
+                                    <p className="text-sm text-n-500">مثالية للأزواج والعائلات الصغيرة</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
-                                        <Briefcase className="text-amber-500" size={20} /> 2-3 Suitcases
+                                        <Briefcase className="text-amber-500" size={20} /> {formatLuggageAr(vehicle)}
                                     </div>
-                                    <p className="text-sm text-n-500">Ample trunk space for pilgrims</p>
+                                    <p className="text-sm text-n-500">مساحة واسعة للأمتعة</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
-                                        <Wifi className="text-amber-500" size={20} /> Modern Tech
+                                        <Wifi className="text-amber-500" size={20} /> تقنيات حديثة
                                     </div>
-                                    <p className="text-sm text-n-500">Bluetooth & Charging ports</p>
+                                    <p className="text-sm text-n-500">بلوتوث ومنافذ شحن</p>
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <div className="flex items-center gap-2 font-bold text-n-800 dark:text-white">
-                                        <Fuel className="text-amber-500" size={20} /> Fuel Efficient
+                                        <Fuel className="text-amber-500" size={20} /> اقتصادية في استهلاك الوقود
                                     </div>
-                                    <p className="text-sm text-n-500">Eco-friendly & powerful</p>
+                                    <p className="text-sm text-n-500">صديقة للبيئة وقوية</p>
                                 </div>
                             </div>
 
                             <div className="mt-10">
                                 <Link href="/ar/booking" className="inline-flex items-center gap-2 bg-n-900 text-white hover:bg-n-800 dark:bg-white dark:text-n-900 px-8 py-3 rounded-btn font-bold transition-all shadow-lg hover:shadow-amber-500/20">
-                                    Book Toyota Camry <ArrowRight size={20} />
+                                    احجز تويوتا كامري <ArrowRight size={20} />
                                 </Link>
                             </div>
                         </div>
@@ -202,27 +199,27 @@ export default async function ToyotaCamryPage() {
             {/* Detailed Specifications */}
             <section className="py-12 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-n-900 dark:text-white">Technical Specifications</h2>
+                    <h2 className="text-3xl font-bold text-center mb-10 font-playfair text-n-900 dark:text-white">المواصفات الفنية</h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
-                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Engine & Power</h3>
-                            <p className="font-bold text-xl text-n-900 dark:text-white">2.5L Hybrid</p>
-                            <p className="text-sm text-n-400">208 Net Horsepower</p>
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">المحرك والقوة</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">سعة 2.5 لتر</p>
+                            <p className="text-sm text-n-400">قوة 208 حصان</p>
                         </div>
                         <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
-                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Comfort Control</h3>
-                            <p className="font-bold text-xl text-n-900 dark:text-white">Dual-Zone Auto</p>
-                            <p className="text-sm text-n-400">Rear Seat Vents</p>
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">التحكم في المناخ</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">تكييف ثنائي المناطق</p>
+                            <p className="text-sm text-n-400">فتحات تهوية خلفية</p>
                         </div>
                         <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
-                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Luggage Capacity</h3>
-                            <p className="font-bold text-xl text-n-900 dark:text-white">15.1 Cubic Ft</p>
-                            <p className="text-sm text-n-400">2-3 Large Suitcases</p>
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">سعة الأمتعة</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">{formatLuggageAr(vehicle)}</p>
+                            <p className="text-sm text-n-400">مساحة كافية لحقائبك</p>
                         </div>
                         <div className="bg-white dark:bg-n-900 p-6 rounded-xl shadow-sm border border-n-100 dark:border-n-800">
-                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">Cabin Peace</h3>
-                            <p className="font-bold text-xl text-n-900 dark:text-white">Quiet Tuning</p>
-                            <p className="text-sm text-n-400">Sound-dampening Glass</p>
+                            <h3 className="font-bold text-n-500 uppercase text-xs tracking-wider mb-2">هدوء المقصورة</h3>
+                            <p className="font-bold text-xl text-n-900 dark:text-white">عزل صوتي</p>
+                            <p className="text-sm text-n-400">زجاج مخفف للضوضاء</p>
                         </div>
                     </div>
                 </div>
@@ -232,38 +229,38 @@ export default async function ToyotaCamryPage() {
             <section className="py-16 bg-n-900 text-white overflow-hidden relative">
                 <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
                 <div className="container mx-auto px-4 text-center relative z-10">
-                    <span className="text-amber-500 font-bold tracking-widest uppercase text-sm mb-4 block">Premium Economy</span>
-                    <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">Step Inside</h2>
+                    <span className="text-amber-500 font-bold tracking-widest uppercase text-sm mb-4 block">درجة اقتصادية ممتازة</span>
+                    <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-8">اكتشف المقصورة</h2>
 
                     <div className="max-w-6xl mx-auto">
                         <Interior360Viewer
                             imageUrl="/images/fleet/camry-interior-360.webp"
-                            title="Toyota Camry 2024 Interior"
+                            title="مقصورة تويوتا كامري"
                         />
                     </div>
-                    <p className="text-n-400 mt-6 text-sm">Interactive 360° Interior View not available on mobile devices in low-data mode.</p>
+                    <p className="text-n-400 mt-6 text-sm">العرض التفاعلي 360 درجة غير متوفر على الأجهزة المحمولة في وضع توفير البيانات.</p>
                 </div>
             </section>
 
             {/* Use Cases */}
             <section className="py-16 bg-n-50 dark:bg-n-950">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl font-bold text-center mb-12 font-playfair">Perfect For Every Journey</h2>
+                    <h2 className="text-3xl font-bold text-center mb-12 font-playfair">مثالية لكل رحلة</h2>
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
                             {
-                                title: "Airport Transfers",
-                                desc: "Swift and comfortable travel from Jeddah Airport to your hotel in Makkah or Madinah.",
+                                title: "نقل المطار",
+                                desc: "سفر سريع ومريح من مطار جدة إلى فندقك في مكة أو المدينة.",
                                 icon: Star
                             },
                             {
-                                title: "Inter-City Travel",
-                                desc: "Relaxing 4-hour transfers between Makkah and Madinah with our experienced drivers.",
+                                title: "السفر بين المدن",
+                                desc: "تنقلات مريحة لمدة 4 ساعات بين مكة والمدينة مع سائقينا ذوي الخبرة.",
                                 icon: Shield
                             },
                             {
-                                title: "Makkah Ziyarat",
-                                desc: "Visit the holy sites of Makkah (Jabal al-Nour, Arafat, etc.) at your own pace.",
+                                title: "مزارات مكة",
+                                desc: "زيارة الأماكن المقدسة في مكة (جبل النور، عرفات، وغيرها) براحتك.",
                                 icon: Star
                             }
                         ].map((item, idx) => (
@@ -279,7 +276,7 @@ export default async function ToyotaCamryPage() {
 
             <FleetCarouselWrapper />
 
-            <FAQSection items={camryFAQs} title="Toyota Camry Umrah - Frequently Asked Questions" />
+            <FAQSection items={camryFAQs} title="تويوتا كامري للعمرة - الأسئلة الشائعة" />
         </main>
     );
 }

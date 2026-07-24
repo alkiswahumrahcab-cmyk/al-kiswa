@@ -10,6 +10,7 @@ import StariaAnimations from './StariaAnimations'; // We will create this client
 import StariaGallery from './StariaGallery';
 import SeasonalPricingNote from '@/components/common/SeasonalPricingNote';
 import TrackEvent from '@/components/analytics/TrackEvent';
+import { getVehicle, formatSeats, formatLuggage } from '@/data/fleet';
 
 const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
@@ -148,6 +149,7 @@ export default async function HyundaiStariaPage() {
 
     const vehicles = await vehicleService.getActiveVehicles();
     const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('staria'));
+    const vehicle = getVehicle('hyundai-staria')!;
     const jsonLd = generateJsonLd(vehicleData);
 
     return (
@@ -176,7 +178,7 @@ export default async function HyundaiStariaPage() {
                 <div className="relative z-10 container mx-auto px-4 text-center mt-20">
                     <StariaAnimations type="fade-up">
                         <span className="inline-block py-1 px-3 rounded-full bg-gold/90 text-charcoal text-sm font-bold tracking-widest uppercase mb-6 backdrop-blur-md border border-gold-light/50">
-                            The Future of Mobility
+                            {vehicle.categoryLabel}
                         </span>
                         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 font-playfair tracking-tight leading-tight">
                             Hyundai Staria <br/>
@@ -332,7 +334,7 @@ export default async function HyundaiStariaPage() {
                             { icon: Star, title: "Ultimate Comfort", desc: "Ventilated and heated seats, multi-zone climate control, and supreme suspension." },
                             { icon: Video, title: "Advanced Tech", desc: "10.25-inch digital cluster, premium infotainment, and surround-view cameras." },
                             { icon: Gauge, title: "Performance", desc: "Powerful 3.5L V6 engine delivering smooth acceleration and optimal fuel efficiency." },
-                            { icon: Briefcase, title: "Massive Space", desc: "Flexible seating configurations allowing up to 9 passengers and extensive luggage." },
+                            { icon: Briefcase, title: "Massive Space", desc: `Flexible seating configurations allowing up to ${formatSeats(vehicle)} and ${formatLuggage(vehicle)}.` },
                             { icon: Wifi, title: "Smart Connectivity", desc: "Wireless charging, multiple USB ports, and seamless smartphone integration." }
                         ].map((feature, idx) => (
                             <StariaAnimations key={idx} type="slide-up" delay={idx * 0.1}>
@@ -478,7 +480,7 @@ export default async function HyundaiStariaPage() {
                         <span className="text-ink-muted">•</span>
                         <Link href="/services/jeddah-airport-transfer" className="text-gold-strong hover:underline">Jeddah Airport Taxi</Link>
                         <span className="text-ink-muted">•</span>
-                        <Link href="/fleet/gmc-yukon-at4" className="text-gold-strong hover:underline">GMC Yukon Fleet</Link>
+                        <Link href="/fleet/gmc-yukon-xl" className="text-gold-strong hover:underline">GMC Yukon Fleet</Link>
                         <span className="text-ink-muted">•</span>
                         <Link href="/contact" className="text-gold-strong hover:underline">Contact Support</Link>
                     </div>

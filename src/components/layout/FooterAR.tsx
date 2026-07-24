@@ -134,7 +134,7 @@ export default function FooterAR() {
                             <li><Link003 href="/ar/services/airport-transfers" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">نقل المطارات</Link003></li>
                             <li><Link003 href="/ar/services/hotel-transfers" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">نقل الفنادق</Link003></li>
                             <li><Link003 href="/ar/services/intercity-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">النقل بين المدن</Link003></li>
-                            <li><Link003 href="/ar/fleet/gmc-yukon-at4" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">جي إم سي يوكن XL — سيارة كبار الشخصيات</Link003></li>
+                            <li><Link003 href="/ar/fleet/gmc-yukon-xl" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">جي إم سي يوكن XL — سيارة كبار الشخصيات</Link003></li>
                             <li><Link003 href="/ar/fleet/hyundai-staria" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">هيونداي ستاريا — سيارة عائلية</Link003></li>
                             <li><Link003 href="/ar/fleet/toyota-hiace" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">تويوتا هايس — حافلة جماعية</Link003></li>
                             <li><Link003 href="/ar/pricing" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">الأسعار والتسعيرة</Link003></li>

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Shield, ArrowRight, CheckCircle, Clock, Award, Check, Calendar, Car, CarFront, Users, BadgeCheck, Star, ChevronDown, MapPin, Building2 } from 'lucide-react';
 import FadeIn from '@/components/common/FadeIn';
 import ReviewsSection from '@/components/reviews/ReviewsSection';
+import { FLEET, formatSeats, formatLuggage } from '@/data/fleet';
 
 export async function generateMetadata(): Promise<Metadata> {
     return {
@@ -308,15 +309,6 @@ function HowItWorksSection() {
 }
 
 function FleetSection() {
-    const fleet = [
-        { class: "Standard VIP", name: "Toyota Camry", pax: "4", lug: "3", img: "/images/fleet/camry-2025.png" },
-        { class: "Luxury SUV", name: "GMC Yukon XL", pax: "7", lug: "6", img: "/images/fleet/gmc-yukon-2025.png" },
-        { class: "Family Premium", name: "Hyundai Staria", pax: "7", lug: "6", img: "/images/fleet/hyundai-staria-2025.png" },
-        { class: "Family Standard", name: "Hyundai Starex", pax: "7", lug: "6", img: "/images/fleet/hyundai-h1.webp" },
-        { class: "Group VIP", name: "Toyota HiAce", pax: "11", lug: "10", img: "/images/fleet/toyota-hiace-2025.png" },
-        { class: "Large Group", name: "Toyota Coaster", pax: "19", lug: "15", img: "/images/fleet/toyota-coaster-2025.png" }
-    ];
-
     return (
         <section className="py-[clamp(64px,8vw,128px)] bg-surface-warm border-y border-hairline">
             <div className="container">
@@ -332,13 +324,13 @@ function FleetSection() {
                 </FadeIn>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                    {fleet.map((v, idx) => (
-                        <FadeIn key={idx} delay={idx * 0.1}>
+                    {FLEET.filter(v => v.bookable).map((v, idx) => (
+                        <FadeIn key={v.id} delay={idx * 0.1}>
                             <div className="h-full bg-surface p-6 rounded-[16px] border border-hairline shadow-[0_1px_2px_rgba(21,20,15,0.04),0_8px_24px_rgba(21,20,15,0.06)] flex flex-col">
                                 <div className="mb-4 flex justify-between items-start">
                                     <div>
                                         <span className="inline-block bg-gold-tint text-charcoal text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2">
-                                            {v.class}
+                                            {v.categoryLabel}
                                         </span>
                                         <h3 className="text-[20px] lg:text-[22px] font-semibold text-charcoal font-display">{v.name}</h3>
                                     </div>
@@ -348,21 +340,21 @@ function FleetSection() {
                                     </div>
                                 </div>
                                 <div className="relative w-full aspect-[4/3] mb-6 rounded-lg overflow-hidden bg-ivory flex items-center justify-center p-4">
-                                    <Image src={v.img} alt={v.name} fill className="object-contain z-10" />
+                                    <Image src={v.image.card} alt={v.image.alt} fill className="object-contain z-10" />
                                 </div>
                                 <div className="space-y-3 mt-auto pt-4 border-t border-hairline">
                                     <div className="flex justify-between">
                                         <div className="flex items-center gap-2 text-charcoal-soft text-sm">
                                             <Users size={16} className="text-gold-deep" />
-                                            <span>{v.pax} Passengers</span>
+                                            <span>{formatSeats(v)}</span>
                                         </div>
                                         <div className="flex items-center gap-2 text-charcoal-soft text-sm">
                                             <BadgeCheck size={16} className="text-gold-deep" />
-                                            <span>{v.lug} Bags</span>
+                                            <span>{formatLuggage(v)}</span>
                                         </div>
                                     </div>
-                                    <Link href="/booking" className="mt-4 flex items-center justify-center w-full bg-surface hover:bg-gold-tint border border-hairline text-charcoal font-semibold px-4 py-3 rounded-lg transition-colors">
-                                        Book Vehicle
+                                    <Link href={`/fleet/${v.slug}`} className="mt-4 flex items-center justify-center w-full bg-surface hover:bg-gold-tint border border-hairline text-charcoal font-semibold px-4 py-3 rounded-lg transition-colors">
+                                        View Details
                                     </Link>
                                 </div>
                             </div>

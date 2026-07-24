@@ -42,7 +42,7 @@ export default function HiaceHero({ whatsappLink, phoneNumber }: Props) {
                     transition={{ delay: 0.3 }}
                     className="text-gold font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-4"
                 >
-                    Toyota Hiace 2026
+                    Toyota Hiace
                 </motion.p>
 
                 <motion.h1

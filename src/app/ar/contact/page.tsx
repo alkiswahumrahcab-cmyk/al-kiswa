@@ -43,7 +43,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ArabicContactPage() {
     const settings = await getSettings();
     const phone1 = settings?.contact.phone || '+966 54 870 7332';
-    const email = settings?.contact.email || 'info@alkiswahumrahtransport.com';
+    const email = settings?.contact.email || 'info@kiswahumrahcab.com';
     const address = settings?.contact.address || 'العزيزية، مكة المكرمة، المملكة العربية السعودية';
 
     return (

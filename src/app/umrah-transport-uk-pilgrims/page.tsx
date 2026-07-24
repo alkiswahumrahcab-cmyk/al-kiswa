@@ -328,7 +328,7 @@ export default function UKPilgrimsPage() {
           <h2 className="text-xl font-bold mb-6 text-white">Explore Our Services & Fleet</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              { href: "/fleet/gmc-yukon-at4", label: "GMC Yukon AT4", desc: "Luxury 7-seat SUV for VIP pilgrims" },
+              { href: "/fleet/gmc-yukon-xl", label: "GMC Yukon AT4", desc: "Luxury 7-seat SUV for VIP pilgrims" },
               { href: "/fleet/hyundai-staria", label: "Hyundai Staria", desc: "11-seat family van — most popular" },
               { href: "/fleet/toyota-hiace", label: "Toyota Hiace", desc: "10-seat minivan for large groups" },
               { href: "/services/jeddah-airport-transfer", label: "Jeddah Airport Transfer", desc: "KAIA arrivals & departures" },

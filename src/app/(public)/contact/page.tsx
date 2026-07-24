@@ -42,7 +42,7 @@ export default async function ContactPage() {
 
     // Fallback values
     const phone1 = settings?.contact.phone || '+966 54 870 7332';
-    const email = settings?.contact.email || 'info@alkiswahumrahtransport.com';
+    const email = settings?.contact.email || 'info@kiswahumrahcab.com';
     const address = settings?.contact.address || 'Al Aziziyah, Makkah, Saudi Arabia';
 
     return (

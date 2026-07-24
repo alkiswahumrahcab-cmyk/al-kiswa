@@ -56,7 +56,7 @@ const ramadanPackages = [
             "Guaranteed Availability",
             "Taraweeh Pickup/Drop Service",
             <span key="exp"><strong><Link href="/ar/services/makkah-madinah-taxi" className="hover:text-gold transition-colors">Makkah ➔ Madinah Express</Link></strong></span>,
-            <span key="vip">VIP <strong><Link href="/ar/fleet/gmc-yukon-at4" className="hover:text-gold transition-colors">GMC</Link></strong> / <strong><Link href="/ar/fleet/hyundai-staria" className="hover:text-gold transition-colors">Staria</Link></strong> Options</span>
+            <span key="vip">VIP <strong><Link href="/ar/fleet/gmc-yukon-xl" className="hover:text-gold transition-colors">GMC</Link></strong> / <strong><Link href="/ar/fleet/hyundai-staria" className="hover:text-gold transition-colors">Staria</Link></strong> Options</span>
         ],
         highlight: true,
         icon: <Star size={32} />

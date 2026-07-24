@@ -12,6 +12,7 @@ import { LocationGrid } from '@/components/ziyarat/LocationGrid';
 import { PackagePricingTable } from '@/components/ziyarat/PackagePricingTable';
 import { makkahSites, madinahSites, jeddahSites, taifSites } from '@/data/ziyarat-locations';
 import { tourPackages } from '@/data/ziyarat-packages';
+import { FLEET, getVehicle, formatSeats, formatLuggage } from '@/data/fleet';
 
 export const metadata: Metadata = {
     title: "Private Ziyarat Tours Makkah Madinah Jeddah Taif 2026 | Al Kiswah",
@@ -37,7 +38,7 @@ const ziyaratFAQs = [
     { question: "Can you arrange a Jeddah city tour?", answer: "Absolutely. We offer tours of Jeddah's top attractions including the Corniche, King Fahd Fountain, Al Balad UNESCO district, the Floating Mosque (Masjid Al-Rahma), and Fakieh Aquarium. Tours take 4–5 hours." },
     { question: "Do the drivers speak English, Urdu, or Arabic?", answer: "Yes, our drivers are multilingual and speak English, Arabic, and Urdu. They are selected for their language skills and deep knowledge of the historical and religious significance of each site." },
     { question: "Can we customize which places we visit?", answer: "Every tour is fully private. You choose which sites to visit, how long to stay at each, and the order of stops. Discuss your preferred itinerary on WhatsApp before booking." },
-    { question: "What vehicles are available for Ziyarat tours?", answer: "Toyota Camry sedans (4 pax), GMC Yukon AT4 SUVs (7 pax), Hyundai Staria/H1 vans (7 pax), Toyota Hiace (11 pax), and Toyota Coaster buses (19 pax)." },
+    { question: "What vehicles are available for Ziyarat tours?", answer: FLEET.filter(v => v.bookable).map(v => `${v.name} (${formatSeats(v)})`).join(', ') + '.' },
     { question: "Is the tour suitable for elderly or families with children?", answer: "Yes. All vehicles are air-conditioned. Drivers drop elderly passengers at the closest accessible point. Child seats are available free of charge. Sites like Jabal Al-Nour require climbing but can be viewed from base." },
     { question: "Do you offer tours during Hajj and Ramadan?", answer: "Yes, year-round including Hajj and Ramadan. Availability is limited during peak periods — book at least 48 hours in advance." },
     { question: "What is included in the tour price?", answer: "All prices are per vehicle and include fuel, tolls, parking, and unlimited waiting time at each site. No hidden charges. Hotel pickup and drop-off included." },
@@ -326,7 +327,7 @@ export default async function ZiyaratToursPage() {
                                 <p>In Madinah, our tour covers 14 sites including <strong className="text-ink font-semibold">Masjid Quba</strong> (praying here equals an Umrah), <strong className="text-ink font-semibold">Mount Uhud</strong> and the Martyrs&apos; Cemetery, the <strong className="text-ink font-semibold">Seven Mosques</strong> at the Khandaq battle site, <strong className="text-ink font-semibold">Jannat Al-Baqi</strong> (10,000+ companions buried), and the companion mosques of Abu Bakr, Umar, Ali, and Salman Al-Farsi. For history enthusiasts, we offer an optional extended trip to the <strong className="text-ink font-semibold">Badr battlefield</strong> (130 km) — site of Islam&apos;s first decisive victory.</p>
 
                                 <h3 className="text-2xl font-semibold text-ink mt-10 mb-4 font-display">Jeddah &amp; Taif: Beyond the Holy Cities</h3>
-                                <p>Jeddah offers the <strong className="text-ink font-semibold">UNESCO Al Balad district</strong>, the iconic <strong className="text-ink font-semibold">Floating Mosque</strong>, and the world&apos;s tallest <strong className="text-ink font-semibold">King Fahd Fountain</strong>. For a cooler escape, our <strong className="text-ink font-semibold">Taif day trip</strong> (from SAR 400) includes the Al Hada cable car, famous rose gardens, and mountain souqs — perfect for families. All tours use your choice of vehicle: <Link href="/fleet/toyota-camry" className="text-gold hover:text-ink font-medium underline underline-offset-4 decoration-gold/30">Toyota Camry</Link>, <Link href="/fleet/gmc-yukon-at4" className="text-gold hover:text-ink font-medium underline underline-offset-4 decoration-gold/30">GMC Yukon</Link>, <Link href="/fleet/hyundai-staria" className="text-gold hover:text-ink font-medium underline underline-offset-4 decoration-gold/30">Hyundai Staria</Link>, or <Link href="/fleet/toyota-hiace" className="text-gold hover:text-ink font-medium underline underline-offset-4 decoration-gold/30">Toyota Hiace bus</Link>.</p>
+                                <p>Jeddah offers the <strong className="text-ink font-semibold">UNESCO Al Balad district</strong>, the iconic <strong className="text-ink font-semibold">Floating Mosque</strong>, and the world&apos;s tallest <strong className="text-ink font-semibold">King Fahd Fountain</strong>. For a cooler escape, our <strong className="text-ink font-semibold">Taif day trip</strong> (from SAR 400) includes the Al Hada cable car, famous rose gardens, and mountain souqs — perfect for families. All tours use your choice of vehicle: <Link href="/fleet/toyota-camry" className="text-gold hover:text-ink font-medium underline underline-offset-4 decoration-gold/30">Toyota Camry</Link>, <Link href="/fleet/gmc-yukon-xl" className="text-gold hover:text-ink font-medium underline underline-offset-4 decoration-gold/30">GMC Yukon</Link>, <Link href="/fleet/hyundai-staria" className="text-gold hover:text-ink font-medium underline underline-offset-4 decoration-gold/30">Hyundai Staria</Link>, or <Link href="/fleet/toyota-hiace" className="text-gold hover:text-ink font-medium underline underline-offset-4 decoration-gold/30">Toyota Hiace bus</Link>.</p>
 
                                 <h3 className="text-2xl font-semibold text-ink mt-10 mb-4 font-display">Pricing &amp; Booking</h3>
                                 <p>All prices are <strong className="text-ink font-semibold">fixed per vehicle</strong> with fuel, tolls, parking, and waiting time included. Makkah and Madinah tours start from <strong className="text-ink font-semibold">SAR 200</strong>, Taif from <strong className="text-ink font-semibold">SAR 400</strong>. We operate 24/7 year-round. <Link href="/booking" className="text-gold hover:text-ink font-semibold underline underline-offset-4 decoration-gold/30">Book on WhatsApp</Link> with your preferred date, group size, and itinerary — we confirm within minutes. Need an <Link href="/services/jeddah-airport-transfer" className="text-gold hover:text-ink font-medium underline underline-offset-4 decoration-gold/30">airport transfer</Link> or <Link href="/services/makkah-madinah-taxi" className="text-gold hover:text-ink font-medium underline underline-offset-4 decoration-gold/30">intercity taxi</Link> too? Bundle and save.</p>
@@ -353,7 +354,7 @@ export default async function ZiyaratToursPage() {
                             </div>
                             <div className="p-6 border-t border-border">
                                 <h3 className="font-display font-bold text-xl text-ink mb-1">Hyundai Staria</h3>
-                                <p className="text-gold font-medium text-sm mb-4">5–7 Passengers • 5 Bags</p>
+                                <p className="text-gold font-medium text-sm mb-4">{formatSeats(getVehicle('hyundai-staria')!)} • {formatLuggage(getVehicle('hyundai-staria')!)}</p>
                                 <p className="text-body-light text-sm">Perfect for families. Spacious interior with comfortable seating and excellent visibility for sightseeing.</p>
                             </div>
                         </div>
@@ -364,7 +365,7 @@ export default async function ZiyaratToursPage() {
                             </div>
                             <div className="p-6 border-t border-border">
                                 <h3 className="font-display font-bold text-xl text-ink mb-1">Toyota HiAce</h3>
-                                <p className="text-gold font-medium text-sm mb-4">11 Passengers • 10 Bags</p>
+                                <p className="text-gold font-medium text-sm mb-4">{formatSeats(getVehicle('toyota-hiace')!)} • {formatLuggage(getVehicle('toyota-hiace')!)}</p>
                                 <p className="text-body-light text-sm">Ideal for larger families and groups traveling together. High roof and ample space for a comfortable tour.</p>
                             </div>
                         </div>
@@ -375,7 +376,7 @@ export default async function ZiyaratToursPage() {
                             </div>
                             <div className="p-6 border-t border-border">
                                 <h3 className="font-display font-bold text-xl text-ink mb-1">Toyota Coaster</h3>
-                                <p className="text-gold font-medium text-sm mb-4">19 Passengers • 15 Bags</p>
+                                <p className="text-gold font-medium text-sm mb-4">{formatSeats(getVehicle('toyota-coaster')!)} • {formatLuggage(getVehicle('toyota-coaster')!)}</p>
                                 <p className="text-body-light text-sm">The best choice for large groups. Professional driver ensures a smooth journey to all historical sites.</p>
                             </div>
                         </div>

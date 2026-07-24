@@ -14,11 +14,11 @@
  */
 
 import { buildKnowledgeBase } from './knowledge';
+import { SITE_URL } from '@/config/site';
 
 // ---------------------------------------------------------------------------
 // Booking page URLs — built from env so they are always production-correct
 // ---------------------------------------------------------------------------
-const SITE_URL       = process.env.NEXT_PUBLIC_SITE_URL || 'https://kiswahumrahcab.com';
 const BOOKING_URL    = `${SITE_URL}/booking`;
 const BOOKING_URL_AR = `${SITE_URL}/ar/booking`;
 

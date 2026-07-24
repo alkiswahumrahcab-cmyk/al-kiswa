@@ -1,3 +1,5 @@
+import { SITE_URL } from '@/config/site';
+
 /**
  * ServiceSchema — Reusable JSON-LD structured data component for service pages.
  *
@@ -23,7 +25,6 @@
  *   />
  */
 
-const SITE_URL = 'https://kiswahumrahcab.com';
 const ORG_NAME = 'Al Kiswah Umrah Transport';
 const ORG_PHONE = '+966-548-707-332';
 

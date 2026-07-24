@@ -51,7 +51,7 @@ export const generateInvoice = async (booking: any) => {
     doc.text("Al Kiswah Umrah Transport", 15, yPos + 6);
     doc.setFont("helvetica", "normal");
     doc.text("Jeddah, Saudi Arabia", 15, yPos + 11);
-    doc.text("support@alkiswahumrahtransport.com", 15, yPos + 16);
+    doc.text("support@kiswahumrahcab.com", 15, yPos + 16);
 
     // To (Customer)
     doc.setFontSize(10);

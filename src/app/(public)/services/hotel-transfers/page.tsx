@@ -6,6 +6,7 @@ import { Building2, Clock, MapPin, ShieldCheck, Users, ArrowRight, Info, Shield,
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import { FLEET, formatSeats, formatLuggage } from '@/data/fleet';
 
 const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'));
 
@@ -235,57 +236,51 @@ export default function HotelTransferPage() {
                         {[
                             {
                                 class: "Standard VIP",
-                                name: "Toyota Camry / Taurus",
-                                pax: "Up to 4 Passengers",
-                                luggage: "3 Standard Bags",
-                                img: "/images/fleet/camry-2025.png"
+                                vId: "toyota-camry"
                             },
                             {
                                 class: "Family Premium",
-                                name: "Hyundai Staria / H1",
-                                pax: "5-7 Passengers",
-                                luggage: "5-7 Standard Bags",
-                                img: "/images/fleet/hyundai-staria-2025.png"
+                                vId: "hyundai-staria"
                             },
                             {
                                 class: "Group VIP",
-                                name: "Toyota HiAce",
-                                pax: "Up to 11 Passengers",
-                                luggage: "10+ Standard Bags",
-                                img: "/images/fleet/toyota-hiace-2025.png"
+                                vId: "toyota-hiace"
                             }
-                        ].map((vehicle, idx) => (
-                            <FadeIn key={idx} delay={idx * 0.1}>
-                                <div className="h-full bg-surface p-6 rounded-[20px] border border-hairline shadow-[0_1px_2px_rgba(21,20,15,0.04),0_8px_24px_rgba(21,20,15,0.06)] flex flex-col">
-                                    <div className="mb-4">
-                                        <span className="inline-block bg-gold-tint text-charcoal text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
-                                            {vehicle.class}
-                                        </span>
-                                        <h3 className="text-[20px] lg:text-[22px] font-semibold text-charcoal font-display">{vehicle.name}</h3>
-                                    </div>
-                                    
-                                    <div className="relative w-full aspect-[4/3] mb-6 rounded-lg overflow-hidden bg-surface-warm/50 flex items-center justify-center p-4">
-                                        <Image
-                                            src={vehicle.img}
-                                            alt={vehicle.name}
-                                            fill
-                                            className="object-contain z-10"
-                                        />
-                                    </div>
-                                    
-                                    <div className="space-y-3 mt-auto pt-4 border-t border-hairline">
-                                        <div className="flex items-center gap-3 text-charcoal-soft text-sm">
-                                            <Users size={18} className="text-gold-deep" />
-                                            <span>{vehicle.pax}</span>
+                        ].map((item, idx) => {
+                            const vehicle = FLEET.find(v => v.id === item.vId)!;
+                            return (
+                                <FadeIn key={idx} delay={idx * 0.1}>
+                                    <div className="h-full bg-surface p-6 rounded-[20px] border border-hairline shadow-[0_1px_2px_rgba(21,20,15,0.04),0_8px_24px_rgba(21,20,15,0.06)] flex flex-col">
+                                        <div className="mb-4">
+                                            <span className="inline-block bg-gold-tint text-charcoal text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+                                                {item.class}
+                                            </span>
+                                            <h3 className="text-[20px] lg:text-[22px] font-semibold text-charcoal font-display">{vehicle.name}</h3>
                                         </div>
-                                        <div className="flex items-center gap-3 text-charcoal-soft text-sm">
-                                            <BadgeCheck size={18} className="text-gold-deep" />
-                                            <span>{vehicle.luggage}</span>
+                                        
+                                        <div className="relative w-full aspect-[4/3] mb-6 rounded-lg overflow-hidden bg-surface-warm/50 flex items-center justify-center p-4">
+                                            <Image
+                                                src={vehicle.image.card}
+                                                alt={vehicle.image.alt}
+                                                fill
+                                                className="object-contain z-10"
+                                            />
+                                        </div>
+                                        
+                                        <div className="space-y-3 mt-auto pt-4 border-t border-hairline">
+                                            <div className="flex items-center gap-3 text-charcoal-soft text-sm">
+                                                <Users size={18} className="text-gold-deep" />
+                                                <span>{formatSeats(vehicle)}</span>
+                                            </div>
+                                            <div className="flex items-center gap-3 text-charcoal-soft text-sm">
+                                                <BadgeCheck size={18} className="text-gold-deep" />
+                                                <span>{formatLuggage(vehicle)}</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </FadeIn>
-                        ))}
+                                </FadeIn>
+                            );
+                        })}
                     </div>
                 </div>
             </section>

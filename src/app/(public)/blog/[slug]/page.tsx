@@ -16,6 +16,7 @@ import NusukSidebarCard from '@/components/trust/NusukSidebarCard';
 import { JsonLdScript } from '@/components/seo/JsonLd';
 import { generateArticleSchema } from '@/components/seo/schema-generator';
 import { marked } from 'marked';
+import { SITE_URL } from '@/config/site';
 
 // Helper to outdent string to prevent markdown treating indented HTML as code blocks
 const outdent = (str: string) => {
@@ -81,7 +82,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
             authors: [post.author],
             images: [
                 {
-                    url: post.image.startsWith('http') ? post.image : `https://alkiswahumrahtransport.com${post.image.startsWith('/') ? '' : '/'}${post.image}`,
+                    url: post.image.startsWith('http') ? post.image : `${SITE_URL}${post.image.startsWith('/') ? '' : '/'}${post.image}`,
                     alt: post.alt || post.title,
                     width: 1200,
                     height: 630,

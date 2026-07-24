@@ -11,6 +11,7 @@ import Interior360Viewer from '@/components/fleet/Interior360ViewerClient';
 import { vehicleService } from '@/services/vehicleService';
 import Image from 'next/image';
 import TrackEvent from '@/components/analytics/TrackEvent';
+import { getVehicle, formatSeats, formatLuggage } from '@/data/fleet';
 
 const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
@@ -20,7 +21,7 @@ const generateJsonLd = (vehicleData: any) => ({
             "itemListElement": [
                 { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://kiswahumrahcab.com" },
                 { "@type": "ListItem", "position": 2, "name": "Fleet", "item": "https://kiswahumrahcab.com/fleet" },
-                { "@type": "ListItem", "position": 3, "name": "GMC Yukon XL", "item": "https://kiswahumrahcab.com/fleet/gmc-yukon-at4" }
+                { "@type": "ListItem", "position": 3, "name": "GMC Yukon XL", "item": "https://kiswahumrahcab.com/fleet/gmc-yukon-xl" }
             ]
         },
         {
@@ -35,7 +36,7 @@ const generateJsonLd = (vehicleData: any) => ({
                 "priceCurrency": "SAR",
                 "availability": "https://schema.org/InStock",
                 "priceValidUntil": '2026-12-31',
-                "url": "https://kiswahumrahcab.com/fleet/gmc-yukon-at4"
+                "url": "https://kiswahumrahcab.com/fleet/gmc-yukon-xl"
             },
             "aggregateRating": {
                 "@type": "AggregateRating",
@@ -93,7 +94,7 @@ export async function generateMetadata(): Promise<Metadata> {
             "luxury SUV Saudi Arabia",
             "Al Kiswah Umrah Cab"
         ],
-        alternates: generateMetadataAlternates("/fleet/gmc-yukon-at4"),
+        alternates: generateMetadataAlternates("/fleet/gmc-yukon-xl"),
     };
 }
 
@@ -120,6 +121,7 @@ export default async function GmcYukonPage() {
     const vehicles = await vehicleService.getActiveVehicles();
     const vehicleData = vehicles.find((v: any) => v.name.toLowerCase().includes('yukon') || v.name.toLowerCase().includes('gmc'));
     const gmcId = vehicleData?.id || '692db09834f15bc89b45a5f8';
+    const vehicle = getVehicle('gmc-yukon-xl')!;
 
     const jsonLd = generateJsonLd(vehicleData);
 
@@ -155,7 +157,7 @@ export default async function GmcYukonPage() {
                 title="GMC Yukon – Luxury SUV for Umrah & Saudi Travel"
                 subtitle="Spacious. Powerful. Perfect for Families & Groups."
                 bgImage="/images/fleet/gmc-yukon/gmc-yukon-xl-luxury-umrah-transport-cinematic.webp"
-                badge="Premium VIP Choice"
+                badge={vehicle.categoryLabel}
                 ctaText="Book Now"
                 ctaLink="/booking?vehicle=gmc"
                 whatsappText="WhatsApp Inquiry"
@@ -232,12 +234,12 @@ export default async function GmcYukonPage() {
                         <div className="p-6 rounded-2xl border border-border bg-surface-alt shadow-sm hover:shadow-md transition-shadow">
                             <Users className="w-10 h-10 text-gold mb-4" />
                             <h3 className="font-bold text-xl mb-2 text-ink">Comfort & Seating</h3>
-                            <p className="text-ink-muted">Plush leather bucket seats, 7-passenger capacity, with Tri-Zone automatic climate control.</p>
+                            <p className="text-ink-muted">Plush leather bucket seats, {formatSeats(vehicle)}, with Tri-Zone automatic climate control.</p>
                         </div>
                         <div className="p-6 rounded-2xl border border-border bg-surface-alt shadow-sm hover:shadow-md transition-shadow">
                             <Briefcase className="w-10 h-10 text-gold mb-4" />
                             <h3 className="font-bold text-xl mb-2 text-ink">Luggage Capacity</h3>
-                            <p className="text-ink-muted">Massive trunk space accommodating 5+ large suitcases easily, perfect for international pilgrims.</p>
+                            <p className="text-ink-muted">Massive trunk space accommodating {formatLuggage(vehicle)} easily, perfect for international pilgrims.</p>
                         </div>
                         <div className="p-6 rounded-2xl border border-border bg-surface-alt shadow-sm hover:shadow-md transition-shadow">
                             <Wifi className="w-10 h-10 text-gold mb-4" />

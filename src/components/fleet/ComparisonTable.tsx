@@ -3,17 +3,22 @@
 import FadeIn from '@/components/common/FadeIn';
 import GlassCard from '@/components/ui/GlassCard';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { FLEET, formatSeats, formatLuggage } from '@/data/fleet';
+
+const PRICE_MAP: Record<string, string> = {
+    'gmc-yukon-xl': '350',
+    'hyundai-staria': '280',
+    'toyota-hiace': '320',
+    'toyota-camry': '180',
+    'hyundai-starex': '250',
+    'toyota-coaster': '650',
+    'mitsubishi-xpander': '150'
+};
 
 export default function ComparisonTable() {
 
-    const data = [
-        { name: 'GMC Yukon XL', link: '/fleet/gmc-yukon-at4', seats: '7', luggage: '5+ large', bestFor: 'VIP family', price: '350' },
-        { name: 'Hyundai Staria', link: '/fleet/hyundai-staria', seats: '9', luggage: '4 large', bestFor: 'Groups', price: '280' },
-        { name: 'Toyota Hiace', link: '/fleet/toyota-hiace', seats: '12', luggage: '8 large', bestFor: 'Large groups', price: '320' },
-        { name: 'Toyota Camry', link: '/fleet/toyota-camry', seats: '4', luggage: '2 large', bestFor: 'Solo/couple', price: '180' },
-        { name: 'Hyundai Starex', link: '/fleet/hyundai-starex', seats: '8', luggage: '4 large', bestFor: 'Medium groups', price: '250' },
-    ];
+    // Using the same array as the card grid
+    const displayVehicles = FLEET.filter(v => v.bookable);
 
     return (
         <section className="py-24 bg-surface-alt relative">
@@ -37,19 +42,28 @@ export default function ComparisonTable() {
                                 </tr>
                             </thead>
                             <tbody className="divide-y divide-border">
-                                {data.map((row, i) => (
+                                {displayVehicles.map((vehicle, i) => {
+                                    const linkHref = `/fleet/${vehicle.slug}`;
+                                    
+                                    return (
                                     <tr key={i} className="hover:bg-surface-alt transition-colors duration-200 group">
                                         <td className="p-5">
-                                            <Link href={row.link} className="font-bold text-ink group-hover:text-gold-strong transition-colors inline-flex items-center gap-2">
-                                                {row.name}
-                                            </Link>
+                                            {vehicle.hasDetailPage ? (
+                                                <Link href={linkHref} className="font-bold text-ink group-hover:text-gold-strong transition-colors inline-flex items-center gap-2">
+                                                    {vehicle.name}
+                                                </Link>
+                                            ) : (
+                                                <span className="font-bold text-ink inline-flex items-center gap-2">
+                                                    {vehicle.name}
+                                                </span>
+                                            )}
                                         </td>
-                                        <td className="p-5 text-body text-center">{row.seats}</td>
-                                        <td className="p-5 text-body text-center">{row.luggage}</td>
-                                        <td className="p-5 text-body">{row.bestFor}</td>
-                                        <td className="p-5 font-bold text-gold-strong text-right">{row.price}</td>
+                                        <td className="p-5 text-body text-center">{formatSeats(vehicle)}</td>
+                                        <td className="p-5 text-body text-center">{formatLuggage(vehicle)}</td>
+                                        <td className="p-5 text-body">{vehicle.bestFor}</td>
+                                        <td className="p-5 font-bold text-gold-strong text-right">{PRICE_MAP[vehicle.id] || 'Contact Us'}</td>
                                     </tr>
-                                ))}
+                                )})}
                             </tbody>
                         </table>
                     </GlassCard>

@@ -366,7 +366,7 @@ Flights often land after midnight when trains have stopped running. At **Al Kisw
 
 ### 3\. Unlimited Luggage & Group Privacy
 
-If you are traveling with 4-7 people, booking a [GMC Yukon XL](/fleet/gmc-yukon-at4) is not only more comfortable but often more cost-effective than buying 7 individual train tickets. Plus, you have the privacy of your own vehicle without sharing space with strangers.
+If you are traveling with 4-7 people, booking a [GMC Yukon XL](/fleet/gmc-yukon-xl) is not only more comfortable but often more cost-effective than buying 7 individual train tickets. Plus, you have the privacy of your own vehicle without sharing space with strangers.
 
 * * *
 
@@ -467,7 +467,7 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
             <p>The smartest pilgrims book their ground transport before their flight. Why?</p>
             <ul>
                 <li><strong>Price Locking:</strong> Transport rates often spike by 30-40% as the season peaks. Booking in January for a March trip locks in the lower rate.</li>
-                <li><strong>Vehicle Choice:</strong> High-demand vehicles like the <a href="/fleet/gmc-yukon-at4" class="text-amber-600 hover:underline">GMC Yukon XL</a> sell out fast. Early booking guarantees your specific car.</li>
+                <li><strong>Vehicle Choice:</strong> High-demand vehicles like the <a href="/fleet/gmc-yukon-xl" class="text-amber-600 hover:underline">GMC Yukon XL</a> sell out fast. Early booking guarantees your specific car.</li>
             </ul>
 
             <div class="bg-ivory dark:bg-n-800 p-6 rounded-xl border-l-4 border-gold my-8">
@@ -510,7 +510,7 @@ Experience a stress-free pilgrimage. [Check our latest Umrah transport rates](/b
         content: `
             <h2>The King of the Road for Umrah Families</h2>
             <p>When you are traveling with your family for Umrah, the journey between <a href="/services/jeddah-airport-transfer" class="text-amber-600 hover:underline">Jeddah Airport</a>, Makkah, and Madinah can be exhausting. The heat, the luggage, and the long hours on the road require a vehicle that offers more than just a seat.</p>
-            <p>Enter the <strong><a href="/fleet/gmc-yukon-at4" class="text-amber-600 hover:underline">GMC Yukon XL</a></strong>. In Saudi Arabia, this vehicle is not just an SUV; it is the gold standard for VIP family transport. Here is why it is the #1 choice for smart pilgrims in 2025.</p>
+            <p>Enter the <strong><a href="/fleet/gmc-yukon-xl" class="text-amber-600 hover:underline">GMC Yukon XL</a></strong>. In Saudi Arabia, this vehicle is not just an SUV; it is the gold standard for VIP family transport. Here is why it is the #1 choice for smart pilgrims in 2025.</p>
 
             <h3>1. Unmatched Space for Luggage</h3>
             <p>The "XL" stands for extended length, and that makes all the difference.</p>

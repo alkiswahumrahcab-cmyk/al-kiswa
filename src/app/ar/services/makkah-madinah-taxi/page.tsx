@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -11,16 +11,17 @@ import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
 import FadeIn from "@/components/common/FadeIn";
 import GlassCard from '@/components/ui/GlassCard';
+import { SITE_URL } from '@/config/site';
 
 export const metadata: Metadata = {
-    title: "تاكسي مكة إلى المدينة 2025 | سعر السيارة الخاصة | الكسوة",
-    description: "Book private taxi from Makkah to Madinah. 4-hour luxury transfer in GMC Yukon or Hyundai Staria. Door-to-door service with Miqat option (احرام).",
+    title: "تاكسي مكة إلى المدينة 2025 | سيارة خاصة | الكسوة",
+    description: "احجز تاكسي خاص من مكة إلى المدينة. رحلة مريحة في سيارات فاخرة مثل جمس يوكون أو هيونداي ستاريا. خدمة من الباب للباب مع إمكانية التوقف في الميقات (للإحرام).",
     keywords: [
-        "Taxi Makkah to Madinah",
-        "Makkah to Madinah Taxi Price",
-        "Private Car Makkah to Madinah",
-        "Distance Makkah to Madinah Taxi Time",
-        "VIP Transport Makkah Madinah",
+        "تاكسي مكة إلى المدينة",
+        "سعر تاكسي مكة المدينة",
+        "سيارة خاصة مكة المدينة",
+        "مسافة ووقت التاكسي من مكة للمدينة",
+        "نقل VIP مكة المدينة",
         "تاكسي مكة المدينة",
         "سعر التوصيل من مكة للمدينة",
         "حجز جمس من مكة الى المدينة",
@@ -33,53 +34,47 @@ export const metadata: Metadata = {
   },
     openGraph: {
         title: "تاكسي مكة المدينة 2025 | نقل VIP خاص | الكسوة",
-        description: "Book the most comfortable Makkah to Madinah taxi service. Private GMC Yukon, Hyundai Staria, and VIP buses.",
-        images: [{ url: '/images/routes/makkah-madinah-route-hero.webp', width: 1200, height: 630, alt: 'Makkah to Madinah Highway Scenic View' }]
+        description: "احجز خدمة التاكسي الأكثر راحة من مكة إلى المدينة. سيارات جمس يوكون خاصة، هيونداي ستاريا، وحافلات VIP.",
+        images: [{ url: '/images/routes/makkah-madinah-route-hero.webp', width: 1200, height: 630, alt: 'منظر طريق مكة المدينة السريع' }]
     }
 };
 
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Makkah to Madinah Taxi Service",
+    "name": "خدمة تاكسي مكة إلى المدينة",
     "alternateName": "تاكسي مكة المدينة",
     "provider": {
         "@type": "LocalBusiness",
         "name": "Al Kiswah Transport",
-        "image": "https://alkiswahumrahtransport.com/logo.png"
+        "image": `${SITE_URL}/logo.png`
     },
     "serviceType": "Intercity Transfer",
     "areaServed": {
         "@type": "Country",
         "name": "Saudi Arabia"
     },
-    "description": "Premium private transport between Makkah and Madinah in GMC Yukon or Staria.",
-    "offers": {
-        "@type": "Offer",
-        "price": "400",
-        "priceCurrency": "SAR",
-        "availability": "https://schema.org/InStock"
-    },
+    "description": "نقل خاص ممتاز بين مكة والمدينة في سيارات جمس يوكون أو ستاريا.",
     "breadcrumb": {
         "@type": "BreadcrumbList",
         "itemListElement": [
             {
                 "@type": "ListItem",
                 "position": 1,
-                "name": "Home",
-                "item": "https://alkiswahumrahtransport.com"
+                "name": "الرئيسية",
+                "item": `${SITE_URL}`
             },
             {
                 "@type": "ListItem",
                 "position": 2,
-                "name": "Services",
-                "item": "https://alkiswahumrahtransport.com/services"
+                "name": "الخدمات",
+                "item": `${SITE_URL}/services`
             },
             {
                 "@type": "ListItem",
                 "position": 3,
-                "name": "Makkah to Madinah Taxi",
-                "item": "https://alkiswahumrahtransport.com/services/makkah-madinah-taxi"
+                "name": "تاكسي مكة إلى المدينة",
+                "item": `${SITE_URL}/services/makkah-madinah-taxi`
             }
         ]
     }
@@ -87,24 +82,24 @@ const jsonLd = {
 
 const makkahMadinahFAQs = [
     {
-        question: "How long is the journey from Makkah to Madinah?",
-        answer: <span>The distance is approximately 450 km. By private taxi (<Link href="/ar/fleet/gmc-yukon-at4" className="text-gold hover:text-white hover:underline">GMC</Link>/<Link href="/ar/fleet/hyundai-staria" className="text-gold hover:text-white hover:underline">Staria</Link>), the journey typically takes 4.5 to 5 hours. We can stop at the Miqat (Bir Ali) for 15-30 minutes if you wish to assume Ihram before entering Makkah.</span>
+        question: "كم تستغرق الرحلة من مكة إلى المدينة؟",
+        answer: <span>المسافة تقريباً 450 كم. بسيارة الأجرة الخاصة (<Link href="/ar/fleet/gmc-yukon-xl" className="text-gold hover:text-white hover:underline">جمس</Link>/<Link href="/ar/fleet/hyundai-staria" className="text-gold hover:text-white hover:underline">ستاريا</Link>)، تستغرق الرحلة عادةً من 4.5 إلى 5 ساعات. يمكننا التوقف في الميقات (أبيار علي) لمدة 15-30 دقيقة إذا كنت ترغب في الإحرام.</span>
     },
     {
-        question: "What is the price of a taxi from Makkah to Madinah?",
-        answer: "Our prices are fixed and transparent. A private sedan starts from SAR 400, while a luxury GMC Yukon or Hyundai Staria starts from SAR 600-700. Prices may vary slightly during peak seasons like Ramadan or Hajj."
+        question: "ما هو سعر التاكسي من مكة إلى المدينة؟",
+        answer: "أسعارنا ثابتة وتنافسية، تختلف حسب نوع السيارة والموسم. الأسعار شفافة ولا توجد رسوم خفية. قد تختلف الأسعار قليلاً خلال مواسم الذروة مثل رمضان أو الحج."
     },
     {
-        question: "Do you offer transport from Jeddah Airport to Makkah?",
-        answer: <span>Yes, we specialize in <Link href="/ar/services/jeddah-airport-transfer" className="text-gold hover:text-white hover:underline">Jeddah Airport transfers</Link>. Our driver will meet you at the arrival hall and take you directly to your hotel or the Haram.</span>
+        question: "هل تقدمون خدمة النقل من مطار جدة إلى مكة؟",
+        answer: <span>نعم، نحن متخصصون في <Link href="/ar/services/jeddah-airport-transfer" className="text-gold hover:text-white hover:underline">خدمات النقل من مطار جدة</Link>. سيستقبلك سائقنا في صالة الوصول ويأخذك مباشرة إلى فندقك أو إلى الحرم.</span>
     },
     {
-        question: "Is it better than the Haramain Train?",
-        answer: "While the train is fast, a private taxi offers door-to-door convenience. You don't need to arrange transport to the train station, handle luggage transfers, or strictly adhere to a schedule. We pick you up from your hotel lobby and drop you at your next hotel."
+        question: "هل هو أفضل من قطار الحرمين؟",
+        answer: "بينما القطار سريع، فإن التاكسي الخاص يوفر راحة النقل من الباب للباب. لن تحتاج إلى ترتيب وسيلة نقل للوصول إلى محطة القطار، أو التعامل مع نقل الأمتعة، أو الالتزام بجدول زمني صارم. نحن نقلك من بهو فندقك ونوصلك إلى فندقك التالي مباشرة."
     },
     {
-        question: "Can we stop for Ziyarat on the way?",
-        answer: "Yes! Unlike buses or trains, a private taxi allows for flexibility. We can stop at historical sites like Badr or key Ziyarat spots within Madinah upon arrival (additional charges may apply depending on time)."
+        question: "هل يمكننا التوقف للمزارات في الطريق؟",
+        answer: "نعم! على عكس الحافلات أو القطارات، يوفر التاكسي الخاص مرونة كبيرة. يمكننا التوقف في المواقع التاريخية مثل بدر أو المزارات الرئيسية داخل المدينة عند الوصول (قد يتم تطبيق رسوم إضافية حسب الوقت المستغرق)."
     }
 ];
 
@@ -114,13 +109,13 @@ export default async function MakkahMadinahTaxiPage() {
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}`;
 
     const content = {
-        title: "VIP Makkah to Madinah Taxi Services",
-        subtitle: "Experience a spiritual journey with absolute comfort (راحة تامة). 4-5 hours travel time in luxury GMC Yukon or Hyundai Staria.",
+        title: "خدمات تاكسي VIP من مكة إلى المدينة",
+        subtitle: "استمتع برحلة روحانية براحة تامة. وقت السفر من 4 إلى 5 ساعات في سيارات فاخرة مثل جمس يوكون أو هيونداي ستاريا.",
         heroImage: "/images/routes/makkah-madinah-route-hero.webp"
     };
 
     return (
-        <main className="min-h-screen bg-charcoal relative">
+        <main className="min-h-screen bg-charcoal relative" dir="rtl">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <script
@@ -131,7 +126,7 @@ export default async function MakkahMadinahTaxiPage() {
                 title={content.title}
                 subtitle={content.subtitle}
                 bgImage={content.heroImage}
-                ctaText="Book Now via WhatsApp"
+                ctaText="احجز الآن عبر واتساب"
                 ctaLink={whatsappLink}
                 layout="center"
                 breadcrumbs={<Breadcrumbs />}
@@ -144,26 +139,26 @@ export default async function MakkahMadinahTaxiPage() {
                         <div className="grid md:grid-cols-2 gap-16 items-center">
                             <div>
                                 <h2 className="text-3xl md:text-5xl font-semibold mb-8 font-display text-white">
-                                    Why Choose Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">Makkah-Madinah</span> Transfer?
+                                    لماذا تختار خدمة النقل <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold">مكة-المدينة</span> الخاصة بنا؟
                                 </h2>
                                 <p className="text-n-400 mb-8 leading-relaxed font-light text-lg">
-                                    The journey between the two Holy Cities (approx. 450km) requires a vehicle that guarantees comfort and safety.
-                                    Skip the crowded buses and strict train schedules. Our private taxi service offers premium rides in our <Link href="/ar/fleet/gmc-yukon-at4" className="text-gold font-bold hover:underline">GMC Yukon</Link> or <Link href="/ar/fleet/hyundai-staria" className="text-gold font-bold hover:underline">Hyundai Staria</Link>:
+                                    الرحلة بين المدينتين المقدستين (حوالي 450 كم) تتطلب سيارة تضمن لك الراحة والأمان.
+                                    تجنب الحافلات المزدحمة والجداول الزمنية الصارمة للقطارات. تقدم خدمة التاكسي الخاص لدينا رحلات مميزة في سيارات <Link href="/ar/fleet/gmc-yukon-xl" className="text-gold font-bold hover:underline">جمس يوكون</Link> أو <Link href="/ar/fleet/hyundai-staria" className="text-gold font-bold hover:underline">هيونداي ستاريا</Link>:
                                 </p>
 
-                                <GlassCard className="mb-8 p-8 bg-neutral-900/50 rounded-2xl border border-white/5 border-l-4 border-l-[#D4AF37]">
+                                <GlassCard className="mb-8 p-8 bg-neutral-900/50 rounded-2xl border border-white/5 border-r-4 border-r-[#D4AF37]">
                                     <p className="text-white italic font-medium text-center font-serif text-lg">
-                                        &quot;Welcome to the City of the Prophet ﷺ — May your journey be blessed.&quot;
+                                        "مرحباً بكم في مدينة رسول الله ﷺ — نسأل الله أن يبارك رحلتكم."
                                     </p>
                                 </GlassCard>
 
                                 <ul className="space-y-6">
                                     {[
-                                        "Door-to-Door Service (Hotel to Hotel)",
-                                        "No Luggage Limits (Within vehicle capacity)",
-                                        "Stop at Miqat (Bir Ali) for Ihram",
-                                        "Flexible Departure Times (24/7)",
-                                        "New Model Vehicles (2024-2025)"
+                                        "خدمة من الباب للباب (من الفندق إلى الفندق)",
+                                        "بدون قيود على الأمتعة (حسب سعة السيارة)",
+                                        "التوقف في الميقات (أبيار علي) للإحرام",
+                                        "أوقات مغادرة مرنة (على مدار 24 ساعة)",
+                                        "سيارات موديل حديث (2024-2025)"
                                     ].map((item, index) => (
                                         <li key={index} className="flex items-center gap-4 group">
                                             <div className="bg-gold/10 rounded-btn p-1.5 border border-gold/20 group-hover:bg-gold transition-colors">
@@ -179,23 +174,23 @@ export default async function MakkahMadinahTaxiPage() {
                                 <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full blur-[50px] pointer-events-none" />
 
                                 <h3 className="text-xl font-semibold mb-4 flex items-center gap-3 text-white font-display">
-                                    <Clock className="text-gold" size={24} /> Average Travel Time
+                                    <Clock className="text-gold" size={24} /> متوسط وقت الرحلة
                                 </h3>
-                                <p className="mb-8 text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold font-display">4 Hours 30 Minutes</p>
+                                <p className="mb-8 text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-gold via-[#F3D383] to-gold font-display">4 ساعات و 30 دقيقة</p>
 
                                 <h3 className="text-xl font-semibold mb-4 flex items-center gap-3 text-white font-display">
-                                    <MapPin className="text-gold" size={24} /> Route Highlights
+                                    <MapPin className="text-gold" size={24} /> أبرز معالم المسار
                                 </h3>
                                 <div className="space-y-4 text-base text-n-400 font-light">
-                                    <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gold"></span> Pickup from your Makkah Hotel</p>
-                                    <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gold"></span> Optional <Link href="/ar/services/ziyarat-tours" className="text-gold hover:underline underline-offset-4 decoration-dotted">Ziyarat stops</Link> (on request)</p>
-                                    <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gold"></span> Drop-off at Madinah Hotel / Masjid Nabawi</p>
+                                    <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gold"></span> الانطلاق من فندقك في مكة</p>
+                                    <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gold"></span> إمكانية التوقف لـ <Link href="/ar/services/ziyarat-tours" className="text-gold hover:underline underline-offset-4 decoration-dotted">المزارات</Link> (عند الطلب)</p>
+                                    <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-gold"></span> الوصول إلى فندقك في المدينة أو المسجد النبوي</p>
                                 </div>
 
                                 <div className="mt-8 pt-8 border-t border-white/10">
                                     <div className="flex items-center justify-between">
-                                        <span className="text-sm text-n-500 uppercase tracking-widest font-bold">Starting From</span>
-                                        <span className="text-2xl font-bold text-white">SAR 400</span>
+                                        <span className="text-sm text-n-500 uppercase tracking-widest font-bold">الأسعار</span>
+                                        <span className="text-lg font-bold text-white">أسعار تنافسية وثابتة</span>
                                     </div>
                                 </div>
                             </GlassCard>
@@ -205,7 +200,7 @@ export default async function MakkahMadinahTaxiPage() {
                     {/* Route Visualization - NEW */}
                     <div className="mt-24 relative z-10">
                         <FadeIn delay={0.2}>
-                            <h2 className="text-3xl font-semibold text-center mb-12 font-display text-white">Your Journey Map</h2>
+                            <h2 className="text-3xl font-semibold text-center mb-12 font-display text-white">خريطة الرحلة</h2>
                             <RouteVisual />
                         </FadeIn>
                     </div>
@@ -223,20 +218,20 @@ export default async function MakkahMadinahTaxiPage() {
 
             {/* FAQ Section - NEW */}
             <div className="relative z-10">
-                <FAQSection items={makkahMadinahFAQs} title="Frequently Asked Questions" />
+                <FAQSection items={makkahMadinahFAQs} title="الأسئلة الشائعة" />
             </div>
 
             <section className="py-24 bg-transparent border-t border-white/5 relative z-10 bg-gradient-to-b from-transparent to-black/80">
                 <div className="container mx-auto px-4 max-w-4xl text-center">
                     <FadeIn delay={0.4}>
-                        <h2 className="text-3xl md:text-4xl font-semibold mb-6 font-display text-white">Compare: Taxi vs. Haramain Train</h2>
+                        <h2 className="text-3xl md:text-4xl font-semibold mb-6 font-display text-white">مقارنة: التاكسي مقابل قطار الحرمين</h2>
                         <p className="text-n-400 mb-10 leading-relaxed font-light text-lg">
-                            While the train is fast, a private taxi offers unmatched convenience for families.
-                            No need to travel to the station, handle luggage multiple times, or worry about ticket availability.
-                            Our service picks you up directly from your lobby.
+                            على الرغم من سرعة القطار، إلا أن التاكسي الخاص يوفر راحة لا مثيل لها للعائلات.
+                            لا حاجة للذهاب إلى المحطة، أو حمل الأمتعة عدة مرات، أو القلق بشأن توفر التذاكر.
+                            خدمتنا تأخذك مباشرة من بهو الفندق الخاص بك إلى وجهتك.
                         </p>
-                        <Link href="/ar/booking" className="inline-flex items-center bg-gradient-to-r from-gold to-gold-dark px-12 py-5 rounded-btn font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.5)] uppercase tracking-[0.2em] text-sm text-black hover:scale-105 hover:bg-white hover:text-black border border-transparent hover:border-black/10">
-                            Check Prices & Book Now <ArrowRight size={20} className="ml-2" />
+                        <Link href="/ar/booking" className="inline-flex items-center bg-gradient-to-r from-gold to-gold-dark px-12 py-5 rounded-btn font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_40px_hsl(var(--gold-glow) / 0.5)] uppercase tracking-[0.1em] text-sm text-black hover:scale-105 hover:bg-white hover:text-black border border-transparent hover:border-black/10">
+                            تحقق من الأسعار واحجز الآن <ArrowRight size={20} className="mr-2 rotate-180" />
                         </Link>
                     </FadeIn>
                 </div>
