@@ -239,7 +239,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
         />
         {/* TikTok Pixel Code End */}
       </head>
-      <body className={`${manrope.variable} ${montserrat.variable} ${tajawal.variable} ${cormorant.variable} ${amiri.variable} ${plexArabic.variable}`}>
+      <body suppressHydrationWarning className={`${manrope.variable} ${montserrat.variable} ${tajawal.variable} ${cormorant.variable} ${amiri.variable} ${plexArabic.variable}`}>
         {settings.general.googleAnalyticsId && (
           <GoogleAnalytics gaId={settings.general.googleAnalyticsId} />
         )}
