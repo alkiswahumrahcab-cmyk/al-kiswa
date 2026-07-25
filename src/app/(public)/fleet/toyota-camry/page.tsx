@@ -355,7 +355,7 @@ export default async function ToyotaCamryPage() {
                             <div className="grid md:grid-cols-2 gap-5">
                                 {[
                                     { label: 'Full Name', placeholder: 'Your full name', type: 'text', id: 'camry-name' },
-                                    { label: 'Phone / WhatsApp', placeholder: '+966 5XX XXX XXXX', type: 'tel', id: 'camry-phone' },
+                                    { label: 'Phone / WhatsApp', placeholder: '+966 54 870 7332', type: 'tel', id: 'camry-phone' },
                                     { label: 'Pickup Location', placeholder: 'e.g. Jeddah Airport, Terminal 1', type: 'text', id: 'camry-pickup' },
                                     { label: 'Drop Location', placeholder: 'e.g. Makkah Grand Mosque Hotel', type: 'text', id: 'camry-drop' },
                                     { label: 'Date & Time', placeholder: '', type: 'datetime-local', id: 'camry-datetime' },

@@ -6,10 +6,8 @@ export function constructUrl(path: string): string {
 }
 
 export const SOCIAL_LINKS = {
-    // TODO: confirm which Facebook page is canonical
-    facebook: "https://www.facebook.com/profile.php?id=TODO",
-    // TODO: confirm Instagram handle
-    instagram: "https://www.instagram.com/TODO",
+    facebook: "https://www.facebook.com/profile.php?id=61586674295032",
+    instagram: "https://www.instagram.com/exploresaudia12",
     tiktok: "https://www.tiktok.com/@alkiswah_cab?_r=1&_t=ZS-97UXEVIhQeL",
     linkedin: "https://www.linkedin.com/in/al-kiswah-umrah-cab/",
     whatsapp: "https://wa.me/966548707332",

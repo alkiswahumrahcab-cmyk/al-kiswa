@@ -134,6 +134,7 @@ export default function FooterAR() {
                             <li><Link003 href="/ar/fleet/gmc-yukon-xl" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">جي إم سي يوكن XL — سيارة كبار الشخصيات</Link003></li>
                             <li><Link003 href="/ar/fleet/hyundai-staria" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">هيونداي ستاريا — سيارة عائلية</Link003></li>
                             <li><Link003 href="/ar/fleet/toyota-hiace" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">تويوتا هايس — حافلة جماعية</Link003></li>
+                            <li><Link003 href="/ar/fleet/toyota-coaster" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">تويوتا كوستر — حافلة جماعية متوسطة</Link003></li>
                             <li><Link003 href="/ar/pricing" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">الأسعار والتسعيرة</Link003></li>
                         </ul>
                     </div>

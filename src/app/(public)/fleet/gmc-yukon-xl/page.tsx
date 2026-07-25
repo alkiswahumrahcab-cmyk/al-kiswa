@@ -377,7 +377,7 @@ export default async function GmcYukonPage() {
                             <div className="grid md:grid-cols-2 gap-5">
                                 {[
                                     { label: 'Full Name', placeholder: 'Your full name', type: 'text', id: 'gmc-name' },
-                                    { label: 'Phone / WhatsApp', placeholder: '+966 5XX XXX XXXX', type: 'tel', id: 'gmc-phone' },
+                                    { label: 'Phone / WhatsApp', placeholder: '+966 54 870 7332', type: 'tel', id: 'gmc-phone' },
                                     { label: 'Pickup Location', placeholder: 'e.g. Jeddah Airport, Terminal 1', type: 'text', id: 'gmc-pickup' },
                                     { label: 'Drop Location', placeholder: 'e.g. Makkah Grand Mosque Hotel', type: 'text', id: 'gmc-drop' },
                                     { label: 'Date & Time', placeholder: '', type: 'datetime-local', id: 'gmc-datetime' },

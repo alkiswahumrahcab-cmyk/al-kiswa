@@ -183,6 +183,7 @@ export default function Footer() {
                             <li><Link003 href="/fleet/gmc-yukon-xl" className="text-ink-muted hover:text-ink transition-colors text-[15px]">{getVehicle('gmc-yukon-xl')?.name} — {getVehicle('gmc-yukon-xl')?.categoryLabel}</Link003></li>
                             <li><Link003 href="/fleet/hyundai-staria" className="text-ink-muted hover:text-ink transition-colors text-[15px]">{getVehicle('hyundai-staria')?.name} — {getVehicle('hyundai-staria')?.categoryLabel}</Link003></li>
                             <li><Link003 href="/fleet/toyota-hiace" className="text-ink-muted hover:text-ink transition-colors text-[15px]">{getVehicle('toyota-hiace')?.name} — {getVehicle('toyota-hiace')?.categoryLabel}</Link003></li>
+                            <li><Link003 href="/fleet/toyota-coaster" className="text-ink-muted hover:text-ink transition-colors text-[15px]">{getVehicle('toyota-coaster')?.name} — {getVehicle('toyota-coaster')?.categoryLabel}</Link003></li>
                             <li><Link003 href="/pricing" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Pricing & Rates</Link003></li>
                             <li><Link href="/pricing/compare" className="text-gold-strong hover:text-ink transition-colors text-[15px]">Compare vs Other Platforms</Link></li>
                         </ul>

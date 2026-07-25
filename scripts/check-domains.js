@@ -35,6 +35,14 @@ const BAD_DOMAINS = [
     'mehartransport.com'
 ];
 
+const BAD_PLACEHOLDERS = [
+    'TODO',
+    'PLACEHOLDER',
+    'FIXME',
+    'XXX',
+    'CHANGEME'
+];
+
 htmlFiles.forEach(file => {
     const content = fs.readFileSync(file, 'utf8');
     
@@ -54,10 +62,27 @@ htmlFiles.forEach(file => {
             }
         }
     });
+
+    // Check for leaked placeholders in user-visible HTML
+    // We ignore matches that look like an HTML attribute e.g., placeholder="Search"
+    BAD_PLACEHOLDERS.forEach(placeholder => {
+        // Regex to find the placeholder but ensure it's not part of placeholder="something"
+        // A simple way is to check if it's not preceded by 'placeholder="' or 'placeholder='
+        const index = content.indexOf(placeholder);
+        if (index !== -1) {
+            // It's possible it is a false positive if we just do indexOf, let's just use regex for better accuracy
+            // Match placeholder string that is NOT inside an HTML tag attribute, or at least not literally placeholder="TODO" 
+            // Since we just want to prevent these from rendering, even finding them inside an HTML tag might be a leak (e.g. href="TODO").
+            // So we will just fail if we find 'TODO', 'PLACEHOLDER', 'FIXME', 'XXX', 'CHANGEME' as whole words (case sensitive usually)
+            // Wait, we can just do an indexOf because these shouldn't be anywhere in the compiled output.
+            console.error(`\n❌ Build check failed: Placeholder '${placeholder}' found in ${file}\n`);
+            failed = true;
+        }
+    });
 });
 
 if (failed) {
     process.exit(1);
 } else {
-    console.log('✅ Build check passed: No cross-domain metadata leaks found in generated HTML.');
+    console.log('✅ Build check passed: No cross-domain metadata leaks or placeholders found in generated HTML.');
 }

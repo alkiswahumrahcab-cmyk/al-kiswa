@@ -101,6 +101,7 @@ const PRICE_COMPARISON = [
             { type: 'Sedan (3 pax)', alkiswah: 50, kiwi: 65, booking: 70 },
             { type: 'Family Van (7 pax)', alkiswah: 60, kiwi: 78, booking: 85 },
             { type: 'Minibus 10 pax', alkiswah: 75, kiwi: 97, booking: 108 },
+            { type: 'Minibus 19 pax', alkiswah: 185, kiwi: 240, booking: 260 },
         ],
     },
     {
@@ -110,6 +111,7 @@ const PRICE_COMPARISON = [
             { type: 'Sedan (3 pax)', alkiswah: 50, kiwi: 65, booking: 70 },
             { type: 'Comfort (4 pax)', alkiswah: 60, kiwi: 78, booking: 84 },
             { type: 'Minibus 7 pax', alkiswah: 78, kiwi: 101, booking: 109 },
+            { type: 'Minibus 19 pax', alkiswah: 185, kiwi: 240, booking: 260 },
         ],
     },
     {

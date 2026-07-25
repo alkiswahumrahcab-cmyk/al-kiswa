@@ -280,7 +280,7 @@ export default function QuickBookingForm() {
                                         <label className="block text-sm font-semibold text-ink mb-2">WhatsApp Number *</label>
                                         <div className="relative">
                                             <Phone size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
-                                            <input type="tel" name="whatsapp" value={formData.whatsapp} onChange={handleInputChange} className={`w-full h-12 pl-10 pr-4 rounded-md border ${formErrors.whatsapp ? 'border-error ring-1 ring-error' : 'border-border-strong'} bg-surface focus:outline-none focus:ring-2 focus:ring-gold focus:border-gold font-body text-ink`} placeholder="+966 5X XXX XXXX" />
+                                            <input type="tel" name="whatsapp" value={formData.whatsapp} onChange={handleInputChange} className={`w-full h-12 pl-10 pr-4 rounded-md border ${formErrors.whatsapp ? 'border-error ring-1 ring-error' : 'border-border-strong'} bg-surface focus:outline-none focus:ring-2 focus:ring-gold focus:border-gold font-body text-ink`} placeholder="+966 54 870 7332" />
                                         </div>
                                         {formErrors.whatsapp && <p className="text-xs text-error mt-1">{formErrors.whatsapp}</p>}
                                     </div>

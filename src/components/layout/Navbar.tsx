@@ -95,6 +95,7 @@ export default function Navbar() {
                 { href: '/fleet/hyundai-staria', label: getVehicle('hyundai-staria')?.name, description: `${getVehicle('hyundai-staria')?.categoryLabel}. ${formatSeats(getVehicle('hyundai-staria')!)}.` },
                 { href: '/fleet/hyundai-starex', label: getVehicle('hyundai-starex')?.name, description: `${getVehicle('hyundai-starex')?.categoryLabel}. ${formatSeats(getVehicle('hyundai-starex')!)}.` },
                 { href: '/fleet/toyota-hiace', label: getVehicle('toyota-hiace')?.name, description: `${getVehicle('toyota-hiace')?.categoryLabel}. ${formatSeats(getVehicle('toyota-hiace')!)}.` },
+                { href: '/fleet/toyota-coaster', label: getVehicle('toyota-coaster')?.name, description: `${getVehicle('toyota-coaster')?.categoryLabel}. ${formatSeats(getVehicle('toyota-coaster')!)}.` },
                 { href: '/fleet/toyota-camry', label: getVehicle('toyota-camry')?.name, description: `${getVehicle('toyota-camry')?.categoryLabel}. ${formatSeats(getVehicle('toyota-camry')!)}.` },
             ]
         },
