@@ -24,31 +24,19 @@ export default function CurrencyToggle({ className = '' }: CurrencyToggleProps) 
         <button
             onClick={toggleCurrency}
             className={`
-                relative flex items-center justify-between w-24 h-10 rounded-full 
-                bg-surface-alt border border-border p-1
-                hover:border-gold/30 hover:bg-surface-alt/80 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gold/20
+                group flex items-center gap-2 px-3 py-1.5 rounded-full
+                bg-surface-alt/50 hover:bg-surface-alt border border-transparent hover:border-border/50
+                transition-all duration-300 focus:outline-none backdrop-blur-sm
                 ${className}
             `}
-            aria-label="Toggle currency"
+            aria-label={`Toggle currency, currently ${currency}`}
         >
-            <span className="sr-only">Switch to {currency === 'SAR' ? 'USD' : 'SAR'}</span>
-            
-            {/* Active Pill Indicator */}
-            <motion.div
-                className="absolute inset-y-1 bg-surface rounded-full shadow-sm border border-border/50"
-                initial={false}
-                animate={{
-                    left: currency === 'SAR' ? '4px' : 'calc(100% - 46px)',
-                    width: '42px'
-                }}
-                transition={{ type: 'spring', stiffness: 500, damping: 30 }}
-            />
-            
-            <span className={`relative z-10 w-1/2 text-center text-[11px] font-bold tracking-widest transition-colors duration-300 ${currency === 'SAR' ? 'text-gold-strong' : 'text-muted group-hover:text-ink'}`}>
-                SAR
+            <span className={`flex items-center gap-1 text-[11px] font-bold tracking-widest transition-colors ${currency === 'SAR' ? 'text-gold-strong' : 'text-muted group-hover:text-ink'}`}>
+                <span className="text-sm font-medium">﷼</span> SAR
             </span>
-            <span className={`relative z-10 w-1/2 text-center text-[11px] font-bold tracking-widest transition-colors duration-300 ${currency === 'USD' ? 'text-gold-strong' : 'text-muted group-hover:text-ink'}`}>
-                USD
+            <span className="text-border text-[10px]">|</span>
+            <span className={`flex items-center gap-1 text-[11px] font-bold tracking-widest transition-colors ${currency === 'USD' ? 'text-gold-strong' : 'text-muted group-hover:text-ink'}`}>
+                <span className="text-sm font-medium">$</span> USD
             </span>
         </button>
     );

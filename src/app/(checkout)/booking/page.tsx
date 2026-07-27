@@ -5,7 +5,7 @@ import BookingFormSkeleton from '@/components/booking/BookingFormSkeleton';
 const BookingForm = dynamic(() => import('@/components/booking/BookingForm'), {
     loading: () => <BookingFormSkeleton />
 });
-import { Star, Shield, CreditCard, MessageCircle, CheckCircle2 } from 'lucide-react';
+
 
 export async function generateMetadata() {
     return {
@@ -48,19 +48,6 @@ export default function BookingPage() {
                     </Suspense>
                 </div>
 
-                {/* Pay on Arrival Guarantee Bar */}
-                <div className="mt-6 mb-8 p-5 rounded-xl bg-surface border border-border flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 shadow-sm">
-                    {[
-                        { icon: <CheckCircle2 size={18} className="text-gold shrink-0" />, text: 'Pay cash on arrival — zero prepayment' },
-                        { icon: <CheckCircle2 size={18} className="text-gold shrink-0" />, text: 'Free cancellation up to 24 hrs before' },
-                        { icon: <CheckCircle2 size={18} className="text-gold shrink-0" />, text: 'Fixed price — no surge, no surprises' },
-                    ].map((item, i) => (
-                        <div key={i} className="flex items-center gap-2 text-sm text-body font-medium">
-                            {item.icon}
-                            <span>{item.text}</span>
-                        </div>
-                    ))}
-                </div>
 
 
 

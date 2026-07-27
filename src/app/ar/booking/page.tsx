@@ -5,7 +5,7 @@ import BookingFormSkeleton from '@/components/booking/BookingFormSkeleton';
 const BookingForm = dynamic(() => import('@/components/booking/BookingForm'), {
     loading: () => <BookingFormSkeleton />
 });
-import { CheckCircle2 } from 'lucide-react';
+
 import { generateMetadataAlternates } from '@/lib/hreflang';
 import type { Metadata } from 'next';
 
@@ -56,19 +56,6 @@ export default function ArabicBookingPage() {
                     </Suspense>
                 </div>
 
-                {/* Pay on Arrival Guarantee Bar - Translated to Arabic */}
-                <div className="mt-6 mb-8 p-5 rounded-xl bg-surface border border-border flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 shadow-sm">
-                    {[
-                        { icon: <CheckCircle2 size={18} className="text-gold shrink-0" />, text: 'ادفع نقداً عند الوصول — بدون دفع مسبق' },
-                        { icon: <CheckCircle2 size={18} className="text-gold shrink-0" />, text: 'إلغاء مجاني حتى ٢٤ ساعة قبل الرحلة' },
-                        { icon: <CheckCircle2 size={18} className="text-gold shrink-0" />, text: 'سعر ثابت — بدون رسوم خفية أو مفاجآت' },
-                    ].map((item, i) => (
-                        <div key={i} className="flex items-center gap-2 text-sm text-body font-medium font-ar-body">
-                            {item.icon}
-                            <span>{item.text}</span>
-                        </div>
-                    ))}
-                </div>
 
                 {/* Booking Page Pixel Event */}
                 <script

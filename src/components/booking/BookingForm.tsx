@@ -18,7 +18,7 @@ import MobileDrawer from '@/components/ui/MobileDrawer';
 import Receipt from './Receipt';
 import BookingSuccessModal from './BookingSuccessModal';
 import CurrencyToggle from '../CurrencyToggle';
-import NusukBookingAlert from '@/components/trust/NusukBookingAlert';
+
 import { VISA_TYPES } from '@/data/countries';
 
 export default function BookingForm() {
@@ -470,17 +470,11 @@ export default function BookingForm() {
         <div className="w-full max-w-4xl mx-auto px-4 pt-0 pb-16 relative">
             
             {/* Currency Toggle placed at the absolute top right */}
-            <div className="absolute top-2 right-4 md:top-[-20px] md:right-4 flex items-center gap-3 bg-surface/90 p-1.5 rounded-full border border-gold/30 backdrop-blur-md z-30 shadow-xl">
-                <span className="text-xs font-medium text-muted pl-4 uppercase tracking-wider">Currency</span>
+            <div className="absolute top-2 right-4 md:top-0 md:right-0 z-30">
                 <CurrencyToggle />
             </div>
 
-            <div className="mb-10 pt-16 md:pt-0">
-                <h1 className="text-3xl md:text-5xl font-bold text-ink mb-4">Book Your Transfer</h1>
-                <p className="text-muted text-base md:text-lg">Experience premium travel across Saudi Arabia.</p>
-            </div>
 
-            <NusukBookingAlert />
 
             {/* WhatsApp Fallback Banner */}
             <AnimatePresence>
