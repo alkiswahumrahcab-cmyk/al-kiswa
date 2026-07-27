@@ -119,9 +119,9 @@ The design is bright, but a few bands need a dark anchor for contrast and drama 
   /* radius */
   --radius-btn: 8px;   /* buttons: rectangular with a small radius — corporate/premium, NOT pill */
   --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
+  --radius-md: 8px;
+  --radius-lg: 8px;
+  --radius-xl: 8px;
   --radius-pill: 9999px; 
 
   /* elevation (warm, low-spread) */
@@ -496,7 +496,7 @@ The current Navbar/Footer cap at `1536px` causes float/misalignment on 1920px mo
 
 ## 6. Elevation, Radius & Borders
 
-- **Radius:** cards `--radius-xl` (20px) or `--radius-lg` (16px); inputs `--radius-md` (12px); **buttons `--radius-btn` (8px) — rectangular with a small corner radius, never pill/fully-rounded**; images `--radius-lg`. Pill (`--radius-pill`) is reserved for tags, badges, and avatars only.
+- **Radius:** Every element (cards, inputs, images, etc.) uses `--radius-btn` (8px) to match the **buttons `--radius-btn` (8px) — rectangular with a small corner radius, never pill/fully-rounded**. Pill (`--radius-pill`) is reserved for tags, badges, and avatars only.
 - **Shadows:** always warm and low-spread (see tokens). The **booking widget** gets `--shadow-lg`; standard cards get `--shadow-sm` at rest → `--shadow-md` on hover. Never use black/blue-tinted shadows.
 - **Borders:** `1px solid var(--color-border)` for hairlines. Cards may use border *or* shadow, rarely both heavily — pick one as the primary lift.
 

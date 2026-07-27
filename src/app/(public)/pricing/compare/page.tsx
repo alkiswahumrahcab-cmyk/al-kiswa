@@ -1,33 +1,28 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { generateMetadataAlternates } from '@/lib/hreflang';
-import { X, Check, Shield, Star, DollarSign, Users, ExternalLink, ArrowRight, TrendingDown, ShieldCheck, Zap } from 'lucide-react';
+import { X, Check, ShieldCheck, ArrowRight } from 'lucide-react';
 import { TRUST_METRICS, formatMetric, SOCIAL_LINKS } from '@/config/site';
 import FadeIn from '@/components/common/FadeIn';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 
 export const metadata: Metadata = {
-    title: 'Al Kiswah vs Kiwi Taxi vs Booking.com | Cheapest Umrah Taxi 2026',
-    description: 'Compare Al Kiswah direct prices vs Kiwi Taxi, Booking.com, Telexo & Viator for Umrah transfers. We are the actual operator — book direct and save 20–30%. No commission, no middleman.',
+    title: 'Al Kiswah vs Third-Party Platforms | Cheapest Umrah Taxi 2026',
+    description: 'Compare Al Kiswah direct prices vs international booking platforms for Umrah transfers. We are the actual operator — book direct and save 20–30%. No commission, no middleman.',
     keywords: [
-        'kiwi taxi alternative umrah',
-        'cheaper than kiwi taxi jeddah makkah',
-        'booking.com umrah taxi alternative',
-        'telixo alternative umrah transport',
-        '5star umrah taxi alternative',
+        'umrah taxi alternative',
+        'cheaper than platforms jeddah makkah',
+        'umrah transport direct operator',
         'umrah taxi without booking fee',
         'direct umrah taxi saudi arabia',
         'jeddah makkah taxi no commission',
-        'al kiswah vs kiwi taxi',
-        'al kiswah vs telixo',
-        'al kiswah vs 5star',
-        'umrah transport direct operator',
+        'al kiswah vs booking platforms',
         'cheapest umrah taxi 2026',
     ],
     alternates: generateMetadataAlternates('/pricing/compare'),
     openGraph: {
-        title: 'Al Kiswah vs Kiwi Taxi / Telixo / 5Star — Save 20–30% Booking Direct',
-        description: 'We supply Kiwi Taxi, Telixo, 5Star & Booking.com with vehicles in Saudi Arabia. Book direct with us and skip the commission. Same car, lower price.',
+        title: 'Al Kiswah vs Booking Platforms — Save 20–30% Booking Direct',
+        description: 'We supply international booking platforms with vehicles in Saudi Arabia. Book direct with us and skip the commission. Same car, lower price.',
         images: [{ url: '/images/fleet/gmc-yukon-hero-professional.webp', width: 1200, height: 630 }],
     },
 };
@@ -38,58 +33,42 @@ const FEATURES = [
     {
         label: 'Platform Commission',
         alkiswah: { text: '0% — You pay us, we drive you', good: true },
-        kiwi: { text: '~20–30% added to every fare', good: false },
-        booking: { text: '~25–30% platform fee', good: false },
-        telexo: { text: '~15–25% markup', good: false },
+        platform: { text: '~20–30% added to every fare', good: false },
     },
     {
         label: 'Fleet Ownership',
         alkiswah: { text: 'Own licensed fleet in Saudi Arabia', good: true },
-        kiwi: { text: 'Subcontracts local operators', good: false },
-        booking: { text: 'Random 3rd-party drivers', good: false },
-        telexo: { text: 'Partner network, not owned', good: false },
+        platform: { text: 'Subcontracts to local operators', good: false },
     },
     {
         label: 'Price Guarantee',
         alkiswah: { text: 'Fixed at booking — never changes', good: true },
-        kiwi: { text: 'May vary at checkout', good: false },
-        booking: { text: 'Subject to availability changes', good: false },
-        telexo: { text: 'Dynamic pricing can increase', good: false },
+        platform: { text: 'Subject to availability & dynamic pricing', good: false },
     },
     {
         label: 'Driver Contact',
         alkiswah: { text: 'Direct WhatsApp to your driver', good: true },
-        kiwi: { text: 'Via platform app only', good: false },
-        booking: { text: 'Email ticket system', good: false },
-        telexo: { text: 'App messaging only', good: false },
+        platform: { text: 'App messaging or email only', good: false },
     },
     {
         label: 'Hidden Fees',
         alkiswah: { text: 'Zero — tolls, fuel, parking included', good: true },
-        kiwi: { text: 'Luggage fees may apply', good: false },
-        booking: { text: 'Taxes added at checkout', good: false },
-        telexo: { text: 'Extras billed on arrival', good: false },
+        platform: { text: 'Luggage fees or taxes may apply', good: false },
     },
     {
         label: 'Cancellation',
         alkiswah: { text: 'Free up to 24h before trip', good: true },
-        kiwi: { text: 'Platform fee retained', good: false },
-        booking: { text: 'Varies by provider', good: false },
-        telexo: { text: 'Cancellation fee applies', good: false },
+        platform: { text: 'Cancellation or platform fees often apply', good: false },
     },
     {
         label: 'Saudi Hajj License',
         alkiswah: { text: 'Ministry of Hajj & Umrah licensed', good: true },
-        kiwi: { text: 'Not always verified', good: false },
-        booking: { text: 'Partner dependent', good: false },
-        telexo: { text: 'Not always verified', good: false },
+        platform: { text: 'Not always verified', good: false },
     },
     {
         label: 'Support Channel',
         alkiswah: { text: '24/7 WhatsApp + phone', good: true },
-        kiwi: { text: 'App support during business hours', good: false },
-        booking: { text: 'Email only, slow response', good: false },
-        telexo: { text: 'App chat only', good: false },
+        platform: { text: 'Email or slow app support', good: false },
     },
 ];
 
@@ -98,73 +77,49 @@ const PRICE_COMPARISON = [
         route: 'Jeddah Airport → Makkah',
         distance: '100 km',
         vehicles: [
-            { type: 'Sedan (3 pax)', alkiswah: 50, kiwi: 65, booking: 70 },
-            { type: 'Family Van (7 pax)', alkiswah: 60, kiwi: 78, booking: 85 },
-            { type: 'Minibus 10 pax', alkiswah: 75, kiwi: 97, booking: 108 },
-            { type: 'Minibus 19 pax', alkiswah: 185, kiwi: 240, booking: 260 },
+            { type: 'Sedan (3 pax)', alkiswah: 50, platform: 68 },
+            { type: 'Family Van (7 pax)', alkiswah: 60, platform: 82 },
+            { type: 'Minibus 10 pax', alkiswah: 75, platform: 105 },
+            { type: 'Minibus 19 pax', alkiswah: 185, platform: 250 },
         ],
     },
     {
         route: 'Jeddah → Makkah',
         distance: '85 km',
         vehicles: [
-            { type: 'Sedan (3 pax)', alkiswah: 50, kiwi: 65, booking: 70 },
-            { type: 'Comfort (4 pax)', alkiswah: 60, kiwi: 78, booking: 84 },
-            { type: 'Minibus 7 pax', alkiswah: 78, kiwi: 101, booking: 109 },
-            { type: 'Minibus 19 pax', alkiswah: 185, kiwi: 240, booking: 260 },
+            { type: 'Sedan (3 pax)', alkiswah: 50, platform: 68 },
+            { type: 'Comfort (4 pax)', alkiswah: 60, platform: 81 },
+            { type: 'Minibus 7 pax', alkiswah: 78, platform: 105 },
+            { type: 'Minibus 19 pax', alkiswah: 185, platform: 250 },
         ],
     },
     {
         route: 'Jeddah → Madinah',
         distance: '413 km',
         vehicles: [
-            { type: 'Sedan (3 pax)', alkiswah: 115, kiwi: 150, booking: 162 },
-            { type: 'Family Van (7 pax)', alkiswah: 140, kiwi: 182, booking: 196 },
-            { type: 'Minibus 13 pax', alkiswah: 210, kiwi: 273, booking: 294 },
-        ],
-    },
-    {
-        route: 'Jeddah → Riyadh',
-        distance: '960 km',
-        vehicles: [
-            { type: 'Sedan (3 pax)', alkiswah: 380, kiwi: 494, booking: 532 },
-            { type: 'Comfort (4 pax)', alkiswah: 420, kiwi: 546, booking: 588 },
-        ],
-    },
-    {
-        route: 'Jeddah → Taif',
-        distance: '186 km',
-        vehicles: [
-            { type: 'Sedan (3 pax)', alkiswah: 110, kiwi: 143, booking: 154 },
-            { type: 'Comfort (4 pax)', alkiswah: 125, kiwi: 163, booking: 175 },
+            { type: 'Sedan (3 pax)', alkiswah: 115, platform: 156 },
+            { type: 'Family Van (7 pax)', alkiswah: 140, platform: 189 },
+            { type: 'Minibus 13 pax', alkiswah: 210, platform: 283 },
         ],
     },
 ];
 
 const FAQ_ITEMS = [
     {
-        q: 'Is Al Kiswah the same company as Kiwi Taxi in Saudi Arabia?',
-        a: 'No — but Al Kiswah is one of the operators that supplies vehicles to platforms like Kiwi Taxi for Saudi Arabia routes. When you book Umrah transport on Kiwi Taxi, the actual car and driver may come from Al Kiswah or similar local operators. Kiwi then adds their commission. By booking at kiswahumrahcab.com directly, you get the same car and driver at the base operator price — no platform fee.',
+        q: 'Is Al Kiswah a booking platform or an actual transport operator?',
+        a: 'Al Kiswah is an actual transport operator. We own our fleet in Saudi Arabia and are licensed by the Ministry of Hajj & Umrah. When you book with us, you are booking directly with the company providing the car and driver, cutting out the middleman.',
     },
     {
-        q: 'Why is Al Kiswah cheaper than Kiwi Taxi for Jeddah to Makkah?',
-        a: 'Kiwi Taxi does not own vehicles in Saudi Arabia — they are a booking platform. They take 20–30% commission on every booking. Al Kiswah owns its fleet in Makkah, Saudi Arabia, so you pay the actual transport cost with zero platform markup. For Jeddah Airport to Makkah, Al Kiswah charges $50 USD (sedan). The same route on Kiwi Taxi costs approximately $65 USD — a $15 difference for the exact same service.',
-    },
-    {
-        q: 'Does Booking.com use Al Kiswah as a transport provider?',
-        a: 'Booking.com partners with local Saudi operators for Umrah transport. Al Kiswah is a Ministry of Hajj licensed operator in Makkah. Booking direct cuts out the Booking.com platform fee (typically 25–30%), reducing your cost significantly. For Jeddah to Madinah, Booking.com may charge $162+ USD where Al Kiswah direct is $115 USD — the same vehicle, the same driver, $47 less.',
+        q: 'Why is booking directly with Al Kiswah cheaper than using international platforms?',
+        a: 'International booking platforms do not own vehicles in Saudi Arabia. They take a 20–30% commission on every booking before passing the reservation to local operators like us. By booking at kiswahumrahcab.com directly, you pay the actual transport cost with zero platform markup.',
     },
     {
         q: 'How do I know Al Kiswah prices are real and not bait-and-switch?',
-        a: 'Our prices are fixed at the time of booking and legally binding. We are licensed by the Saudi Ministry of Hajj & Umrah. Unlike platforms that show low prices and add taxes at checkout, our prices include all tolls, fuel, parking, and driver fees. No extras on arrival. Price confirmation is sent instantly via WhatsApp and email.',
-    },
-    {
-        q: 'What is the cheapest way to get a taxi from Jeddah Airport to Makkah?',
-        a: 'The cheapest way is to book direct with a Saudi-licensed operator like Al Kiswah. A private sedan from Jeddah Airport (JED) to Makkah starts at $50 USD (approximately 188 SAR). This is 20–30% less than booking the same route through Kiwi Taxi ($65), Booking.com ($70), or Telexo. Go to kiswahumrahcab.com/booking or WhatsApp +966 54 870 7332.',
+        a: 'Our prices are fixed at the time of booking and legally binding. Unlike platforms that show low initial prices and add taxes or luggage fees at checkout, our prices include all tolls, fuel, parking, and driver fees. No extras on arrival.',
     },
     {
         q: 'Can I trust booking a taxi directly in Saudi Arabia without a platform?',
-        a: 'Yes — Al Kiswah has been operating in Saudi Arabia since 2015. We are Ministry of Hajj & Umrah licensed, have 5-star Google ratings, and have transported over 10,000 pilgrims. We provide instant booking confirmation, driver details via WhatsApp, and free 24-hour cancellation. Direct booking is safer than platforms because you speak to the actual operator.',
+        a: 'Yes — Al Kiswah has been operating in Saudi Arabia since 2015. We have 5-star Google ratings and have transported over 10,000 pilgrims. We provide instant booking confirmation, driver details via WhatsApp, and free 24-hour cancellation. Direct booking is safer because you speak to the actual operator.',
     },
 ];
 
@@ -184,8 +139,8 @@ export default function ComparePage() {
             },
             {
                 '@type': 'Article',
-                headline: 'Al Kiswah vs Kiwi Taxi vs Booking.com — Umrah Taxi Price Comparison 2026',
-                description: 'Detailed price comparison of direct operator Al Kiswah vs middleman platforms Kiwi Taxi and Booking.com for Saudi Arabia Umrah transport.',
+                headline: 'Al Kiswah vs Third-Party Platforms — Umrah Taxi Price Comparison 2026',
+                description: 'Detailed price comparison of direct operator Al Kiswah vs middleman platforms for Saudi Arabia Umrah transport.',
                 author: { '@type': 'Organization', name: 'Al Kiswah Umrah Transport' },
                 datePublished: '2026-01-01',
                 dateModified: '2026-04-29',
@@ -194,48 +149,36 @@ export default function ComparePage() {
     };
 
     return (
-        <main className="min-h-screen bg-charcoal relative">
+        <main className="min-h-screen bg-bg relative">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-            <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             {/* ── HERO ─────────────────────────────────────────────── */}
-            <section className="pt-32 pb-20 relative z-10">
+            <section className="pt-32 pb-20 relative z-10 bg-surface-alt border-b border-border">
                 <div className="container mx-auto px-4 text-center">
                     <FadeIn>
                         <div className="mb-4">
-                            <Breadcrumbs />
+                            <Breadcrumbs theme="light" />
                         </div>
                         <span className="inline-block bg-gold/10 border border-gold/30 text-gold text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-6">
                             Independent Price Comparison · 2026
                         </span>
-                        <h1 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight">
+                        <h1 className="text-4xl md:text-6xl font-display font-black text-ink mb-6 leading-tight">
                             Al Kiswah vs{' '}
-                            <span className="text-red-400 line-through opacity-70">Kiwi Taxi</span>{' '}
-                            <span className="text-red-400 line-through opacity-70">Telixo</span>{' '}
-                            <span className="text-red-400 line-through opacity-70">5Star</span>
+                            <span className="text-ink-muted line-through opacity-70">Booking Platforms</span>
                         </h1>
-                        {/* Platforms we supply */}
-                        <div className="flex flex-wrap items-center justify-center gap-2 mb-6">
-                            <span className="text-white/50 text-xs uppercase tracking-widest">We power:</span>
-                            {['Kiwi Taxi', 'Telixo', '5Star', 'Booking.com'].map(p => (
-                                <span key={p} className="bg-white/5 border border-white/10 text-white/60 text-xs font-medium px-3 py-1.5 rounded-full">
-                                    {p}
-                                </span>
-                            ))}
-                        </div>
-                        <p className="text-xl text-white/80 max-w-2xl mx-auto mb-4">
-                            Al Kiswah supplies the actual vehicles to Kiwi Taxi, Telixo, 5Star and Booking.com
+                        <p className="text-xl text-ink max-w-2xl mx-auto mb-4 font-medium">
+                            Al Kiswah supplies the actual vehicles to international platforms 
                             for Saudi Arabia routes. Those platforms add{' '}
-                            <strong className="text-red-400">20–30% commission</strong> before you see the price.
+                            <strong className="text-error">20–30% commission</strong> before you see the price.
                         </p>
-                        <p className="text-white/50 max-w-xl mx-auto mb-10">
+                        <p className="text-ink-muted max-w-xl mx-auto mb-10">
                             Book direct with Al Kiswah → same car, same driver, lower price. No platform. No commission.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link href="/booking" className="bg-gold text-black font-bold px-10 py-4 rounded-xl hover:bg-white transition-colors uppercase tracking-wider">
+                            <Link href="/booking" className="btn-primary">
                                 Book Direct — Best Price
                             </Link>
-                            <Link href="/pricing" className="bg-white/8 border border-white/15 text-white font-semibold px-10 py-4 rounded-xl hover:bg-white/15 transition-colors">
+                            <Link href="/pricing" className="btn-secondary">
                                 See All Prices
                             </Link>
                         </div>
@@ -244,19 +187,19 @@ export default function ComparePage() {
             </section>
 
             {/* ── SUMMARY STAT BOXES ───────────────────────────────── */}
-            <section className="pb-16 relative z-10">
+            <section className="py-16 relative z-10 bg-bg">
                 <div className="container mx-auto px-4">
                     <FadeIn>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
                             {[
-                                { val: '0%', label: 'Platform Commission', color: 'text-gold' },
-                                { val: '20–30%', label: 'Cheaper than Kiwi Taxi', color: 'text-gold' },
-                                { val: `${formatMetric(TRUST_METRICS.pilgrimsServed)}`, label: 'Pilgrims Transported', color: 'text-white' },
-                                { val: `${TRUST_METRICS.googleRating || "X.X"}★`, label: 'Google Rating', color: 'text-gold' },
+                                { val: '0%', label: 'Platform Commission' },
+                                { val: '20–30%', label: 'Cheaper than Platforms' },
+                                { val: `${formatMetric(TRUST_METRICS.pilgrimsServed)}`, label: 'Pilgrims Transported' },
+                                { val: `${TRUST_METRICS.googleRating || "5.0"}★`, label: 'Google Rating' },
                             ].map(stat => (
-                                <div key={stat.label} className="bg-white/5 border border-white/8 rounded-2xl p-5 text-center">
-                                    <p className={`text-3xl font-black mb-1 ${stat.color}`}>{stat.val}</p>
-                                    <p className="text-white/60 text-xs">{stat.label}</p>
+                                <div key={stat.label} className="card p-5 text-center">
+                                    <p className="text-3xl font-black mb-1 text-gold">{stat.val}</p>
+                                    <p className="text-ink-muted text-xs font-medium">{stat.label}</p>
                                 </div>
                             ))}
                         </div>
@@ -265,93 +208,59 @@ export default function ComparePage() {
             </section>
 
             {/* ── FULL FEATURE COMPARISON TABLE ────────────────────── */}
-            <section className="py-16 relative z-10">
+            <section className="py-16 relative z-10 bg-bg">
                 <div className="container mx-auto px-4">
                     <FadeIn>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-3">
+                        <h2 className="text-3xl md:text-4xl font-display font-bold text-ink text-center mb-3">
                             Feature-by-Feature Comparison
                         </h2>
-                        <p className="text-white/60 text-center mb-12 max-w-xl mx-auto">
-                            The full breakdown of what you actually get when booking each platform.
+                        <p className="text-ink-muted text-center mb-12 max-w-xl mx-auto">
+                            The full breakdown of what you actually get when booking direct vs through a third party.
                         </p>
 
-                        <div className="max-w-5xl mx-auto overflow-x-auto">
-                            <table className="w-full text-sm border-collapse min-w-[700px]">
+                        <div className="max-w-4xl mx-auto overflow-x-auto card p-0">
+                            <table className="w-full text-sm border-collapse min-w-[600px]">
                                 <thead>
-                                    <tr>
-                                        <th className="text-left py-4 px-4 text-white/60 font-medium w-[22%]">Feature</th>
-                                        <th className="py-4 px-3 text-center w-[22%]">
+                                    <tr className="bg-surface-alt border-b border-border">
+                                        <th className="text-left py-5 px-6 text-ink-muted font-medium w-[30%]">Feature</th>
+                                        <th className="py-5 px-4 text-center w-[35%] border-l border-border">
                                             <div className="inline-flex flex-col items-center">
-                                                <span className="bg-gold/15 border border-gold/40 text-gold font-bold px-3 py-2 rounded-xl text-xs">
+                                                <span className="bg-gold/15 border border-gold/40 text-gold-strong font-bold px-3 py-1.5 rounded-full text-xs">
                                                     Al Kiswah
                                                 </span>
-                                                <span className="text-[10px] text-white/50 mt-1">Direct Operator</span>
+                                                <span className="text-[10px] text-ink-muted mt-1 uppercase tracking-wider font-bold">Direct Operator</span>
                                             </div>
                                         </th>
-                                        <th className="py-4 px-3 text-center w-[19%]">
+                                        <th className="py-5 px-4 text-center w-[35%] border-l border-border">
                                             <div className="inline-flex flex-col items-center">
-                                                <span className="bg-white/5 border border-white/10 text-white/80 font-medium px-3 py-2 rounded-xl text-xs">
-                                                    Kiwi Taxi
+                                                <span className="bg-surface border border-border-strong text-ink font-medium px-3 py-1.5 rounded-full text-xs">
+                                                    Other Platforms
                                                 </span>
-                                                <span className="text-[10px] text-white/50 mt-1">Platform</span>
-                                            </div>
-                                        </th>
-                                        <th className="py-4 px-3 text-center w-[19%]">
-                                            <div className="inline-flex flex-col items-center">
-                                                <span className="bg-white/5 border border-white/10 text-white/80 font-medium px-3 py-2 rounded-xl text-xs">
-                                                    Telixo
-                                                </span>
-                                                <span className="text-[10px] text-white/50 mt-1">Platform</span>
-                                            </div>
-                                        </th>
-                                        <th className="py-4 px-3 text-center w-[18%]">
-                                            <div className="inline-flex flex-col items-center">
-                                                <span className="bg-white/5 border border-white/10 text-white/80 font-medium px-3 py-2 rounded-xl text-xs">
-                                                    5Star / Booking
-                                                </span>
-                                                <span className="text-[10px] text-white/50 mt-1">Platform</span>
+                                                <span className="text-[10px] text-ink-muted mt-1 uppercase tracking-wider font-bold">Middleman</span>
                                             </div>
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {FEATURES.map((row, i) => (
-                                        <tr key={i} className={`border-b border-white/5 ${i % 2 === 0 ? 'bg-white/2' : ''}`}>
-                                            <td className="py-4 px-4 text-white/80 font-medium text-xs">{row.label}</td>
+                                        <tr key={i} className={`border-b border-border last:border-0 ${i % 2 === 0 ? 'bg-surface' : 'bg-surface-alt'}`}>
+                                            <td className="py-4 px-6 text-ink font-semibold text-xs md:text-sm">{row.label}</td>
                                             {/* Al Kiswah */}
-                                            <td className="py-3 px-3">
-                                                <div className="flex items-start gap-1.5">
-                                                    <div className="mt-0.5 shrink-0 p-0.5 rounded-full bg-gold/20 text-gold">
-                                                        <Check size={11} />
+                                            <td className="py-4 px-4 border-l border-border bg-gold/5">
+                                                <div className="flex items-start gap-2 justify-center">
+                                                    <div className="mt-0.5 shrink-0 p-0.5 rounded-full bg-success/20 text-success">
+                                                        <Check size={14} />
                                                     </div>
-                                                    <span className="text-gold text-xs leading-tight">{row.alkiswah.text}</span>
+                                                    <span className="text-ink text-sm leading-tight font-medium text-left">{row.alkiswah.text}</span>
                                                 </div>
                                             </td>
-                                            {/* Kiwi */}
-                                            <td className="py-3 px-3">
-                                                <div className="flex items-start gap-1.5">
-                                                    <div className="mt-0.5 shrink-0 p-0.5 rounded-full bg-red-500/20 text-red-400">
-                                                        <X size={11} />
+                                            {/* Platform */}
+                                            <td className="py-4 px-4 border-l border-border">
+                                                <div className="flex items-start gap-2 justify-center opacity-80">
+                                                    <div className="mt-0.5 shrink-0 p-0.5 rounded-full bg-error/10 text-error">
+                                                        <X size={14} />
                                                     </div>
-                                                    <span className="text-red-400 text-xs leading-tight">{row.kiwi.text}</span>
-                                                </div>
-                                            </td>
-                                            {/* Telixo — same model as Kiwi */}
-                                            <td className="py-3 px-3">
-                                                <div className="flex items-start gap-1.5">
-                                                    <div className="mt-0.5 shrink-0 p-0.5 rounded-full bg-red-500/20 text-red-400">
-                                                        <X size={11} />
-                                                    </div>
-                                                    <span className="text-red-400 text-xs leading-tight">{row.telexo.text}</span>
-                                                </div>
-                                            </td>
-                                            {/* 5Star / Booking.com */}
-                                            <td className="py-3 px-3">
-                                                <div className="flex items-start gap-1.5">
-                                                    <div className="mt-0.5 shrink-0 p-0.5 rounded-full bg-red-500/20 text-red-400">
-                                                        <X size={11} />
-                                                    </div>
-                                                    <span className="text-red-400 text-xs leading-tight">{row.booking.text}</span>
+                                                    <span className="text-ink-muted text-sm leading-tight text-left">{row.platform.text}</span>
                                                 </div>
                                             </td>
                                         </tr>
@@ -364,71 +273,69 @@ export default function ComparePage() {
             </section>
 
             {/* ── USD PRICE TABLE BY ROUTE ─────────────────────────── */}
-            <section className="py-16 bg-white/3 border-y border-white/5 relative z-10">
+            <section className="py-20 bg-surface-sunken border-y border-border relative z-10">
                 <div className="container mx-auto px-4">
                     <FadeIn>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-3">
+                        <h2 className="text-3xl md:text-4xl font-display font-bold text-ink text-center mb-3">
                             Price Comparison by Route (USD)
                         </h2>
-                        <p className="text-white/60 text-center mb-12 max-w-xl mx-auto">
+                        <p className="text-ink-muted text-center mb-12 max-w-xl mx-auto">
                             All prices are per vehicle, private, all-inclusive. Platform prices are estimates based on standard commission rates.
                         </p>
 
-                        <div className="max-w-5xl mx-auto space-y-6">
+                        <div className="max-w-4xl mx-auto space-y-8">
                             {PRICE_COMPARISON.map((route, ri) => (
-                                <div key={ri} className="bg-neutral-900/60 border border-white/8 rounded-2xl overflow-hidden">
+                                <div key={ri} className="card overflow-hidden border-border shadow-sm">
                                     {/* Route header */}
-                                    <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-black/20">
+                                    <div className="flex items-center justify-between px-6 py-5 border-b border-border bg-surface-alt">
                                         <div className="flex items-center gap-3">
-                                            <ArrowRight size={16} className="text-gold" />
-                                            <h3 className="text-white font-bold">{route.route}</h3>
-                                            <span className="text-white/50 text-sm">{route.distance}</span>
+                                            <ArrowRight size={18} className="text-gold-strong" />
+                                            <h3 className="text-ink font-bold text-lg">{route.route}</h3>
+                                            <span className="text-ink-muted text-sm hidden sm:inline-block">({route.distance})</span>
                                         </div>
                                         <Link
                                             href={`/booking?from=${encodeURIComponent(route.route.split('→')[0].trim())}&to=${encodeURIComponent(route.route.split('→')[1].trim())}`}
-                                            className="text-gold text-xs font-bold hover:text-white transition-colors"
+                                            className="text-gold-strong text-sm font-bold hover:text-gold transition-colors"
                                         >
                                             Book Direct →
                                         </Link>
                                     </div>
 
                                     {/* Price rows */}
-                                    <table className="w-full text-sm">
-                                        <thead>
-                                            <tr className="border-b border-white/5">
-                                                <th className="text-left px-6 py-3 text-white/60 font-medium">Vehicle</th>
-                                                <th className="text-center px-4 py-3 text-gold font-bold">Al Kiswah</th>
-                                                <th className="text-center px-4 py-3 text-white/60 font-medium">Kiwi Taxi</th>
-                                                <th className="text-center px-4 py-3 text-white/60 font-medium hidden md:table-cell">Booking.com</th>
-                                                <th className="text-center px-4 py-3 text-gold font-medium hidden md:table-cell">You Save</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {route.vehicles.map((v, vi) => {
-                                                const saveVsKiwi = v.kiwi - v.alkiswah;
-                                                const savePct = Math.round((saveVsKiwi / v.kiwi) * 100);
-                                                return (
-                                                    <tr key={vi} className={`border-b border-white/5 last:border-0 ${vi % 2 === 0 ? 'bg-white/2' : ''}`}>
-                                                        <td className="px-6 py-3 text-white/80">{v.type}</td>
-                                                        <td className="px-4 py-3 text-center">
-                                                            <span className="text-gold font-black text-base">${v.alkiswah}</span>
-                                                        </td>
-                                                        <td className="px-4 py-3 text-center">
-                                                            <span className="text-white/60 line-through">${v.kiwi}</span>
-                                                        </td>
-                                                        <td className="px-4 py-3 text-center hidden md:table-cell">
-                                                            <span className="text-white/50 line-through">${v.booking}</span>
-                                                        </td>
-                                                        <td className="px-4 py-3 text-center hidden md:table-cell">
-                                                            <span className="bg-gold/15 text-gold text-xs font-bold px-2 py-1 rounded-full">
-                                                                ${saveVsKiwi} ({savePct}%)
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-                                                );
-                                            })}
-                                        </tbody>
-                                    </table>
+                                    <div className="overflow-x-auto">
+                                        <table className="w-full text-sm">
+                                            <thead>
+                                                <tr className="border-b border-border bg-surface">
+                                                    <th className="text-left px-6 py-4 text-ink-muted font-medium w-[40%]">Vehicle</th>
+                                                    <th className="text-center px-4 py-4 text-ink font-bold w-[20%] border-l border-border">Al Kiswah</th>
+                                                    <th className="text-center px-4 py-4 text-ink-muted font-medium w-[20%] border-l border-border">Other Platforms</th>
+                                                    <th className="text-center px-4 py-4 text-success font-bold w-[20%] border-l border-border hidden sm:table-cell">You Save</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {route.vehicles.map((v, vi) => {
+                                                    const saveVsPlatform = v.platform - v.alkiswah;
+                                                    const savePct = Math.round((saveVsPlatform / v.platform) * 100);
+                                                    return (
+                                                        <tr key={vi} className={`border-b border-border last:border-0 ${vi % 2 === 0 ? 'bg-surface' : 'bg-surface-alt'}`}>
+                                                            <td className="px-6 py-4 text-ink font-medium">{v.type}</td>
+                                                            <td className="px-4 py-4 text-center border-l border-border bg-gold/5">
+                                                                <span className="text-gold-strong font-black text-lg">${v.alkiswah}</span>
+                                                            </td>
+                                                            <td className="px-4 py-4 text-center border-l border-border">
+                                                                <span className="text-ink-muted line-through">${v.platform}</span>
+                                                            </td>
+                                                            <td className="px-4 py-4 text-center border-l border-border hidden sm:table-cell bg-success/5">
+                                                                <span className="text-success font-bold">
+                                                                    ${saveVsPlatform} ({savePct}%)
+                                                                </span>
+                                                            </td>
+                                                        </tr>
+                                                    );
+                                                })}
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             ))}
                         </div>
@@ -437,25 +344,25 @@ export default function ComparePage() {
             </section>
 
             {/* ── FAQ ─────────────────────────────────────────────── */}
-            <section className="py-20 relative z-10">
+            <section className="py-20 relative z-10 bg-bg">
                 <div className="container mx-auto px-4">
                     <FadeIn>
-                        <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-3">
+                        <h2 className="text-3xl md:text-4xl font-display font-bold text-ink text-center mb-3">
                             Frequently Asked Questions
                         </h2>
-                        <p className="text-white/60 text-center mb-12 max-w-xl mx-auto">
+                        <p className="text-ink-muted text-center mb-12 max-w-xl mx-auto">
                             Common questions pilgrims ask when comparing Umrah taxi options.
                         </p>
 
                         <div className="max-w-3xl mx-auto space-y-4">
                             {FAQ_ITEMS.map((item, i) => (
-                                <details key={i} className="group bg-white/3 border border-white/8 rounded-2xl overflow-hidden">
-                                    <summary className="flex items-start justify-between gap-4 cursor-pointer p-6 list-none">
-                                        <h3 className="text-white font-semibold text-sm md:text-base leading-snug">{item.q}</h3>
-                                        <span className="shrink-0 text-gold text-xl font-light group-open:rotate-45 transition-transform duration-200 mt-0.5">+</span>
+                                <details key={i} className="group card overflow-hidden cursor-pointer">
+                                    <summary className="flex items-start justify-between gap-4 p-6 list-none outline-none">
+                                        <h3 className="text-ink font-semibold text-base leading-snug group-hover:text-gold-strong transition-colors">{item.q}</h3>
+                                        <span className="shrink-0 text-gold text-2xl font-light group-open:rotate-45 transition-transform duration-200 leading-none">+</span>
                                     </summary>
-                                    <div className="px-6 pb-6">
-                                        <p className="text-white/60 text-sm leading-relaxed">{item.a}</p>
+                                    <div className="px-6 pb-6 pt-2">
+                                        <p className="text-ink-muted text-sm leading-relaxed">{item.a}</p>
                                     </div>
                                 </details>
                             ))}
@@ -464,31 +371,34 @@ export default function ComparePage() {
                 </div>
             </section>
 
-            {/* ── BOTTOM CTA ──────────────────────────────────────── */}
-            <section className="py-20 relative z-10">
+            {/* ── BOTTOM CTA (DARK ANCHOR) ─────────────────────────── */}
+            <section className="py-20 relative z-10 bg-bg">
                 <div className="container mx-auto px-4">
                     <FadeIn>
-                        <div className="max-w-3xl mx-auto text-center bg-gradient-to-br from-gold/10 to-black border border-gold/20 rounded-3xl p-12">
-                            <ShieldCheck size={48} className="text-gold mx-auto mb-6" />
-                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                                Skip the Platform. Book the Operator.
-                            </h2>
-                            <p className="text-white/60 mb-8 text-lg">
-                                Al Kiswah owns its fleet in Saudi Arabia. No broker. No markup. <br />
-                                Same vehicle you'd get on Kiwi Taxi — at the real price.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <Link href="/booking" className="bg-gold text-black font-bold px-10 py-4 rounded-xl hover:bg-white transition-colors uppercase tracking-wider">
-                                    Book Now — Instant Confirmation
-                                </Link>
-                                <a
-                                    href={SOCIAL_LINKS.whatsapp}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="bg-gold text-black font-bold px-10 py-4 rounded-xl hover:bg-gold-light transition-colors uppercase tracking-wider"
-                                >
-                                    WhatsApp for Quote
-                                </a>
+                        <div className="max-w-4xl mx-auto text-center bg-ink-bg rounded-3xl p-12 lg:p-16 shadow-lg relative overflow-hidden">
+                            <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5" />
+                            <div className="relative z-10">
+                                <ShieldCheck size={48} className="text-gold mx-auto mb-6" />
+                                <h2 className="text-3xl md:text-4xl font-display font-bold text-on-ink mb-4">
+                                    Skip the Platform. Book the Operator.
+                                </h2>
+                                <p className="text-on-ink-muted mb-10 text-lg max-w-2xl mx-auto">
+                                    Al Kiswah owns its fleet in Saudi Arabia. No broker. No markup. <br />
+                                    Same vehicle you'd get elsewhere — at the real price.
+                                </p>
+                                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                    <Link href="/booking" className="btn-primary">
+                                        Book Now — Instant Confirmation
+                                    </Link>
+                                    <a
+                                        href={SOCIAL_LINKS.whatsapp}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="btn-ghost"
+                                    >
+                                        WhatsApp for Quote
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </FadeIn>

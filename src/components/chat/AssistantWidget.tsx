@@ -437,18 +437,8 @@ function DesktopPanel({ state, dispatch, onSend, onClose, messagesEndRef, textar
 // ─────────────────────────────────────────────────────────────────────────────
 
 function MobileSheet({ state, dispatch, onSend, onClose, messagesEndRef, textareaRef }: PanelProps) {
-  const y = useMotionValue(0);
-  const opacity = useTransform(y, [0, 280], [1, 0]);
   const shouldReduceMotion = useReducedMotion();
-
   const { messages, draft, isStreaming, bookingRef } = state;
-
-
-  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
-    if (info.offset.y > 120 || info.velocity.y > 400) {
-      onClose();
-    }
-  };
 
   const handleKey = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -467,48 +457,24 @@ function MobileSheet({ state, dispatch, onSend, onClose, messagesEndRef, textare
   return (
     <>
       <motion.div
-        key="mobile-backdrop"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.2 }}
-        className="fixed inset-0 bg-ink/60 z-[9998] touch-none"
-        style={{ opacity }}
-        onClick={onClose}
-        aria-hidden="true"
-      />
-
-      <motion.div
         key="mobile-sheet"
         role="dialog"
         aria-label="Al Kiswah AI assistant"
         aria-modal="true"
-        initial={shouldReduceMotion ? { opacity: 0 } : { y: '100%' }}
-        animate={shouldReduceMotion ? { opacity: 1 } : { y: 0 }}
-        exit={shouldReduceMotion ? { opacity: 0 } : { y: '100%' }}
+        initial={shouldReduceMotion ? { opacity: 0 } : { y: '100%', opacity: 0 }}
+        animate={shouldReduceMotion ? { opacity: 1 } : { y: 0, opacity: 1 }}
+        exit={shouldReduceMotion ? { opacity: 0 } : { y: '100%', opacity: 0 }}
         transition={{ type: 'spring', stiffness: 340, damping: 38, mass: 0.9 }}
-        drag="y"
-        dragConstraints={{ top: 0 }}
-        dragElastic={{ top: 0, bottom: 0.3 }}
-        onDragEnd={handleDragEnd}
         className="
-          fixed inset-x-0 bottom-0 z-[9999]
+          fixed inset-0 z-[9999]
           flex flex-col
           bg-surface
-          rounded-t-[20px]
-          shadow-[0_-8px_40px_rgba(21,20,15,)]
           overflow-hidden
-          touch-none
         "
         style={{
-          height: 'calc(var(--vh, 1vh) * 88)',
-          paddingBottom: 'env(safe-area-inset-bottom)',
+          height: '100dvh',
         }}
       >
-        <div className="flex-shrink-0 flex justify-center pt-3 pb-2 cursor-grab active:cursor-grabbing touch-none">
-          <div className="w-10 h-1 rounded-full bg-border" />
-        </div>
-
         <PanelHeader onClose={onClose} />
         <GoldHairline />
 
@@ -517,7 +483,7 @@ function MobileSheet({ state, dispatch, onSend, onClose, messagesEndRef, textare
             <motion.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
-              exit={{   height: 0, opacity: 0 }}
+              exit={{ height: 0, opacity: 0 }}
               className="overflow-hidden flex-shrink-0"
             >
               <BookingBanner ref_={bookingRef} />
@@ -530,8 +496,6 @@ function MobileSheet({ state, dispatch, onSend, onClose, messagesEndRef, textare
           isStreaming={isStreaming}
           messagesEndRef={messagesEndRef}
         />
-
-
 
         <InputArea
           value={draft}

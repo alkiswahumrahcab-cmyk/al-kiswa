@@ -68,7 +68,7 @@ export default function ReviewsCarousel({ reviews, lang = 'en' }: ReviewsCarouse
                 <button
                     onClick={prevSlide}
                     disabled={currentIndex === 0}
-                    className="p-4 rounded-btn bg-card border border-border text-foreground hover:bg-gold hover:border-gold hover:text-black transition-all duration-300 disabled:opacity-30 disabled:hover:bg-muted disabled:hover:border-border disabled:cursor-not-allowed group"
+                    className="p-4 rounded-btn bg-surface border border-border text-ink hover:bg-gold-soft hover:border-gold-strong transition-all duration-300 disabled:opacity-30 disabled:hover:bg-surface disabled:hover:border-border disabled:cursor-not-allowed group"
                     aria-label="Previous review"
                 >
                     <ChevronLeft size={24} className={`transition-transform ${lang === 'ar' ? 'rotate-180 group-hover:translate-x-0.5' : 'group-hover:-translate-x-0.5'}`} />
@@ -76,7 +76,7 @@ export default function ReviewsCarousel({ reviews, lang = 'en' }: ReviewsCarouse
                 <button
                     onClick={nextSlide}
                     disabled={currentIndex >= reviews.length - visibleItems}
-                    className="p-4 rounded-btn bg-card border border-border text-foreground hover:bg-gold hover:border-gold hover:text-black transition-all duration-300 disabled:opacity-30 disabled:hover:bg-muted disabled:hover:border-border disabled:cursor-not-allowed group"
+                    className="p-4 rounded-btn bg-surface border border-border text-ink hover:bg-gold-soft hover:border-gold-strong transition-all duration-300 disabled:opacity-30 disabled:hover:bg-surface disabled:hover:border-border disabled:cursor-not-allowed group"
                     aria-label="Next review"
                 >
                     <ChevronRight size={24} className={`transition-transform ${lang === 'ar' ? 'rotate-180 group-hover:-translate-x-0.5' : 'group-hover:translate-x-0.5'}`} />

@@ -1,51 +1,53 @@
-﻿'use client';
+'use client';
 
 import React from 'react';
-import { Calendar, MapPin, ArrowRight } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import CTAButton from './CTAButton';
 
 export default function SidebarBookingWidget() {
     return (
-        <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl p-6 text-white shadow-xl border border-white/10 relative overflow-hidden">
-            {/* Background Pattern */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full blur-3xl -mr-16 -mt-16" />
+        <div className="bg-ink-bg rounded-3xl p-8 text-on-ink shadow-2xl border border-border/10 relative overflow-hidden">
+            {/* Subtle Gold Glow */}
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gold/15 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
 
-            <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
+            <h3 className="text-2xl font-display font-semibold mb-6 flex items-center gap-3 text-on-ink">
                 <span className="w-1 h-6 bg-gold rounded-full" />
                 Get a Quote
             </h3>
 
-            <div className="space-y-4 mb-6">
-                <div className="space-y-2">
-                    <label className="text-xs text-n-400 uppercase tracking-wider font-semibold">Pickup</label>
-                    <div className="flex items-center gap-3 bg-white/5 p-3 rounded-lg border border-white/10">
-                        <MapPin size={18} className="text-gold" />
-                        <span className="text-sm">Jeddah Airport (JED)</span>
+            <div className="space-y-5 mb-8">
+                <div className="space-y-2 relative z-10">
+                    <label className="text-xs text-on-ink-muted uppercase tracking-wider font-bold">Pickup</label>
+                    <div className="flex items-center gap-3 bg-ink-surface/50 p-4 rounded-xl border border-border/10 transition-colors hover:border-gold/30">
+                        <MapPin size={18} className="text-gold flex-shrink-0" />
+                        <span className="text-[15px] font-medium">Jeddah Airport (JED)</span>
                     </div>
                 </div>
 
-                <div className="space-y-2">
-                    <label className="text-xs text-n-400 uppercase tracking-wider font-semibold">Drop-off</label>
-                    <div className="flex items-center gap-3 bg-white/5 p-3 rounded-lg border border-white/10">
-                        <MapPin size={18} className="text-gold" />
-                        <span className="text-sm">Makkah Hotel</span>
+                <div className="space-y-2 relative z-10">
+                    <label className="text-xs text-on-ink-muted uppercase tracking-wider font-bold">Drop-off</label>
+                    <div className="flex items-center gap-3 bg-ink-surface/50 p-4 rounded-xl border border-border/10 transition-colors hover:border-gold/30">
+                        <MapPin size={18} className="text-gold flex-shrink-0" />
+                        <span className="text-[15px] font-medium">Makkah Hotel</span>
                     </div>
                 </div>
 
-                <div className="p-3 bg-gold/10 border border-gold/20 rounded-lg">
-                    <p className="text-xs text-gold text-center font-medium">
+                <div className="p-3 mt-4 bg-gold/5 border border-gold/20 rounded-xl relative z-10">
+                    <p className="text-sm text-gold text-center font-bold tracking-wide">
                         ✨ Best Price Guarantee
                     </p>
                 </div>
             </div>
 
-            <CTAButton
-                text="Calculate Price"
-                href="/booking"
-                className="w-full justify-center !py-4"
-            />
+            <div className="relative z-10">
+                <CTAButton
+                    text="Calculate Price"
+                    href="/booking"
+                    className="w-full justify-center !py-4 shadow-lg shadow-gold/10"
+                />
+            </div>
 
-            <p className="text-[10px] text-center text-n-500 mt-4">
+            <p className="text-xs text-center text-on-ink-muted mt-5 relative z-10">
                 No credit card required for quote
             </p>
         </div>

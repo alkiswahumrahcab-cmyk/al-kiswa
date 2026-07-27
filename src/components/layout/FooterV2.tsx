@@ -196,7 +196,6 @@ export default function Footer() {
                         </h3>
                         <ul className="space-y-3">
                             <li><Link003 href="/about" className="text-ink-muted hover:text-ink transition-colors text-[15px]">About Us</Link003></li>
-                            <li><Link003 href="/blog" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Blog & Travel Guides</Link003></li>
                             <li><Link003 href="/contact" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Contact Us</Link003></li>
                             <li><Link003 href="/safety" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Safety Policy</Link003></li>
                             <li><Link003 href="/track-booking" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Track My Booking</Link003></li>

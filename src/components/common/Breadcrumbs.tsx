@@ -1,5 +1,7 @@
 'use client';
 
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -9,9 +11,10 @@ import { SITE_URL } from '@/config/site';
 interface BreadcrumbsProps {
     overrideLastItem?: string;
     className?: string;
+    theme?: 'dark' | 'light';
 }
 
-export default function Breadcrumbs({ overrideLastItem, className = '' }: BreadcrumbsProps) {
+export default function Breadcrumbs({ overrideLastItem, className = '', theme = 'dark' }: BreadcrumbsProps) {
     const pathname = usePathname();
 
     // Split pathname into segments, filter empty strings
@@ -57,6 +60,11 @@ export default function Breadcrumbs({ overrideLastItem, className = '' }: Breadc
         ]
     };
 
+    const isLight = theme === 'light';
+    const linkColor = isLight ? 'text-ink-muted hover:text-ink' : 'text-white/70 hover:text-white';
+    const textColor = isLight ? 'text-ink font-medium' : 'text-white/90 font-medium';
+    const sepColor = isLight ? 'text-ink-muted/50' : 'text-white/40';
+
     return (
         <nav aria-label="Breadcrumb" className={`flex items-center text-sm ${className}`}>
             <script
@@ -68,7 +76,7 @@ export default function Breadcrumbs({ overrideLastItem, className = '' }: Breadc
                 <li className="flex items-center">
                     <Link
                         href={homeLink}
-                        className="text-white/70 hover:text-white transition-colors flex items-center gap-1"
+                        className={`${linkColor} transition-colors flex items-center gap-1`}
                     >
                         <Home size={14} />
                         <span className="sr-only">Home</span>
@@ -90,10 +98,10 @@ export default function Breadcrumbs({ overrideLastItem, className = '' }: Breadc
 
                     return (
                         <li key={path} className="flex items-center">
-                            <ChevronRight size={14} className="text-white/40 mx-1" />
+                            <ChevronRight size={14} className={`${sepColor} mx-1`} />
                             {isLast ? (
                                 <span
-                                    className="text-white/90 font-medium truncate max-w-[200px] md:max-w-xs"
+                                    className={`${textColor} truncate max-w-[200px] md:max-w-xs`}
                                     aria-current="page"
                                     title={overrideLastItem}
                                 >
@@ -102,7 +110,7 @@ export default function Breadcrumbs({ overrideLastItem, className = '' }: Breadc
                             ) : (
                                 <Link
                                     href={path}
-                                    className="text-white/70 hover:text-white transition-colors"
+                                    className={`${linkColor} transition-colors`}
                                 >
                                     {displayText}
                                 </Link>

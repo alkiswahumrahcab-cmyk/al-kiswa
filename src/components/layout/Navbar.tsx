@@ -18,7 +18,7 @@ export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
 
-    const noHeroPages = ['/booking', '/track-booking', '/privacy', '/terms', '/cookie-preferences', '/services/ziyarat-tours'];
+    const noHeroPages = ['/booking', '/track-booking', '/privacy', '/terms', '/cookie-preferences', '/services/ziyarat-tours', '/pricing'];
     const hasDarkHero = !noHeroPages.some(p => pathname === p || pathname.startsWith(p + '/'));
     const useWhiteText = !scrolled && hasDarkHero;
 
@@ -106,7 +106,6 @@ export default function Navbar() {
                 { href: '/about', label: 'Company Profile', description: 'Learn more about Al Kiswah Transport' },
             ]
         },
-        { href: '/blog', label: 'Blog' },
         { href: '/contact', label: 'Contact us' },
     ];
 
@@ -269,24 +268,24 @@ export default function Navbar() {
                 </div>
 
                 <div className="p-6 bg-gradient-to-t from-bg via-bg/80 to-transparent mt-auto pt-12 pb-8 flex flex-col gap-6 border-t border-border">
-                    <div className="flex items-center justify-between text-muted px-2">
-                        <a href={`tel:${SOCIAL_LINKS.phone}`} className="flex items-center gap-3 hover:text-gold transition-colors font-medium group/phone">
-                            <div className="w-10 h-10 rounded-full bg-ink/5 flex items-center justify-center border border-border group-hover/phone:bg-gold group-hover/phone:text-ink group-hover/phone:border-gold transition-all duration-300">
-                                <Phone size={18} />
+                    <div className="flex items-center justify-between px-2">
+                        <a href={`tel:${SOCIAL_LINKS.phone}`} className="flex items-center gap-3 transition-colors font-medium group/phone">
+                            <div className="w-12 h-12 rounded-full bg-white shadow-[0_4px_12px_rgba(0,0,0,0.1)] flex items-center justify-center border border-border group-hover/phone:bg-gold group-hover/phone:border-gold transition-all duration-300">
+                                <Phone size={20} className="text-ink group-hover/phone:text-white transition-colors" />
                             </div>
                         </a>
                         <div className="flex items-center gap-3">
-                            <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-ink/5 flex items-center justify-center border border-border hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all duration-300 group/social">
-                                <MessageCircle size={18} className="group-hover/social:scale-110 transition-transform" />
+                            <a href={SOCIAL_LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white shadow-[0_4px_12px_rgba(0,0,0,0.1)] flex items-center justify-center border border-border hover:border-[#25D366] transition-all duration-300 group/social">
+                                <MessageCircle size={20} className="text-ink group-hover/social:text-[#25D366] group-hover/social:scale-110 transition-all" />
                             </a>
-                            <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-ink/5 flex items-center justify-center border border-border hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] hover:text-white hover:border-transparent transition-all duration-300 group/social">
-                                <Instagram size={18} className="group-hover/social:scale-110 transition-transform" />
+                            <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white shadow-[0_4px_12px_rgba(0,0,0,0.1)] flex items-center justify-center border border-border hover:border-[#E1306C] transition-all duration-300 group/social">
+                                <Instagram size={20} className="text-ink group-hover/social:text-[#E1306C] group-hover/social:scale-110 transition-all" />
                             </a>
-                            <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-ink/5 flex items-center justify-center border border-border hover:bg-[#1877F2] hover:text-white hover:border-[#1877F2] transition-all duration-300 group/social">
-                                <Facebook size={18} className="group-hover/social:scale-110 transition-transform" />
+                            <a href={SOCIAL_LINKS.facebook} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white shadow-[0_4px_12px_rgba(0,0,0,0.1)] flex items-center justify-center border border-border hover:border-[#1877F2] transition-all duration-300 group/social">
+                                <Facebook size={20} className="text-ink group-hover/social:text-[#1877F2] group-hover/social:scale-110 transition-all" />
                             </a>
-                            <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-ink/5 flex items-center justify-center border border-border hover:bg-[#000000] hover:text-white hover:border-white/20 transition-all duration-300 group/social">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="group-hover/social:scale-110 transition-transform">
+                            <a href={SOCIAL_LINKS.tiktok} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white shadow-[0_4px_12px_rgba(0,0,0,0.1)] flex items-center justify-center border border-border hover:border-black transition-all duration-300 group/social">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="text-ink group-hover/social:scale-110 transition-all">
                                     <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
                                 </svg>
                             </a>

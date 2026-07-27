@@ -146,7 +146,6 @@ export default function FooterAR() {
                         </h3>
                         <ul className="space-y-3">
                             <li><Link003 href="/ar/about" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">معلومات عنا</Link003></li>
-                            <li><Link003 href="/ar/blog" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">المدونة ودلائل السفر</Link003></li>
                             <li><Link003 href="/ar/contact" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">اتصل بنا</Link003></li>
                             <li><Link003 href="/ar/safety" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">سياسة الأمان</Link003></li>
                             <li><Link003 href="/ar/track-booking" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">تتبع حجزك</Link003></li>

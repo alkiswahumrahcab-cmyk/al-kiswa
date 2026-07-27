@@ -19,8 +19,7 @@ import Receipt from './Receipt';
 import BookingSuccessModal from './BookingSuccessModal';
 import CurrencyToggle from '../CurrencyToggle';
 import NusukBookingAlert from '@/components/trust/NusukBookingAlert';
-import { VISA_TYPES, getSortedCountries } from '@/data/countries';
-import NationalitySelector from './NationalitySelector';
+import { VISA_TYPES } from '@/data/countries';
 
 export default function BookingForm() {
     const { routes, vehicles, isLoading, calculatePrice } = usePricing();
@@ -38,12 +37,10 @@ export default function BookingForm() {
         phone: '',
         visaType: '',
         visaOther: '',
-        nationality: '',
         notes: '',
         airportTerminal: '',
     });
 
-    const countriesList = getSortedCountries();
 
     const { settings } = useSettings();
 
@@ -297,7 +294,6 @@ export default function BookingForm() {
         // Validate new fields if we want them required
         if (!data.visaType) newErrors.visaType = 'Please select a visa type';
         if (data.visaType === 'other' && !data.visaOther) newErrors.visaOther = 'Please specify your visa type';
-        if (!data.nationality) newErrors.nationality = 'Please select your nationality';
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
@@ -351,7 +347,6 @@ export default function BookingForm() {
                 phone: data.phone,
                 visaType: data.visaType,
                 visaOther: data.visaOther,
-                nationality: data.nationality,
                 legs: payloadLegs,
                 pickup: data.legs[0].pickup,
                 dropoff: data.legs[data.legs.length - 1].dropoff,
@@ -1202,13 +1197,6 @@ export default function BookingForm() {
                             <p className="text-muted text-xs mt-2 pl-8">Helps our team prepare the right route and documents for your trip.</p>
                             {errors.visaType && <p className="text-red-500 text-xs mt-1 absolute pl-8">{errors.visaType}</p>}
                         </div>
-
-                        {/* Nationality */}
-                        <NationalitySelector 
-                            value={data.nationality} 
-                            onChange={(val) => updateData({ nationality: val })} 
-                            error={errors.nationality} 
-                        />
                     </div>
 
                     <AnimatePresence>

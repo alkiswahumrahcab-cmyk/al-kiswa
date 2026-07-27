@@ -50,10 +50,13 @@ const config: Config = {
             },
             borderRadius: {
                 btn: 'var(--radius-btn)',
-                sm: 'var(--radius-sm)',
-                md: 'var(--radius-md)',
-                lg: 'var(--radius-lg)',
-                xl: 'var(--radius-xl)',
+                sm: 'var(--radius-btn)',
+                md: 'var(--radius-btn)',
+                lg: 'var(--radius-btn)',
+                xl: 'var(--radius-btn)',
+                '2xl': 'var(--radius-btn)',
+                '3xl': 'var(--radius-btn)',
+                DEFAULT: 'var(--radius-btn)',
                 pill: 'var(--radius-pill)',
             },
             boxShadow: {

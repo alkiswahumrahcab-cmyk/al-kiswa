@@ -8,5 +8,3 @@ export const ReviewsSection = dynamic(() => import('@/components/reviews/Reviews
 export const GallerySection = dynamic(() => import('@/components/home/CustomerGallery'), { ssr: false });
 export const HomeFleetCarousel = dynamic(() => import('@/components/home/HomeFleetCarousel'), { ssr: false });
 export const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDistricts'), { ssr: false });
-export const RealFleetShowcase = dynamic(() => import('@/components/home/RealFleetShowcase'), { ssr: false });
-export const FleetGallery = dynamic(() => import('@/components/home/FleetGalleryV2'), { ssr: false });

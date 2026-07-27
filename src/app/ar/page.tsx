@@ -13,21 +13,12 @@ import { generateMetadataAlternates } from '@/lib/hreflang';
 import {
   InstantPriceCalculator,
   ReviewsSection,
-  GallerySection,
-  HomeFleetCarousel,
-  HotelsAndDistricts,
-  RealFleetShowcase,
-  FleetGallery
+  HomeFleetCarousel
 } from '@/components/home/LazyHomeSections';
 
 const Features = dynamic(() => import('@/components/home/Features'));
-const SafetyPromise = dynamic(() => import('@/components/home/SafetyPromise'));
-const PassengerCare = dynamic(() => import('@/components/home/PassengerCare'));
-const LatestArticles = dynamic(() => import('@/components/home/LatestArticles'));
-const SEOContentSectionFixed = dynamic(() => import('@/components/home/SEOContentSectionV3'));
 const TransportServices = dynamic(() => import('@/components/home/TransportServices'));
 const BookingGuide = dynamic(() => import('@/components/home/BookingGuide'));
-const MeetOurDrivers = dynamic(() => import('@/components/home/MeetOurDrivers'));
 const ImpactStats = dynamic(() => import('@/components/about/ImpactStats'));
 const FAQSection = dynamic(() => import('@/components/blog/FAQSection'));
 import { arFaqs } from '@/data/faqs';

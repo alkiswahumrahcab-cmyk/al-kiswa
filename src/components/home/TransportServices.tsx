@@ -136,7 +136,7 @@ export default function TransportServices({ lang = 'en' }: Props) {
                 <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
                     {services.map((service, index) => (
                         <FadeIn key={service.id} delay={index * 0.15}>
-                            <article className="card group h-full relative hover:border-gold/50 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col">
+                            <article className="card group h-full relative hover:border-gold/50 transition-all duration-500 hover:-translate-y-2 overflow-hidden flex flex-col">
                                 <Link href={service.link} className="relative h-64 md:h-72 overflow-hidden block">
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10 opacity-80 group-hover:opacity-60 transition-opacity duration-500" />
                                     <Image
