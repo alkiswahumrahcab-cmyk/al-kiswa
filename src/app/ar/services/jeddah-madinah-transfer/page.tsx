@@ -1,5 +1,6 @@
 import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import Link from 'next/link';
