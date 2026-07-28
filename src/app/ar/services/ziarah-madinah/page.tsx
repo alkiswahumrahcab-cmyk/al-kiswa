@@ -1,8 +1,9 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowLeft, MapPin, Clock, CheckCircle, Heart } from 'lucide-react';
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
@@ -87,34 +88,66 @@ export default async function ZiarahMadinahPage() {
     const whatsappLink = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=أنا%20مهتم%20بزيارة%20المدينة`;
 
     return (
-        <main className="min-h-screen bg-charcoal relative" dir="rtl">
+        <main className="min-h-screen bg-bg relative" dir="rtl">
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-5 mix-blend-overlay pointer-events-none z-0" />
 
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
             />
-            <Hero
-                title="جولات زيارة المدينة المنورة"
-                subtitle="استكشف مدينة النبي ﷺ. قم بزيارة أول مسجد في الإسلام وعش الأيام الأولى لديننا الحنيف."
-                bgImage="/images/routes/madinah-ziyarat-hero.webp"
-                ctaText="احجز زيارة المدينة"
-                ctaLink={whatsappLink}
-                layout="center"
-                breadcrumbs={<Breadcrumbs />}
-                alt="Masjid Quba Madinah Ziyarat Tour"
-            />
+            {/* 1. HERO SECTION (Dark Theme Professional) */}
+            <section className="relative pt-[220px] pb-20 md:pt-[260px] lg:pt-[280px] md:pb-32 overflow-hidden border-b border-border bg-charcoal">
+                <div className="absolute inset-0 z-0">
+                    <Image 
+                        src="/images/routes/madinah-ziyarat.jpg" 
+                        alt="جولات زيارة المدينة المنورة - مسجد قباء وجبل أحد" 
+                        fill
+                        priority
+                        className="object-cover object-[center_60%]"
+                        sizes="100vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                </div>
+
+                <div className="container relative z-10 flex-1 flex flex-col justify-center">
+                    <div className="max-w-4xl">
+                        <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6 tracking-tight drop-shadow-lg">
+                            جولات مزارات المدينة
+                        </h1>
+
+                        <p className="sr-only md:not-sr-only md:block font-body text-lg md:text-xl text-white/95 leading-relaxed md:mb-6 max-w-2xl font-light drop-shadow-md">
+                            استكشف مدينة النبي ﷺ. قم بزيارة مسجد قباء، جبل أحد، المساجد السبعة، البقيع، ومساجد الصحابة.
+                        </p>
+
+                        <div className="grid grid-cols-2 md:flex md:flex-wrap items-stretch gap-3 md:gap-4 w-full md:w-auto max-w-[400px] md:max-w-none mb-10">
+                            <Link 
+                                href={whatsappLink}
+                                className="flex items-center justify-center text-center bg-gold text-ink px-2 py-3 md:px-8 md:py-4 rounded-btn font-body font-bold text-[12px] md:text-[15px] uppercase tracking-wider md:tracking-[0.08em] hover:bg-gold-light transition-colors shadow-sm min-h-[48px] md:min-h-0"
+                            >
+                                احجز زيارة المدينة
+                            </Link>
+                            <Link 
+                                href="/ar/booking"
+                                className="flex items-center justify-center text-center bg-transparent text-white border-2 border-white/20 px-2 py-3 md:px-8 md:py-4 rounded-btn font-body font-bold text-[12px] md:text-[15px] uppercase tracking-wider md:tracking-[0.08em] hover:border-gold hover:text-gold transition-colors shadow-sm min-h-[48px] md:min-h-0"
+                            >
+                                احصل على الأسعار
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* Madinah Sites Detail */}
-            <section className="py-24 bg-transparent relative z-10">
+            <section className="py-24 bg-bg relative z-10">
                 <div className="container mx-auto px-4">
                     <FadeIn>
                         <div className="flex flex-col md:flex-row gap-12 items-start">
                             <div className="md:w-1/2">
-                                <h2 className="text-3xl md:text-4xl font-semibold mb-6 font-display text-white border-r-4 border-gold pr-4">
+                                <h2 className="text-3xl md:text-4xl font-semibold mb-6 font-display text-ink border-r-4 border-gold pr-4">
                                     المعالم المنورة
                                 </h2>
-                                <p className="text-n-300 mb-8 leading-relaxed font-light text-lg">
+                                <p className="text-body mb-8 leading-relaxed font-light text-lg">
                                     المدينة المنورة مليئة بالتاريخ في كل زاوية. سيأخذك سائقونا إلى أكثر المواقع روحانية.
                                 </p>
                                 <ul className="space-y-6">
@@ -145,20 +178,20 @@ export default async function ZiarahMadinahPage() {
                                             icon: <MapPin size={24} />
                                         }
                                     ].map((site, idx) => (
-                                        <li key={idx} className="bg-white/5 border border-white/10 p-6 rounded-xl flex gap-6 hover:border-gold/30 transition-all hover:bg-white/10 group">
-                                            <div className="bg-gold/10 p-4 rounded-btn h-fit text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-colors">
+                                        <li key={idx} className="bg-surface border border-border p-6 rounded-xl flex gap-6 hover:border-gold/30 hover:shadow-gold transition-all group">
+                                            <div className="bg-surface-alt p-4 rounded-btn h-fit text-gold-strong border border-border group-hover:bg-gold group-hover:text-ink transition-colors">
                                                 {site.icon}
                                             </div>
                                             <div>
-                                                <h3 className="font-bold text-white text-xl mb-2">{site.name}</h3>
-                                                <p className="text-n-400 font-light leading-relaxed">{site.desc}</p>
+                                                <h3 className="font-bold text-ink text-xl mb-2">{site.name}</h3>
+                                                <p className="text-body font-light leading-relaxed">{site.desc}</p>
                                             </div>
                                         </li>
                                     ))}
                                 </ul>
                             </div>
                             <div className="md:w-1/2 sticky top-24">
-                                <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 group">
+                                <div className="relative h-[600px] rounded-3xl overflow-hidden shadow-md border border-border group">
                                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all z-10" />
                                     <img
                                         src="https://images.unsplash.com/photo-1551041777-ed02bed74fc4?q=80&w=1000&auto=format&fit=crop"
@@ -179,35 +212,35 @@ export default async function ZiarahMadinahPage() {
             </section>
 
             {/* Why Book With Us */}
-            <section className="py-24 bg-white/5 relative z-10 border-y border-white/5">
+            <section className="py-24 bg-surface relative z-10 border-y border-border">
                 <div className="container mx-auto px-4 text-center">
                     <FadeIn delay={0.2}>
-                        <h2 className="text-3xl md:text-5xl font-semibold mb-16 font-display text-white">مدينة السلام</h2>
+                        <h2 className="text-3xl md:text-5xl font-semibold mb-16 font-display text-ink">مدينة السلام</h2>
                         <div className="grid md:grid-cols-3 gap-8">
-                            <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold/30 transition-all group">
-                                <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
+                            <div className="p-8 rounded-2xl bg-bg border border-border hover:border-gold/30 hover:shadow-gold transition-all group">
+                                <div className="bg-surface-alt w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold-strong border border-border group-hover:bg-gold group-hover:text-ink transition-all">
                                     <Clock size={32} />
                                 </div>
-                                <h3 className="text-xl font-bold mb-3 text-white">وقت كافٍ للدعاء</h3>
-                                <p className="text-sm text-n-400 leading-relaxed font-light">نضمن لك وقتاً كافياً في جبل أحد ومسجد قباء للدعاء والصلاة دون استعجال.</p>
+                                <h3 className="text-xl font-bold mb-3 text-ink">وقت كافٍ للدعاء</h3>
+                                <p className="text-sm text-body leading-relaxed font-light">نضمن لك وقتاً كافياً في جبل أحد ومسجد قباء للدعاء والصلاة دون استعجال.</p>
                             </div>
-                            <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold/30 transition-all group">
-                                <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
+                            <div className="p-8 rounded-2xl bg-bg border border-border hover:border-gold/30 hover:shadow-gold transition-all group">
+                                <div className="bg-surface-alt w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold-strong border border-border group-hover:bg-gold group-hover:text-ink transition-all">
                                     <Heart size={32} />
                                 </div>
-                                <h3 className="text-xl font-bold mb-3 text-white">سائقون مطلعون</h3>
-                                <p className="text-sm text-n-400 leading-relaxed font-light">يعرف سائقونا تاريخ وآداب زيارة هذه الأماكن المقدسة.</p>
+                                <h3 className="text-xl font-bold mb-3 text-ink">سائقون مطلعون</h3>
+                                <p className="text-sm text-body leading-relaxed font-light">يعرف سائقونا تاريخ وآداب زيارة هذه الأماكن المقدسة.</p>
                             </div>
-                            <div className="p-8 rounded-2xl bg-black/40 border border-white/5 hover:border-gold/30 transition-all group">
-                                <div className="bg-gold/10 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold border border-gold/20 group-hover:bg-gold group-hover:text-black transition-all">
+                            <div className="p-8 rounded-2xl bg-bg border border-border hover:border-gold/30 hover:shadow-gold transition-all group">
+                                <div className="bg-surface-alt w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 text-gold-strong border border-border group-hover:bg-gold group-hover:text-ink transition-all">
                                     <ArrowLeft size={32} />
                                 </div>
-                                <h3 className="text-xl font-bold mb-3 text-white">من الباب للباب</h3>
-                                <p className="text-sm text-n-400 leading-relaxed font-light">نقوم باصطحابك من فندقك في المنطقة المركزية ونعيدك إلى بابه مرة أخرى.</p>
+                                <h3 className="text-xl font-bold mb-3 text-ink">من الباب للباب</h3>
+                                <p className="text-sm text-body leading-relaxed font-light">نقوم باصطحابك من فندقك في المنطقة المركزية ونعيدك إلى بابه مرة أخرى.</p>
                             </div>
                         </div>
                         <div className="mt-16">
-                            <Link href="/ar/booking" className="inline-flex items-center btn-gold px-12 py-4 rounded-btn font-bold transition-all shadow-[0_0_20px_hsl(var(--gold-glow) / 0.3)] hover:shadow-[0_0_30px_hsl(var(--gold-glow) / 0.5)] tracking-wider text-sm text-black hover:scale-105">
+                            <Link href="/ar/booking" className="inline-flex items-center bg-gold px-12 py-4 rounded-btn font-bold transition-all shadow-sm hover:shadow-md hover:bg-gold-light tracking-wider text-sm text-ink hover:scale-105">
                                 احجز زيارتك للمدينة <ArrowLeft size={20} className="mr-2" />
                             </Link>
                         </div>

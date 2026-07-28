@@ -91,8 +91,9 @@ const ROUTES = [
         price: 'From SAR 450',
         features: ['Miqat Stop', 'Premium Comfort', 'Rest Stops Available'],
         featuresAr: ['توقف للميقات', 'سيارات فارهة', 'استراحات طريق'],
-        link: '/services/makkah-madinah-taxi',
-        image: '/images/routes/makkah-madinah-route-hero.webp'
+        link: '/ar/services/makkah-madinah-taxi',
+        image: '/images/routes/makkah-to-madinah-transfer.jpg',
+        imagePosition: 'object-[center_20%]'
     },
     {
         id: 'madinah-airport',
@@ -105,8 +106,9 @@ const ROUTES = [
         price: 'From SAR 150',
         features: ['24/7 Service', 'Door-to-Door', 'Family Friendly'],
         featuresAr: ['خدمة 24/7', 'توصيل لباب الفندق', 'مناسب للعوائل'],
-        link: '/services/madinah-airport-transfer',
-        image: '/images/routes/madinah-airport-hero.webp'
+        link: '/ar/services/madinah-airport-transfer',
+        image: '/images/routes/madinah-airport-madinah-hotel.jpg',
+        imagePosition: 'object-[center_70%]'
     },
     {
         id: 'ziyarat-makkah',
@@ -119,8 +121,9 @@ const ROUTES = [
         price: 'From SAR 300',
         features: ['Historical Insight', 'Flexible Timing', 'Private Vehicle'],
         featuresAr: ['معلومات تاريخية', 'وقت مرن', 'سيارة خاصة'],
-        link: '/services/ziyarat-tours',
-        image: '/images/routes/makkah-ziyarat-hero.webp'
+        link: '/ar/services/ziarah-makkah',
+        image: '/images/routes/makkah-ziyarat.jpg',
+        imagePosition: 'object-center'
     },
     {
         id: 'jeddah-madinah',
@@ -133,8 +136,44 @@ const ROUTES = [
         price: 'From SAR 500',
         features: ['Direct Route', 'Maximum Comfort', 'Refreshments'],
         featuresAr: ['طريق مباشر', 'راحة قصوى', 'مشروبات ضيافة'],
-        link: '/services/intercity-transfer',
-        image: '/images/fleet/intercity-hero.webp'
+        link: '/ar/services/jeddah-madinah-transfer',
+        image: '/images/routes/jeddah-airport-madinah.jpg'
+    },
+    {
+        id: 'madinah-ziyarat',
+        title: 'Madinah Ziyarat Tours',
+        titleAr: 'جولات مزارات المدينة',
+        description: 'Explore 14 sacred sites: Masjid Quba, Mount Uhud, Seven Mosques, Jannat Al-Baqi, and companion mosques.',
+        descriptionAr: 'زيارة 14 موقعاً: مسجد قباء، جبل أحد، المساجد السبعة، البقيع، ومساجد الصحابة.',
+        distance: '40 km', time: '3-4 hours', price: 'From SAR 200',
+        features: ['14 Sacred Sites', 'Date Market Stop', 'Flexible Timing'],
+        featuresAr: ['14 موقعاً مقدساً', 'سوق التمور', 'وقت مرن'],
+        link: '/ar/services/ziarah-madinah',
+        image: '/images/routes/madinah-ziyarat.jpg'
+    },
+    {
+        id: 'hourly-rental',
+        title: 'Hourly Chauffeur Service',
+        titleAr: 'تأجير سيارة مع سائق',
+        description: 'Hire a private VIP vehicle with a professional chauffeur for shopping, custom ziyarat, or business in Makkah & Madinah.',
+        descriptionAr: 'استأجر سيارة خاصة VIP مع سائق محترف للتسوق أو الزيارات المخصصة أو الأعمال في مكة والمدينة.',
+        distance: '-', time: '٤ ساعات كحد أدنى', price: 'تبدأ من ٨٠ ريال/ساعة',
+        features: ['Flexible Duration', 'Multiple Stops', 'Wait & Return'],
+        featuresAr: ['مدة مرنة', 'توقفات متعددة', 'انتظار وعودة'],
+        link: '/ar/services/hourly-chauffeur',
+        image: '/images/routes/hourly-chauffeurs.jpg'
+    },
+    {
+        id: 'taif-trip',
+        title: 'Makkah ⇄ Taif Day Trip',
+        titleAr: 'رحلة يومية إلى الطائف',
+        description: 'Escape the heat with a full-day mountain trip to Taif. Cable cars, rose gardens, traditional souqs, and mountain views.',
+        descriptionAr: 'هروب من الحرارة برحلة جبلية إلى الطائف. تلفريك، مزارع الورد، أسواق تقليدية وإطلالات خلابة.',
+        distance: '90 km', time: '8-10 hours', price: 'From SAR 700',
+        features: ['Full Day Trip', 'Mountain Views', 'Custom Itinerary'],
+        featuresAr: ['رحلة يوم كامل', 'إطلالات جبلية', 'مسار مخصص'],
+        link: '/ar/services/taif-trip',
+        image: '/images/routes/taif.jpg'
     }
 ];
 
@@ -150,7 +189,9 @@ export default function RoutesPage() {
             <Hero
                 title="Our Transport Network"
                 subtitle="Connecting the Holy Cities with comfort. Your journey of faith deserves the best path. شبكة مواصلات شاملة لخدمة ضيوف الرحمن."
-                bgImage="/images/routes/routes-network-hero.webp"
+                bgImage="/images/hero/network-hero-section.jpg"
+                layout="left"
+                removeBlur={true}
                 breadcrumbs={<Breadcrumbs />}
             />
 
@@ -167,12 +208,13 @@ export default function RoutesPage() {
                                         <div className="md:w-2/5 relative min-h-[220px] md:min-h-full overflow-hidden">
                                             <Image
                                                 src={route.image}
-                                                alt={route.title}
+                                                alt={route.id === 'madinah-airport' ? 'نقل تاكسي كبار الشخصيات من مطار المدينة إلى فندق المدينة' : route.id === 'ziyarat-makkah' ? 'جولة مزارات مكة - زيارة جبل النور والأماكن المقدسة' : route.id === 'jeddah-madinah' ? 'تاكسي كبار الشخصيات من مطار جدة إلى المدينة المنورة' : route.id === 'taif-trip' ? 'رحلة يومية خاصة إلى الطائف من مكة - تلفريك وحدائق الورد' : route.titleAr}
                                                 fill
-                                                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                                className={`object-cover ${route.imagePosition || 'object-center'} transition-transform duration-[1200ms] group-hover:scale-105`}
                                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent md:bg-gradient-to-r md:from-black/60 md:to-transparent" />
+                                            {/* Dark Overlay - Initial soft gradient, intensifies on hover */}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20 opacity-90 group-hover:opacity-100 transition-opacity duration-[800ms] z-10" />
                                             <div className="absolute bottom-4 left-4 text-white md:hidden relative z-10">
                                                 <div className="flex items-center gap-2 text-sm font-medium mb-1">
                                                     <Clock size={14} className="text-gold" />

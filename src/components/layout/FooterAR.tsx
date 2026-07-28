@@ -21,7 +21,7 @@ export default function FooterAR() {
         "name": "الكسوة لنقل المعتمرين",
         "url": "https://kiswahumrahcab.com/ar",
         "logo": "https://kiswahumrahcab.com/logo.svg",
-        "image": "https://kiswahumrahcab.com/images/blog-hero-professional.png",
+        "image": "https://kiswahumrahcab.com/images/fleet-lineup-real.webp",
         "description": "خدمة نقل معتمرين مرخصة وخاصة بين مطار جدة ومكة المكرمة والمدينة المنورة.",
         "telephone": whatsappNumber,
         "priceRange": "$$",
@@ -116,7 +116,7 @@ export default function FooterAR() {
                             <li><Link003 href="/ar/services/jeddah-airport-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">تاكسي مطار جدة إلى مكة</Link003></li>
                             <li><Link003 href="/ar/services/makkah-madinah-taxi" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">تاكسي خاص من مكة للمدينة</Link003></li>
                             <li><Link003 href="/ar/services/madinah-airport-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">مطار المدينة إلى الفندق</Link003></li>
-                            <li><Link003 href="/ar/services/intercity-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">نقل مباشر من جدة للمدينة</Link003></li>
+                            <li><Link003 href="/ar/services/jeddah-madinah-transfer" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">نقل مباشر من جدة للمدينة</Link003></li>
                             <li><Link003 href="/ar/services/ziyarat-tours" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">جولات المزارات في مكة</Link003></li>
                             <li><Link003 href="/ar/ramadan-2026" className="text-on-ink-muted hover:text-on-ink transition-colors text-[15px]">نقل العمرة رمضان 2026</Link003></li>
                         </ul>

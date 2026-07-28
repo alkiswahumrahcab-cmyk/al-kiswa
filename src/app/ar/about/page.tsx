@@ -51,7 +51,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function ArabicAboutPage() {
     const section = await getSectionContent('about-hero');
-    const bgImage = getSectionImage(section, 'desktop') || "https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?q=80&w=2000&auto=format&fit=crop";
+    const bgImage = "/images/hero/about-us.jpg";
 
     return (
         <main className="min-h-screen bg-charcoal relative" dir="rtl" lang="ar">

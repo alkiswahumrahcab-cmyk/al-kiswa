@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React, { Suspense } from 'react';
 import Link from 'next/link';
 import { Bus, MapPin, Users, Headphones, ArrowRight, Calendar, CheckCircle, Car, Check } from 'lucide-react';
@@ -15,12 +15,12 @@ const HotelsAndDistricts = dynamic(() => import('@/components/home/HotelsAndDist
 
 export async function generateMetadata() {
     return {
-        title: "خدمات تاكسي العمرة وجولات المزارات | جدة، مكة، المدينة",
-        description: "خدمات نقل العمرة الشاملة: استقبال مطار جدة، تاكسي من مكة إلى المدينة، وجولات المزارات التاريخية. خدمة موثوقة على مدار الساعة.",
-        keywأوds: [
+        title: "????? ????? ?????? ?????? ???????? | ???? ???? ???????",
+        description: "????? ??? ?????? ???????: ??????? ???? ???? ????? ?? ??? ??? ???????? ?????? ???????? ?????????. ???? ?????? ??? ???? ??????.",
+        keyw??ds: [
             "Umrah Taxi Services", "Ziyarat Tours Makkah", "Intercity Transfers Saudi",
-            "Jeddah Airpأوt Pickup", "Madinah Ziyarat", "Makkah to Madinah Taxi",
-            "خدمات نقل المعتمرين", "زيارات المدينة المنورة", "توصيل مطار جدة"
+            "Jeddah Airp??t Pickup", "Madinah Ziyarat", "Makkah to Madinah Taxi",
+            "????? ??? ?????????", "?????? ??????? ???????", "????? ???? ???"
         ],
         alternates: {
     ...generateMetadataAlternates("/services"),
@@ -31,18 +31,18 @@ export async function generateMetadata() {
 
 const processSteps = [
     {
-        title: "احجز عبر الإنترنت",
-        description: "اختر سيارتك وحدد موعد الاستقبال ببضع نقرات فقط.",
+        title: "???? ??? ????????",
+        description: "???? ?????? ???? ???? ????????? ???? ????? ???.",
         icon: <Calendar size={24} />
     },
     {
-        title: "احصل على التأكيد",
-        description: "احصل على تأكيد فوري مع تفاصيل السائق ورابط التتبع.",
+        title: "???? ??? ???????",
+        description: "???? ??? ????? ???? ?? ?????? ?????? ????? ??????.",
         icon: <CheckCircle size={24} />
     },
     {
-        title: "استمتع بالرحلة",
-        description: "سافر براحة وأمان إلى وجهتك.",
+        title: "?????? ???????",
+        description: "???? ????? ????? ??? ?????.",
         icon: <Car size={24} />
     }
 ];
@@ -50,63 +50,63 @@ const processSteps = [
 export default function ServicesPage() {
     const services = [
         {
-            title: 'تاكسي وسيارة خاصة من مكة إلى المدينة',
-            description: 'نقل فاخر بين المدن المقدسة. استمتع برحلة مريحة لمسافة 450 كم في مجموعة واسعة من السيارات بما في ذلك جي إم سي يوكن وهيونداي H1.',
+            title: '????? ?????? ???? ?? ??? ??? ???????',
+            description: '??? ???? ??? ????? ???????. ?????? ????? ????? ?????? 450 ?? ?? ?????? ????? ?? ???????? ??? ?? ??? ?? ?? ?? ???? ???????? H1.',
             image: '/images/routes/makkah-madinah-route-hero.webp',
             link: '/services/makkah-madinah-taxi',
-            features: ['خدمة من الباب للباب', 'خيارات الأسطول الفاخر', 'متوسط الوقت 4.5 ساعة'],
+            features: ['???? ?? ????? ?????', '?????? ??????? ??????', '????? ????? 4.5 ????'],
             alt: 'Makkah to Madinah Intercity Private Taxi App Map'
         },
         {
-            title: 'تاكسي مطار جدة إلى مكة',
-            description: 'استقبال معتمد من سلطات المطار بدون متاعب. سيستقبلك سائقنا في صالة الوصول بمطار جدة لنقل سلس إلى فندقك في مكة أو الحرم.',
-            image: '/images/routes/jeddah-airpأوt-hero-professional.webp',
-            link: '/services/jeddah-airpأوt-transfer',
-            features: ['تتبع الرحلات', 'استقبال وترحيب مجاني', 'مساعدة في الأمتعة'],
-            alt: 'Jeddah Airpأوt (KAIA) to Makkah Hotel Transfer Driver Chauffeur'
+            title: '????? ???? ??? ??? ???',
+            description: '??????? ????? ?? ????? ?????? ???? ?????. ???????? ?????? ?? ???? ?????? ????? ??? ???? ??? ??? ????? ?? ??? ?? ?????.',
+            image: '/images/routes/jeddah-airport-route-hero.webp',
+            link: '/services/jeddah-airp??t-transfer',
+            features: ['???? ???????', '??????? ?????? ?????', '?????? ?? ???????'],
+            alt: 'Jeddah Airp??t (KAIA) to Makkah Hotel Transfer Driver Chauffeur'
         },
         {
-            title: 'نقل كبار الشخصيات للعمرة - جي إم سي يوكن',
-            description: 'سافر بأناقة مع خدمة كبار الشخصيات. سيارات من الدرجة الأولى (جي إم سي يوكن XL) وسائقون خاصون لأقصى درجات الخصوصية والراحة.',
-            image: '/images/fleet/gmc-yukon-hero-professional.webp',
+            title: '??? ???? ???????? ?????? - ?? ?? ?? ????',
+            description: '???? ?????? ?? ???? ???? ????????. ?????? ?? ?????? ?????? (?? ?? ?? ???? XL) ??????? ????? ????? ????? ???????? ???????.',
+            image: '/images/fleet/gmc-yukon-2025.webp',
             link: '/booking?service=luxury',
-            features: ['سائق خاص', 'أحدث موديلات السيارات', 'خصوصية تامة'],
-            alt: 'جي إم سي يوكن XL 2025 VIP Black SUV for Umrah Transpأوt'
+            features: ['???? ???', '???? ??????? ????????', '?????? ????'],
+            alt: '?? ?? ?? ???? XL 2025 VIP Black SUV for Umrah Transp??t'
         },
         {
-            title: 'جولات المزارات في مكة والمدينة',
-            description: 'باقات مزارات شاملة للأماكن المقدسة. قم بزيارة مسجد قباء وجبل أحد وجبل النور وغيرها من المعالم الإسلامية التاريخية مع سائقين ذوي خبرة.',
+            title: '????? ???????? ?? ??? ????????',
+            description: '????? ?????? ????? ??????? ???????. ?? ?????? ???? ???? ???? ??? ???? ????? ?????? ?? ??????? ????????? ????????? ?? ?????? ??? ????.',
             image: '/images/routes/makkah-ziyarat-hero.webp',
             link: '/services/ziyarat-tours',
-            features: ['مسار مخصص', 'معرفة محلية خبيرة', 'ساعات مرنة'],
+            features: ['???? ????', '????? ????? ?????', '????? ????'],
             alt: 'Makkah and Madinah Historical Ziyarat Tour Mountains and Mosques'
         }
     ];
 
     const serviceFAQs = [
         {
-            question: "كيف أحجز تاكسي من مطار جدة إلى مكة؟",
-            answer: <span>الحجز بسيط. يمكنك حجز <Link href="/ar/services/jeddah-airpأوt-transfer" className="text-gold hover:text-white transition-colors hover:underline">تاكسي مطار جدة إلى مكة</Link> عبر الإنترنت مسبقًا. نحن نراقب وصول رحلتك ويقابلك سائقنا في المبنى بلوحة اسم.</span>
+            question: "??? ???? ????? ?? ???? ??? ??? ????",
+            answer: <span>????? ????. ????? ??? <Link href="/ar/services/jeddah-airp??t-transfer" className="text-gold hover:text-white transition-colors hover:underline">????? ???? ??? ??? ???</Link> ??? ???????? ??????. ??? ????? ???? ????? ??????? ?????? ?? ?????? ????? ???.</span>
         },
         {
-            question: "ما هي أفضل وسيلة نقل لعائلات العمرة؟",
-            answer: <span>للعائلات، نوصي بشدة بـ <Link href="/ar/fleet/gmc-yukon-xl" className="text-gold hover:text-white transition-colors hover:underline">جي إم سي يوكن XL</Link> أو <Link href="/ar/fleet/hyundai-staria" className="text-gold hover:text-white transition-colors hover:underline">هيونداي ستاريا</Link>. توفر هذه السيارات الواسعة مساحة كبيرة للأمتعة وراحة تكييف الهواء لرحلة الساعة الواحدة إلى مكة.</span>
+            question: "?? ?? ???? ????? ??? ??????? ???????",
+            answer: <span>????????? ???? ???? ?? <Link href="/ar/fleet/gmc-yukon-xl" className="text-gold hover:text-white transition-colors hover:underline">?? ?? ?? ???? XL</Link> ?? <Link href="/ar/fleet/hyundai-staria" className="text-gold hover:text-white transition-colors hover:underline">??????? ??????</Link>. ???? ??? ???????? ??????? ????? ????? ??????? ????? ????? ?????? ????? ?????? ??????? ??? ???.</span>
         },
         {
-            question: "هل تقدمون خدمات تاكسي مباشرة من مكة إلى المدينة؟",
-            answer: <span>نعم، يعتبر <Link href="/ar/services/makkah-madinah-taxi" className="text-gold hover:text-white transition-colors hover:underline">التاكسي الخاص من مكة إلى المدينة</Link> service is the most convenient option. Unlike the train أو bus, we offer doأو-to-doأو service from your Makkah hotel lobby directly to your Madinah hotel.</span>
+            question: "?? ?????? ????? ????? ?????? ?? ??? ??? ????????",
+            answer: <span>???? ????? <Link href="/ar/services/makkah-madinah-taxi" className="text-gold hover:text-white transition-colors hover:underline">??????? ????? ?? ??? ??? ???????</Link> service is the most convenient option. Unlike the train ?? bus, we offer do??-to-do?? service from your Makkah hotel lobby directly to your Madinah hotel.</span>
         },
         {
-            question: "هل يمكنني التوقف في الميقات في الطريق إلى مكة؟",
-            answer: "Absolutely. If you are travelling from Madinah أو Jeddah, our drivers are happy to stop at the designated Miqat (e.g., Bir Ali أو Juhfah) for you to assume Ihram and pray."
+            question: "?? ?????? ?????? ?? ??????? ?? ?????? ??? ????",
+            answer: "Absolutely. If you are travelling from Madinah ?? Jeddah, our drivers are happy to stop at the designated Miqat (e.g., Bir Ali ?? Juhfah) for you to assume Ihram and pray."
         },
         {
-            question: "Is the taxi fare fixed أو metered?",
-            answer: <span>أسعارنا ثابتة وشفافة. ستعرف التكلفة الدقيقة لـ <Link href="/ar/booking" className="text-gold hover:text-white transition-colors hover:underline">Umrah transport booking</Link> upfront, with no hidden fees أو toll charges.</span>
+            question: "Is the taxi fare fixed ?? metered?",
+            answer: <span>??????? ????? ??????. ????? ??????? ??????? ?? <Link href="/ar/booking" className="text-gold hover:text-white transition-colors hover:underline">Umrah transport booking</Link> upfront, with no hidden fees ?? toll charges.</span>
         },
         {
-            question: "هل تقدمون جولات المزارات في مكة والمدينة؟",
-            answer: <span>نعم، نحن نقدم <Link href="/ar/services/ziyarat-tours" className="text-gold hover:text-white transition-colors hover:underline">باقات المزارات الشاملة</Link>. Visit histأوical sites like Jabal Al-Nour, Masjid Quba, and Mount Uhud in the comfort of a private vehicle with a knowledgeable driver.</span>
+            question: "?? ?????? ????? ???????? ?? ??? ?????????",
+            answer: <span>???? ??? ???? <Link href="/ar/services/ziyarat-tours" className="text-gold hover:text-white transition-colors hover:underline">????? ???????? ???????</Link>. Visit hist??ical sites like Jabal Al-Nour, Masjid Quba, and Mount Uhud in the comfort of a private vehicle with a knowledgeable driver.</span>
         }
     ];
 
@@ -116,15 +116,15 @@ export default function ServicesPage() {
 
             {/* Hero Section */}
             <Hero
-                title="Trusted Umrah Transpأوt Services in Saudi Arabia"
-                subtitle="From Jeddah Airpأوt pickup to Ziyarat tours, we provide safe, affordable, and comfortable taxi services for pilgrims."
+                title="Trusted Umrah Transp??t Services in Saudi Arabia"
+                subtitle="From Jeddah Airp??t pickup to Ziyarat tours, we provide safe, affordable, and comfortable taxi services for pilgrims."
                 bgImage="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=2000&auto=format&fit=crop"
-                ctaText="احجز رحلتك"
+                ctaText="???? ?????"
                 ctaLink="/booking"
-                secondaryCtaText="اتصل بنا"
+                secondaryCtaText="???? ???"
                 secondaryCtaLink="/contact"
                 breadcrumbs={<Breadcrumbs />}
-                alt="Jeddah Airpأوt to Makkah & Madinah Umrah Taxi Services Fleet"
+                alt="Jeddah Airp??t to Makkah & Madinah Umrah Taxi Services Fleet"
             />
 
             {/* Trust Amenities Section */}
@@ -135,7 +135,7 @@ export default function ServicesPage() {
                 <div className="container">
                     <FadeIn>
                         <h2 className="text-3xl md:text-5xl font-display font-semibold text-center text-white mb-20">
-                            خدماتنا <span className="text-gold">المتميزة</span>
+                            ??????? <span className="text-gold">????????</span>
                         </h2>
                     </FadeIn>
                     <div className="flex flex-col gap-24 px-4 max-w-7xl mx-auto">
@@ -185,7 +185,7 @@ export default function ServicesPage() {
                                                 href={service.link}
                                                 className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 hover:bg-gold hover:text-black border border-white/10 hover:border-gold text-white font-bold uppercase tracking-widest rounded-btn transition-all duration-300 group/link self-start"
                                             >
-                                                Explأوe Details
+                                                Expl??e Details
                                                 <ArrowRight size={18} className="group-hover/link:translate-x-1 transition-transform" />
                                             </Link>
                                         </div>
@@ -201,7 +201,7 @@ export default function ServicesPage() {
             <section className="py-24 relative bg-deep-black border-y border-white/5">
                 <div className="container">
                     <FadeIn>
-                        <h2 className="text-3xl md:text-5xl font-display font-semibold text-center text-white mb-20">How It Wأوks</h2>
+                        <h2 className="text-3xl md:text-5xl font-display font-semibold text-center text-white mb-20">How It W??ks</h2>
                     </FadeIn>
                     <div className="grid md:grid-cols-3 gap-12 relative px-4">
                         {/* Connecting Line (Desktop) */}
@@ -232,8 +232,8 @@ export default function ServicesPage() {
             <section className="py-24 relative">
                 <FadeIn>
                     <div className="text-center mb-16">
-                        <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm">خدماتنا Fleet</span>
-                        <h2 className="text-3xl md:text-5xl font-display font-semibold text-white mt-4">سافر بأناقة</h2>
+                        <span className="text-gold font-bold tracking-[0.2em] uppercase text-sm">??????? Fleet</span>
+                        <h2 className="text-3xl md:text-5xl font-display font-semibold text-white mt-4">???? ??????</h2>
                     </div>
                     <Suspense fallback={<div className="h-[400px] w-full bg-white/5 animate-pulse rounded-3xl" />}>
                         <FleetSectionLoader />
@@ -245,7 +245,7 @@ export default function ServicesPage() {
             <ReviewsSection />
 
             {/* FAQSection */}
-            <FAQSection items={serviceFAQs} title="الأسئلة الشائعة" />
+            <FAQSection items={serviceFAQs} title="??????? ???????" />
 
             {/* Hotels and Districts Covered */}
             <HotelsAndDistricts />
@@ -264,7 +264,7 @@ export default function ServicesPage() {
                             href="/ar/booking"
                             className="inline-flex items-center gap-3 px-10 py-5 bg-black text-gold hover:bg-neutral-900 font-bold uppercase tracking-widest rounded-btn shadow-2xl hover:scale-105 transition-all duration-300"
                         >
-                            احجز رحلتك الآن
+                            ???? ????? ????
                             <ArrowRight size={20} />
                         </Link>
                     </FadeIn>
@@ -275,12 +275,12 @@ export default function ServicesPage() {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
                     __html: JSON.stringify({
-                        "@context": "https://schema.أوg",
+                        "@context": "https://schema.??g",
                         "@type": "Service",
-                        "serviceType": "Umrah Transpأوt",
+                        "serviceType": "Umrah Transp??t",
                         "provider": {
-                            "@type": "TranspأوtationService",
-                            "name": "Al Kiswah Transpأوt"
+                            "@type": "Transp??tationService",
+                            "name": "Al Kiswah Transp??t"
                         },
                         "areaServed": {
                             "@type": "Place",
@@ -288,20 +288,20 @@ export default function ServicesPage() {
                         },
                         "hasOfferCatalog": {
                             "@type": "OfferCatalog",
-                            "name": "Transpأوt Services",
+                            "name": "Transp??t Services",
                             "itemListElement": [
                                 {
                                     "@type": "Offer",
                                     "itemOffered": {
                                         "@type": "Service",
-                                        "name": "Pilgrim Transpأوt Makkah and Madinah"
+                                        "name": "Pilgrim Transp??t Makkah and Madinah"
                                     }
                                 },
                                 {
                                     "@type": "Offer",
                                     "itemOffered": {
                                         "@type": "Service",
-                                        "name": "Jeddah Airpأوt to Makkah Transpأوt"
+                                        "name": "Jeddah Airp??t to Makkah Transp??t"
                                     }
                                 }
                             ]

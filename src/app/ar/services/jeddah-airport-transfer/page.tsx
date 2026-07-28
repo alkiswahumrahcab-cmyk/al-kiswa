@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "تاكسي مطار جدة إلى مكة | أسعار التوصيل الخاص | الكسوة",
         description: "نقل موثوق من مطار جدة إلى فنادق مكة. سائقنا ينتظرك في صالة الوصول.",
-        images: [{ url: '/images/routes/jeddah-airport-hero-professional.webp', width: 1200, height: 630, alt: 'نقل كبار الشخصيات من مطار جدة' }]
+        images: [{ url: '/images/routes/jeddah-airport-route-hero.webp', width: 1200, height: 630, alt: 'نقل كبار الشخصيات من مطار جدة' }]
     }
 };
 

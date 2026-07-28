@@ -72,7 +72,7 @@ export default function Navbar() {
                 { href: '/services/makkah-madinah-taxi', label: 'Makkah ⇄ Madinah', description: 'Direct transfer between the two Holy Cities' },
                 { href: '/services/jeddah-airport-transfer', label: 'Jeddah Airport ⇄ Makkah', description: 'Seamless arrival to the Holy Mosque' },
                 { href: '/services/madinah-airport-transfer', label: 'Madinah Airport ⇄ Hotel', description: 'Quick transfer to your Madinah hotel' },
-                { href: '/services/intercity-transfer', label: 'Jeddah Airport ⇄ Madinah', description: 'Direct transfer from Jeddah to Madinah' },
+                { href: '/services/jeddah-madinah-transfer', label: 'Jeddah Airport ⇄ Madinah', description: 'Direct transfer from Jeddah to Madinah' },
                 { href: '/services/ziyarat-tours', label: 'Ziyarat Tours (City Tours)', description: 'Guided tours of historical sites' },
             ]
         },

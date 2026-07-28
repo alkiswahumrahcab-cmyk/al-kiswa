@@ -16,7 +16,7 @@ const generateJsonLd = (vehicle: any) => ({
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicle.name,
-    "image": `${SITE_URL}/images/fleet/starex-hero-professional.webp`,
+    "image": `${SITE_URL}/images/fleet/hyundai-h1.webp`,
     "description": `استأجر سيارة ${vehicle.name} الفاخرة في مكة والمدينة. سيارة تتسع لـ ${vehicle.seats} ركاب لتنقلات العمرة.`,
     "brand": { "@type": "Brand", "name": "Hyundai" },
     "offers": { 
@@ -70,7 +70,7 @@ export default async function HyundaiStarexPage() {
 
     // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
     
-    const starexImage = '/images/fleet/starex-hero-professional.webp';
+    const starexImage = '/images/fleet/hyundai-h1.webp';
 
     const vehicle = getVehicle('hyundai-starex')!;
     const jsonLd = generateJsonLd(vehicle);

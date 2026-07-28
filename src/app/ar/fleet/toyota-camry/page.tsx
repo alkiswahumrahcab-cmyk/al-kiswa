@@ -42,7 +42,7 @@ const generateJsonLd = (vehicle: any) => ({
         {
             "@type": "Product",
             "name": vehicle.name,
-            "image": `${SITE_URL}/images/fleet/camry-hero-professional.webp`,
+            "image": `${SITE_URL}/images/fleet/camry-2025.webp`,
             "description": `تاكسي ${vehicle.name} بأسعار معقولة للعمرة. سيارة سيدان مريحة تتسع لـ ${vehicle.seats} ركاب للتنقل من جدة إلى مكة.`,
             "brand": { "@type": "Brand", "name": "Toyota" },
             "offers": {
@@ -116,7 +116,7 @@ export default async function ToyotaCamryPage() {
 
     // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
     
-    const camryImage = '/images/fleet/camry-hero-professional.webp';
+    const camryImage = '/images/fleet/camry-2025.webp';
 
     const jsonLd = generateJsonLd(vehicle);
 

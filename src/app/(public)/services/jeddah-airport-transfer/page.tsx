@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Jeddah Airport to Makkah Taxi | Fixed Price Transfer | Al Kiswah",
         description: "Book a private Jeddah Airport (KAIA) to Makkah taxi. Fixed prices, 24/7 meet & greet, flight tracking, and Nusuk-licensed vehicles.",
-        images: [{ url: '/images/routes/jeddah-airport-hero-professional.webp', width: 1200, height: 630, alt: 'Jeddah Airport to Makkah Taxi Transfer' }]
+        images: [{ url: '/images/routes/jeddah-airport-route-hero.webp', width: 1200, height: 630, alt: 'Jeddah Airport to Makkah Taxi Transfer' }]
     }
 };
 

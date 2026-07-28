@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -96,13 +96,13 @@ export default async function ZiarahMakkahPage() {
             />
             <Hero
                 title="جولات زيارة مكة المكرمة"
-                subtitle="امشِ حيث مشى النبي ﷺ. رحلة روحانية عبر تاريخ الإسلام في المدينة المقدسة."
-                bgImage="/images/routes/makkah-ziyarat-hero.webp"
+                subtitle={<span className="sr-only md:not-sr-only md:block">امشِ حيث مشى النبي ﷺ. رحلة روحانية عبر تاريخ الإسلام في المدينة المقدسة.</span>}
+                bgImage="/images/routes/makkah-ziyarat.jpg"
+                imagePosition="object-[center_60%]"
                 ctaText="احجز زيارة مكة"
                 ctaLink={whatsappLink}
                 layout="center"
-                breadcrumbs={<Breadcrumbs />}
-                alt="Jabal Al Nour Makkah Ziyarat Tour"
+                alt="جولة مزارات مكة - زيارة جبل النور والأماكن المقدسة"
             />
 
             {/* Makkah Sites Detail */}

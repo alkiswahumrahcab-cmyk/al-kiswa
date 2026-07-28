@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         title: "Umrah Taxi Prices 2026 | Direct Operator",
         description: "We own our fleet. No middleman. Jeddah to Makkah from 200 SAR — 20% cheaper than other platforms. Fixed price, WhatsApp support, Saudi-licensed.",
         url: `${SITE_URL}/pricing`,
-        images: [{ url: '/images/fleet/gmc-yukon-hero-professional.webp', width: 1200, height: 630, alt: 'Al Kiswah Umrah Taxi Pricing — Direct Operator' }]
+        images: [{ url: '/images/fleet/gmc-yukon-2025.webp', width: 1200, height: 630, alt: 'Al Kiswah Umrah Taxi Pricing — Direct Operator' }]
     }
 };
 

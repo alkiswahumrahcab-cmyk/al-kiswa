@@ -41,7 +41,7 @@ const generateJsonLd = (vehicle: any) => ({
         {
             "@type": "Product",
             "name": vehicle.name,
-            "image": `${SITE_URL}/images/fleet/hiace-hero-professional.webp`,
+            "image": `${SITE_URL}/images/fleet/toyota-hiace-2025.webp`,
             "description": `Rent ${vehicle.name} bus in Makkah. Reliable ${vehicle.seats}-seater transport for Umrah groups and large families.`,
             "brand": { "@type": "Brand", "name": "Toyota" },
             "offers": {
@@ -115,7 +115,7 @@ export default async function ToyotaHiacePage() {
 
     // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
     
-    const hiaceImage = '/images/fleet/hiace-hero-professional.webp';
+    const hiaceImage = '/images/fleet/toyota-hiace-2025.webp';
 
     const vehicle = getVehicle('toyota-hiace')!;
     const jsonLd = generateJsonLd(vehicle);

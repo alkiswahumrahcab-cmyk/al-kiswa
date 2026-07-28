@@ -90,7 +90,8 @@ const ROUTES = [
         features: ['Miqat Stop', 'Premium Comfort', 'Rest Stops Available'],
         featuresAr: ['توقف للميقات', 'سيارات فارهة', 'استراحات طريق'],
         link: '/services/makkah-madinah-taxi',
-        image: '/images/routes/makkah-madinah-route-hero.webp'
+        image: '/images/routes/makkah-to-madinah-transfer.jpg',
+        imagePosition: 'object-[center_20%]'
     },
     {
         id: 'madinah-airport',
@@ -102,7 +103,8 @@ const ROUTES = [
         features: ['24/7 Service', 'Door-to-Door', 'Family Friendly'],
         featuresAr: ['خدمة 24/7', 'توصيل لباب الفندق', 'مناسب للعوائل'],
         link: '/services/madinah-airport-transfer',
-        image: '/images/routes/madinah-airport-hero.webp'
+        image: '/images/routes/madinah-airport-madinah-hotel.jpg',
+        imagePosition: 'object-[center_70%]'
     },
     {
         id: 'ziyarat-makkah',
@@ -114,7 +116,8 @@ const ROUTES = [
         features: ['15 Sacred Sites', 'Flexible Timing', 'Private Vehicle'],
         featuresAr: ['15 موقعاً مقدساً', 'وقت مرن', 'سيارة خاصة'],
         link: '/services/ziarah-makkah',
-        image: '/images/routes/makkah-ziyarat-hero.webp'
+        image: '/images/routes/makkah-ziyarat.jpg',
+        imagePosition: 'object-center'
     },
     {
         id: 'jeddah-madinah',
@@ -125,8 +128,8 @@ const ROUTES = [
         distance: '400 km', time: '4 - 4.5 hours', price: 'From SAR 400',
         features: ['Direct Route', 'Maximum Comfort', 'Refreshments'],
         featuresAr: ['طريق مباشر', 'راحة قصوى', 'مشروبات ضيافة'],
-        link: '/services/intercity-transfer',
-        image: '/images/fleet/intercity-hero.webp'
+        link: '/services/jeddah-madinah-transfer',
+        image: '/images/routes/jeddah-airport-madinah.jpg'
     },
     {
         id: 'madinah-ziyarat',
@@ -138,7 +141,7 @@ const ROUTES = [
         features: ['14 Sacred Sites', 'Date Market Stop', 'Flexible Timing'],
         featuresAr: ['14 موقعاً مقدساً', 'سوق التمور', 'وقت مرن'],
         link: '/services/ziarah-madinah',
-        image: '/images/fleet/intercity-hero.webp'
+        image: '/images/routes/madinah-ziyarat.jpg'
     },
     {
         id: 'taif-trip',
@@ -149,36 +152,37 @@ const ROUTES = [
         distance: '180 km', time: '8-10 hours', price: 'From SAR 400',
         features: ['Cable Car', 'Rose Gardens', 'Mountain Views'],
         featuresAr: ['تلفريك الهدا', 'حدائق الورد', 'مناظر جبلية'],
-        link: '/services/ziyarat-tours',
-        image: '/images/fleet/fleet-group-hero.webp'
+        link: '/services/taif-trip',
+        image: '/images/routes/taif.jpg'
     },
     {
         id: 'hourly-rental',
-        title: 'Hourly Car Rental',
-        titleAr: 'تأجير سيارة بالساعة',
-        description: 'Need a car for shopping or a custom ziyarat? Rent by the hour with a professional driver in Makkah or Madinah.',
-        descriptionAr: 'استئجار سيارة بالساعة مع سائق خاص. مثالي للتسوق أو الزيارات الشخصية.',
-        distance: '-', time: '1 hour min', price: 'From SAR 80/hr',
-        features: ['Flexible Duration', 'Multiple Stops', 'Any Purpose'],
-        featuresAr: ['مدة مرنة', 'توقفات متعددة', 'لأي غرض'],
-        link: '/booking',
-        image: '/images/fleet/camry-hero-professional.webp'
+        title: 'Hourly Chauffeur Service',
+        titleAr: 'تأجير سيارة مع سائق',
+        description: 'Hire a private VIP vehicle with a professional chauffeur for shopping, custom ziyarat, or business in Makkah & Madinah.',
+        descriptionAr: 'استأجر سيارة خاصة VIP مع سائق محترف للتسوق أو الزيارات المخصصة أو الأعمال في مكة والمدينة.',
+        distance: '-', time: '4 hours min', price: 'From SAR 80/hr',
+        features: ['Flexible Duration', 'Multiple Stops', 'Wait & Return'],
+        featuresAr: ['مدة مرنة', 'توقفات متعددة', 'انتظار وعودة'],
+        link: '/services/hourly-chauffeur',
+        image: '/images/routes/hourly-chauffeurs.jpg'
     }
 ];
 
 export default function RoutesPage() {
     return (
-        <main className="bg-bg min-h-screen pb-20 relative">
+        <main className="bg-bg min-h-screen relative">
             <div className="absolute inset-0 bg-[url('/pattern.png')] opacity-[0.02] mix-blend-multiply pointer-events-none fixed" />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
             <Hero
                 title="Our Transport Network"
                 subtitle="8 routes connecting Jeddah, Makkah, Madinah & Taif. Premium VIP transfers for Umrah pilgrims. شبكة مواصلات شاملة لخدمة ضيوف الرحمن."
-                bgImage="/images/hero/desert-highway-makkah-tower.jpg"
+                bgImage="/images/hero/network-hero-section.jpg"
                 ctaText="Book Now"
                 ctaLink="/booking"
-                layout="center"
+                layout="left"
+                removeBlur={true}
                 breadcrumbs={<Breadcrumbs />}
             />
 
@@ -193,7 +197,7 @@ export default function RoutesPage() {
                         >
                             <div className={styles.cardInner}>
                                 <FadeIn delay={index * 0.08}>
-                                    <div className="relative group block overflow-hidden transition-all duration-500 shadow-sm hover:shadow-gold w-full h-[60vh] lg:h-[75vh] min-h-[400px] max-h-[550px] lg:max-h-[700px]">
+                                    <div className="relative group block overflow-hidden transition-all duration-500 shadow-sm hover:shadow-gold w-full h-[calc(100svh-5rem)] min-h-[500px]">
                                         <Link href={route.link} className="absolute inset-0 z-30">
                                             <span className="sr-only">View {route.title}</span>
                                         </Link>
@@ -201,17 +205,17 @@ export default function RoutesPage() {
                                         {/* Full Card Image */}
                                         <Image 
                                             src={route.image} 
-                                            alt={route.title} 
+                                            alt={route.id === 'madinah-airport' ? 'VIP Taxi Transfer from Madinah Airport to Madinah Hotel' : route.id === 'ziyarat-makkah' ? 'Makkah Ziyarat Tour - Private Visit to Sacred Sites like Jabal Al-Nour' : route.id === 'jeddah-madinah' ? 'Private VIP Taxi from Jeddah Airport to Madinah Hotel' : route.id === 'taif-trip' ? 'Private VIP Taif Day Trip from Makkah - Cable Car and Rose Gardens' : route.title} 
                                             fill 
-                                            className="object-cover transition-transform duration-[1200ms] group-hover:scale-105" 
+                                            className={`object-cover ${route.imagePosition || 'object-center'} transition-transform duration-[1200ms] group-hover:scale-105`} 
                                             sizes="100vw" 
                                         />
                                         
-                                        {/* Dark Overlay - Initial subtle gradient, intensifies on hover */}
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10 opacity-70 group-hover:opacity-100 transition-opacity duration-[800ms] z-10" />
+                                        {/* Dark Overlay - Initial soft gradient, intensifies on hover */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20 opacity-90 group-hover:opacity-100 transition-opacity duration-[800ms] z-10" />
 
                                         {/* Content Overlay */}
-                                        <div className="absolute inset-0 z-20 flex flex-col justify-end pb-6 lg:pb-10">
+                                        <div className="absolute inset-0 z-20 flex flex-col justify-end pb-24 lg:pb-28">
                                             <div className="container mx-auto px-4 lg:px-8">
                                                 {/* Top section: Route badge */}
                                                 <div className="mb-auto mt-4 transform -translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-[800ms] ease-[cubic-bezier(0.22,1,0.36,1)] delay-100">

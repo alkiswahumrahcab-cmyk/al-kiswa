@@ -17,7 +17,7 @@ const generateJsonLd = (vehicleData: any) => ({
     "@context": "https://schema.org",
     "@type": "Product",
     "name": vehicleData?.name || "Hyundai H1 Starex Van Transport",
-    "image": `${SITE_URL}/images/fleet/starex-hero-professional.webp`,
+    "image": `${SITE_URL}/images/fleet/hyundai-h1.webp`,
     "description": `Book luxury ${vehicleData?.name || 'Hyundai H1 Starex'} in Makkah & Madinah. ${vehicleData?.passengers || 7} Seater SUV for VIP Umrah transport.`,
     "brand": { "@type": "Brand", "name": "Hyundai" },
     "offers": { 
@@ -73,7 +73,7 @@ export default async function HyundaiStarexPage() {
 
     // Try to get dynamic ID, fallback to old hardcoded Mongoose ID if not found
     const starexId = vehicleData?.id || '692db09834f15bc89b45a5fa';
-    const starexImage = '/images/fleet/starex-hero-professional.webp';
+    const starexImage = '/images/fleet/hyundai-h1.webp';
     const vehicle = getVehicle('hyundai-starex')!;
 
     const jsonLd = generateJsonLd(vehicleData);

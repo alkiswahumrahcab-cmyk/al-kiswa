@@ -23,7 +23,7 @@ export default function Footer() {
         "name": "Al Kiswah Umrah Transport",
         "url": "https://kiswahumrahcab.com",
         "logo": "https://kiswahumrahcab.com/logo.svg",
-        "image": "https://kiswahumrahcab.com/images/blog-hero-professional.png",
+        "image": "https://kiswahumrahcab.com/images/fleet-lineup-real.webp",
         "description": "Licensed Umrah transport service in Saudi Arabia offering private taxi transfers between Jeddah Airport, Makkah, and Madinah for pilgrims from the Gulf and Europe.",
         "telephone": whatsappNumber,
         "priceRange": "$$",
@@ -164,7 +164,7 @@ export default function Footer() {
                             <li><Link003 href="/services/jeddah-airport-transfer" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Jeddah Airport to Makkah Taxi</Link003></li>
                             <li><Link003 href="/services/makkah-madinah-taxi" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Makkah to Madinah Private Taxi</Link003></li>
                             <li><Link003 href="/services/madinah-airport-transfer" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Madinah Airport to Hotel Transfer</Link003></li>
-                            <li><Link003 href="/services/intercity-transfer" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Jeddah to Madinah Direct Transfer</Link003></li>
+                            <li><Link003 href="/services/jeddah-madinah-transfer" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Jeddah to Madinah Direct Transfer</Link003></li>
                             <li><Link003 href="/services/ziyarat-tours" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Makkah Ziyarat City Tours</Link003></li>
                             <li><Link003 href="/ramadan-2026" className="text-ink-muted hover:text-ink transition-colors text-[15px]">Ramadan 2026 Umrah Transport</Link003></li>
                         </ul>

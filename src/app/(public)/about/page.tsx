@@ -50,7 +50,7 @@ export default async function AboutPage() {
     const section = await getSectionContent('about-hero');
     const title = section?.title || "About Al Kiswah Transport";
     const subtitle = section?.subtitle || "Serving Guests of Allah with VIP Transport & Reliable Airport Transfers";
-    const bgImage = getSectionImage(section, 'desktop') || "https://images.unsplash.com/photo-1565552645632-d725f8bfc19a?q=80&w=2000&auto=format&fit=crop";
+    const bgImage = "/images/hero/about-us.jpg";
 
     return (
         <main className="min-h-screen bg-bg text-ink relative">

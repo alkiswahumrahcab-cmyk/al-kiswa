@@ -1,4 +1,4 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -82,7 +82,7 @@ export default async function RouteDetail({ params }: Props) {
             <Hero
                 title={route.name}
                 subtitle={`Reliable transport from ${route.name.split(' to ')[0] || 'Start'} to ${route.name.split(' to ')[1] || 'Destination'}. Best rates guaranteed.`}
-                bgImage="/images/routes/jeddah-airport-hero-professional.webp" // Fallback or dynamic based on slug logic
+                bgImage="/images/routes/jeddah-airport-route-hero.webp" // Fallback or dynamic based on slug logic
                 breadcrumbs={<Breadcrumbs />}
                 layout="center"
                 ctaText="Book This Route"

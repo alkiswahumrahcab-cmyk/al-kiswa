@@ -193,13 +193,13 @@ function ServicesGridSection() {
         },
         {
             title: 'Jeddah Airport to Makkah',
-            img: '/images/routes/jeddah-airport-hero-professional.webp',
+            img: '/images/routes/jeddah-airport-route-hero.webp',
             link: '/services/jeddah-airport-transfer',
             features: ['Flight Tracking', 'Free Meet & Greet', 'Luggage Assistance']
         },
         {
             title: 'VIP Luxury GMC Yukon',
-            img: '/images/fleet/gmc-yukon-hero-professional.webp',
+            img: '/images/fleet/gmc-yukon-2025.webp',
             link: '/booking?service=luxury',
             features: ['Private Chauffeur', 'Latest Model Vehicles', 'Privacy Partition']
         },

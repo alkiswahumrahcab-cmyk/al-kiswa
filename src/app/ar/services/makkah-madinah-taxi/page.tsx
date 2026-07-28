@@ -111,7 +111,7 @@ export default async function MakkahMadinahTaxiPage() {
     const content = {
         title: "خدمات تاكسي VIP من مكة إلى المدينة",
         subtitle: "استمتع برحلة روحانية براحة تامة. وقت السفر من 4 إلى 5 ساعات في سيارات فاخرة مثل جمس يوكون أو هيونداي ستاريا.",
-        heroImage: "/images/routes/makkah-madinah-route-hero.webp"
+        heroImage: "/images/routes/makkah-to-madinah-transfer.jpg"
     };
 
     return (
@@ -124,12 +124,12 @@ export default async function MakkahMadinahTaxiPage() {
             />
             <Hero
                 title={content.title}
-                subtitle={content.subtitle}
+                subtitle={<span className="sr-only md:not-sr-only md:block">{content.subtitle}</span>}
                 bgImage={content.heroImage}
                 ctaText="احجز الآن عبر واتساب"
                 ctaLink={whatsappLink}
-                layout="center"
-                breadcrumbs={<Breadcrumbs />}
+                layout="left"
+                removeBlur={true}
             />
 
             {/* Trust/Benefits Section */}

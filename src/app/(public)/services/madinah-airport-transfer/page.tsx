@@ -104,63 +104,48 @@ export default async function MadinahAirportPage() {
                 faqs={madinahAirportFAQs}
             />
 
-            {/* 1. HERO SECTION */}
-            <section className="relative w-full min-h-[600px] md:min-h-[720px] flex flex-col pt-32 md:pt-40 pb-40 md:pb-56 bg-surface-alt">
+            {/* 1. HERO SECTION (Dark Theme Professional) */}
+            <section className="relative pt-32 pb-32 md:pt-40 lg:pt-48 md:pb-48 overflow-hidden border-b border-border bg-charcoal">
                 <div className="absolute inset-0 z-0">
                     <Image 
-                        src="/images/routes/madinah-airport-hero.webp" 
-                        alt="Madinah Airport Transfer to Masjid Nabawi Hotel" 
+                        src="/images/routes/madinah-airport-madinah-hotel.jpg" 
+                        alt="VIP Taxi Transfer from Madinah Airport to Madinah Hotel" 
                         fill
                         priority
-                        className="object-cover"
+                        className="object-cover object-[center_70%]"
                         sizes="100vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-r from-ink/80 to-ink/20" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30" />
                 </div>
 
                 <div className="container relative z-10 flex-1 flex flex-col justify-center">
-                    <div className="max-w-3xl">
-                        {/* Breadcrumbs */}
-                        <div className="flex items-center gap-2 text-[13px] font-semibold tracking-wider uppercase text-surface/80 mb-6 md:mb-8 font-body">
-                            <Link href="/" className="hover:text-gold transition-colors">Home</Link>
-                            <span>›</span>
-                            <Link href="/services" className="hover:text-gold transition-colors">Services</Link>
-                            <span>›</span>
-                            <span className="text-gold">Madinah Airport Transfer</span>
-                        </div>
-
-                        {/* Trust Eyebrow */}
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/20 text-gold mb-6 md:mb-8 backdrop-blur-sm">
-                            <ShieldCheck size={16} />
-                            <span className="text-[13px] font-bold tracking-wider uppercase">Ministry Licensed Operator</span>
-                        </div>
-
-                        <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-surface leading-[1.1] mb-6 md:mb-8">
+                    <div className="max-w-4xl">
+                        {/* Breadcrumbs and Eyebrow removed as requested */}
+                        <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6 tracking-tight drop-shadow-lg">
                             Madinah Airport (MED) Transfers
                         </h1>
 
-                        <p className="font-body text-lg md:text-xl text-surface/90 leading-relaxed mb-8 md:mb-10 max-w-2xl font-light">
+                        <p className="sr-only md:not-sr-only md:block font-body text-lg md:text-xl text-white/95 leading-relaxed md:mb-6 max-w-2xl font-light drop-shadow-md">
                             Start your visit to the Prophet&apos;s City with peace of mind. Reliable meet & greet service from Prince Mohammad Bin Abdulaziz Airport.
                         </p>
 
-                        <div className="flex flex-wrap items-center gap-4">
+                        <div className="grid grid-cols-2 md:flex md:flex-wrap items-stretch gap-3 md:gap-4 w-full md:w-auto max-w-[400px] md:max-w-none mb-10">
                             <Link 
                                 href={whatsappLink}
-                                className="inline-flex items-center justify-center gap-2 bg-gold text-ink px-8 py-4 rounded-[8px] font-body font-bold text-[15px] uppercase tracking-[0.08em] hover:bg-gold-light transition-colors shadow-sm min-h-[44px] min-w-[44px]"
+                                className="flex items-center justify-center text-center bg-gold text-ink px-2 py-3 md:px-8 md:py-4 rounded-btn font-body font-bold text-[12px] md:text-[15px] uppercase tracking-wider md:tracking-[0.08em] hover:bg-gold-light transition-colors shadow-sm min-h-[48px] md:min-h-0"
                             >
                                 Book Airport Pickup
                             </Link>
                             <Link 
                                 href="/booking"
-                                className="inline-flex items-center justify-center gap-2 bg-surface text-ink px-8 py-4 rounded-[8px] font-body font-bold text-[15px] uppercase tracking-[0.08em] hover:bg-surface-alt transition-colors shadow-sm min-h-[44px] min-w-[44px]"
+                                className="flex items-center justify-center text-center bg-transparent text-white border-2 border-white/20 px-2 py-3 md:px-8 md:py-4 rounded-btn font-body font-bold text-[12px] md:text-[15px] uppercase tracking-wider md:tracking-[0.08em] hover:border-gold hover:text-gold transition-colors shadow-sm min-h-[48px] md:min-h-0"
                             >
-                                Get Prices
+                                Get Exact Prices
                             </Link>
                         </div>
 
                         {/* Trust Signals Row */}
-                        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-10 text-[13px] font-bold tracking-wider uppercase text-surface/80">
+                        <div className="hidden md:flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px] font-bold tracking-wider uppercase text-white/80">
                             <div className="flex items-center gap-2">
                                 <Check size={16} className="text-gold" />
                                 <span>24/7 Availability</span>

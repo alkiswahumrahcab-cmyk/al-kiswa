@@ -67,10 +67,10 @@ export const metadata: Metadata = {
 };
 
 const vehicleOptions = [
-    { name: 'Standard Sedan', seats: formatSeats(getVehicle('toyota-camry')!), luggage: formatLuggage(getVehicle('toyota-camry')!), bestFor: 'Couples', desc: 'Comfortable standard sedan ideal for individuals or couples.', image: null },
-    { name: 'GMC Yukon', seats: formatSeats(getVehicle('gmc-yukon-xl')!), luggage: formatLuggage(getVehicle('gmc-yukon-xl')!), bestFor: 'Luxury', desc: 'Premium American SUV offering superior highway comfort and presence.', image: '/images/fleet/gmc/gmc-yukon-2026-exterior-front-view.jpeg' },
-    { name: 'Hyundai Staria', seats: formatSeats(getVehicle('hyundai-staria')!), luggage: formatLuggage(getVehicle('hyundai-staria')!), bestFor: 'Families', desc: 'Premium comfort with ample legroom and panoramic windows.', image: '/images/fleet/staria/hyundai-staria-2026-exterior-front-view.jpeg' },
-    { name: 'Toyota HiAce', seats: formatSeats(getVehicle('toyota-hiace')!), luggage: formatLuggage(getVehicle('toyota-hiace')!), bestFor: 'Extended families', desc: 'Spacious van ensuring everyone travels together with all luggage secured.', image: '/images/fleet/hiace/toyota-hiace-2026-exterior-front-view.jpeg' },
+    { name: 'Standard Sedan', seats: formatSeats(getVehicle('toyota-camry')!), luggage: formatLuggage(getVehicle('toyota-camry')!), bestFor: 'Couples', desc: 'Comfortable standard sedan ideal for individuals or couples.', image: '/images/fleet/camry-2025.webp' },
+    { name: 'GMC Yukon', seats: formatSeats(getVehicle('gmc-yukon-xl')!), luggage: formatLuggage(getVehicle('gmc-yukon-xl')!), bestFor: 'Luxury', desc: 'Premium American SUV offering superior highway comfort and presence.', image: '/images/fleet/gmc-yukon-2025.webp' },
+    { name: 'Hyundai Staria', seats: formatSeats(getVehicle('hyundai-staria')!), luggage: formatLuggage(getVehicle('hyundai-staria')!), bestFor: 'Families', desc: 'Premium comfort with ample legroom and panoramic windows.', image: '/images/fleet/hyundai-staria-2025.webp' },
+    { name: 'Toyota HiAce', seats: formatSeats(getVehicle('toyota-hiace')!), luggage: formatLuggage(getVehicle('toyota-hiace')!), bestFor: 'Extended families', desc: 'Spacious van ensuring everyone travels together with all luggage secured.', image: '/images/fleet/toyota-hiace-2025.webp' },
     { name: 'Toyota Coaster', seats: formatSeats(getVehicle('toyota-coaster')!), luggage: formatLuggage(getVehicle('toyota-coaster')!), bestFor: 'Large groups', desc: 'Mini-bus designed for group travel without compromising on air-conditioned comfort.', image: '/images/fleet/toyota-coaster-2025.webp' }
 ];
 
@@ -140,73 +140,59 @@ export default async function MakkahMadinahTaxiPage() {
         <main className="bg-bg text-body flex flex-col min-h-screen">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-            {/* 1. HERO SECTION (Light Theme) */}
-            <section className="relative pt-[120px] pb-16 md:pt-[160px] md:pb-24 overflow-hidden border-b border-border bg-surface">
+            {/* 1. HERO SECTION (Dark Theme Professional) */}
+            <section className="relative pt-[160px] pb-32 md:pt-[260px] lg:pt-[280px] md:pb-48 overflow-hidden border-b border-border bg-charcoal">
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/routes/makkah-madinah-route-hero.webp"
+                        src="/images/routes/makkah-to-madinah-transfer.jpg"
                         alt="Private taxi for Makkah to Madinah transfer"
                         fill
                         priority
-                        className="object-cover opacity-[0.15] mix-blend-multiply"
+                        className="object-cover"
                         sizes="100vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-surface/80 via-surface/60 to-surface" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30" />
                 </div>
 
                 <div className="container relative z-10">
                     <div className="max-w-4xl">
-                        {/* Breadcrumbs */}
-                        <div className="flex items-center gap-2 text-[13px] font-semibold tracking-wider uppercase text-muted mb-6 md:mb-8 font-body">
-                            <Link href="/" className="hover:text-gold transition-colors">Home</Link>
-                            <span>›</span>
-                            <Link href="/services" className="hover:text-gold transition-colors">Services</Link>
-                            <span>›</span>
-                            <span className="text-gold">Makkah to Madinah</span>
-                        </div>
-
-                        {/* Eyebrow */}
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold/10 border border-gold/20 text-gold mb-6 backdrop-blur-sm">
-                            <MapPin size={16} />
-                            <span className="text-[13px] font-bold tracking-wider uppercase">Premium Intercity Transfer</span>
-                        </div>
-
-                        <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-ink leading-[1.1] mb-6 tracking-tight">
+                        {/* Eyebrow and Breadcrumbs removed as requested */}
+                        <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6 tracking-tight drop-shadow-lg">
                             Makkah to Madinah Taxi
                         </h1>
 
-                        <p className="font-body text-lg md:text-xl text-body leading-relaxed mb-6 max-w-2xl font-light">
+                        <p className="sr-only md:not-sr-only font-body text-lg md:text-xl text-white/95 leading-relaxed md:mb-6 max-w-2xl font-light drop-shadow-md">
                             Travel the 450 km between the two Holy Cities in complete comfort. A door-to-door private transfer that drops you right at your hotel lobby.
                         </p>
 
-                        <div className="flex flex-wrap items-center gap-6 mb-10 text-ink font-body">
-                            <div className="bg-surface-alt border border-border px-4 py-2 rounded-xl">
-                                <span className="text-[13px] text-muted block uppercase font-bold tracking-wider mb-1">Standard Sedan</span>
+                        <div className="hidden md:flex flex-wrap items-center gap-6 mb-10 text-white font-body">
+                            <div className="bg-white/5 border border-white/10 px-4 py-2 rounded-xl backdrop-blur-sm">
+                                <span className="text-[13px] text-n-400 block uppercase font-bold tracking-wider mb-1">Standard Sedan</span>
                                 <span className="font-semibold text-lg text-gold">From SAR 400</span>
                             </div>
-                            <div className="bg-surface-alt border border-border px-4 py-2 rounded-xl">
-                                <span className="text-[13px] text-muted block uppercase font-bold tracking-wider mb-1">Premium SUV (GMC/Staria)</span>
+                            <div className="bg-white/5 border border-white/10 px-4 py-2 rounded-xl backdrop-blur-sm">
+                                <span className="text-[13px] text-n-400 block uppercase font-bold tracking-wider mb-1">Premium SUV (GMC/Staria)</span>
                                 <span className="font-semibold text-lg text-gold">From SAR 600</span>
                             </div>
                         </div>
 
-                        <div className="flex flex-wrap items-center gap-4">
+                        <div className="grid grid-cols-2 md:flex md:flex-wrap items-stretch gap-3 md:gap-4 w-full md:w-auto max-w-[400px] md:max-w-none">
                             <Link 
                                 href={whatsappLink}
-                                className="inline-flex items-center justify-center gap-2 bg-gold text-ink px-8 py-4 rounded-btn font-body font-bold text-[15px] uppercase tracking-[0.08em] hover:bg-gold-light transition-colors shadow-sm"
+                                className="flex items-center justify-center text-center bg-gold text-ink px-2 py-3 md:px-8 md:py-4 rounded-btn font-body font-bold text-[12px] md:text-[15px] uppercase tracking-wider md:tracking-[0.08em] hover:bg-gold-light transition-colors shadow-sm min-h-[48px] md:min-h-0"
                             >
                                 Book Your Transfer
                             </Link>
                             <Link 
                                 href="/booking"
-                                className="inline-flex items-center justify-center gap-2 bg-transparent text-ink border-2 border-border px-8 py-4 rounded-btn font-body font-bold text-[15px] uppercase tracking-[0.08em] hover:border-gold hover:text-gold transition-colors shadow-sm"
+                                className="flex items-center justify-center text-center bg-transparent text-white border-2 border-white/20 px-2 py-3 md:px-8 md:py-4 rounded-btn font-body font-bold text-[12px] md:text-[15px] uppercase tracking-wider md:tracking-[0.08em] hover:border-gold hover:text-gold transition-colors shadow-sm min-h-[48px] md:min-h-0"
                             >
                                 Get Exact Prices
                             </Link>
                         </div>
 
                         {/* Trust Signals Row */}
-                        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-10 text-[13px] font-bold tracking-wider uppercase text-muted">
+                        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-10 text-[13px] font-bold tracking-wider uppercase text-white/90 drop-shadow-md">
                             <div className="flex items-center gap-2">
                                 <Star size={16} className="text-gold fill-gold" />
                                 <span>{formatMetric(TRUST_METRICS.pilgrimsServed)} Pilgrims</span>

@@ -1,4 +1,4 @@
-﻿import { Metadata } from 'next';
+import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Hero from '@/components/common/Hero';
 import FadeIn from '@/components/common/FadeIn';
@@ -67,7 +67,7 @@ export default async function RegionalLandingPage({ params }: Params) {
     const targetedServiceSchema = generateServiceSchema(
         `Premium Umrah Transport for ${name} Pilgrims`,
         `Fixed-price, reliable Umrah taxi service serving pilgrims arriving from ${popularOrigin}. Includes meet-and-greet at Jeddah airport and VIP GMC/Staria fleet.`,
-        "https://kiswahumrahcab.com/images/blog-hero-professional.png"
+        "https://kiswahumrahcab.com/images/fleet-lineup-real.webp"
     );
 
     // Override the generic areaServed to hyper-target the adience region

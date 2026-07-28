@@ -61,7 +61,7 @@ export async function generateMetadata() {
 
 export default async function ArabicHomePage() {
   const heroSection = await getSectionContent('home-hero');
-  const heroImage = getSectionImage(heroSection, 'desktop') || "/images/blog-hero-professional.png";
+  const heroImage = getSectionImage(heroSection, 'desktop') || "/images/fleet-lineup-real.webp";
 
   return (
     <main className="overflow-x-hidden bg-bg" dir="rtl" lang="ar">

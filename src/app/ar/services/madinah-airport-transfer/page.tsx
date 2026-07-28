@@ -85,12 +85,12 @@ export default async function MadinahAirportPage() {
             />
             <Hero
                 title="نقل مطار المدينة المنورة (MED)"
-                subtitle="ابدأ زيارتك لمدينة رسول الله براحة بال. خدمة استقبال وترحيب موثوقة من مطار الأمير محمد بن عبدالعزيز."
-                bgImage="/images/routes/madinah-airport-hero.webp"
+                subtitle={<span className="sr-only md:not-sr-only md:block">ابدأ زيارتك لمدينة رسول الله براحة بال. خدمة استقبال وترحيب موثوقة من مطار الأمير محمد بن عبدالعزيز.</span>}
+                bgImage="/images/routes/madinah-airport-madinah-hotel.jpg"
+                imagePosition="object-[center_70%]"
                 ctaText="احجز استقبال المطار"
                 ctaLink={whatsappLink}
                 layout="center"
-                breadcrumbs={<Breadcrumbs />}
             />
 
             {/* Service Highlights */}

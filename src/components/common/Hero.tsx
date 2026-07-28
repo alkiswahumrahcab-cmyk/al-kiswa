@@ -20,7 +20,7 @@ interface HeroProps {
     whatsappLink?: string;
     showBookingForm?: boolean;
     children?: React.ReactNode;
-    layout?: 'center' | 'two-column' | 'right';
+    layout?: 'center' | 'two-column' | 'right' | 'left';
     badge?: string | React.ReactNode;
     backgroundChildren?: React.ReactNode;
     breadcrumbs?: React.ReactNode;
@@ -39,6 +39,7 @@ interface HeroProps {
     theme?: 'dark' | 'light';
     imageQuality?: number;
     removeBlur?: boolean;
+    imagePosition?: string;
     leftOverlay?: boolean;
 }
 
@@ -64,7 +65,8 @@ const Hero: React.FC<HeroProps> = ({
     isSpiritual = false,
     theme,
     imageQuality,
-    removeBlur,
+    removeBlur = false,
+    imagePosition,
     leftOverlay
 }) => {
     // Default to dark theme unless explicitly set to light or if it's a spiritual hero
@@ -156,7 +158,7 @@ const Hero: React.FC<HeroProps> = ({
                             fill
                             priority
                             quality={imageQuality || 75}
-                            className={`object-cover object-center ${removeBlur ? '' : 'opacity-80'}`}
+                            className={`object-cover ${imagePosition || 'object-center'} ${removeBlur ? '' : 'opacity-80'}`}
                             sizes="100vw"
                         />
                     )}
@@ -164,10 +166,10 @@ const Hero: React.FC<HeroProps> = ({
                     {/* Dark vs Light Overlays */}
                     {isDark ? (
                         <>
-                            {leftOverlay || layout === 'two-column' ? (
+                            {leftOverlay || layout === 'two-column' || layout === 'left' ? (
                                 <>
-                                    <div className={`absolute left-0 top-0 bottom-0 w-full lg:w-[65%] bg-gradient-to-r from-black/80 via-black/50 to-transparent ${removeBlur ? '' : 'backdrop-blur-[1px]'} z-[1]`} />
-                                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/50 z-[1]" />
+                                    <div className={`absolute inset-0 lg:w-[75%] ${layout === 'right' ? 'right-0 bg-gradient-to-l' : 'left-0 bg-gradient-to-r'} ${removeBlur ? 'from-black/95 via-black/70 to-transparent' : 'from-black/80 via-black/50 to-transparent'} ${removeBlur ? '' : 'backdrop-blur-[1px]'} z-[1]`} />
+                                    <div className={`absolute inset-0 bg-gradient-to-b ${removeBlur ? 'from-black/60 via-transparent to-black/70' : 'from-black/40 via-transparent to-black/50'} z-[1]`} />
                                 </>
                             ) : layout === 'right' ? (
                                 <>
@@ -188,16 +190,16 @@ const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Content Container */}
-            <div className={`container relative z-10 px-4 pt-24 md:pt-28 lg:pt-32 pb-24 ${layout === 'two-column' ? 'grid lg:grid-cols-2 gap-12 lg:gap-24 items-center' : layout === 'right' ? 'flex flex-col items-end text-left w-full' : 'flex flex-col items-center text-center'} ${isSpiritual && layout === 'two-column' ? 'lg:grid-cols-[1.2fr,0.8fr]' : ''}`}>
+            <div className={`container relative z-10 px-4 pt-24 md:pt-28 lg:pt-32 pb-24 ${layout === 'two-column' ? 'grid lg:grid-cols-2 gap-12 lg:gap-24 items-center' : layout === 'right' ? 'flex flex-col items-end text-left w-full' : layout === 'left' ? 'flex flex-col items-start text-left w-full' : 'flex flex-col items-center text-center'} ${isSpiritual && layout === 'two-column' ? 'lg:grid-cols-[1.2fr,0.8fr]' : ''}`}>
 
                 {/* Text Content */}
-                <div className={`flex flex-col gap-8 ${layout === 'center' ? 'items-center text-center max-w-4xl' : layout === 'right' ? 'w-full lg:w-[50%] max-w-[640px] md:ml-auto items-start text-left lg:max-w-none' : 'max-w-3xl'}`}>
+                <div className={`flex flex-col gap-8 ${layout === 'center' ? 'items-center text-center max-w-4xl' : layout === 'right' ? 'w-full lg:w-[50%] max-w-[640px] md:ml-auto items-start text-left lg:max-w-none' : layout === 'left' ? 'w-full lg:w-[50%] max-w-[640px] md:mr-auto items-start text-left lg:max-w-none' : 'max-w-3xl'}`}>
                     {/* Badge */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-                        className={`flex flex-col ${layout === 'right' ? 'justify-start items-start' : 'justify-center lg:justify-start items-center lg:items-start'} gap-4 w-full`}
+                        className={`flex flex-col ${layout === 'right' || layout === 'left' ? 'justify-start items-start' : 'justify-center lg:justify-start items-center lg:items-start'} gap-4 w-full`}
                     >
 
                         {badge ? (

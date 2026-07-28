@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Al Kiswah vs Booking Platforms — Save 20–30% Booking Direct',
         description: 'We supply international booking platforms with vehicles in Saudi Arabia. Book direct with us and skip the commission. Same car, lower price.',
-        images: [{ url: '/images/fleet/gmc-yukon-hero-professional.webp', width: 1200, height: 630 }],
+        images: [{ url: '/images/fleet/gmc-yukon-2025.webp', width: 1200, height: 630 }],
     },
 };
 

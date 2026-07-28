@@ -124,9 +124,9 @@ export default async function FleetPage() {
                     badge={badge}
                     breadcrumbs={<Breadcrumbs />}
                     fleetImages={[
-                        '/images/fleet/gmc-yukon-hero-professional.webp',     // Center
-                        '/images/fleet/hiace-hero-professional.webp',  // Left
-                        '/images/fleet/staria-hero-professional.webp' // Right
+                        '/images/fleet/gmc-yukon-2025.webp',     // Center
+                        '/images/fleet/toyota-hiace-2025.webp',  // Left
+                        '/images/fleet/hyundai-staria-2025.webp' // Right
                     ]}
                 />
 

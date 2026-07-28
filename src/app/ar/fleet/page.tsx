@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import FleetOfferGallery from '@/components/fleet/FleetOfferGallery';
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
@@ -12,12 +12,12 @@ import { SITE_URL } from '@/config/site';
 
 export async function generateMetadata() {
     return {
-        title: "اسطول سيارات العمرة 2025 | حجز يوكن وستاريا | الكسوة",
-        description: "اكتشف أسطولنا المميز لرحلات العمرة. احجز جي إم سي يوكن أو هيونداي ستاريا أو تويوتا هايس لتنقلاتك المريحة في السعودية.",
+        title: "????? ?????? ?????? 2025 | ??? ???? ??????? | ??????",
+        description: "????? ??????? ?????? ?????? ??????. ???? ?? ?? ?? ???? ?? ??????? ?????? ?? ?????? ???? ???????? ??????? ?? ????????.",
         keywords: [
             "Umrah Taxi Fleet", "GMC Yukon Booking", "Hyundai Staria Booking",
             "Toyota Hiace Bus Makkah", "Luxury Car Booking Saudi Arabia", "Family Umrah Transport",
-            "أسطول نقل المعتمرين", "حجز جمس يوكن", "حجز باص هيونداي"
+            "????? ??? ?????????", "??? ??? ????", "??? ??? ???????"
         ],
         alternates: {
     ...generateMetadataAlternates("/fleet"),
@@ -125,9 +125,9 @@ export default async function FleetPage() {
                     badge={badge}
                     breadcrumbs={<Breadcrumbs />}
                     fleetImages={[
-                        '/images/fleet/gmc-yukon-hero-professional.webp',     // Center
-                        '/images/fleet/hiace-hero-professional.webp',  // Left
-                        '/images/fleet/staria-hero-professional.webp' // Right
+                        '/images/fleet/gmc-yukon-2025.webp',     // Center
+                        '/images/fleet/toyota-hiace-2025.webp',  // Left
+                        '/images/fleet/hyundai-staria-2025.webp' // Right
                     ]}
                 />
 

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Hero from '@/components/common/Hero';
 import Breadcrumbs from '@/components/common/Breadcrumbs';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Clock, Camera, Shield, Users, BookOpen } from 'lucide-react';
 import FAQSection from '@/components/services/FAQSection';
 import { getSettings } from '@/lib/settings-storage';
@@ -89,17 +90,48 @@ export default async function ZiarahMakkahPage() {
             <div className="fixed inset-0 bg-[url('/pattern.png')] opacity-[0.02] mix-blend-multiply pointer-events-none z-0" />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-            <Hero
-                title="Makkah Ziyarat Tour — 15 Sacred Sites"
-                subtitle="Walk where revelation began. Private tours of Cave Hira, Jabal Thawr, Arafat, Mina, Muzdalifah & 10 more sacred locations."
-                bgImage="/images/hero/pilgrims-walking-makkah-haram.jpg"
-                ctaText="Book Makkah Ziyarat"
-                ctaLink={whatsappLink}
-                layout="center"
-                breadcrumbs={<Breadcrumbs />}
-                alt="Private Makkah Ziyarat Tour — Jabal Al-Nour Cave Hira"
-                theme="light"
-            />
+            {/* 1. HERO SECTION (Dark Theme Professional) */}
+            <section className="relative pt-[220px] pb-20 md:pt-[260px] lg:pt-[280px] md:pb-32 overflow-hidden border-b border-border bg-charcoal">
+                <div className="absolute inset-0 z-0">
+                    <Image 
+                        src="/images/routes/makkah-ziyarat.jpg" 
+                        alt="Private Makkah Ziyarat Tour — Jabal Al-Nour Cave Hira" 
+                        fill
+                        priority
+                        className="object-cover object-[center_60%]"
+                        sizes="100vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/30" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                </div>
+
+                <div className="container relative z-10 flex-1 flex flex-col justify-center">
+                    <div className="max-w-4xl">
+                        <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6 tracking-tight drop-shadow-lg">
+                            Makkah Ziyarat Tour — 15 Sacred Sites
+                        </h1>
+
+                        <p className="sr-only md:not-sr-only md:block font-body text-lg md:text-xl text-white/95 leading-relaxed md:mb-6 max-w-2xl font-light drop-shadow-md">
+                            Walk where revelation began. Private tours of Cave Hira, Jabal Thawr, Arafat, Mina, Muzdalifah & 10 more sacred locations.
+                        </p>
+
+                        <div className="grid grid-cols-2 md:flex md:flex-wrap items-stretch gap-3 md:gap-4 w-full md:w-auto max-w-[400px] md:max-w-none mb-10">
+                            <Link 
+                                href={whatsappLink}
+                                className="flex items-center justify-center text-center bg-gold text-ink px-2 py-3 md:px-8 md:py-4 rounded-btn font-body font-bold text-[12px] md:text-[15px] uppercase tracking-wider md:tracking-[0.08em] hover:bg-gold-light transition-colors shadow-sm min-h-[48px] md:min-h-0"
+                            >
+                                Book Makkah Ziyarat
+                            </Link>
+                            <Link 
+                                href="/booking"
+                                className="flex items-center justify-center text-center bg-transparent text-white border-2 border-white/20 px-2 py-3 md:px-8 md:py-4 rounded-btn font-body font-bold text-[12px] md:text-[15px] uppercase tracking-wider md:tracking-[0.08em] hover:border-gold hover:text-gold transition-colors shadow-sm min-h-[48px] md:min-h-0"
+                            >
+                                Get Exact Prices
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* ── Pricing Overview ── */}
             <section className="py-12 bg-surface-alt border-b border-border relative z-10">
