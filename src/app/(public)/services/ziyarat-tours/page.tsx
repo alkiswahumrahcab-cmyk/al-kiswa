@@ -350,7 +350,7 @@ export default async function ZiyaratToursPage() {
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                         <div className="bg-bg rounded-[20px] overflow-hidden border border-border hover:shadow-md transition-shadow">
                             <div className="relative h-56 bg-surface p-6 flex items-center justify-center">
-                                <Image src="/images/fleet/staria.png" alt="Hyundai Staria Umrah Taxi" width={400} height={200} className="object-contain" />
+                                <Image src="/images/fleet/hyundai-staria-2025.webp" alt="Hyundai Staria Umrah Taxi" width={400} height={200} className="object-contain" />
                             </div>
                             <div className="p-6 border-t border-border">
                                 <h3 className="font-display font-bold text-xl text-ink mb-1">Hyundai Staria</h3>
@@ -361,7 +361,7 @@ export default async function ZiyaratToursPage() {
                         
                         <div className="bg-bg rounded-[20px] overflow-hidden border border-border hover:shadow-md transition-shadow">
                             <div className="relative h-56 bg-surface p-6 flex items-center justify-center">
-                                <Image src="/images/fleet/hiace.png" alt="Toyota HiAce Umrah Van" width={400} height={200} className="object-contain" />
+                                <Image src="/images/fleet/toyota-hiace-2025.webp" alt="Toyota HiAce Umrah Van" width={400} height={200} className="object-contain" />
                             </div>
                             <div className="p-6 border-t border-border">
                                 <h3 className="font-display font-bold text-xl text-ink mb-1">Toyota HiAce</h3>
@@ -372,7 +372,7 @@ export default async function ZiyaratToursPage() {
                         
                         <div className="bg-bg rounded-[20px] overflow-hidden border border-border hover:shadow-md transition-shadow">
                             <div className="relative h-56 bg-surface p-6 flex items-center justify-center">
-                                <Image src="/images/fleet/coaster.png" alt="Toyota Coaster Umrah Bus" width={400} height={200} className="object-contain" />
+                                <Image src="/images/fleet/toyota-coaster-2025.webp" alt="Toyota Coaster Umrah Bus" width={400} height={200} className="object-contain" />
                             </div>
                             <div className="p-6 border-t border-border">
                                 <h3 className="font-display font-bold text-xl text-ink mb-1">Toyota Coaster</h3>
