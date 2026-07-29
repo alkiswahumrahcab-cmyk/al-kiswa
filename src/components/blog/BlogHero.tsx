@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function BlogHero() {
     return (
@@ -7,7 +8,7 @@ export default function BlogHero() {
             <div className="absolute top-0 right-0 w-[80%] md:w-1/2 h-full bg-surface-alt rounded-bl-[150px] md:rounded-bl-[250px] opacity-70 pointer-events-none" />
 
             <div className="container mx-auto px-4 relative z-10">
-                <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-12">
+                <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-12 lg:gap-16">
                     
                     {/* Left Side */}
                     <div className="flex-1 space-y-6 md:space-y-8">
@@ -26,11 +27,25 @@ export default function BlogHero() {
                         </p>
                     </div>
 
-                    {/* Right Side - Typographic Graphic */}
-                    <div className="md:w-auto flex justify-start md:justify-end pb-2 md:pb-6">
-                        <span className="text-7xl md:text-[120px] lg:text-[140px] font-bold font-arabic text-gold-strong opacity-[0.08] leading-none select-none" dir="rtl">
-                            المدونة
-                        </span>
+                    {/* Right Side - Professional Image */}
+                    <div className="w-full md:w-[50%] lg:w-[55%] relative mt-8 md:mt-0">
+                        <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border border-white/20">
+                            <Image
+                                src="/images/blog.jpg"
+                                alt="Umrah Travel Insights"
+                                fill
+                                priority
+                                className="object-cover"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                            />
+                            {/* Overlay for Arabic Text */}
+                            <div className="absolute inset-0 bg-gradient-to-tr from-black/60 to-transparent pointer-events-none" />
+                            <div className="absolute bottom-6 right-8 pointer-events-none">
+                                <span className="text-6xl md:text-[100px] font-bold font-arabic text-white/30 leading-none select-none" dir="rtl">
+                                    المدونة
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
