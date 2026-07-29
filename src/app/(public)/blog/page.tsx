@@ -63,9 +63,8 @@ export default async function BlogPage() {
             <div className="relative z-10">
                 <BlogHero />
 
-                {/* Breadcrumbs - Positioned below Hero */}
-                <div className="container px-4 py-8">
-                    <Breadcrumbs />
+                <div className="container mx-auto px-4 mt-8 mb-12">
+                    <Breadcrumbs theme="light" />
                 </div>
 
                 {/* Articles Section */}

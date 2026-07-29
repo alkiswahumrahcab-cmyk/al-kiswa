@@ -39,9 +39,9 @@ export default function BlogHero() {
                                 sizes="(max-width: 768px) 100vw, 50vw"
                             />
                             {/* Overlay for Arabic Text */}
-                            <div className="absolute inset-0 bg-gradient-to-tr from-black/60 to-transparent pointer-events-none" />
-                            <div className="absolute bottom-6 right-8 pointer-events-none">
-                                <span className="text-6xl md:text-[100px] font-bold font-arabic text-white/30 leading-none select-none" dir="rtl">
+                            <div className="absolute inset-0 bg-gradient-to-tr from-black/70 via-black/20 to-transparent pointer-events-none" />
+                            <div className="absolute bottom-6 right-8 pointer-events-none drop-shadow-lg">
+                                <span className="text-6xl md:text-[100px] font-bold font-arabic text-white/60 leading-none select-none" dir="rtl">
                                     المدونة
                                 </span>
                             </div>
