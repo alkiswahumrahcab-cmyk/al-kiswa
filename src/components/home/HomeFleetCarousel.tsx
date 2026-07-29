@@ -245,10 +245,10 @@ export default function HomeFleetCarousel({ lang = 'en' }: { lang?: 'ar' | 'en' 
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.2 }}
-                                    className="relative z-30 mt-[-20px] md:mt-[-80px] bg-surface/95 backdrop-blur-xl border border-gold/20 shadow-xl shadow-gold/5 rounded-3xl w-[95%] md:w-full px-5 py-4 md:px-8 md:py-6 flex flex-col md:flex-row items-center gap-4 md:gap-8 max-w-2xl mx-auto"
+                                    className="relative z-30 mt-[-20px] md:mt-[-80px] bg-surface/95 backdrop-blur-xl border border-gold/20 shadow-xl shadow-gold/5 rounded-3xl w-[95%] md:w-full px-4 py-3 md:px-8 md:py-6 flex flex-col md:flex-row items-center gap-3 md:gap-8 max-w-2xl mx-auto"
                                 >
                                     <div className="text-center md:text-left flex-1">
-                                        <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
+                                        <div className="hidden md:flex items-center justify-center md:justify-start gap-3 mb-2">
                                             <span className="text-[10px] font-bold text-gold-deep uppercase tracking-widest bg-gold/10 border border-gold/20 px-3 py-1 rounded-full">
                                                 {currentVehicle.category}
                                             </span>
@@ -270,14 +270,14 @@ export default function HomeFleetCarousel({ lang = 'en' }: { lang?: 'ar' | 'en' 
 
                                     <div className="h-12 w-[1px] bg-border hidden md:block" />
 
-                                    <div className="flex gap-3 w-full md:w-auto">
+                                    <div className="flex gap-3 w-full md:w-auto mt-2 md:mt-0">
                                         <Link href={lang === 'ar' ? `/ar/fleet/${currentVehicle.slug}` : `/fleet/${currentVehicle.slug}`} className="flex-1 md:flex-none">
-                                            <button className={`w-full whitespace-nowrap bg-surface border border-border text-ink text-xs font-bold uppercase tracking-wider px-4 md:px-6 py-3.5 rounded-full hover:border-gold hover:text-gold-strong transition-colors ${lang === 'ar' ? 'font-ar-body' : ''}`}>
+                                            <button className={`w-full whitespace-nowrap bg-surface border border-border text-ink text-[11px] md:text-xs font-bold uppercase tracking-wider px-4 md:px-6 py-2.5 md:py-3.5 rounded-full hover:border-gold hover:text-gold-strong transition-colors ${lang === 'ar' ? 'font-ar-body' : ''}`}>
                                                 {lang === 'ar' ? 'التفاصيل' : 'Details'}
                                             </button>
                                         </Link>
                                         <Link href={lang === 'ar' ? '/ar/booking' : '/booking'} className="flex-1 md:flex-none">
-                                            <button className={`w-full whitespace-nowrap bg-gold text-ink text-xs font-bold uppercase tracking-wider px-4 md:px-6 py-3.5 rounded-full hover:bg-gold-soft hover:shadow-lg hover:shadow-gold/20 transition-all ${lang === 'ar' ? 'font-ar-body' : ''}`}>
+                                            <button className={`w-full whitespace-nowrap bg-gold text-ink text-[11px] md:text-xs font-bold uppercase tracking-wider px-4 md:px-6 py-2.5 md:py-3.5 rounded-full hover:bg-gold-soft hover:shadow-lg hover:shadow-gold/20 transition-all ${lang === 'ar' ? 'font-ar-body' : ''}`}>
                                                 {lang === 'ar' ? 'احجز الآن' : 'Book Now'}
                                             </button>
                                         </Link>
