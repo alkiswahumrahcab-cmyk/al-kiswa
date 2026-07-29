@@ -11,7 +11,7 @@ import GlassButton from '@/components/ui/GlassButton';
 const HOME_FLEET_OFFERS = [
     {
         id: 'camry',
-        name: 'Toyota Camry 2025',
+        name: 'Toyota Camry',
         type: 'Sedan',
         image: '/images/fleet/camry-2025.webp',
         capacity: '4 Pax',
@@ -26,7 +26,7 @@ const HOME_FLEET_OFFERS = [
     },
     {
         id: 'yukon',
-        name: 'GMC Yukon XL 2025',
+        name: 'GMC Yukon XL',
         type: 'VIP SUV',
         image: '/images/fleet/gmc-yukon-2025.webp',
         capacity: '7 Pax',
