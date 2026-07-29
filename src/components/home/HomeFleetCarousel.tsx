@@ -214,7 +214,7 @@ export default function HomeFleetCarousel({ lang = 'en' }: { lang?: 'ar' | 'en' 
                                 className="w-full relative flex flex-col items-center justify-center"
                             >
                                 {/* Central Huge Image */}
-                                <div className="relative w-full max-w-5xl h-[300px] md:h-[500px] z-10 flex items-center justify-center">
+                                <div className="relative w-full max-w-5xl h-[220px] md:h-[500px] z-10 flex items-center justify-center">
 
                                     {/* Discount Badge - Floating */}
                                     {currentVehicle.discountLabel && (
@@ -245,7 +245,7 @@ export default function HomeFleetCarousel({ lang = 'en' }: { lang?: 'ar' | 'en' 
                                     initial={{ opacity: 0, y: 20 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.2 }}
-                                    className="relative z-30 mt-[-40px] md:mt-[-80px] bg-surface/95 backdrop-blur-xl border border-gold/20 shadow-xl shadow-gold/5 rounded-3xl px-8 py-6 flex flex-col md:flex-row items-center gap-6 max-w-2xl mx-auto"
+                                    className="relative z-30 mt-[-20px] md:mt-[-80px] bg-surface/95 backdrop-blur-xl border border-gold/20 shadow-xl shadow-gold/5 rounded-3xl w-[95%] md:w-full px-5 py-4 md:px-8 md:py-6 flex flex-col md:flex-row items-center gap-4 md:gap-8 max-w-3xl mx-auto"
                                 >
                                     <div className="text-center md:text-left flex-1">
                                         <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
