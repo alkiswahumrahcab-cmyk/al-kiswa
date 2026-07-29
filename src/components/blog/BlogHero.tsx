@@ -3,12 +3,12 @@ import Image from 'next/image';
 
 export default function BlogHero() {
     return (
-        <section className="relative pt-32 pb-16 md:pt-48 md:pb-24 bg-surface overflow-hidden">
+        <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 bg-surface overflow-hidden">
             {/* Subtle Background Accent */}
             <div className="absolute top-0 right-0 w-[80%] md:w-1/2 h-full bg-surface-alt rounded-bl-[150px] md:rounded-bl-[250px] opacity-70 pointer-events-none" />
 
             <div className="container mx-auto px-4 relative z-10">
-                <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-12 lg:gap-16">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-12 lg:gap-16">
                     
                     {/* Left Side */}
                     <div className="flex-1 space-y-6 md:space-y-8">
@@ -50,7 +50,7 @@ export default function BlogHero() {
                 </div>
 
                 {/* Divider */}
-                <div className="max-w-5xl mx-auto mt-16 md:mt-24 h-px bg-border w-full" />
+                <div className="mt-16 md:mt-24 h-px bg-border w-full" />
             </div>
         </section>
     );
