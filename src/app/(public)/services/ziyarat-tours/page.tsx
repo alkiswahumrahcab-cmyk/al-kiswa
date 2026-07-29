@@ -132,7 +132,7 @@ export default async function ZiyaratToursPage() {
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
             {/* ── Static Hero Section ── */}
-            <section className="relative pt-[140px] pb-16 md:pt-[180px] md:pb-24 overflow-hidden border-b border-border bg-surface">
+            <section className="relative pt-[120px] pb-16 md:pt-[160px] md:pb-24 overflow-hidden border-b border-border bg-surface">
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <Image
@@ -140,15 +140,16 @@ export default async function ZiyaratToursPage() {
                         alt="Private Ziyarat Tour Makkah Madinah"
                         fill
                         priority
-                        className="object-cover opacity-100"
+                        className="object-cover opacity-15"
                         sizes="100vw"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-b from-surface/80 via-surface/60 to-surface" />
                 </div>
 
                 <div className="container relative z-10 mx-auto px-4">
-                    <div className="max-w-4xl mx-auto text-center bg-white/90 backdrop-blur-md p-8 md:p-12 rounded-[2rem] shadow-2xl border border-white/50">
+                    <div className="max-w-4xl mx-auto text-center">
                         <div className="flex justify-center mb-6">
-                            <Breadcrumbs theme="light" />
+                            <Breadcrumbs />
                         </div>
                         
                         <div className="inline-block px-4 py-1.5 rounded-full bg-gold/10 border border-gold/20 text-gold text-[13px] font-bold uppercase tracking-wider mb-6">
@@ -167,7 +168,7 @@ export default async function ZiyaratToursPage() {
                             <Link href={whatsappLink} className="btn-gold px-8 py-4 rounded-btn font-bold text-[14px] uppercase tracking-[0.15em] text-black shadow-sm transition-transform hover:scale-105 inline-flex items-center justify-center">
                                 Book Ziyarat Tour
                             </Link>
-                            <Link href="#pricing" className="px-8 py-4 rounded-btn font-bold text-[14px] uppercase tracking-[0.15em] text-ink border border-border bg-white hover:bg-surface transition-colors inline-flex items-center justify-center shadow-sm">
+                            <Link href="#pricing" className="px-8 py-4 rounded-btn font-bold text-[14px] uppercase tracking-[0.15em] text-ink border border-border bg-white hover:bg-surface transition-colors inline-flex items-center justify-center">
                                 View Prices
                             </Link>
                         </div>
