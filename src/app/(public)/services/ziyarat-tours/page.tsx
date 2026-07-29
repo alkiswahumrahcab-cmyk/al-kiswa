@@ -132,7 +132,7 @@ export default async function ZiyaratToursPage() {
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
             {/* ── Static Hero Section ── */}
-            <section className="relative pt-[120px] pb-16 md:pt-[160px] md:pb-24 overflow-hidden border-b border-border bg-surface">
+            <section className="relative pt-[120px] pb-16 md:pt-[160px] md:pb-24 overflow-hidden border-b border-border bg-deep-black">
                 {/* Background Image */}
                 <div className="absolute inset-0 z-0">
                     <Image
@@ -140,35 +140,34 @@ export default async function ZiyaratToursPage() {
                         alt="Private Ziyarat Tour Makkah Madinah"
                         fill
                         priority
-                        className="object-cover opacity-15"
+                        className="object-cover opacity-100"
                         sizes="100vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-surface/80 via-surface/60 to-surface" />
                 </div>
 
                 <div className="container relative z-10 mx-auto px-4">
                     <div className="max-w-4xl mx-auto text-center">
-                        <div className="flex justify-center mb-6">
+                        <div className="flex justify-center mb-6 drop-shadow-md">
                             <Breadcrumbs />
                         </div>
                         
-                        <div className="inline-block px-4 py-1.5 rounded-full bg-gold/10 border border-gold/20 text-gold text-[13px] font-bold uppercase tracking-wider mb-6">
+                        <div className="inline-block px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-sm border border-gold/40 text-gold text-[13px] font-bold uppercase tracking-wider mb-6 drop-shadow-md">
                             Ministry Licensed Operator
                         </div>
 
-                        <h1 className="font-display font-semibold text-4xl md:text-5xl lg:text-6xl text-ink leading-[1.1] mb-6">
+                        <h1 className="font-display font-semibold text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] mb-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
                             Ziyarat Tours: Explore Islamic History
                         </h1>
 
-                        <p className="font-body text-lg md:text-xl text-body-light leading-relaxed mb-8 md:mb-10 max-w-2xl mx-auto font-light">
+                        <p className="font-body text-lg md:text-xl text-white leading-relaxed mb-8 md:mb-10 max-w-2xl mx-auto font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
                             Private guided tours of 43+ sacred sites across Makkah, Madinah, Jeddah & Taif. Walk in the footsteps of the Prophet (SAW).
                         </p>
 
                         <div className="flex flex-wrap items-center justify-center gap-4">
-                            <Link href={whatsappLink} className="btn-gold px-8 py-4 rounded-btn font-bold text-[14px] uppercase tracking-[0.15em] text-black shadow-sm transition-transform hover:scale-105 inline-flex items-center justify-center">
+                            <Link href={whatsappLink} className="btn-gold px-8 py-4 rounded-btn font-bold text-[14px] uppercase tracking-[0.15em] text-black shadow-lg transition-transform hover:scale-105 inline-flex items-center justify-center">
                                 Book Ziyarat Tour
                             </Link>
-                            <Link href="#pricing" className="px-8 py-4 rounded-btn font-bold text-[14px] uppercase tracking-[0.15em] text-ink border border-border bg-white hover:bg-surface transition-colors inline-flex items-center justify-center">
+                            <Link href="#pricing" className="px-8 py-4 rounded-btn font-bold text-[14px] uppercase tracking-[0.15em] text-white border border-white/40 bg-black/30 backdrop-blur-sm hover:bg-black/50 transition-colors inline-flex items-center justify-center shadow-lg">
                                 View Prices
                             </Link>
                         </div>
