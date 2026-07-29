@@ -187,13 +187,13 @@ function ServicesGridSection() {
     const services = [
         {
             title: 'Makkah to Madinah Taxi',
-            img: '/images/routes/makkah-madinah-route-hero.webp',
+            img: '/images/routes/makkah-to-madinah-transfer.jpg',
             link: '/services/makkah-madinah-taxi',
             features: ['Door-to-Door Service', 'Luxury Fleet Options', '4.5 Hour Average Time']
         },
         {
             title: 'Jeddah Airport to Makkah',
-            img: '/images/routes/jeddah-airport-route-hero.webp',
+            img: '/images/hero/jeddah-airport-to-makkah.jpg',
             link: '/services/jeddah-airport-transfer',
             features: ['Flight Tracking', 'Free Meet & Greet', 'Luggage Assistance']
         },
@@ -205,19 +205,19 @@ function ServicesGridSection() {
         },
         {
             title: 'Ziyarat Tours',
-            img: '/images/routes/makkah-ziyarat-hero.webp',
+            img: '/images/hero/pilgrims-walking-makkah-haram.jpg',
             link: '/services/ziyarat-tours',
             features: ['Custom Itinerary', 'Expert Local Knowledge', 'Flexible Hours']
         },
         {
             title: 'Hotel Transfers',
-            img: '/images/services/hotel-transfers-new.png',
+            img: '/images/hero/hotel-transfers.jpg',
             link: '/services/hotel-transfers',
             features: ['Direct to Haram Gates', 'Spacious Vehicles', 'Fixed Transparent Pricing']
         },
         {
             title: 'Madinah Airport to Hotel',
-            img: '/images/services/airport-transport-new.png',
+            img: '/images/routes/madinah-airport-madinah-hotel.jpg',
             link: '/services/madinah-airport-transfer',
             features: ['24/7 Availability', 'Family Friendly', 'Meet at Arrivals']
         }

@@ -1,4 +1,4 @@
-﻿import { generateMetadataAlternates } from "@/lib/hreflang";
+import { generateMetadataAlternates } from "@/lib/hreflang";
 import React, { Suspense } from 'react';
 import Link from 'next/link';
 import { Bus, MapPin, Users, Headphones, ArrowRight, Calendar, CheckCircle, Car, Check } from 'lucide-react';
@@ -52,7 +52,7 @@ export default function ServicesPage() {
         {
             title: 'تاكسي وسيارة خاصة من مكة إلى المدينة',
             description: 'نقل فاخر بين المدن المقدسة. استمتع برحلة مريحة لمسافة 450 كم في مجموعة واسعة من السيارات بما في ذلك جي إم سي يوكن وهيونداي H1.',
-            image: '/images/routes/makkah-madinah-route-hero.webp',
+            image: '/images/routes/makkah-to-madinah-transfer.jpg',
             link: '/services/makkah-madinah-taxi',
             features: ['خدمة من الباب للباب', 'خيارات الأسطول الفاخر', 'متوسط الوقت 4.5 ساعة'],
             alt: 'Makkah to Madinah Intercity Private Taxi App Map'
@@ -60,7 +60,7 @@ export default function ServicesPage() {
         {
             title: 'تاكسي مطار جدة إلى مكة',
             description: 'استقبال معتمد من سلطات المطار بدون متاعب. سيستقبلك سائقنا في صالة الوصول بمطار جدة لنقل سلس إلى فندقك في مكة أو الحرم.',
-            image: '/images/routes/jeddah-airpأوt-hero-professional.webp',
+            image: '/images/hero/jeddah-airport-to-makkah.jpg',
             link: '/services/jeddah-airpأوt-transfer',
             features: ['تتبع الرحلات', 'استقبال وترحيب مجاني', 'مساعدة في الأمتعة'],
             alt: 'Jeddah Airpأوt (KAIA) to Makkah Hotel Transfer Driver Chauffeur'
@@ -68,7 +68,7 @@ export default function ServicesPage() {
         {
             title: 'نقل كبار الشخصيات للعمرة - جي إم سي يوكن',
             description: 'سافر بأناقة مع خدمة كبار الشخصيات. سيارات من الدرجة الأولى (جي إم سي يوكن XL) وسائقون خاصون لأقصى درجات الخصوصية والراحة.',
-            image: '/images/fleet/gmc-yukon-hero-professional.webp',
+            image: '/images/fleet/gmc-yukon-2025.webp',
             link: '/booking?service=luxury',
             features: ['سائق خاص', 'أحدث موديلات السيارات', 'خصوصية تامة'],
             alt: 'جي إم سي يوكن XL 2025 VIP Black SUV for Umrah Transpأوt'
@@ -76,7 +76,7 @@ export default function ServicesPage() {
         {
             title: 'جولات المزارات في مكة والمدينة',
             description: 'باقات مزارات شاملة للأماكن المقدسة. قم بزيارة مسجد قباء وجبل أحد وجبل النور وغيرها من المعالم الإسلامية التاريخية مع سائقين ذوي خبرة.',
-            image: '/images/routes/makkah-ziyarat-hero.webp',
+            image: '/images/hero/pilgrims-walking-makkah-haram.jpg',
             link: '/services/ziyarat-tours',
             features: ['مسار مخصص', 'معرفة محلية خبيرة', 'ساعات مرنة'],
             alt: 'Makkah and Madinah Historical Ziyarat Tour Mountains and Mosques'
