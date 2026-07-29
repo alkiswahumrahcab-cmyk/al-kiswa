@@ -18,7 +18,7 @@ export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
 
-    const noHeroPages = ['/booking', '/track-booking', '/privacy', '/terms', '/cookie-preferences', '/pricing'];
+    const noHeroPages = ['/booking', '/track-booking', '/privacy', '/terms', '/cookie-preferences', '/services/ziyarat-tours', '/pricing'];
     const hasDarkHero = !noHeroPages.some(p => pathname === p || pathname.startsWith(p + '/'));
     const useWhiteText = !scrolled && hasDarkHero;
 
