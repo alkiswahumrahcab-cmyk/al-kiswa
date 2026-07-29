@@ -3,12 +3,12 @@ import Image from 'next/image';
 
 export default function BlogHero() {
     return (
-        <section className="relative pt-24 pb-12 md:pt-32 md:pb-20 bg-surface overflow-hidden">
+        <section className="relative pt-20 pb-12 md:pt-28 md:pb-20 bg-surface overflow-hidden">
             {/* Subtle Background Accent */}
             <div className="absolute top-0 right-0 w-[80%] md:w-1/2 h-full bg-surface-alt rounded-bl-[150px] md:rounded-bl-[250px] opacity-70 pointer-events-none" />
 
             <div className="container mx-auto px-4 relative z-10">
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-12 lg:gap-16">
+                <div className="flex flex-col md:flex-row md:items-start justify-between gap-12 lg:gap-16 pt-4 md:pt-8">
                     
                     {/* Left Side */}
                     <div className="flex-1 space-y-6 md:space-y-8">
