@@ -199,7 +199,7 @@ export default function HomeFleetCarousel({ lang = 'en' }: { lang?: 'ar' | 'en' 
 
                     {/* Carousel Content */}
                     <div
-                        className="relative min-h-[400px] md:min-h-[500px] flex items-center justify-center"
+                        className="relative min-h-[300px] md:min-h-[500px] flex items-center justify-center"
                         onTouchStart={onTouchStart}
                         onTouchMove={onTouchMove}
                         onTouchEnd={onTouchEnd}
@@ -214,7 +214,7 @@ export default function HomeFleetCarousel({ lang = 'en' }: { lang?: 'ar' | 'en' 
                                 className="w-full relative flex flex-col items-center justify-center"
                             >
                                 {/* Central Huge Image */}
-                                <div className="relative w-full max-w-5xl h-[220px] md:h-[500px] z-10 flex items-center justify-center">
+                                <div className="relative w-full max-w-5xl h-[250px] md:h-[500px] z-10 flex items-center justify-center">
 
                                     {/* Discount Badge - Floating */}
                                     {currentVehicle.discountLabel && (
@@ -235,7 +235,7 @@ export default function HomeFleetCarousel({ lang = 'en' }: { lang?: 'ar' | 'en' 
                                         alt={`${currentVehicle.name} - Umrah Taxi Makkah`}
                                         width={1000}
                                         height={600}
-                                        className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)] z-20"
+                                        className="w-full h-full object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.15)] z-20 scale-110 md:scale-100"
                                         priority
                                     />
                                 </div>
