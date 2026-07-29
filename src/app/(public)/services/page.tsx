@@ -198,10 +198,10 @@ function ServicesGridSection() {
             features: ['Flight Tracking', 'Free Meet & Greet', 'Luggage Assistance']
         },
         {
-            title: 'VIP Luxury GMC Yukon',
-            img: '/images/fleet/gmc-yukon-2025.webp',
-            link: '/booking?service=luxury',
-            features: ['Private Chauffeur', 'Latest Model Vehicles', 'Privacy Partition']
+            title: 'Hourly Chauffeur Service',
+            img: '/images/routes/hourly-chauffeurs.jpg',
+            link: '/services/hourly-chauffeur',
+            features: ['Flexible Itinerary', 'Private Driver at Disposal', 'Minimum 4 Hours']
         },
         {
             title: 'Ziyarat Tours',

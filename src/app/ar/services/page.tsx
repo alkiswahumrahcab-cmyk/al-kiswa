@@ -66,12 +66,12 @@ export default function ServicesPage() {
             alt: 'Jeddah Airpأوt (KAIA) to Makkah Hotel Transfer Driver Chauffeur'
         },
         {
-            title: 'نقل كبار الشخصيات للعمرة - جي إم سي يوكن',
-            description: 'سافر بأناقة مع خدمة كبار الشخصيات. سيارات من الدرجة الأولى (جي إم سي يوكن XL) وسائقون خاصون لأقصى درجات الخصوصية والراحة.',
-            image: '/images/fleet/gmc-yukon-2025.webp',
-            link: '/booking?service=luxury',
-            features: ['سائق خاص', 'أحدث موديلات السيارات', 'خصوصية تامة'],
-            alt: 'جي إم سي يوكن XL 2025 VIP Black SUV for Umrah Transpأوt'
+            title: 'تأجير سيارة مع سائق بالساعة',
+            description: 'استمتع بمرونة مطلقة مع خدمات السائق الخاص بالساعة. الخيار الأمثل للتسوق، والأعمال، والمزارات المخصصة.',
+            image: '/images/routes/hourly-chauffeurs.jpg',
+            link: '/services/hourly-chauffeur',
+            features: ['مسار مرن', 'سائق خاص تحت تصرفك', 'الحد الأدنى 4 ساعات'],
+            alt: 'Hourly Chauffeur Service VIP Car'
         },
         {
             title: 'جولات المزارات في مكة والمدينة',
