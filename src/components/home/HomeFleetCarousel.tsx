@@ -69,7 +69,7 @@ const HOME_FLEET_OFFERS = [
     },
     {
         id: 'coaster',
-        name: 'Toyota Coaster 2025',
+        name: 'Toyota Coaster',
         type: 'Luxury Bus',
         image: '/images/fleet/toyota-coaster-2025.webp',
         capacity: '22 Pax',
