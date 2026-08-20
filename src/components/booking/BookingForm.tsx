@@ -1029,13 +1029,10 @@ export default function BookingForm() {
                                                                 )}
                                                             </div>
 
-                                                            {/* Model name — main heading (like booking.com) */}
-                                                            <h4 className={`text-xl font-bold font-display leading-tight mb-0.5 ${isSelected ? 'text-gold' : 'text-ink'}`}>
-                                                                {vehicle.modelName || vehicle.name}
+                                                            {/* Category name only — no model/vehicle name shown */}
+                                                            <h4 className={`text-xl font-bold font-display leading-tight mb-3 ${isSelected ? 'text-gold' : 'text-ink'}`}>
+                                                                {vehicle.category || vehicle.name}
                                                             </h4>
-                                                            {vehicle.modelName && (
-                                                                <p className="text-xs text-muted mb-3">{vehicle.name}</p>
-                                                            )}
 
                                                             {/* Capacity + luggage */}
                                                             <div className="flex items-center gap-4 text-xs text-muted mb-4">
