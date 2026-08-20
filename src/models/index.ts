@@ -80,6 +80,7 @@ export interface IBooking extends Document {
     currency?: 'SAR' | 'USD';
     priceInSelectedCurrency?: number;
     priceInSAR?: number;
+    bookingRef?: string; // Professional reference: AKT-YYMMDD-XXXX
 }
 
 export interface IUser extends Document {
@@ -290,6 +291,7 @@ const BookingSchema = new Schema<IBooking>({
     finalPrice: { type: Number },
     discountType: { type: String, enum: ['percentage', 'fixed'] },
     routeId: { type: String },
+    bookingRef: { type: String, index: true, sparse: true }, // e.g. AKT-260820-K7M2
 
     vehicleId: { type: String },
     selectedVehicles: [{

@@ -40,7 +40,8 @@ export async function generateBookingPDF(booking: any): Promise<Buffer> {
     };
 
     const rawId = booking.id || booking.bookingId || booking._id?.toString() || 'N/A';
-    const shortId = rawId !== 'N/A' ? (rawId.length > 8 ? `AK-${rawId.slice(-8).toUpperCase()}` : rawId.toUpperCase()) : 'N/A';
+    // Use stored professional ref if available, fallback for legacy records
+    const shortId = booking.bookingRef || (rawId !== 'N/A' ? `AKT-${rawId.slice(-8).toUpperCase()}` : 'N/A');
     
     // ==========================================
     // PAGE 1: INVOICE

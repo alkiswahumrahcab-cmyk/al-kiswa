@@ -77,7 +77,7 @@ export default function BookingRow({ booking, onConfirm, onCancel }: BookingRowP
                             {legCount} Transfers
                         </span>
                     )}
-                    <span className="font-mono text-xs text-muted">#{booking.id.slice(-8).toUpperCase()}</span>
+                    <span className="font-mono text-xs text-muted">#{(booking as any).bookingRef || booking.id.slice(-8).toUpperCase()}</span>
                     <CountdownTimer date={booking.date} time={booking.time} className={`text-xs ml-auto ${isUrgent ? 'text-red-400 font-bold' : 'text-muted'}`} />
                 </div>
 

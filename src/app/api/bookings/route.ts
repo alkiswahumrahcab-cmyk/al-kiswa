@@ -9,6 +9,7 @@ import { vehicleService } from '@/services/vehicleService';
 import { calculateFinalPrice } from '@/lib/pricing';
 import { rateLimit } from '@/lib/rate-limit';
 import { processBookingAction } from '@/lib/bookingProcessor';
+import { generateBookingRef } from '@/lib/booking-ref';
 import crypto from 'crypto';
 
 const RATE_LIMIT_INTERVAL = 10 * 60 * 1000; // 10 minutes
@@ -246,6 +247,11 @@ export async function POST(request: Request) {
 
         // ── 5. SAVE to database ──────────────────────────────────────────
         console.log(`[Booking ${requestId}] Saving booking to database...`);
+
+        // Generate professional reference before saving
+        const firstLegDate = bookingData.legs?.[0]?.date || bookingData.date;
+        const bookingRef = generateBookingRef(firstLegDate);
+
         let savedBooking: any;
         try {
             savedBooking = await addBooking({
@@ -254,13 +260,14 @@ export async function POST(request: Request) {
                 status: 'pending',
                 paymentStatus: 'unpaid',
                 userId,
+                bookingRef,
                 selectedVehicles: vehiclesToProcess.map(sv => ({
                     vehicleId: sv.vehicleId,
                     quantity: sv.quantity,
                     name: vehicleNameMap.get(sv.vehicleId) || 'Vehicle',
                 })),
             } as any);
-            console.log(`[Booking ${requestId}] ✅ Booking SAVED. ID: ${savedBooking._id || savedBooking.id}`);
+            console.log(`[Booking ${requestId}] ✅ Booking SAVED. Ref: ${bookingRef} | ID: ${savedBooking._id || savedBooking.id}`);
         } catch (dbErr: any) {
             console.error(`[Booking ${requestId}] ❌ DATABASE SAVE FAILED:`, dbErr.message);
             // Check for specific MongoDB errors
@@ -352,16 +359,14 @@ export async function POST(request: Request) {
         }
 
         // ── 7. Return success ─────────────────────────────────────────────
-        console.log(`[Booking ${requestId}] ✅ Returning success response`);
+        console.log(`[Booking ${requestId}] ✅ Returning success response. Ref: ${bookingRef}`);
         console.log(`==========================================================\n`);
-
-        const shortId = `AK-${bookingId.slice(-8).toUpperCase()}`;
 
         return NextResponse.json({
             success: true,
             message: 'Booking confirmed. PDF receipt sent to your email.',
-            bookingId: shortId,   // Human-readable ref e.g. "AK-2026-XXXX"
-            bookingRef: shortId,
+            bookingId: bookingRef,    // Professional ref e.g. "AKT-260820-K7M2"
+            bookingRef,
             _id: bookingId,
             id: bookingId,
             ...savedBooking,

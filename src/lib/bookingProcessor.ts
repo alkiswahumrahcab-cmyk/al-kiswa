@@ -38,7 +38,8 @@ export async function processBookingAction(bookingId: string): Promise<ProcessBo
         }
 
         // 3. Prepare Email Data Object
-        const shortId = `AK-${bookingId.slice(-8).toUpperCase()}`;
+        // Use the stored professional ref; fall back gracefully for legacy bookings
+        const shortId = (booking as any).bookingRef || `AKT-${bookingId.slice(-8).toUpperCase()}`;
         
         const legs = booking.legs && booking.legs.length > 0 ? booking.legs : [{
             pickup: booking.pickup,
