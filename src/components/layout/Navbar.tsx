@@ -99,13 +99,6 @@ export default function Navbar() {
                 { href: '/fleet/toyota-camry', label: getVehicle('toyota-camry')?.name, description: `${getVehicle('toyota-camry')?.categoryLabel}. ${formatSeats(getVehicle('toyota-camry')!)}.` },
             ]
         },
-        {
-            href: '/about',
-            label: 'About Us',
-            children: [
-                { href: '/about', label: 'Company Profile', description: 'Learn more about Al Kiswah Transport' },
-            ]
-        },
         { href: '/contact', label: 'Contact us' },
     ];
 
