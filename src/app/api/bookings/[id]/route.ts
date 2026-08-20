@@ -19,12 +19,12 @@ export async function PATCH(request: Request, { params }: { params: Promise<{ id
     const { id } = await params;
     const body = await request.json();
 
-    // Extract updateable fields to prevent overwriting critical immutable data if needed
-    // For now, we trust admin input, but filtering is safer.
-    const { status, paymentStatus } = body;
+    // Whitelist of admin-editable fields
+    const ALLOWED_FIELDS = ['status', 'paymentStatus', 'paymentMethod', 'notes', 'driver', 'driverPhone', 'internalNotes'];
     const updates: any = {};
-    if (status) updates.status = status;
-    if (paymentStatus) updates.paymentStatus = paymentStatus;
+    for (const field of ALLOWED_FIELDS) {
+        if (body[field] !== undefined) updates[field] = body[field];
+    }
 
     if (Object.keys(updates).length === 0) {
         return NextResponse.json({ error: 'No valid fields to update' }, { status: 400 });

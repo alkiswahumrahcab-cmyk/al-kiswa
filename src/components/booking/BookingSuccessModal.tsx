@@ -47,9 +47,26 @@ export default function BookingSuccessModal({
     // No scroll locking needed since it is inline content
 
     const copyBookingId = () => {
-        navigator.clipboard.writeText(bookingData.bookingId);
+        const text = bookingData.bookingId;
+        // Use clipboard API when available (HTTPS/localhost), fall back to execCommand
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+        } else {
+            fallbackCopy(text);
+        }
         setCopied(true);
         setTimeout(() => setCopied(false), 2500);
+    };
+
+    const fallbackCopy = (text: string) => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;pointer-events:none';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        try { document.execCommand('copy'); } catch {}
+        document.body.removeChild(ta);
     };
 
     const pickup  = bookingData.pickup  || '—';
