@@ -920,206 +920,163 @@ export default function BookingForm() {
                         <h2 className={`text-xl md:text-2xl font-bold ${data.legs.every(l => l.routeId) ? 'text-ink' : 'text-muted'}`}>Select your vehicle</h2>
                     </div>
 
-                    {(() => {
-                        // Category order and descriptions
-                        const CATEGORY_META: Record<string, { order: number; description: string }> = {
-                            'Standard':  { order: 0, description: 'Perfect for couples & small families' },
-                            'Premium':   { order: 1, description: 'Elevated comfort for discerning travellers' },
-                            'VIP':       { order: 2, description: 'Exclusive luxury for the highest standard' },
-                            'Group':     { order: 3, description: 'Ideal for large groups & pilgrim delegations' },
-                        };
+                    {/* Flat 2-column grid on desktop — all vehicles fill rows naturally */}
+                    <div className="pl-0 md:pl-11 grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        {vehicles.map((vehicle) => {
+                            const selectedCount = data.selectedVehicles?.find(v => v.vehicleId === vehicle.id)?.quantity || 0;
+                            const isSelected = selectedCount > 0;
 
-                        // Group vehicles by category, sorted by category order then by vehicle sort order
-                        const grouped = vehicles.reduce<Record<string, typeof vehicles>>((acc, v) => {
-                            const cat = v.category || 'Other';
-                            if (!acc[cat]) acc[cat] = [];
-                            acc[cat].push(v);
-                            return acc;
-                        }, {});
+                            let priceCalc = null;
+                            if (data.legs.every(l => l.routeId)) {
+                                let totalSAR = 0; let totalUSD = 0;
+                                data.legs.forEach(leg => {
+                                    totalSAR += getLegPrice(leg, vehicle.id);
+                                    totalUSD += getLegPriceUSD(leg, vehicle.id) || 0;
+                                });
+                                priceCalc = { price: totalSAR, priceUSD: totalUSD };
+                            }
+                            const dispPrice = priceCalc ? formatPrice(priceCalc.price, priceCalc.priceUSD) : null;
+                            const isAvailable = !dispPrice || Number(dispPrice.amount) > 0;
 
-                        const sortedCategories = Object.keys(grouped).sort((a, b) => {
-                            const orderA = CATEGORY_META[a]?.order ?? 99;
-                            const orderB = CATEGORY_META[b]?.order ?? 99;
-                            return orderA - orderB;
-                        });
+                            return (
+                                <div
+                                    key={vehicle.id}
+                                    onClick={() => isAvailable && updateVehicleQuantity(vehicle.id, selectedCount === 0 ? 1 : selectedCount)}
+                                    className={`relative rounded-2xl border-2 overflow-hidden transition-all duration-300 group
+                                        ${isAvailable ? 'cursor-pointer' : 'cursor-not-allowed opacity-60'}
+                                        ${isSelected
+                                            ? 'bg-gold/5 border-gold shadow-[0_0_24px_hsl(var(--gold-glow)/0.25)] scale-[1.01]'
+                                            : isAvailable
+                                                ? 'bg-surface border-border hover:border-gold/50 hover:bg-surface-alt'
+                                                : 'bg-surface border-border'
+                                        }`}
+                                >
+                                    {/* Selected checkmark */}
+                                    {isSelected && (
+                                        <div className="absolute top-3 right-3 z-10 w-6 h-6 rounded-full bg-gold flex items-center justify-center">
+                                            <svg className="w-3.5 h-3.5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                        </div>
+                                    )}
 
-                        return (
-                            <div className="pl-0 md:pl-11 space-y-10">
-                                {sortedCategories.map(category => (
-                                    <div key={category}>
-                                        {/* Category Header */}
-                                        <div className="flex items-center gap-4 mb-5">
-                                            <div>
-                                                <h3 className="text-base font-bold text-ink uppercase tracking-widest">{category} Class</h3>
-                                                {CATEGORY_META[category]?.description && (
-                                                    <p className="text-sm text-muted mt-0.5">{CATEGORY_META[category].description}</p>
+                                    {/* Car Image */}
+                                    <div className="relative w-full h-44 bg-gradient-to-b from-white/5 to-transparent overflow-hidden flex items-center justify-center">
+                                        <Image
+                                            src={`/images/fleet/${
+                                                vehicle.name.toLowerCase().includes('gmc') || vehicle.name.toLowerCase().includes('yukon') ? 'gmc-yukon-2025.webp' :
+                                                vehicle.name.toLowerCase().includes('hiace') ? 'toyota-hiace-2025.png' :
+                                                vehicle.name.toLowerCase().includes('camry') ? 'camry-2025.png' :
+                                                vehicle.name.toLowerCase().includes('staria') ? 'hyundai-staria-2025.png' :
+                                                vehicle.name.toLowerCase().includes('starex') || vehicle.name.toLowerCase().includes('h1') ? 'hyundai-h1.png' :
+                                                vehicle.name.toLowerCase().includes('coaster') ? 'toyota-coaster-2025.png' :
+                                                'camry-2025.png'
+                                            }`}
+                                            alt={vehicle.category || vehicle.name}
+                                            fill
+                                            className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
+                                        />
+                                    </div>
+
+                                    <div className="p-5">
+                                        {/* Category badge */}
+                                        <div className="flex items-center gap-2 mb-2">
+                                            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-gold/15 text-gold border border-gold/30">
+                                                {vehicle.tier || vehicle.category || 'Standard'}
+                                            </span>
+                                            {!isAvailable && (
+                                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-red-500/10 text-red-400 border border-red-500/20">
+                                                    Not Available
+                                                </span>
+                                            )}
+                                        </div>
+
+                                        {/* Category name heading */}
+                                        <h4 className={`text-xl font-bold font-display leading-tight mb-3 ${isSelected ? 'text-gold' : 'text-ink'}`}>
+                                            {vehicle.category || vehicle.name}
+                                        </h4>
+
+                                        {/* Capacity + luggage */}
+                                        <div className="flex items-center gap-4 text-xs text-muted mb-4">
+                                            <span className="flex items-center gap-1"><Users size={13} /> {vehicle.capacity}</span>
+                                            <span className="flex items-center gap-1"><Briefcase size={13} /> {vehicle.luggage}</span>
+                                        </div>
+
+                                        {/* Price row */}
+                                        {dispPrice && Number(dispPrice.amount) > 0 ? (
+                                            <div className="flex items-end justify-between">
+                                                <div>
+                                                    <p className="text-[11px] text-muted uppercase tracking-wider">
+                                                        {data.legs.length > 1 ? 'Total for all transfers' : 'Total'}
+                                                    </p>
+                                                    <p className={`text-2xl font-bold ${isSelected ? 'text-gold' : 'text-ink'}`}>
+                                                        {currency === 'USD' ? '$' : ''}{dispPrice.amount}
+                                                        {currency === 'SAR' ? <span className="text-sm font-normal text-muted ml-1">SAR</span> : ''}
+                                                    </p>
+                                                </div>
+
+                                                {/* Quantity +/- */}
+                                                <div className="flex items-center gap-2 bg-surface-alt rounded-xl p-1 border border-border" onClick={e => e.stopPropagation()}>
+                                                    <button
+                                                        onClick={e => { e.stopPropagation(); updateVehicleQuantity(vehicle.id, selectedCount - 1); }}
+                                                        className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors font-bold ${selectedCount > 0 ? 'bg-surface-sunken hover:bg-white/20 text-ink' : 'text-muted cursor-not-allowed'}`}
+                                                        disabled={selectedCount === 0}
+                                                    >
+                                                        <Minus size={15} />
+                                                    </button>
+                                                    <span className="w-5 text-center font-bold text-ink text-sm">{selectedCount}</span>
+                                                    <button
+                                                        onClick={e => { e.stopPropagation(); updateVehicleQuantity(vehicle.id, selectedCount + 1); }}
+                                                        className="w-8 h-8 rounded-lg bg-gold/20 hover:bg-gold/40 text-gold flex items-center justify-center transition-colors"
+                                                    >
+                                                        <Plus size={15} />
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        ) : dispPrice && Number(dispPrice.amount) === 0 ? (
+                                            <p className="text-sm font-bold text-red-400 uppercase tracking-wider">Not available on this route</p>
+                                        ) : (
+                                            <p className="text-sm text-muted italic">Select a route to see price</p>
+                                        )}
+
+                                        {/* Per-leg breakdown for multi-leg bookings */}
+                                        {dispPrice && Number(dispPrice.amount) > 0 && data.legs.length > 1 && (
+                                            <div className="mt-4 pt-3 border-t border-border space-y-1.5">
+                                                <p className="text-[10px] text-muted uppercase tracking-wider">Breakdown</p>
+                                                {data.legs.map((leg, idx) => {
+                                                    const legSAR = getLegPrice(leg, vehicle.id);
+                                                    const legUSD = getLegPriceUSD(leg, vehicle.id) || 0;
+                                                    const legDisp = formatPrice(legSAR, legUSD);
+                                                    const shortPickup = leg.pickup?.split(',')[0]?.substring(0, 14) || `Route ${idx + 1}`;
+                                                    const shortDropoff = leg.dropoff?.split(',')[0]?.substring(0, 14) || '';
+                                                    return (
+                                                        <div key={idx} className="flex justify-between items-center text-xs">
+                                                            <span className="text-muted truncate pr-2 max-w-[70%]">{shortPickup}{shortDropoff ? ` → ${shortDropoff}` : ''}</span>
+                                                            <span className="text-muted font-medium whitespace-nowrap">
+                                                                {currency === 'USD' ? '$' : ''}{legDisp.amount}{currency === 'SAR' ? ' SAR' : ''}
+                                                            </span>
+                                                        </div>
+                                                    );
+                                                })}
+                                                {data.legs.length >= 3 && (
+                                                    <div className="flex justify-between items-center text-xs text-gold pt-1 border-t border-gold/20">
+                                                        <span>Multi-route discount</span>
+                                                        <span>-5%</span>
+                                                    </div>
                                                 )}
                                             </div>
-                                            <div className="flex-1 h-px bg-border" />
-                                        </div>
-
-                                        {/* Vehicles in this category */}
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                            {grouped[category].map((vehicle) => {
-                                                const selectedCount = data.selectedVehicles?.find(v => v.vehicleId === vehicle.id)?.quantity || 0;
-                                                const isSelected = selectedCount > 0;
-
-                                                let priceCalc = null;
-                                                if (data.legs.every(l => l.routeId)) {
-                                                    let totalSAR = 0; let totalUSD = 0;
-                                                    data.legs.forEach(leg => {
-                                                        totalSAR += getLegPrice(leg, vehicle.id);
-                                                        totalUSD += getLegPriceUSD(leg, vehicle.id) || 0;
-                                                    });
-                                                    priceCalc = { price: totalSAR, priceUSD: totalUSD };
-                                                }
-                                                const dispPrice = priceCalc ? formatPrice(priceCalc.price, priceCalc.priceUSD) : null;
-                                                const isAvailable = !dispPrice || Number(dispPrice.amount) > 0;
-
-                                                return (
-                                                    <div
-                                                        key={vehicle.id}
-                                                        onClick={() => isAvailable && updateVehicleQuantity(vehicle.id, selectedCount === 0 ? 1 : selectedCount)}
-                                                        className={`relative rounded-2xl border-2 overflow-hidden transition-all duration-300 group
-                                                            ${isAvailable ? 'cursor-pointer' : 'cursor-not-allowed opacity-60'}
-                                                            ${isSelected
-                                                                ? 'bg-gold/5 border-gold shadow-[0_0_24px_hsl(var(--gold-glow)/0.25)] scale-[1.01]'
-                                                                : isAvailable
-                                                                    ? 'bg-surface border-border hover:border-gold/50 hover:bg-surface-alt'
-                                                                    : 'bg-surface border-border'
-                                                            }`}
-                                                    >
-                                                        {/* Selected checkmark */}
-                                                        {isSelected && (
-                                                            <div className="absolute top-3 right-3 z-10 w-6 h-6 rounded-full bg-gold flex items-center justify-center">
-                                                                <svg className="w-3.5 h-3.5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                                                                </svg>
-                                                            </div>
-                                                        )}
-
-                                                        {/* Car Image */}
-                                                        <div className="relative w-full h-44 bg-gradient-to-b from-white/5 to-transparent overflow-hidden flex items-center justify-center">
-                                                            <Image
-                                                                src={`/images/fleet/${
-                                                                    vehicle.name.toLowerCase().includes('gmc') || vehicle.name.toLowerCase().includes('yukon') ? 'gmc-yukon-2025.webp' :
-                                                                    vehicle.name.toLowerCase().includes('hiace') ? 'toyota-hiace-2025.png' :
-                                                                    vehicle.name.toLowerCase().includes('camry') ? 'camry-2025.png' :
-                                                                    vehicle.name.toLowerCase().includes('staria') ? 'hyundai-staria-2025.png' :
-                                                                    vehicle.name.toLowerCase().includes('starex') || vehicle.name.toLowerCase().includes('h1') ? 'hyundai-h1.png' :
-                                                                    vehicle.name.toLowerCase().includes('coaster') ? 'toyota-coaster-2025.png' :
-                                                                    'camry-2025.png'
-                                                                }`}
-                                                                alt={vehicle.modelName || vehicle.name}
-                                                                fill
-                                                                className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
-                                                            />
-                                                        </div>
-
-                                                        <div className="p-5">
-                                                            {/* Category badge + tier */}
-                                                            <div className="flex items-center gap-2 mb-2">
-                                                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-gold/15 text-gold border border-gold/30">
-                                                                    {vehicle.tier || category}
-                                                                </span>
-                                                                {!isAvailable && (
-                                                                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-red-500/10 text-red-400 border border-red-500/20">
-                                                                        Not Available
-                                                                    </span>
-                                                                )}
-                                                            </div>
-
-                                                            {/* Category name only — no model/vehicle name shown */}
-                                                            <h4 className={`text-xl font-bold font-display leading-tight mb-3 ${isSelected ? 'text-gold' : 'text-ink'}`}>
-                                                                {vehicle.category || vehicle.name}
-                                                            </h4>
-
-                                                            {/* Capacity + luggage */}
-                                                            <div className="flex items-center gap-4 text-xs text-muted mb-4">
-                                                                <span className="flex items-center gap-1"><Users size={13} /> {vehicle.capacity}</span>
-                                                                <span className="flex items-center gap-1"><Briefcase size={13} /> {vehicle.luggage}</span>
-                                                            </div>
-
-                                                            {/* Price row */}
-                                                            {dispPrice && Number(dispPrice.amount) > 0 ? (
-                                                                <div className="flex items-end justify-between">
-                                                                    <div>
-                                                                        <p className="text-[11px] text-muted uppercase tracking-wider">
-                                                                            {data.legs.length > 1 ? 'Total for all transfers' : 'Total'}
-                                                                        </p>
-                                                                        <p className={`text-2xl font-bold ${isSelected ? 'text-gold' : 'text-ink'}`}>
-                                                                            {currency === 'USD' ? '$' : ''}{dispPrice.amount}
-                                                                            {currency === 'SAR' ? <span className="text-sm font-normal text-muted ml-1">SAR</span> : ''}
-                                                                        </p>
-                                                                    </div>
-
-                                                                    {/* Quantity controls */}
-                                                                    <div className="flex items-center gap-2 bg-surface-alt rounded-xl p-1 border border-border" onClick={e => e.stopPropagation()}>
-                                                                        <button
-                                                                            onClick={e => { e.stopPropagation(); updateVehicleQuantity(vehicle.id, selectedCount - 1); }}
-                                                                            className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors font-bold ${selectedCount > 0 ? 'bg-surface-sunken hover:bg-white/20 text-ink' : 'text-muted cursor-not-allowed'}`}
-                                                                            disabled={selectedCount === 0}
-                                                                        >
-                                                                            <Minus size={15} />
-                                                                        </button>
-                                                                        <span className="w-5 text-center font-bold text-ink text-sm">{selectedCount}</span>
-                                                                        <button
-                                                                            onClick={e => { e.stopPropagation(); updateVehicleQuantity(vehicle.id, selectedCount + 1); }}
-                                                                            className="w-8 h-8 rounded-lg bg-gold/20 hover:bg-gold/40 text-gold flex items-center justify-center transition-colors"
-                                                                        >
-                                                                            <Plus size={15} />
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            ) : dispPrice && Number(dispPrice.amount) === 0 ? (
-                                                                <p className="text-sm font-bold text-red-400 uppercase tracking-wider">Not available on this route</p>
-                                                            ) : (
-                                                                <p className="text-sm text-muted italic">Select a route to see price</p>
-                                                            )}
-
-                                                            {/* Per-leg price breakdown for multi-leg */}
-                                                            {dispPrice && Number(dispPrice.amount) > 0 && data.legs.length > 1 && (
-                                                                <div className="mt-4 pt-3 border-t border-border space-y-1.5">
-                                                                    <p className="text-[10px] text-muted uppercase tracking-wider">Breakdown</p>
-                                                                    {data.legs.map((leg, idx) => {
-                                                                        const legSAR = getLegPrice(leg, vehicle.id);
-                                                                        const legUSD = getLegPriceUSD(leg, vehicle.id) || 0;
-                                                                        const legDisp = formatPrice(legSAR, legUSD);
-                                                                        const shortPickup = leg.pickup?.split(',')[0]?.substring(0, 14) || `Route ${idx + 1}`;
-                                                                        const shortDropoff = leg.dropoff?.split(',')[0]?.substring(0, 14) || '';
-                                                                        return (
-                                                                            <div key={idx} className="flex justify-between items-center text-xs">
-                                                                                <span className="text-muted truncate pr-2 max-w-[70%]">{shortPickup}{shortDropoff ? ` → ${shortDropoff}` : ''}</span>
-                                                                                <span className="text-muted font-medium whitespace-nowrap">
-                                                                                    {currency === 'USD' ? '$' : ''}{legDisp.amount}{currency === 'SAR' ? ' SAR' : ''}
-                                                                                </span>
-                                                                            </div>
-                                                                        );
-                                                                    })}
-                                                                    {data.legs.length >= 3 && (
-                                                                        <div className="flex justify-between items-center text-xs text-gold pt-1 border-t border-gold/20">
-                                                                            <span>Multi-route discount</span>
-                                                                            <span>-5%</span>
-                                                                        </div>
-                                                                    )}
-                                                                </div>
-                                                            )}
-                                                        </div>
-                                                    </div>
-                                                );
-                                            })}
-                                        </div>
+                                        )}
                                     </div>
-                                ))}
-                            </div>
-                        );
-                    })()}
+                                </div>
+                            );
+                        })}
+                    </div>
 
                     {errors.vehicle && <p className="text-red-500 text-sm mt-3 pl-0 md:pl-11">{errors.vehicle}</p>}
                 </section>
 
-                {/* 3. TRIP DETAILS */}
-                <section ref={detailsSectionRef} className={`transition-all duration-500 ${(!data.selectedVehicles || data.selectedVehicles.length === 0) ? 'opacity-30 pointer-events-none' : 'opacity-100'}`}>
+
+                {/* 3. TRIP DETAILS */               <section ref={detailsSectionRef} className={`transition-all duration-500 ${(!data.selectedVehicles || data.selectedVehicles.length === 0) ? 'opacity-30 pointer-events-none' : 'opacity-100'}`}>
                     <div className="flex items-center gap-3 mb-6">
                         <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold ${(data.selectedVehicles && data.selectedVehicles.length > 0) ? 'bg-gold text-black' : 'bg-surface-sunken text-muted'}`}>3</div>
                         <h2 className={`text-xl md:text-2xl font-bold ${(data.selectedVehicles && data.selectedVehicles.length > 0) ? 'text-ink' : 'text-muted'}`}>Guest Details</h2>
