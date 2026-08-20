@@ -80,6 +80,7 @@ export async function POST(request: Request) {
         // ── 3. Price calculation ─────────────────────────────────────────
         let priceDetails: Record<string, any> = {};
         const selectedVehiclesList: { name: string; quantity: number }[] = [];
+        const vehicleNameMap = new Map<string, string>(); // vehicleId → name (Bug B fix)
 
         let vehiclesToProcess: { vehicleId: string; quantity: number }[] = [];
         if (bookingData.selectedVehicles && bookingData.selectedVehicles.length > 0) {
@@ -127,6 +128,7 @@ export async function POST(request: Request) {
                     if (vehicle) {
                         selectedVehiclesList.push({ name: vehicle.name, quantity: sv.quantity });
                         vehicleNames.push(`${sv.quantity} x ${vehicle.name}`);
+                        vehicleNameMap.set(sv.vehicleId, vehicle.name); // Bug B fix
                     }
                 }
 
@@ -252,10 +254,10 @@ export async function POST(request: Request) {
                 status: 'pending',
                 paymentStatus: 'unpaid',
                 userId,
-                selectedVehicles: selectedVehiclesList.map((sv, i) => ({
-                    vehicleId: vehiclesToProcess[i]?.vehicleId || '',
+                selectedVehicles: vehiclesToProcess.map(sv => ({
+                    vehicleId: sv.vehicleId,
                     quantity: sv.quantity,
-                    name: sv.name,
+                    name: vehicleNameMap.get(sv.vehicleId) || 'Vehicle',
                 })),
             } as any);
             console.log(`[Booking ${requestId}] ✅ Booking SAVED. ID: ${savedBooking._id || savedBooking.id}`);

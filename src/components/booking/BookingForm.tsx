@@ -920,139 +920,205 @@ export default function BookingForm() {
                         <h2 className={`text-xl md:text-2xl font-bold ${data.legs.every(l => l.routeId) ? 'text-ink' : 'text-muted'}`}>Select your vehicle</h2>
                     </div>
 
-                    <div className="pl-0 md:pl-11 grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-                        {vehicles.map((vehicle) => {
-                            const selectedCount = data.selectedVehicles?.find(v => v.vehicleId === vehicle.id)?.quantity || 0;
-                            const isSelected = selectedCount > 0;
-                            
-                            let priceCalc = null;
-                            if (data.legs.every(l => l.routeId)) {
-                                let totalSAR = 0; let totalUSD = 0;
-                                data.legs.forEach(leg => {
-                                    totalSAR += getLegPrice(leg, vehicle.id);
-                                    totalUSD += getLegPriceUSD(leg, vehicle.id) || 0;
-                                });
-                                priceCalc = { price: totalSAR, priceUSD: totalUSD };
-                            }
-                            const dispPrice = priceCalc ? formatPrice(priceCalc.price, priceCalc.priceUSD) : null;
+                    {(() => {
+                        // Category order and descriptions
+                        const CATEGORY_META: Record<string, { order: number; description: string }> = {
+                            'Standard':  { order: 0, description: 'Perfect for couples & small families' },
+                            'Premium':   { order: 1, description: 'Elevated comfort for discerning travellers' },
+                            'VIP':       { order: 2, description: 'Exclusive luxury for the highest standard' },
+                            'Group':     { order: 3, description: 'Ideal for large groups & pilgrim delegations' },
+                        };
 
-                            return (
-                                <div
-                                    key={vehicle.id}
-                                    onClick={() => updateVehicleQuantity(vehicle.id, selectedCount === 0 ? 1 : selectedCount)}
-                                    className={`relative cursor-pointer rounded-2xl p-5 md:p-6 transition-all duration-300 border-2 overflow-hidden group
-                                        ${isSelected ? 'bg-gold/5 border-gold shadow-[0_0_30px_hsl(var(--gold-glow) / 0.2)] scale-[1.02]' : 'bg-surface border-border hover:border-gold/50 hover:bg-surface-alt'}
-                                    `}
-                                >
-                                    <div className="relative w-full h-56 sm:h-48 md:h-40 mb-6 rounded-xl overflow-hidden bg-gradient-to-b from-white/5 to-transparent group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
-                                        <Image
-                                            src={`/images/fleet/${vehicle.name.toLowerCase().includes('gmc') ? 'gmc-yukon-2025.webp' : vehicle.name.toLowerCase().includes('hiace') ? 'toyota-hiace-2025.png' : vehicle.name.toLowerCase().includes('camry') ? 'camry-2025.png' : vehicle.name.toLowerCase().includes('staria') ? 'hyundai-staria-2025.png' : vehicle.name.toLowerCase().includes('starex') || vehicle.name.toLowerCase().includes('h1') ? 'hyundai-h1.png' : vehicle.name.toLowerCase().includes('coaster') ? 'toyota-coaster-2025.png' : 'camry-2025.png'}`}
-                                            alt={vehicle.name}
-                                            fill
-                                            className="object-contain p-2"
-                                        />
-                                    </div>
-                                    
-                                    <div className="flex justify-between items-start mb-2">
-                                        <div>
-                                            {vehicle.tier && (
-                                                <span className="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider mb-1" style={{ backgroundColor: '#E2A336', color: '#1A1A1A' }}>
-                                                    {vehicle.tier}
-                                                </span>
-                                            )}
-                                            <h3 className={`font-display text-xl sm:text-2xl font-bold leading-tight ${isSelected ? 'text-gold' : 'text-ink'}`}>
-                                                {vehicle.category || vehicle.name}
-                                            </h3>
-                                            {vehicle.modelName && (
-                                                <p className="font-body text-sm text-muted mt-0.5 opacity-80">
-                                                    {vehicle.modelName}
-                                                </p>
-                                            )}
-                                        </div>
-                                        {dispPrice && (
-                                            <div className="text-right">
-                                                {Number(dispPrice.amount) > 0 ? (
-                                                    <>
-                                                        <span className="text-sm text-muted">Total</span>
-                                                        <p className={`text-lg font-bold text-ink ${isLoading ? 'animate-pulse text-gold/70' : ''}`}>
-                                                            {currency === 'USD' ? '$' : ''}{dispPrice.amount}
-                                                            {currency === 'SAR' ? ' SAR' : ''}
-                                                        </p>
-                                                    </>
-                                                ) : (
-                                                    <>
-                                                        <span className="text-sm text-muted">Status</span>
-                                                        <p className="text-sm font-bold text-red-400 uppercase tracking-wider mt-1">Not Available</p>
-                                                    </>
+                        // Group vehicles by category, sorted by category order then by vehicle sort order
+                        const grouped = vehicles.reduce<Record<string, typeof vehicles>>((acc, v) => {
+                            const cat = v.category || 'Other';
+                            if (!acc[cat]) acc[cat] = [];
+                            acc[cat].push(v);
+                            return acc;
+                        }, {});
+
+                        const sortedCategories = Object.keys(grouped).sort((a, b) => {
+                            const orderA = CATEGORY_META[a]?.order ?? 99;
+                            const orderB = CATEGORY_META[b]?.order ?? 99;
+                            return orderA - orderB;
+                        });
+
+                        return (
+                            <div className="pl-0 md:pl-11 space-y-10">
+                                {sortedCategories.map(category => (
+                                    <div key={category}>
+                                        {/* Category Header */}
+                                        <div className="flex items-center gap-4 mb-5">
+                                            <div>
+                                                <h3 className="text-base font-bold text-ink uppercase tracking-widest">{category} Class</h3>
+                                                {CATEGORY_META[category]?.description && (
+                                                    <p className="text-sm text-muted mt-0.5">{CATEGORY_META[category].description}</p>
                                                 )}
                                             </div>
-                                        )}
-                                    </div>
-                                    
-                                    <div className="flex flex-wrap gap-3 text-xs text-muted">
-                                        <span className="flex items-center gap-1"><Users size={14} /> {vehicle.capacity}</span>
-                                        <span className="flex items-center gap-1"><Briefcase size={14} /> {vehicle.luggage}</span>
-                                    </div>
-                                    
-                                    {dispPrice && Number(dispPrice.amount) > 0 && data.legs.length > 1 && (
-                                        <div className="mt-4 pt-3 border-t border-border space-y-2">
-                                            <p className="text-xs text-muted uppercase tracking-wider mb-1">Price Breakdown</p>
-                                            {data.legs.map((leg, idx) => {
-                                                const legSAR = getLegPrice(leg, vehicle.id);
-                                                const legUSD = getLegPriceUSD(leg, vehicle.id) || 0;
-                                                const legDisp = formatPrice(legSAR, legUSD);
-                                                
-                                                let routeName = `Route ${idx + 1}`;
-                                                if (leg.pickup && leg.dropoff) {
-                                                    const p = leg.pickup.split(',')[0].substring(0, 15);
-                                                    const d = leg.dropoff.split(',')[0].substring(0, 15);
-                                                    routeName = `${p} → ${d}`;
+                                            <div className="flex-1 h-px bg-border" />
+                                        </div>
+
+                                        {/* Vehicles in this category */}
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                            {grouped[category].map((vehicle) => {
+                                                const selectedCount = data.selectedVehicles?.find(v => v.vehicleId === vehicle.id)?.quantity || 0;
+                                                const isSelected = selectedCount > 0;
+
+                                                let priceCalc = null;
+                                                if (data.legs.every(l => l.routeId)) {
+                                                    let totalSAR = 0; let totalUSD = 0;
+                                                    data.legs.forEach(leg => {
+                                                        totalSAR += getLegPrice(leg, vehicle.id);
+                                                        totalUSD += getLegPriceUSD(leg, vehicle.id) || 0;
+                                                    });
+                                                    priceCalc = { price: totalSAR, priceUSD: totalUSD };
                                                 }
+                                                const dispPrice = priceCalc ? formatPrice(priceCalc.price, priceCalc.priceUSD) : null;
+                                                const isAvailable = !dispPrice || Number(dispPrice.amount) > 0;
 
                                                 return (
-                                                    <div key={idx} className="flex justify-between items-center text-xs">
-                                                        <span className="text-muted truncate pr-2 max-w-[75%]" title={leg.pickup && leg.dropoff ? `${leg.pickup} → ${leg.dropoff}` : routeName}>{routeName}</span>
-                                                        <span className="text-muted font-medium whitespace-nowrap">
-                                                            {currency === 'USD' ? '$' : ''}{legDisp.amount} {currency === 'SAR' ? 'SAR' : ''}
-                                                        </span>
+                                                    <div
+                                                        key={vehicle.id}
+                                                        onClick={() => isAvailable && updateVehicleQuantity(vehicle.id, selectedCount === 0 ? 1 : selectedCount)}
+                                                        className={`relative rounded-2xl border-2 overflow-hidden transition-all duration-300 group
+                                                            ${isAvailable ? 'cursor-pointer' : 'cursor-not-allowed opacity-60'}
+                                                            ${isSelected
+                                                                ? 'bg-gold/5 border-gold shadow-[0_0_24px_hsl(var(--gold-glow)/0.25)] scale-[1.01]'
+                                                                : isAvailable
+                                                                    ? 'bg-surface border-border hover:border-gold/50 hover:bg-surface-alt'
+                                                                    : 'bg-surface border-border'
+                                                            }`}
+                                                    >
+                                                        {/* Selected checkmark */}
+                                                        {isSelected && (
+                                                            <div className="absolute top-3 right-3 z-10 w-6 h-6 rounded-full bg-gold flex items-center justify-center">
+                                                                <svg className="w-3.5 h-3.5 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                                                                </svg>
+                                                            </div>
+                                                        )}
+
+                                                        {/* Car Image */}
+                                                        <div className="relative w-full h-44 bg-gradient-to-b from-white/5 to-transparent overflow-hidden flex items-center justify-center">
+                                                            <Image
+                                                                src={`/images/fleet/${
+                                                                    vehicle.name.toLowerCase().includes('gmc') || vehicle.name.toLowerCase().includes('yukon') ? 'gmc-yukon-2025.webp' :
+                                                                    vehicle.name.toLowerCase().includes('hiace') ? 'toyota-hiace-2025.png' :
+                                                                    vehicle.name.toLowerCase().includes('camry') ? 'camry-2025.png' :
+                                                                    vehicle.name.toLowerCase().includes('staria') ? 'hyundai-staria-2025.png' :
+                                                                    vehicle.name.toLowerCase().includes('starex') || vehicle.name.toLowerCase().includes('h1') ? 'hyundai-h1.png' :
+                                                                    vehicle.name.toLowerCase().includes('coaster') ? 'toyota-coaster-2025.png' :
+                                                                    'camry-2025.png'
+                                                                }`}
+                                                                alt={vehicle.modelName || vehicle.name}
+                                                                fill
+                                                                className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
+                                                            />
+                                                        </div>
+
+                                                        <div className="p-5">
+                                                            {/* Category badge + tier */}
+                                                            <div className="flex items-center gap-2 mb-2">
+                                                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-gold/15 text-gold border border-gold/30">
+                                                                    {vehicle.tier || category}
+                                                                </span>
+                                                                {!isAvailable && (
+                                                                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-red-500/10 text-red-400 border border-red-500/20">
+                                                                        Not Available
+                                                                    </span>
+                                                                )}
+                                                            </div>
+
+                                                            {/* Model name — main heading (like booking.com) */}
+                                                            <h4 className={`text-xl font-bold font-display leading-tight mb-0.5 ${isSelected ? 'text-gold' : 'text-ink'}`}>
+                                                                {vehicle.modelName || vehicle.name}
+                                                            </h4>
+                                                            {vehicle.modelName && (
+                                                                <p className="text-xs text-muted mb-3">{vehicle.name}</p>
+                                                            )}
+
+                                                            {/* Capacity + luggage */}
+                                                            <div className="flex items-center gap-4 text-xs text-muted mb-4">
+                                                                <span className="flex items-center gap-1"><Users size={13} /> {vehicle.capacity}</span>
+                                                                <span className="flex items-center gap-1"><Briefcase size={13} /> {vehicle.luggage}</span>
+                                                            </div>
+
+                                                            {/* Price row */}
+                                                            {dispPrice && Number(dispPrice.amount) > 0 ? (
+                                                                <div className="flex items-end justify-between">
+                                                                    <div>
+                                                                        <p className="text-[11px] text-muted uppercase tracking-wider">
+                                                                            {data.legs.length > 1 ? 'Total for all transfers' : 'Total'}
+                                                                        </p>
+                                                                        <p className={`text-2xl font-bold ${isSelected ? 'text-gold' : 'text-ink'}`}>
+                                                                            {currency === 'USD' ? '$' : ''}{dispPrice.amount}
+                                                                            {currency === 'SAR' ? <span className="text-sm font-normal text-muted ml-1">SAR</span> : ''}
+                                                                        </p>
+                                                                    </div>
+
+                                                                    {/* Quantity controls */}
+                                                                    <div className="flex items-center gap-2 bg-surface-alt rounded-xl p-1 border border-border" onClick={e => e.stopPropagation()}>
+                                                                        <button
+                                                                            onClick={e => { e.stopPropagation(); updateVehicleQuantity(vehicle.id, selectedCount - 1); }}
+                                                                            className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors font-bold ${selectedCount > 0 ? 'bg-surface-sunken hover:bg-white/20 text-ink' : 'text-muted cursor-not-allowed'}`}
+                                                                            disabled={selectedCount === 0}
+                                                                        >
+                                                                            <Minus size={15} />
+                                                                        </button>
+                                                                        <span className="w-5 text-center font-bold text-ink text-sm">{selectedCount}</span>
+                                                                        <button
+                                                                            onClick={e => { e.stopPropagation(); updateVehicleQuantity(vehicle.id, selectedCount + 1); }}
+                                                                            className="w-8 h-8 rounded-lg bg-gold/20 hover:bg-gold/40 text-gold flex items-center justify-center transition-colors"
+                                                                        >
+                                                                            <Plus size={15} />
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            ) : dispPrice && Number(dispPrice.amount) === 0 ? (
+                                                                <p className="text-sm font-bold text-red-400 uppercase tracking-wider">Not available on this route</p>
+                                                            ) : (
+                                                                <p className="text-sm text-muted italic">Select a route to see price</p>
+                                                            )}
+
+                                                            {/* Per-leg price breakdown for multi-leg */}
+                                                            {dispPrice && Number(dispPrice.amount) > 0 && data.legs.length > 1 && (
+                                                                <div className="mt-4 pt-3 border-t border-border space-y-1.5">
+                                                                    <p className="text-[10px] text-muted uppercase tracking-wider">Breakdown</p>
+                                                                    {data.legs.map((leg, idx) => {
+                                                                        const legSAR = getLegPrice(leg, vehicle.id);
+                                                                        const legUSD = getLegPriceUSD(leg, vehicle.id) || 0;
+                                                                        const legDisp = formatPrice(legSAR, legUSD);
+                                                                        const shortPickup = leg.pickup?.split(',')[0]?.substring(0, 14) || `Route ${idx + 1}`;
+                                                                        const shortDropoff = leg.dropoff?.split(',')[0]?.substring(0, 14) || '';
+                                                                        return (
+                                                                            <div key={idx} className="flex justify-between items-center text-xs">
+                                                                                <span className="text-muted truncate pr-2 max-w-[70%]">{shortPickup}{shortDropoff ? ` → ${shortDropoff}` : ''}</span>
+                                                                                <span className="text-muted font-medium whitespace-nowrap">
+                                                                                    {currency === 'USD' ? '$' : ''}{legDisp.amount}{currency === 'SAR' ? ' SAR' : ''}
+                                                                                </span>
+                                                                            </div>
+                                                                        );
+                                                                    })}
+                                                                    {data.legs.length >= 3 && (
+                                                                        <div className="flex justify-between items-center text-xs text-gold pt-1 border-t border-gold/20">
+                                                                            <span>Multi-route discount</span>
+                                                                            <span>-5%</span>
+                                                                        </div>
+                                                                    )}
+                                                                </div>
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 );
                                             })}
-                                            {data.legs.length >= 3 && (
-                                                <div className="flex justify-between items-center text-xs text-gold mt-1 pt-1 border-t border-gold/20">
-                                                    <span>Multi-Route Discount</span>
-                                                    <span>-5%</span>
-                                                </div>
-                                            )}
                                         </div>
-                                    )}
-                                    
-                                    {dispPrice && Number(dispPrice.amount) > 0 && (
-                                        <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
-                                            <span className="text-sm font-medium text-muted">Quantity</span>
-                                            <div className="flex items-center gap-3 bg-surface-alt rounded-lg p-1 border border-border">
-                                                <button 
-                                                    onClick={(e) => { e.stopPropagation(); updateVehicleQuantity(vehicle.id, selectedCount - 1); }}
-                                                    className={`w-8 h-8 rounded flex items-center justify-center transition-colors ${selectedCount > 0 ? 'bg-surface-sunken hover:bg-white/20 text-ink' : 'text-muted cursor-not-allowed'}`}
-                                                    disabled={selectedCount === 0}
-                                                >
-                                                    <Minus size={16} />
-                                                </button>
-                                                <span className="w-4 text-center font-bold text-ink">{selectedCount}</span>
-                                                <button 
-                                                    onClick={(e) => { e.stopPropagation(); updateVehicleQuantity(vehicle.id, selectedCount + 1); }}
-                                                    className="w-8 h-8 rounded bg-gold/20 hover:bg-gold/40 text-gold flex items-center justify-center transition-colors"
-                                                >
-                                                    <Plus size={16} />
-                                                </button>
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            );
-                        })}
-                    </div>
-                    {errors.vehicle && <p className="text-red-500 text-sm mt-2 pl-4 md:pl-11">{errors.vehicle}</p>}
+                                    </div>
+                                ))}
+                            </div>
+                        );
+                    })()}
+
+                    {errors.vehicle && <p className="text-red-500 text-sm mt-3 pl-0 md:pl-11">{errors.vehicle}</p>}
                 </section>
 
                 {/* 3. TRIP DETAILS */}
