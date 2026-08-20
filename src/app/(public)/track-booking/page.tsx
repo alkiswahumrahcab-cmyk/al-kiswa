@@ -51,7 +51,6 @@ export default function TrackBookingPage() {
     React.useEffect(() => {
         if (!booking || !booking.id) return;
 
-        // Dynamic import to avoid SSR issues if any, though pusher-js is client safe
         const initPusher = async () => {
             const Pusher = (await import('pusher-js')).default;
 
@@ -80,16 +79,16 @@ export default function TrackBookingPage() {
 
     const getStatusColor = (status: string) => {
         switch (status.toLowerCase()) {
-            case 'completed': return 'text-gold bg-ivory dark:bg-gold/10 border-gold-light dark:border-gold-dark';
-            case 'confirmed': return 'text-blue-500 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800';
-            case 'pending': return 'text-gold bg-amber-50 dark:bg-amber-900/20 border-gold/40 dark:border-gold/30';
-            case 'cancelled': return 'text-red-500 bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800';
-            default: return 'text-white/50 bg-n-50 dark:bg-n-800 border-n-200 dark:border-n-700';
+            case 'completed': return 'text-success bg-success-soft border-success/20';
+            case 'confirmed': return 'text-info bg-info/10 border-info/20';
+            case 'pending': return 'text-gold-strong bg-gold-soft border-gold/30';
+            case 'cancelled': return 'text-error bg-error-soft border-error/20';
+            default: return 'text-muted bg-surface-sunken border-border';
         }
     };
 
     return (
-        <div className="min-h-screen bg-n-50 dark:bg-n-950 flex flex-col">
+        <div className="min-h-screen bg-bg flex flex-col">
             <main className="flex-1 container mx-auto px-4 py-32 flex flex-col items-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -97,21 +96,21 @@ export default function TrackBookingPage() {
                     className="max-w-xl w-full"
                 >
                     <div className="text-center mb-10">
-                        <h1 className="text-4xl font-bold text-n-900 dark:text-white mb-4">Track Your Booking</h1>
-                        <p className="text-white/50 dark:text-n-400 text-lg">Enter your booking reference and email to see real-time updates.</p>
+                        <h1 className="text-4xl md:text-5xl font-bold font-display text-ink mb-4">Track Your Booking</h1>
+                        <p className="text-muted text-lg">Enter your booking reference and email to see real-time updates.</p>
                     </div>
 
-                    <div className="bg-white dark:bg-n-900 rounded-3xl p-8 shadow-xl border border-n-100 dark:border-n-800 relative overflow-hidden">
+                    <div className="bg-surface rounded-3xl p-8 shadow-sm border border-border relative overflow-hidden">
                         {/* Decorative BG */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-gold/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
                         <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
                             <div>
-                                <label className="block text-xs font-bold text-white/50 uppercase tracking-wider mb-2 ml-1">Booking Reference</label>
+                                <label className="block text-xs font-bold text-muted uppercase tracking-wider mb-2 ml-1">Booking Reference</label>
                                 <input
                                     type="text"
                                     placeholder="e.g. AKT-260820-K7M2"
-                                    className="w-full premium-input rounded-xl px-4 py-4 text-n-900 dark:text-white outline-none border border-n-200 dark:border-n-700 focus:border-secondary transition-all"
+                                    className="w-full bg-surface-sunken rounded-xl px-4 py-4 text-ink outline-none border border-border focus:border-gold transition-all"
                                     value={formData.reference}
                                     onChange={e => setFormData({ ...formData, reference: e.target.value })}
                                     required
@@ -119,11 +118,11 @@ export default function TrackBookingPage() {
                             </div>
 
                             <div>
-                                <label className="block text-xs font-bold text-white/50 uppercase tracking-wider mb-2 ml-1">Email Address</label>
+                                <label className="block text-xs font-bold text-muted uppercase tracking-wider mb-2 ml-1">Email Address</label>
                                 <input
                                     type="email"
                                     placeholder="name@example.com"
-                                    className="w-full premium-input rounded-xl px-4 py-4 text-n-900 dark:text-white outline-none border border-n-200 dark:border-n-700 focus:border-secondary transition-all"
+                                    className="w-full bg-surface-sunken rounded-xl px-4 py-4 text-ink outline-none border border-border focus:border-gold transition-all"
                                     value={formData.email}
                                     onChange={e => setFormData({ ...formData, email: e.target.value })}
                                     required
@@ -133,10 +132,10 @@ export default function TrackBookingPage() {
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="w-full bg-secondary hover:bg-secondary/90 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-secondary/20 flex items-center justify-center gap-2"
+                                className="w-full bg-gold hover:bg-gold-strong text-ink font-bold py-4 rounded-xl transition-all shadow-[0_0_20px_hsl(var(--gold-glow)/0.2)] flex items-center justify-center gap-2"
                             >
                                 {loading ? (
-                                    <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                    <span className="w-5 h-5 border-2 border-ink/30 border-t-ink rounded-full animate-spin" />
                                 ) : (
                                     <>Check Status <ArrowRight size={20} /></>
                                 )}
@@ -149,7 +148,7 @@ export default function TrackBookingPage() {
                                     initial={{ opacity: 0, height: 0 }}
                                     animate={{ opacity: 1, height: 'auto' }}
                                     exit={{ opacity: 0, height: 0 }}
-                                    className="mt-6 p-4 bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/30 rounded-xl flex items-center gap-3 text-red-600 dark:text-red-400"
+                                    className="mt-6 p-4 bg-error-soft border border-error/20 rounded-xl flex items-center gap-3 text-error"
                                 >
                                     <AlertCircle size={20} className="shrink-0" />
                                     <p className="text-sm font-medium">{error}</p>
@@ -163,13 +162,13 @@ export default function TrackBookingPage() {
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.95, y: 20 }}
                                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                                className="mt-8 bg-white dark:bg-n-900 rounded-3xl shadow-xl border border-n-100 dark:border-n-800 overflow-hidden"
+                                className="mt-8 bg-surface rounded-3xl shadow-sm border border-border overflow-hidden"
                             >
                                 {/* Results Header */}
-                                <div className="p-6 border-b border-n-100 dark:border-n-800 flex justify-between items-center">
+                                <div className="p-6 border-b border-border flex justify-between items-center">
                                     <div>
-                                        <h3 className="font-bold text-n-900 dark:text-white mb-1">Booking Found</h3>
-                                        <p className="text-xs text-white/50 font-mono">Ref: {booking.bookingRef || booking.id}</p>
+                                        <h3 className="font-bold text-ink mb-1">Booking Found</h3>
+                                        <p className="text-xs text-muted font-mono">Ref: {booking.bookingRef || booking.id}</p>
                                     </div>
                                     <div className={`px-4 py-1.5 rounded-full text-sm font-bold border ${getStatusColor(booking.status)} capitalize flex items-center gap-2`}>
                                         {booking.status === 'completed' && <CheckCircle size={14} />}
@@ -184,35 +183,35 @@ export default function TrackBookingPage() {
                                     {/* Route */}
                                     <div className="flex items-start gap-4">
                                         <div className="flex flex-col items-center pt-2">
-                                            <div className="w-3 h-3 rounded-full bg-secondary" />
-                                            <div className="w-0.5 h-12 bg-n-200 dark:bg-n-800 my-1" />
-                                            <div className="w-3 h-3 rounded-full bg-n-900 dark:bg-white" />
+                                            <div className="w-3 h-3 rounded-full bg-gold" />
+                                            <div className="w-0.5 h-12 bg-border my-1" />
+                                            <div className="w-3 h-3 rounded-full bg-ink" />
                                         </div>
                                         <div className="flex-1 space-y-4">
                                             <div>
-                                                <p className="text-xs font-bold text-white/60 uppercase tracking-wider mb-1">Pickup</p>
-                                                <p className="font-bold text-n-900 dark:text-white">{booking.pickup}</p>
-                                                <div className="flex items-center gap-4 mt-1 text-sm text-white/50">
+                                                <p className="text-xs font-bold text-muted uppercase tracking-wider mb-1">Pickup</p>
+                                                <p className="font-bold text-ink">{booking.pickup}</p>
+                                                <div className="flex items-center gap-4 mt-1 text-sm text-muted">
                                                     <span className="flex items-center gap-1"><Calendar size={14} /> {new Date(booking.date).toLocaleDateString()}</span>
                                                     <span className="flex items-center gap-1"><Clock size={14} /> {booking.time}</span>
                                                 </div>
                                             </div>
                                             <div>
-                                                <p className="text-xs font-bold text-white/60 uppercase tracking-wider mb-1">Destination</p>
-                                                <p className="font-bold text-n-900 dark:text-white">{booking.dropoff}</p>
+                                                <p className="text-xs font-bold text-muted uppercase tracking-wider mb-1">Destination</p>
+                                                <p className="font-bold text-ink">{booking.dropoff}</p>
                                             </div>
                                         </div>
                                     </div>
 
                                     {/* Vehicle Info */}
-                                    <div className="bg-n-50 dark:bg-n-800/50 rounded-xl p-4 flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-white dark:bg-n-800 rounded-full flex items-center justify-center shadow-sm text-white/60">
+                                    <div className="bg-surface-alt rounded-xl p-4 flex items-center gap-4 border border-border">
+                                        <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center shadow-sm text-muted border border-border">
                                             <Car size={24} />
                                         </div>
                                         <div>
-                                            <p className="text-xs font-bold text-white/60 uppercase tracking-wider mb-0.5">Vehicle Type</p>
-                                            <p className="font-bold text-n-900 dark:text-white">{booking.vehicle}</p>
-                                            <p className="text-xs text-white/50">{booking.passengers} Passengers · {booking.luggage || 0} Luggage</p>
+                                            <p className="text-xs font-bold text-muted uppercase tracking-wider mb-0.5">Vehicle Type</p>
+                                            <p className="font-bold text-ink">{booking.vehicle}</p>
+                                            <p className="text-xs text-muted">{booking.passengers} Passengers · {booking.luggage || 0} Luggage</p>
                                         </div>
                                     </div>
                                 </div>
