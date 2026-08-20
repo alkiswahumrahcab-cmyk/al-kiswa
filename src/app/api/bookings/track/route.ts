@@ -1,7 +1,8 @@
 
 import { NextResponse } from 'next/server';
-import { getBookings } from '@/lib/db';
 import { Booking } from '@/models';
+import dbConnect from '@/lib/mongodb';
+import mongoose from 'mongoose';
 
 export async function POST(request: Request) {
     try {
@@ -14,22 +15,19 @@ export async function POST(request: Request) {
             );
         }
 
-        // Find booking matching BOTH ID and Email for security
-        // Using Mongoose model directly for findOne if getBookings is too generic
-        // Assuming Booking model is available via models index
+        await dbConnect();
+
+        const emailQuery = { $regex: new RegExp(`^${email.trim()}$`, 'i') };
+        const ref = reference.trim().toUpperCase();
 
         let booking = null;
-        try {
-            booking = await Booking.findOne({
-                _id: reference,
-                email: { $regex: new RegExp(`^${email}$`, 'i') } // Case insensitive email
-            });
-        } catch (err) {
-            // Likely invalid ObjectId format
-            return NextResponse.json(
-                { success: false, message: 'Invalid booking reference format' },
-                { status: 400 }
-            );
+
+        // 1. Try new professional ref format: AKT-YYMMDD-XXXX
+        booking = await Booking.findOne({ bookingRef: ref, email: emailQuery });
+
+        // 2. Fall back to MongoDB ObjectId for legacy bookings
+        if (!booking && mongoose.isValidObjectId(ref)) {
+            booking = await Booking.findOne({ _id: ref, email: emailQuery });
         }
 
         if (!booking) {
@@ -44,6 +42,7 @@ export async function POST(request: Request) {
             success: true,
             booking: {
                 id: booking._id,
+                bookingRef: booking.bookingRef || null,
                 status: booking.status,
                 createdAt: booking.createdAt,
                 date: booking.date,
@@ -52,10 +51,9 @@ export async function POST(request: Request) {
                 dropoff: booking.dropoff,
                 vehicle: booking.vehicle,
                 passengers: booking.passengers,
-                // Driver Details (if assigned)
                 valet: booking.valet ? {
                     name: booking.valet.name,
-                    phone: booking.valet.phone, // Assuming structure, verify schema if possible needed
+                    phone: booking.valet.phone,
                     plateNumber: booking.valet.plateNumber
                 } : null
             }

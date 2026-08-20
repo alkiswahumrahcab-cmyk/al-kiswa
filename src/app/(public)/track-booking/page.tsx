@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import React, { useState } from 'react';
 import { Search, MapPin, Calendar, User, Phone, CheckCircle, Clock, XCircle, AlertCircle, ArrowRight, Car } from 'lucide-react';
@@ -110,7 +110,7 @@ export default function TrackBookingPage() {
                                 <label className="block text-xs font-bold text-white/50 uppercase tracking-wider mb-2 ml-1">Booking Reference</label>
                                 <input
                                     type="text"
-                                    placeholder="e.g. 64f8a..."
+                                    placeholder="e.g. AKT-260820-K7M2"
                                     className="w-full premium-input rounded-xl px-4 py-4 text-n-900 dark:text-white outline-none border border-n-200 dark:border-n-700 focus:border-secondary transition-all"
                                     value={formData.reference}
                                     onChange={e => setFormData({ ...formData, reference: e.target.value })}
@@ -169,7 +169,7 @@ export default function TrackBookingPage() {
                                 <div className="p-6 border-b border-n-100 dark:border-n-800 flex justify-between items-center">
                                     <div>
                                         <h3 className="font-bold text-n-900 dark:text-white mb-1">Booking Found</h3>
-                                        <p className="text-xs text-white/50 font-mono">ID: {booking.id}</p>
+                                        <p className="text-xs text-white/50 font-mono">Ref: {booking.bookingRef || booking.id}</p>
                                     </div>
                                     <div className={`px-4 py-1.5 rounded-full text-sm font-bold border ${getStatusColor(booking.status)} capitalize flex items-center gap-2`}>
                                         {booking.status === 'completed' && <CheckCircle size={14} />}
