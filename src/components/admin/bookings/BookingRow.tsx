@@ -15,6 +15,7 @@ interface BookingRowProps {
         vehicleCount?: number; passengers?: number; nationality?: string;
         visaType?: string; visaOther?: string; price?: string;
         finalPrice?: number; legs?: any[]; selectedVehicles?: SelectedVehicle[];
+        bookingRef?: string;
     };
     onConfirm: (id: string) => void;
     onCancel: (id: string) => void;
@@ -77,7 +78,7 @@ export default function BookingRow({ booking, onConfirm, onCancel }: BookingRowP
                             {legCount} Transfers
                         </span>
                     )}
-                    <span className="font-mono text-xs text-muted">#{(booking as any).bookingRef || booking.id.slice(-8).toUpperCase()}</span>
+                    <span className="font-mono text-xs text-muted">#{booking.bookingRef || booking.id.slice(-8).toUpperCase()}</span>
                     <CountdownTimer date={booking.date} time={booking.time} className={`text-xs ml-auto ${isUrgent ? 'text-red-400 font-bold' : 'text-muted'}`} />
                 </div>
 

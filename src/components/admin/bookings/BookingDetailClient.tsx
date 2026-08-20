@@ -56,6 +56,7 @@ interface BookingDetail {
     createdAt?: string;
     rating?: number;
     review?: string;
+    bookingRef?: string;
 }
 
 function getStatusBadge(status: string) {
@@ -182,7 +183,7 @@ export default function BookingDetailClient({ booking: initial }: { booking: Boo
                         Bookings
                     </button>
                     <span className="text-muted">/</span>
-                    <span className="font-mono text-sm text-muted">#{(booking as any).bookingRef || booking.id.slice(-8).toUpperCase()}</span>
+                    <span className="font-mono text-sm text-muted">#{booking.bookingRef || booking.id.slice(-8).toUpperCase()}</span>
 
                     <div className="flex items-center gap-2 ml-auto flex-wrap">
                         <span className={`px-2.5 py-1 text-xs font-bold uppercase tracking-wider rounded-full border ${getStatusBadge(booking.status)}`}>
