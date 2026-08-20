@@ -59,7 +59,7 @@ export default function PasswordConfirmModal({
             <div className="bg-white rounded-xl shadow-2xl w-full max-w-md border border-slate-200 animate-in zoom-in-95 duration-200">
                 <div className="flex items-center justify-between p-4 border-b border-slate-100">
                     <div className="flex items-center gap-2 text-slate-800 font-semibold">
-                        <Lock className="w-5 h-5 text-amber-500" />
+                        <Lock className="w-5 h-5 text-warning" />
                         {title}
                     </div>
                     <button
@@ -90,7 +90,7 @@ export default function PasswordConfirmModal({
                     </div>
 
                     {error && (
-                        <div className="flex items-center gap-2 text-red-500 text-sm bg-red-50 p-3 rounded-lg">
+                        <div className="flex items-center gap-2 text-error text-sm bg-error-soft p-3 rounded-lg">
                             <AlertCircle size={16} />
                             {error}
                         </div>

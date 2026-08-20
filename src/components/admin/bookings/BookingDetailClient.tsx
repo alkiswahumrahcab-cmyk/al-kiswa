@@ -61,10 +61,10 @@ interface BookingDetail {
 
 function getStatusBadge(status: string) {
     switch (status) {
-        case 'confirmed': return 'bg-green-500/15 text-green-400 border-green-500/30';
-        case 'pending':   return 'bg-amber-500/15 text-amber-400 border-amber-500/30';
-        case 'completed': return 'bg-blue-500/10 text-blue-400 border-blue-500/20';
-        case 'cancelled': return 'bg-red-500/10 text-red-400 border-red-500/20';
+        case 'confirmed': return 'bg-success-soft text-success border-success';
+        case 'pending':   return 'bg-warning-soft text-warning border-warning';
+        case 'completed': return 'bg-info-soft text-info border-info';
+        case 'cancelled': return 'bg-error-soft text-error border-error';
         default:          return 'bg-surface-sunken text-muted border-border';
     }
 }
@@ -220,7 +220,7 @@ export default function BookingDetailClient({ booking: initial }: { booking: Boo
                                     <button
                                         onClick={() => updateStatus('cancelled')}
                                         disabled={isUpdating}
-                                        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 font-bold rounded-xl transition-all disabled:opacity-50"
+                                        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-red-500/10 hover:bg-red-500/20 text-error border border-red-500/30 font-bold rounded-xl transition-all disabled:opacity-50"
                                     >
                                         <XCircle size={18} /> Reject
                                     </button>
@@ -232,14 +232,14 @@ export default function BookingDetailClient({ booking: initial }: { booking: Boo
                                     <button
                                         onClick={() => updateStatus('completed')}
                                         disabled={isUpdating}
-                                        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 border border-blue-500/30 font-bold rounded-xl transition-all disabled:opacity-50"
+                                        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-blue-500/10 hover:bg-blue-500/20 text-info border border-blue-500/30 font-bold rounded-xl transition-all disabled:opacity-50"
                                     >
                                         <CheckCircle2 size={18} /> Mark Complete
                                     </button>
                                     <button
                                         onClick={() => updateStatus('cancelled')}
                                         disabled={isUpdating}
-                                        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 font-bold rounded-xl transition-all disabled:opacity-50"
+                                        className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-red-500/10 hover:bg-red-500/20 text-error border border-red-500/30 font-bold rounded-xl transition-all disabled:opacity-50"
                                     >
                                         <XCircle size={18} /> Cancel
                                     </button>
@@ -332,7 +332,7 @@ export default function BookingDetailClient({ booking: initial }: { booking: Boo
                                     <span className="text-muted">Terminal:</span>
                                     <span className="font-bold text-ink">{booking.airportTerminal}</span>
                                     {booking.parkingFee && booking.parkingFee > 0 && (
-                                        <span className="text-amber-400 text-xs ml-2">+{booking.parkingFee} SAR parking</span>
+                                        <span className="text-warning text-xs ml-2">+{booking.parkingFee} SAR parking</span>
                                     )}
                                 </div>
                             )}
@@ -406,12 +406,12 @@ export default function BookingDetailClient({ booking: initial }: { booking: Boo
                                         </div>
                                     )}
                                     {booking.discountApplied && booking.discountApplied > 0 && (
-                                        <div className="flex justify-between text-green-400">
+                                        <div className="flex justify-between text-success">
                                             <span>Discount</span><span>-{Math.round(booking.discountApplied)} SAR</span>
                                         </div>
                                     )}
                                     {booking.parkingFee && booking.parkingFee > 0 && (
-                                        <div className="flex justify-between text-amber-400">
+                                        <div className="flex justify-between text-warning">
                                             <span>Parking Fee</span><span>+{booking.parkingFee} SAR</span>
                                         </div>
                                     )}
@@ -427,7 +427,7 @@ export default function BookingDetailClient({ booking: initial }: { booking: Boo
                                     <select
                                         value={booking.paymentStatus || 'unpaid'}
                                         onChange={e => updatePayment(e.target.value)}
-                                        className={`text-xs font-bold uppercase border rounded-lg px-2 py-1 outline-none cursor-pointer ml-auto ${booking.paymentStatus === 'paid' ? 'bg-green-500/10 text-green-400 border-green-500/20' : 'bg-surface-sunken text-muted border-border'}`}
+                                        className={`text-xs font-bold uppercase border rounded-lg px-2 py-1 outline-none cursor-pointer ml-auto ${booking.paymentStatus === 'paid' ? 'bg-success-soft text-success border-success' : 'bg-surface-sunken text-muted border-border'}`}
                                     >
                                         <option value="unpaid">Unpaid</option>
                                         <option value="paid">Paid</option>
@@ -440,7 +440,7 @@ export default function BookingDetailClient({ booking: initial }: { booking: Boo
                         {/* Notes */}
                         {(booking.notes || showNoteBox) && (
                             <div className="bg-amber-500/5 border border-amber-500/20 rounded-2xl p-5">
-                                <h2 className="text-xs font-bold text-amber-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                                <h2 className="text-xs font-bold text-warning uppercase tracking-widest mb-3 flex items-center gap-2">
                                     <FileText size={14} /> Customer Notes
                                 </h2>
                                 {booking.notes && <p className="text-sm text-ink italic">&ldquo;{booking.notes}&rdquo;</p>}
@@ -450,7 +450,7 @@ export default function BookingDetailClient({ booking: initial }: { booking: Boo
                         {/* Rating */}
                         {booking.rating && (
                             <div className="bg-amber-500/5 border border-amber-500/20 rounded-2xl p-5">
-                                <h2 className="text-xs font-bold text-amber-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                                <h2 className="text-xs font-bold text-warning uppercase tracking-widest mb-3 flex items-center gap-2">
                                     <Star size={14} /> Customer Feedback
                                 </h2>
                                 <div className="flex items-center gap-1 mb-2">

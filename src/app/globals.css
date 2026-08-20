@@ -33,9 +33,11 @@
     --color-success: #2E7D5B;
     --color-success-soft: #E2F0E8;
     --color-warning: #B8791E;
+    --color-warning-soft: #F9F1E5;
     --color-error: #B4442F;
     --color-error-soft: #F6E3DD;
     --color-info: #2A6F7A;
+    --color-info-soft: #E4F1F3;
 
     /* Ivory Light Theme */
     --theme-ivory: #FDFCF8;

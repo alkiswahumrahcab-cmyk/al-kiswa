@@ -19,11 +19,11 @@ export function getUrgencyGroup(date: string, time: string, status: string): Urg
 }
 
 const BADGE_CONFIG: Record<UrgencyGroup, { label: string; className: string; pulse?: boolean }> = {
-    URGENT:    { label: 'URGENT',    className: 'bg-red-500/20 text-red-400 border border-red-500/40 ring-1 ring-red-500/30', pulse: true },
-    OVERDUE:   { label: 'OVERDUE',   className: 'bg-red-500/10 text-red-400 border border-red-500/30' },
-    TODAY:     { label: 'TODAY',     className: 'bg-amber-500/15 text-amber-400 border border-amber-500/30' },
-    TOMORROW:  { label: 'TOMORROW',  className: 'bg-blue-500/10 text-blue-400 border border-blue-500/20' },
-    THIS_WEEK: { label: 'THIS WEEK', className: 'bg-green-500/10 text-green-400 border border-green-500/20' },
+    URGENT:    { label: 'URGENT',    className: 'bg-error-soft text-error border border-error ring-1 ring-error', pulse: true },
+    OVERDUE:   { label: 'OVERDUE',   className: 'bg-error-soft text-error border border-error' },
+    TODAY:     { label: 'TODAY',     className: 'bg-gold-soft text-gold-strong border border-gold-line' },
+    TOMORROW:  { label: 'TOMORROW',  className: 'bg-info-soft text-info border border-info' },
+    THIS_WEEK: { label: 'THIS WEEK', className: 'bg-success-soft text-success border border-success' },
     FUTURE:    { label: 'UPCOMING',  className: 'bg-surface-sunken text-muted border border-border' },
     PAST:      { label: 'PAST',      className: 'bg-surface-sunken text-muted border border-border' },
 };

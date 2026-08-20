@@ -80,7 +80,7 @@ export default function BookingCalendar({ events, onSelectEvent }: BookingCalend
                         <ChevronRight size={20} className="text-slate-600" />
                     </button>
                     <h3 className="text-xl font-bold ml-2 text-slate-800 flex items-center gap-2">
-                        <CalendarIcon size={20} className="text-amber-500" />
+                        <CalendarIcon size={20} className="text-gold" />
                         {format(date, 'MMMM yyyy')}
                     </h3>
                 </div>

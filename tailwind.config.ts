@@ -29,9 +29,13 @@ const config: Config = {
                 'on-ink': 'var(--color-on-ink)',
                 'on-ink-muted': 'var(--color-on-ink-muted)',
                 success: 'var(--color-success)',
+                'success-soft': 'var(--color-success-soft)',
                 error: 'var(--color-error)',
+                'error-soft': 'var(--color-error-soft)',
                 warning: 'var(--color-warning)',
+                'warning-soft': 'var(--color-warning-soft)',
                 info: 'var(--color-info)',
+                'info-soft': 'var(--color-info-soft)',
                 
                 // Ivory Light Theme Redesign
                 ivory: 'var(--theme-ivory)',

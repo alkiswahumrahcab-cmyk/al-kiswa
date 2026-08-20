@@ -23,10 +23,10 @@ interface BookingRowProps {
 
 function getStatusBadge(status: string) {
     switch (status) {
-        case 'confirmed': return 'bg-green-500/15 text-green-400 border-green-500/30';
-        case 'pending':   return 'bg-amber-500/15 text-amber-400 border-amber-500/30';
-        case 'completed': return 'bg-blue-500/10 text-blue-400 border-blue-500/20';
-        case 'cancelled': return 'bg-red-500/10 text-red-400 border-red-500/20';
+        case 'confirmed': return 'bg-success-soft text-success border-success';
+        case 'pending':   return 'bg-warning-soft text-warning border-warning';
+        case 'completed': return 'bg-info-soft text-info border-info';
+        case 'cancelled': return 'bg-error-soft text-error border-error';
         default:          return 'bg-surface-sunken text-muted border-border';
     }
 }
@@ -51,15 +51,15 @@ export default function BookingRow({ booking, onConfirm, onCancel }: BookingRowP
     return (
         <div
             className={`relative group flex flex-col sm:flex-row sm:items-center gap-4 p-4 rounded-xl border transition-all duration-200 cursor-pointer ${
-                isUrgent ? 'bg-red-500/5 border-red-500/30 hover:bg-red-500/10' :
-                isOverdue ? 'bg-red-500/5 border-red-500/20 hover:bg-red-500/10' :
+                isUrgent ? 'bg-error-soft border-error hover:bg-error-soft' :
+                isOverdue ? 'bg-error-soft border-error hover:bg-error-soft' :
                 'bg-surface border-border hover:border-gold/40 hover:bg-surface-alt'}`}
             onClick={() => router.push(`/292852/bookings/${booking.id}`)}
         >
             <div className={`hidden sm:block w-1 self-stretch rounded-full shrink-0 ${
-                isUrgent || isOverdue ? 'bg-red-500' :
-                booking.status === 'confirmed' ? 'bg-green-500' :
-                booking.status === 'pending' ? 'bg-amber-400' : 'bg-border'
+                isUrgent || isOverdue ? 'bg-error' :
+                booking.status === 'confirmed' ? 'bg-success' :
+                booking.status === 'pending' ? 'bg-warning' : 'bg-border'
             }`} />
 
             <div className="flex-1 min-w-0 space-y-2">
@@ -69,33 +69,33 @@ export default function BookingRow({ booking, onConfirm, onCancel }: BookingRowP
                         {booking.status}
                     </span>
                     {booking.paymentStatus && (
-                        <span className={`px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full border ${booking.paymentStatus === 'paid' ? 'bg-green-500/10 text-green-400 border-green-500/20' : 'bg-surface-sunken text-muted border-border'}`}>
+                        <span className={`px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full border ${booking.paymentStatus === 'paid' ? 'bg-success-soft text-success border-success' : 'bg-surface-sunken text-muted border-border'}`}>
                             {booking.paymentStatus}
                         </span>
                     )}
                     {legCount > 1 && (
-                        <span className="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-gold/10 text-gold border border-gold/30">
+                        <span className="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider rounded-full bg-gold-soft text-gold-strong border border-gold-line">
                             {legCount} Transfers
                         </span>
                     )}
                     <span className="font-mono text-xs text-muted">#{booking.bookingRef || booking.id.slice(-8).toUpperCase()}</span>
-                    <CountdownTimer date={booking.date} time={booking.time} className={`text-xs ml-auto ${isUrgent ? 'text-red-400 font-bold' : 'text-muted'}`} />
+                    <CountdownTimer date={booking.date} time={booking.time} className={`text-xs ml-auto ${isUrgent ? 'text-error font-bold' : 'text-muted'}`} />
                 </div>
 
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
                     <span className="font-bold text-ink text-sm">{booking.name}</span>
                     {booking.nationality && <span className="text-xs text-muted">{booking.nationality}</span>}
                     {booking.visaType && (
-                        <span className={`text-[10px] px-1.5 py-0.5 rounded font-semibold ${booking.visaType === 'umrah' ? 'bg-gold/10 text-gold' : 'bg-surface-sunken text-muted'}`}>
+                        <span className={`text-[10px] px-1.5 py-0.5 rounded font-semibold ${booking.visaType === 'umrah' ? 'bg-gold-soft text-gold-strong' : 'bg-surface-sunken text-muted'}`}>
                             {booking.visaType === 'umrah' ? 'Umrah' : booking.visaType === 'visit' ? 'Visit' : booking.visaOther || 'Other'}
                         </span>
                     )}
                 </div>
 
                 <div className="flex items-center gap-2 text-sm text-muted">
-                    <span className="text-green-400 font-medium truncate max-w-[180px]">{booking.pickup}</span>
+                    <span className="text-success font-medium truncate max-w-[180px]">{booking.pickup}</span>
                     <ChevronRight size={14} className="shrink-0 text-gold" />
-                    <span className="text-red-400 font-medium truncate max-w-[180px]">{booking.dropoff}</span>
+                    <span className="text-error font-medium truncate max-w-[180px]">{booking.dropoff}</span>
                 </div>
 
                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted">
@@ -110,8 +110,8 @@ export default function BookingRow({ booking, onConfirm, onCancel }: BookingRowP
             <div className="flex items-center gap-2 shrink-0" onClick={e => e.stopPropagation()}>
                 {booking.status === 'pending' && (
                     <>
-                        <button onClick={() => onConfirm(booking.id)} className="p-2 rounded-lg bg-green-500/10 hover:bg-green-500/20 text-green-400 transition-colors" title="Confirm"><Check size={16} /></button>
-                        <button onClick={() => onCancel(booking.id)} className="p-2 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 transition-colors" title="Cancel"><X size={16} /></button>
+                        <button onClick={() => onConfirm(booking.id)} className="p-2 rounded-lg bg-success-soft hover:bg-success-soft text-success transition-colors" title="Confirm"><Check size={16} /></button>
+                        <button onClick={() => onCancel(booking.id)} className="p-2 rounded-lg bg-error-soft hover:bg-error-soft text-error transition-colors" title="Cancel"><X size={16} /></button>
                     </>
                 )}
                 <a href={waLink} target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366] transition-colors" title="WhatsApp" onClick={e => e.stopPropagation()}>
