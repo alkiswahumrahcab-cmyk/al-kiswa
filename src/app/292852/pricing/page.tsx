@@ -58,17 +58,17 @@ const PriceCell = memo(({
 
     return (
         <td className="p-3 border-b border-border text-center">
-            <div className="relative group">
+            <div className="relative group inline-block">
                 <input
                     type="text"
                     value={value}
                     onChange={(e) => setValue(e.target.value)}
                     onBlur={handleBlur}
-                    className={`w-20 text-center bg-transparent border-b border-transparent hover:border-border focus:border-gold focus:outline-none transition-all ${isModified ? 'text-gold font-bold' : 'text-ink'
+                    className={`w-24 px-2 py-1.5 text-center bg-transparent border border-transparent rounded-lg hover:bg-surface-sunken focus:bg-surface focus:border-gold focus:ring-2 focus:ring-gold/20 focus:outline-none transition-all ${isModified ? 'text-gold-strong font-extrabold' : 'text-ink font-medium'
                         }`}
                 />
                 {isModified && (
-                    <div className="absolute -top-2 -right-2 w-2 h-2 bg-gold rounded-full animate-pulse" />
+                    <div className="absolute top-1.5 right-1.5 w-2 h-2 bg-gold rounded-full animate-pulse shadow-[0_0_8px_rgba(226,163,54,0.6)]" />
                 )}
             </div>
         </td>
@@ -267,48 +267,47 @@ export default function PricingPage() {
                     <p className="text-muted">Manage dynamic pricing for routes and vehicles</p>
                 </div>
                 
-                <div className="flex bg-surface-sunken p-1 rounded-xl">
+                <div className="flex bg-surface-sunken p-1.5 rounded-xl border border-border">
                     <button
                         onClick={() => setActiveCurrency('SAR')}
-                        className={`px-6 py-2 rounded-btn font-bold transition-all ${
+                        className={`px-6 py-2 rounded-lg font-bold transition-all ${
                             activeCurrency === 'SAR' 
-                            ? 'bg-gold text-white shadow-md' 
-                            : 'text-muted hover:text-ink hover:bg-surface-alt'
+                            ? 'bg-gold-soft text-gold-strong shadow-sm border border-gold-line' 
+                            : 'text-muted hover:text-ink hover:bg-surface border border-transparent'
                         }`}
                     >
-                        🇸🇦 SAR Pricing
+                        SAR (ر.س)
                     </button>
                     <button
                         onClick={() => setActiveCurrency('USD')}
-                        className={`px-6 py-2 rounded-btn font-bold transition-all ${
+                        className={`px-6 py-2 rounded-lg font-bold transition-all ${
                             activeCurrency === 'USD' 
-                            ? 'bg-info text-white shadow-md' 
-                            : 'text-muted hover:text-ink hover:bg-surface-alt'
+                            ? 'bg-info-soft text-info shadow-sm border border-info' 
+                            : 'text-muted hover:text-ink hover:bg-surface border border-transparent'
                         }`}
                     >
-                        🇺🇸 USD Pricing
+                        USD ($)
                     </button>
                 </div>
             </div>
 
             {/* Global Adjustment Card */}
             {settings && (
-                <div className="bg-surface border border-border p-6 rounded-2xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="bg-surface-alt border border-border p-6 md:p-8 rounded-2xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
                     <div>
                         <h2 className="text-xl font-bold text-ink flex items-center gap-2">
                             <RotateCcw className="text-gold" size={20} />
                             Global Price Adjustment
                         </h2>
-                        <p className="text-muted text-sm mt-1">
+                        <p className="text-muted text-sm mt-2">
                             Increase or decrease ALL prices on the website by a percentage.
                             <br />
-                            <span className="text-xs text-warning font-bold">Example: 10 = +10% Increase | -10 = -10% Discount</span>
+                            <span className="text-xs text-muted inline-block mt-1">Example: <span className="text-success font-bold">+10</span> = 10% Increase | <span className="text-error font-bold">-10</span> = 10% Discount</span>
                         </p>
                     </div>
 
-                    <div className="flex items-center gap-4 bg-surface-sunken p-2 rounded-xl border border-border">
+                    <div className="flex items-center gap-3">
                         <div className="flex flex-col">
-                            <label className="text-xs text-muted font-bold uppercase tracking-wider mb-1 ml-1">Percentage %</label>
                             <input
                                 type="number"
                                 value={settings.pricing?.globalPercentageAdjustment || 0}
@@ -316,14 +315,14 @@ export default function PricingPage() {
                                     ...settings,
                                     pricing: { ...settings.pricing, globalPercentageAdjustment: parseFloat(e.target.value) || 0 }
                                 })}
-                                className="bg-transparent text-ink text-2xl font-bold w-32 px-4 py-2 border-b-2 border-gold focus:outline-none focus:border-gold-strong transition-colors text-center"
+                                className="bg-surface border border-border rounded-xl px-4 py-3 text-ink text-xl font-bold w-32 focus:outline-none focus:ring-2 focus:ring-gold/30 transition-shadow text-center shadow-inner"
                                 placeholder="0"
                             />
                         </div>
                         <button
                             onClick={handleSaveGlobalSettings}
                             disabled={isSavingSettings}
-                            className="bg-gold text-white px-6 py-4 rounded-btn font-bold shadow-lg shadow-gold/20 hover:bg-gold-strong hover:scale-105 transition-all disabled:opacity-50 disabled:hover:scale-100"
+                            className="btn-primary px-8 py-3.5 rounded-xl font-bold whitespace-nowrap"
                         >
                             {isSavingSettings ? 'Saving...' : 'Apply Adjustment'}
                         </button>
@@ -333,15 +332,15 @@ export default function PricingPage() {
 
 
             {/* Table Controls */}
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-border">
-                <div className="relative flex-1 md:w-64">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-4">
+                <div className="relative flex-1 md:w-72">
+                    <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-muted" size={18} />
                     <input
                         type="text"
                         placeholder="Search routes..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 bg-surface-sunken border border-border rounded-full focus:ring-2 focus:ring-gold/50 outline-none transition-all text-ink"
+                        className="w-full pl-11 pr-4 py-2.5 bg-surface border border-border rounded-full focus:ring-2 focus:ring-gold/30 outline-none transition-all text-ink shadow-sm"
                     />
                 </div>
 
@@ -349,7 +348,7 @@ export default function PricingPage() {
                     {(Object.keys(modified).length > 0 || Object.keys(modifiedUSD).length > 0) && (
                         <button
                             onClick={handleReset}
-                            className="flex items-center gap-2 bg-surface-sunken text-muted px-4 py-2.5 rounded-btn font-bold hover:bg-surface-alt transition-colors"
+                            className="flex items-center gap-2 bg-surface-sunken text-muted px-4 py-2.5 rounded-btn font-bold hover:bg-surface-alt hover:text-ink transition-colors"
                         >
                             <RotateCcw size={18} />
                             Reset Changes
@@ -359,7 +358,7 @@ export default function PricingPage() {
                     <button
                         onClick={handleSaveAll}
                         disabled={saving || (Object.keys(modified).length === 0 && Object.keys(modifiedUSD).length === 0)}
-                        className="flex items-center gap-2 bg-gold text-white px-6 py-2.5 rounded-btn font-bold shadow-lg shadow-gold/20 hover:bg-gold-strong hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100 whitespace-nowrap"
+                        className="flex items-center gap-2 btn-primary px-6 py-2.5 rounded-btn shadow-md whitespace-nowrap"
                     >
                         <Save size={20} />
                         {saving ? 'Saving...' : 'Save Table Changes'}
@@ -367,29 +366,29 @@ export default function PricingPage() {
                 </div>
             </div>
 
-            <div className={styles.glassCard}>
-                <div className="overflow-x-auto max-h-[calc(100vh-250px)] relative">
-                    <table className={styles.table}>
-                        <thead className="sticky top-0 z-10 bg-surface shadow-sm ring-1 ring-border">
+            <div className="bg-surface border border-border rounded-2xl shadow-sm overflow-hidden">
+                <div className="overflow-x-auto max-h-[calc(100vh-280px)] relative">
+                    <table className="w-full border-collapse text-sm">
+                        <thead className="sticky top-0 z-10 bg-surface-alt shadow-sm ring-1 ring-border">
                             <tr>
-                                <th className="bg-surface min-w-[200px] p-4 text-left font-bold text-ink border-b border-border">
-                                    Route / Vehicle
+                                <th className="bg-surface-alt min-w-[220px] p-4 text-left border-b border-border">
+                                    <span className="text-xs uppercase tracking-wider text-muted font-bold">Route / Vehicle</span>
                                 </th>
                                 {vehicles.map(vehicle => (
-                                    <th key={vehicle.id} className="text-center min-w-[150px] p-4 border-b border-border bg-surface">
-                                        <div className="font-bold text-ink">{vehicle.name}</div>
+                                    <th key={vehicle.id} className="text-center min-w-[150px] p-4 border-b border-border bg-surface-alt">
+                                        <span className="text-xs uppercase tracking-wider text-muted font-bold">{vehicle.name}</span>
                                     </th>
                                 ))}
                             </tr>
                         </thead>
                         <tbody>
                             {filteredRoutes.map(route => (
-                                <tr key={route.id} className="hover:bg-surface-sunken transition-colors">
-                                    <td className="font-medium p-4 border-b border-border bg-surface sticky left-0 backdrop-blur-[2px]">
+                                <tr key={route.id} className="hover:bg-surface-alt transition-colors group">
+                                    <td className="p-4 border-b border-border bg-surface sticky left-0 group-hover:bg-surface-alt transition-colors">
                                         <div className="flex flex-col">
-                                            <span className="text-ink font-semibold">{route.origin}</span>
-                                            <span className="text-xs text-muted flex items-center gap-1">
-                                                to <span className="font-medium text-ink">{route.destination}</span>
+                                            <span className="text-ink text-sm font-semibold">{route.origin}</span>
+                                            <span className="text-xs text-muted flex items-center gap-1 mt-0.5">
+                                                to <span className="text-muted">{route.destination}</span>
                                             </span>
                                         </div>
                                     </td>
