@@ -979,17 +979,14 @@ export default function BookingForm() {
                                     </div>
 
                                     <div className="p-5">
-                                        {/* Category badge */}
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-gold/15 text-gold border border-gold/30">
-                                                {vehicle.tier || vehicle.category || 'Standard'}
-                                            </span>
-                                            {!isAvailable && (
+                                        {/* Availability badge (only shown if not available) */}
+                                        {!isAvailable && (
+                                            <div className="flex items-center gap-2 mb-2">
                                                 <span className="px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-red-500/10 text-red-400 border border-red-500/20">
                                                     Not Available
                                                 </span>
-                                            )}
-                                        </div>
+                                            </div>
+                                        )}
 
                                         {/* Category name heading */}
                                         <h4 className={`text-xl font-bold font-display leading-tight mb-3 ${isSelected ? 'text-gold' : 'text-ink'}`}>
