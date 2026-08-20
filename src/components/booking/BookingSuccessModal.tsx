@@ -125,69 +125,103 @@ export default function BookingSuccessModal({
                                     </div>
 
                                     {/* Header */}
-                                    <div className="text-center relative z-10">
+                                    <div className="text-center relative z-10 mb-8">
                                         <div className="w-20 h-20 mx-auto bg-gold-soft rounded-full flex items-center justify-center mb-6 text-gold-strong">
                                             <CheckCircle size={40} />
                                         </div>
                                         <h2 className="text-3xl md:text-5xl font-bold text-ink mb-2 tracking-tight">Booking Confirmed</h2>
-                                        <p className="text-muted text-lg mb-8 font-montserrat">
+                                        <p className="text-muted text-lg font-montserrat">
                                             Thank you, <span className="font-semibold text-ink">{bookingData.name}</span>
                                         </p>
-
-                                        {/* Blessing Quotes */}
-                                        <div className="bg-surface-sunken border border-border rounded-xl p-6 mb-8 text-center">
-                                            <div className="mb-5">
-                                                <p className="text-gold font-bold text-xl md:text-2xl mb-1.5 leading-loose font-arabic" dir="rtl">
-                                                    تقبّل الله عمرتكم وبارك في خطاكم.
-                                                </p>
-                                                <p className="text-muted text-sm font-montserrat">
-                                                    May Allah accept your Umrah and bless your steps.
-                                                </p>
-                                            </div>
-                                            <div>
-                                                <p className="text-gold font-bold text-xl md:text-2xl mb-1.5 leading-loose font-arabic" dir="rtl">
-                                                    نسأل الله أن ييسر رحلتكم ويكتب لكم الأجر.
-                                                </p>
-                                                <p className="text-muted text-sm font-montserrat">
-                                                    We ask Allah to ease your journey and grant you its reward.
-                                                </p>
-                                            </div>
-                                        </div>
-
-                                        {/* Booking ID Pill */}
-                                        <div className="inline-flex items-center gap-3 bg-surface-alt border border-border text-ink px-6 py-3 rounded-full text-sm font-mono font-bold hover:bg-surface-sunken transition-colors cursor-pointer backdrop-blur-sm mb-10" onClick={copyBookingId}>
-                                            <span className="text-muted text-xs font-sans font-normal">Booking ID</span>
-                                            <span className="text-base">#{bookingData.bookingId}</span>
-                                            {copied ? <Check size={16} className="text-green-400" /> : <Copy size={16} className="text-muted" />}
-                                        </div>
                                     </div>
 
-                                    {/* What happens next? */}
-                                    <div className="mb-8 relative z-10 bg-surface border border-border rounded-xl p-6 md:p-8 text-left shadow-sm">
-                                        <h3 className="text-gold font-bold text-xl md:text-2xl mb-6">What happens next?</h3>
-                                        <div className="space-y-5">
-                                            <div className="flex gap-4 items-start">
-                                                <div className="w-7 h-7 rounded-full bg-gold/20 text-gold flex items-center justify-center shrink-0 font-bold text-sm mt-0.5">1</div>
-                                                <p className="text-ink text-base font-montserrat leading-relaxed">Our team reviews your itinerary and confirms availability.</p>
+                                    {/* SINGLE RECEIPT CONTAINER (Details First) */}
+                                    <div className="bg-surface border border-border rounded-2xl p-6 md:p-8 mb-8 relative z-10 shadow-sm text-left">
+                                        {/* Booking ID Header */}
+                                        <div className="flex justify-between items-center border-b border-border pb-5 mb-5">
+                                            <div>
+                                                <p className="text-xs text-muted uppercase tracking-wider mb-1">Booking Ref</p>
+                                                <div 
+                                                    onClick={copyBookingId}
+                                                    className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
+                                                >
+                                                    <p className="text-lg font-mono font-bold text-ink">{bookingData.bookingId}</p>
+                                                    {copied ? <Check size={16} className="text-green-500" /> : <Copy size={14} className="text-gold" />}
+                                                </div>
                                             </div>
-                                            <div className="flex gap-4 items-start">
-                                                <div className="w-7 h-7 rounded-full bg-gold/20 text-gold flex items-center justify-center shrink-0 font-bold text-sm mt-0.5">2</div>
-                                                <p className="text-ink text-base font-montserrat leading-relaxed">We contact you <strong className="text-gold">before your flight</strong> (WhatsApp/email) with your <strong className="text-gold">driver's name, phone, and vehicle details</strong>.</p>
-                                            </div>
-                                            <div className="flex gap-4 items-start">
-                                                <div className="w-7 h-7 rounded-full bg-gold/20 text-gold flex items-center justify-center shrink-0 font-bold text-sm mt-0.5">3</div>
-                                                <p className="text-ink text-base font-montserrat leading-relaxed">On arrival, your driver meets you — <strong className="text-gold">pay cash, no prepayment needed</strong>.</p>
+                                            <div className="text-right">
+                                                <p className="text-xs text-muted uppercase tracking-wider mb-1">Status</p>
+                                                <div className="inline-flex items-center gap-1.5 bg-success-soft text-success px-3 py-1 rounded-full text-xs font-bold border border-success/20">
+                                                    <CheckCircle size={12} /> Confirmed
+                                                </div>
                                             </div>
                                         </div>
-                                        <div className="mt-6 pt-5 border-t border-border">
-                                            <p className="text-muted text-sm italic font-montserrat">
-                                                No charge has been made. Free cancellation up to 24 hours before pickup.
-                                            </p>
+
+                                        {/* Route */}
+                                        <div className="mb-6">
+                                            <div className="flex justify-between items-center mb-1">
+                                                <p className="text-xs text-muted uppercase tracking-wider flex items-center gap-1.5"><MapPin size={12} className="text-gold" /> Route</p>
+                                                <p className="text-xs text-muted font-bold" dir="rtl">المسار</p>
+                                            </div>
+                                            <p className="font-bold text-ink text-lg">{pickup} {dropoff && ` → ${dropoff}`}</p>
+                                        </div>
+
+                                        {/* Info Grid */}
+                                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 border-b border-border pb-6">
+                                            <div>
+                                                <div className="flex justify-between items-center mb-1">
+                                                    <p className="text-[10px] text-muted uppercase tracking-wider flex items-center gap-1"><Calendar size={10} className="text-gold"/> Date</p>
+                                                    <p className="text-[10px] text-muted font-bold" dir="rtl">التاريخ</p>
+                                                </div>
+                                                <p className="font-bold text-ink text-sm">{formattedDate}</p>
+                                            </div>
+                                            <div>
+                                                <div className="flex justify-between items-center mb-1">
+                                                    <p className="text-[10px] text-muted uppercase tracking-wider flex items-center gap-1"><Clock size={10} className="text-gold"/> Time</p>
+                                                    <p className="text-[10px] text-muted font-bold" dir="rtl">الوقت</p>
+                                                </div>
+                                                <p className="font-bold text-ink text-sm">{bookingData.time}</p>
+                                            </div>
+                                            <div>
+                                                <div className="flex justify-between items-center mb-1">
+                                                    <p className="text-[10px] text-muted uppercase tracking-wider flex items-center gap-1"><Car size={10} className="text-gold"/> Vehicle</p>
+                                                    <p className="text-[10px] text-muted font-bold" dir="rtl">السيارة</p>
+                                                </div>
+                                                <p className="font-bold text-ink text-sm truncate pr-2">{bookingData.vehicleName}</p>
+                                            </div>
+                                            <div>
+                                                <div className="flex justify-between items-center mb-1">
+                                                    <p className="text-[10px] text-muted uppercase tracking-wider flex items-center gap-1"><Users size={10} className="text-gold"/> Pax</p>
+                                                    <p className="text-[10px] text-muted font-bold" dir="rtl">الركاب</p>
+                                                </div>
+                                                <p className="font-bold text-ink text-sm">{bookingData.passengers}</p>
+                                            </div>
+                                        </div>
+
+                                        {/* Customer */}
+                                        <div className="grid grid-cols-2 gap-4 mb-6 border-b border-border pb-6">
+                                            <div>
+                                                <p className="text-[10px] text-muted uppercase tracking-wider mb-1">Email</p>
+                                                <p className="font-semibold text-ink text-sm truncate pr-2">{bookingData.email || '—'}</p>
+                                            </div>
+                                            <div>
+                                                <p className="text-[10px] text-muted uppercase tracking-wider mb-1">Phone</p>
+                                                <p className="font-semibold text-ink text-sm">{bookingData.phone || '—'}</p>
+                                            </div>
+                                        </div>
+
+                                        {/* Total */}
+                                        <div className="flex justify-between items-end bg-gold-soft/30 -mx-6 md:-mx-8 -mb-6 md:-mb-8 p-6 md:p-8 rounded-b-2xl border-t border-gold/20">
+                                            <div>
+                                                <p className="text-xs font-bold text-muted uppercase tracking-wider mb-0.5">Total Amount</p>
+                                                <p className="text-xs font-bold text-muted" dir="rtl">الإجمالي</p>
+                                            </div>
+                                            <p className="text-2xl md:text-3xl font-extrabold text-gold">{priceDisplay}</p>
                                         </div>
                                     </div>
 
                                     {/* WhatsApp CTA */}
-                                    <div className="mb-10 relative z-10">
+                                    <div className="mb-8 relative z-10">
                                         <a
                                             href={whatsappLink}
                                             target="_blank"
@@ -199,102 +233,38 @@ export default function BookingSuccessModal({
                                         </a>
                                     </div>
 
-                                    {/* Customer Info */}
-                                    <div className="space-y-3 relative z-10">
-                                        <div className="bg-surface-alt border border-border rounded-2xl p-4 backdrop-blur-sm">
-                                            <div className="flex items-center justify-between mb-3">
-                                                <p className="text-xs text-muted uppercase tracking-widest font-semibold flex items-center gap-1.5">
-                                                    <User size={12} className="text-gold" /> Customer Info
-                                                </p>
+                                    {/* What happens next? */}
+                                    <div className="mb-8 relative z-10 bg-surface border border-border rounded-xl p-6 md:p-8 text-left shadow-sm">
+                                        <h3 className="text-gold font-bold text-xl md:text-2xl mb-6">What happens next?</h3>
+                                        <div className="space-y-5">
+                                            <div className="flex gap-4 items-start">
+                                                <div className="w-7 h-7 rounded-full bg-gold-soft text-gold-strong flex items-center justify-center shrink-0 font-bold text-sm mt-0.5">1</div>
+                                                <p className="text-ink text-sm font-montserrat leading-relaxed">Our team reviews your itinerary and confirms availability.</p>
                                             </div>
-                                            <div className="grid grid-cols-2 gap-3">
-                                                <div>
-                                                    <p className="text-[10px] text-muted uppercase tracking-wider mb-0.5">Email</p>
-                                                    <p className="text-ink font-semibold text-sm truncate">{bookingData.email || '—'}</p>
-                                                </div>
-                                                <div>
-                                                    <p className="text-[10px] text-muted uppercase tracking-wider mb-0.5">Phone</p>
-                                                    <p className="text-ink font-semibold text-sm">{bookingData.phone || '—'}</p>
-                                                </div>
+                                            <div className="flex gap-4 items-start">
+                                                <div className="w-7 h-7 rounded-full bg-gold-soft text-gold-strong flex items-center justify-center shrink-0 font-bold text-sm mt-0.5">2</div>
+                                                <p className="text-ink text-sm font-montserrat leading-relaxed">We contact you <strong className="text-gold">before your flight</strong> with your <strong className="text-gold">driver's details</strong>.</p>
+                                            </div>
+                                            <div className="flex gap-4 items-start">
+                                                <div className="w-7 h-7 rounded-full bg-gold-soft text-gold-strong flex items-center justify-center shrink-0 font-bold text-sm mt-0.5">3</div>
+                                                <p className="text-ink text-sm font-montserrat leading-relaxed">On arrival, your driver meets you — <strong className="text-gold">pay cash, no prepayment needed</strong>.</p>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        {/* Route */}
-                                        <div className="bg-surface-alt border border-border rounded-2xl p-4 backdrop-blur-sm">
-                                            <div className="flex items-center justify-between mb-2">
-                                                <p className="text-xs text-muted uppercase tracking-widest font-semibold flex items-center gap-1.5">
-                                                    <MapPin size={12} className="text-gold" /> Route
-                                                </p>
-                                                <p className="text-xs text-muted font-bold" dir="rtl">المسار</p>
-                                            </div>
-                                            <p className="text-ink font-semibold">{pickup} {dropoff && ` → ${dropoff}`}</p>
-                                        </div>
-
-                                        {/* Grid Details */}
-                                        <div className="grid grid-cols-2 gap-3">
-                                            {/* Date */}
-                                            <div className="bg-surface-alt border border-border rounded-xl p-3.5 backdrop-blur-sm">
-                                                <div className="flex justify-between items-center mb-1.5">
-                                                    <div className="flex items-center gap-1.5 text-xs text-muted uppercase tracking-wider">
-                                                        <Calendar size={12} className="text-gold" /> Date
-                                                    </div>
-                                                    <span className="text-xs text-muted font-bold" dir="rtl">التاريخ</span>
-                                                </div>
-                                                <p className="text-ink font-bold text-sm">{formattedDate}</p>
-                                            </div>
-
-                                            {/* Time */}
-                                            <div className="bg-surface-alt border border-border rounded-xl p-3.5 backdrop-blur-sm">
-                                                <div className="flex justify-between items-center mb-1.5">
-                                                    <div className="flex items-center gap-1.5 text-xs text-muted uppercase tracking-wider">
-                                                        <Clock size={12} className="text-gold" /> Time
-                                                    </div>
-                                                    <span className="text-xs text-muted font-bold" dir="rtl">الوقت</span>
-                                                </div>
-                                                <p className="text-ink font-bold text-sm">{bookingData.time}</p>
-                                            </div>
-
-                                            {/* Vehicle */}
-                                            <div className="bg-surface-alt border border-border rounded-xl p-3.5 backdrop-blur-sm">
-                                                <div className="flex justify-between items-center mb-1.5">
-                                                    <div className="flex items-center gap-1.5 text-xs text-muted uppercase tracking-wider">
-                                                        <Car size={12} className="text-gold" /> Vehicle
-                                                    </div>
-                                                    <span className="text-xs text-muted font-bold" dir="rtl">السيارة</span>
-                                                </div>
-                                                <p className="text-ink font-bold text-sm">{bookingData.vehicleName}</p>
-                                            </div>
-
-                                            {/* Passengers */}
-                                            <div className="bg-surface-alt border border-border rounded-xl p-3.5 backdrop-blur-sm">
-                                                <div className="flex justify-between items-center mb-1.5">
-                                                    <div className="flex items-center gap-1.5 text-xs text-muted uppercase tracking-wider">
-                                                        <Users size={12} className="text-gold" /> Pax
-                                                    </div>
-                                                    <span className="text-xs text-muted font-bold" dir="rtl">الركاب</span>
-                                                </div>
-                                                <p className="text-ink font-bold text-sm">{bookingData.passengers}</p>
-                                            </div>
-                                        </div>
-
-                                        {/* Total Amount */}
-                                        <div className="flex items-stretch gap-3 mt-2">
-                                            <div className="flex-1 bg-surface border border-gold/30 text-ink rounded-xl p-5 flex flex-col justify-center shadow-sm relative overflow-hidden">
-                                                <div className="absolute inset-0 bg-gold-soft/30 pointer-events-none" />
-                                                <div className="relative z-10 flex justify-between items-end">
-                                                    <div>
-                                                        <p className="text-xs text-muted uppercase tracking-wider mb-0.5 font-semibold">Total Amount</p>
-                                                        <p className="text-xs text-muted font-bold" dir="rtl">الإجمالي</p>
-                                                    </div>
-                                                    <p className="text-2xl md:text-3xl font-extrabold text-gold relative z-10">{priceDisplay}</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    {/* Blessing Quotes */}
+                                    <div className="bg-surface-sunken border border-border rounded-xl p-6 mb-4 text-center relative z-10">
+                                        <p className="text-gold font-bold text-lg mb-2 leading-loose font-arabic" dir="rtl">
+                                            تقبّل الله عمرتكم وبارك في خطاكم.
+                                        </p>
+                                        <p className="text-muted text-xs font-montserrat">
+                                            May Allah accept your Umrah and bless your steps.
+                                        </p>
                                     </div>
                                 </div>
 
                                 {/* ── Action Buttons ── */}
-                                <div className="pt-8 flex flex-col gap-3 relative z-20">
+                                <div className="pt-2 flex flex-col gap-3 relative z-20">
                                     <button
                                         onClick={onClose}
                                         className="w-full flex items-center justify-center gap-2 btn-secondary py-4"
