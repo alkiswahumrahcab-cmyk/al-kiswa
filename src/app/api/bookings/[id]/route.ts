@@ -1,6 +1,16 @@
 import { NextResponse } from 'next/server';
-import { updateBookingStatus, deleteBooking } from '@/lib/db';
+import { updateBookingStatus, deleteBooking, getBooking } from '@/lib/db';
 import { requireRole } from '@/lib/server-auth';
+
+export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }) {
+    if (!await requireRole(['ADMIN', 'MANAGER', 'OPERATIONAL_MANAGER'])) {
+        return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+    const { id } = await params;
+    const booking = await getBooking(id);
+    if (!booking) return NextResponse.json({ error: 'Booking not found' }, { status: 404 });
+    return NextResponse.json(booking);
+}
 
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
     if (!await requireRole(['ADMIN', 'MANAGER', 'OPERATIONAL_MANAGER'])) {

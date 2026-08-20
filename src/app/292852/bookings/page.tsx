@@ -1,31 +1,74 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-
-import adminStyles from '../admin.module.css';
-import { Search, Mail, Phone, MapPin, Calendar, Users, CheckCircle2, Check, X, Trash2, Briefcase, Download, LayoutList, Building2 } from 'lucide-react';
-import { Booking } from '@/lib/validations';
-import { Toast } from '@/components/ui/Toast';
 import dynamic from 'next/dynamic';
+import { Search, Calendar, LayoutList, Download, ChevronDown, ChevronUp } from 'lucide-react';
+import { Toast } from '@/components/ui/Toast';
 import { downloadCSV } from '@/lib/export';
 import { usePusher } from '@/hooks/usePusher';
-
+import BookingRow from '@/components/admin/bookings/BookingRow';
 import BookingDetailsModal from '@/components/admin/bookings/BookingDetailsModal';
+import { getUrgencyGroup, UrgencyGroup } from '@/components/admin/bookings/UrgencyBadge';
 
 const BookingCalendar = dynamic(() => import('@/components/admin/bookings/BookingCalendar'), { ssr: false });
 
-// Extend Booking type to include id and status if not in schema
-interface BookingWithDetails extends Omit<Booking, 'driverStatus'> {
+interface BookingWithDetails {
     id: string;
+    name: string;
+    email: string;
+    phone: string;
+    pickup: string;
+    dropoff: string;
+    date: string;
+    time: string;
     status: 'pending' | 'confirmed' | 'completed' | 'cancelled';
-    paymentStatus: 'paid' | 'unpaid' | 'refunded';
+    paymentStatus?: 'paid' | 'unpaid' | 'refunded';
+    vehicle?: string;
+    vehicleCount?: number;
+    passengers?: number;
+    luggage?: number;
+    notes?: string;
+    nationality?: string;
+    visaType?: string;
+    visaOther?: string;
+    price?: string;
+    finalPrice?: number;
+    originalPrice?: number;
+    discountApplied?: number;
+    parkingFee?: number;
+    airportTerminal?: string;
+    flightNumber?: string;
+    arrivalDate?: string;
+    country?: string;
+    legs?: any[];
+    selectedVehicles?: { vehicleId?: string; name?: string; quantity: number }[];
     createdAt?: string;
     rating?: number;
     review?: string;
 }
 
+const GROUP_CONFIG: { key: UrgencyGroup; label: string; icon: string; headerClass: string }[] = [
+    { key: 'URGENT',    label: 'Urgent — Departing Very Soon',  icon: '🔴', headerClass: 'text-red-400 border-red-500/30' },
+    { key: 'OVERDUE',   label: 'Overdue — Missed Pickup',       icon: '⏰', headerClass: 'text-red-400 border-red-500/20' },
+    { key: 'TODAY',     label: 'Today',                          icon: '⚡', headerClass: 'text-amber-400 border-amber-500/30' },
+    { key: 'TOMORROW',  label: 'Tomorrow',                       icon: '📅', headerClass: 'text-blue-400 border-blue-500/20' },
+    { key: 'THIS_WEEK', label: 'This Week',                      icon: '📆', headerClass: 'text-green-400 border-green-500/20' },
+    { key: 'FUTURE',    label: 'Future Bookings',                icon: '🗓️', headerClass: 'text-muted border-border' },
+    { key: 'PAST',      label: 'Past & Completed',               icon: '✅', headerClass: 'text-muted border-border' },
+];
+
+function sortWithinGroup(bookings: BookingWithDetails[]): BookingWithDetails[] {
+    return [...bookings].sort((a, b) => {
+        const da = new Date(`${a.date}T${a.time}`).getTime();
+        const db = new Date(`${b.date}T${b.time}`).getTime();
+        return da - db;
+    });
+}
+
 export default function BookingsPage() {
+    const router = useRouter();
     const [searchTerm, setSearchTerm] = useState('');
     const [filter, setFilter] = useState('All');
     const [bookings, setBookings] = useState<BookingWithDetails[]>([]);
@@ -34,85 +77,35 @@ export default function BookingsPage() {
     const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
-    const [specificVehicle, setSpecificVehicle] = useState('All Vehicles');
-    const [selectedBooking, setSelectedBooking] = useState<BookingWithDetails | null>(null);
+    const [collapsedGroups, setCollapsedGroups] = useState<Set<string>>(new Set(['PAST']));
+    const [calendarBooking, setCalendarBooking] = useState<BookingWithDetails | null>(null);
 
-    // ... sortBookings function ...
-    const sortBookings = (bookingsToSort: BookingWithDetails[]) => {
-        return [...bookingsToSort].sort((a, b) => {
-            // Priority 1: CreatedAt
-            if (a.createdAt && b.createdAt) {
-                return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-            }
-            // Priority 2: Booking Date + Time
-            try {
-                const dateAStr = a.date || '';
-                const dateBStr = b.date || '';
-                const dateA = new Date(`${dateAStr} ${a.time || ''}`);
-                const dateB = new Date(`${dateBStr} ${b.time || ''}`);
-                if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
-                    return dateB.getTime() - dateA.getTime();
-                }
-            } catch (e) {
-                // Ignore parsing errors
-            }
-            return 0;
-        });
-    };
+    useEffect(() => { loadData(); }, []);
 
-    useEffect(() => {
-        loadData();
-    }, []);
-
-    // Pusher Subscription
     const pusher = usePusher();
-
     useEffect(() => {
         if (!pusher) return;
-
         const channel = pusher.subscribe('admin-channel');
-
         channel.bind('new-booking', (data: any) => {
-            console.log('Real-time: New booking received', data);
             if (data.data) {
-                const newBooking = {
-                    ...data.data,
-                    id: data.data.id,
-                    status: data.data.status || 'pending',
-                    paymentStatus: data.data.paymentStatus || 'unpaid',
-                    createdAt: new Date().toISOString()
-                };
-                setBookings(prev => sortBookings([newBooking as any, ...prev]));
-                showToast(`New booking from ${newBooking.name}`, 'success');
+                const nb = { ...data.data, id: data.data.id, status: data.data.status || 'pending', paymentStatus: data.data.paymentStatus || 'unpaid', createdAt: new Date().toISOString() };
+                setBookings(prev => [nb as any, ...prev]);
+                showToast(`New booking from ${nb.name}`, 'success');
             }
         });
-
         channel.bind('booking-updated', (data: any) => {
-            console.log('Real-time: Booking updated', data);
-            setBookings(prev => prev.map(b =>
-                b.id === data.id ? { ...b, ...data } : b
-            ));
+            setBookings(prev => prev.map(b => b.id === data.id ? { ...b, ...data } : b));
         });
-
-        return () => {
-            channel.unbind_all();
-            channel.unsubscribe();
-        };
+        return () => { channel.unbind_all(); channel.unsubscribe(); };
     }, [pusher]);
 
     const loadData = async () => {
         try {
-            // Fetch bookings
-            const bookingsRes = await fetch('/api/bookings');
-            const bookingsData = await bookingsRes.json();
-
-            setBookings(sortBookings(bookingsData));
-        } catch (error) {
-            console.error('Failed to fetch data:', error);
-            showToast('Failed to load bookings', 'error');
-        } finally {
-            setIsLoaded(true);
-        }
+            const res = await fetch('/api/bookings');
+            const data = await res.json();
+            setBookings(data);
+        } catch { showToast('Failed to load bookings', 'error'); }
+        finally { setIsLoaded(true); }
     };
 
     const showToast = (message: string, type: 'success' | 'error') => {
@@ -120,492 +113,218 @@ export default function BookingsPage() {
         setTimeout(() => setToast(null), 3000);
     };
 
-    const filteredBookings = bookings.filter(booking => {
-        const matchesStatus = filter === 'All'
-            ? true
-            : booking.status === filter.toLowerCase();
-
-        const matchesSearch =
-            booking.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            booking.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            booking.id.toLowerCase().includes(searchTerm.toLowerCase());
-
-        // Date Range Filter
-        let matchesDate = true;
-        const bookingDateStr = booking.date || '';
-        if (startDate && bookingDateStr) {
-            matchesDate = matchesDate && new Date(bookingDateStr) >= new Date(startDate);
-        }
-        if (endDate && bookingDateStr) {
-            matchesDate = matchesDate && new Date(bookingDateStr) <= new Date(endDate);
-        }
-
-        // Vehicle Filter
-        const matchesVehicle = specificVehicle === 'All Vehicles' ||
-            (booking.vehicle && booking.vehicle === specificVehicle) ||
-            (booking.selectedVehicles && booking.selectedVehicles.some(v => v.name === specificVehicle));
-
-        return matchesStatus && matchesSearch && matchesDate && matchesVehicle;
-    });
-
-    // Extract unique vehicles for filter dropdown
-    const uniqueVehicles = Array.from(new Set(bookings.flatMap(b => {
-        if (b.selectedVehicles && b.selectedVehicles.length > 0) return b.selectedVehicles.map(v => v.name);
-        return [b.vehicle];
-    }).filter(Boolean))).sort();
-
-    // Calendar Events Transformation
-    const calendarEvents = bookings.map(booking => {
-        try {
-            // Combine date and time string to create a Date object
-            // Assuming format is YYYY-MM-DD and HH:mm
-            const startDateTime = new Date(`${booking.date || ''}T${booking.time || '00:00'}`);
-
-            // Default duration 3 hours if not specified, or calculate based on service
-            const endDateTime = new Date(startDateTime.getTime() + (3 * 60 * 60 * 1000));
-
-            return {
-                id: booking.id,
-                title: `${booking.name} (${booking.vehicle})`,
-                start: startDateTime,
-                end: endDateTime,
-                resource: booking,
-            };
-        } catch (e) {
-            return null;
-        }
-    }).filter(Boolean) as any[]; // Type assertion for now
-
-    const handlePaymentStatusChange = async (id: string, newStatus: BookingWithDetails['paymentStatus']) => {
-        try {
-            const res = await fetch(`/api/bookings/${id}`, {
-                method: 'PATCH',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ paymentStatus: newStatus }),
-            });
-            if (res.ok) {
-                setBookings(bookings.map(b => b.id === id ? { ...b, paymentStatus: newStatus } : b));
-                showToast(`Payment marked as ${newStatus}`, 'success');
-            } else {
-                throw new Error('Failed to update');
-            }
-        } catch (error) {
-            console.error('Failed to update payment status:', error);
-            showToast('Failed to update payment status', 'error');
-        }
+    const handleConfirm = async (id: string) => {
+        const res = await fetch(`/api/bookings/${id}`, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ status: 'confirmed' }) });
+        if (res.ok) { setBookings(prev => prev.map(b => b.id === id ? { ...b, status: 'confirmed' } : b)); showToast('Booking confirmed', 'success'); }
+        else showToast('Failed to confirm', 'error');
     };
 
-    const handleStatusChange = async (id: string, newStatus: BookingWithDetails['status']) => {
-        try {
-            const res = await fetch(`/api/bookings/${id}`, {
-                method: 'PATCH',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ status: newStatus }),
-            });
-            if (res.ok) {
-                setBookings(bookings.map(b => b.id === id ? { ...b, status: newStatus } : b));
-                showToast(`Booking marked as ${newStatus}`, 'success');
-            } else {
-                throw new Error('Failed to update');
-            }
-        } catch (error) {
-            console.error('Failed to update status:', error);
-            showToast('Failed to update booking status', 'error');
-        }
-    };
-
-    const handleDelete = async (id: string) => {
-        if (!confirm('Are you sure you want to delete this booking? This action cannot be undone.')) {
-            return;
-        }
-
-        try {
-            const res = await fetch(`/api/bookings/${id}`, {
-                method: 'DELETE',
-            });
-
-            if (res.ok) {
-                setBookings(bookings.filter(b => b.id !== id));
-                showToast('Booking deleted successfully', 'success');
-            } else {
-                const data = await res.json();
-                throw new Error(data.error || 'Failed to delete');
-            }
-        } catch (error) {
-            console.error('Failed to delete booking:', error);
-            showToast(error instanceof Error ? error.message : 'Failed to delete booking', 'error');
-        }
+    const handleCancel = async (id: string) => {
+        if (!confirm('Cancel this booking?')) return;
+        const res = await fetch(`/api/bookings/${id}`, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ status: 'cancelled' }) });
+        if (res.ok) { setBookings(prev => prev.map(b => b.id === id ? { ...b, status: 'cancelled' } : b)); showToast('Booking cancelled', 'success'); }
+        else showToast('Failed to cancel', 'error');
     };
 
     const handleExportCSV = () => {
-        const exportData = filteredBookings.map(b => {
-            // Extract vehicle names safely
-            const vehiclesStr = b.selectedVehicles?.map(v => `${v.name} (x${v.quantity})`).join('; ') || b.vehicle || 'Unknown';
+        const exportData = filteredBookings.map(b => ({
+            'Booking ID': b.id, 'Date': b.date, 'Time': b.time, 'Name': b.name,
+            'Email': b.email, 'Phone': b.phone, 'Pickup': b.pickup, 'Dropoff': b.dropoff,
+            'Vehicle': b.selectedVehicles?.map(v => `${v.name} x${v.quantity}`).join('; ') || b.vehicle || '',
+            'Passengers': b.passengers || 0, 'Status': b.status,
+            'Price': b.finalPrice || b.originalPrice || '', 'Flight': b.flightNumber || '',
+        }));
+        downloadCSV(exportData, `bookings_${new Date().toISOString().split('T')[0]}`);
+    };
 
-            return {
-                'Booking ID': b.id,
-                'Date': b.date,
-                'Time': b.time,
-                'Name': b.name,
-                'Email': b.email,
-                'Phone': b.phone,
-                'Pickup': b.pickup,
-                'Dropoff': b.dropoff,
-                'Vehicles': vehiclesStr,
-                'Passengers': b.passengers || 0,
-                'Status': b.status,
-                'Price': b.finalPrice || b.originalPrice || '',
-                'Flight': b.flightNumber || '',
-                'Arrival': b.arrivalDate || ''
-            };
+    const filteredBookings = bookings.filter(b => {
+        const matchesStatus = filter === 'All' || b.status === filter.toLowerCase();
+        const matchesSearch = !searchTerm ||
+            b.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            b.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            b.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            (b.phone && b.phone.includes(searchTerm));
+        let matchesDate = true;
+        if (startDate && b.date) matchesDate = matchesDate && new Date(b.date) >= new Date(startDate);
+        if (endDate && b.date) matchesDate = matchesDate && new Date(b.date) <= new Date(endDate);
+        return matchesStatus && matchesSearch && matchesDate;
+    });
+
+    // Group bookings
+    const grouped = filteredBookings.reduce<Record<UrgencyGroup, BookingWithDetails[]>>((acc, b) => {
+        const g = getUrgencyGroup(b.date, b.time, b.status);
+        if (!acc[g]) acc[g] = [];
+        acc[g].push(b);
+        return acc;
+    }, {} as any);
+
+    const toggleGroup = (key: string) => {
+        setCollapsedGroups(prev => {
+            const next = new Set(prev);
+            if (next.has(key)) next.delete(key); else next.add(key);
+            return next;
         });
-
-        downloadCSV(exportData, `bookings_export_${new Date().toISOString().split('T')[0]}`);
     };
 
-    const getStatusBadge = (status: string) => {
-        switch (status) {
-            case 'confirmed': return 'bg-success-soft text-success border-success/20';
-            case 'pending': return 'bg-warning/10 text-warning border-warning/20';
-            case 'completed': return 'bg-info/10 text-info border-info/20';
-            case 'cancelled': return 'bg-error-soft text-error border-error/20';
-            default: return 'bg-surface-sunken text-muted border-border';
-        }
-    };
+    const calendarEvents = bookings.map(b => {
+        try {
+            const start = new Date(`${b.date}T${b.time || '00:00'}`);
+            const end = new Date(start.getTime() + 3 * 60 * 60 * 1000);
+            return { id: b.id, title: `${b.name}`, start, end, resource: b };
+        } catch { return null; }
+    }).filter(Boolean) as any[];
+
+    const totalFiltered = filteredBookings.length;
+    const pendingCount = bookings.filter(b => b.status === 'pending').length;
+    const urgentCount = bookings.filter(b => getUrgencyGroup(b.date, b.time, b.status) === 'URGENT').length;
 
     if (!isLoaded) {
         return (
             <div className="flex items-center justify-center min-h-[400px]">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gold" />
             </div>
         );
     }
 
     return (
-        <div className="p-6 max-w-7xl mx-auto space-y-8">
-            {toast && <Toast message={toast.message} type={toast.type} isVisible={true} onClose={() => setToast(null)} />}
+        <div className="p-4 md:p-6 max-w-7xl mx-auto space-y-6">
+            {toast && <Toast message={toast.message} type={toast.type} isVisible onClose={() => setToast(null)} />}
 
+            {/* Header */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
                     <h1 className="text-3xl font-bold text-ink tracking-tight">Bookings</h1>
-                    <p className="text-muted mt-1">Manage and track all your fleet reservations</p>
+                    <p className="text-muted mt-1 text-sm">
+                        {totalFiltered} bookings
+                        {pendingCount > 0 && <span className="ml-2 text-amber-400 font-semibold">· {pendingCount} pending</span>}
+                        {urgentCount > 0 && <span className="ml-2 text-red-400 font-bold animate-pulse">· {urgentCount} URGENT</span>}
+                    </p>
                 </div>
-                <div className="flex bg-surface-sunken p-1 rounded-lg">
-                    <button
-                        onClick={() => setViewMode('list')}
-                        className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${viewMode === 'list'
-                            ? 'bg-surface text-ink shadow-sm'
-                            : 'text-muted hover:text-ink'}`}
-                    >
-                        <LayoutList size={18} /> List
-                    </button>
-                    <button
-                        onClick={() => setViewMode('calendar')}
-                        className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${viewMode === 'calendar'
-                            ? 'bg-surface text-ink shadow-sm'
-                            : 'text-muted hover:text-ink'}`}
-                    >
-                        <Calendar size={18} /> Calendar
+                <div className="flex items-center gap-2">
+                    <div className="flex bg-surface-sunken p-1 rounded-lg">
+                        <button onClick={() => setViewMode('list')} className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${viewMode === 'list' ? 'bg-surface text-ink shadow-sm' : 'text-muted hover:text-ink'}`}>
+                            <LayoutList size={16} /> List
+                        </button>
+                        <button onClick={() => setViewMode('calendar')} className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${viewMode === 'calendar' ? 'bg-surface text-ink shadow-sm' : 'text-muted hover:text-ink'}`}>
+                            <Calendar size={16} /> Calendar
+                        </button>
+                    </div>
+                    <button onClick={handleExportCSV} className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gold text-black font-bold text-sm hover:bg-gold/80 transition-colors">
+                        <Download size={14} /> CSV
                     </button>
                 </div>
             </div>
 
-            <div className="flex flex-col gap-4 mb-6">
-                <div className="flex flex-col md:flex-row gap-4">
+            {/* Filters */}
+            <div className="flex flex-col gap-3">
+                <div className="flex flex-col sm:flex-row gap-3">
                     <div className="relative flex-1">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={20} />
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={18} />
                         <input
                             type="text"
-                            placeholder="Search bookings..."
-                            className="w-full pl-10 pr-4 py-2 rounded-btn border border-border bg-surface focus:ring-2 focus:ring-gold/20 outline-none transition-all text-ink"
+                            placeholder="Search by name, email, phone or ID..."
+                            className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-border bg-surface text-ink focus:ring-2 focus:ring-gold/20 outline-none text-sm"
                             value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
+                            onChange={e => setSearchTerm(e.target.value)}
                         />
                     </div>
-
-                    {/* Date Range Inputs */}
                     <div className="flex gap-2">
-                        <div className="relative">
-                            <input
-                                type="date"
-                                className="pl-3 pr-2 py-2 rounded-btn border border-border bg-surface text-sm focus:ring-2 focus:ring-gold/20 outline-none text-ink"
-                                value={startDate}
-                                onChange={(e) => setStartDate(e.target.value)}
-                                title="Start Date"
-                            />
-                        </div>
-                        <span className="self-center text-muted">-</span>
-                        <div className="relative">
-                            <input
-                                type="date"
-                                className="pl-3 pr-2 py-2 rounded-btn border border-border bg-surface text-sm focus:ring-2 focus:ring-gold/20 outline-none text-ink"
-                                value={endDate}
-                                onChange={(e) => setEndDate(e.target.value)}
-                                title="End Date"
-                            />
-                        </div>
+                        <input type="date" className="px-3 py-2 rounded-xl border border-border bg-surface text-sm outline-none text-ink" value={startDate} onChange={e => setStartDate(e.target.value)} title="From date" />
+                        <span className="self-center text-muted">—</span>
+                        <input type="date" className="px-3 py-2 rounded-xl border border-border bg-surface text-sm outline-none text-ink" value={endDate} onChange={e => setEndDate(e.target.value)} title="To date" />
                     </div>
-
-                    {/* Vehicle Filter */}
-                    <select
-                        value={specificVehicle}
-                        onChange={(e) => setSpecificVehicle(e.target.value)}
-                        className="px-3 py-2 rounded-btn border border-border bg-surface text-sm focus:ring-2 focus:ring-gold/20 outline-none cursor-pointer max-w-[200px] text-ink"
-                    >
-                        <option value="All Vehicles">All Vehicles</option>
-                        {uniqueVehicles.map(v => (
-                            <option key={v} value={v}>{v}</option>
-                        ))}
-                    </select>
                 </div>
-
-                <div className="flex gap-2 overflow-x-auto pb-2 md:pb-0 pt-2">
-                    {['All', 'Pending', 'Confirmed', 'Completed', 'Cancelled'].map((status) => (
+                <div className="flex gap-2 overflow-x-auto pb-1">
+                    {['All', 'Pending', 'Confirmed', 'Completed', 'Cancelled'].map(s => (
                         <button
-                            key={status}
-                            onClick={() => setFilter(status)}
-                            className={`px-4 py-2 rounded-btn text-sm font-medium transition-colors whitespace-nowrap ${filter === status
-                                ? 'bg-gold text-white'
-                                : 'bg-surface border border-border text-muted hover:bg-surface-sunken'
-                                }`}
+                            key={s}
+                            onClick={() => setFilter(s)}
+                            className={`px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${filter === s ? 'bg-gold text-black' : 'bg-surface border border-border text-muted hover:bg-surface-alt'}`}
                         >
-                            {status}
+                            {s}
+                            {s === 'Pending' && pendingCount > 0 && <span className="ml-1.5 bg-amber-400 text-black rounded-full px-1.5 py-0.5 text-[10px] font-black">{pendingCount}</span>}
                         </button>
                     ))}
-                    <div className="flex-1"></div>
-                    <button
-                        onClick={handleExportCSV}
-                        className="px-4 py-2 rounded-btn text-sm font-medium bg-gold text-white hover:bg-gold-strong transition-colors flex items-center gap-2 whitespace-nowrap"
-                        title="Export to CSV"
-                    >
-                        <Download size={16} /> Export CSV
-                    </button>
                 </div>
             </div>
 
-            <div className="overflow-hidden">
-                {viewMode === 'list' ? (
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-left border-collapse">
-                            <thead className="bg-surface-alt border-b border-border">
-                                <tr className="text-xs uppercase tracking-wider text-muted">
-                                    <th className="p-4 font-semibold">ID & Customer</th>
-                                    <th className="p-4 font-semibold">Journey Details</th>
-                                    <th className="p-4 font-semibold">Visa</th>
-                                    <th className="p-4 font-semibold">Nationality</th>
-                                    <th className="p-4 font-semibold">Vehicle</th>
-                                    <th className="p-4 font-semibold">Price</th>
-                                    <th className="p-4 font-semibold">Status</th>
-                                    <th className="p-4 font-semibold text-right">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-border">
-                                <AnimatePresence mode='popLayout'>
-                                    {filteredBookings.length === 0 ? (
-                                        <tr>
-                                            <td colSpan={6} className="text-center py-12 text-muted-foreground">
-                                                <div className="flex flex-col items-center justify-center">
-                                                    <Calendar size={48} className="mb-4 opacity-20" />
-                                                    <p>No bookings found matching your criteria</p>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    ) : (
-                                        filteredBookings.map((booking) => (
-                                            <motion.tr
-                                                key={booking.id}
-                                                layout
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: 1 }}
-                                                exit={{ opacity: 0 }}
-                                                className="group transition-colors hover:bg-surface-alt cursor-pointer"
-                                                onClick={() => setSelectedBooking(booking)}
+            {/* Main Content */}
+            {viewMode === 'list' ? (
+                <div className="space-y-8">
+                    {filteredBookings.length === 0 ? (
+                        <div className="flex flex-col items-center justify-center py-16 text-muted">
+                            <Calendar size={48} className="mb-4 opacity-20" />
+                            <p className="text-lg font-medium">No bookings found</p>
+                            <p className="text-sm mt-1">Try adjusting your search or filters</p>
+                        </div>
+                    ) : (
+                        GROUP_CONFIG.map(({ key, label, icon, headerClass }) => {
+                            const items = grouped[key];
+                            if (!items || items.length === 0) return null;
+                            const sorted = sortWithinGroup(items);
+                            const isCollapsed = collapsedGroups.has(key);
+
+                            return (
+                                <div key={key}>
+                                    {/* Group Header */}
+                                    <button
+                                        onClick={() => toggleGroup(key)}
+                                        className={`w-full flex items-center gap-3 mb-3 group`}
+                                    >
+                                        <span className="text-base">{icon}</span>
+                                        <h2 className={`text-xs font-bold uppercase tracking-widest ${headerClass.split(' ')[0]}`}>{label}</h2>
+                                        <span className={`text-xs font-bold px-2 py-0.5 rounded-full border ${headerClass}`}>{items.length}</span>
+                                        <div className={`flex-1 h-px ${key === 'URGENT' || key === 'OVERDUE' ? 'bg-red-500/20' : 'bg-border'}`} />
+                                        {isCollapsed ? <ChevronDown size={14} className="text-muted shrink-0" /> : <ChevronUp size={14} className="text-muted shrink-0" />}
+                                    </button>
+
+                                    {/* Group Rows */}
+                                    <AnimatePresence>
+                                        {!isCollapsed && (
+                                            <motion.div
+                                                initial={{ opacity: 0, height: 0 }}
+                                                animate={{ opacity: 1, height: 'auto' }}
+                                                exit={{ opacity: 0, height: 0 }}
+                                                transition={{ duration: 0.2 }}
+                                                className="space-y-2 overflow-hidden"
                                             >
-                                                <td className="p-4">
-                                                    <div className="flex flex-col gap-1">
-                                                        <span className="font-mono text-xs text-muted">#{booking.id.slice(0, 8)}</span>
-                                                        <div className="flex items-center gap-2">
-                                                            <span className="font-medium text-ink">{booking.name}</span>
-                                                        </div>
-                                                        <div className="flex items-center gap-2 text-xs text-muted">
-                                                            <Mail size={12} /> {booking.email}
-                                                        </div>
-                                                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                                                            <Phone size={12} /> {booking.phone}
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td className="p-4">
-                                                    <div className="flex flex-col gap-2">
-                                                        <div className="flex items-center gap-2 text-sm text-body">
-                                                            <MapPin size={14} className="text-success" />
-                                                            <span>{booking.pickup}</span>
-                                                        </div>
-                                                        <div className="flex items-center gap-2 text-sm text-body">
-                                                            <MapPin size={14} className="text-error" />
-                                                            <span>{booking.dropoff}</span>
-                                                        </div>
-                                                        <div className="flex items-center gap-2 text-xs text-muted mt-1">
-                                                            <Calendar size={12} />
-                                                            <span>{booking.date} at {booking.time}</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td className="p-4">
-                                                    <div className="flex flex-col gap-1">
-                                                        {booking.visaType && (
-                                                            <span className={`px-2 py-0.5 rounded text-xs font-semibold w-max ${booking.visaType === 'umrah' ? 'bg-gold-dark/10 text-gold-dark border border-[#C8891F]/30' : booking.visaType === 'visit' ? 'bg-[#012A5B]/10 text-[#012A5B] border border-[#012A5B]/30' : 'bg-surface-sunken text-muted border border-border'}`}>
-                                                                {booking.visaType === 'umrah' ? 'Umrah' : booking.visaType === 'visit' ? 'Visit' : booking.visaOther || 'Other'}
-                                                            </span>
-                                                        )}
-                                                    </div>
-                                                </td>
-                                                <td className="p-4">
-                                                    <div className="text-sm font-medium text-ink whitespace-nowrap">
-                                                        {booking.nationality || '—'}
-                                                    </div>
-                                                </td>
-                                                <td className="p-4">
-                                                    <div className="flex flex-col gap-1">
-                                                        {booking.selectedVehicles && booking.selectedVehicles.length > 0 ? (
-                                                            <div className="flex flex-col gap-1">
-                                                                {booking.selectedVehicles.map((sv, i) => (
-                                                                    <span key={i} className="font-medium text-ink">
-                                                                        {sv.name || 'Vehicle'} <span className="text-xs text-muted">x{sv.quantity}</span>
-                                                                    </span>
-                                                                ))}
-                                                            </div>
-                                                        ) : (
-                                                            <span className="font-medium text-ink">{booking.vehicle} <span className="text-xs text-muted">x{booking.vehicleCount || 1}</span></span>
-                                                        )}
+                                                {sorted.map(booking => (
+                                                    <BookingRow
+                                                        key={booking.id}
+                                                        booking={booking}
+                                                        onConfirm={handleConfirm}
+                                                        onCancel={handleCancel}
+                                                    />
+                                                ))}
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+                            );
+                        })
+                    )}
+                </div>
+            ) : (
+                <div className="p-4">
+                    <BookingCalendar
+                        events={calendarEvents}
+                        onSelectEvent={event => setCalendarBooking(event.resource)}
+                    />
+                </div>
+            )}
 
-                                                        <div className="flex flex-wrap gap-2 text-xs text-muted">
-                                                            <span className="flex items-center gap-1">
-                                                                <Users size={12} /> {booking.passengers}
-                                                            </span>
-                                                            <span className="flex items-center gap-1">
-                                                                <Briefcase size={12} /> {booking.luggage || 0}
-                                                            </span>
-                                                        </div>
-                                                        {booking.notes && (
-                                                            <div className="text-xs text-amber-600 bg-amber-50 px-1.5 py-0.5 rounded mt-1 break-words max-w-[200px]">
-                                                                {booking.notes}
-                                                            </div>
-                                                        )}
-                                                        {/* Display Country, Flight, Arrival if present */}
-                                                        {(booking.country || booking.flightNumber || booking.arrivalDate) && (
-                                                            <div className="mt-1 pt-1 border-t border-border text-xs text-muted">
-                                                                {booking.country && <div>Country: {booking.country}</div>}
-                                                                {booking.flightNumber && <div>Flight: {booking.flightNumber}</div>}
-                                                                {booking.arrivalDate && <div>Arrival: {booking.arrivalDate}</div>}
-                                                            </div>
-                                                        )}
-                                                    </div>
-                                                </td>
-                                                <td className="p-4">
-                                                    <div className="font-bold text-ink whitespace-nowrap">
-                                                        {booking.price || (booking.finalPrice ? `${booking.finalPrice} SAR` : 'N/A')}
-                                                    </div>
-                                                </td>
-                                                <td className="p-4">
-                                                    <span className={`px-2.5 py-1 rounded-full text-xs font-semibold border ${getStatusBadge(booking.status)}`}>
-                                                        {booking.status.charAt(0).toUpperCase() + booking.status.slice(1)}
-                                                    </span>
-                                                    {booking.rating && (
-                                                        <div className="mt-1 flex items-center gap-1 text-[10px] text-amber-500 font-bold">
-                                                            <span>⭐ {booking.rating}/5</span>
-                                                        </div>
-                                                    )}
-
-                                                    {/* Payment Status Toggle */}
-                                                    <div className="mt-2" onClick={(e) => e.stopPropagation()}>
-                                                        <select
-                                                            value={booking.paymentStatus || 'unpaid'}
-                                                            onChange={(e) => handlePaymentStatusChange(booking.id, e.target.value as any)}
-                                                            className={`text-[10px] font-bold uppercase border rounded px-1.5 py-0.5 outline-none cursor-pointer ${booking.paymentStatus === 'paid'
-                                                                ? 'bg-success-soft text-success border-success/20'
-                                                                : 'bg-surface-sunken text-muted border-border'
-                                                                }`}
-                                                        >
-                                                            <option value="unpaid">Unpaid</option>
-                                                            <option value="paid">Paid</option>
-                                                            <option value="refunded">Refunded</option>
-                                                        </select>
-                                                    </div>
-                                                </td>
-                                                <td className="p-4 text-right">
-                                                    <div className="flex justify-end gap-2" onClick={(e) => e.stopPropagation()}>
-                                                        {booking.status === 'pending' && (
-                                                            <>
-                                                                <button
-                                                                    onClick={() => handleStatusChange(booking.id, 'confirmed')}
-                                                                    className="p-2 rounded-btn hover:bg-success-soft text-success transition-colors"
-                                                                    title="Confirm Booking"
-                                                                >
-                                                                    <Check size={18} />
-                                                                </button>
-                                                                <button
-                                                                    onClick={() => handleStatusChange(booking.id, 'cancelled')}
-                                                                    className="p-2 rounded-btn hover:bg-error-soft text-error transition-colors"
-                                                                    title="Cancel Booking"
-                                                                >
-                                                                    <X size={18} />
-                                                                </button>
-                                                            </>
-                                                        )}
-                                                        {booking.status === 'confirmed' && (
-                                                            <button
-                                                                onClick={() => handleStatusChange(booking.id, 'completed')}
-                                                                className="flex items-center gap-1 px-3 py-1.5 rounded-btn bg-info/10 text-info hover:bg-info/20 text-xs font-medium transition-colors"
-                                                                title="Mark as Completed"
-                                                            >
-                                                                <CheckCircle2 size={14} /> Complete
-                                                            </button>
-                                                        )}
-                                                        {(booking.status === 'completed' || booking.status === 'cancelled') && (
-                                                            <button
-                                                                onClick={() => handleDelete(booking.id)}
-                                                                className="p-2 rounded-btn hover:bg-error-soft text-error transition-colors"
-                                                                title="Delete Booking"
-                                                            >
-                                                                <Trash2 size={18} />
-                                                            </button>
-                                                        )}
-                                                    </div>
-                                                </td>
-                                            </motion.tr>
-                                        ))
-                                    )}
-                                </AnimatePresence>
-                            </tbody>
-                        </table>
-                    </div>
-                ) : (
-                    <div className="p-4">
-                        <BookingCalendar
-                            events={calendarEvents}
-                            onSelectEvent={(event) => {
-                                setSelectedBooking(event.resource);
-                            }}
-                        />
-                    </div>
-                )}
-            </div>
-
+            {/* Calendar preview modal (light) */}
             <BookingDetailsModal
-                booking={selectedBooking}
-                isOpen={!!selectedBooking}
-                onClose={() => setSelectedBooking(null)}
+                booking={calendarBooking as any}
+                isOpen={!!calendarBooking}
+                onClose={() => setCalendarBooking(null)}
                 onStatusUpdate={(id, status) => {
-                    handleStatusChange(id, status);
-                    setSelectedBooking(null); // Close modal after update
+                    setBookings(prev => prev.map(b => b.id === id ? { ...b, status } : b));
+                    setCalendarBooking(null);
                 }}
                 onUpdate={(id, updates) => {
-                    setBookings(bookings.map(b => b.id === id ? { ...b, ...updates } : b));
-                    if (selectedBooking && selectedBooking.id === id) {
-                        setSelectedBooking(prev => prev ? { ...prev, ...updates } : null);
-                    }
-                    showToast('Booking updated successfully', 'success');
+                    setBookings(prev => prev.map(b => b.id === id ? { ...b, ...updates } : b));
+                    if (calendarBooking && calendarBooking.id === id) setCalendarBooking(prev => prev ? { ...prev, ...(updates as any) } : null);
                 }}
             />
         </div>
